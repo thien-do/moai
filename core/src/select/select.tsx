@@ -11,65 +11,56 @@ export interface SelectOption<T> {
 	label: string;
 }
 
-type Ref = React.Ref<HTMLDivElement>;
-
 interface Props<T> {
 	value: T;
 	setValue: (value: T) => void;
 	options: SelectOption<T>[];
-	stringify: (value: T) => string;
-	parse: (str: string) => T;
 	fullWidth?: boolean;
 }
 
-type FCWithRef = <T>(props: Props<T> & { ref?: Ref }) => React.ReactElement;
+const caret =
+	"M12 6.5c0-.28-.22-.5-.5-.5h-7c-.28 0-.5.22-.5.5 0 .13.05.24.13.33l3.5 4c.09.1.22.17.37.17s.28-.07.37-.17l3.5-4c.08-.09.13-.2.13-.33z";
 
-const caret = {
-	d:
-		"M12 6.5c0-.28-.22-.5-.5-.5h-7c-.28 0-.5.22-.5.5 0 .13.05.24.13.33l3.5 4c.09.1.22.17.37.17s.28-.07.37-.17l3.5-4c.08-.09.13-.2.13-.33z",
-};
+const getWidthCls = (full: boolean) => (full ? s.widthFull : s.widthContent);
 
-const getContainerCls = <T,>(props: Props<T>) =>
-	[s.container, props.fullWidth ? s.widthFull : s.widthContent].join(" ");
+const getContainerCls = (full: boolean) =>
+	`${s.container} ${getWidthCls(full)}`;
 
-const getSelectCls = <T,>(props: Props<T>) =>
-	[
-		`${s.select} ${form.button} ${outline.outer}`,
-		props.fullWidth ? s.widthFull : s.widthContent,
-	].join(" ");
+const getSelectCls = (full: boolean) =>
+	`${s.select} ${form.button} ${outline.outer} ${getWidthCls(full)}`;
 
-const SelectWithRef = <T,>(props: Props<T>, ref?: Ref) => {
-	const { value, setValue, options, stringify, parse } = props;
+const renderOption = <T,>(option: SelectOption<T>) => (
+	<option key={option.label} value={option.label}>
+		{option.label}
+	</option>
+);
+
+type ChangeEvent = React.ChangeEvent<HTMLSelectElement>;
+
+export const Select = <T,>(props: Props<T>) => {
+	const { value, setValue, options, fullWidth } = props;
+
+	const onChange = React.useCallback(
+		(e: ChangeEvent) => {
+			const option = options.find((o) => o.label === e.target.value);
+			if (option) throw Error(`Invalid options ${e.target.value}`);
+			setValue(option.value);
+		},
+		[options, setValue]
+	);
+
 	return (
-		<div className={getContainerCls(props)} ref={ref}>
+		<div className={getContainerCls(fullWidth)}>
 			<select
-				className={getSelectCls(props)}
-				value={stringify(value)}
-				onChange={(e) => setValue(parse(e.target.value))}
+				className={getSelectCls(fullWidth)}
+				value={options.find((o) => o.value === value).label}
+				onChange={onChange}
 			>
-				{options.map((opt) => (
-					<option key={opt.label} value={stringify(opt.value)}>
-						{opt.label}
-					</option>
-				))}
+				{options.map(renderOption)}
 			</select>
 			<span className={s.icon}>
-				<IconC icon={caret} />
+				<IconC icon={{ d: caret }} />
 			</span>
 		</div>
 	);
 };
-
-// https://github.com/microsoft/TypeScript/pull/30215#issuecomment-517855786
-// https://stackoverflow.com/a/58473012
-export const Select = React.forwardRef(SelectWithRef) as FCWithRef;
-
-type StringProps = Omit<Props<string>, "stringify" | "parse">;
-
-const self = (s: string) => s;
-
-const StringSelectWithRef = (props: StringProps, ref: Ref) => (
-	<Select<string> {...props} stringify={self} parse={self} ref={ref} />
-);
-
-export const StringSelect = React.forwardRef(StringSelectWithRef);

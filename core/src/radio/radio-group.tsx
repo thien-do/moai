@@ -5,7 +5,7 @@ import s from "./radio-group.module.scss";
 
 export interface RadioOption<T> {
 	value: T;
-	valueStr: string;
+	id: string;
 	label: React.ReactNode;
 }
 
@@ -23,7 +23,7 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
 		name={name}
 		checked={value === option.value}
 		label={option.label}
-		value={option.valueStr}
+		value={option.id}
 		setValue={() => setValue(option.value)}
 	/>
 );
@@ -31,7 +31,7 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
 export const RadioGroup = <T,>(props: Props<T>) => (
 	<div className={s.container}>
 		{props.options.map((option) => (
-			<div className={s.item} key={option.valueStr}>
+			<div className={s.item} key={option.id}>
 				<SingleRadio {...props} option={option} />
 			</div>
 		))}
