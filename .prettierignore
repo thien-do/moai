@@ -1,3 +1,5 @@
-node_modules
-dist
-package-lock.json
+/node_modules
+/package-lock.json
+/core/node_modules
+/core/dist
+/core/package-lock.json
