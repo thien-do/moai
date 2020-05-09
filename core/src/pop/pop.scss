@@ -1,0 +1,32 @@
+// @import "../theme/global.scss";
+
+// .tippy-box {
+//     font-weight: 500;
+//     border-radius: 0px;
+
+//     @include light {
+//         background-color: var(--light-gray-6);
+//         color: var(--light-gray-0);
+//         box-shadow: 0 1px 3px var(--light-gray-4);
+//     }
+
+//     @include dark {
+//         background-color: var(--dark-gray-4);
+//         color: var(--dark-gray-7);
+//         box-shadow: 0 1px 3px var(--dark-gray-1);
+//     }
+// }
+
+// .tippy-content {
+//     padding: 12px 16px;
+// }
+
+// .tippy-box > .tippy-svg-arrow {
+//     @include light {
+//         fill: var(--light-gray-6);
+//     }
+
+//     @include dark {
+//         fill: var(--dark-gray-4);
+//     }
+// }

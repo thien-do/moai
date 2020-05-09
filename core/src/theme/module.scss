@@ -1,0 +1,21 @@
+@mixin light {
+    html:global(.theme-light) & {
+        @content;
+    }
+    @media (prefers-color-scheme: light) {
+        html:global(.theme-auto) & {
+            @content;
+        }
+    }
+}
+
+@mixin dark {
+    html:global(.theme-dark) & {
+        @content;
+    }
+    @media (prefers-color-scheme: dark) {
+        html:global(.theme-auto) & {
+            @content;
+        }
+    }
+}

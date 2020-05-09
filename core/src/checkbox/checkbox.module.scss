@@ -1,0 +1,38 @@
+@import "../theme/module.scss";
+
+.container {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    line-height: 20px;
+    position: relative;
+    width: max-content;
+}
+
+.input {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.tick {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    pointer-events: none;
+
+    @include light {
+        color: var(--light-gray-6);
+    }
+
+    @include dark {
+        color: var(--dark-gray-7);
+    }
+}
+
+.label {
+    flex: 1 1 0px;
+    margin-left: 8px;
+}

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.label {
+    flex: 0 0 auto;
+    padding: calc(8px + 9px) 8px;
+    margin: -8px;
+}
+
+.input {
+    flex: 1 1 0px;
+    overflow: hidden;
+    padding: 8px;
+    margin: -8px;
+}

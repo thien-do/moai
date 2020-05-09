@@ -1,0 +1,25 @@
+@import "../theme/module.scss";
+
+.widthFixed {
+    width: 100px;
+}
+
+.widthFull {
+    width: 100%;
+}
+
+.input {
+    border: solid 1px transparent;
+    border-radius: 3px;
+    padding: 8px 8px 8px 12px;
+
+    transition: outline 0.2s ease-out;
+
+    @include light {
+        border-color: var(--light-gray-4);
+    }
+
+    @include dark {
+        border-color: var(--dark-gray-0);
+    }
+}
