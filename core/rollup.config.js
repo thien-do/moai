@@ -5,20 +5,31 @@ import copy from "rollup-plugin-copy";
 const isKnownIssue = ({ code, id }) =>
 	(code === "THIS_IS_UNDEFINED" && id.includes("focus-visible")) || false;
 
-const copyOpts = {
-	targets: [{ src: "src/theme", dest: "dist/" }],
+/** @type {import("@rollup/plugin-typescript").RollupTypescriptOptions} */
+const typescriptOptions = {
+	// These options cannot be defined in tsconfig.json
+	// - https://github.com/rollup/plugins/issues/61#issuecomment-597090769
+	declaration: true,
+	declarationDir: "dist/types",
+	// Known issue: "rootDir" is unnecessarily required for declaration
+	// - https://github.com/rollup/plugins/issues/61#issuecomment-596270901
+	rootDir: "src",
 };
 
-export default {
+/** @type {import("rollup").RollupOptions} */
+const options = {
 	input: "src/index.ts",
-	output: {
-		file: "dist/index.js",
-		format: "es",
-	},
+	output: { dir: "dist", format: "es" },
 	external: ["react"],
-	plugins: [postcss(), typescript(), copy(copyOpts)],
+	plugins: [
+		postcss(),
+		copy({ targets: [{ src: "src/theme", dest: "dist/" }] }),
+		typescript(typescriptOptions),
+	],
 	onwarn: (warning, warn) => {
 		if (isKnownIssue) return;
 		warn(warning);
 	},
 };
+
+export default options;
