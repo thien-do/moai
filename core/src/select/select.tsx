@@ -21,12 +21,12 @@ interface Props<T> {
 const caret =
 	"M12 6.5c0-.28-.22-.5-.5-.5h-7c-.28 0-.5.22-.5.5 0 .13.05.24.13.33l3.5 4c.09.1.22.17.37.17s.28-.07.37-.17l3.5-4c.08-.09.13-.2.13-.33z";
 
-const getWidthCls = (full: boolean) => (full ? s.widthFull : s.widthContent);
+const getWidthCls = (full?: boolean) => (full ? s.widthFull : s.widthContent);
 
-const getContainerCls = (full: boolean) =>
+const getContainerCls = (full?: boolean) =>
 	`${s.container} ${getWidthCls(full)}`;
 
-const getSelectCls = (full: boolean) =>
+const getSelectCls = (full?: boolean) =>
 	`${s.select} ${form.button} ${outline.outer} ${getWidthCls(full)}`;
 
 const renderOption = <T,>(option: SelectOption<T>) => (
@@ -53,7 +53,7 @@ export const Select = <T,>(props: Props<T>) => {
 		<div className={getContainerCls(fullWidth)}>
 			<select
 				className={getSelectCls(fullWidth)}
-				value={options.find((o) => o.value === value).label}
+				value={options.find((o) => o.value === value)?.label}
 				onChange={onChange}
 			>
 				{options.map(renderOption)}
