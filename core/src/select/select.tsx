@@ -43,7 +43,7 @@ export const Select = <T,>(props: Props<T>) => {
 	const onChange = React.useCallback(
 		(e: ChangeEvent) => {
 			const option = options.find((o) => o.label === e.target.value);
-			if (option) throw Error(`Invalid options ${e.target.value}`);
+			if (!option) throw Error(`Invalid options ${e.target.value}`);
 			setValue(option.value);
 		},
 		[options, setValue]
