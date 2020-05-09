@@ -39,6 +39,7 @@
 		"@rollup/plugin-typescript": "4.1.1",
 		"@types/react": "16.9.34",
 		"@types/rollup-plugin-postcss": "2.0.0",
+		"autoprefixer": "9.7.6",
 		"node-sass": "4.14.1",
 		"rollup": "2.8.2",
 		"rollup-plugin-copy": "3.3.0",
