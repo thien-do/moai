@@ -40,6 +40,7 @@
 		"@types/rollup-plugin-postcss": "2.0.0",
 		"node-sass": "4.14.1",
 		"rollup": "2.8.2",
+		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-postcss": "3.1.1",
 		"tslib": "1.11.2",
 		"typescript": "3.8.3"
