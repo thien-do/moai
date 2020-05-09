@@ -1,67 +1,71 @@
 @import "../theme/module.scss";
 
 .button {
-    cursor: pointer;
-    transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
-    border: solid 1px transparent;
+	cursor: pointer;
+	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
+	border: solid 1px transparent;
 
-    font-weight: 450;
-    &.highlight {
-        font-weight: 500;
-    }
+	font-weight: 450;
+	&.highlight {
+		font-weight: 500;
+	}
 
-    @include light {
-        background-color: var(--light-gray-1);
-        box-shadow: 0px 1px 2px var(--light-gray-2), inset 0 1px 0 var(--light-gray-0);
-        border-color: var(--light-gray-4);
-        &.highlight {
-            color: var(--light-gray-0);
-            background-color: var(--accent-2);
-            box-shadow: 0px 1px 2px var(--light-gray-4), inset 0 1px 0 var(--accent-3);
-            border-color: var(--accent-0);
-        }
-    }
+	@include light {
+		background-color: var(--light-gray-1);
+		box-shadow: 0px 1px 2px var(--light-gray-2),
+			inset 0 1px 0 var(--light-gray-0);
+		border-color: var(--light-gray-4);
+		&.highlight {
+			color: var(--light-gray-0);
+			background-color: var(--accent-2);
+			box-shadow: 0px 1px 2px var(--light-gray-4),
+				inset 0 1px 0 var(--accent-3);
+			border-color: var(--accent-0);
+		}
+	}
 
-    @include dark {
-        background-color: var(--dark-gray-3);
-        box-shadow: 0px 1px 2px var(--dark-gray-1), inset 0 1px 0 var(--dark-gray-4);
-        border-color: var(--dark-gray-0);
-        &.highlight {
-            color: var(--light-gray-0);
-            background-color: var(--accent-2);
-            box-shadow: 0px 1px 2px var(--dark-gray-1), inset 0 1px 0 var(--accent-3);
-        }
-    }
+	@include dark {
+		background-color: var(--dark-gray-3);
+		box-shadow: 0px 1px 2px var(--dark-gray-1),
+			inset 0 1px 0 var(--dark-gray-4);
+		border-color: var(--dark-gray-0);
+		&.highlight {
+			color: var(--light-gray-0);
+			background-color: var(--accent-2);
+			box-shadow: 0px 1px 2px var(--dark-gray-1),
+				inset 0 1px 0 var(--accent-3);
+		}
+	}
 }
 
 .button:hover {
-    @include light {
-        background-color: var(--light-gray-0);
-        &.highlight {
-            background-color: var(--accent-3);
-        }
-    }
-    @include dark {
-        background-color: var(--dark-gray-4);
-        &.highlight {
-            background-color: var(--accent-3);
-        }
-    }
+	@include light {
+		background-color: var(--light-gray-0);
+		&.highlight {
+			background-color: var(--accent-3);
+		}
+	}
+	@include dark {
+		background-color: var(--dark-gray-4);
+		&.highlight {
+			background-color: var(--accent-3);
+		}
+	}
 }
 
 .button:active {
-    @include light {
-        box-shadow: none;
-        background-color: var(--light-gray-2);
-        &.highlight {
-            background-color: var(--accent-1);
-        }
-    }
-    @include dark {
-        box-shadow: none;
-        background-color: var(--dark-gray-2);
-        &.highlight {
-            background-color: var(--accent-1);
-        }
-    }
+	@include light {
+		box-shadow: none;
+		background-color: var(--light-gray-2);
+		&.highlight {
+			background-color: var(--accent-1);
+		}
+	}
+	@include dark {
+		box-shadow: none;
+		background-color: var(--dark-gray-2);
+		&.highlight {
+			background-color: var(--accent-1);
+		}
+	}
 }

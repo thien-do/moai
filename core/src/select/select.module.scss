@@ -1,24 +1,27 @@
 .container {
-    position: relative;
+	position: relative;
 }
 
 .widthContent {
-    width: max-content;
+	width: max-content;
 }
 
 .widthFull {
-    width: 100%;
+	width: 100%;
 }
-  
+
 .select {
-    text-align: left;
-    padding: 8px 32px 8px 12px;
-    border-radius: 3px;
+	text-align: left;
+	padding: 8px 32px 8px 12px;
+	border-radius: 3px;
 }
-  
+
 .icon {
-    position: absolute; margin: auto;
-    top: 0px; bottom: 0px; right: 8px;
-    height: 16px;
-    pointer-events: none;
+	position: absolute;
+	margin: auto;
+	top: 0px;
+	bottom: 0px;
+	right: 8px;
+	height: 16px;
+	pointer-events: none;
 }

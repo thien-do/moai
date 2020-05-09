@@ -3,64 +3,64 @@
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: none;
-    appearance: none;
-    font: inherit;
-    color: inherit;
-    background: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: none;
+	appearance: none;
+	font: inherit;
+	color: inherit;
+	background: none;
 }
 
 /* Common color scheme */ /* Not really sure about this though */
 :root {
-    --accent-0: hsl(211, 61%, 43%);
-    --accent-1: hsl(209, 62%, 50%);
-    --accent-2: hsl(207, 73%, 57%);
-    --accent-3: hsl(205, 79%, 60%);
+	--accent-0: hsl(211, 61%, 43%);
+	--accent-1: hsl(209, 62%, 50%);
+	--accent-2: hsl(207, 73%, 57%);
+	--accent-3: hsl(205, 79%, 60%);
 }
 
 /* Light color scheme */
 :root {
-    --light-gray-0: hsl(0, 0%, 100%); /* panel bg, button hover */
-    --light-gray-1: hsl(240, 17%, 98%); /* button bg */
-    --light-gray-2: hsl(240, 8%, 93%); /* shadow, button selected */
-    --light-gray-3: hsl(240, 6%, 88%); /* panel border */
-    --light-gray-4: hsl(216, 12%, 81%); /* button border, cursor */
-    --light-gray-5: hsl(214, 4%, 53%); /* 2nd text */
-    --light-gray-6: hsl(208, 10%, 15%); /* 1st text */
+	--light-gray-0: hsl(0, 0%, 100%); /* panel bg, button hover */
+	--light-gray-1: hsl(240, 17%, 98%); /* button bg */
+	--light-gray-2: hsl(240, 8%, 93%); /* shadow, button selected */
+	--light-gray-3: hsl(240, 6%, 88%); /* panel border */
+	--light-gray-4: hsl(216, 12%, 81%); /* button border, cursor */
+	--light-gray-5: hsl(214, 4%, 53%); /* 2nd text */
+	--light-gray-6: hsl(208, 10%, 15%); /* 1st text */
 }
 
 /* Dark color scheme */
 :root {
-    --dark-gray-0: hsl(230, 0%, 0%); /* button border, panel border */
-    --dark-gray-1: hsl(229, 10%, 9%); /* shadow, button selected */
-    --dark-gray-2: hsl(235, 9%, 14%); /* panel bg */
-    --dark-gray-3: hsl(233, 9%, 19%); /* button bg */
-    --dark-gray-4: hsl(229, 11%, 25%); /* button hover */
-    --dark-gray-5: hsl(230, 8%, 43%); /* cursor */
-    --dark-gray-6: hsl(215, 8%, 56%); /* text 2nd */
-    --dark-gray-7: hsl(173, 10%, 98%); /* text 1st */
+	--dark-gray-0: hsl(230, 0%, 0%); /* button border, panel border */
+	--dark-gray-1: hsl(229, 10%, 9%); /* shadow, button selected */
+	--dark-gray-2: hsl(235, 9%, 14%); /* panel bg */
+	--dark-gray-3: hsl(233, 9%, 19%); /* button bg */
+	--dark-gray-4: hsl(229, 11%, 25%); /* button hover */
+	--dark-gray-5: hsl(230, 8%, 43%); /* cursor */
+	--dark-gray-6: hsl(215, 8%, 56%); /* text 2nd */
+	--dark-gray-7: hsl(173, 10%, 98%); /* text 1st */
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap");
 
 body {
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Ubuntu, Cantarell, Helvetica, Arial, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 425;
+	font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, Ubuntu, Cantarell, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 425;
 
-    @include dark {
-        background-color: var(--dark-gray-2);
-        color: var(--dark-gray-7);
-    }
+	@include dark {
+		background-color: var(--dark-gray-2);
+		color: var(--dark-gray-7);
+	}
 
-    @include light {
-        background-color: var(--light-gray-0);
-        color: var(--light-gray-6);
-    }
+	@include light {
+		background-color: var(--light-gray-0);
+		color: var(--light-gray-6);
+	}
 }

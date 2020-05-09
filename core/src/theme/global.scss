@@ -1,21 +1,21 @@
 @mixin light {
-    html.theme-light & {
-        @content;
-    }
-    @media (prefers-color-scheme: light) {
-        html.theme-auto & {
-            @content;
-        }
-    }
+	html.theme-light & {
+		@content;
+	}
+	@media (prefers-color-scheme: light) {
+		html.theme-auto & {
+			@content;
+		}
+	}
 }
 
 @mixin dark {
-    html.theme-dark & {
-        @content;
-    }
-    @media (prefers-color-scheme: dark) {
-        html.theme-auto & {
-            @content;
-        }
-    }
+	html.theme-dark & {
+		@content;
+	}
+	@media (prefers-color-scheme: dark) {
+		html.theme-auto & {
+			@content;
+		}
+	}
 }

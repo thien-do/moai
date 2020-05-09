@@ -1,50 +1,50 @@
 @import "../theme/module.scss";
 
 .line {
-    border-top: solid 1px transparent;
-    @include light {
-        border-top-color: var(--light-gray-3);
-    }
-    @include dark {
-        border-top-color: var(--dark-gray-0);
-    }
+	border-top: solid 1px transparent;
+	@include light {
+		border-top-color: var(--light-gray-3);
+	}
+	@include dark {
+		border-top-color: var(--dark-gray-0);
+	}
 }
 
 .space8 {
-    width: 8px;
-    height: 8px;
-    flex: 0 0 auto;
-    display: block;
+	width: 8px;
+	height: 8px;
+	flex: 0 0 auto;
+	display: block;
 }
 
 .space16 {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 auto;
-    display: block;
+	width: 16px;
+	height: 16px;
+	flex: 0 0 auto;
+	display: block;
 }
 
 .space24 {
-    width: 24px;
-    height: 24px;
-    flex: 0 0 auto;
-    display: block;
+	width: 24px;
+	height: 24px;
+	flex: 0 0 auto;
+	display: block;
 }
 
 .space32 {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 auto;
-    display: block;
+	width: 32px;
+	height: 32px;
+	flex: 0 0 auto;
+	display: block;
 }
 
 .spaceGrow {
-    @media (max-width: 639px) {
-        height: 96px;
-        display: block;
-    }
+	@media (max-width: 639px) {
+		height: 96px;
+		display: block;
+	}
 
-    @media (min-width: 640px) {
-        flex: 1 1 0px;
-    }
+	@media (min-width: 640px) {
+		flex: 1 1 0px;
+	}
 }

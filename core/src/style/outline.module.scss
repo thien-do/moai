@@ -2,30 +2,30 @@
 
 .inner::-moz-focus-inner,
 .outer::-moz-focus-inner {
-    border: none;
+	border: none;
 }
 
 .inner,
 .outer {
-    outline: solid 8px transparent;
+	outline: solid 8px transparent;
 }
 
 .outer {
-    outline-offset: 4px;
+	outline-offset: 4px;
 }
 
 .inner {
-    outline-offset: -2px;
+	outline-offset: -2px;
 }
 
 .inner:global(.focus-visible),
 .outer:global(.focus-visible) {
-    outline-width: 2px;
+	outline-width: 2px;
 
-    @include light {
-        outline-color: var(--accent-2);
-    }
-    @include dark {
-        outline-color: var(--accent-2);
-    }
+	@include light {
+		outline-color: var(--accent-2);
+	}
+	@include dark {
+		outline-color: var(--accent-2);
+	}
 }
