@@ -1,8 +1,8 @@
 import React from "react";
 
 import { IconC } from "../icon/icon";
-import form from "../form/button.module.scss";
-import outline from "../style/outline.module.scss";
+import { button } from "../form/form";
+import { outline } from "../outline/outline";
 
 import s from "./select.module.scss";
 
@@ -27,7 +27,7 @@ const getContainerCls = (full?: boolean) =>
 	`${s.container} ${getWidthCls(full)}`;
 
 const getSelectCls = (full?: boolean) =>
-	`${s.select} ${form.button} ${outline.outer} ${getWidthCls(full)}`;
+	`${s.select} ${button.main} ${outline.outer} ${getWidthCls(full)}`;
 
 const renderOption = <T,>(option: SelectOption<T>) => (
 	<option key={option.label} value={option.label}>

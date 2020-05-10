@@ -1,8 +1,8 @@
 import React from "react";
 
 import { IconC } from "../icon/icon";
-import form from "../form/button.module.scss";
-import outline from "../style/outline.module.scss";
+import { button } from "../form/form";
+import { outline } from "../outline/outline";
 import s from "./checkbox.module.scss";
 
 interface Props {
@@ -26,7 +26,7 @@ export const Checkbox: React.FC<Props> = ({ value, setValue, children }) => (
 		{value && tick}
 		<input
 			type="checkbox"
-			className={`${s.input} ${form.button} ${outline.outer}`}
+			className={`${s.input} ${button.main} ${outline.outer}`}
 			checked={value}
 			onChange={(e) => setValue(e.target.checked)}
 		/>

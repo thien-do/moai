@@ -1,6 +1,6 @@
 import React from "react";
 
-import outline from "../style/outline.module.scss";
+import { outline } from "../outline/outline";
 import s from "./number.module.scss";
 
 interface Props {

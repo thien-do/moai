@@ -1,8 +1,8 @@
 import React from "react";
 
 import { IconC, Icon } from "../icon/icon";
-import form from "../form/button.module.scss";
-import outline from "../style/outline.module.scss";
+import { button } from "../form/form";
+import { outline } from "../outline/outline";
 
 import s from "./button.module.scss";
 
@@ -20,8 +20,8 @@ const getClass = ({ highlight, selected }: Props) => {
 	}
 	return [
 		selected ? s.selected : "",
-		highlight ? form.highlight : "",
-		`${s.button} ${form.button} ${outline.outer}`,
+		highlight ? button.highlight : "",
+		`${s.button} ${button.main} ${outline.outer}`,
 	].join(" ");
 };
 
