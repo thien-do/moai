@@ -1,17 +1,17 @@
 import React from "react";
 
 import s from "./field.module.scss";
-import { DivSpace8 } from "../div/div";
+import { DivPx8 } from "../div/div";
 
 interface Props {
-	label: React.ReactNode;
-	input: React.ReactNode;
+	label?: React.ReactNode;
+	children: React.ReactNode;
 	useLabelTag?: boolean;
 	labelWidth?: number;
 }
 
 export const FormField: React.FC<Props> = (props) => {
-	const { label, input, useLabelTag, labelWidth } = props;
+	const { label, children, useLabelTag, labelWidth } = props;
 	const labelStyle = { width: labelWidth ?? "auto" };
 	return React.createElement(
 		useLabelTag ? "label" : "div",
@@ -19,7 +19,7 @@ export const FormField: React.FC<Props> = (props) => {
 		<span className={s.label} style={labelStyle}>
 			{label}
 		</span>,
-		<DivSpace8 />,
-		<span className={s.input}>{input}</span>
+		<DivPx8 />,
+		<span className={s.input}>{children}</span>
 	);
 };
