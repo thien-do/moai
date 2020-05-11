@@ -10,41 +10,22 @@
 	}
 }
 
-.space8 {
-	width: 8px;
-	height: 8px;
-	flex: 0 0 auto;
-	display: block;
-}
+$sizes: 4 8 16 24 32 48 64 96;
 
-.space16 {
-	width: 16px;
-	height: 16px;
-	flex: 0 0 auto;
-	display: block;
-}
-
-.space24 {
-	width: 24px;
-	height: 24px;
-	flex: 0 0 auto;
-	display: block;
-}
-
-.space32 {
-	width: 32px;
-	height: 32px;
-	flex: 0 0 auto;
-	display: block;
+@each $size in $sizes {
+	.space#{$size} {
+		// we use <span> so it works everywhere semantically but visually we
+		// need the stability and solid of block display
+		display: block;
+		flex: 0 0 auto;
+		height: #{$size}px;
+		width: #{$size}px;
+	}
 }
 
 .spaceGrow {
-	@media (max-width: 639px) {
-		height: 96px;
-		display: block;
-	}
-
-	@media (min-width: 640px) {
-		flex: 1 1 0px;
-	}
+	display: block;
+	flex: 1 0 0px;
+	min-width: 32px;
+	min-height: 32px;
 }
