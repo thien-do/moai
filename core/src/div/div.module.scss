@@ -13,7 +13,7 @@
 $sizes: 4 8 16 24 32 48 64 96;
 
 @each $size in $sizes {
-	.space#{$size} {
+	.px#{$size} {
 		// we use <span> so it works everywhere semantically but visually we
 		// need the stability and solid of block display
 		display: block;
@@ -23,7 +23,7 @@ $sizes: 4 8 16 24 32 48 64 96;
 	}
 }
 
-.spaceGrow {
+.grow {
 	display: block;
 	flex: 1 0 0px;
 	min-width: 32px;

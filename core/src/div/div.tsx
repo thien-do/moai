@@ -11,7 +11,8 @@ export const div = { line, px4, px8, px16, px24, px32, px48, px64, px96, grow };
 
 // Validate
 Object.keys(div).forEach((key) => {
-	if ((div as any)[key] === undefined) throw Error(`div.${key} is undefined`);
+	const value = (div as any)[key];
+	if (value === undefined) throw Error(`div.${key} is undefined`);
 });
 
 export const DivLine = () => <hr className={div.line} />;
