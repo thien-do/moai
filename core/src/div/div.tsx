@@ -2,16 +2,27 @@ import React from "react";
 
 import s from "./div.module.scss";
 
-export const DivLine = () => <hr className={s.line} />;
+const { line, px4, px8, px16, px24, px32, px48, px64, px96, grow } = s;
 
-export const DivSpace4 = () => <span className={s.space4} />;
+/**
+ * Dividers via class names
+ */
+export const div = { line, px4, px8, px16, px24, px32, px48, px64, px96, grow };
 
-export const DivSpace8 = () => <span className={s.space8} />;
+// Validate
+Object.keys(div).forEach((key) => {
+	if ((div as any)[key] === undefined) throw Error(`div.${key} is undefined`);
+});
 
-export const DivSpace16 = () => <span className={s.space16} />;
+export const DivLine = () => <hr className={div.line} />;
 
-export const DivSpace24 = () => <span className={s.space24} />;
+export const DivPx4 = () => <span className={div.px4} />;
+export const DivPx8 = () => <span className={div.px8} />;
+export const DivPx16 = () => <span className={div.px16} />;
+export const DivPx24 = () => <span className={div.px24} />;
+export const DivPx32 = () => <span className={div.px32} />;
+export const DivPx48 = () => <span className={div.px48} />;
+export const DivPx64 = () => <span className={div.px64} />;
+export const DivPx96 = () => <span className={div.px96} />;
 
-export const DivSpace32 = () => <span className={s.space32} />;
-
-export const DivSpaceGrow = () => <span className={s.spaceGrow} />;
+export const DivGrow = () => <span className={div.grow} />;
