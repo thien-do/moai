@@ -2,11 +2,12 @@
 
 .line {
 	border-top: solid 1px transparent;
+	border-left: solid 1px transparent;
 	@include light {
-		border-top-color: var(--light-gray-3);
+		border-color: var(--light-gray-3);
 	}
 	@include dark {
-		border-top-color: var(--dark-gray-0);
+		border-color: var(--dark-gray-0);
 	}
 }
 
