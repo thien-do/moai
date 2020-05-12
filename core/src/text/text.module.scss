@@ -1,0 +1,19 @@
+@import "../theme/module.scss";
+
+.p {
+	line-height: 1.5;
+}
+
+.strong {
+	font-weight: 600;
+}
+
+.muted {
+    @include light {
+        color: var(--light-gray-5);
+    }
+
+    @include dark {
+        color: var(--dark-gray-6);
+    }
+}

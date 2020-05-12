@@ -12,3 +12,4 @@ export * from "./outline/outline";
 export * from "./radio/radio";
 export * from "./select/select";
 export * from "./switcher/switcher";
+export * from "./text/text";
