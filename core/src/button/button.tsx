@@ -5,12 +5,13 @@ import { button } from "../form/form";
 import { outline } from "../outline/outline";
 
 import s from "./button.module.scss";
+import { DivPx8 } from "../div/div";
 
 interface Props {
 	selected?: boolean;
 	highlight?: boolean;
 	onClick: () => void;
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	icon?: Icon;
 }
 
@@ -36,7 +37,8 @@ const ButtonWithRef = (props: Props, ref: Ref) => {
 					<IconC icon={icon} />
 				</span>
 			)}
-			<span className={s.text}>{children}</span>
+			{icon && children && <DivPx8 />}
+			{children && <span className={s.text}>{children}</span>}
 		</button>
 	);
 };
