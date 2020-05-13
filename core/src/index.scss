@@ -45,15 +45,17 @@
 	--dark-gray-7: hsl(173, 10%, 98%); /* text 1st */
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap");
+@import url("https://rsms.me/inter/inter.css");
 
 body {
-	font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-		"Segoe UI", Roboto, Ubuntu, Cantarell, Helvetica, Arial, sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: "Inter", sans-serif;
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 425;
+
+	@supports (font-variation-settings: normal) {
+		font-family: "Inter var", sans-serif;
+	}
 
 	@include dark {
 		background-color: var(--dark-gray-2);
