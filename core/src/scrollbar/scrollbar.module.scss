@@ -1,0 +1,26 @@
+@import "../theme/module.scss";
+
+.custom {
+	::-webkit-scrollbar {
+		width: 16px;
+		height: 16px;
+	}
+
+	::-webkit-scrollbar-track {
+		@include light {
+			background-color: var(--light-gray-1);
+		}
+		@include dark {
+			background-color: var(--dark-gray-3);
+		}
+	}
+
+	::-webkit-scrollbar-thumb {
+		@include light {
+			background-color: var(--light-gray-4);
+		}
+		@include dark {
+			background-color: var(--dark-gray-5);
+		}
+	}
+}
