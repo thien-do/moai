@@ -10,7 +10,8 @@
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx rollup --config"
+		"build": "npx rollup --config",
+		"dev": "npx rollup --watch --config"
 	},
 	"repository": {
 		"type": "git",
@@ -33,7 +34,9 @@
 		"react": "16"
 	},
 	"dependencies": {
-		"focus-visible": "5.1.0"
+		"@tippyjs/react": "^4.0.2",
+		"focus-visible": "5.1.0",
+		"tippy.js": "^6.2.3"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "4.1.1",
