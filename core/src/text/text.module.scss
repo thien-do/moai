@@ -8,6 +8,15 @@
 	font-weight: 600;
 }
 
+.highlight {
+    @include light {
+        color: var(--accent-1);
+    }
+    @include dark {
+        color: var(--accent-2);
+    }
+}
+
 .muted {
     @include light {
         color: var(--light-gray-5);

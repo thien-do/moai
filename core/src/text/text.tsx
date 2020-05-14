@@ -2,12 +2,6 @@ import React from "react";
 
 import s from "./text.module.scss";
 
-// const { p, strong, muted } = s;
-
-// export const text = { p, strong, muted };
-
-// validateStyles(text);
-
 interface Props {
 	children: React.ReactNode;
 }
@@ -26,4 +20,8 @@ export const MutedDiv: React.FC<Props> = ({ children }) => (
 
 export const MutedSpan: React.FC<Props> = ({ children }) => (
 	<span className={s.muted}>{children}</span>
+);
+
+export const Highlight: React.FC<Props> = ({ children }) => (
+	<span className={s.highlight}>{children}</span>
 );
