@@ -17,9 +17,11 @@
 
 	@include light {
 		border-color: var(--light-gray-4);
+		background-color: var(--light-gray-0);
 	}
 
 	@include dark {
 		border-color: var(--dark-gray-0);
+		background-color: var(--dark-gray-2);
 	}
 }
