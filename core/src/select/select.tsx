@@ -9,6 +9,7 @@ import s from "./select.module.scss";
 export interface SelectOption<T> {
 	value: T;
 	label: string;
+	disabled?: boolean;
 }
 
 interface Props<T> {
@@ -29,9 +30,9 @@ const getContainerCls = (full?: boolean) =>
 const getSelectCls = (full?: boolean) =>
 	`${s.select} ${button.main} ${outline.outer} ${getWidthCls(full)}`;
 
-const renderOption = <T,>(option: SelectOption<T>) => (
-	<option key={option.label} value={option.label}>
-		{option.label}
+const renderOption = <T,>({ label, disabled }: SelectOption<T>) => (
+	<option key={label} value={label} disabled={disabled}>
+		{label}
 	</option>
 );
 
