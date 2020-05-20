@@ -9,6 +9,8 @@ export const div = { line, px4, px8, px16, px24, px32, px48, px64, px96, grow };
 
 validateStyles(div);
 
+export const SpanEm = () => <span> </span>;
+
 export const DivLine = () => <hr className={s.line} />;
 
 export const DivPx4 = () => <span className={s.px4} />;
