@@ -14,37 +14,39 @@
 	list-style-type: none;
 }
 
-/* Common color scheme */ /* Not really sure about this though */
 :root {
+	// Common color scheme - Not really sure about this though
 	--accent-0: hsl(211, 61%, 43%);
 	--accent-1: hsl(209, 62%, 50%);
 	--accent-2: hsl(207, 73%, 57%);
 	--accent-3: hsl(205, 79%, 60%);
+
+	// Light color scheme
+	--light-gray-0: hsl(0, 0%, 100%); // panel bg, button hover
+	--light-gray-1: hsl(240, 17%, 98%); // button bg
+	--light-gray-2: hsl(240, 8%, 93%); // shadow, button selected
+	--light-gray-3: hsl(240, 6%, 88%); // panel border
+	--light-gray-4: hsl(216, 12%, 81%); // button border, cursor
+	--light-gray-5: hsl(214, 4%, 53%); // 2nd text
+	--light-gray-6: hsl(208, 10%, 15%); // 1st text
+
+	// Dark color scheme
+	--dark-gray-0: hsl(230, 0%, 0%); // button border, panel border
+	--dark-gray-1: hsl(229, 10%, 9%); // shadow, button selected
+	--dark-gray-2: hsl(235, 9%, 14%); // panel bg
+	--dark-gray-3: hsl(233, 9%, 19%); // button bg
+	--dark-gray-4: hsl(229, 11%, 25%); // button hover
+	--dark-gray-5: hsl(230, 8%, 43%); // cursor
+	--dark-gray-6: hsl(215, 8%, 56%); // text 2nd
+	--dark-gray-7: hsl(173, 10%, 98%); // text 1st
+
+	// Avoid Ubuntu Mono as it's significantly smaller than others at the same
+	// font size
+	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+		"Courier New", monospace;
 }
 
-/* Light color scheme */
-:root {
-	--light-gray-0: hsl(0, 0%, 100%); /* panel bg, button hover */
-	--light-gray-1: hsl(240, 17%, 98%); /* button bg */
-	--light-gray-2: hsl(240, 8%, 93%); /* shadow, button selected */
-	--light-gray-3: hsl(240, 6%, 88%); /* panel border */
-	--light-gray-4: hsl(216, 12%, 81%); /* button border, cursor */
-	--light-gray-5: hsl(214, 4%, 53%); /* 2nd text */
-	--light-gray-6: hsl(208, 10%, 15%); /* 1st text */
-}
-
-/* Dark color scheme */
-:root {
-	--dark-gray-0: hsl(230, 0%, 0%); /* button border, panel border */
-	--dark-gray-1: hsl(229, 10%, 9%); /* shadow, button selected */
-	--dark-gray-2: hsl(235, 9%, 14%); /* panel bg */
-	--dark-gray-3: hsl(233, 9%, 19%); /* button bg */
-	--dark-gray-4: hsl(229, 11%, 25%); /* button hover */
-	--dark-gray-5: hsl(230, 8%, 43%); /* cursor */
-	--dark-gray-6: hsl(215, 8%, 56%); /* text 2nd */
-	--dark-gray-7: hsl(173, 10%, 98%); /* text 1st */
-}
-
+// Google Fonts doesn't have OpenType features
 @import url("https://rsms.me/inter/inter.css");
 
 body {
