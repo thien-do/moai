@@ -54,6 +54,7 @@ body {
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 425;
+	font-feature-settings: "ss02"; // I and l
 
 	@supports (font-variation-settings: normal) {
 		font-family: "Inter var", sans-serif;
