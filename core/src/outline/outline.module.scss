@@ -21,6 +21,8 @@
 .inner:global(.focus-visible),
 .outer:global(.focus-visible) {
 	outline-width: 2px;
+	position: relative;
+	z-index: 1;
 
 	@include light {
 		outline-color: var(--accent-2);

@@ -24,4 +24,5 @@
 	right: 8px;
 	height: 16px;
 	pointer-events: none;
+	z-index: 1; // wins the z-index of outline
 }
