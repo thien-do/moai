@@ -1,0 +1,48 @@
+@import "../form/button.module.scss";
+@import "../theme/module.scss";
+
+.input {
+    display: block;
+    width: 100%;
+	transition: outline 0.2s ease-out;
+}
+
+@mixin track {
+    @include light {
+        background-color: var(--light-gray-4);
+    }
+    @include dark {
+        background-color: var(--dark-gray-0);
+    }
+	height: 2px;
+}
+
+.input::-webkit-slider-runnable-track {
+	@include track;
+}
+.input::-moz-range-track {
+	@include track;
+}
+.input::-ms-track {
+	@include track;
+}
+
+@mixin thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    @include button-mx;
+    cursor: grab;
+    margin-top: -8px;
+}
+
+.input::-webkit-slider-thumb {
+	@include thumb;
+}
+.input::-moz-range-thumb {
+	@include thumb;
+}
+.input::-ms-thumb {
+	@include thumb;
+}
