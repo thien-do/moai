@@ -30,6 +30,9 @@ const options = {
 		if (isKnownIssue) return;
 		warn(warning);
 	},
+	watch: {
+		include: "src/**",
+	},
 };
 
 export default options;
