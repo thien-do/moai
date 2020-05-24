@@ -19,6 +19,7 @@ const getClassName = <T,>(value: T, option: SwitcherOption<T>) => {
 	return `${s.button} ${curr} ${outline.outer}`;
 };
 
+// @TODO: not a11y ready
 export const Switcher = <T,>({ value, setValue, options }: Props<T>) => (
 	<div className={s.container}>
 		{options.map((option) => (
