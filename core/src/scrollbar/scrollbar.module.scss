@@ -7,12 +7,7 @@
 	}
 
 	::-webkit-scrollbar-track {
-		@include light {
-			background-color: var(--light-gray-1);
-		}
-		@include dark {
-			background-color: var(--dark-gray-3);
-		}
+		background-color: transparent;
 	}
 
 	::-webkit-scrollbar-thumb {
