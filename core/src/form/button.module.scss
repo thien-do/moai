@@ -43,7 +43,7 @@
 	}
 
 	@include dark {
-		--main-shadow-full: var(--main-shadow) var(--dark-gray-1);
+		--main-shadow-full: var(--main-shadow) var(--dark-gray-2);
 
 		background-color: var(--dark-gray-3);
 		box-shadow: var(--main-shadow-full),
@@ -51,9 +51,7 @@
 		border-color: var(--dark-gray-0);
 
 		&:hover {
-			background-color: var(--dark-gray-3);
-			box-shadow: var(--main-shadow-full),
-				var(--inset-shadow) var(--dark-gray-4);
+			background-color: var(--dark-gray-4);
 		}
 		&:active {
 			background-color: var(--dark-gray-1);
@@ -63,13 +61,14 @@
 		&.highlight {
 			color: var(--dark-gray-7);
 			background-color: var(--accent-2);
-			box-shadow: var(--main-shadow) var(--dark-gray-1),
+			box-shadow: var(--main-shadow-full),
 				var(--inset-shadow) var(--accent-3);
 			&:hover {
 				background-color: var(--accent-3);
 			}
 			&:active {
 				background-color: var(--accent-1);
+				box-shadow: none;
 			}
 		}
 	}
