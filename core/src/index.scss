@@ -22,23 +22,23 @@
 	--accent-3: hsl(205, 79%, 60%);
 
 	// Light color scheme
-	--light-gray-0: hsl(0, 0%, 100%); // panel bg, button hover
-	--light-gray-1: hsl(240, 17%, 98%); // button bg
-	--light-gray-2: hsl(240, 8%, 93%); // shadow, button selected
-	--light-gray-3: hsl(240, 6%, 88%); // panel border
-	--light-gray-4: hsl(216, 12%, 81%); // button border, cursor
-	--light-gray-5: hsl(214, 4%, 53%); // 2nd text
-	--light-gray-6: hsl(208, 10%, 15%); // 1st text
+	--light-gray-0: hsl(00, 00%, 100%); // background strong
+	--light-gray-1: hsl(240, 20%, 98%); // background weak
+	--light-gray-2: hsl(240, 09%, 93%); //
+	--light-gray-3: hsl(240, 05%, 88%); // border weak
+	--light-gray-4: hsl(218, 11%, 81%); // border strong
+	--light-gray-5: hsl(210, 04%, 53%); // foreground weak
+	--light-gray-6: hsl(202, 11%, 15%); // foreground strong
 
 	// Dark color scheme
-	--dark-gray-0: hsl(230, 0%, 0%); // button border, panel border
-	--dark-gray-1: hsl(229, 10%, 9%); // shadow, button selected
-	--dark-gray-2: hsl(235, 9%, 14%); // panel bg
-	--dark-gray-3: hsl(233, 9%, 19%); // button bg
-	--dark-gray-4: hsl(229, 11%, 25%); // button hover
-	--dark-gray-5: hsl(230, 8%, 43%); // cursor
-	--dark-gray-6: hsl(215, 8%, 56%); // text 2nd
-	--dark-gray-7: hsl(173, 10%, 98%); // text 1st
+	--dark-gray-0: hsl(230, 00%, 00%); //
+	--dark-gray-1: hsl(229, 10%, 09%); //
+	--dark-gray-2: hsl(235, 09%, 14%); // background weak
+	--dark-gray-3: hsl(233, 09%, 19%); // background strong
+	--dark-gray-4: hsl(229, 11%, 25%); // border weak
+	--dark-gray-5: hsl(230, 08%, 43%); // border strong
+	--dark-gray-6: hsl(215, 08%, 56%); // foreground weak
+	--dark-gray-7: hsl(173, 10%, 98%); // foreground strong
 
 	// Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	// font size
@@ -59,13 +59,12 @@ body {
 		font-family: "Inter var", sans-serif;
 	}
 
-	@include dark {
-		background-color: var(--dark-gray-2);
-		color: var(--dark-gray-7);
-	}
-
 	@include light {
 		background-color: var(--light-gray-0);
 		color: var(--light-gray-6);
+	}
+	@include dark {
+		background-color: var(--dark-gray-3);
+		color: var(--dark-gray-7);
 	}
 }
