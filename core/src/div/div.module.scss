@@ -1,17 +1,9 @@
-@import "../theme/module.scss";
-
 .line {
 	border-top: solid 1px transparent;
 	border-left: solid 1px transparent;
-	@include light {
-		border-color: var(--light-gray-3);
-	}
-	@include dark {
-		border-color: var(--dark-gray-4);
-	}
 }
 
-$sizes: 4 8 16 24 32 48 64 96;
+$sizes: 4 8 12 16 24 32 48 64 96;
 
 @each $size in $sizes {
 	.px#{$size} {

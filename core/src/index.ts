@@ -3,6 +3,7 @@ import "focus-visible";
 import "./index.scss";
 
 export * from "./background/background";
+export * from "./border/border";
 export * from "./button/button";
 export * from "./checkbox/checkbox";
 export * from "./div/div";

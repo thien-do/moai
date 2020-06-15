@@ -1,0 +1,19 @@
+@import "../theme/module.scss";
+
+.weak {
+	@include light {
+		border-color: var(--light-gray-3);
+	}
+	@include dark {
+		border-color: var(--dark-gray-4);
+	}
+}
+
+.strong {
+	@include light {
+		border-color: var(--light-gray-4);
+	}
+	@include dark {
+		border-color: var(--dark-gray-5);
+	}
+}

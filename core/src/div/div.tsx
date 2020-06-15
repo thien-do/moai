@@ -2,6 +2,7 @@ import React from "react";
 
 import s from "./div.module.scss";
 import { validateStyles } from "../utils/utils";
+import { borderColor } from "../border/border";
 
 const { line, px4, px8, px16, px24, px32, px48, px64, px96, grow } = s;
 
@@ -11,10 +12,11 @@ validateStyles(div);
 
 export const SpanEm = () => <span> </span>;
 
-export const DivLine = () => <hr className={s.line} />;
+export const DivLine = () => <hr className={`${s.line} ${borderColor.weak}`} />;
 
 export const DivPx4 = () => <span className={s.px4} />;
 export const DivPx8 = () => <span className={s.px8} />;
+export const DivPx12 = () => <span className={s.px12} />;
 export const DivPx16 = () => <span className={s.px16} />;
 export const DivPx24 = () => <span className={s.px24} />;
 export const DivPx32 = () => <span className={s.px32} />;
