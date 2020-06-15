@@ -16,4 +16,5 @@ export * from "./pop/pop";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";
 export * from "./switcher/switcher";
+export * from "./tab/tab";
 export * from "./text/text";

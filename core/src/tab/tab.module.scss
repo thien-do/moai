@@ -1,0 +1,20 @@
+.panel {
+    padding: 16px;
+}
+
+.titles {
+    padding: 16px 16px 0;
+    margin-bottom: -1px;
+}
+
+.title {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom: none;
+}
+
+.nonactive {
+    border-color: transparent;
+}
