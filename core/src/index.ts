@@ -9,7 +9,7 @@ export * from "./checkbox/checkbox";
 export * from "./div/div";
 export * from "./form/field";
 export * from "./icon/icon";
-export * from "./number/number";
+export * from "./input/input";
 export * from "./outline/outline";
 export * from "./radio/radio";
 export * from "./range/range";
