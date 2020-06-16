@@ -30,7 +30,7 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			className={[
 				s.input,
 				outline.inner,
-				borderColor.weak,
+				borderColor.strong,
 				background.primary,
 			].join(" ")}
 			type={props.type}

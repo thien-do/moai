@@ -1,19 +1,10 @@
-@import "../theme/module.scss";
-
 .input {
 	width: 100%;
 
-	border: solid 1px transparent;
+	border-width: 1px;
+	border-style: solid;
 	border-radius: 3px;
 	padding: 8px 8px 8px 12px;
 
 	transition: outline 0.2s ease-out;
-
-	@include light {
-		border-color: var(--light-gray-4);
-	}
-
-	@include dark {
-		border-color: var(--dark-gray-0);
-	}
 }
