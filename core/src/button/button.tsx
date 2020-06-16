@@ -5,7 +5,7 @@ import { button } from "../form/form";
 import { outline } from "../outline/outline";
 
 import s from "./button.module.scss";
-import { DivPx8 } from "../div/div";
+import { DivPx } from "../div/div";
 
 interface Props {
 	selected?: boolean;
@@ -37,7 +37,7 @@ const ButtonWithRef = (props: Props, ref: Ref) => {
 					<IconC icon={icon} />
 				</span>
 			)}
-			{icon && children && <DivPx8 />}
+			{icon && children && <DivPx size={8} />}
 			{children && <span className={s.text}>{children}</span>}
 		</button>
 	);

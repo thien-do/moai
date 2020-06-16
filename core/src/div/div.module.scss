@@ -3,17 +3,11 @@
 	border-left: solid 1px transparent;
 }
 
-$sizes: 4 8 12 16 24 32 48 64 96;
-
-@each $size in $sizes {
-	.px#{$size} {
-		// we use <span> so it works everywhere semantically but visually we
-		// need the stability and solid of block display
-		display: block;
-		flex: 0 0 auto;
-		height: #{$size}px;
-		width: #{$size}px;
-	}
+// we use <span> so it works everywhere semantically but visually we
+// need the stability and solid of block display
+.px {
+	display: block;
+	flex: 0 0 auto;
 }
 
 .grow {

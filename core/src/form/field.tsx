@@ -1,7 +1,7 @@
 import React from "react";
 
 import s from "./field.module.scss";
-import { DivPx8 } from "../div/div";
+import { DivPx } from "../div/div";
 
 interface Props {
 	label?: React.ReactNode;
@@ -19,7 +19,7 @@ export const FormField: React.FC<Props> = (props) => {
 		<span className={s.label} style={labelStyle}>
 			{label}
 		</span>,
-		<DivPx8 />,
+		<DivPx size={8} />,
 		<span className={s.input}>{children}</span>
 	);
 };
