@@ -6,6 +6,10 @@ interface Props {
 	children: React.ReactNode;
 }
 
+export const text = {
+	muted: s.muted as string,
+};
+
 export const Paragraph: React.FC<Props> = ({ children }) => (
 	<p className={s.p}>{children}</p>
 );
