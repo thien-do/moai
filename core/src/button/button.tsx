@@ -1,46 +1,63 @@
 import React from "react";
 
 import { IconC, Icon } from "../icon/icon";
-import { button } from "../form/form";
 import { outline } from "../outline/outline";
-
-import s from "./button.module.scss";
 import { DivPx } from "../div/div";
+import s from "./button.module.scss";
+import sNone from "../none.module.scss";
+import sOutset from "../outset.module.scss";
 
-interface Props {
+interface ButtonStyle {
+	main: string;
+	selected: string;
+	highlight: string;
+	outline: string;
+}
+
+type ButtonSize = string;
+
+interface VisualProps {
 	selected?: boolean;
 	highlight?: boolean;
+	style?: ButtonStyle;
+	size?: ButtonSize;
+}
+
+const getClass = ({ highlight, selected, ...props }: VisualProps) => {
+	if (highlight === true && selected === true)
+		throw Error("Button cannot have both highlight and selected (yet).");
+	const style = props.style ?? Button.style.none;
+	const size = props.size ?? Button.size.medium;
+	const classes = [s.button, size, style.main, style.outline];
+	if (selected) classes.push(style.selected);
+	if (highlight) classes.push(style.highlight);
+	return classes.join(" ");
+};
+
+interface Props extends VisualProps {
 	onClick: () => void;
 	children?: React.ReactNode;
 	icon?: Icon;
 }
 
-const getClass = ({ highlight, selected }: Props) => {
-	if (highlight === true && selected === true) {
-		throw Error("Button cannot have both highlight and selected set.");
-	}
-	return [
-		selected ? s.selected : "",
-		highlight ? button.highlight : "",
-		`${s.button} ${button.main} ${outline.outer}`,
-	].join(" ");
+export const Button = ({ icon, children, onClick, ...style }: Props) => (
+	<button onClick={onClick} className={getClass(style)}>
+		{icon && (
+			<span className={s.icon}>
+				<IconC icon={icon} />
+			</span>
+		)}
+		{icon && children && <DivPx size={8} />}
+		{children && <span className={s.text}>{children}</span>}
+	</button>
+);
+
+Button.style = {
+	outset: { ...sOutset, outline: outline.outer } as ButtonStyle,
+	none: { ...sNone, outline: outline.inner } as ButtonStyle,
 };
 
-type Ref = React.Ref<HTMLButtonElement>;
-
-const ButtonWithRef = (props: Props, ref: Ref) => {
-	const { onClick, children, icon } = props;
-	return (
-		<button ref={ref} onClick={onClick} className={getClass(props)}>
-			{icon && (
-				<span className={s.icon}>
-					<IconC icon={icon} />
-				</span>
-			)}
-			{icon && children && <DivPx size={8} />}
-			{children && <span className={s.text}>{children}</span>}
-		</button>
-	);
+Button.size = {
+	medium: s.medium as ButtonSize,
+	small: s.small as ButtonSize,
 };
-
-export const Button = React.forwardRef(ButtonWithRef);

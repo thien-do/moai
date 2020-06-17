@@ -1,0 +1,23 @@
+@import "../theme/module.scss";
+
+.main {
+	cursor: pointer;
+    transition: background-color 0.1s, outline 0.2s ease-out;
+
+	@include light {
+		&:hover {
+			background-color: var(--light-gray-2);
+		}
+		&:active {
+			background-color: var(--light-gray-3);
+		}
+	}
+	@include dark {
+		&:hover {
+			background-color: var(--dark-gray-4);
+		}
+		&:active {
+			background-color: var(--dark-gray-2);
+		}
+	}
+}

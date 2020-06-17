@@ -1,14 +1,10 @@
 @import "../theme/module.scss";
 
-@mixin button-mx {
+.main {
 	cursor: pointer;
 	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
 	border: solid 1px transparent;
-
 	font-weight: 450;
-	&.highlight {
-		font-weight: 500;
-	}
 
 	--main-shadow: 0px 1px 2px;
 	--inset-shadow: inset 0px 1px 0px;
@@ -18,27 +14,12 @@
 		box-shadow: var(--main-shadow) var(--light-gray-2),
 			var(--inset-shadow) var(--light-gray-0);
 		border-color: var(--light-gray-4);
-
 		&:hover {
 			background-color: var(--light-gray-0);
 		}
 		&:active {
 			background-color: var(--light-gray-2);
 			box-shadow: none;
-		}
-
-		&.highlight {
-			color: var(--light-gray-0);
-			background-color: var(--accent-2);
-			box-shadow: var(--main-shadow) var(--light-gray-4),
-				var(--inset-shadow) var(--accent-3);
-			border-color: var(--accent-0);
-			&:hover {
-				background-color: var(--accent-3);
-			}
-			&:active {
-				background-color: var(--accent-1);
-			}
 		}
 	}
 
@@ -57,23 +38,49 @@
 			background-color: var(--dark-gray-1);
 			box-shadow: none;
 		}
+	}
+}
 
-		&.highlight {
-			color: var(--dark-gray-7);
-			background-color: var(--accent-2);
-			box-shadow: var(--main-shadow-full),
-				var(--inset-shadow) var(--accent-3);
-			&:hover {
-				background-color: var(--accent-3);
-			}
-			&:active {
-				background-color: var(--accent-1);
-				box-shadow: none;
-			}
+.highlight {
+	font-weight: 500;
+
+	@include light {
+		color: var(--light-gray-0);
+		background-color: var(--accent-2);
+		box-shadow: var(--main-shadow) var(--light-gray-4),
+			var(--inset-shadow) var(--accent-3);
+		border-color: var(--accent-0);
+		&:hover {
+			background-color: var(--accent-3);
+		}
+		&:active {
+			background-color: var(--accent-1);
+		}
+	}
+
+	@include dark {
+		color: var(--dark-gray-7);
+		background-color: var(--accent-2);
+		box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--accent-3);
+		&:hover {
+			background-color: var(--accent-3);
+		}
+		&:active {
+			background-color: var(--accent-1);
+			box-shadow: none;
 		}
 	}
 }
 
-.button {
-	@include button-mx();
+.selected,
+.selected:hover,
+.selected:active {
+	@include light {
+		background-color: var(--light-gray-2);
+		box-shadow: 0px 0px 0px var(--light-gray-2);
+	}
+	@include dark {
+		background-color: var(--dark-gray-1);
+		box-shadow: 0px 0px 0px var(--dark-gray-1);
+	}
 }
