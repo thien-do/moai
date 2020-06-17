@@ -1,8 +1,8 @@
 import s from "./outline.module.scss";
-import { validateStyles } from "../utils/utils";
 
-const { inner, outer } = s;
+type OutlineStyle = string;
 
-export const outline = { inner, outer };
-
-validateStyles(outline);
+export const outline = {
+	inner: s.inner as OutlineStyle,
+	outer: s.outer as OutlineStyle,
+};
