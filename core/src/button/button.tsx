@@ -3,15 +3,15 @@ import React from "react";
 import { IconC, Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { DivPx } from "../div/div";
+
 import s from "./button.module.scss";
-import sNone from "../none.module.scss";
-import sOutset from "../outset.module.scss";
+import flat from "./flat.module.scss";
+import outset from "./outset.module.scss";
 
 interface ButtonStyle {
 	main: string;
 	selected: string;
 	highlight: string;
-	outline: string;
 }
 
 type ButtonSize = string;
@@ -26,9 +26,9 @@ interface VisualProps {
 const getClass = ({ highlight, selected, ...props }: VisualProps) => {
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
-	const style = props.style ?? Button.style.none;
+	const style = props.style ?? Button.style.outset;
 	const size = props.size ?? Button.size.medium;
-	const classes = [s.button, size, style.main, style.outline];
+	const classes = [s.button, size, style.main];
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
 	return classes.join(" ");
@@ -53,8 +53,16 @@ export const Button = ({ icon, children, onClick, ...style }: Props) => (
 );
 
 Button.style = {
-	outset: { ...sOutset, outline: outline.outer } as ButtonStyle,
-	none: { ...sNone, outline: outline.inner } as ButtonStyle,
+	outset: {
+		main: `${s.outset} ${outset.main} ${outline.outer}`,
+		selected: outset.selected,
+		highlight: outset.highlight,
+	} as ButtonStyle,
+	flat: {
+		main: `${flat.main} ${outline.inner}`,
+		selected: "",
+		highlight: "",
+	} as ButtonStyle,
 };
 
 Button.size = {

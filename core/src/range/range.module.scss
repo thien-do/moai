@@ -1,4 +1,4 @@
-@import "../form/button.module.scss";
+@import "../button/outset.module.scss";
 @import "../theme/module.scss";
 
 .input {
@@ -32,7 +32,7 @@
     width: 20px;
     height: 20px;
     border-radius: 20px;
-    @include button-mx;
+    @include main-mixin;
     cursor: grab;
     margin-top: -8px;
 }

@@ -5,16 +5,19 @@ import { borderColor } from "../border/border";
 import { background } from "../background/background";
 import s from "./input.module.scss";
 
-// @TODO: T actually must be T extends (number | string)
-interface Props<T> {
-	type: "number" | "text";
-	value: T;
-	setValue: (value: T) => void;
-	list?: {
-		id: string;
-		values: T[];
-	};
+type InputStyle = string;
+type InputSize = string;
+
+interface VisualProps {
+	style?: InputStyle;
+	size?: InputSize;
 }
+
+const getClass = (props: VisualProps) => {
+	const style = props.style ?? Input.style.outset;
+	const size = props.size ?? Input.size.medium;
+	return [s.input, outline.inner, style, size].join(" ");
+};
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
@@ -24,16 +27,17 @@ const onChange = <T,>(props: Props<T>) => (e: ChangeEvent) => {
 	props.setValue(isNumber ? target.valueAsNumber : (target.value as any));
 };
 
+interface Props<T> extends VisualProps {
+	value: T;
+	setValue: (value: T) => void;
+	list?: { id: string; values: T[] };
+}
+
 export const Input = <T extends number | string>(props: Props<T>) => (
 	<>
 		<input
-			className={[
-				s.input,
-				outline.inner,
-				borderColor.strong,
-				background.primary,
-			].join(" ")}
-			type={props.type}
+			className={getClass(props)}
+			type={typeof props.value === "string" ? "text" : "number"}
 			value={props.value}
 			onChange={onChange(props)}
 			list={props.list?.id ?? undefined}
@@ -47,3 +51,13 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 		)}
 	</>
 );
+
+Input.style = {
+	outset: [s.outset, borderColor.strong, background.primary].join(" "),
+	flat: s.flat as InputStyle,
+};
+
+Input.size = {
+	medium: s.medium as InputSize,
+	small: s.small as InputSize,
+}

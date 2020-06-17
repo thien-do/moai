@@ -1,6 +1,6 @@
 @import "../theme/module.scss";
 
-.main {
+@mixin main-mixin {
 	cursor: pointer;
 	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
 	border: solid 1px transparent;
@@ -39,6 +39,10 @@
 			box-shadow: none;
 		}
 	}
+}
+
+.main {
+	@include main-mixin();
 }
 
 .highlight {

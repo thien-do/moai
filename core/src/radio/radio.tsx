@@ -1,7 +1,7 @@
 import React from "react";
 
-import { button } from "../form/form";
 import { outline } from "../outline/outline";
+import outset from "../button/outset.module.scss";
 import s from "./radio.module.scss";
 
 interface Props {
@@ -18,7 +18,7 @@ export const Radio: React.FC<Props> = (props) => {
 		<label className={s.container}>
 			{checked && <span className={s.dot} />}
 			<input
-				className={`${s.input} ${button.main} ${outline.outer}`}
+				className={`${s.input} ${outset.main} ${outline.outer}`}
 				type="radio"
 				name={name}
 				checked={checked}

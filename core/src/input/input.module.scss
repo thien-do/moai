@@ -1,10 +1,46 @@
+@import "../theme/module.scss";
+
 .input {
 	width: 100%;
+	transition: background-color 0.1s, outline 0.2s ease-out;
+	line-height: 16px;
+}
 
+.flat {
+	// pretty much nothing in normal state
+	text-align: inherit;
+
+	// mimic button.style.none hover
+	&:hover {
+		@include light {
+			background-color: var(--light-gray-2);
+		}
+		@include dark {
+			background-color: var(--dark-gray-4);
+		}
+	}
+
+	// mimic background.primary
+	&:focus {
+		@include light {
+			background-color: var(--light-gray-0);
+		}
+		@include dark {
+			background-color: var(--dark-gray-3);
+		}
+	}
+}
+
+.outset {
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 3px;
-	padding: 8px 8px 8px 12px;
+}
 
-	transition: outline 0.2s ease-out;
+.medium {
+	padding: 8px;
+}
+
+.small {
+	padding: 4px 8px;
 }
