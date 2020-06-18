@@ -9,9 +9,10 @@
 .flat {
 	// pretty much nothing in normal state
 	text-align: inherit;
+	text-decoration: inherit;
 
 	// mimic button.style.none hover
-	&:hover {
+	&:hover:not([readonly]):not([disabled]) {
 		@include light {
 			background-color: var(--light-gray-2);
 		}
@@ -21,7 +22,7 @@
 	}
 
 	// mimic background.primary
-	&:focus {
+	&:focus:not([readonly]):not([disabled]) {
 		@include light {
 			background-color: var(--light-gray-0);
 		}

@@ -4,19 +4,26 @@ import { outline } from "../outline/outline";
 import { borderColor } from "../border/border";
 import { background } from "../background/background";
 import s from "./input.module.scss";
+import { text } from "../text/text";
 
-type InputStyle = string;
+interface InputStyle {
+	main: string;
+	disabled: string;
+}
+
 type InputSize = string;
 
 interface VisualProps {
 	style?: InputStyle;
 	size?: InputSize;
+	disabled?: boolean;
 }
 
 const getClass = (props: VisualProps) => {
 	const style = props.style ?? Input.style.outset;
 	const size = props.size ?? Input.size.medium;
-	return [s.input, outline.inner, style, size].join(" ");
+	const disabled = props.disabled ? style.disabled : "";
+	return [s.input, outline.inner, style.main, size, disabled].join(" ");
 };
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -31,6 +38,7 @@ interface Props<T> extends VisualProps {
 	value: T;
 	setValue: (value: T) => void;
 	list?: { id: string; values: T[] };
+	readOnly?: boolean;
 }
 
 export const Input = <T extends number | string>(props: Props<T>) => (
@@ -41,6 +49,8 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			value={props.value}
 			onChange={onChange(props)}
 			list={props.list?.id ?? undefined}
+			readOnly={props.readOnly}
+			disabled={props.disabled}
 		/>
 		{props.list && (
 			<datalist id={props.list.id}>
@@ -53,11 +63,17 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 );
 
 Input.style = {
-	outset: [s.outset, borderColor.strong, background.primary].join(" "),
-	flat: s.flat as InputStyle,
+	outset: {
+		main: [s.outset, borderColor.strong, background.primary].join(" "),
+		disabled: "",
+	} as InputStyle,
+	flat: {
+		main: s.flat,
+		disabled: text.muted,
+	} as InputStyle,
 };
 
 Input.size = {
 	medium: s.medium as InputSize,
 	small: s.small as InputSize,
-}
+};
