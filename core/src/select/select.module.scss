@@ -15,14 +15,6 @@
 	text-align: left;
 }
 
-.medium {
-	padding: 8px 32px 8px 12px;
-}
-
-.small {
-	padding: 4px 32px 4px 8px;
-}
-
 .outset {
 	border-radius: 3px;
 }
@@ -32,8 +24,27 @@
 	margin: auto;
 	top: 0px;
 	bottom: 0px;
-	right: 8px;
 	height: 16px;
 	pointer-events: none;
 	z-index: 1; // wins the z-index of outline
+}
+
+.mediumSelect {
+	padding: 8px 32px 8px 12px;
+}
+
+.mediumIcon {
+	right: 8px;
+}
+
+.smallSelect {
+	padding: 4px 24px 4px 8px;
+}
+
+.smallIcon {
+	right: 4px;
+}
+
+.flatContainer {
+	text-decoration: inherit;
 }

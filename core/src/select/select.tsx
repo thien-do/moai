@@ -5,24 +5,37 @@ import { outline } from "../outline/outline";
 import flat from "../button/flat.module.scss";
 import outset from "../button/outset.module.scss";
 import s from "./select.module.scss";
+import { text } from "../text/text";
 
-type SelectStyle = string;
-type SelectSize = string;
+type SelectStyle = {
+	container: string;
+	select: string;
+	disabled: string;
+};
+
+interface SelectSize {
+	select: string;
+	icon: string;
+}
 
 interface VisualProps {
 	style?: SelectStyle;
 	size?: SelectSize;
 	fullWidth?: boolean;
+	disabled?: boolean;
 }
 
-const getSelectClass = (props: VisualProps) => {
+const getClassNames = (props: VisualProps) => {
 	const style = props.style ?? Select.style.outset;
 	const size = props.size ?? Select.size.medium;
-	return [s.select, style, size].join(" ");
+	const width = props.fullWidth ? s.widthFull : s.widthContent;
+	const disabled = props.disabled ? style.disabled : "";
+	return {
+		select: [s.select, style.select, disabled, size.select].join(" "),
+		container: [s.container, style.container, width].join(" "),
+		icon: [s.icon, size.icon, disabled].join(" "),
+	};
 };
-
-const getContainerClass = (props: VisualProps) =>
-	[s.container, props.fullWidth ? s.widthFull : s.widthContent].join(" ");
 
 export interface SelectOption<T> {
 	value: T;
@@ -54,27 +67,46 @@ const onChange = <T,>(props: Props<T>) => (event: ChangeEvent) => {
 	props.setValue(option.value);
 };
 
-export const Select = <T,>(props: Props<T>) => (
-	<div className={getContainerClass(props)}>
-		<select
-			className={getSelectClass(props)}
-			value={props.options.find((o) => o.value === props.value)?.label}
-			onChange={onChange(props)}
-		>
-			{props.options.map(renderOption)}
-		</select>
-		<span className={s.icon}>
-			<IconC icon={{ d: caret }} />
-		</span>
-	</div>
-);
+export const Select = <T,>(props: Props<T>) => {
+	const cls = getClassNames(props);
+	const value = props.options.find((o) => o.value === props.value)?.label;
+	return (
+		<div className={cls.container}>
+			<select
+				className={cls.select}
+				value={value}
+				onChange={onChange(props)}
+				disabled={props.disabled}
+			>
+				{props.options.map(renderOption)}
+			</select>
+			<span className={cls.icon}>
+				<IconC icon={{ d: caret }} />
+			</span>
+		</div>
+	);
+};
 
 Select.style = {
-	outset: `${outset.main} ${outline.outer} ${s.outset}` as SelectStyle,
-	flat: `${flat.main} ${outline.inner}` as SelectStyle,
+	outset: {
+		select: `${outset.main} ${outline.outer} ${s.outset}`,
+		disabled: "",
+		container: "",
+	} as SelectStyle,
+	flat: {
+		select: `${flat.main} ${outline.inner}`,
+		disabled: `${text.muted}`,
+		container: s.flatContainer,
+	} as SelectStyle,
 };
 
 Select.size = {
-	medium: s.medium as SelectSize,
-	small: s.small as SelectSize,
+	medium: {
+		select: s.mediumSelect,
+		icon: s.mediumIcon,
+	} as SelectSize,
+	small: {
+		select: s.smallSelect,
+		icon: s.smallIcon,
+	} as SelectSize,
 };
