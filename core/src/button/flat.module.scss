@@ -2,7 +2,8 @@
 
 .main {
 	cursor: pointer;
-    transition: background-color 0.1s, outline 0.2s ease-out;
+	transition: background-color 0.1s, outline 0.2s ease-out;
+	text-decoration: inherit;
 
 	@include light {
 		&:hover {
@@ -19,5 +20,16 @@
 		&:active {
 			background-color: var(--dark-gray-2);
 		}
+	}
+}
+
+.selected,
+.selected:hover,
+.selected:active {
+	@include light {
+		background-color: var(--light-gray-2);
+	}
+	@include dark {
+		background-color: var(--dark-gray-2);
 	}
 }

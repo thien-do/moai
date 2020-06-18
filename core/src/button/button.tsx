@@ -60,7 +60,7 @@ Button.style = {
 	} as ButtonStyle,
 	flat: {
 		main: `${flat.main} ${outline.inner}`,
-		selected: "",
+		selected: flat.selected,
 		highlight: "",
 	} as ButtonStyle,
 };

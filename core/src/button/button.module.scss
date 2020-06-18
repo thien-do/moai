@@ -10,7 +10,7 @@
 }
 
 .small {
-	padding: 4px;
+	padding: 4px 8px;
 }
 
 .outset {
@@ -19,6 +19,7 @@
 
 .text {
 	flex: 1 1 0px;
+	display: flex;
 }
 
 .icon {
