@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconC } from "../icon/icon";
+import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
 import flat from "../button/flat.module.scss";
 import outset from "../button/outset.module.scss";
@@ -81,7 +81,7 @@ export const Select = <T,>(props: Props<T>) => {
 				{props.options.map(renderOption)}
 			</select>
 			<span className={cls.icon}>
-				<IconC icon={{ d: caret }} />
+				<Icon path={caret} />
 			</span>
 		</div>
 	);

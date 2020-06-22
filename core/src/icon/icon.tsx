@@ -2,20 +2,22 @@ import React from "react";
 
 import s from "./icon.module.scss";
 
-export interface Icon {
-	d: string;
-}
+export type IconSize = 12 | 16;
+export type IconPath = string;
 
 interface Props {
-	icon: Icon;
+	path: IconPath;
+	size?: IconSize;
 }
 
-export const IconC: React.FC<Props> = ({ icon }) => (
+export const Icon: React.FC<Props> = ({ path, size }) => (
 	<svg
 		className={s.icon}
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 16 16"
+		width={size ?? 16}
+		height={size ?? 16}
 	>
-		<path d={icon.d} />
+		<path d={path} />
 	</svg>
 );
