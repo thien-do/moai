@@ -29,25 +29,47 @@ const getClass = (props: VisualProps) => {
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 const onChange = <T,>(props: Props<T>) => (e: ChangeEvent) => {
+	if (props.setValue === undefined || props.value === undefined) return;
 	const { currentTarget: target } = e;
 	const isNumber = typeof props.value === "number";
 	props.setValue(isNumber ? target.valueAsNumber : (target.value as any));
 };
 
 interface Props<T> extends VisualProps {
-	value: T;
-	setValue: (value: T) => void;
+	defaultValue?: T;
+	value?: T;
+	setValue?: (value: T) => void;
 	list?: { id: string; values: T[] };
 	readOnly?: boolean;
+	onBlur?: React.FocusEventHandler<HTMLInputElement>;
+	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 }
+
+const getType = (props: Props<any>): string => {
+	const target = props.value ?? props.defaultValue;
+	switch (typeof target) {
+		case "string":
+			return "text";
+		case "number":
+			return "number";
+		default:
+			throw Error(`Unknown input type: "${typeof target}"`);
+	}
+};
 
 export const Input = <T extends number | string>(props: Props<T>) => (
 	<>
 		<input
-			className={getClass(props)}
-			type={typeof props.value === "string" ? "text" : "number"}
+			// value
+			type={getType(props)}
+			defaultValue={props.defaultValue}
 			value={props.value}
 			onChange={onChange(props)}
+			// event handlers
+			onBlur={props.onBlur}
+			onFocus={props.onFocus}
+			// properties
+			className={getClass(props)}
 			list={props.list?.id ?? undefined}
 			readOnly={props.readOnly}
 			disabled={props.disabled}
