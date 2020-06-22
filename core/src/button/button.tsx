@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconC, Icon } from "../icon/icon";
+import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { DivPx } from "../div/div";
 
@@ -14,21 +14,22 @@ interface ButtonStyle {
 	highlight: string;
 }
 
-type ButtonSize = string;
+type ButtonSize = {
+	main: string;
+	iconSize: IconSize;
+};
 
 interface VisualProps {
-	selected?: boolean;
-	highlight?: boolean;
-	style?: ButtonStyle;
-	size?: ButtonSize;
+	selected: boolean;
+	highlight: boolean;
+	style: ButtonStyle;
+	size: ButtonSize;
 }
 
-const getClass = ({ highlight, selected, ...props }: VisualProps) => {
+const getClass = ({ highlight, selected, size, style }: VisualProps) => {
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
-	const style = props.style ?? Button.style.outset;
-	const size = props.size ?? Button.size.medium;
-	const classes = [s.button, size, style.main];
+	const classes = [s.button, size.main, style.main];
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
 	return classes.join(" ");
@@ -37,14 +38,14 @@ const getClass = ({ highlight, selected, ...props }: VisualProps) => {
 interface Props extends VisualProps {
 	onClick: () => void;
 	children?: React.ReactNode;
-	icon?: Icon;
+	icon?: IconPath;
 }
 
 export const Button = ({ icon, children, onClick, ...style }: Props) => (
 	<button onClick={onClick} className={getClass(style)}>
 		{icon && (
 			<span className={s.icon}>
-				<IconC icon={icon} />
+				<Icon size={style.size.iconSize} path={icon} />
 			</span>
 		)}
 		{icon && children && <DivPx size={8} />}
@@ -66,6 +67,19 @@ Button.style = {
 };
 
 Button.size = {
-	medium: s.medium as ButtonSize,
-	small: s.small as ButtonSize,
+	medium: {
+		main: s.medium,
+		iconSize: 16,
+	} as ButtonSize,
+	small: {
+		main: s.small,
+		iconSize: 12,
+	} as ButtonSize,
+};
+
+Button.defaultProps = {
+	selected: false,
+	highlight: false,
+	style: Button.style.outset,
+	size: Button.size.medium,
 };
