@@ -24,12 +24,15 @@ interface VisualProps {
 	highlight: boolean;
 	style: ButtonStyle;
 	size: ButtonSize;
+	isFullWidth: boolean;
 }
 
-const getClass = ({ highlight, selected, size, style }: VisualProps) => {
+const getClass = (props: VisualProps) => {
+    const { highlight, selected, size, style, isFullWidth } = props;
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
 	const classes = [s.button, size.main, style.main];
+	if (isFullWidth) classes.push(s.fullWidth);
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
 	return classes.join(" ");
@@ -82,4 +85,5 @@ Button.defaultProps = {
 	highlight: false,
 	style: Button.style.outset,
 	size: Button.size.medium,
+	isFullWidth: false,
 };
