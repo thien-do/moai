@@ -5,6 +5,7 @@ import "./index.scss";
 export * from "./background/background";
 export * from "./border/border";
 export * from "./button/button";
+export * from "./button-menu/button-menu";
 export * from "./checkbox/checkbox";
 export * from "./div/div";
 export * from "./form/field";

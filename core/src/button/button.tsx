@@ -8,13 +8,13 @@ import s from "./button.module.scss";
 import flat from "./flat.module.scss";
 import outset from "./outset.module.scss";
 
-interface ButtonStyle {
+export interface ButtonStyle {
 	main: string;
 	selected: string;
 	highlight: string;
 }
 
-type ButtonSize = {
+export type ButtonSize = {
 	main: string;
 	iconSize: IconSize;
 };
