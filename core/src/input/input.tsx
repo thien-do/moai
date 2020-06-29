@@ -22,8 +22,9 @@ interface VisualProps {
 const getClass = (props: VisualProps) => {
 	const style = props.style ?? Input.style.outset;
 	const size = props.size ?? Input.size.medium;
-	const disabled = props.disabled ? style.disabled : "";
-	return [s.input, outline.inner, style.main, size, disabled].join(" ");
+	const styles = [s.input, outline.inner, style.main, size]
+	if (props.disabled) styles.push(style.disabled);
+	return styles.join(" ");
 };
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
