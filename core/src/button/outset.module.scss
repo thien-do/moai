@@ -87,3 +87,16 @@
 		box-shadow: 0px 0px 0px var(--dark-gray-1);
 	}
 }
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+	@include light {
+		color: var(--light-gray-5);
+		box-shadow: none;
+	}
+	@include dark {
+		color: var(--dark-gray-6);
+		box-shadow: none;
+	}
+}

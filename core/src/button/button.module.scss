@@ -32,3 +32,8 @@
 .icon {
 	flex: 0 0 auto;
 }
+
+.disabled {
+	pointer-events: none;
+	cursor: auto;
+}
