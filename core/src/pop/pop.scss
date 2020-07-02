@@ -11,9 +11,9 @@
 	}
 
 	@include dark {
-		background-color: var(--dark-gray-4);
+		background-color: var(--dark-gray-3);
 		color: var(--dark-gray-7);
-		box-shadow: 0 1px 3px var(--dark-gray-1);
+		box-shadow: 0 1px 3px var(--dark-gray-0);
 	}
 }
 
@@ -27,6 +27,6 @@
 	}
 
 	@include dark {
-		fill: var(--dark-gray-4);
+		fill: var(--dark-gray-3);
 	}
 }

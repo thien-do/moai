@@ -14,10 +14,10 @@
 	}
 	@include dark {
 		&:hover {
-			background-color: var(--dark-gray-3);
+			background-color: var(--dark-gray-2);
 		}
 		&:active {
-			background-color: var(--dark-gray-1);
+			background-color: var(--dark-gray-0);
 		}
 	}
 }
@@ -29,6 +29,6 @@
 		background-color: var(--light-gray-2);
 	}
 	@include dark {
-		background-color: var(--dark-gray-2);
+		background-color: var(--dark-gray-1);
 	}
 }

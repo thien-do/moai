@@ -24,18 +24,18 @@
 	}
 
 	@include dark {
-		--main-shadow-full: var(--main-shadow) var(--dark-gray-1);
+		--main-shadow-full: var(--main-shadow) var(--dark-gray-0);
 
-		background-color: var(--dark-gray-3);
+		background-color: var(--dark-gray-2);
 		box-shadow: var(--main-shadow-full),
-			var(--inset-shadow) var(--dark-gray-4);
-		border-color: var(--dark-gray-0);
+			var(--inset-shadow) var(--dark-gray-3);
+		border-color: var(--dark-gray-negative-1);
 
 		&:hover {
-			background-color: var(--dark-gray-4);
+			background-color: var(--dark-gray-3);
 		}
 		&:active {
-			background-color: var(--dark-gray-1);
+			background-color: var(--dark-gray-0);
 			box-shadow: none;
 		}
 	}
@@ -63,7 +63,7 @@
 	}
 
 	@include dark {
-		color: var(--dark-gray-6);
+		color: var(--dark-gray-5);
 		background-color: var(--accent-2);
 		box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--accent-3);
 		&:hover {
@@ -84,7 +84,7 @@
 		box-shadow: 0px 0px 0px transparent;
 	}
 	@include dark {
-		background-color: var(--dark-gray-1);
+		background-color: var(--dark-gray-0);
 		box-shadow: 0px 0px 0px transparent;
 	}
 }
@@ -97,7 +97,7 @@
 		box-shadow: none;
 	}
 	@include dark {
-		color: var(--dark-gray-5);
+		color: var(--dark-gray-4);
 		box-shadow: none;
 	}
 }

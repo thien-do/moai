@@ -12,7 +12,7 @@
 		border-color: var(--light-gray-2);
 	}
 	@include dark {
-		border-color: var(--dark-gray-3);
+		border-color: var(--dark-gray-2);
 	}
 }
 
@@ -21,6 +21,6 @@
 		border-color: var(--light-gray-3);
 	}
 	@include dark {
-		border-color: var(--dark-gray-4);
+		border-color: var(--dark-gray-3);
 	}
 }

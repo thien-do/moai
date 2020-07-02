@@ -17,7 +17,7 @@
 			background-color: var(--light-gray-2);
 		}
 		@include dark {
-			background-color: var(--dark-gray-3);
+			background-color: var(--dark-gray-2);
 		}
 	}
 
@@ -27,7 +27,7 @@
 			background-color: var(--light-gray-0);
 		}
 		@include dark {
-			background-color: var(--dark-gray-2);
+			background-color: var(--dark-gray-1);
 		}
 	}
 }
