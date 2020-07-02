@@ -12,10 +12,10 @@
 
 	::-webkit-scrollbar-thumb {
 		@include light {
-			background-color: var(--light-gray-4);
+			background-color: var(--light-gray-3);
 		}
 		@include dark {
-			background-color: var(--dark-gray-5);
+			background-color: var(--dark-gray-4);
 		}
 	}
 }

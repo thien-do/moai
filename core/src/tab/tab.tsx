@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DivLine } from "../div/div";
+import { Border } from "../border/border";
 import { Background, background } from "../background/background";
 import { outline } from "../outline/outline";
 import { borderColor } from "../border/border";
@@ -43,7 +43,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 	return (
 		<div>
 			<div className={s.titles}>{tabs.map(renderTab(activeState))}</div>
-			<DivLine />
+			<Border color="strong" />
 			<Background color="primary">
 				<div className={s.panel}>{activeTab.panel()}</div>
 			</Background>

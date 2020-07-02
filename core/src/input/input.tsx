@@ -44,6 +44,7 @@ interface Props<T> extends VisualProps {
 	readOnly?: boolean;
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
+	placeholder?: string;
 }
 
 const getType = (props: Props<any>): string => {
@@ -74,6 +75,7 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			list={props.list?.id ?? undefined}
 			readOnly={props.readOnly}
 			disabled={props.disabled}
+			placeholder={props.placeholder}
 		/>
 		{props.list && (
 			<datalist id={props.list.id}>

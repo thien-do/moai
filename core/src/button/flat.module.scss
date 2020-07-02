@@ -14,10 +14,10 @@
 	}
 	@include dark {
 		&:hover {
-			background-color: var(--dark-gray-4);
+			background-color: var(--dark-gray-3);
 		}
 		&:active {
-			background-color: var(--dark-gray-2);
+			background-color: var(--dark-gray-1);
 		}
 	}
 }

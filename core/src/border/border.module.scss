@@ -1,19 +1,26 @@
 @import "../theme/module.scss";
 
+.border {
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+
 .weak {
 	@include light {
-		border-color: var(--light-gray-3);
+		border-color: var(--light-gray-2);
 	}
 	@include dark {
-		border-color: var(--dark-gray-4);
+		border-color: var(--dark-gray-3);
 	}
 }
 
 .strong {
 	@include light {
-		border-color: var(--light-gray-4);
+		border-color: var(--light-gray-3);
 	}
 	@include dark {
-		border-color: var(--dark-gray-5);
+		border-color: var(--dark-gray-4);
 	}
 }

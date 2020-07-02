@@ -11,13 +11,13 @@
 	text-align: inherit;
 	text-decoration: inherit;
 
-	// mimic button.style.none hover
+	// mimic button.style.flat hover
 	&:hover:not([readonly]):not([disabled]) {
 		@include light {
 			background-color: var(--light-gray-2);
 		}
 		@include dark {
-			background-color: var(--dark-gray-4);
+			background-color: var(--dark-gray-3);
 		}
 	}
 
@@ -27,7 +27,7 @@
 			background-color: var(--light-gray-0);
 		}
 		@include dark {
-			background-color: var(--dark-gray-3);
+			background-color: var(--dark-gray-2);
 		}
 	}
 }

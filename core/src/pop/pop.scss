@@ -5,9 +5,9 @@
 	border-radius: 0px;
 
 	@include light {
-		background-color: var(--light-gray-6);
+		background-color: var(--light-gray-5);
 		color: var(--light-gray-0);
-		box-shadow: 0 1px 3px var(--light-gray-4);
+		box-shadow: 0 1px 3px var(--light-gray-3);
 	}
 
 	@include dark {
@@ -23,7 +23,7 @@
 
 .tippy-box > .tippy-svg-arrow {
 	@include light {
-		fill: var(--light-gray-6);
+		fill: var(--light-gray-5);
 	}
 
 	@include dark {

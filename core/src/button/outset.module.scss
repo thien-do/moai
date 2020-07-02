@@ -5,14 +5,15 @@
 	border: solid 1px transparent;
 	font-weight: 450;
 
-	--main-shadow: 0px 1px 2px;
+	--main-shadow: 0px 0.5px 2px;
 	--inset-shadow: inset 0px 1px 0px;
 
 	@include light {
 		background-color: var(--light-gray-1);
 		box-shadow: var(--main-shadow) var(--light-gray-2),
 			var(--inset-shadow) var(--light-gray-0);
-		border-color: var(--light-gray-4);
+		border-color: var(--light-gray-3);
+
 		&:hover {
 			background-color: var(--light-gray-0);
 		}
@@ -23,7 +24,7 @@
 	}
 
 	@include dark {
-		--main-shadow-full: var(--main-shadow) var(--dark-gray-2);
+		--main-shadow-full: var(--main-shadow) var(--dark-gray-1);
 
 		background-color: var(--dark-gray-3);
 		box-shadow: var(--main-shadow-full),
@@ -50,7 +51,7 @@
 	@include light {
 		color: var(--light-gray-0);
 		background-color: var(--accent-2);
-		box-shadow: var(--main-shadow) var(--light-gray-4),
+		box-shadow: var(--main-shadow) var(--light-gray-3),
 			var(--inset-shadow) var(--accent-3);
 		border-color: var(--accent-0);
 		&:hover {
@@ -62,7 +63,7 @@
 	}
 
 	@include dark {
-		color: var(--dark-gray-7);
+		color: var(--dark-gray-6);
 		background-color: var(--accent-2);
 		box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--accent-3);
 		&:hover {
@@ -80,11 +81,11 @@
 .selected:active {
 	@include light {
 		background-color: var(--light-gray-2);
-		box-shadow: 0px 0px 0px var(--light-gray-2);
+		box-shadow: 0px 0px 0px transparent;
 	}
 	@include dark {
 		background-color: var(--dark-gray-1);
-		box-shadow: 0px 0px 0px var(--dark-gray-1);
+		box-shadow: 0px 0px 0px transparent;
 	}
 }
 
@@ -92,11 +93,11 @@
 .disabled:hover,
 .disabled:active {
 	@include light {
-		color: var(--light-gray-5);
+		color: var(--light-gray-4);
 		box-shadow: none;
 	}
 	@include dark {
-		color: var(--dark-gray-6);
+		color: var(--dark-gray-5);
 		box-shadow: none;
 	}
 }

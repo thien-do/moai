@@ -22,23 +22,21 @@
 	--accent-3: hsl(205, 79%, 60%);
 
 	// Light color scheme
-	--light-gray-0: hsl(00, 00%, 100%); // background strong
-	--light-gray-1: hsl(240, 20%, 98%); // background weak
-	--light-gray-2: hsl(240, 09%, 93%); //
-	--light-gray-3: hsl(240, 05%, 88%); // border weak
-	--light-gray-4: hsl(218, 11%, 81%); // border strong
-	--light-gray-5: hsl(210, 04%, 53%); // foreground weak
-	--light-gray-6: hsl(202, 11%, 15%); // foreground strong
+	--light-gray-0: hsl(235, 5%, 100%); // background strong
+	--light-gray-1: hsl(235, 15%, 98%); // background weak
+	--light-gray-2: hsl(235, 9%, 91%); // border weak
+	--light-gray-3: hsl(235, 7%, 78%); // border strong
+	--light-gray-4: hsl(235, 6%, 50%); // foreground weak
+	--light-gray-5: hsl(235, 5%, 15%); // foreground strong
 
 	// Dark color scheme
-	--dark-gray-0: hsl(230, 00%, 00%); //
-	--dark-gray-1: hsl(229, 10%, 09%); //
-	--dark-gray-2: hsl(235, 09%, 14%); // background weak
-	--dark-gray-3: hsl(233, 09%, 19%); // background strong
-	--dark-gray-4: hsl(229, 11%, 25%); // border weak
-	--dark-gray-5: hsl(230, 08%, 43%); // border strong
-	--dark-gray-6: hsl(215, 08%, 56%); // foreground weak
-	--dark-gray-7: hsl(173, 10%, 98%); // foreground strong
+	--dark-gray-0: hsl(235, 5%, 13%); // widget border
+	--dark-gray-1: hsl(235, 6%, 17%); // background weak
+	--dark-gray-2: hsl(235, 6%, 22%); // background strong
+	--dark-gray-3: hsl(235, 6%, 27%); // border weak
+	--dark-gray-4: hsl(235, 6%, 36%); // border strong
+	--dark-gray-5: hsl(235, 5%, 65%); // foreground weak
+	--dark-gray-6: hsl(235, 5%, 98%); // foreground strong
 
 	// Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	// font size
@@ -61,10 +59,10 @@ body {
 
 	@include light {
 		background-color: var(--light-gray-0);
-		color: var(--light-gray-6);
+		color: var(--light-gray-5);
 	}
 	@include dark {
-		background-color: var(--dark-gray-3);
-		color: var(--dark-gray-7);
+		background-color: var(--dark-gray-2);
+		color: var(--dark-gray-6);
 	}
 }

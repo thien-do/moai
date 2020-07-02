@@ -3,18 +3,7 @@
 .primary {
 	@include light {
 		background-color: var(--light-gray-0);
-		color: var(--light-gray-6);
-	}
-	@include dark {
-		background-color: var(--dark-gray-3);
-		color: var(--dark-gray-7);
-	}
-}
-
-.secondary {
-	@include light {
-		background-color: var(--light-gray-1);
-		color: var(--light-gray-6);
+		color: var(--light-gray-5);
 	}
 	@include dark {
 		background-color: var(--dark-gray-2);
@@ -22,13 +11,24 @@
 	}
 }
 
+.secondary {
+	@include light {
+		background-color: var(--light-gray-1);
+		color: var(--light-gray-5);
+	}
+	@include dark {
+		background-color: var(--dark-gray-1);
+		color: var(--dark-gray-7);
+	}
+}
+
 .inverse {
 	@include light {
-		background-color: var(--light-gray-6);
+		background-color: var(--light-gray-5);
 		color: var(--light-gray-0);
 	}
 	@include dark {
 		background-color: var(--dark-gray-4);
-		color: var(--dark-gray-7);
+		color: var(--dark-gray-6);
 	}
 }
