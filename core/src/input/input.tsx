@@ -1,10 +1,9 @@
 import React from "react";
-
-import { outline } from "../outline/outline";
-import { borderColor } from "../border/border";
 import { background } from "../background/background";
-import s from "./input.module.scss";
+import { borderColor } from "../border/border";
+import { outline } from "../outline/outline";
 import { text } from "../text/text";
+import s from "./input.module.scss";
 
 interface InputStyle {
 	main: string;
@@ -22,7 +21,7 @@ interface VisualProps {
 const getClass = (props: VisualProps) => {
 	const style = props.style ?? Input.style.outset;
 	const size = props.size ?? Input.size.medium;
-	const styles = [s.input, outline.inner, style.main, size]
+	const styles = [s.input, outline.inner, style.main, size];
 	if (props.disabled) styles.push(style.disabled);
 	return styles.join(" ");
 };
