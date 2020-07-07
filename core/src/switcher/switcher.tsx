@@ -1,11 +1,14 @@
 import React from "react";
-
-import { outline } from "../outline/outline";
+import { IconPath } from "../icon/icon";
 import s from "./switcher.module.scss";
+import { Button } from "../button/button";
 
 export interface SwitcherOption<T> {
 	value: T;
-	label: string;
+	label?: string;
+	icon?: IconPath;
+	key?: string;
+	disabled?: boolean;
 }
 
 interface Props<T> {
@@ -14,22 +17,18 @@ interface Props<T> {
 	options: SwitcherOption<T>[];
 }
 
-const getClassName = <T,>(value: T, option: SwitcherOption<T>) => {
-	const curr = value === option.value ? s.bold : s.soft;
-	return `${s.button} ${curr} ${outline.outer}`;
-};
-
-// @TODO: not a11y ready
-export const Switcher = <T,>({ value, setValue, options }: Props<T>) => (
+export const Switcher = <T,>(props: Props<T>) => (
 	<div className={s.container}>
-		{options.map((option) => (
-			<button
-				key={option.label}
-				className={getClassName(value, option)}
-				onClick={() => setValue(option.value)}
-			>
-				{option.label}
-			</button>
+		{props.options.map((option) => (
+			<div className={s.option} key={option.label || option.key}>
+				<Button
+					icon={option.icon}
+					children={option.label}
+					onClick={() => props.setValue(option.value)}
+					selected={option.value === props.value}
+					disabled={option.disabled}
+				/>
+			</div>
 		))}
 	</div>
 );
