@@ -89,12 +89,12 @@ export const Select = <T,>(props: Props<T>) => {
 
 Select.style = {
 	outset: {
-		select: `${outset.main} ${outline.outer} ${s.outset}`,
+		select: `${outset.main} ${outline.normal} ${s.outset}`,
 		disabled: "",
 		container: "",
 	} as SelectStyle,
 	flat: {
-		select: `${flat.main} ${outline.inner}`,
+		select: `${flat.main} ${outline.normal}`,
 		disabled: `${text.muted}`,
 		container: s.flatContainer,
 	} as SelectStyle,

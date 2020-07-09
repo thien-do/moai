@@ -1,33 +1,18 @@
-@import "../theme/module.scss";
+.normal,
+.always {
+	outline: solid 8px transparent;
+	outline-offset: -1px;
+}
 
-.inner::-moz-focus-inner,
-.outer::-moz-focus-inner {
+.normal::-moz-focus-inner,
+.always::-moz-focus-inner {
 	border: none;
 }
 
-.inner,
-.outer {
-	outline: solid 8px transparent;
-}
-
-.outer {
-	outline-offset: 4px;
-}
-
-.inner {
-	outline-offset: -2px;
-}
-
-.inner:global(.focus-visible),
-.outer:global(.focus-visible) {
+.normal:global(.focus-visible),
+.always:focus {
 	outline-width: 2px;
 	position: relative;
 	z-index: 1;
-
-	@include light {
-		outline-color: var(--accent-2);
-	}
-	@include dark {
-		outline-color: var(--accent-2);
-	}
+	outline-color: var(--accent-2);
 }

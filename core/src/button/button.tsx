@@ -64,13 +64,13 @@ export const Button = (props: Props) => (
 
 Button.style = {
 	outset: {
-		main: `${s.outset} ${outset.main} ${outline.outer}`,
+		main: `${s.outset} ${outset.main} ${outline.normal}`,
 		selected: outset.selected,
 		highlight: outset.highlight,
 		disabled: outset.disabled,
 	} as ButtonStyle,
 	flat: {
-		main: `${flat.main} ${outline.inner}`,
+		main: `${flat.main} ${outline.normal}`,
 		selected: flat.selected,
 		highlight: "",
 		disabled: "",

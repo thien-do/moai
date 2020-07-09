@@ -15,7 +15,7 @@ interface Props {
 export const RangeInput: React.FC<Props> = (props) => (
 	<>
 		<input
-			className={`${s.input} ${outline.outer}`}
+			className={`${s.input} ${outline.normal}`}
 			type="range"
 			value={props.value}
 			onChange={(e) => props.setValue(e.target.valueAsNumber)}

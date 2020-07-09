@@ -3,6 +3,6 @@ import s from "./outline.module.scss";
 type OutlineStyle = string;
 
 export const outline = {
-	inner: s.inner as OutlineStyle,
-	outer: s.outer as OutlineStyle,
+	normal: s.normal as OutlineStyle,
+	always: s.always as OutlineStyle,
 };

@@ -23,7 +23,7 @@ export const Checkbox: React.FC<Props> = ({ value, setValue, children }) => (
 		)}
 		<input
 			type="checkbox"
-			className={`${s.input} ${outset.main} ${outline.outer}`}
+			className={`${s.input} ${outset.main} ${outline.normal}`}
 			checked={value}
 			onChange={(e) => setValue(e.target.checked)}
 		/>

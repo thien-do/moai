@@ -23,7 +23,7 @@ const renderTab = (state: State) => (tab: Tab) => {
 		active === tab.title
 			? `${borderColor.weak} ${background.primary}`
 			: `${s.nonactive}`;
-	const className = [s.title, outline.outer, activeCls].join(" ");
+	const className = [s.title, outline.normal, activeCls].join(" ");
 	const onClick = () => setActive(tab.title);
 	return (
 		<button key={tab.title} {...{ className, onClick }}>

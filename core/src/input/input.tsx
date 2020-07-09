@@ -21,7 +21,7 @@ interface VisualProps {
 const getClass = (props: VisualProps) => {
 	const style = props.style ?? Input.style.outset;
 	const size = props.size ?? Input.size.medium;
-	const styles = [s.input, outline.inner, style.main, size];
+	const styles = [s.input, outline.normal, style.main, size];
 	if (props.disabled) styles.push(style.disabled);
 	return styles.join(" ");
 };

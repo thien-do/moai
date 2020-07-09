@@ -18,7 +18,7 @@ export const Radio: React.FC<Props> = (props) => {
 		<label className={s.container}>
 			{checked && <span className={s.dot} />}
 			<input
-				className={`${s.input} ${outset.main} ${outline.outer}`}
+				className={`${s.input} ${outset.main} ${outline.normal}`}
 				type="radio"
 				name={name}
 				checked={checked}
