@@ -1,5 +1,16 @@
 .container {
 	display: flex;
+
+	&.full {
+		width: 100%;
+	}
+}
+
+.option {
+	flex: 0 0 auto;
+	.full & {
+		flex: 1 1 0px;
+	}
 }
 
 .option:not(:first-child) > button {
