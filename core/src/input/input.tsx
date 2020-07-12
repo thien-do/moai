@@ -44,6 +44,7 @@ interface Props<T> extends VisualProps {
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 	placeholder?: string;
+	autoFocus?: boolean;
 }
 
 const getType = (props: Props<any>): string => {
@@ -75,6 +76,7 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			readOnly={props.readOnly}
 			disabled={props.disabled}
 			placeholder={props.placeholder}
+			autoFocus={props.autoFocus}
 		/>
 		{props.list && (
 			<datalist id={props.list.id}>
