@@ -1,15 +1,18 @@
 @import "../theme/module.scss";
 
 .custom {
-	::-webkit-scrollbar {
-		width: 16px;
-		height: 16px;
+	// Firefox
+	@include light {
+		scrollbar-color: var(--light-gray-3) transparent;
+	}
+	@include dark {
+		scrollbar-color: var(--dark-gray-3) transparent;
 	}
 
+	// Everything but Firefox
 	::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
-
 	::-webkit-scrollbar-thumb {
 		@include light {
 			background-color: var(--light-gray-3);
@@ -17,5 +20,9 @@
 		@include dark {
 			background-color: var(--dark-gray-3);
 		}
+	}
+	::-webkit-scrollbar {
+		width: 16px;
+		height: 16px;
 	}
 }
