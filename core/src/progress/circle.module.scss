@@ -1,0 +1,40 @@
+@import "../theme/module.scss";
+
+.container {
+    display: block;
+}
+
+.track {
+    fill: none;
+    @include light {
+        stroke: var(--light-gray-2);
+    }
+    @include dark {
+        stroke: var(--dark-gray-2);
+    }
+}
+
+.head {
+    fill: none;
+    stroke-linecap: round;
+    transform-origin: center;
+    @include light {
+        stroke: var(--light-gray-4);
+    }
+    @include dark {
+        stroke: var(--dark-gray-4);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate {
+    animation: spin 0.5s linear infinite;
+}
