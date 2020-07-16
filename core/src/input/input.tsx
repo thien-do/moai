@@ -4,25 +4,24 @@ import { borderColor } from "../border/border";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
 import s from "./input.module.scss";
+import { IconPath, Icon, IconSize } from "../icon/icon";
 
 interface InputStyle {
 	main: string;
 	disabled: string;
 }
 
-type InputSize = string;
+type InputSize = {
+	main: string;
+	mainWithIcon: string;
+	icon: string;
+	iconSize: IconSize;
+};
 
-interface VisualProps {
-	style?: InputStyle;
-	size?: InputSize;
-	disabled?: boolean;
-}
-
-const getClass = (props: VisualProps) => {
-	const style = props.style ?? Input.style.outset;
-	const size = props.size ?? Input.size.medium;
-	const styles = [s.input, outline.normal, style.main, size];
-	if (props.disabled) styles.push(style.disabled);
+const getClass = <T,>(props: Props<T>) => {
+	const styles = [s.input, outline.normal, props.style.main];
+	styles.push(props.icon ? props.size.mainWithIcon : props.size.main);
+	if (props.disabled) styles.push(props.style.disabled);
 	return styles.join(" ");
 };
 
@@ -35,16 +34,24 @@ const onChange = <T,>(props: Props<T>) => (e: ChangeEvent) => {
 	props.setValue(isNumber ? target.valueAsNumber : (target.value as any));
 };
 
-interface Props<T> extends VisualProps {
+interface Props<T> {
+	// Value
 	defaultValue?: T;
 	value?: T;
 	setValue?: (value: T) => void;
 	list?: { id: string; values: T[] };
+	// Style
+	icon?: IconPath;
+	style: InputStyle;
+	size: InputSize;
+	// Attributes
+	disabled?: boolean;
 	readOnly?: boolean;
-	onBlur?: React.FocusEventHandler<HTMLInputElement>;
-	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 	placeholder?: string;
 	autoFocus?: boolean;
+	// Events
+	onBlur?: React.FocusEventHandler<HTMLInputElement>;
+	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 }
 
 const getType = (props: Props<any>): string => {
@@ -60,7 +67,7 @@ const getType = (props: Props<any>): string => {
 };
 
 export const Input = <T extends number | string>(props: Props<T>) => (
-	<>
+	<div className={s.container}>
 		<input
 			// value
 			type={getType(props)}
@@ -78,6 +85,11 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			placeholder={props.placeholder}
 			autoFocus={props.autoFocus}
 		/>
+		{props.icon && (
+			<div className={[s.icon, text.muted, props.size.icon].join(" ")}>
+				<Icon path={props.icon} size={props.size.iconSize} />
+			</div>
+		)}
 		{props.list && (
 			<datalist id={props.list.id}>
 				{props.list.values.map((value) => (
@@ -85,7 +97,7 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 				))}
 			</datalist>
 		)}
-	</>
+	</div>
 );
 
 Input.style = {
@@ -100,6 +112,21 @@ Input.style = {
 };
 
 Input.size = {
-	medium: s.medium as InputSize,
-	small: s.small as InputSize,
+	medium: {
+		main: s.mediumMain,
+		mainWithIcon: s.mediumMainWithIcon,
+		icon: s.mediumIcon,
+		iconSize: 16,
+	} as InputSize,
+	small: {
+		main: s.smallMain,
+		mainWithIcon: s.smallMainWithIcon,
+		icon: s.smallIcon,
+		iconSize: 16,
+	} as InputSize,
+};
+
+Input.defaultProps = {
+	style: Input.style.outset,
+	size: Input.size.medium,
 };
