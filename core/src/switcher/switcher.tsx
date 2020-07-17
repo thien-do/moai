@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../button/button";
+import { Button, ButtonSize } from "../button/button";
 import { IconPath } from "../icon/icon";
 import s from "./switcher.module.scss";
 
@@ -16,6 +16,7 @@ interface Props<T> {
 	setValue: (value: T) => void;
 	options: SwitcherOption<T>[];
 	isFullWidth?: boolean;
+	size?: ButtonSize;
 }
 
 export const Switcher = <T,>(props: Props<T>) => (
@@ -29,6 +30,7 @@ export const Switcher = <T,>(props: Props<T>) => (
 					selected={option.value === props.value}
 					disabled={option.disabled}
 					isFullWidth={props.isFullWidth}
+					size={props.size}
 				/>
 			</div>
 		))}
