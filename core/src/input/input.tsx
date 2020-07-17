@@ -11,7 +11,7 @@ interface InputStyle {
 	disabled: string;
 }
 
-type InputSize = {
+export interface InputSize {
 	main: string;
 	mainWithIcon: string;
 	icon: string;
@@ -122,7 +122,7 @@ Input.size = {
 		main: s.smallMain,
 		mainWithIcon: s.smallMainWithIcon,
 		icon: s.smallIcon,
-		iconSize: 16,
+		iconSize: 12,
 	} as InputSize,
 };
 
