@@ -2,7 +2,7 @@ import React from "react";
 
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
-import { DivPx } from "../div/div";
+import { DivPx, DivSize } from "../div/div";
 
 import s from "./button.module.scss";
 import flat from "./flat.module.scss";
@@ -18,6 +18,7 @@ export interface ButtonStyle {
 export type ButtonSize = {
 	main: string;
 	iconSize: IconSize;
+	iconMargin: DivSize;
 };
 
 const getClass = (props: Props) => {
@@ -57,7 +58,7 @@ export const Button = (props: Props) => (
 				<Icon size={props.size.iconSize} path={props.icon} />
 			</span>
 		)}
-		{props.icon && props.children && <DivPx size={8} />}
+		{props.icon && props.children && <DivPx size={props.size.iconMargin} />}
 		{props.children && <span className={s.text}>{props.children}</span>}
 	</button>
 );
@@ -81,10 +82,12 @@ Button.size = {
 	medium: {
 		main: s.medium,
 		iconSize: 16,
+		iconMargin: 8,
 	} as ButtonSize,
 	small: {
 		main: s.small,
 		iconSize: 12,
+		iconMargin: 4,
 	} as ButtonSize,
 };
 
