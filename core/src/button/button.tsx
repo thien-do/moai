@@ -34,10 +34,14 @@ const getClass = (props: Props) => {
 };
 
 interface Props {
-	onClick: () => void;
 	children?: React.ReactNode;
 	icon?: IconPath;
+	// target - button
 	disabled?: boolean;
+	onClick?: () => void;
+	// target - link
+	target?: string;
+	href?: string;
 	// visual
 	selected?: boolean;
 	highlight?: boolean;
@@ -47,21 +51,43 @@ interface Props {
 	size: ButtonSize;
 }
 
-export const Button = (props: Props) => (
-	<button
-		onClick={props.onClick}
-		className={getClass(props)}
-		disabled={props.disabled}
-	>
-		{props.icon && (
-			<span className={s.icon}>
-				<Icon size={props.size.iconSize} path={props.icon} />
-			</span>
-		)}
-		{props.icon && props.children && <DivPx size={props.size.iconMargin} />}
-		{props.children && <span className={s.text}>{props.children}</span>}
-	</button>
-);
+const validateProps = (props: Props) => {
+	if (props.onClick === undefined && props.href === undefined)
+		throw Error("onClick and href are undefined");
+};
+
+export const Button = (props: Props) => {
+	validateProps(props);
+	const children = (
+		<>
+			{props.icon && (
+				<span className={s.icon}>
+					<Icon size={props.size.iconSize} path={props.icon} />
+				</span>
+			)}
+			{props.icon && props.children && (
+				<DivPx size={props.size.iconMargin} />
+			)}
+			{props.children && <span className={s.text}>{props.children}</span>}
+		</>
+	);
+	return props.href ? (
+		<a
+			className={getClass(props)}
+			href={props.href}
+			target={props.target}
+			rel="noopener noreferrer"
+			children={children}
+		/>
+	) : (
+		<button
+			className={getClass(props)}
+			onClick={props.onClick}
+			disabled={props.disabled}
+			children={children}
+		/>
+	);
+};
 
 Button.style = {
 	outset: {
