@@ -52,6 +52,9 @@ interface Props<T> {
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
+	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
+	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
+	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 const getType = (props: Props<any>): string => {
@@ -77,6 +80,9 @@ export const Input = <T extends number | string>(props: Props<T>) => (
 			// event handlers
 			onBlur={props.onBlur}
 			onFocus={props.onFocus}
+			onKeyDown={props.onKeyDown}
+			onKeyPress={props.onKeyPress}
+			onKeyUp={props.onKeyUp}
 			// properties
 			className={getClass(props)}
 			list={props.list?.id ?? undefined}
