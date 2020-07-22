@@ -39,6 +39,7 @@ interface Props {
 	// target - button
 	disabled?: boolean;
 	onClick?: () => void;
+	autoFocus?: boolean;
 	// target - link
 	target?: string;
 	href?: string;
@@ -84,6 +85,7 @@ export const Button = (props: Props) => {
 			className={getClass(props)}
 			onClick={props.onClick}
 			disabled={props.disabled}
+			autoFocus={props.autoFocus}
 			children={children}
 		/>
 	);
