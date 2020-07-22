@@ -2,7 +2,7 @@ import React from "react";
 
 import s from "./icon.module.scss";
 
-export type IconSize = 12 | 16;
+export type IconSize = 12 | 16 | 36;
 export type IconPath = string;
 
 interface Props {
