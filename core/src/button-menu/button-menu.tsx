@@ -6,6 +6,7 @@ import s from "./button-menu.module.scss";
 export interface ButtonMenuAction {
 	label: string;
 	fn: () => void;
+	disabled?: boolean;
 }
 
 interface Props {
@@ -15,8 +16,8 @@ interface Props {
 	icon?: IconPath;
 }
 
-const renderOption = ({ label }: ButtonMenuAction) => (
-	<option key={label} value={label}>
+const renderOption = ({ label, disabled }: ButtonMenuAction) => (
+	<option disabled={disabled} key={label} value={label}>
 		{label}
 	</option>
 );
