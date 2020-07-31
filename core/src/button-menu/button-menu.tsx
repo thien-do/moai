@@ -38,7 +38,7 @@ export const ButtonMenu = (props: Props) => (
 	<div className={s.container}>
 		<select
 			value="fake"
-			className={[props.style.main, s.select].join(" ")}
+			className={[props.style.main, s.select2].join(" ")}
 			onChange={onChange(props.actions)}
 		>
 			<option value="fake" disabled></option>

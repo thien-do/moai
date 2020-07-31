@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.select {
+.select2 {
 	cursor: pointer;
 	top: 0;
 	left: 0;
@@ -12,7 +12,7 @@
 
 // outline set position and z-index so we need to override them with higher
 // selector priority
-.select:not(#foo) {
+.select2:not(#foo) {
 	position: absolute;
 	z-index: 1;
 }
