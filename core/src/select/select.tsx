@@ -13,7 +13,7 @@ type SelectStyle = {
 	disabled: string;
 };
 
-interface SelectSize {
+export interface SelectSize {
 	select: string;
 	icon: string;
 }
