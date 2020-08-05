@@ -4,6 +4,7 @@
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	text-decoration: none;
 }
 
@@ -12,13 +13,13 @@
 }
 
 .medium {
-	padding: 8px 12px;
-	line-height: 16px;
+	height: 32px;
+	padding: 0 12px;
 }
 
 .small {
-	padding: 6px 8px;
-	line-height: 12px;
+	height: 24px;
+	padding: 0 8px;
 }
 
 .outset {
