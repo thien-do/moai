@@ -1,0 +1,34 @@
+{
+	"name": "@moai/icon",
+	"version": "0.0.1",
+	"description": "An iconset for @moai/core",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.es.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "npx rollup --config"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dvkndn/moai.git"
+	},
+	"keywords": [
+		"icon",
+		"moai",
+		"ui",
+		"react",
+		"component",
+		"framework"
+	],
+	"author": "dvkndn",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/dvkndn/moai/issues"
+	},
+	"homepage": "https://moai.xyz",
+	"devDependencies": {
+		"rollup": "2.15.0"
+	}
+}

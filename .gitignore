@@ -1,3 +1,2 @@
-/node_modules
-/core/node_modules
-/core/dist
+node_modules
+dist
