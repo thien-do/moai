@@ -7,15 +7,6 @@
 .input {
 	width: 100%;
 	transition: background-color 0.1s, outline 0.2s ease-out;
-
-	// Firefox doesn't allow the line-height of an input to be smaller than
-	// "1.2". Because our font size is 14px, the minimum is 17px, so we can't
-	// use the nice 16px here but fallback to 20px. See:
-	// - https://stackoverflow.com/questions/3650530/firefox-line-height-issue-with-input-fields
-	// - https://bugzilla.mozilla.org/show_bug.cgi?id=349259
-	// - https://bugzilla.mozilla.org/show_bug.cgi?id=697451
-	// - http://hg.mozilla.org/mozilla-central/rev/b97aef275b5e
-	line-height: 20px;
 }
 
 .icon {
@@ -78,7 +69,7 @@
 	left: 12px;
 }
 
-.smallMain
+.smallMain,
 .smallMainWithIcon {
 	padding-right: 8px;
 	height: 24px;
