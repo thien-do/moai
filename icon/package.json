@@ -1,9 +1,10 @@
 {
 	"name": "@moai/icon",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "An iconset for @moai/core",
-	"main": "dist/index.cjs.js",
-	"module": "dist/index.es.js",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
@@ -30,5 +31,10 @@
 	"homepage": "https://moai.xyz",
 	"devDependencies": {
 		"rollup": "2.15.0"
+	},
+	"dependencies": {
+		"@rollup/plugin-typescript": "^5.0.2",
+		"tslib": "^2.0.0",
+		"typescript": "^3.9.7"
 	}
 }
