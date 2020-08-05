@@ -33,9 +33,13 @@ const getClass = (props: Props) => {
 	return classes.join(" ");
 };
 
-interface Props {
+interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
+	size: ButtonSize;
+}
+
+interface Props extends ChildrenProps {
 	// target - button
 	disabled?: boolean;
 	onClick?: () => void;
@@ -57,28 +61,27 @@ const validateProps = (props: Props) => {
 		throw Error("onClick and href are undefined");
 };
 
+export const ButtonChildren = (props: ChildrenProps) => (
+	<>
+		{props.icon && (
+			<span className={s.icon}>
+				<Icon size={props.size.iconSize} path={props.icon} />
+			</span>
+		)}
+		{props.icon && props.children && <DivPx size={props.size.iconMargin} />}
+		{props.children && <span className={s.text}>{props.children}</span>}
+	</>
+);
+
 export const Button = (props: Props) => {
 	validateProps(props);
-	const children = (
-		<>
-			{props.icon && (
-				<span className={s.icon}>
-					<Icon size={props.size.iconSize} path={props.icon} />
-				</span>
-			)}
-			{props.icon && props.children && (
-				<DivPx size={props.size.iconMargin} />
-			)}
-			{props.children && <span className={s.text}>{props.children}</span>}
-		</>
-	);
 	return props.href ? (
 		<a
 			className={getClass(props)}
 			href={props.href}
 			target={props.target}
 			rel="noopener noreferrer"
-			children={children}
+			children={<ButtonChildren {...props} />}
 		/>
 	) : (
 		<button
@@ -86,7 +89,7 @@ export const Button = (props: Props) => {
 			onClick={props.onClick}
 			disabled={props.disabled}
 			autoFocus={props.autoFocus}
-			children={children}
+			children={<ButtonChildren {...props} />}
 		/>
 	);
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, ButtonSize, ButtonStyle } from "../button/button";
-import { Icon, IconPath } from "../icon/icon";
+import * as Button from "../button/button";
+import { IconPath } from "../icon/icon";
 import s from "./button-menu.module.scss";
 
 export interface ButtonMenuAction {
@@ -11,9 +11,12 @@ export interface ButtonMenuAction {
 
 interface Props {
 	actions: ButtonMenuAction[];
-	size: ButtonSize;
-	style: ButtonStyle;
+	// Like Button:
+	children?: React.ReactNode;
 	icon?: IconPath;
+	// Styles
+	size: Button.ButtonSize;
+	style: Button.ButtonStyle;
 }
 
 const renderOption = ({ label, disabled }: ButtonMenuAction) => (
@@ -31,30 +34,29 @@ const onChange = (actions: ButtonMenuAction[]) => (event: ChangeEvent) => {
 	action.fn();
 };
 
-const morePath =
-	"M2 10.03a2 2 0 100-4 2 2 0 000 4zM14 10.03a2 2 0 100-4 2 2 0 000 4zM8 10.03a2 2 0 100-4 2 2 0 000 4z";
-
 export const ButtonMenu = (props: Props) => (
 	<div className={s.container}>
 		<select
 			value="fake"
-			className={[props.style.main, s.select2].join(" ")}
+			// Should not use props.size here because there is no content
+			// inside this tag. Select's size should instead follow the fake
+			// button below
+			className={[props.style.main, s.select].join(" ")}
 			onChange={onChange(props.actions)}
 		>
 			<option value="fake" disabled></option>
 			{props.actions.map(renderOption)}
 		</select>
-		<div className={`${props.size.main} ${s.icon}`}>
-			<Icon path={props.icon ?? morePath} size={props.size.iconSize} />
+		<div className={[props.size.main, s.button].join(" ")}>
+			<Button.ButtonChildren {...props} />
 		</div>
 	</div>
 );
 
 ButtonMenu.defaultProps = {
-	size: Button.size.medium,
-	style: Button.style.outset,
+	size: Button.Button.defaultProps.size,
+	style: Button.Button.defaultProps.style,
 };
 
-ButtonMenu.size = Button.size;
-
-ButtonMenu.style = Button.style;
+ButtonMenu.size = Button.Button.size;
+ButtonMenu.style = Button.Button.style;

@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.select2 {
+.select {
 	cursor: pointer;
 	top: 0;
 	left: 0;
@@ -12,13 +12,17 @@
 
 // outline set position and z-index so we need to override them with higher
 // selector priority
-.select2:not(#foo) {
+.select:not(.win-outline) {
 	position: absolute;
 	z-index: 1;
 }
 
-.icon {
+.button {
 	position: relative;
-	z-index: 2;
+	z-index: 2; // Higher than select
 	pointer-events: none;
+	// For Button's children
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
