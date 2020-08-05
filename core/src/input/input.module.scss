@@ -60,12 +60,17 @@
 	border-radius: 3px;
 }
 
+.mediumMain,
+.mediumMainWithIcon {
+	padding-right: 8px;
+	height: 32px;
+}
+
 .mediumMain {
-	padding: 6px 8px;
+	padding-left: 8px;
 }
 
 .mediumMainWithIcon {
-	padding: 6px 8px;
 	padding-left: 36px; // 12 + 16 + 8
 }
 
@@ -73,12 +78,18 @@
 	left: 12px;
 }
 
+.smallMain
+.smallMainWithIcon {
+	padding-right: 8px;
+	height: 24px;
+}
+
 .smallMain {
-	padding: 2px 8px;
+	padding-left: 8px;
 }
 
 .smallMainWithIcon {
-	padding: 2px 8px 2px 24px; // 8 + 12 + 4
+	padding-left: 24px; // 8 + 12 + 4
 }
 
 .smallIcon {
