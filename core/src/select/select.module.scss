@@ -16,10 +16,6 @@
 	cursor: pointer;
 }
 
-.outset {
-	border-radius: 3px;
-}
-
 .icon {
 	position: absolute;
 	margin: auto;
@@ -31,7 +27,9 @@
 }
 
 .mediumSelect {
-	padding: 8px 32px 8px 12px;
+	height: 32px;
+	padding-left: 12px;
+	padding-right: 32px;
 }
 
 .mediumIcon {
@@ -39,7 +37,9 @@
 }
 
 .smallSelect {
-	padding: 4px 24px 4px 8px;
+	height: 24px;
+	padding-left: 8px;
+	padding-right: 24px;
 }
 
 .smallIcon {

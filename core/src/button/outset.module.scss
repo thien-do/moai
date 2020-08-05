@@ -39,6 +39,11 @@
 			box-shadow: none;
 		}
 	}
+
+	// inside button group
+	:global(.group-tail) & {
+		border-left: none;
+	}
 }
 
 .main {

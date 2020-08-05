@@ -1,12 +1,11 @@
 import React from "react";
-
+import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
-import { DivPx, DivSize } from "../div/div";
-
 import s from "./button.module.scss";
 import flat from "./flat.module.scss";
 import outset from "./outset.module.scss";
+import borderRadius from "./border-radius.module.scss";
 
 export interface ButtonStyle {
 	main: string;
@@ -96,13 +95,13 @@ export const Button = (props: Props) => {
 
 Button.style = {
 	outset: {
-		main: `${s.outset} ${outset.main} ${outline.normal}`,
+		main: [borderRadius.container, outset.main, outline.normal].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
 		disabled: outset.disabled,
 	} as ButtonStyle,
 	flat: {
-		main: `${flat.main} ${outline.normal}`,
+		main: [flat.main, outline.normal].join(" "),
 		selected: flat.selected,
 		highlight: "",
 		disabled: "",

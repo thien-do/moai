@@ -1,11 +1,11 @@
 import React from "react";
-
-import { Icon } from "../icon/icon";
-import { outline } from "../outline/outline";
 import flat from "../button/flat.module.scss";
 import outset from "../button/outset.module.scss";
-import s from "./select.module.scss";
+import { Icon } from "../icon/icon";
+import { outline } from "../outline/outline";
 import { text } from "../text/text";
+import s from "./select.module.scss";
+import borderRadius from "../button/border-radius.module.scss";
 
 type SelectStyle = {
 	container: string;
@@ -89,13 +89,13 @@ export const Select = <T,>(props: Props<T>) => {
 
 Select.style = {
 	outset: {
-		select: `${outset.main} ${outline.normal} ${s.outset}`,
+		select: [borderRadius.container, outline.normal, outset.main].join(" "),
 		disabled: "",
 		container: "",
 	} as SelectStyle,
 	flat: {
-		select: `${flat.main} ${outline.normal}`,
-		disabled: `${text.muted}`,
+		select: [flat.main, outline.normal].join(" "),
+		disabled: text.muted,
 		container: s.flatContainer,
 	} as SelectStyle,
 };
