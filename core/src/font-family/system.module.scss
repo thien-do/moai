@@ -1,0 +1,11 @@
+.body {
+	// Can't use "system-ui" alone because Firefox doesn't support it yet
+	// Also can't use "system-ui, -apple-system, sans-serif" because Firefox
+	// would not pick system fonts for Linux and Windows. Therefore our option
+	// is still using a long list like this
+	// - https://bugzilla.mozilla.org/show_bug.cgi?id=1226042
+	--font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
+		"Open Sans", sans-serif;
+	font-family: var(--font-sans);
+	font-weight: 400;
+}

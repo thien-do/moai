@@ -44,20 +44,17 @@
 	// font size
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
+	--font-sans: "Inter", sans-serif;
+	@supports (font-variation-settings: normal) {
+		--font-sans: "Inter var", sans-serif;
+	}
 }
 
-// Google Fonts doesn't have OpenType features
-@import url("https://rsms.me/inter/inter.css");
-
 body {
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-sans);
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 425;
-
-	@supports (font-variation-settings: normal) {
-		font-family: "Inter var", sans-serif;
-	}
 
 	@include light {
 		background-color: var(--light-gray-0);
