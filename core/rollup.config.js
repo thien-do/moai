@@ -23,7 +23,12 @@ const options = {
 	external: ["react"],
 	plugins: [
 		postcss(),
-		copy({ targets: [{ src: "src/theme", dest: "dist/" }] }),
+		copy({
+			targets: [
+				{ src: "src/theme", dest: "dist/" },
+				{ src: "src/font", dest: "dist/" },
+			],
+		}),
 		typescript(typescriptOptions),
 	],
 	onwarn: (warning, warn) => {

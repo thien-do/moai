@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("./Inter-Regular.woff2?3.13") format("woff2");
+}
+@font-face {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("./Inter-Medium.woff2?3.13") format("woff2");
+}
+@font-face {
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("./Inter-SemiBold.woff2?3.13") format("woff2");
+}
+@font-face {
+	font-family: "Inter var";
+	font-weight: 100 900;
+	font-style: normal;
+	font-named-instance: "Regular";
+	font-display: swap;
+	src: url("./Inter-roman.var.woff2?3.13") format("woff2");
+}
+:root {
+	--font-sans: "Inter", sans-serif;
+	@supports (font-variation-settings: normal) {
+		--font-sans: "Inter var", sans-serif;
+	}
+}

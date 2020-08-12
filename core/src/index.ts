@@ -8,7 +8,6 @@ export * from "./button-group/button-group";
 export * from "./button-menu/button-menu";
 export * from "./checkbox/checkbox";
 export * from "./div/div";
-export * from "./font-family/font-family";
 export * from "./form/field";
 export * from "./icon/icon";
 export * from "./input/input";
