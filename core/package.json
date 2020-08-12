@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.0.41",
+	"version": "0.0.42",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
@@ -34,20 +34,20 @@
 		"react": "16"
 	},
 	"dependencies": {
-		"@tippyjs/react": "4.0.2",
+		"@tippyjs/react": "4.1.0",
 		"focus-visible": "5.1.0",
-		"tippy.js": "6.2.3"
+		"tippy.js": "6.2.6"
 	},
 	"devDependencies": {
-		"@rollup/plugin-typescript": "4.1.2",
-		"@types/react": "16.9.35",
+		"@rollup/plugin-typescript": "5.0.2",
+		"@types/react": "16.9.46",
 		"@types/rollup-plugin-postcss": "2.0.0",
-		"autoprefixer": "9.8.0",
+		"autoprefixer": "9.8.6",
 		"node-sass": "4.14.1",
-		"rollup": "2.15.0",
+		"rollup": "2.23.1",
 		"rollup-plugin-copy": "3.3.0",
-		"rollup-plugin-postcss": "3.1.2",
-		"tslib": "2.0.0",
-		"typescript": "3.9.5"
+		"rollup-plugin-postcss": "3.1.5",
+		"tslib": "2.0.1",
+		"typescript": "3.9.7"
 	}
 }
