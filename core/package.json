@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.0.43",
+	"version": "0.0.45",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
@@ -44,7 +44,7 @@
 		"@types/rollup-plugin-postcss": "2.0.0",
 		"autoprefixer": "9.8.6",
 		"node-sass": "4.14.1",
-		"rollup": "2.23.1",
+		"rollup": "2.24.0",
 		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-postcss": "3.1.5",
 		"tslib": "2.0.1",
