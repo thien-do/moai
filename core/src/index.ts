@@ -21,3 +21,4 @@ export * from "./select/select";
 export * from "./switcher/switcher";
 export * from "./tab/tab";
 export * from "./text/text";
+export * from "./text-area/text-area";

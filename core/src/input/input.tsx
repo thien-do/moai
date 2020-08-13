@@ -6,7 +6,7 @@ import { text } from "../text/text";
 import s from "./input.module.scss";
 import { IconPath, Icon, IconSize } from "../icon/icon";
 
-interface InputStyle {
+export interface InputStyle {
 	main: string;
 	disabled: string;
 }
