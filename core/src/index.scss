@@ -1,19 +1,5 @@
 @import "./theme/global.scss";
 
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	border: none;
-	appearance: none;
-	font: inherit;
-	color: inherit;
-	background: none;
-	list-style-type: none;
-}
-
 :root {
 	// Common color scheme - Not really sure about this though
 	--accent-0: hsl(211, 61%, 43%);

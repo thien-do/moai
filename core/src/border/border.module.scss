@@ -1,6 +1,8 @@
 @import "../theme/module.scss";
 
 .border {
+	border-right: none;
+	border-bottom: none;
 	border-top-style: solid;
 	border-top-width: 1px;
 	border-left-style: solid;

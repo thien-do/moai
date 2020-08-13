@@ -1,4 +1,6 @@
 import "focus-visible";
+
+import "./reset.scss";
 import "./index.scss";
 
 export * from "./background/background";
