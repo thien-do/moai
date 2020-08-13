@@ -18,7 +18,7 @@
 
 .dot {
 	position: absolute;
-	z-index: 1; // wins the z-index of outline
+	z-index: 2; // wins the z-index of outline
 	top: 6px;
 	left: 6px;
 

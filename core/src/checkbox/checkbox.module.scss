@@ -18,7 +18,7 @@
 
 .tick {
 	position: absolute;
-	z-index: 1; // wins the z-index of outline
+	z-index: 2; // wins the z-index of outline
 	top: 2px;
 	left: 2px;
 
