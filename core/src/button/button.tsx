@@ -6,6 +6,7 @@ import s from "./button.module.scss";
 import flat from "./flat.module.scss";
 import outset from "./outset.module.scss";
 import borderRadius from "./border-radius.module.scss";
+import { ProgressCircle } from "../progress/circle";
 
 export interface ButtonStyle {
 	main: string;
@@ -21,14 +22,15 @@ export type ButtonSize = {
 };
 
 const getClass = (props: Props) => {
-	const { highlight, selected, size, style, isFullWidth, disabled } = props;
+	const { highlight, selected, size, style, isFullWidth } = props;
+	const { isBusy, disabled } = props;
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
 	const classes = [s.button, size.main, style.main];
 	if (isFullWidth) classes.push(s.fullWidth);
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
-	if (disabled) classes.push(style.disabled, s.disabled);
+	if (disabled || isBusy) classes.push(style.disabled, s.disabled);
 	return classes.join(" ");
 };
 
@@ -36,6 +38,7 @@ interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
 	size: ButtonSize;
+	isBusy?: boolean;
 }
 
 interface Props extends ChildrenProps {
@@ -62,6 +65,11 @@ const validateProps = (props: Props) => {
 
 export const ButtonChildren = (props: ChildrenProps) => (
 	<>
+		{props.isBusy && (
+			<span className={s.busy}>
+				<ProgressCircle size={16} value={null} />
+			</span>
+		)}
 		{props.icon && (
 			<span className={s.icon}>
 				<Icon size={props.size.iconSize} path={props.icon} />
@@ -86,7 +94,7 @@ export const Button = (props: Props) => {
 		<button
 			className={getClass(props)}
 			onClick={props.onClick}
-			disabled={props.disabled}
+			disabled={props.disabled || props.isBusy}
 			autoFocus={props.autoFocus}
 			children={<ButtonChildren {...props} />}
 		/>
