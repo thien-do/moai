@@ -11,12 +11,16 @@ select {
 	font: inherit;
 	color: inherit;
 	appearance: none;
-    background: none;
-    border: none;
+	background: none;
+	border: none;
 }
 
 * {
 	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
