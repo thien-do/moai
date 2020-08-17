@@ -1,5 +1,5 @@
 @mixin light {
-	html & {
+	html.theme-light & {
 		@content;
 	}
 	@media (prefers-color-scheme: light) {
