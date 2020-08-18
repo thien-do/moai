@@ -8,6 +8,7 @@ import { ButtonMenuArrow } from "../arrow/arrow";
 import { ButtonMenuItem, ButtonMenuItemComponent } from "../item/item";
 import s from "./menu.module.scss";
 import sArrow from "../arrow/arrow.module.scss";
+import { boxShadow } from "../../box-shadow/box-shadow";
 
 interface Props {
 	setMenu: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
@@ -27,6 +28,7 @@ export const ButtonMenuMenu = (props: Props) =>
 				sArrow.menu,
 				background.primary,
 				borderColor.strong,
+				boxShadow.strong,
 			].join(" ")}
 			ref={props.setMenu}
 			{...props.attributes.popper}
