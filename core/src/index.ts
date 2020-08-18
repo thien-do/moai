@@ -17,7 +17,6 @@ export * from "./input/input";
 export * from "./outline/outline";
 export * from "./radio/radio";
 export * from "./range/range";
-export * from "./pop/pop";
 export * from "./progress/circle";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";

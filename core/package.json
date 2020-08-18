@@ -36,10 +36,8 @@
 	},
 	"dependencies": {
 		"@popperjs/core": "^2.4.4",
-		"@tippyjs/react": "4.1.0",
 		"focus-visible": "5.1.0",
 		"react-popper": "^2.2.3",
-		"tippy.js": "6.2.6"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "5.0.2",
