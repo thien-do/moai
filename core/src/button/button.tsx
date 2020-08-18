@@ -52,6 +52,7 @@ export interface ButtonProps extends ChildrenProps {
 	target?: string;
 	href?: string;
 	// visual
+	title?: string;
 	selected?: boolean;
 	highlight?: boolean;
 	isFullWidth?: boolean;
@@ -83,18 +84,22 @@ export const Button = (props: ButtonProps) =>
 	props.href ? (
 		<a
 			className={getClass(props)}
+			title={props.title}
+			children={<ButtonChildren {...props} />}
+			// ===
 			href={props.href}
 			target={props.target}
 			rel="noopener noreferrer"
-			children={<ButtonChildren {...props} />}
 		/>
 	) : (
 		<button
 			className={getClass(props)}
+			title={props.title}
+			children={<ButtonChildren {...props} />}
+			// ===
 			onClick={props.onClick}
 			disabled={props.disabled || props.isBusy}
 			autoFocus={props.autoFocus}
-			children={<ButtonChildren {...props} />}
 			type={props.type ?? "button"}
 		/>
 	);
