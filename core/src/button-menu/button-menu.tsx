@@ -2,7 +2,6 @@ import React from "react";
 import { usePopper } from "react-popper";
 import { Button, ButtonSize, ButtonStyle } from "../button/button";
 import { IconPath } from "../icon/icon";
-import s from "./button-menu.module.scss";
 import { ButtonMenuItem } from "./item/item";
 import { ButtonMenuMenu } from "./menu/menu";
 
@@ -53,8 +52,8 @@ export const ButtonMenu = (props: Props) => {
 	}, [menuVisible, menu]);
 
 	return (
-		<div className={s.container}>
-			<div className={s.button} ref={setButton}>
+		<div>
+			<div ref={setButton}>
 				<Button
 					onClick={() => setMenuVisible(!menuVisible)}
 					size={props.size}
