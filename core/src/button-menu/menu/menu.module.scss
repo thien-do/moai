@@ -4,6 +4,7 @@
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 3px;
+	z-index: 1;
 
 	@include light {
 		box-shadow: 0px 1px 4px var(--light-gray-2);
