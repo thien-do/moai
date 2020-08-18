@@ -1,7 +1,6 @@
 import React from "react";
 import { usePopper } from "react-popper";
-import { Button, ButtonSize, ButtonStyle } from "../button/button";
-import { IconPath } from "../icon/icon";
+import { Button, ButtonProps } from "../button/button";
 import { ButtonMenuItem } from "./item/item";
 import { ButtonMenuMenu } from "./menu/menu";
 
@@ -9,12 +8,7 @@ export { ButtonMenuItem };
 
 interface Props {
 	items: ButtonMenuItem[];
-	// Like Button:
-	children?: React.ReactNode;
-	icon?: IconPath;
-	// Styles
-	size: ButtonSize;
-	style: ButtonStyle;
+	button: Omit<ButtonProps, "onClick">;
 }
 
 export const ButtonMenu = (props: Props) => {
@@ -55,11 +49,8 @@ export const ButtonMenu = (props: Props) => {
 		<div>
 			<div ref={setButton}>
 				<Button
+					{...props.button}
 					onClick={() => setMenuVisible(!menuVisible)}
-					size={props.size}
-					style={props.style}
-					icon={props.icon}
-					children={props.children}
 				/>
 			</div>
 			{menuVisible && (

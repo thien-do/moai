@@ -21,7 +21,7 @@ export type ButtonSize = {
 	iconMargin: DivSize;
 };
 
-const getClass = (props: Props) => {
+const getClass = (props: ButtonProps) => {
 	const { highlight, selected, size, style, isFullWidth } = props;
 	const { isBusy, disabled } = props;
 	if (highlight === true && selected === true)
@@ -41,7 +41,7 @@ interface ChildrenProps {
 	isBusy?: boolean;
 }
 
-interface Props extends ChildrenProps {
+export interface ButtonProps extends ChildrenProps {
 	// target - button
 	disabled?: boolean;
 	onClick?: () => void;
@@ -58,7 +58,7 @@ interface Props extends ChildrenProps {
 	size: ButtonSize;
 }
 
-const validateProps = (props: Props) => {
+const validateProps = (props: ButtonProps) => {
 	if (props.onClick === undefined && props.href === undefined)
 		throw Error("onClick and href are undefined");
 };
@@ -80,7 +80,7 @@ export const ButtonChildren = (props: ChildrenProps) => (
 	</>
 );
 
-export const Button = (props: Props) => {
+export const Button = (props: ButtonProps) => {
 	validateProps(props);
 	return props.href ? (
 		<a
