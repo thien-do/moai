@@ -1,11 +1,7 @@
 @mixin light {
-	html:global(.theme-light) & {
+	html:global(.theme-light) &,
+	html:global(.theme-auto) & {
 		@content;
-	}
-	@media (prefers-color-scheme: light) {
-		html:global(.theme-auto) & {
-			@content;
-		}
 	}
 }
 
