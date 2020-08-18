@@ -112,7 +112,7 @@ Button.style = {
 		main: [flat.main, outline.normal].join(" "),
 		selected: flat.selected,
 		highlight: "",
-		disabled: "",
+		disabled: flat.disabled,
 	} as ButtonStyle,
 };
 

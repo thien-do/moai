@@ -31,16 +31,20 @@
 	},
 	"homepage": "https://moai.xyz",
 	"peerDependencies": {
-		"react": "16"
+		"react": "16",
+		"react-dom": "16"
 	},
 	"dependencies": {
+		"@popperjs/core": "^2.4.4",
 		"@tippyjs/react": "4.1.0",
 		"focus-visible": "5.1.0",
+		"react-popper": "^2.2.3",
 		"tippy.js": "6.2.6"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "5.0.2",
 		"@types/react": "16.9.46",
+		"@types/react-dom": "^16.9.8",
 		"@types/rollup-plugin-postcss": "2.0.0",
 		"autoprefixer": "9.8.6",
 		"node-sass": "4.14.1",

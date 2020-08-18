@@ -1,62 +1,86 @@
 import React from "react";
-import * as Button from "../button/button";
+import { usePopper } from "react-popper";
+import { Button, ButtonSize, ButtonStyle } from "../button/button";
 import { IconPath } from "../icon/icon";
 import s from "./button-menu.module.scss";
+import { ButtonMenuItem } from "./item/item";
+import { ButtonMenuMenu } from "./menu/menu";
 
-export interface ButtonMenuAction {
-	label: string;
-	fn: () => void;
-	disabled?: boolean;
-}
+export { ButtonMenuItem };
 
 interface Props {
-	actions: ButtonMenuAction[];
+	items: ButtonMenuItem[];
 	// Like Button:
 	children?: React.ReactNode;
 	icon?: IconPath;
 	// Styles
-	size: Button.ButtonSize;
-	style: Button.ButtonStyle;
+	size: ButtonSize;
+	style: ButtonStyle;
 }
 
-const renderOption = ({ label, disabled }: ButtonMenuAction) => (
-	<option disabled={disabled} key={label} value={label}>
-		{label}
-	</option>
-);
+export const ButtonMenu = (props: Props) => {
+	const [menuVisible, setMenuVisible] = React.useState(false);
+	const [button, setButton] = React.useState<HTMLDivElement | null>(null);
+	const [menu, setMenu] = React.useState<HTMLDivElement | null>(null);
+	const [arrow, setArrow] = React.useState<HTMLDivElement | null>(null);
+	const { styles, attributes, update } = usePopper(button, menu, {
+		placement: "bottom-start",
+		modifiers: [
+			{ name: "offset", options: { offset: [0, 8] } },
+			{ name: "arrow", options: { element: arrow } },
+		],
+	});
 
-type ChangeEvent = React.ChangeEvent<HTMLSelectElement>;
+	// Because Arrow and Menu is rendered conditionally, the position of arrow
+	// in initial render may be wrong. This forces a Popper's update to fix it
+	React.useEffect(() => {
+		if (menuVisible === false) return;
+		if (update === null) return;
+		update();
+	}, [menuVisible, update]);
 
-const onChange = (actions: ButtonMenuAction[]) => (event: ChangeEvent) => {
-	const label = event.target.value;
-	const action = actions.find((action) => action.label === label);
-	if (action === undefined) throw Error(`Action not found: "${label}"`);
-	action.fn();
-};
+	// Close on outside click
+	React.useEffect(() => {
+		if (menuVisible === false) return;
+		if (menu === null) return;
+		const listener = (event: MouseEvent) => {
+			if (!(event.target instanceof Node)) return;
+			if (menu.contains(event.target)) return;
+			setMenuVisible(false);
+		};
+		document.addEventListener("click", listener);
+		return () => document.removeEventListener("click", listener);
+	}, [menuVisible, menu]);
 
-export const ButtonMenu = (props: Props) => (
-	<div className={s.container}>
-		<select
-			value="fake"
-			// Should not use props.size here because there is no content
-			// inside this tag. Select's size should instead follow the fake
-			// button below
-			className={[props.style.main, s.select].join(" ")}
-			onChange={onChange(props.actions)}
-		>
-			<option value="fake" disabled></option>
-			{props.actions.map(renderOption)}
-		</select>
-		<div className={[props.size.main, s.button].join(" ")}>
-			<Button.ButtonChildren {...props} />
+	return (
+		<div className={s.container}>
+			<div className={s.button} ref={setButton}>
+				<Button
+					onClick={() => setMenuVisible(!menuVisible)}
+					size={props.size}
+					style={props.style}
+					icon={props.icon}
+					children={props.children}
+				/>
+			</div>
+			{menuVisible && (
+				<ButtonMenuMenu
+					setArrow={setArrow}
+					setMenu={setMenu}
+					styles={styles}
+					attributes={attributes}
+					closeMenu={() => setMenuVisible(false)}
+					items={props.items}
+				/>
+			)}
 		</div>
-	</div>
-);
+	);
+};
 
 ButtonMenu.defaultProps = {
-	size: Button.Button.defaultProps.size,
-	style: Button.Button.defaultProps.style,
+	size: Button.defaultProps.size,
+	style: Button.defaultProps.style,
 };
 
-ButtonMenu.size = Button.Button.size;
-ButtonMenu.style = Button.Button.style;
+ButtonMenu.size = Button.size;
+ButtonMenu.style = Button.style;

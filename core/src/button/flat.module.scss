@@ -32,3 +32,14 @@
 		background-color: var(--dark-gray-1);
 	}
 }
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+	@include light {
+		color: var(--light-gray-4);
+	}
+	@include dark {
+		color: var(--dark-gray-4);
+	}
+}

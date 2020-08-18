@@ -5,3 +5,10 @@ export const validateStyles = (obj: object) => {
 		if (value === undefined) throw Error(`${key} is undefined`);
 	});
 };
+
+// @TODO: Custom name
+export const portalContainer: HTMLElement = (() => {
+	const element = document.getElementById("portals");
+	if (element !== null) return element;
+	throw Error("Portal container is null");
+})();
