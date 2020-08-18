@@ -11,7 +11,7 @@ interface Props {
 
 interface ItemAction {
 	label: string;
-	fn: () => void;
+	fn?: () => void;
 	disabled?: boolean;
 }
 
@@ -27,7 +27,7 @@ export const ButtonMenuItemComponent = ({ item, closeMenu }: Props) =>
 	) : (
 		<button
 			onClick={() => {
-				item.fn();
+				item.fn?.();
 				closeMenu();
 			}}
 			disabled={item.disabled}
