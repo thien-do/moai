@@ -66,11 +66,3 @@ export const ButtonMenu = (props: Props) => {
 		</div>
 	);
 };
-
-ButtonMenu.defaultProps = {
-	size: Button.defaultProps.size,
-	style: Button.defaultProps.style,
-};
-
-ButtonMenu.size = Button.size;
-ButtonMenu.style = Button.style;

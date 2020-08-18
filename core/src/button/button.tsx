@@ -2,11 +2,11 @@ import React from "react";
 import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
+import { ProgressCircle } from "../progress/circle";
+import borderRadius from "./border-radius.module.scss";
 import s from "./button.module.scss";
 import flat from "./flat.module.scss";
 import outset from "./outset.module.scss";
-import borderRadius from "./border-radius.module.scss";
-import { ProgressCircle } from "../progress/circle";
 
 export interface ButtonStyle {
 	main: string;
@@ -22,8 +22,9 @@ export type ButtonSize = {
 };
 
 const getClass = (props: ButtonProps) => {
-	const { highlight, selected, size, style, isFullWidth } = props;
-	const { isBusy, disabled } = props;
+	const { highlight, selected, isFullWidth, isBusy, disabled } = props;
+	const size = props.size ?? Button.size.medium;
+	const style = props.style ?? Button.style.outset;
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
 	const classes = [s.button, size.main, style.main];
@@ -37,7 +38,7 @@ const getClass = (props: ButtonProps) => {
 interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
-	size: ButtonSize;
+	size?: ButtonSize;
 	isBusy?: boolean;
 }
 
@@ -53,9 +54,8 @@ export interface ButtonProps extends ChildrenProps {
 	selected?: boolean;
 	highlight?: boolean;
 	isFullWidth?: boolean;
-	// visual with default
-	style: ButtonStyle;
-	size: ButtonSize;
+	style?: ButtonStyle;
+	size?: ButtonSize;
 }
 
 const validateProps = (props: ButtonProps) => {
@@ -63,22 +63,25 @@ const validateProps = (props: ButtonProps) => {
 		throw Error("onClick and href are undefined");
 };
 
-export const ButtonChildren = (props: ChildrenProps) => (
-	<>
-		{props.isBusy && (
-			<span className={s.busy}>
-				<ProgressCircle size={16} value={null} />
-			</span>
-		)}
-		{props.icon && (
-			<span className={s.icon}>
-				<Icon size={props.size.iconSize} path={props.icon} />
-			</span>
-		)}
-		{props.icon && props.children && <DivPx size={props.size.iconMargin} />}
-		{props.children && <span className={s.text}>{props.children}</span>}
-	</>
-);
+export const ButtonChildren = (props: ChildrenProps) => {
+	const size = props.size ?? Button.size.medium;
+	return (
+		<>
+			{props.isBusy && (
+				<span className={s.busy}>
+					<ProgressCircle size={16} value={null} />
+				</span>
+			)}
+			{props.icon && (
+				<span className={s.icon}>
+					<Icon size={size.iconSize} path={props.icon} />
+				</span>
+			)}
+			{props.icon && props.children && <DivPx size={size.iconMargin} />}
+			{props.children && <span className={s.text}>{props.children}</span>}
+		</>
+	);
+};
 
 export const Button = (props: ButtonProps) => {
 	validateProps(props);
@@ -127,9 +130,4 @@ Button.size = {
 		iconSize: 12,
 		iconMargin: 4,
 	} as ButtonSize,
-};
-
-Button.defaultProps = {
-	style: Button.style.outset,
-	size: Button.size.medium,
 };
