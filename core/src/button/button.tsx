@@ -44,6 +44,7 @@ interface ChildrenProps {
 
 export interface ButtonProps extends ChildrenProps {
 	// target - button
+	type?: "submit" | "button" | "reset";
 	disabled?: boolean;
 	onClick?: () => void;
 	autoFocus?: boolean;
@@ -57,11 +58,6 @@ export interface ButtonProps extends ChildrenProps {
 	style?: ButtonStyle;
 	size?: ButtonSize;
 }
-
-const validateProps = (props: ButtonProps) => {
-	if (props.onClick === undefined && props.href === undefined)
-		throw Error("onClick and href are undefined");
-};
 
 export const ButtonChildren = (props: ChildrenProps) => {
 	const size = props.size ?? Button.size.medium;
@@ -83,9 +79,8 @@ export const ButtonChildren = (props: ChildrenProps) => {
 	);
 };
 
-export const Button = (props: ButtonProps) => {
-	validateProps(props);
-	return props.href ? (
+export const Button = (props: ButtonProps) =>
+	props.href ? (
 		<a
 			className={getClass(props)}
 			href={props.href}
@@ -100,9 +95,9 @@ export const Button = (props: ButtonProps) => {
 			disabled={props.disabled || props.isBusy}
 			autoFocus={props.autoFocus}
 			children={<ButtonChildren {...props} />}
+			type={props.type ?? "button"}
 		/>
 	);
-};
 
 Button.style = {
 	outset: {
