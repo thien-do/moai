@@ -47,6 +47,7 @@ interface Props<T> extends VisualProps {
 	value: T;
 	setValue: (value: T) => void;
 	options: SelectOption<T>[];
+	title?: string;
 }
 
 const caret =
@@ -77,6 +78,7 @@ export const Select = <T,>(props: Props<T>) => {
 				value={value}
 				onChange={onChange(props)}
 				disabled={props.disabled}
+				title={props.title}
 			>
 				{props.options.map(renderOption)}
 			</select>
