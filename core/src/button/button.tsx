@@ -48,6 +48,7 @@ export interface ButtonProps extends ChildrenProps {
 	disabled?: boolean;
 	onClick?: () => void;
 	autoFocus?: boolean;
+	dangerouslySetTabIndex?: number;
 	// target - link
 	target?: string;
 	href?: string;
@@ -101,6 +102,7 @@ export const Button = (props: ButtonProps) =>
 			disabled={props.disabled || props.isBusy}
 			autoFocus={props.autoFocus}
 			type={props.type ?? "button"}
+			tabIndex={props.dangerouslySetTabIndex}
 		/>
 	);
 
