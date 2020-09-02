@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, ButtonSize } from "../button/button";
+import { ButtonGroup } from "../button-group/button-group";
+import { Button, ButtonSize, ButtonStyle } from "../button/button";
 import { IconPath } from "../icon/icon";
-import s from "./switcher.module.scss";
 
 export interface SwitcherOption<T> {
 	value: T;
@@ -17,22 +17,23 @@ interface Props<T> {
 	options: SwitcherOption<T>[];
 	isFullWidth?: boolean;
 	size?: ButtonSize;
+	style?: ButtonStyle;
 }
 
 export const Switcher = <T,>(props: Props<T>) => (
-	<div className={`${s.container} ${props.isFullWidth ? s.full : ""}`}>
+	<ButtonGroup fill={props.isFullWidth}>
 		{props.options.map((option) => (
-			<div className={s.option} key={option.label || option.key}>
-				<Button
-					icon={option.icon}
-					children={option.label}
-					onClick={() => props.setValue(option.value)}
-					selected={option.value === props.value}
-					disabled={option.disabled}
-					isFullWidth={props.isFullWidth}
-					size={props.size}
-				/>
-			</div>
+			<Button
+				key={option.label || option.key}
+				icon={option.icon}
+				children={option.label}
+				onClick={() => props.setValue(option.value)}
+				selected={option.value === props.value}
+				disabled={option.disabled}
+				isFullWidth={props.isFullWidth}
+				size={props.size}
+				style={props.style}
+			/>
 		))}
-	</div>
+	</ButtonGroup>
 );
