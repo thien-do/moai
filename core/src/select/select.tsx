@@ -7,7 +7,7 @@ import { text } from "../text/text";
 import s from "./select.module.scss";
 import borderRadius from "../button/border-radius.module.scss";
 
-type SelectStyle = {
+export type SelectStyle = {
 	container: string;
 	select: string;
 	disabled: string;
