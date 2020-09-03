@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ButtonMenu } from "../button-menu/button-menu";
 import { Button } from "../button/button";
-import s from "./button-group.module.scss";
 import { Select } from "../select/select";
+import s from "./button-group.module.scss";
 
 interface ItemProps {
 	fill?: boolean;
@@ -14,16 +14,20 @@ interface Props {
 	fill?: boolean;
 }
 
-const normalizeChild = (raw: ItemProps | JSX.Element): ItemProps => {
-	if ((raw as any).element) return raw as ItemProps;
-	return { element: raw as JSX.Element, fill: undefined };
+const normalizeChild = (defaultFill: boolean | undefined) => {
+	return (raw: ItemProps | JSX.Element): ItemProps => {
+		// If child is full Item already
+		if ((raw as any).element) return raw as ItemProps;
+		// If child is only an element ---> fill should be inherited
+		return { element: raw as JSX.Element, fill: defaultFill };
+	};
 };
 
 const SUPPORTED_CHILD_TYPES = [Button, ButtonMenu, Select];
 
 export const ButtonGroup = (props: Props) => (
-	<div className={[s.container, props.fill ? s.fill : ""].join(" ")}>
-		{props.children.map(normalizeChild).map((child, index) => {
+	<div className={[s.container, props.fill ? s.containerFill : ""].join(" ")}>
+		{props.children.map(normalizeChild(props.fill)).map((child, index) => {
 			if (SUPPORTED_CHILD_TYPES.includes(child.element.type) === false)
 				throw Error(`Unsupported child type: ${child.element.type}`);
 
