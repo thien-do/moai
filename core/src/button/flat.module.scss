@@ -6,10 +6,10 @@
 
 	@include light {
 		&:hover {
-			background-color: var(--light-gray-1);
+			background-color: var(--light-gray-2);
 		}
 		&:active {
-			background-color: var(--light-gray-2);
+			background-color: var(--light-gray-3);
 		}
 	}
 	@include dark {
