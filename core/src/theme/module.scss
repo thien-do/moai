@@ -1,7 +1,14 @@
+// See comment in "./global.scss"
+
 @mixin light {
-	html:global(.theme-light) &,
-	html:global(.theme-auto) & {
+	html:global(.theme-light) & {
 		@content;
+	}
+	html:not(:global(.theme-light)):not(:global(.theme-dark)) & {
+		@media (prefers-color-scheme: no-preference),
+			(prefers-color-scheme: light) {
+			@content;
+		}
 	}
 }
 
@@ -9,8 +16,8 @@
 	html:global(.theme-dark) & {
 		@content;
 	}
-	@media (prefers-color-scheme: dark) {
-		html:global(.theme-auto) & {
+	html:not(:global(.theme-light)):not(:global(.theme-dark)) & {
+		@media (prefers-color-scheme: dark) {
 			@content;
 		}
 	}

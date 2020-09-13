@@ -1,16 +1,41 @@
+/*
+
+MOAI's theming is exclusive, which means at one point there should be only
+one selector valid. This means the styles of that selector is applied without
+overriding any other styles from the other theme
+
+Note 1: The "not" selectors prevents the style from leaking into other theme. For
+example, without "not", our CSS would be:
+
+.html { foo }
+@media (prefers-color-scheme: dark) { html { bar } }
+
+And the outcome of (auto: dark) is that both "bar" and "foo" will be applied
+
+*/
+
 @mixin light {
-	html.theme-light &,
-	html.theme-auto & {
+	// Explicitly ask for light theme
+	html.theme-light & {
 		@content;
+	}
+	// Auto / Default / System. See note #1
+	html:not(.theme-light):not(.theme-dark) & {
+		@media (prefers-color-scheme: no-preference),
+			(prefers-color-scheme: light) {
+			@content;
+		}
 	}
 }
 
 @mixin dark {
+	// Explicitly ask for dark theme
 	html.theme-dark & {
 		@content;
 	}
-	@media (prefers-color-scheme: dark) {
-		html.theme-auto & {
+	// Auto / Default / System. See note #1
+	html:not(.theme-light):not(.theme-dark) & {
+		@media (prefers-color-scheme: dark) {
 			@content;
 		}
 	}
