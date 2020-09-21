@@ -46,7 +46,7 @@ export interface ButtonProps extends ChildrenProps {
 	// target - button
 	type?: "submit" | "button" | "reset";
 	disabled?: boolean;
-	onClick?: () => void;
+	onClick?: React.MouseEventHandler;
 	autoFocus?: boolean;
 	dangerouslySetTabIndex?: number;
 	// target - link
