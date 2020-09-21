@@ -50,6 +50,7 @@ export const ButtonMenu = (props: Props) => {
 			<div ref={setButton}>
 				<Button
 					{...props.button}
+					selected={menuVisible}
 					onClick={() => setMenuVisible(!menuVisible)}
 				/>
 			</div>
