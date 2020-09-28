@@ -16,7 +16,7 @@ export interface InputSize {
 	mainWithIcon: string;
 	icon: string;
 	iconSize: IconSize;
-};
+}
 
 const getClass = <T,>(props: Props<T>) => {
 	const styles = [s.input, outline.normal, props.style.main];
@@ -49,6 +49,7 @@ interface Props<T> {
 	readOnly?: boolean;
 	placeholder?: string;
 	autoFocus?: boolean;
+	autoSelect?: boolean;
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
@@ -69,42 +70,56 @@ const getType = (props: Props<any>): string => {
 	}
 };
 
-export const Input = <T extends number | string>(props: Props<T>) => (
-	<div className={s.container}>
-		<input
-			// value
-			type={getType(props)}
-			defaultValue={props.defaultValue}
-			value={props.value}
-			onChange={onChange(props)}
-			// event handlers
-			onBlur={props.onBlur}
-			onFocus={props.onFocus}
-			onKeyDown={props.onKeyDown}
-			onKeyPress={props.onKeyPress}
-			onKeyUp={props.onKeyUp}
-			// properties
-			className={getClass(props)}
-			list={props.list?.id ?? undefined}
-			readOnly={props.readOnly}
-			disabled={props.disabled}
-			placeholder={props.placeholder}
-			autoFocus={props.autoFocus}
-		/>
-		{props.icon && (
-			<div className={[s.icon, text.muted, props.size.icon].join(" ")}>
-				<Icon path={props.icon} size={props.size.iconSize} />
-			</div>
-		)}
-		{props.list && (
-			<datalist id={props.list.id}>
-				{props.list.values.map((value) => (
-					<option key={value} value={value} />
-				))}
-			</datalist>
-		)}
-	</div>
-);
+export const Input = <T extends number | string>(props: Props<T>) => {
+	const ref = React.useRef<HTMLInputElement>(null);
+
+	React.useEffect(() => {
+		if (!props.autoSelect) return;
+		const element = ref.current;
+		if (element === null) throw Error("ref is null");
+		element.select();
+	}, []);
+
+	return (
+		<div className={s.container}>
+			<input
+				ref={ref}
+				// value
+				type={getType(props)}
+				defaultValue={props.defaultValue}
+				value={props.value}
+				onChange={onChange(props)}
+				// event handlers
+				onBlur={props.onBlur}
+				onFocus={props.onFocus}
+				onKeyDown={props.onKeyDown}
+				onKeyPress={props.onKeyPress}
+				onKeyUp={props.onKeyUp}
+				// properties
+				className={getClass(props)}
+				list={props.list?.id ?? undefined}
+				readOnly={props.readOnly}
+				disabled={props.disabled}
+				placeholder={props.placeholder}
+				autoFocus={props.autoFocus}
+			/>
+			{props.icon && (
+				<div
+					className={[s.icon, text.muted, props.size.icon].join(" ")}
+				>
+					<Icon path={props.icon} size={props.size.iconSize} />
+				</div>
+			)}
+			{props.list && (
+				<datalist id={props.list.id}>
+					{props.list.values.map((value) => (
+						<option key={value} value={value} />
+					))}
+				</datalist>
+			)}
+		</div>
+	);
+};
 
 Input.style = {
 	outset: {

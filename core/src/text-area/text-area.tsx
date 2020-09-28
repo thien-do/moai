@@ -39,6 +39,7 @@ interface Props {
 	readOnly?: boolean;
 	placeholder?: string;
 	autoFocus?: boolean;
+	autoSelect?: boolean;
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
 	onFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
@@ -47,27 +48,39 @@ interface Props {
 	onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
-export const TextArea = (props: Props) => (
-	<textarea
-		// value
-		defaultValue={props.defaultValue}
-		value={props.value}
-		onChange={onChange(props)}
-		// event handlers
-		onBlur={props.onBlur}
-		onFocus={props.onFocus}
-		onKeyDown={props.onKeyDown}
-		onKeyPress={props.onKeyPress}
-		onKeyUp={props.onKeyUp}
-		// properties
-		className={getClass(props)}
-		rows={props.rows}
-		readOnly={props.readOnly}
-		disabled={props.disabled}
-		placeholder={props.placeholder}
-		autoFocus={props.autoFocus}
-	/>
-);
+export const TextArea = (props: Props) => {
+	const ref = React.useRef<HTMLTextAreaElement>(null);
+
+	React.useEffect(() => {
+		if (!props.autoSelect) return;
+		const element = ref.current;
+		if (element === null) throw Error("ref is null");
+		element.select();
+	}, []);
+
+	return (
+		<textarea
+			ref={ref}
+			// value
+			defaultValue={props.defaultValue}
+			value={props.value}
+			onChange={onChange(props)}
+			// event handlers
+			onBlur={props.onBlur}
+			onFocus={props.onFocus}
+			onKeyDown={props.onKeyDown}
+			onKeyPress={props.onKeyPress}
+			onKeyUp={props.onKeyUp}
+			// properties
+			className={getClass(props)}
+			rows={props.rows}
+			readOnly={props.readOnly}
+			disabled={props.disabled}
+			placeholder={props.placeholder}
+			autoFocus={props.autoFocus}
+		/>
+	);
+};
 
 TextArea.style = {
 	outset: Input.style.outset,
