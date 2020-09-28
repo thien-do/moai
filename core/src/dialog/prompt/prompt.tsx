@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
 import { Input } from "../../input/input";
+import { TextArea } from "../../text-area/text-area";
 import { Dialog } from "../dialog";
 import { DialogMessage, DialogMessageC } from "../message/message";
 import s from "./prompt.module.scss";
@@ -10,6 +11,7 @@ import s from "./prompt.module.scss";
 interface Props {
 	children: DialogMessage;
 	initialText?: string;
+	useTextArea?: boolean;
 	onOk: (text: string) => void;
 	onCancel: () => void;
 }
@@ -22,7 +24,22 @@ export const PromptDialog = (props: Props) => {
 				<Dialog.Body>
 					<DialogMessageC children={props.children} />
 					<DivPx size={16} />
-					<Input autoFocus value={text} setValue={setText} />
+					{props.useTextArea ? (
+						<TextArea
+							autoFocus
+							autoSelect
+							value={text}
+							setValue={setText}
+							rows={3}
+						/>
+					) : (
+						<Input
+							autoFocus
+							autoSelect
+							value={text}
+							setValue={setText}
+						/>
+					)}
 				</Dialog.Body>
 				<Dialog.Footer>
 					<Button onClick={props.onCancel} children="Cancel" />
@@ -48,7 +65,8 @@ const unmount = () => {
 
 export const showPrompt = (
 	message: DialogMessage,
-	initialText?: string
+	initialText?: string,
+	useTextArea?: boolean
 ): Promise<string | null> => {
 	return new Promise((resolve) => {
 		const dialog = (
@@ -63,6 +81,7 @@ export const showPrompt = (
 				}}
 				initialText={initialText}
 				children={message}
+				useTextArea={useTextArea}
 			/>
 		);
 		ReactDOM.render(dialog, container);
