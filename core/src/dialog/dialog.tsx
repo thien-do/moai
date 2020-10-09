@@ -1,6 +1,6 @@
 import * as React from "react";
 import { background } from "../background/background";
-import { borderColor } from "../border/border";
+import { Border, borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
 import s from "./dialog.module.scss";
@@ -35,6 +35,13 @@ export const Dialog = (props: Props) => (
 			children={props.children}
 		/>
 	</div>
+);
+
+Dialog.Header = (props: ChildrenProps) => (
+	<>
+		<div className={s.header} children={props.children} />
+		<Border color="weak" />
+	</>
 );
 
 Dialog.Body = (props: ChildrenProps) => (
