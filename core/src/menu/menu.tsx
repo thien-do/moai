@@ -1,0 +1,56 @@
+import * as React from "react";
+import { background } from "../background/background";
+import { borderColor } from "../border/border";
+import { boxShadow } from "../box-shadow/box-shadow";
+import { DivPx } from "../div/div";
+import { MenuItem as MenuItemC } from "./item/item";
+import s from "./menu.module.scss";
+
+export interface MenuItemAction {
+	label: string;
+	fn?: () => void;
+	disabled?: boolean;
+}
+
+export type MenuItem = MenuItemAction | "divider";
+
+interface Props {
+	items: MenuItem[];
+	onEsc?: () => void;
+}
+
+export const Menu = (props: Props) => {
+	const { onEsc } = props;
+
+	const ref = React.useRef<HTMLDivElement>(null);
+
+	React.useEffect(() => {
+		if (onEsc === undefined) return;
+		const listener = (event: MouseEvent) => {
+			const element = ref.current;
+			if (!(event.target instanceof Node)) return;
+			if (element?.contains(event.target)) return;
+			onEsc();
+		};
+		document.addEventListener("click", listener);
+		return () => document.removeEventListener("click", listener);
+	}, [onEsc]);
+
+	return (
+		<div
+			className={[
+				s.container,
+				background.primary,
+				borderColor.strong,
+				boxShadow.strong,
+			].join(" ")}
+			ref={ref}
+		>
+			<DivPx size={8} />
+			{props.items.map((item, index) => (
+				<MenuItemC key={index} item={item} />
+			))}
+			<DivPx size={8} />
+		</div>
+	);
+};

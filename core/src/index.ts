@@ -20,6 +20,7 @@ export * from "./form/field";
 export * from "./icon/icon";
 export * from "./input/input";
 export * from "./outline/outline";
+export * from "./menu/menu";
 export * from "./radio/radio";
 export * from "./range/range";
 export * from "./progress/circle";
