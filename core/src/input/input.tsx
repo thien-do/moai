@@ -1,10 +1,10 @@
 import React from "react";
 import { background } from "../background/background";
 import { borderColor } from "../border/border";
+import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
 import s from "./input.module.scss";
-import { IconPath, Icon, IconSize } from "../icon/icon";
 
 export interface InputStyle {
 	main: string;
@@ -39,7 +39,11 @@ interface Props<T> {
 	defaultValue?: T;
 	value?: T;
 	setValue?: (value: T) => void;
-	list?: { id: string; values: T[] };
+	/**
+	 * Id of a datalist element to be used. Can pass an object with values for
+	 * the Input component to create the datalist.
+	 */
+	list?: { id: string; values: T[] } | string;
 	// Style
 	icon?: IconPath;
 	style: InputStyle;
@@ -97,7 +101,11 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 				onKeyUp={props.onKeyUp}
 				// properties
 				className={getClass(props)}
-				list={props.list?.id ?? undefined}
+				list={
+					typeof props.list === "string"
+						? props.list
+						: props.list?.id ?? undefined
+				}
 				readOnly={props.readOnly}
 				disabled={props.disabled}
 				placeholder={props.placeholder}
@@ -110,7 +118,7 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 					<Icon path={props.icon} size={props.size.iconSize} />
 				</div>
 			)}
-			{props.list && (
+			{typeof props.list === "object" && (
 				<datalist id={props.list.id}>
 					{props.list.values.map((value) => (
 						<option key={value} value={value} />
