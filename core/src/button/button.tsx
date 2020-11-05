@@ -47,6 +47,8 @@ export interface ButtonProps extends ChildrenProps {
 	type?: "submit" | "button" | "reset";
 	disabled?: boolean;
 	onClick?: React.MouseEventHandler;
+	onFocus?: React.FocusEventHandler;
+	onBlur?: React.FocusEventHandler;
 	autoFocus?: boolean;
 	dangerouslySetTabIndex?: number;
 	// target - link
@@ -99,6 +101,8 @@ export const Button = (props: ButtonProps) =>
 			children={<ButtonChildren {...props} />}
 			// ===
 			onClick={props.onClick}
+			onFocus={props.onFocus}
+			onBlur={props.onBlur}
 			disabled={props.disabled || props.isBusy}
 			autoFocus={props.autoFocus}
 			type={props.type ?? "button"}
