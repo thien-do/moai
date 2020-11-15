@@ -8,6 +8,9 @@ interface Props {
 
 export const text = {
 	muted: s.muted as string,
+	strong: s.strong as string,
+	p: s.p as string,
+	highlight: s.highlight as string,
 };
 
 export const Paragraph: React.FC<Props> = ({ children }) => (
