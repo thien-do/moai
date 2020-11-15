@@ -1,10 +1,4 @@
 {
-	/* Declaration-related options should be put inside rollup.config.js. See
-	the comments there for more information. */
-	"compilerOptions": {
-		"strict": true,
-		"jsx": "react",
-		"allowSyntheticDefaultImports": true
-	},
+	"extends": "../core/tsconfig.json",
 	"include": ["src"]
 }

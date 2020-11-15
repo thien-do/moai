@@ -2,14 +2,15 @@
 	"name": "@moai/icon",
 	"version": "0.5.0",
 	"description": "An iconset for @moai/core",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
-		"build": "npx rollup --config"
+		"build": "./scripts/build.sh",
+		"release": "./scripts/release.sh"
 	},
 	"repository": {
 		"type": "git",
@@ -30,9 +31,9 @@
 	},
 	"homepage": "https://moai.xyz",
 	"devDependencies": {
-		"rollup": "2.24.0",
-		"@rollup/plugin-typescript": "5.0.2",
-		"tslib": "2.0.1",
-		"typescript": "3.9.7"
+		"@rollup/plugin-typescript": "6.1.0",
+		"rollup": "2.33.2",
+		"tslib": "2.0.3",
+		"typescript": "4.0.5"
 	}
 }
