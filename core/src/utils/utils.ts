@@ -6,9 +6,13 @@ export const validateStyles = (obj: object) => {
 	});
 };
 
-// @TODO: Custom name
-export const portalContainer: HTMLElement = (() => {
-	const element = document.getElementById("portals");
-	if (element !== null) return element;
-	throw Error("Portal container is null");
-})();
+const portalContainer: { current: null | HTMLElement } = { current: null };
+
+export const getPortalContainer = (): HTMLElement => {
+	if (portalContainer.current === null) {
+		const element = document.createElement("div");
+		document.body.append(element);
+		portalContainer.current = element;
+	}
+	return portalContainer.current;
+};

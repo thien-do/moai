@@ -5,7 +5,7 @@ import { usePopper } from "react-popper";
 import { background } from "../background/background";
 import { borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
-import { portalContainer } from "../utils/utils";
+import { getPortalContainer } from "../utils/utils";
 import s from "./popover.module.scss";
 
 interface TargetProps {
@@ -119,7 +119,7 @@ export const Popover = (props: Props) => {
 			{opened &&
 				createPortal(
 					<Content {...props} state={state} />,
-					portalContainer
+					getPortalContainer()
 				)}
 		</div>
 	);

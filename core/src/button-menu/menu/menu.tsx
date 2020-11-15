@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { background } from "../../background/background";
 import { borderColor } from "../../border/border";
 import { DivPx } from "../../div/div";
-import { portalContainer } from "../../utils/utils";
+import { getPortalContainer } from "../../utils/utils";
 import { ButtonMenuArrow } from "../arrow/arrow";
 import { ButtonMenuItem, ButtonMenuItemComponent } from "../item/item";
 import s from "./menu.module.scss";
@@ -48,5 +48,5 @@ export const ButtonMenuMenu = (props: Props) =>
 				setArrow={props.setArrow}
 			/>
 		</div>,
-		portalContainer
+		getPortalContainer()
 	);
