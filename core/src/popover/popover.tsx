@@ -32,7 +32,7 @@ const DefaultTargetWrapper = (props: {
 
 interface State {
 	styles: { [key: string]: React.CSSProperties };
-	attributes: { [key: string]: { [key: string]: string } };
+	attributes: { [key: string]: { [key: string]: string } | undefined };
 	setContent: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
 	setArrow: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
 	toggle: () => void;

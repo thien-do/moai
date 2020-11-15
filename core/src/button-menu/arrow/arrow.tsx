@@ -6,7 +6,7 @@ import s from "./arrow.module.scss";
 interface Props {
 	style: React.CSSProperties;
 	setArrow: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
-	attributes: { [key: string]: string };
+	attributes: { [key: string]: string } | undefined;
 }
 
 export const ButtonMenuArrow = (props: Props) => (

@@ -13,7 +13,7 @@ import { boxShadow } from "../../box-shadow/box-shadow";
 interface Props {
 	setMenu: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
 	setArrow: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
-	attributes: { [key: string]: { [key: string]: string } };
+	attributes: { [key: string]: { [key: string]: string } | undefined };
 	styles: { [key: string]: React.CSSProperties };
 	items: ButtonMenuItem[];
 	closeMenu: () => void;
