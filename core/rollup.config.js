@@ -1,25 +1,17 @@
 import typescript from "@rollup/plugin-typescript";
-import postcss from "rollup-plugin-postcss";
 import copy from "rollup-plugin-copy";
+import postcss from "rollup-plugin-postcss";
 
 const isKnownIssue = ({ code, id }) =>
 	(code === "THIS_IS_UNDEFINED" && id.includes("focus-visible")) || false;
 
-/** @type {import("@rollup/plugin-typescript").RollupTypescriptOptions} */
-const typescriptOptions = {
-	// These options cannot be defined in tsconfig.json
-	// - https://github.com/rollup/plugins/issues/61#issuecomment-597090769
-	declaration: true,
-	declarationDir: "dist/types",
-	// Known issue: "rootDir" is unnecessarily required for declaration
-	// - https://github.com/rollup/plugins/issues/61#issuecomment-596270901
-	rootDir: "src",
-};
-
 /** @type {import("rollup").RollupOptions} */
 const options = {
 	input: "src/index.ts",
-	output: { dir: "dist", format: "es" },
+	output: [
+		{ dir: "dist/cjs", format: "cjs" },
+		{ dir: "dist/esm", format: "esm" },
+	],
 	external: ["react"],
 	plugins: [
 		postcss(),
@@ -29,7 +21,9 @@ const options = {
 				{ src: "src/font", dest: "dist/" },
 			],
 		}),
-		typescript(typescriptOptions),
+		// Note that we don't generate declaration files with Rollup but via
+		// TSC in another process. See "npm run build" for detail
+		typescript(),
 	],
 	onwarn: (warning, warn) => {
 		if (isKnownIssue) return;

@@ -2,16 +2,16 @@
 	"name": "@moai/core",
 	"version": "0.79.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
 	"files": [
 		"dist"
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx rollup --config",
-		"dev": "npx rollup --watch --config"
+		"build": "./scripts/build.sh",
+		"dev": "rollup --watch --config"
 	},
 	"repository": {
 		"type": "git",
