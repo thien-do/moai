@@ -4,7 +4,7 @@ import { Button, ButtonProps } from "../button/button";
 import { ButtonMenuItem } from "./item/item";
 import { ButtonMenuMenu } from "./menu/menu";
 
-export { ButtonMenuItem };
+export type { ButtonMenuItem };
 
 interface Props {
 	items: ButtonMenuItem[];

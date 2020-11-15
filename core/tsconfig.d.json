@@ -2,11 +2,7 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
-		// We set "isolatedModules" to true in the base config to ensure our
-		// code structure. However, here we want to bundle our declarations
-		// so we need to turn off the option.
-		"isolatedModules": false,
-		"outFile": "dist/types/index.js",
+		"outDir": "dist/types",
 		"declaration": true,
 		"emitDeclarationOnly": true
 	}
