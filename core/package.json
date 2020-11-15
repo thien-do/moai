@@ -11,6 +11,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "./scripts/build.sh",
+		"release": "./scripts/release.sh",
 		"dev": "rollup --watch --config"
 	},
 	"repository": {
