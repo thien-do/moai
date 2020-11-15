@@ -30,10 +30,7 @@
 	// font size
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
-	--font-sans: "Inter", sans-serif;
-	@supports (font-variation-settings: normal) {
-		--font-sans: "Inter var", sans-serif;
-	}
+	--font-sans: "Inter var", sans-serif;
 }
 
 body {
