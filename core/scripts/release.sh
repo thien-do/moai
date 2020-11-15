@@ -3,7 +3,7 @@
 set -e
 
 version=$(npm version minor)
-git commit -m "Build(core): Release $version"
 git add ./package.json
-git tag -a v$version
+git commit -m "Build(core): Release $version"
+git tag -a v$version -m "Release $version"
 npm publish
