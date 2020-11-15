@@ -9,11 +9,12 @@ interface ChildrenProps {
 	children: React.ReactNode;
 }
 
-interface Props extends ChildrenProps {
+export interface DialogProps extends ChildrenProps {
 	onEsc?: () => void;
+	width?: "fixed" | "content";
 }
 
-export const Dialog = (props: Props) => (
+export const Dialog = (props: DialogProps) => (
 	<div
 		className={[s.container, s.fill].join(" ")}
 		onKeyDown={(event) => {
@@ -31,11 +32,16 @@ export const Dialog = (props: Props) => (
 				borderColor.strong,
 				boxShadow.strong,
 				s.dialog,
+				props.width === "fixed" ? s.widthFixed : s.widthAuto,
 			].join(" ")}
 			children={props.children}
 		/>
 	</div>
 );
+
+Dialog.defaultProps = {
+	width: "fixed",
+};
 
 Dialog.Header = (props: ChildrenProps) => (
 	<>
