@@ -43,7 +43,7 @@ interface ChildrenProps {
 }
 
 export interface ButtonProps extends ChildrenProps {
-	forwardedRef?: React.LegacyRef<any>;
+	forwardedRef?: React.LegacyRef<HTMLAnchorElement | HTMLButtonElement>;
 	// target - button
 	type?: "submit" | "button" | "reset";
 	disabled?: boolean;
@@ -87,7 +87,7 @@ export const ButtonChildren = (props: ChildrenProps) => {
 export const Button = (props: ButtonProps) =>
 	props.href ? (
 		<a
-			ref={props.forwardedRef}
+			ref={props.forwardedRef as any}
 			className={getClass(props)}
 			title={props.title}
 			children={<ButtonChildren {...props} />}
@@ -98,7 +98,7 @@ export const Button = (props: ButtonProps) =>
 		/>
 	) : (
 		<button
-			ref={props.forwardedRef}
+			ref={props.forwardedRef as any}
 			className={getClass(props)}
 			title={props.title}
 			children={<ButtonChildren {...props} />}
@@ -141,6 +141,7 @@ Button.size = {
 	} as ButtonSize,
 };
 
-Button.Forwarded = React.forwardRef((props, ref) => (
-	<Button forwardedRef={ref} {...props} />
-));
+Button.Forwarded = React.forwardRef<
+	HTMLButtonElement | HTMLAnchorElement,
+	ButtonProps
+>((props, ref) => <Button forwardedRef={ref} {...props} />);
