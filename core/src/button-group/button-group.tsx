@@ -11,6 +11,7 @@ interface ItemProps {
 
 interface Props {
 	children: (ItemProps | JSX.Element)[];
+	skipChildTypeCheck?: boolean;
 	fill?: boolean;
 }
 
@@ -28,7 +29,10 @@ const SUPPORTED_CHILD_TYPES = [Button, ButtonMenu, Select];
 export const ButtonGroup = (props: Props) => (
 	<div className={[s.container, props.fill ? s.containerFill : ""].join(" ")}>
 		{props.children.map(normalizeChild(props.fill)).map((child, index) => {
-			if (SUPPORTED_CHILD_TYPES.includes(child.element.type) === false)
+			if (
+				SUPPORTED_CHILD_TYPES.includes(child.element.type) === false &&
+				!!props.skipChildTypeCheck === false
+			)
 				throw Error(`Unsupported child type: ${child.element.type}`);
 
 			const cls = [];
