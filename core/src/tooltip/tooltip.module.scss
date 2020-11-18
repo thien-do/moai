@@ -1,0 +1,48 @@
+.content {
+	padding: 8px 12px;
+	max-width: 240px;
+	border-radius: 2px;
+}
+
+.arrow {
+	width: 8px;
+	height: 8px;
+	transform: rotate(45deg);
+	position: relative;
+}
+
+.content[data-placement^="top"] {
+	.arrowWrapper {
+		bottom: 0;
+	}
+	.arrow {
+		bottom: -4px;
+	}
+}
+
+.content[data-placement^="right"] {
+	.arrowWrapper {
+		left: 0;
+	}
+	.arrow {
+		left: -4px;
+	}
+}
+
+.content[data-placement^="bottom"] {
+	.arrowWrapper {
+		top: 0;
+	}
+	.arrow {
+		top: -4px;
+	}
+}
+
+.content[data-placement^="left"] {
+	.arrowWrapper {
+		right: 0;
+	}
+	.arrow {
+		right: -4px;
+	}
+}
