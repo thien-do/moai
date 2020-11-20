@@ -8,6 +8,10 @@
 	font-weight: 600;
 }
 
+.break {
+    word-break: break-all;
+}
+
 .highlight {
     @include light {
         color: var(--accent-1);

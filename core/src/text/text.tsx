@@ -11,6 +11,7 @@ export const text = {
 	strong: s.strong as string,
 	p: s.p as string,
 	highlight: s.highlight as string,
+	break: s.break as string,
 };
 
 export const Paragraph: React.FC<Props> = ({ children }) => (
