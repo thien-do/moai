@@ -1,5 +1,14 @@
-.icon {
+.block {
 	display: block;
+}
+
+.icon {
+	display: inline;
+	// Avoid pushing current layout
+	vertical-align: top;
+	// Fix alignment for default line height (20px) and size (16)
+	position: relative;
+	top: 2px;
 }
 
 .icon path {

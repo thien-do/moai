@@ -75,7 +75,11 @@ export const ButtonChildren = (props: ChildrenProps) => {
 			)}
 			{props.icon && (
 				<span className={s.icon}>
-					<Icon size={size.iconSize} path={props.icon} />
+					<Icon
+						size={size.iconSize}
+						path={props.icon}
+						display="block"
+					/>
 				</span>
 			)}
 			{props.icon && props.children && <DivPx size={size.iconMargin} />}

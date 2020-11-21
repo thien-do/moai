@@ -8,16 +8,16 @@ export type IconPath = string;
 interface Props {
 	path: IconPath;
 	size?: IconSize;
+	display: "block" | "inline";
 }
 
-export const Icon: React.FC<Props> = ({ path, size }) => (
+export const Icon = ({ path, size, display }: Props): JSX.Element => (
 	<svg
-		className={s.icon}
+		className={[s.icon, display === "block" ? s.block : s.inline].join(" ")}
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 16 16"
 		width={size ?? 16}
 		height={size ?? 16}
-	>
-		<path d={path} />
-	</svg>
+		children={<path d={path} />}
+	/>
 );

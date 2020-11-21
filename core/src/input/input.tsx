@@ -115,7 +115,11 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 				<div
 					className={[s.icon, text.muted, props.size.icon].join(" ")}
 				>
-					<Icon path={props.icon} size={props.size.iconSize} />
+					<Icon
+						display="block"
+						path={props.icon}
+						size={props.size.iconSize}
+					/>
 				</div>
 			)}
 			{typeof props.list === "object" && (

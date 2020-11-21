@@ -18,7 +18,7 @@ export const Checkbox: React.FC<Props> = ({ value, setValue, children }) => (
 	<label className={s.container}>
 		{value && (
 			<span className={s.tick}>
-				<Icon path={tickPath} />
+				<Icon display="block" path={tickPath} />
 			</span>
 		)}
 		<input

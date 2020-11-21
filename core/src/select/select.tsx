@@ -83,7 +83,7 @@ export const Select = <T,>(props: Props<T>) => {
 				{props.options.map(renderOption)}
 			</select>
 			<span className={cls.icon}>
-				<Icon path={caret} />
+				<Icon display="block" path={caret} />
 			</span>
 		</div>
 	);
