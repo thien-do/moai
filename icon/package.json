@@ -1,6 +1,6 @@
 {
 	"name": "@moai/icon",
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"description": "An iconset for @moai/core",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
