@@ -25,11 +25,11 @@
 	pointer-events: none;
 
 	@include light {
-		color: var(--light-gray-5);
+		color: var(--gray-9);
 	}
 
 	@include dark {
-		color: var(--dark-gray-5);
+		color: var(--gray-1);
 	}
 }
 

@@ -6,18 +6,18 @@
 
 	@include light {
 		&:hover {
-			background-color: var(--light-gray-2);
+			background-color: var(--gray-2);
 		}
 		&:active {
-			background-color: var(--light-gray-3);
+			background-color: var(--gray-3);
 		}
 	}
 	@include dark {
 		&:hover {
-			background-color: var(--dark-gray-2);
+			background-color: var(--gray-7);
 		}
 		&:active {
-			background-color: var(--dark-gray-0);
+			background-color: var(--gray-9);
 		}
 	}
 }
@@ -26,10 +26,10 @@
 .selected:hover,
 .selected:active {
 	@include light {
-		background-color: var(--light-gray-2);
+		background-color: var(--gray-2);
 	}
 	@include dark {
-		background-color: var(--dark-gray-1);
+		background-color: var(--gray-8);
 	}
 }
 
@@ -37,9 +37,9 @@
 .disabled:hover,
 .disabled:active {
 	@include light {
-		color: var(--light-gray-4);
+		color: var(--gray-5);
 	}
 	@include dark {
-		color: var(--dark-gray-4);
+		color: var(--gray-4);
 	}
 }

@@ -28,20 +28,20 @@
 	// mimic button.style.flat hover
 	&:hover:not([readonly]):not([disabled]) {
 		@include light {
-			background-color: var(--light-gray-2);
+			background-color: var(--gray-2);
 		}
 		@include dark {
-			background-color: var(--dark-gray-2);
+			background-color: var(--gray-7);
 		}
 	}
 
 	// mimic background.primary
 	&:focus:not([readonly]):not([disabled]) {
 		@include light {
-			background-color: var(--light-gray-0);
+			background-color: var(--gray-0);
 		}
 		@include dark {
-			background-color: var(--dark-gray-1);
+			background-color: var(--gray-8);
 		}
 	}
 }

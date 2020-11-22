@@ -28,11 +28,11 @@
 	pointer-events: none;
 
 	@include light {
-		background-color: var(--light-gray-5);
+		background-color: var(--gray-9);
 	}
 
 	@include dark {
-		background-color: var(--dark-gray-5);
+		background-color: var(--gray-1);
 	}
 }
 

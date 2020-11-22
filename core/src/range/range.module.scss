@@ -10,10 +10,10 @@
 
 @mixin track {
     @include light {
-        background-color: var(--light-gray-3);
+        background-color: var(--gray-3);
     }
     @include dark {
-        background-color: var(--dark-gray-negative-1);
+        background-color: var(--gray-10);
     }
 	height: 2px;
 }

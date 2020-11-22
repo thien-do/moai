@@ -9,33 +9,33 @@
 	--inset-shadow: inset 0px 1px 0px;
 
 	@include light {
-		background-color: var(--light-gray-1);
-		box-shadow: var(--main-shadow) var(--light-gray-2),
-			var(--inset-shadow) var(--light-gray-0);
-		border-color: var(--light-gray-3);
+		background-color: var(--gray-1);
+		box-shadow: var(--main-shadow) var(--gray-2),
+			var(--inset-shadow) var(--gray-0);
+		border-color: var(--gray-3);
 
 		&:hover {
-			background-color: var(--light-gray-0);
+			background-color: var(--gray-0);
 		}
 		&:active {
-			background-color: var(--light-gray-2);
+			background-color: var(--gray-2);
 			box-shadow: none;
 		}
 	}
 
 	@include dark {
-		--main-shadow-full: var(--main-shadow) var(--dark-gray-0);
+		--main-shadow-full: var(--main-shadow) var(--gray-9);
 
-		background-color: var(--dark-gray-2);
+		background-color: var(--gray-7);
 		box-shadow: var(--main-shadow-full),
-			var(--inset-shadow) var(--dark-gray-3);
-		border-color: var(--dark-gray-negative-1);
+			var(--inset-shadow) var(--gray-6);
+		border-color: var(--gray-10);
 
 		&:hover {
-			background-color: var(--dark-gray-3);
+			background-color: var(--gray-6);
 		}
 		&:active {
-			background-color: var(--dark-gray-0);
+			background-color: var(--gray-9);
 			box-shadow: none;
 		}
 	}
@@ -54,28 +54,28 @@
 	font-weight: 500;
 
 	@include light {
-		color: var(--light-gray-0);
-		background-color: var(--accent-2);
-		box-shadow: var(--main-shadow) var(--light-gray-3),
-			var(--inset-shadow) var(--accent-3);
-		border-color: var(--accent-0);
+		color: var(--gray-0);
+		background-color: var(--blue-2);
+		box-shadow: var(--main-shadow) var(--gray-3),
+			var(--inset-shadow) var(--blue-3);
+		border-color: var(--blue-0);
 		&:hover {
-			background-color: var(--accent-3);
+			background-color: var(--blue-3);
 		}
 		&:active {
-			background-color: var(--accent-1);
+			background-color: var(--blue-1);
 		}
 	}
 
 	@include dark {
-		color: var(--dark-gray-5);
-		background-color: var(--accent-2);
-		box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--accent-3);
+		color: var(--gray-1);
+		background-color: var(--blue-2);
+		box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--blue-3);
 		&:hover {
-			background-color: var(--accent-3);
+			background-color: var(--blue-3);
 		}
 		&:active {
-			background-color: var(--accent-1);
+			background-color: var(--blue-1);
 			box-shadow: none;
 		}
 	}
@@ -85,11 +85,11 @@
 .selected:hover,
 .selected:active {
 	@include light {
-		background-color: var(--light-gray-2);
+		background-color: var(--gray-2);
 		box-shadow: 0px 0px 0px transparent;
 	}
 	@include dark {
-		background-color: var(--dark-gray-0);
+		background-color: var(--gray-9);
 		box-shadow: 0px 0px 0px transparent;
 	}
 }
@@ -98,11 +98,11 @@
 .disabled:hover,
 .disabled:active {
 	@include light {
-		color: var(--light-gray-4);
+		color: var(--gray-5);
 		box-shadow: none;
 	}
 	@include dark {
-		color: var(--dark-gray-4);
+		color: var(--gray-4);
 		box-shadow: none;
 	}
 }

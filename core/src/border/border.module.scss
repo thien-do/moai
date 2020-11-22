@@ -12,18 +12,18 @@
 
 .weak {
 	@include light {
-		border-color: var(--light-gray-2);
+		border-color: var(--gray-2);
 	}
 	@include dark {
-		border-color: var(--dark-gray-2);
+		border-color: var(--gray-7);
 	}
 }
 
 .strong {
 	@include light {
-		border-color: var(--light-gray-3);
+		border-color: var(--gray-3);
 	}
 	@include dark {
-		border-color: var(--dark-gray-3);
+		border-color: var(--gray-6);
 	}
 }

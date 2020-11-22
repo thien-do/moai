@@ -2,46 +2,38 @@
 @import "./reset.scss";
 
 :root {
-	// Common color scheme - Not really sure about this though
-	--accent-0: hsl(211, 61%, 43%);
-	--accent-1: hsl(209, 62%, 50%);
-	--accent-2: hsl(207, 73%, 57%);
-	--accent-3: hsl(205, 79%, 60%);
+	--blue-0: hsl(211, 61%, 43%); /* accent */
+	--blue-1: hsl(209, 62%, 50%);
+	--blue-2: hsl(207, 73%, 57%);
+	--blue-3: hsl(205, 79%, 60%);
 
-	--positive-0: #2B7E40;
-	--positive-1: #36A14E;
-	--positive-2: #45C263;
-	--positive-3: #61DB84;
+	--green-0: #2B7E40; /* positive */
+	--green-1: #36A14E;
+	--green-2: #45C263;
+	--green-3: #61DB84;
 
-	--negative-0: #B32821;
-	--negative-1: #D5342B;
-	--negative-2: #E74D47;
-	--negative-3: #F17673;
+	--red-0: #B32821; /* negative */
+	--red-1: #D5342B;
+	--red-2: #E74D47;
+	--red-3: #F17673;
 
-	// Light color scheme
-	--light-gray-0: hsl(235, 5%, 100%); // background strong
-	--light-gray-1: hsl(235, 15%, 98%); // background weak
-	--light-gray-2: hsl(235, 9%, 91%); // border weak
-	--light-gray-3: hsl(235, 7%, 78%); // border strong
-	--light-gray-4: hsl(235, 6%, 50%); // foreground weak
-	--light-gray-5: hsl(235, 5%, 15%); // foreground strong
-
-	// Dark color scheme
-	--dark-gray-0: hsl(235, 7%, 17%); // background weak
-	--dark-gray-1: hsl(235, 7%, 22%); // background strong
-	--dark-gray-2: hsl(235, 7%, 27%); // border weak
-	--dark-gray-3: hsl(235, 6%, 36%); // border strong
-	--dark-gray-4: hsl(235, 6%, 65%); // foreground weak
-	--dark-gray-5: hsl(235, 5%, 98%); // foreground strong
-
-	// near absolute black for border of widgest (which have shadow)
-	--dark-gray-negative-1: hsl(235, 5%, 13%);
+	--gray-0: #ffffff; /* light-gray-0 */
+	--gray-1: #fafafa; /* light-gray-1 dark-gray-5 */
+	--gray-2: #e4e4e7; /* light-gray-2 */
+	--gray-3: #c3c4cb; /* light-gray-3 */
+	--gray-4: #a1a1aa; /* dark-gray-4 */
+	--gray-5: #71717a; /* light-gray-4 */
+	--gray-6: #52525b; /* dark-gray-3 */
+	--gray-7: #3f3f46; /* dark-gray-2 */
+	--gray-8: #34353c; /* dark-gray-1 */
+	--gray-9: #27272a; /* light-gray-5 dark-gray-0 */
+	--gray-10: #18181b; /* dark-gray-negative-1 */
 
 	// Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	// font size
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
-	--font-sans: "Inter var", sans-serif;
+	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -51,11 +43,11 @@ body {
 	font-weight: 425;
 
 	@include light {
-		background-color: var(--light-gray-0);
-		color: var(--light-gray-5);
+		background-color: var(--gray-0);
+		color: var(--gray-9);
 	}
 	@include dark {
-		background-color: var(--dark-gray-1);
-		color: var(--dark-gray-5);
+		background-color: var(--gray-8);
+		color: var(--gray-1);
 	}
 }

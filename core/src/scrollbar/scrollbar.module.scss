@@ -3,29 +3,29 @@
 .custom {
 	// Firefox
 	@include light {
-		scrollbar-color: var(--light-gray-3) var(--light-gray-1);
+		scrollbar-color: var(--gray-3) var(--gray-1);
 	}
 	@include dark {
-		scrollbar-color: var(--dark-gray-3) var(--dark-gray-0);
+		scrollbar-color: var(--gray-6) var(--gray-9);
 	}
 
 	// Everything but Firefox
 	@include light {
 		::-webkit-scrollbar-thumb {
-			background-color: var(--light-gray-3);
+			background-color: var(--gray-3);
 		}
 		::-webkit-scrollbar-track,
 		::-webkit-scrollbar-corner {
-			background-color: var(--light-gray-1);
+			background-color: var(--gray-1);
 		}
 	}
 	@include dark {
 		::-webkit-scrollbar-thumb {
-			background-color: var(--dark-gray-3);
+			background-color: var(--gray-6);
 		}
 		::-webkit-scrollbar-track,
 		::-webkit-scrollbar-corner {
-			background-color: var(--dark-gray-0);
+			background-color: var(--gray-9);
 		}
 	}
 

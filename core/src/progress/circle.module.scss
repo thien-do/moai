@@ -7,10 +7,10 @@
 .track {
     fill: none;
     @include light {
-        stroke: var(--light-gray-2);
+        stroke: var(--gray-2);
     }
     @include dark {
-        stroke: var(--dark-gray-2);
+        stroke: var(--gray-7);
     }
 }
 
@@ -19,10 +19,10 @@
     stroke-linecap: round;
     transform-origin: center;
     @include light {
-        stroke: var(--light-gray-4);
+        stroke: var(--gray-5);
     }
     @include dark {
-        stroke: var(--dark-gray-4);
+        stroke: var(--gray-4);
     }
 }
 
