@@ -57,7 +57,6 @@ export interface ButtonProps extends ChildrenProps {
 	target?: string;
 	href?: string;
 	// visual
-	title?: string;
 	selected?: boolean;
 	highlight?: boolean;
 	isFullWidth?: boolean;
@@ -114,7 +113,6 @@ export const Button = (props: ButtonProps): JSX.Element => {
 		className: getClass(props),
 		children: <ButtonChildren {...props} />,
 		ariaLabel: props.iconLabel,
-		title: props.title,
 	};
 	return props.href ? (
 		<a
