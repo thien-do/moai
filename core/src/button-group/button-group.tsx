@@ -2,6 +2,7 @@ import * as React from "react";
 import { ButtonMenu } from "../button-menu/button-menu";
 import { Button } from "../button/button";
 import { Select } from "../select/select";
+import { Tooltip } from "../tooltip/tooltip";
 import s from "./button-group.module.scss";
 
 interface ItemProps {
@@ -24,7 +25,7 @@ const normalizeChild = (defaultFill: boolean | undefined) => {
 	};
 };
 
-const SUPPORTED_CHILD_TYPES = [Button, ButtonMenu, Select];
+const SUPPORTED_CHILD_TYPES = [Button, ButtonMenu, Select, Tooltip];
 
 export const ButtonGroup = (props: Props) => (
 	<div className={[s.container, props.fill ? s.containerFill : ""].join(" ")}>
