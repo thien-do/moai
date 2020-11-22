@@ -112,7 +112,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
 		ref: props.forwardedRef as any,
 		className: getClass(props),
 		children: <ButtonChildren {...props} />,
-		ariaLabel: props.iconLabel,
+		"aria-label": props.iconLabel,
 	};
 	return props.href ? (
 		<a
