@@ -10,10 +10,14 @@ export const text = {
 	muted: s.muted as string,
 	strong: s.strong as string,
 	p: s.p as string,
-	highlight: s.highlight as string,
-	positive: s.positive as string,
-	negative: s.negative as string,
 	break: s.break as string,
+	// ===
+	blue: s.blue as string,
+	blueWeak: s.blueWeak as string,
+	green: s.green as string,
+	greenWeak: s.greenWeak as string,
+	red: s.red as string,
+	redWeak: s.redWeak as string,
 };
 
 export const Paragraph: React.FC<Props> = ({ children }) => (
@@ -30,8 +34,4 @@ export const MutedDiv: React.FC<Props> = ({ children }) => (
 
 export const MutedSpan: React.FC<Props> = ({ children }) => (
 	<span className={s.muted}>{children}</span>
-);
-
-export const Highlight: React.FC<Props> = ({ children }) => (
-	<span className={s.highlight}>{children}</span>
 );

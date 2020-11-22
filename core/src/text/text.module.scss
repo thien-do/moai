@@ -12,7 +12,16 @@
     word-break: break-all;
 }
 
-.negative {
+.redWeak {
+    @include light {
+        color: var(--red-1);
+    }
+    @include dark {
+        color: var(--red-2);
+    }
+}
+
+.redStrong {
     @include light {
         color: var(--red-0);
     }
@@ -21,7 +30,16 @@
     }
 }
 
-.positive {
+.greenWeak {
+    @include light {
+        color: var(--green-1);
+    }
+    @include dark {
+        color: var(--green-2);
+    }
+}
+
+.greenStrong {
     @include light {
         color: var(--green-0);
     }
@@ -30,7 +48,16 @@
     }
 }
 
-.highlight {
+.blueWeak {
+    @include light {
+        color: var(--blue-1);
+    }
+    @include dark {
+        color: var(--blue-2);
+    }
+}
+
+.blueStrong {
     @include light {
         color: var(--blue-0);
     }
