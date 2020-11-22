@@ -12,12 +12,30 @@
     word-break: break-all;
 }
 
-.highlight {
+.negative {
     @include light {
-        color: var(--accent-1);
+        color: var(--negative-0);
     }
     @include dark {
-        color: var(--accent-2);
+        color: var(--negative-3);
+    }
+}
+
+.positive {
+    @include light {
+        color: var(--positive-0);
+    }
+    @include dark {
+        color: var(--positive-3);
+    }
+}
+
+.highlight {
+    @include light {
+        color: var(--accent-0);
+    }
+    @include dark {
+        color: var(--accent-3);
     }
 }
 

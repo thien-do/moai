@@ -11,6 +11,8 @@ export const text = {
 	strong: s.strong as string,
 	p: s.p as string,
 	highlight: s.highlight as string,
+	positive: s.positive as string,
+	negative: s.negative as string,
 	break: s.break as string,
 };
 
