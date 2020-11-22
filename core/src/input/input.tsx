@@ -49,11 +49,14 @@ interface Props<T> {
 	style: InputStyle;
 	size: InputSize;
 	// Attributes
+	id?: string;
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
 	autoFocus?: boolean;
 	autoSelect?: boolean;
+	"aria-label"?: string;
+	"aria-labelledby"?: string;
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
@@ -100,6 +103,7 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 				onKeyPress={props.onKeyPress}
 				onKeyUp={props.onKeyUp}
 				// properties
+				id={props.id}
 				className={getClass(props)}
 				list={
 					typeof props.list === "string"
@@ -110,6 +114,8 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 				disabled={props.disabled}
 				placeholder={props.placeholder}
 				autoFocus={props.autoFocus}
+				aria-label={props["aria-label"]}
+				aria-labelledby={props["aria-labelledby"]}
 			/>
 			{props.icon && (
 				<div
