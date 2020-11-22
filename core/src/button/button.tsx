@@ -38,6 +38,7 @@ const getClass = (props: ButtonProps) => {
 interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
+	iconLabel?: string;
 	size?: ButtonSize;
 	isBusy?: boolean;
 }
@@ -88,25 +89,43 @@ export const ButtonChildren = (props: ChildrenProps) => {
 	);
 };
 
-export const Button = (props: ButtonProps) =>
-	props.href ? (
+const buttonTests: [(props: ButtonProps) => boolean, string][] = [
+	[
+		(p) => p.icon !== undefined || p.children !== undefined,
+		'Button must have either "icon" or "children" defined so users can see it',
+	],
+	[
+		(p) => p.iconLabel !== undefined || p.children !== undefined,
+		'Button must have either "children" or "iconLabel" defined so screen reader can read it',
+	],
+];
+
+const validateButton = (props: ButtonProps): void => {
+	for (let i = 0; i < buttonTests.length; i++) {
+		const passed = buttonTests[i][0](props);
+		if (passed === false) throw Error(buttonTests[i][1]);
+	}
+};
+
+export const Button = (props: ButtonProps): JSX.Element => {
+	validateButton(props);
+	const common = {
+		ref: props.forwardedRef as any,
+		className: getClass(props),
+		children: <ButtonChildren {...props} />,
+		ariaLabel: props.iconLabel,
+		title: props.title,
+	};
+	return props.href ? (
 		<a
-			ref={props.forwardedRef as any}
-			className={getClass(props)}
-			title={props.title}
-			children={<ButtonChildren {...props} />}
-			// ===
+			{...common}
 			href={props.href}
 			target={props.target}
 			rel="noopener noreferrer"
 		/>
 	) : (
 		<button
-			ref={props.forwardedRef as any}
-			className={getClass(props)}
-			title={props.title}
-			children={<ButtonChildren {...props} />}
-			// ===
+			{...common}
 			onClick={props.onClick}
 			onFocus={props.onFocus}
 			onBlur={props.onBlur}
@@ -116,6 +135,7 @@ export const Button = (props: ButtonProps) =>
 			tabIndex={props.dangerouslySetTabIndex}
 		/>
 	);
+};
 
 Button.style = {
 	outset: {
