@@ -2,12 +2,9 @@
 	"name": "@banhmi/icon",
 	"version": "0.0.0",
 	"description": "An iconset for @banhmi/core",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
 		"release": "./scripts/release.sh"
@@ -33,6 +30,7 @@
 	"devDependencies": {
 		"@rollup/plugin-typescript": "6.1.0",
 		"rollup": "2.33.2",
+		"rollup-plugin-copy": "3.3.0",
 		"tslib": "2.0.3",
 		"typescript": "4.0.5"
 	}

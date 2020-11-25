@@ -19,6 +19,7 @@ const options = {
 			targets: [
 				{ src: "src/theme", dest: "dist/" },
 				{ src: "font", dest: "dist/" },
+				{ src: "package.json", dest: "dist/" },
 			],
 		}),
 		// Note that we don't generate declaration files with Rollup but via
