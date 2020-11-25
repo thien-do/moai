@@ -2,14 +2,10 @@
 	"name": "@moai/core",
 	"version": "0.114.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"types": "types/index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "./scripts/build.sh",
 		"release": "./scripts/release.sh",
 		"dev": "rollup --watch --config"
@@ -25,7 +21,13 @@
 		"component",
 		"framework"
 	],
-	"author": "dvkndn",
+	"contributors": [
+		"Thien <dvkndn@gmail.com>",
+		"Dang Bui <dang.bui@be.com.vn>",
+		"Hai Nguyen <hai.nguyen@be.com.vn>",
+		"Hieu Nguyen <hieu.nguyen2@be.com.vn>",
+		"Thien Do <thien.do@be.com.vn>"
+	],
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/dvkndn/moai/issues"
