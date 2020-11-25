@@ -1,6 +1,6 @@
 {
 	"name": "@banhmi/icon",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "An iconset for @banhmi/core",
 	"main": "cjs/index.js",
 	"module": "esm/index.js",
@@ -15,13 +15,18 @@
 	},
 	"keywords": [
 		"icon",
-		"moai",
+		"banh mi",
 		"ui",
 		"react",
 		"component",
 		"framework"
 	],
-	"author": "dvkndn",
+	"contributors": [
+		"Dang Bui <dang.bui@be.com.vn>",
+		"Hai Nguyen <hai.nguyen@be.com.vn>",
+		"Hieu Nguyen <hieu.nguyen2@be.com.vn>",
+		"Thien Do <thien.do@be.com.vn>"
+	],
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/banhmijs/banhmi/issues"

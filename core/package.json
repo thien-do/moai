@@ -1,12 +1,11 @@
 {
 	"name": "@banhmi/core",
 	"version": "0.4.0",
-	"description": "A React UI toolkit for the web 🗿",
+	"description": "A React UI toolkit for the web",
 	"main": "cjs/index.js",
 	"module": "esm/index.js",
 	"types": "types/index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "./scripts/build.sh",
 		"release": "./scripts/release.sh",
 		"dev": "rollup --watch --config"
@@ -16,13 +15,18 @@
 		"url": "git+https://github.com/banhmijs/banhmi.git"
 	},
 	"keywords": [
-		"banhmijs",
+		"banh mi",
 		"ui",
 		"react",
 		"component",
 		"framework"
 	],
-	"author": "beGroup",
+	"contributors": [
+		"Dang Bui <dang.bui@be.com.vn>",
+		"Hai Nguyen <hai.nguyen@be.com.vn>",
+		"Hieu Nguyen <hieu.nguyen2@be.com.vn>",
+		"Thien Do <thien.do@be.com.vn>"
+	],
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/banhmijs/banhmi/issues"
