@@ -10,7 +10,7 @@ import { renderDialog } from "./utils/render";
 interface Props {
 	children: DialogMessage;
 	initialText?: string;
-	useTextArea?: boolean;
+	rows?: number;
 	onOk: (text: string) => void;
 	onCancel: () => void;
 	width: "fixed" | number;
@@ -31,13 +31,13 @@ export const PromptDialog = (props: Props) => {
 						width: props.width === "fixed" ? "auto" : props.width,
 					}}
 				>
-					{props.useTextArea ? (
+					{props.rows !== 1 ? (
 						<TextArea
 							autoFocus
 							autoSelect
 							value={text}
 							setValue={setText}
-							rows={3}
+							rows={props.rows}
 						/>
 					) : (
 						<Input
@@ -62,7 +62,7 @@ export const PromptDialog = (props: Props) => {
 	);
 };
 
-type Options = Pick<Props, "width" | "useTextArea">;
+type Options = Pick<Props, "width" | "rows">;
 
 /**
  * Moai's alternative to window.prompt
@@ -86,7 +86,7 @@ export const prompt = (
 				}}
 				children={message}
 				width={options?.width ?? "fixed"}
-				useTextArea={options?.useTextArea}
+				rows={options?.rows ?? 1}
 				initialText={initialText}
 			/>
 		));
