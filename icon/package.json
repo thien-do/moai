@@ -1,20 +1,17 @@
 {
-	"name": "@moai/icon",
-	"version": "0.10.0",
-	"description": "An iconset for @moai/core",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"name": "@banhmi/icon",
+	"version": "0.0.0",
+	"description": "An iconset for @banhmi/core",
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
 		"release": "./scripts/release.sh"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dvkndn/moai.git"
+		"url": "git+https://github.com/banhmijs/banhmi.git"
 	},
 	"keywords": [
 		"icon",
@@ -27,12 +24,13 @@
 	"author": "dvkndn",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/dvkndn/moai/issues"
+		"url": "https://github.com/banhmijs/banhmi/issues"
 	},
-	"homepage": "https://moai.xyz",
+	"homepage": "https://be.com.vn",
 	"devDependencies": {
 		"@rollup/plugin-typescript": "6.1.0",
 		"rollup": "2.33.2",
+		"rollup-plugin-copy": "3.3.0",
 		"tslib": "2.0.3",
 		"typescript": "4.0.5"
 	}

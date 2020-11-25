@@ -1,5 +1,5 @@
 {
-	"name": "moai",
+	"name": "banhmi",
 	"version": "1.0.0",
 	"description": "",
 	"private": true,
@@ -9,14 +9,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dvkndn/moai.git"
+		"url": "git+https://github.com/banhmijs/banhmi.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/dvkndn/moai/issues"
+		"url": "https://github.com/banhmijs/banhmi/issues"
 	},
-	"homepage": "https://github.com/dvkndn/moai#readme",
+	"homepage": "https://github.com/banhmijs/banhmi#readme",
 	"devDependencies": {
 		"prettier": "2.0.5"
 	}

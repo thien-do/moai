@@ -1,13 +1,10 @@
 {
-	"name": "@moai/core",
-	"version": "0.110.0",
+	"name": "@banhmi/core",
+	"version": "0.4.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"types": "types/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "./scripts/build.sh",
@@ -16,21 +13,21 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/dvkndn/moai.git"
+		"url": "git+https://github.com/banhmijs/banhmi.git"
 	},
 	"keywords": [
-		"moai",
+		"banhmijs",
 		"ui",
 		"react",
 		"component",
 		"framework"
 	],
-	"author": "dvkndn",
+	"author": "beGroup",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/dvkndn/moai/issues"
+		"url": "https://github.com/banhmijs/banhmi/issues"
 	},
-	"homepage": "https://moai.xyz",
+	"homepage": "https://be.com.vn",
 	"peerDependencies": {
 		"react": ">=16",
 		"react-dom": ">=16"
