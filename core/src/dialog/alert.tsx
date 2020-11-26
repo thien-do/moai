@@ -28,7 +28,7 @@ export const AlertDialog = (props: Props) => (
 export const alert = (
 	message: DialogMessage,
 	width: DialogProps["width"] = "fixed"
-): Promise<boolean> => {
+): Promise<void> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (
 			<AlertDialog
