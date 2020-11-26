@@ -19,7 +19,6 @@ const options = {
 		postcss({
 			plugins: [autoprefixer],
 			minimize: true,
-			extract: true
 		}),
 		copy({
 			targets: [
