@@ -1,13 +1,14 @@
 {
 	"name": "@banhmi/core",
-	"version": "0.6.0",
+	"version": "0.6.1",
 	"description": "A React UI toolkit for the web",
 	"main": "cjs/index.js",
 	"module": "esm/index.js",
 	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
-		"release": "./scripts/release.sh",
+		"release-minor": "./scripts/release.sh minor",
+		"release-patch": "./scripts/release.sh patch"
 	},
 	"repository": {
 		"type": "git",
