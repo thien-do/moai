@@ -2,7 +2,7 @@
 
 set -e
 
-version=$(npm version minor)
+version=$(npm version $1)
 npm run build
 git add ./package.json ./package-lock.json
 git commit -m "Build(icon): @moai/icon $version"

@@ -7,8 +7,8 @@
 	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
-		"release": "./scripts/release.sh",
-		"dev": "rollup --watch --config"
+		"release-minor": "./scripts/release.sh minor",
+		"release-patch": "./scripts/release.sh patch"
 	},
 	"repository": {
 		"type": "git",
