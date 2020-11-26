@@ -2,10 +2,9 @@
 
 set -e
 
-version=$(npm version minor)
+version=$(npm version $1)
 npm run build
-# git add ./package.json ./package-lock.json
-# git commit -m "Build(icon): Release $version"
-# git tag -a v$version -m "Release $version"
+git add ./package.json ./package-lock.json
+git commit -m "Build(icon): @banhmi/icon $version"
 cd dist/
-npm publish
+npm publish --access public
