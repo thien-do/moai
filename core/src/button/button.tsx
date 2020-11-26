@@ -7,7 +7,6 @@ import borderRadius from "./border-radius.module.scss";
 import s from "./button.module.scss";
 import flat from "./flat.module.scss";
 import outset from "./outset.module.scss";
-
 export interface ButtonStyle {
 	main: string;
 	selected: string;
@@ -34,7 +33,6 @@ const getClass = (props: ButtonProps) => {
 	if (disabled || isBusy) classes.push(style.disabled, s.disabled);
 	return classes.join(" ");
 };
-
 interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
