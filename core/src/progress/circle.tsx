@@ -1,6 +1,6 @@
 import React from "react";
 import { IconSize } from "../icon/icon";
-import s from "./circle.module.scss";
+import s from "./circle.module.css";
 
 // This file follows blueprint's spinner. Please see the source here:
 // https://github.com/palantir/blueprint/blob/develop/packages/core/src/components/spinner/spinner.tsx

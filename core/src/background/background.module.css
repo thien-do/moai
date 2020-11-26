@@ -1,0 +1,29 @@
+:global(.light) .primary {
+	background-color: var(--gray-0);
+	color: var(--gray-9);
+}
+
+:global(.dark) .primary {
+	background-color: var(--gray-8);
+	color: var(--gray-1);
+}
+
+:global(.light) .secondary {
+	background-color: var(--gray-1);
+	color: var(--gray-9);
+}
+
+:global(.dark) .secondary {
+	background-color: var(--gray-9);
+	color: var(--gray-1);
+}
+
+:global(.light) .inverse {
+	background-color: var(--gray-9);
+	color: var(--gray-0);
+}
+
+:global(.dark) .inverse {
+	background-color: var(--gray-6);
+	color: var(--gray-1);
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { background } from "../background/background";
 import { borderColor } from "../border/border";
-import s from "./tag.module.scss";
+import s from "./tag.module.css";
 
 interface Props {
 	children: string;

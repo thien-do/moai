@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./border.module.scss";
+import s from "./border.module.css";
 
 type BorderColorValue = string;
 

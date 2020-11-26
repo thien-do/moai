@@ -1,7 +1,7 @@
 import * as React from "react";
 import { background } from "../../background/background";
 import { borderColor } from "../../border/border";
-import s from "./arrow.module.scss";
+import s from "./arrow.module.css";
 
 interface Props {
 	style: React.CSSProperties;

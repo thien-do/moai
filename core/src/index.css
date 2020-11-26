@@ -1,21 +1,18 @@
-@import "./theme/global.scss";
-@import "./reset.scss";
-
 :root {
 	--blue-0: hsl(211, 61%, 43%); /* accent */
 	--blue-1: hsl(209, 62%, 50%);
 	--blue-2: hsl(207, 73%, 57%);
 	--blue-3: hsl(205, 79%, 60%);
 
-	--green-0: #2B7E40; /* positive */
-	--green-1: #36A14E;
-	--green-2: #45C263;
-	--green-3: #61DB84;
+	--green-0: #2b7e40; /* positive */
+	--green-1: #36a14e;
+	--green-2: #45c263;
+	--green-3: #61db84;
 
-	--red-0: #B32821; /* negative */
-	--red-1: #D5342B;
-	--red-2: #E74D47;
-	--red-3: #F17673;
+	--red-0: #b32821; /* negative */
+	--red-1: #d5342b;
+	--red-2: #e74d47;
+	--red-3: #f17673;
 
 	--gray-0: #ffffff; /* light-gray-0 */
 	--gray-1: #fafafa; /* light-gray-1 dark-gray-5 */
@@ -29,8 +26,8 @@
 	--gray-9: #27272a; /* light-gray-5 dark-gray-0 */
 	--gray-10: #18181b; /* dark-gray-negative-1 */
 
-	// Avoid Ubuntu Mono as it's significantly smaller than others at the same
-	// font size
+	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
+	font size */
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
 	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
@@ -41,13 +38,13 @@ body {
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 425;
+}
 
-	@include light {
-		background-color: var(--gray-0);
-		color: var(--gray-9);
-	}
-	@include dark {
-		background-color: var(--gray-8);
-		color: var(--gray-1);
-	}
+:global(.light) body {
+	background-color: var(--gray-0);
+	color: var(--gray-9);
+}
+:global(.dark) body {
+	background-color: var(--gray-8);
+	color: var(--gray-1);
 }

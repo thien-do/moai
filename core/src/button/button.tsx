@@ -3,10 +3,10 @@ import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { ProgressCircle } from "../progress/circle";
-import borderRadius from "./border-radius.module.scss";
-import s from "./button.module.scss";
-import flat from "./flat.module.scss";
-import outset from "./outset.module.scss";
+import borderRadius from "./border-radius.module.css";
+import s from "./button.module.css";
+import flat from "./flat.module.css";
+import outset from "./outset.module.css";
 
 export interface ButtonStyle {
 	main: string;

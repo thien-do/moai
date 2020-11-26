@@ -4,7 +4,7 @@ import { borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
 import { MenuItem as MenuItemC } from "./item/item";
-import s from "./menu.module.scss";
+import s from "./menu.module.css";
 
 export interface MenuItemAction {
 	label: string;

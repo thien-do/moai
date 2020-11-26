@@ -1,6 +1,4 @@
-@import "../button/outset.module.scss";
-@import "../theme/module.scss";
-
+/* 
 .input {
     background: none;
     display: block;
@@ -9,10 +7,10 @@
 }
 
 @mixin track {
-    @include light {
+    :global(.light)  {
         background-color: var(--gray-3);
     }
-    @include dark {
+    :global(.dark)  {
         background-color: var(--gray-10);
     }
 	height: 2px;
@@ -46,4 +44,4 @@
 }
 .input::-ms-thumb {
 	@include thumb;
-}
+} */

@@ -1,0 +1,40 @@
+.content {
+	padding: 8px 12px;
+	max-width: 240px;
+	border-radius: 2px;
+}
+
+.arrow {
+	width: 8px;
+	height: 8px;
+	transform: rotate(45deg);
+	position: relative;
+}
+
+.content[data-placement^="top"] .arrowWrapper {
+	bottom: 0;
+}
+.content[data-placement^="top"] .arrow {
+	bottom: -4px;
+}
+
+.content[data-placement^="right"] .arrowWrapper {
+	left: 0;
+}
+.content[data-placement^="right"] .arrow {
+	left: -4px;
+}
+
+.content[data-placement^="bottom"] .arrowWrapper {
+	top: 0;
+}
+.content[data-placement^="bottom"] .arrow {
+	top: -4px;
+}
+
+.content[data-placement^="left"] .arrowWrapper {
+	right: 0;
+}
+.content[data-placement^="left"] .arrow {
+	right: -4px;
+}

@@ -3,7 +3,7 @@ import { Border } from "../../border/border";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
 import { MenuItem as IMenuItem } from "../menu";
-import s from "./item.module.scss";
+import s from "./item.module.css";
 
 interface Props {
 	item: IMenuItem;

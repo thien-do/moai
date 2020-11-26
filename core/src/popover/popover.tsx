@@ -6,7 +6,7 @@ import { background } from "../background/background";
 import { borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { getPortalContainer } from "../utils/utils";
-import s from "./popover.module.scss";
+import s from "./popover.module.css";
 
 interface TargetProps {
 	toggle: () => void;

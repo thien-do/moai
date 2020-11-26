@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, InputStyle } from "../input/input";
 import { outline } from "../outline/outline";
-import s from "./text-area.module.scss";
+import s from "./text-area.module.css";
 
 export interface TextAreaSize {
 	main: string;
