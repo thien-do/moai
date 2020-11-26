@@ -1,0 +1,60 @@
+.p {
+	line-height: 1.5;
+}
+
+.strong {
+	font-weight: 600;
+}
+
+.break {
+	word-break: break-all;
+}
+
+:global(.light) .redWeak {
+	color: var(--red-1);
+}
+:global(.dark) .redWeak {
+	color: var(--red-2);
+}
+
+:global(.light) .redStrong {
+	color: var(--red-0);
+}
+:global(.dark) .redStrong {
+	color: var(--red-3);
+}
+
+:global(.light) .greenWeak {
+	color: var(--green-1);
+}
+:global(.dark) .greenWeak {
+	color: var(--green-2);
+}
+
+:global(.light) .greenStrong {
+	color: var(--green-0);
+}
+:global(.dark) .greenStrong {
+	color: var(--green-3);
+}
+
+:global(.light) .blueWeak {
+	color: var(--blue-1);
+}
+:global(.dark) .blueWeak {
+	color: var(--blue-2);
+}
+
+:global(.light) .blueStrong {
+	color: var(--blue-0);
+}
+:global(.dark) .blueStrong {
+	color: var(--blue-3);
+}
+
+:global(.light) .muted {
+	color: var(--gray-5);
+}
+:global(.dark) .muted {
+	color: var(--gray-4);
+}

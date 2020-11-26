@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./text.module.scss";
+import s from "./text.module.css";
 
 interface Props {
 	children: React.ReactNode;

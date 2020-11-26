@@ -4,7 +4,7 @@ import { Border } from "../border/border";
 import { Background, background } from "../background/background";
 import { outline } from "../outline/outline";
 import { borderColor } from "../border/border";
-import s from "./tab.module.scss";
+import s from "./tab.module.css";
 
 export interface Tab {
 	title: string;

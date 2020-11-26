@@ -3,7 +3,7 @@ import { ButtonMenu } from "../button-menu/button-menu";
 import { Button } from "../button/button";
 import { Select } from "../select/select";
 import { Tooltip } from "../tooltip/tooltip";
-import s from "./button-group.module.scss";
+import s from "./button-group.module.css";
 
 interface ItemProps {
 	fill?: boolean;

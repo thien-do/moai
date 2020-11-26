@@ -1,4 +1,4 @@
-import s from "./scrollbar.module.scss";
+import s from "./scrollbar.module.css";
 import { validateStyles } from "../utils/utils";
 
 const { custom } = s;

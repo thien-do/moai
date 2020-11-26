@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./div.module.scss";
+import s from "./div.module.css";
 
 export const DivEm = () => <span> </span>;
 

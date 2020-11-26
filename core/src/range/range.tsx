@@ -1,7 +1,8 @@
 import React from "react";
 
 import { outline } from "../outline/outline";
-import s from "./range.module.scss";
+// import s from "./range.module.css";
+const s: any = {};
 
 interface Props {
 	value: number;

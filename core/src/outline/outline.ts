@@ -1,4 +1,4 @@
-import s from "./outline.module.scss";
+import s from "./outline.module.css";
 
 type OutlineStyle = string;
 

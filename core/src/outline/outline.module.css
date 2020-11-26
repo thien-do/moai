@@ -2,8 +2,8 @@
 .always {
 	transition: outline 0.2s ease-out;
 	outline: solid 8px transparent;
-	// outline-offset should be the same size with outline-width so overflow
-	// won't cut it
+	/* outline-offset should be the same size with outline-width so overflow
+	won't cut it */
 	outline-offset: -2px;
 }
 

@@ -6,8 +6,8 @@ import { DivPx } from "../../div/div";
 import { getPortalContainer } from "../../utils/utils";
 import { ButtonMenuArrow } from "../arrow/arrow";
 import { ButtonMenuItem, ButtonMenuItemComponent } from "../item/item";
-import s from "./menu.module.scss";
-import sArrow from "../arrow/arrow.module.scss";
+import s from "./menu.module.css";
+import sArrow from "../arrow/arrow.module.css";
 import { boxShadow } from "../../box-shadow/box-shadow";
 
 interface Props {

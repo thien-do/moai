@@ -1,0 +1,25 @@
+.border {
+	border-right: none;
+	border-bottom: none;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	align-self: stretch;
+}
+
+:global(.light) .weak {
+	border-color: var(--gray-2);
+}
+
+:global(.dark) .weak {
+	border-color: var(--gray-7);
+}
+
+:global(.light) .strong {
+	border-color: var(--gray-3);
+}
+
+:global(.dark) .strong {
+	border-color: var(--gray-6);
+}

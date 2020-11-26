@@ -3,7 +3,7 @@ import { background } from "../background/background";
 import { Border, borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
-import s from "./dialog.module.scss";
+import s from "./dialog.module.css";
 
 interface ChildrenProps {
 	children: React.ReactNode;

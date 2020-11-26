@@ -1,8 +1,8 @@
 import React from "react";
 
 import { outline } from "../outline/outline";
-import outset from "../button/outset.module.scss";
-import s from "./radio.module.scss";
+import outset from "../button/outset.module.css";
+import s from "./radio.module.css";
 
 interface Props {
 	name: string;

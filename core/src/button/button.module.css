@@ -1,5 +1,3 @@
-@import "../theme/module.scss";
-
 .button {
 	cursor: pointer;
 	display: flex;

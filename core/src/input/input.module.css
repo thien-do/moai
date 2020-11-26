@@ -1,5 +1,3 @@
-@import "../theme/module.scss";
-
 .container {
 	position: relative;
 	width: 100%;
@@ -16,34 +14,30 @@
 	bottom: 0;
 	display: flex;
 	align-items: center;
-	// win outline's z-index
+	/* win outline's z-index */
 	z-index: 1;
 }
 
 .flat {
-	// pretty much nothing in normal state
+	/* pretty much nothing in normal state */
 	text-align: inherit;
 	text-decoration: inherit;
+}
 
-	// mimic button.style.flat hover
-	&:hover:not([readonly]):not([disabled]) {
-		@include light {
-			background-color: var(--gray-2);
-		}
-		@include dark {
-			background-color: var(--gray-7);
-		}
-	}
+/* mimic button.style.flat hover */
+:global(.light) .flat:hover:not([readonly]):not([disabled]) {
+	background-color: var(--gray-2);
+}
+:global(.dark) .flat:hover:not([readonly]):not([disabled]) {
+	background-color: var(--gray-7);
+}
 
-	// mimic background.primary
-	&:focus:not([readonly]):not([disabled]) {
-		@include light {
-			background-color: var(--gray-0);
-		}
-		@include dark {
-			background-color: var(--gray-8);
-		}
-	}
+/* mimic background.primary */
+:global(.light) .flat:focus:not([readonly]):not([disabled]) {
+	background-color: var(--gray-0);
+}
+:global(.dark) .flat:focus:not([readonly]):not([disabled]) {
+	background-color: var(--gray-8);
 }
 
 .outset {
@@ -58,20 +52,21 @@
 	height: 32px;
 }
 
-// Follow Button.size.medium
+/* Follow Button.size.medium */
 .mediumMain {
 	padding-left: 12px;
 }
 
 .mediumMainWithIcon {
-	padding-left: 36px; // 12 + 16 + 8
+	/* 12 + 16 + 8 */
+	padding-left: 36px;
 }
 
 .mediumIcon {
 	left: 12px;
 }
 
-// Follow Button.size.small
+/* Follow Button.size.small */
 .smallMain,
 .smallMainWithIcon {
 	padding-right: 8px;
@@ -83,7 +78,8 @@
 }
 
 .smallMainWithIcon {
-	padding-left: 24px; // 8 + 12 + 4
+	/* 8 + 12 + 4 */
+	padding-left: 24px;
 }
 
 .smallIcon {

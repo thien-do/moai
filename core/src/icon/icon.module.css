@@ -4,9 +4,9 @@
 
 .inline {
 	display: inline;
-	// Avoid pushing current layout
+	/* Avoid pushing current layout */
 	vertical-align: top;
-	// Fix alignment for default line height (20px) and size (16)
+	/* Fix alignment for default line height (20px) and size (16) */
 	position: relative;
 	top: 2px;
 }

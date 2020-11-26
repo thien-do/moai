@@ -1,7 +1,7 @@
 import React from "react";
 
 import { validateStyles } from "../utils/utils";
-import s from "./background.module.scss";
+import s from "./background.module.css";
 
 const { primary, secondary, inverse } = s;
 

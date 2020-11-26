@@ -23,7 +23,8 @@
 	bottom: 0px;
 	height: 16px;
 	pointer-events: none;
-	z-index: 1; // wins the z-index of outline
+	/* wins the z-index of outline */
+	z-index: 1;
 }
 
 .mediumSelect {

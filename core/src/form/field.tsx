@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./field.module.scss";
+import s from "./field.module.css";
 import { DivPx } from "../div/div";
 
 interface Props {

@@ -1,0 +1,38 @@
+.container {
+	display: block;
+}
+
+.track {
+	fill: none;
+}
+:global(.light) .track {
+	stroke: var(--gray-2);
+}
+:global(.dark) .track {
+	stroke: var(--gray-7);
+}
+
+.head {
+	fill: none;
+	stroke-linecap: round;
+	transform-origin: center;
+}
+:global(.light) .head {
+	stroke: var(--gray-5);
+}
+:global(.dark) .head {
+	stroke: var(--gray-4);
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.animate {
+	animation: spin 0.5s linear infinite;
+}

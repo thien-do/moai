@@ -1,0 +1,38 @@
+.main {
+	transition: background-color 0.1s, outline 0.2s ease-out;
+	text-decoration: inherit;
+}
+:global(.light) .main:hover {
+	background-color: var(--gray-2);
+}
+:global(.light) .main:active {
+	background-color: var(--gray-3);
+}
+:global(.dark) .main:hover {
+	background-color: var(--gray-7);
+}
+:global(.dark) .main:active {
+	background-color: var(--gray-9);
+}
+
+:global(.light) .selected,
+:global(.light) .selected:hover,
+:global(.light) .selected:active {
+	background-color: var(--gray-2);
+}
+:global(.dark) .selected,
+:global(.dark) .selected:hover,
+:global(.dark) .selected:active {
+	background-color: var(--gray-8);
+}
+
+:global(.light) .disabled,
+:global(.light) .disabled:hover,
+:global(.light) .disabled:active {
+	color: var(--gray-5);
+}
+:global(.dark) .disabled,
+:global(.dark) .disabled:hover,
+:global(.dark) .disabled:active {
+	color: var(--gray-4);
+}

@@ -3,7 +3,7 @@ import React from "react";
 import { background } from "../background/background";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { Paragraph } from "../text/text";
-import s from "./tooltip.module.scss";
+import s from "./tooltip.module.css";
 
 interface Props {
 	content: React.ReactNode;

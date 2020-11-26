@@ -4,7 +4,7 @@ import { borderColor } from "../border/border";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
-import s from "./input.module.scss";
+import s from "./input.module.css";
 
 export interface InputStyle {
 	main: string;

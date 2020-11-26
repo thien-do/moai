@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Radio } from "./radio";
-import s from "./radio-group.module.scss";
+import s from "./radio-group.module.css";
 
 export interface RadioOption<T> {
 	value: T;

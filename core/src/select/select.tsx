@@ -1,11 +1,11 @@
 import React from "react";
-import flat from "../button/flat.module.scss";
-import outset from "../button/outset.module.scss";
+import flat from "../button/flat.module.css";
+import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
-import s from "./select.module.scss";
-import borderRadius from "../button/border-radius.module.scss";
+import s from "./select.module.css";
+import borderRadius from "../button/border-radius.module.css";
 
 export type SelectStyle = {
 	container: string;

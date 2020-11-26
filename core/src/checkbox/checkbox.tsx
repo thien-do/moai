@@ -2,8 +2,8 @@ import React from "react";
 
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
-import outset from "../button/outset.module.scss";
-import s from "./checkbox.module.scss";
+import outset from "../button/outset.module.css";
+import s from "./checkbox.module.css";
 
 interface Props {
 	value: boolean;

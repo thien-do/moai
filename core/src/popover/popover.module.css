@@ -1,0 +1,33 @@
+.arrow {
+	border-width: 1px;
+	width: 8px;
+	height: 8px;
+	transform: rotate(45deg);
+	position: relative;
+}
+
+.content {
+	z-index: 1;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.content[data-popper-placement^="top"] .arrow {
+	bottom: -5px;
+	border-style: none solid solid none;
+}
+
+.content[data-popper-placement^="right"] .arrow {
+	left: -5px;
+	border-style: none none solid solid;
+}
+
+.content[data-popper-placement^="bottom"] .arrow {
+	top: -5px;
+	border-style: solid none none solid;
+}
+
+.content[data-popper-placement^="left"] .arrow {
+	right: -5px;
+	border-style: solid solid none none;
+}

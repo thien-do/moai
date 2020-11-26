@@ -3,8 +3,8 @@
 	border-left: solid 1px transparent;
 }
 
-// we use <span> so it works everywhere semantically but visually we
-// need the stability and solid of block display
+/* we use <span> so it works everywhere semantically but visually we
+need the stability and solid of block display */
 .px {
 	display: block;
 	flex: 0 0 auto;
