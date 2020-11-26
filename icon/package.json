@@ -1,6 +1,6 @@
 {
 	"name": "@banhmi/icon",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "An iconset for @banhmi/core",
 	"main": "cjs/index.js",
 	"module": "esm/index.js",
