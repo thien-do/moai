@@ -1,14 +1,10 @@
-const path = require("path");
-
+/** @type {import("@storybook/core/types/index").StorybookConfig} */
 module.exports = {
 	stories: [
 		"../core/src/**/*.stories.mdx",
 		"../core/src/**/*.stories.@(js|jsx|ts|tsx)",
 	],
-	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-essentials",
-	],
+	addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
 	typescript: {
 		reactDocgen: "react-docgen-typescript",
 		reactDocgenTypescriptOptions: {
@@ -18,7 +14,8 @@ module.exports = {
 			},
 		},
 	},
-	webpackFinal: async (config, { configType }) => {
+	webpackFinal: async (config) => {
+		// Support CSS Modules
 		config.module.rules.forEach((rule) => {
 			const test = rule.test.toString();
 			if (test.includes("css") === false) return;
