@@ -40,11 +40,11 @@ body {
 	font-weight: 425;
 }
 
-:global(.light) body {
+.light body {
 	background-color: var(--gray-0);
 	color: var(--gray-9);
 }
-:global(.dark) body {
+.dark body {
 	background-color: var(--gray-8);
 	color: var(--gray-1);
 }
