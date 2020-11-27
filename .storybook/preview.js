@@ -1,6 +1,17 @@
-import "../core/src/reset.css"
-import "../core/src/index.css"
+import "../core/font/font.css";
+import "../core/src/index";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-}
+	actions: { argTypesRegex: "^on[A-Z].*" },
+	layout: "padded",
+	backgrounds: {
+		grid: {
+			cellSize: 16,
+			opacity: 0.2,
+			cellAmount: 5,
+		},
+	},
+	darkMode: {
+		stylePreview: true,
+	},
+};

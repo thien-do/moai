@@ -40,11 +40,13 @@ body {
 	font-weight: 425;
 }
 
-.light body {
+.light body,
+body.light {
 	background-color: var(--gray-0);
 	color: var(--gray-9);
 }
-.dark body {
+.dark body,
+body.dark {
 	background-color: var(--gray-8);
 	color: var(--gray-1);
 }

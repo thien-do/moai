@@ -1,36 +1,36 @@
 {
-  "name": "moai",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dvkndn/moai.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dvkndn/moai/issues"
-  },
-  "homepage": "https://moai.xyz",
-  "devDependencies": {
-    "@babel/core": "7.12.9",
-    "@storybook/addon-actions": "6.1.6",
-    "@storybook/addon-essentials": "6.1.6",
-    "@storybook/addon-links": "6.1.6",
-    "@storybook/react": "6.1.6",
-    "babel-loader": "8.2.1",
-    "css-loader": "5.0.1",
-    "prettier": "2.0.5",
-    "storybook-css-modules-preset": "1.0.4",
-    "style-loader": "2.0.0"
-  },
-  "dependencies": {
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
-  }
+	"name": "moai",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dvkndn/moai.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/dvkndn/moai/issues"
+	},
+	"homepage": "https://moai.xyz",
+	"dependencies": {
+		"@babel/core": "7.12.9",
+		"@storybook/addon-actions": "6.1.6",
+		"@storybook/addon-essentials": "6.1.6",
+		"@storybook/addon-links": "6.1.6",
+		"@storybook/react": "6.1.6",
+		"@storybook/theming": "6.1.6",
+		"babel-loader": "8.2.1",
+		"css-loader": "5.0.1",
+		"prettier": "2.0.5",
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
+		"storybook-css-modules-preset": "1.0.4",
+		"storybook-dark-mode": "1.0.3",
+		"style-loader": "2.0.0"
+	}
 }

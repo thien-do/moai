@@ -4,7 +4,11 @@ module.exports = {
 		"../core/src/**/*.stories.mdx",
 		"../core/src/**/*.stories.@(js|jsx|ts|tsx)",
 	],
-	addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+	addons: [
+		"@storybook/addon-links",
+		"@storybook/addon-essentials",
+		"storybook-dark-mode/register",
+	],
 	typescript: {
 		reactDocgen: "react-docgen-typescript",
 		reactDocgenTypescriptOptions: {
