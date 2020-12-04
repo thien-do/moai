@@ -22,6 +22,7 @@ export * from "./icon/icon";
 export * from "./input/input";
 export * from "./menu/menu";
 export * from "./outline/outline";
+export * from "./pane/pane";
 export * from "./popover/popover";
 export * from "./progress/circle";
 export * from "./radio/radio";
