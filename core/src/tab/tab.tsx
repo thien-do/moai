@@ -1,18 +1,18 @@
-import React from "react";
-
-import { Border } from "../border/border";
-import { Background, background } from "../background/background";
-import { outline } from "../outline/outline";
+import * as React from "react";
+import { background } from "../background/background";
 import { borderColor } from "../border/border";
+import { outline } from "../outline/outline";
+import { Pane } from "../pane/pane";
 import s from "./tab.module.css";
 
 export interface Tab {
 	title: string;
-	panel: () => JSX.Element;
+	pane: () => JSX.Element;
 }
 
 interface Props {
-	tabs: Tab[];
+	children: Tab[];
+	noPadding?: boolean;
 }
 
 type State = [string, (str: string) => void];
@@ -32,21 +32,22 @@ const renderTab = (state: State) => (tab: Tab) => {
 	);
 };
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
-	if (tabs.length < 1) throw Error("Tabs must have at least one tab");
-	const activeState = React.useState(tabs[0].title);
+export const Tabs = ({ children, ...props }: Props): JSX.Element => {
+	if (children.length < 1) throw Error("Tabs must have at least one tab");
+	const activeState = React.useState(children[0].title);
 	const [active] = activeState;
 
-	const activeTab = tabs.find((tab) => tab.title === active);
+	const activeTab = children.find((tab) => tab.title === active);
 	if (activeTab === undefined) throw Error(`Tab "${active}" is not defined`);
 
 	return (
 		<div>
-			<div className={s.titles}>{tabs.map(renderTab(activeState))}</div>
-			<Border color="strong" />
-			<Background color="primary">
-				<div className={s.panel}>{activeTab.panel()}</div>
-			</Background>
+			<div className={s.titles}>
+				{children.map(renderTab(activeState))}
+			</div>
+			<Pane noPadding={props.noPadding}>
+				<div className={s.panel}>{activeTab.pane()}</div>
+			</Pane>
 		</div>
 	);
 };
