@@ -1,30 +1,3 @@
-/* Custom */
-
-hr {
-	margin: 0;
-}
-
-textarea,
-input,
-button,
-select {
-	font: inherit;
-	color: inherit;
-	appearance: none;
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-a {
-	color: inherit;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -153,4 +126,35 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* Custom */
+
+hr {
+	margin: 0;
+}
+
+textarea,
+input,
+button,
+select {
+	font: inherit;
+	color: inherit;
+	appearance: none;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
 }
