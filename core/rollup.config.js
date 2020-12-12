@@ -13,7 +13,7 @@ const options = {
 	input: "src/index.ts",
 	output: [
 		{ dir: "dist/cjs", format: "cjs" },
-		{ dir: "dist/esm", format: "esm" },
+		{ dir: "dist/", format: "esm" },
 	],
 	external: ["react"],
 	plugins: [
@@ -24,9 +24,6 @@ const options = {
 		}),
 		copy({
 			targets: [
-				// The CSS extracted in all outputs are the same and should be
-				// moved up to root so it's easier to import
-				{ src: "dist/cjs/index.css", dest: "dist/" },
 				// Font is not included by default (to allow users to use
 				// either local or remote fonts)
 				{ src: "font", dest: "dist/" },
