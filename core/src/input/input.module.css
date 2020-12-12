@@ -22,6 +22,10 @@
 	/* pretty much nothing in normal state */
 	text-align: inherit;
 	text-decoration: inherit;
+	/* reset stuffs */
+	border: none;
+	border-radius: 0;
+	background-color: none;
 }
 
 /* mimic button.style.flat hover */

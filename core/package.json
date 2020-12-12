@@ -42,7 +42,8 @@
 		"@popperjs/core": "2.5.4",
 		"@tippyjs/react": "4.2.0",
 		"focus-visible": "5.2.0",
-		"react-popper": "2.2.4"
+		"react-popper": "2.2.4",
+		"sanitize.css": "^12.0.1"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "8.0.0",

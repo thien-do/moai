@@ -1,4 +1,5 @@
-@import "normalize.css";
+@import "sanitize.css/evergreen.css";
+@import "sanitize.css/forms.evergreen.css";
 
 :root {
 	--blue-0: hsl(211, 61%, 43%); /* accent */
@@ -35,7 +36,16 @@
 	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
 }
 
-body {
+p, hr, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+/* Decouple semantic from styling */
+h1, h2, h3, h4, h5, h6 {
+	font: inherit;
+}
+
+html {
 	font-family: var(--font-sans);
 	font-size: 14px;
 	line-height: 16px;
@@ -47,6 +57,7 @@ body.light {
 	background-color: var(--gray-0);
 	color: var(--gray-9);
 }
+
 .dark body,
 body.dark {
 	background-color: var(--gray-8);
