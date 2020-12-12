@@ -52,6 +52,7 @@
 		"@types/rollup-plugin-postcss": "2.0.1",
 		"autoprefixer": "10.1.0",
 		"postcss": "8.2.1",
+		"postcss-import": "13.0.0",
 		"rollup": "2.34.2",
 		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-postcss": "4.0.0",

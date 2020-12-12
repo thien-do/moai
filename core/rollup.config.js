@@ -1,5 +1,6 @@
 import typescript from "@rollup/plugin-typescript";
-import autoprefixer from "autoprefixer";
+import pcPrefix from "autoprefixer";
+import pcImport from "postcss-import";
 import copy from "rollup-plugin-copy";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
@@ -17,7 +18,7 @@ const options = {
 	external: ["react"],
 	plugins: [
 		postcss({
-			plugins: [autoprefixer],
+			plugins: [pcPrefix, pcImport],
 			minimize: true,
 			extract: true,
 		}),
