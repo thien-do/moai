@@ -15,7 +15,7 @@ export const Pane = ({ children, noPadding }: Props): JSX.Element => (
 			s.container,
 			background.primary,
 			boxShadow.strong,
-			borderColor.weak,
+			borderColor.strong,
 			noPadding ? "" : s.padding,
 		].join(" ")}
 		children={children}

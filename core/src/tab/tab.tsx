@@ -26,7 +26,7 @@ const renderTitle = (state: State) => (tab: Tab) => {
 	const { active, setActive } = state;
 	const activeCls =
 		active === tab.id
-			? `${borderColor.weak} ${background.primary}`
+			? `${borderColor.strong} ${background.primary}`
 			: `${s.nonactive}`;
 	return (
 		<button
