@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.129.0",
+	"version": "0.130.0",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "cjs/index.js",
 	"module": "index.js",
