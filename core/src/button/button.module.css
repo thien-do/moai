@@ -7,7 +7,11 @@
 	position: relative;
 }
 
-.fullWidth {
+.reverse {
+	flex-direction: row-reverse;
+}
+
+.fill {
 	width: 100%;
 }
 

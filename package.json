@@ -15,15 +15,17 @@
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/dvkndn/moai/issues"
+	"devDependencies": {
+		"prettier": "2.0.5"
 	},
 	"homepage": "https://moai.xyz",
 	"dependencies": {
 		"@babel/core": "7.12.9",
-		"@storybook/addon-actions": "6.1.6",
-		"@storybook/addon-essentials": "6.1.6",
-		"@storybook/addon-links": "6.1.6",
-		"@storybook/react": "6.1.6",
-		"@storybook/theming": "6.1.6",
+		"@storybook/addon-actions": "6.1.9",
+		"@storybook/addon-essentials": "6.1.9",
+		"@storybook/addon-links": "6.1.9",
+		"@storybook/react": "6.1.9",
+		"@storybook/theming": "6.1.9",
 		"babel-loader": "8.2.1",
 		"css-loader": "5.0.1",
 		"prettier": "2.0.5",

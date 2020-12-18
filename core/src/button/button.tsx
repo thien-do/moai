@@ -22,25 +22,27 @@ export type ButtonSize = {
 };
 
 const getClass = (props: ButtonProps) => {
-	const { highlight, selected, isFullWidth, isBusy, disabled } = props;
+	const { highlight, selected, fill, busy, disabled, reverse, icon } = props;
 	const size = props.size ?? Button.size.medium;
 	const style = props.style ?? Button.style.outset;
 	if (highlight === true && selected === true)
 		throw Error("Button cannot have both highlight and selected (yet).");
 	const classes = [s.button, size.main, style.main];
-	if (isFullWidth) classes.push(s.fullWidth);
+	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
-	if (disabled || isBusy) classes.push(style.disabled, s.disabled);
+	if (disabled || busy) classes.push(style.disabled, s.disabled);
+	if (icon && reverse) classes.push(s.reverse)
 	return classes.join(" ");
 };
 
 interface ChildrenProps {
 	children?: React.ReactNode;
 	icon?: IconPath;
+	reverse?: boolean;
 	iconLabel?: string;
 	size?: ButtonSize;
-	isBusy?: boolean;
+	busy?: boolean;
 }
 
 export interface ButtonProps extends ChildrenProps {
@@ -59,7 +61,7 @@ export interface ButtonProps extends ChildrenProps {
 	// visual
 	selected?: boolean;
 	highlight?: boolean;
-	isFullWidth?: boolean;
+	fill?: boolean;
 	style?: ButtonStyle;
 	size?: ButtonSize;
 }
@@ -68,7 +70,7 @@ export const ButtonChildren = (props: ChildrenProps) => {
 	const size = props.size ?? Button.size.medium;
 	return (
 		<>
-			{props.isBusy && (
+			{props.busy && (
 				<span className={s.busy}>
 					<ProgressCircle size={16} value={null} />
 				</span>
@@ -127,7 +129,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
 			onClick={props.onClick}
 			onFocus={props.onFocus}
 			onBlur={props.onBlur}
-			disabled={props.disabled || props.isBusy}
+			disabled={props.disabled || props.busy}
 			autoFocus={props.autoFocus}
 			type={props.type ?? "button"}
 			tabIndex={props.dangerouslySetTabIndex}

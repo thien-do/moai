@@ -15,13 +15,13 @@ interface Props<T> {
 	value: T;
 	setValue: (value: T) => void;
 	options: SwitcherOption<T>[];
-	isFullWidth?: boolean;
+	fill?: boolean;
 	size?: ButtonSize;
 	style?: ButtonStyle;
 }
 
 export const Switcher = <T,>(props: Props<T>) => (
-	<ButtonGroup fill={props.isFullWidth}>
+	<ButtonGroup fill={props.fill}>
 		{props.options.map((option) => (
 			<Button
 				key={option.label || option.key}
@@ -30,7 +30,7 @@ export const Switcher = <T,>(props: Props<T>) => (
 				onClick={() => props.setValue(option.value)}
 				selected={option.value === props.value}
 				disabled={option.disabled}
-				isFullWidth={props.isFullWidth}
+				fill={props.fill}
 				size={props.size}
 				style={props.style}
 			/>

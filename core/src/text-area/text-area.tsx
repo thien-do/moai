@@ -7,7 +7,7 @@ export interface TextAreaSize {
 	main: string;
 }
 
-const getClass = (props: Props) => {
+const getClass = (props: TextAreaProps) => {
 	const styles = [
 		s.container,
 		outline.normal,
@@ -20,12 +20,12 @@ const getClass = (props: Props) => {
 
 type ChangeEvent = React.ChangeEvent<HTMLTextAreaElement>;
 
-const onChange = (props: Props) => (e: ChangeEvent) => {
+const onChange = (props: TextAreaProps) => (e: ChangeEvent) => {
 	if (props.setValue === undefined || props.value === undefined) return;
 	props.setValue(e.currentTarget.value);
 };
 
-interface Props {
+export interface TextAreaProps {
 	// Value
 	defaultValue?: string;
 	value?: string;
@@ -48,7 +48,7 @@ interface Props {
 	onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
-export const TextArea = (props: Props) => {
+export const TextArea = (props: TextAreaProps) => {
 	const ref = React.useRef<HTMLTextAreaElement>(null);
 
 	React.useEffect(() => {
