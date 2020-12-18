@@ -15,6 +15,7 @@
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/dvkndn/moai/issues"
+	},
 	"devDependencies": {
 		"prettier": "2.0.5"
 	},
