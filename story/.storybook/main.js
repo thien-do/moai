@@ -1,8 +1,8 @@
 /** @type {import("@storybook/core/types/index").StorybookConfig} */
 module.exports = {
 	stories: [
-		"../core/src/**/*.stories.mdx",
-		"../core/src/**/*.stories.@(js|jsx|ts|tsx)",
+		"../../core/src/**/*.stories.mdx",
+		"../../core/src/**/*.stories.@(js|jsx|ts|tsx)",
 	],
 	addons: [
 		"@storybook/addon-links",
