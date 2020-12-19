@@ -103,11 +103,11 @@
 	color: var(--gray-5);
 	box-shadow: none;
 	background-color: var(--gray-1);
-	border-color: var(--gray-3);
+	border-color: var(--gray-2);
 }
 :global(.dark) .main:not(.busy):disabled {
 	color: var(--gray-4);
 	background-color: var(--gray-7);
 	box-shadow: none;
-	border-color: var(--gray-10);
+	border-color: var(--gray-9);
 }
