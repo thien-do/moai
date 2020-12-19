@@ -1,31 +1,44 @@
-import React from "react";
-
-import { outline } from "../outline/outline";
+import { ForwardedRef, ReactNode } from "react";
+import { icons } from "../../../icon/src";
 import outset from "../button/outset.module.css";
-import s from "./radio.module.css";
+import { Icon } from "../icon/icon";
+import { outline } from "../outline/outline";
+import self from "./radio.module.css";
+import s from "../checkbox/shared.module.css";
 
-interface Props {
+export interface RadioProps {
 	name: string;
 	value: string;
-	setValue: () => void;
-	checked: boolean;
-	label: React.ReactNode;
+	children: ReactNode;
+	// Controlled
+	disabled?: boolean;
+	setValue?: (value: string) => void;
+	checked?: boolean;
+	// Uncontrolled
+	defaultChecked?: boolean;
+	forwardedRef?: ForwardedRef<HTMLInputElement>;
 }
 
-export const Radio: React.FC<Props> = (props) => {
-	const { name, value, setValue, checked, label } = props;
-	return (
-		<label className={s.container}>
-			{checked && <span className={s.dot} />}
-			<input
-				className={`${s.input} ${outset.main} ${outline.normal}`}
-				type="radio"
-				name={name}
-				checked={checked}
-				value={value}
-				onChange={() => setValue()}
-			/>
-			<span className={s.label}>{label}</span>
-		</label>
-	);
-};
+export const Radio = (props: RadioProps): JSX.Element => (
+	<label className={s.container}>
+		<input
+			type="radio"
+			className={[s.input, self.input, outset.main, outline.normal].join(
+				" "
+			)}
+			name={props.name}
+			value={props.value}
+			// Controlled
+			checked={props.checked}
+			onChange={(event) => props.setValue?.(event.target.value)}
+			disabled={props.disabled}
+			// Uncontrolled
+			defaultChecked={props.defaultChecked}
+			ref={props.forwardedRef}
+		/>
+		<span className={[s.icon, self.icon].join(" ")}>
+			<Icon display="block" path={icons.boldDot} />
+		</span>
+		<span className={s.label}>{props.children}</span>
+	</label>
+);

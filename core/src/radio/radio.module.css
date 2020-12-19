@@ -1,41 +1,7 @@
-.container {
-	cursor: pointer;
-	display: flex;
-	align-items: flex-start;
-	line-height: 20px;
-	position: relative;
-	width: max-content;
-}
-
 .input {
-	flex: 0 0 auto;
-	width: 20px;
-	height: 20px;
 	border-radius: 20px;
 }
 
-.dot {
-	position: absolute;
-	/* wins the z-index of outline */
-	z-index: 2;
-	top: 6px;
-	left: 6px;
-
-	width: 8px;
-	height: 8px;
-	border-radius: 10px;
-	pointer-events: none;
-}
-
-:global(.light) .dot {
-	background-color: var(--gray-9);
-}
-
-:global(.dark) .dot {
-	background-color: var(--gray-1);
-}
-
-.label {
-	flex: 1 1 0px;
-	margin-left: 8px;
+.input:checked ~ .icon {
+	opacity: 1;
 }

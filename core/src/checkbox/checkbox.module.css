@@ -1,71 +1,8 @@
-.container {
-	display: flex;
-	align-items: flex-start;
-	line-height: 20px;
-	position: relative;
-	width: max-content;
-}
-
 .input {
-	flex: 0 0 auto;
-	width: 20px;
-	height: 20px;
 	border-radius: 3px;
-	appearance: none;
-	cursor: pointer;
-}
-
-.input:disabled {
-	cursor: auto;
-}
-
-/* ICON */
-
-.icon {
-	position: absolute;
-	/* wins the z-index of outline */
-	z-index: 2;
-	top: 2px;
-	left: 2px;
-	opacity: 0;
-
-	pointer-events: none;
 }
 
 .input:checked ~ .check,
 .input:indeterminate ~ .indeterminate {
 	opacity: 1;
-}
-
-:global(.light) .icon {
-	color: var(--gray-9);
-}
-:global(.light) .input:disabled ~ .icon {
-	color: var(--gray-5);
-}
-
-:global(.dark) .icon {
-	color: var(--gray-1);
-}
-:global(.light) .input:disabled ~ .icon {
-	color: var(--gray-4);
-}
-
-/* LABEL */
-
-.label {
-	flex: 1 1 0px;
-	padding-left: 8px;
-	cursor: pointer;
-}
-
-.input:disabled ~ .label {
-	cursor: auto;
-}
-
-:global(.light) .input:disabled ~ .label {
-	color: var(--gray-5);
-}
-:global(.dark) .input:disabled ~ .label {
-	color: var(--gray-4);
 }

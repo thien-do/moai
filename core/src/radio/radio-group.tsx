@@ -22,7 +22,7 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
 	<Radio
 		name={name}
 		checked={value === option.value}
-		label={option.label}
+		children={option.label}
 		value={option.id}
 		setValue={() => setValue(option.value)}
 	/>

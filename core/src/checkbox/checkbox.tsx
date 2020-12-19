@@ -3,7 +3,8 @@ import { icons } from "../../../icon/src";
 import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
-import s from "./checkbox.module.css";
+import self from "./checkbox.module.css";
+import s from "./shared.module.css";
 
 export interface CheckboxProps {
 	// Controlled
@@ -42,7 +43,12 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 		<label className={s.container}>
 			<input
 				type="checkbox"
-				className={[s.input, outset.main, outline.normal].join(" ")}
+				className={[
+					s.input,
+					self.input,
+					outset.main,
+					outline.normal,
+				].join(" ")}
 				disabled={props.disabled}
 				// Uncontrolled
 				defaultChecked={props.defaultChecked}
@@ -51,10 +57,10 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				checked={props.checked}
 				onChange={(e) => props.setChecked?.(e.target.checked)}
 			/>
-			<span className={[s.icon, s.check].join(" ")}>
+			<span className={[s.icon, self.check].join(" ")}>
 				<Icon display="block" path={icons.boldTick} />
 			</span>
-			<span className={[s.icon, s.indeterminate].join(" ")}>
+			<span className={[s.icon, self.indeterminate].join(" ")}>
 				<Icon display="block" path={icons.smallMinus} />
 			</span>
 			<span className={s.label}>{props.children}</span>
