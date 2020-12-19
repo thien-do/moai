@@ -4,7 +4,7 @@ export const GalleryProgress = (): JSX.Element => (
 	<div className="flex space-x-8">
 		<div className="space-y-8">
 			<div className="flex space-x-8">
-				<ProgressCircle size={16} value={null} highlight />
+				<ProgressCircle size={16} value={null} color="highlight" />
 				<ProgressCircle size={16} value={null} />
 			</div>
 			<div className="flex space-x-8">

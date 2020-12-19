@@ -25,27 +25,16 @@ const getClass = (props: ButtonProps) => {
 	const { highlight, selected, fill, busy, disabled, reverse, icon } = props;
 	const size = props.size ?? Button.size.medium;
 	const style = props.style ?? Button.style.outset;
-	if (highlight === true && selected === true)
-		throw Error("Button cannot have both highlight and selected (yet).");
 	const classes = [s.button, size.main, style.main];
 	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
-	if (highlight && !busy && !disabled) classes.push(style.highlight);
+	if (highlight && !disabled) classes.push(style.highlight);
 	if (disabled || busy) classes.push(style.disabled, s.disabled);
-	if (icon && reverse) classes.push(s.reverse)
+	if (icon && reverse) classes.push(s.reverse);
 	return classes.join(" ");
 };
 
-interface ChildrenProps {
-	children?: React.ReactNode;
-	icon?: IconPath;
-	reverse?: boolean;
-	iconLabel?: string;
-	size?: ButtonSize;
-	busy?: boolean;
-}
-
-export interface ButtonProps extends ChildrenProps {
+export interface ButtonProps {
 	forwardedRef?: React.LegacyRef<HTMLAnchorElement | HTMLButtonElement>;
 	// target - button
 	type?: "submit" | "button" | "reset";
@@ -64,15 +53,25 @@ export interface ButtonProps extends ChildrenProps {
 	fill?: boolean;
 	style?: ButtonStyle;
 	size?: ButtonSize;
+	// Children
+	children?: React.ReactNode;
+	icon?: IconPath;
+	reverse?: boolean;
+	iconLabel?: string;
+	busy?: boolean;
 }
 
-export const ButtonChildren = (props: ChildrenProps) => {
+export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 	const size = props.size ?? Button.size.medium;
 	return (
 		<>
 			{props.busy && (
 				<span className={s.busy}>
-					<ProgressCircle size={16} value={null} />
+					<ProgressCircle
+						size={16}
+						value={null}
+						color={props.highlight ? "inverse" : "base"}
+					/>
 				</span>
 			)}
 			{props.icon && (
@@ -92,19 +91,23 @@ export const ButtonChildren = (props: ChildrenProps) => {
 
 const buttonTests: [(props: ButtonProps) => boolean, string][] = [
 	[
-		(p) => p.icon !== undefined || p.children !== undefined,
+		(p) => p.style === Button.style.flat && p.highlight === true,
+		"Flat buttons can not have highlight style",
+	],
+	[
+		(p) => p.icon === undefined && p.children === undefined,
 		'Button must have either "icon" or "children" defined so users can see it',
 	],
 	[
-		(p) => p.iconLabel !== undefined || p.children !== undefined,
+		(p) => p.iconLabel === undefined && p.children === undefined,
 		'Button must have either "children" or "iconLabel" defined so screen reader can read it',
 	],
 ];
 
 const validateButton = (props: ButtonProps): void => {
 	for (let i = 0; i < buttonTests.length; i++) {
-		const passed = buttonTests[i][0](props);
-		if (passed === false) throw Error(buttonTests[i][1]);
+		const failed = buttonTests[i][0](props);
+		if (failed) throw Error(buttonTests[i][1]);
 	}
 };
 

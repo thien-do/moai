@@ -1,16 +1,22 @@
-import React from "react";
 import { IconSize } from "../icon/icon";
-import { text } from "../text/text";
 import s from "./circle.module.css";
 
 // This file follows blueprint's spinner. Please see the source here:
 // https://github.com/palantir/blueprint/blob/develop/packages/core/src/components/spinner/spinner.tsx
 
+type Color = "base" | "highlight" | "inverse";
+
 interface Props {
 	size: IconSize | 24 | 32;
 	value: number | null;
-	highlight?: boolean;
+	color?: Color;
 }
+
+const ColorStyle: Record<Color, string> = {
+	base: s.base!,
+	highlight: s.highlight!,
+	inverse: s.inverse!,
+};
 
 const R = 45;
 // prettier-ignore
@@ -39,7 +45,7 @@ export const ProgressCircle = (props: Props) => {
 				className={[
 					s.container,
 					props.value === null ? s.animate : "",
-					props.highlight ? text.blueWeak : text.muted,
+					ColorStyle[props.color ?? "base"],
 				].join(" ")}
 				width={props.size}
 				height={props.size}

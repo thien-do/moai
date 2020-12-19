@@ -8,14 +8,10 @@
 
 .track {
 	fill: none;
-	stroke: currentColor;
-	/* @TODO: Use solid color when blue has bigger range */
-	opacity: 0.15;
 }
 
 .head {
 	fill: none;
-	stroke: currentColor;
 	stroke-linecap: round;
 	transform-origin: center;
 }
@@ -31,4 +27,41 @@
 
 .animate {
 	animation: spin 0.5s linear infinite;
+}
+
+/* COLOR */
+
+:global(.light) .base .head {
+	stroke: var(--gray-5);
+}
+:global(.light) .base .track {
+	stroke: var(--gray-2);
+}
+:global(.dark) .base .head {
+	stroke: var(--gray-4);
+}
+:global(.dark) .base .track {
+	stroke: var(--gray-6);
+}
+
+:global(.light) .highlight .head {
+	stroke: var(--blue-5);
+}
+:global(.light) .highlight .track {
+	stroke: var(--blue-1);
+}
+:global(.dark) .highlight .head {
+	stroke: var(--blue-5);
+}
+:global(.dark) .highlight .track {
+	stroke: var(--blue-8);
+}
+
+:global(.light) .inverse .head,
+:global(.dark) .inverse .head {
+	stroke: var(--gray-1);
+}
+:global(.light) .inverse .track,
+:global(.dark) .inverse .track {
+	stroke: var(--blue-6);
 }

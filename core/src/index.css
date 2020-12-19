@@ -4,14 +4,14 @@
 :root {
 	/* accent */
 	--blue-0: #f0f9ff;
-	--blue-1: hsl(204, 94%, 94%);
-	--blue-2: hsl(201, 94%, 86%);
-	--blue-3: hsl(199, 95%, 74%);
-	--blue-4: hsl(198, 93%, 60%);
-	--blue-5: hsl(199, 89%, 48%); /* blue-2 blue 3 */
-	--blue-6: hsl(200, 98%, 39%); /* blue-1 */
-	--blue-7: hsl(201, 96%, 32%); /* blue-0 */
-	--blue-8: hsl(201, 90%, 27%);
+	--blue-1: #e1f3fe;
+	--blue-2: #bae5fd;
+	--blue-3: #7ed4fc;
+	--blue-4: #3abff8;
+	--blue-5: #0da2e7; /* blue-2 blue 3 */
+	--blue-6: #0284c5; /* blue-1 */
+	--blue-7: #0369a0; /* blue-0 */
+	--blue-8: #075783;
 	--blue-9: #0c4a6e;
 
 	--green-0: #2b7e40; /* positive */
