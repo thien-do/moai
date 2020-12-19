@@ -39,17 +39,17 @@
 }
 
 :global(.light) .blueWeak {
-	color: var(--blue-1);
+	color: var(--blue-6);
 }
 :global(.dark) .blueWeak {
-	color: var(--blue-2);
+	color: var(--blue-5);
 }
 
 :global(.light) .blueStrong {
-	color: var(--blue-0);
+	color: var(--blue-7);
 }
 :global(.dark) .blueStrong {
-	color: var(--blue-3);
+	color: var(--blue-5);
 }
 
 :global(.light) .muted {

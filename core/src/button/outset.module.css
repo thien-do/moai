@@ -48,28 +48,28 @@
 
 :global(.light) .highlight {
 	color: var(--gray-0);
-	background-color: var(--blue-2);
+	background-color: var(--blue-5);
 	box-shadow: var(--main-shadow) var(--gray-3),
-		var(--inset-shadow) var(--blue-3);
-	border-color: var(--blue-0);
+		var(--inset-shadow) var(--blue-5);
+	border-color: var(--blue-7);
 }
 :global(.light) .highlight:hover {
-	background-color: var(--blue-3);
+	background-color: var(--blue-5);
 }
 :global(.light) .highlight:active {
-	background-color: var(--blue-1);
+	background-color: var(--blue-6);
 }
 
 :global(.dark) .highlight {
 	color: var(--gray-1);
-	background-color: var(--blue-2);
-	box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--blue-3);
+	background-color: var(--blue-5);
+	box-shadow: var(--main-shadow-full), var(--inset-shadow) var(--blue-5);
 }
 :global(.dark) .highlight:hover {
-	background-color: var(--blue-3);
+	background-color: var(--blue-5);
 }
 :global(.dark) .highlight:active {
-	background-color: var(--blue-1);
+	background-color: var(--blue-6);
 	box-shadow: none;
 }
 
