@@ -18,17 +18,11 @@
 	},
 	"homepage": "https://moai.xyz",
 	"dependencies": {
-		"@babel/core": "7.12.10",
 		"@storybook/addon-actions": "6.1.11",
 		"@storybook/addon-essentials": "6.1.11",
 		"@storybook/addon-links": "6.1.11",
 		"@storybook/react": "6.1.11",
 		"@storybook/theming": "6.1.11",
-		"babel-loader": "8.2.2",
-		"css-loader": "5.0.1",
-		"react": "17.0.1",
-		"react-dom": "17.0.1",
-		"storybook-dark-mode": "1.0.4",
-		"style-loader": "2.0.0"
+		"storybook-dark-mode": "1.0.4"
 	}
 }
