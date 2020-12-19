@@ -1,32 +1,63 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { icons } from "../../../icon/src";
+import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
-import outset from "../button/outset.module.css";
 import s from "./checkbox.module.css";
 
-interface Props {
-	value: boolean;
-	setValue: (checked: boolean) => void;
+export interface CheckboxProps {
+	// Controlled
+	checked?: boolean;
+	setChecked?: (checked: boolean) => void;
+	indeterminate?: boolean;
+	// Uncontrolled
+	defaultChecked?: boolean;
+	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
+	// Body
 	children: React.ReactNode;
+	disabled?: boolean;
 }
 
-const tickPath =
-	"M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l5-5A1.003 1.003 0 0012 5z";
+export const Checkbox = (props: CheckboxProps): JSX.Element => {
+	const ref = React.useRef<HTMLInputElement>(null);
 
-export const Checkbox: React.FC<Props> = ({ value, setValue, children }) => (
-	<label className={s.container}>
-		{value && (
-			<span className={s.tick}>
-				<Icon display="block" path={tickPath} />
+	// Broadcast ref
+	const fRef = props.forwardedRef;
+	useEffect(() => {
+		if (ref.current === null) throw Error("Ref is null");
+		if (!fRef) return;
+		if (typeof fRef === "function") fRef(ref.current);
+		if (typeof fRef === "object") fRef.current = ref.current;
+		throw Error(`Unknown props.forwardedRef type: ${typeof fRef}`);
+	}, [fRef]);
+
+	// Indeterminate can only be set by script
+	useEffect(() => {
+		if (ref.current === null) throw Error("Ref is null");
+		if (props.indeterminate === undefined) return;
+		ref.current.indeterminate = props.indeterminate;
+	}, [props.indeterminate]);
+
+	return (
+		<label className={s.container}>
+			<input
+				type="checkbox"
+				className={[s.input, outset.main, outline.normal].join(" ")}
+				disabled={props.disabled}
+				// Uncontrolled
+				defaultChecked={props.defaultChecked}
+				ref={ref}
+				// Controlled
+				checked={props.checked}
+				onChange={(e) => props.setChecked?.(e.target.checked)}
+			/>
+			<span className={[s.icon, s.check].join(" ")}>
+				<Icon display="block" path={icons.boldTick} />
 			</span>
-		)}
-		<input
-			type="checkbox"
-			className={`${s.input} ${outset.main} ${outline.normal}`}
-			checked={value}
-			onChange={(e) => setValue(e.target.checked)}
-		/>
-		<span className={s.label}>{children}</span>
-	</label>
-);
+			<span className={[s.icon, s.indeterminate].join(" ")}>
+				<Icon display="block" path={icons.smallMinus} />
+			</span>
+			<span className={s.label}>{props.children}</span>
+		</label>
+	);
+};
