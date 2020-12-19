@@ -73,16 +73,12 @@
 
 /* SELECTED */
 
-:global(.light) .selected,
-:global(.light) .selected:hover,
-:global(.light) .selected:active {
+:global(.light) .selected:not(.win-pseudo) {
 	background-color: var(--gray-2);
 	box-shadow: 0px 0px 0px transparent;
 }
 
-:global(.light) .highlight.selected,
-:global(.light) .highlight.selected:hover,
-:global(.light) .highlight.selected:active {
+:global(.light) .highlight.selected:not(.win-pseudo) {
 	background-color: var(--blue-6);
 	box-shadow: 0px 0px 0px transparent;
 }
@@ -103,15 +99,15 @@
 
 /* DISABLED */
 
-:global(.light) .disabled,
-:global(.light) .disabled:hover,
-:global(.light) .disabled:active {
+:global(.light) .main:not(.busy):disabled {
 	color: var(--gray-5);
 	box-shadow: none;
+	background-color: var(--gray-1);
+	border-color: var(--gray-3);
 }
-:global(.dark) .disabled,
-:global(.dark) .disabled:hover,
-:global(.dark) .disabled:active {
+:global(.dark) .main:not(.busy):disabled {
 	color: var(--gray-4);
+	background-color: var(--gray-7);
 	box-shadow: none;
+	border-color: var(--gray-10);
 }

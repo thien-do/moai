@@ -10,6 +10,11 @@
 	width: fit-content;
 }
 
+.button:disabled {
+	pointer-events: none;
+	cursor: auto;
+}
+
 .reverse {
 	flex-direction: row-reverse;
 }
@@ -35,11 +40,6 @@
 
 .icon {
 	flex: 0 0 auto;
-}
-
-.disabled {
-	pointer-events: none;
-	cursor: auto;
 }
 
 .busy {

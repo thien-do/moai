@@ -11,8 +11,8 @@ import outset from "./outset.module.css";
 export interface ButtonStyle {
 	main: string;
 	selected: string;
-	disabled: string;
 	highlight: string;
+	busy: string;
 }
 
 export type ButtonSize = {
@@ -22,14 +22,14 @@ export type ButtonSize = {
 };
 
 const getClass = (props: ButtonProps) => {
-	const { highlight, selected, fill, busy, disabled, reverse, icon } = props;
+	const { highlight, selected, fill, busy, reverse, icon } = props;
 	const size = props.size ?? Button.size.medium;
 	const style = props.style ?? Button.style.outset;
 	const classes = [s.button, size.main, style.main];
 	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
-	if (highlight && !disabled) classes.push(style.highlight);
-	if (disabled || busy) classes.push(style.disabled, s.disabled);
+	if (highlight) classes.push(style.highlight);
+	if (busy) classes.push(style.busy);
 	if (icon && reverse) classes.push(s.reverse);
 	return classes.join(" ");
 };
@@ -145,13 +145,13 @@ Button.style = {
 		main: [borderRadius.container, outset.main, outline.normal].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
-		disabled: outset.disabled,
+		busy: outset.busy,
 	} as ButtonStyle,
 	flat: {
 		main: [flat.main, outline.normal].join(" "),
 		selected: flat.selected,
 		highlight: "",
-		disabled: flat.disabled,
+		busy: flat.busy,
 	} as ButtonStyle,
 };
 
