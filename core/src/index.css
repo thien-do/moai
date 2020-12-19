@@ -71,6 +71,10 @@ h6 {
 	font: inherit;
 }
 
+a {
+	color: inherit;
+}
+
 html {
 	font-family: var(--font-sans);
 	font-size: 14px;
