@@ -68,7 +68,7 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 			{props.busy && (
 				<span className={s.busy}>
 					<ProgressCircle
-						size={16}
+						size={size.iconSize}
 						value={null}
 						color={props.highlight ? "inverse" : "base"}
 					/>
