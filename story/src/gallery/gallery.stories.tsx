@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/react";
 import { GalleryButton } from "./button";
 import { GalleryButtonGroup } from "./button-group";
 import { GalleryButtonSize } from "./button-size";
+import { GalleryCheckbox } from "./checkbox";
 import { GalleryProgress } from "./progress";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
@@ -17,6 +18,9 @@ const Gallery = () => (
 		</div>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryProgress />} />
+		</div>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryCheckbox />} />
 		</div>
 	</div>
 );
