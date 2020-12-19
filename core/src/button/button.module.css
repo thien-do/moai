@@ -5,6 +5,9 @@
 	align-items: center;
 	text-decoration: none;
 	position: relative;
+
+	/* Enforce width in case of link */
+	width: fit-content;
 }
 
 .reverse {
