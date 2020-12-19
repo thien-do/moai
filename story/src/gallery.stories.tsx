@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/react";
 import { Button } from "../../core/src";
 
 const Gallery = () => (
-	<div>
+	<div className="flex">
 		<Button highlight children="Button" />
 		<Button children="Button" />
 	</div>

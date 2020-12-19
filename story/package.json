@@ -4,8 +4,10 @@
 	"description": "",
 	"private": true,
 	"scripts": {
-		"start": "start-storybook",
-		"build": "build-storybook"
+		"start": "tw-start && start-storybook",
+		"build": "tw-build && build-storybook",
+		"tw-start": "npx tailwindcss-cli@latest build ./src/tailwind.css -o .storybook/tailwind.css",
+		"tw-build": "NODE_ENV=production npm run tw-start"
 	},
 	"repository": {
 		"type": "git",
