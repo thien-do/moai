@@ -4,8 +4,8 @@
 	"description": "",
 	"private": true,
 	"scripts": {
-		"start": "tw-start && start-storybook",
-		"build": "tw-build && build-storybook",
+		"start": "npm run tw-start && start-storybook",
+		"build": "npm run tw-build && build-storybook",
 		"tw-start": "npx tailwindcss-cli@latest build ./src/tailwind.css -o .storybook/tailwind.css",
 		"tw-build": "NODE_ENV=production npm run tw-start"
 	},
@@ -25,6 +25,8 @@
 		"@storybook/addon-links": "6.1.11",
 		"@storybook/react": "6.1.11",
 		"@storybook/theming": "6.1.11",
-		"storybook-dark-mode": "1.0.4"
+		"react": "^17.0.1",
+		"storybook-dark-mode": "1.0.4",
+		"tailwindcss": "^2.0.2"
 	}
 }

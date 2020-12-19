@@ -30,7 +30,7 @@ const getClass = (props: ButtonProps) => {
 	const classes = [s.button, size.main, style.main];
 	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
-	if (highlight) classes.push(style.highlight);
+	if (highlight && !busy && !disabled) classes.push(style.highlight);
 	if (disabled || busy) classes.push(style.disabled, s.disabled);
 	if (icon && reverse) classes.push(s.reverse)
 	return classes.join(" ");

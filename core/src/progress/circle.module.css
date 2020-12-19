@@ -1,27 +1,23 @@
+.wrapper {
+	display: block;
+}
+
 .container {
 	display: block;
 }
 
 .track {
 	fill: none;
-}
-:global(.light) .track {
-	stroke: var(--gray-2);
-}
-:global(.dark) .track {
-	stroke: var(--gray-7);
+	stroke: currentColor;
+	/* @TODO: Use solid color when blue has bigger range */
+	opacity: 0.15;
 }
 
 .head {
 	fill: none;
+	stroke: currentColor;
 	stroke-linecap: round;
 	transform-origin: center;
-}
-:global(.light) .head {
-	stroke: var(--gray-5);
-}
-:global(.dark) .head {
-	stroke: var(--gray-4);
 }
 
 @keyframes spin {

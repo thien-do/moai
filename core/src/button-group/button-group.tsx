@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ButtonMenu } from "../button-menu/button-menu";
 import { Button } from "../button/button";
 import { Select } from "../select/select";

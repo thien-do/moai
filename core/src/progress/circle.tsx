@@ -1,5 +1,6 @@
 import React from "react";
 import { IconSize } from "../icon/icon";
+import { text } from "../text/text";
 import s from "./circle.module.css";
 
 // This file follows blueprint's spinner. Please see the source here:
@@ -8,6 +9,7 @@ import s from "./circle.module.css";
 interface Props {
 	size: IconSize | 24 | 32;
 	value: number | null;
+	highlight?: boolean;
 }
 
 const R = 45;
@@ -32,11 +34,12 @@ export const ProgressCircle = (props: Props) => {
 	const strokeOffset = PATH_LENGTH - PATH_LENGTH * (props.value ?? 0.25);
 
 	return (
-		<div>
+		<span className={s.wrapper}>
 			<svg
 				className={[
 					s.container,
 					props.value === null ? s.animate : "",
+					props.highlight ? text.blueWeak : text.muted,
 				].join(" ")}
 				width={props.size}
 				height={props.size}
@@ -52,6 +55,6 @@ export const ProgressCircle = (props: Props) => {
 					strokeDashoffset={strokeOffset}
 				/>
 			</svg>
-		</div>
+		</span>
 	);
 };
