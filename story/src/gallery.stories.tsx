@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/react";
-import { Button } from "../";
+import { Button } from "../../core/src";
 
 const Gallery = () => (
 	<div>
