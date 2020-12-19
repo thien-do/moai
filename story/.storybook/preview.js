@@ -7,9 +7,9 @@ export const parameters = {
 	layout: "padded",
 	backgrounds: {
 		grid: {
-			cellSize: 16,
+			cellSize: 8,
 			opacity: 0.2,
-			cellAmount: 5,
+			cellAmount: 0,
 		},
 	},
 	darkMode: {

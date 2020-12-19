@@ -4,6 +4,7 @@ import { GalleryButtonGroup } from "./button-group";
 import { GalleryButtonSize } from "./button-size";
 import { GalleryCheckbox } from "./checkbox";
 import { GalleryProgress } from "./progress";
+import { GalleryRadio } from "./radio";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
 	<div className="p-8" children={children} />
@@ -21,6 +22,7 @@ const Gallery = () => (
 		</div>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryCheckbox />} />
+			<Pane children={<GalleryRadio />} />
 		</div>
 	</div>
 );
