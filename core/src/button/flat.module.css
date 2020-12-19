@@ -5,6 +5,9 @@
 	border: none;
 	background-color: none;
 	border-radius: none;
+	/* To have same width with outset buttons */
+	border-left: solid 1px transparent;
+	border-right: solid 1px transparent;
 }
 :global(.light) .main:hover {
 	background-color: var(--gray-2);
