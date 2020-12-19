@@ -13,15 +13,15 @@ const Row = (props: RowProps): JSX.Element => (
 			{...props}
 		/>
 		<Radio
-			defaultChecked={false}
-			children="Unchecked"
-			value="unchecked"
-			{...props}
-		/>
-		<Radio
 			defaultChecked={true}
 			children="Checked"
 			value="checked"
+			{...props}
+		/>
+		<Radio
+			defaultChecked={false}
+			children="Unchecked"
+			value="unchecked"
 			{...props}
 		/>
 	</>

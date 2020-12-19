@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
-import { GalleryButton } from "./button";
-import { GalleryButtonGroup } from "./button-group";
-import { GalleryButtonSize } from "./button-size";
+import { GalleryButton1 } from "./button-1";
+import { GalleryButton2 } from "./button-2";
+import { GalleryButton3 } from "./button-3";
 import { GalleryCheckbox } from "./checkbox";
 import { GalleryProgress } from "./progress";
 import { GalleryRadio } from "./radio";
@@ -13,9 +13,9 @@ const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
 const Gallery = () => (
 	<div>
 		<div className="flex flex-wrap p-8">
-			<Pane children={<GalleryButton />} />
-			<Pane children={<GalleryButtonGroup />} />
-			<Pane children={<GalleryButtonSize />} />
+			<Pane children={<GalleryButton1 />} />
+			<Pane children={<GalleryButton2 />} />
+			<Pane children={<GalleryButton3 />} />
 		</div>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryProgress />} />

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button, ButtonGroup, ButtonProps, Switcher } from "../../../core/src";
+import { Button, ButtonGroup, ButtonProps } from "../../../core/src";
 import { icons } from "../../../icon/src";
 
 const { medium, small } = Button.size;
@@ -8,7 +7,7 @@ const icon = icons.plus;
 
 const flatIcon: ButtonProps = { icon, style: flat };
 
-export const GalleryButtonGroup = (): JSX.Element => (
+export const GalleryButton3 = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Button children="Back" icon={icons.arrowLeft} />

@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Button, Switcher } from "../../../core/src";
 
-const Theme = () => {
+const Theme = ({ fill }: { fill: boolean }): JSX.Element => {
 	const [value, setValue] = useState("Auto");
 	return (
 		<Switcher
-			options={["Light", "Auto", "Dark", "Disabled"].map((id) => ({
+			options={["Light", "Auto", "Dark"].map((id) => ({
 				value: id,
 				label: id,
 				disabled: id === "Disabled",
 			}))}
 			value={value}
 			setValue={setValue}
+			fill={fill}
 		/>
 	);
 };
@@ -20,7 +21,7 @@ const Busy = (): JSX.Element => {
 	const [busy, setBusy] = useState(false);
 	return (
 		<Button
-			children="Click to Load"
+			children="Fetch"
 			busy={busy}
 			onClick={() => {
 				setBusy(true);
@@ -36,31 +37,26 @@ const Toggle = (): JSX.Element => {
 	const [selected, setSelected] = useState(false);
 	return (
 		<Button
-			children="Click to Toggle"
+			children="Toggle"
 			selected={selected}
 			onClick={() => setSelected(!selected)}
 		/>
 	);
 };
 
-export const GalleryButtonSize = (): JSX.Element => (
+export const GalleryButton2 = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Toggle />
 			<Busy />
-		</div>
-		<div className="flex space-x-8">
 			<Button
 				target="_blank"
 				href="https://moai.xyz"
-				children="Link to moai.xyz"
+				children="External Link"
 			/>
 		</div>
-		<div>
-			<Button fill children="Full-width Button" />
-		</div>
-		<div className="flex space-x-8">
-			<Theme />
-		</div>
+		<Theme fill={true} />
+		<Theme fill={false} />
+		<Button fill children="Full-width Button" />
 	</div>
 );
