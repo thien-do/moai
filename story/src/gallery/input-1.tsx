@@ -2,7 +2,7 @@ import { Input, InputStyle } from "../../../core/src";
 
 const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 	<div style={{ width: 120 }} className="space-y-8">
-		<Input style={style} defaultValue="Text field" />
+		<Input style={style} defaultValue="Text box" />
 		<Input style={style} defaultValue="" placeholder="Placeholder" />
 		<Input style={style} defaultValue="Read-only" readOnly />
 		<Input style={style} defaultValue="Disabled" disabled />

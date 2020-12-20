@@ -7,24 +7,36 @@ import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
 import { GalleryProgress } from "./progress";
 import { GalleryRadio } from "./radio";
+import { GallerySelect } from "./select";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
 	<div className="p-8" children={children} />
 );
 
+const Heading = ({ children }: { children: string }): JSX.Element => (
+	<h2 className="px-16 pt-16 text-lg font-semibold">{children}</h2>
+);
+
 const Gallery = () => (
 	<div>
+		<Heading>Buttons</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryButton1 />} />
 			<Pane children={<GalleryButton2 />} />
 			<Pane children={<GalleryButton3 />} />
 		</div>
+		<Heading>Text boxes</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryInput1 />} />
 			<Pane children={<GalleryInput2 />} />
+		</div>
+		<Heading>Other controls</Heading>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
 			<Pane children={<GalleryRadio />} />
 		</div>
+		<Heading>Progress indicators</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryProgress />} />
 		</div>
