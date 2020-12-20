@@ -3,6 +3,7 @@ import { GalleryButton1 } from "./button-1";
 import { GalleryButton2 } from "./button-2";
 import { GalleryButton3 } from "./button-3";
 import { GalleryCheckbox } from "./checkbox";
+import { GalleryDialog } from "./dialog";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
 import { GalleryProgress } from "./progress";
@@ -20,6 +21,10 @@ const Heading = ({ children }: { children: string }): JSX.Element => (
 
 const Gallery = () => (
 	<div>
+		<Heading>Dialog</Heading>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryDialog />} />
+		</div>
 		<Heading>Buttons</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryButton1 />} />

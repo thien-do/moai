@@ -91,10 +91,9 @@ export const Select = <T,>(props: SelectProps<T>) => {
 				value={value}
 				onChange={onChange(props)}
 			/>
-			<span
-				className={cls.icon}
-				children={<Icon display="block" path={coreIcons.caret} />}
-			/>
+			<span className={cls.icon}>
+				<Icon display="block" path={coreIcons.caret} />
+			</span>
 		</div>
 	);
 };
