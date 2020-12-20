@@ -4,11 +4,11 @@ import { DivPx } from "../div/div";
 import { Input } from "../input/input";
 import { TextArea } from "../text-area/text-area";
 import { Dialog } from "./dialog";
-import { DialogMessage, DialogMessageC } from "./utils/message";
+import { DialogMessageChildren, DialogMessage } from "./utils/message";
 import { renderDialog } from "./utils/render";
 
 interface Props {
-	children: DialogMessage;
+	children: DialogMessageChildren;
 	initialText?: string;
 	rows?: number;
 	onOk: (text: string) => void;
@@ -18,46 +18,36 @@ interface Props {
 
 export const PromptDialog = (props: Props) => {
 	const [text, setText] = React.useState<string>(props.initialText ?? "");
+	const base = {
+		value: text,
+		setValue: setText,
+		autoFocus: true,
+		autoSelect: true,
+	};
+	const width = props.width === "fixed" ? "auto" : props.width;
 	return (
 		<Dialog
 			onEsc={props.onCancel}
 			width={typeof props.width === "number" ? "content" : "fixed"}
 		>
-			<Dialog.Body>
-				<DialogMessageC children={props.children} />
-				<DivPx size={16} />
-				<div
-					style={{
-						width: props.width === "fixed" ? "auto" : props.width,
-					}}
-				>
-					{props.rows !== 1 ? (
-						<TextArea
-							autoFocus
-							autoSelect
-							value={text}
-							setValue={setText}
-							rows={props.rows}
-						/>
-					) : (
-						<Input
-							autoFocus
-							autoSelect
-							value={text}
-							setValue={setText}
-						/>
-					)}
-				</div>
-			</Dialog.Body>
-			<Dialog.Footer>
-				<Button onClick={props.onCancel} children="Cancel" />
-				<DivPx size={16} />
-				<Button
-					highlight
-					onClick={() => props.onOk(text)}
-					children="OK"
-				/>
-			</Dialog.Footer>
+			<form onSubmit={() => props.onOk(text)}>
+				<Dialog.Body>
+					<DialogMessage children={props.children} />
+					<DivPx size={16} />
+					<div style={{ width }}>
+						{props.rows !== 1 ? (
+							<TextArea {...base} rows={props.rows} />
+						) : (
+							<Input {...base} />
+						)}
+					</div>
+				</Dialog.Body>
+				<Dialog.Footer>
+					<Button onClick={props.onCancel} children="Cancel" />
+					<DivPx size={16} />
+					<Button type="submit" highlight children="OK" />
+				</Dialog.Footer>
+			</form>
 		</Dialog>
 	);
 };
@@ -69,19 +59,19 @@ type Options = Pick<Props, "width" | "rows">;
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
  */
 export const prompt = (
-	message: DialogMessage,
+	message: DialogMessageChildren,
 	initialText?: string,
 	options?: Options
-): Promise<boolean> => {
+): Promise<string | null> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (
 			<PromptDialog
 				onCancel={() => {
-					resolve(false);
+					resolve(null);
 					unmount();
 				}}
-				onOk={() => {
-					resolve(true);
+				onOk={(text) => {
+					resolve(text);
 					unmount();
 				}}
 				children={message}
