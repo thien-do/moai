@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 import { Input, InputStyle } from "../input/input";
 import { outline } from "../outline/outline";
 import s from "./text-area.module.css";
@@ -26,8 +26,10 @@ const onChange = (props: TextAreaProps) => (e: ChangeEvent) => {
 };
 
 export interface TextAreaProps {
-	// Value
+	// Uncontrolled
 	defaultValue?: string;
+	forwardedRef?: ForwardedRef<HTMLTextAreaElement>;
+	// Controlled
 	value?: string;
 	setValue?: (value: string) => void;
 	// Style
@@ -50,6 +52,13 @@ export interface TextAreaProps {
 
 export const TextArea = (props: TextAreaProps) => {
 	const ref = React.useRef<HTMLTextAreaElement>(null);
+
+	React.useEffect(() => {
+		const fRef = props.forwardedRef;
+		if (!fRef) return;
+		if (typeof fRef === "function") return void fRef(ref.current);
+		fRef.current = ref.current;
+	}, [props.forwardedRef]);
 
 	React.useEffect(() => {
 		if (!props.autoSelect) return;
