@@ -49,14 +49,10 @@ export const GalleryButton2 = (): JSX.Element => (
 		<div className="flex space-x-8">
 			<Toggle />
 			<Busy />
-			<Button
-				target="_blank"
-				href="https://moai.xyz"
-				children="External Link"
-			/>
+			<Button target="_blank" href="https://moai.xyz" children="Link" />
 		</div>
-		<Theme fill={true} />
 		<Theme fill={false} />
+		<Theme fill={true} />
 		<Button fill children="Full-width Button" />
 	</div>
 );
