@@ -10,6 +10,10 @@
 	word-break: break-all;
 }
 
+.big {
+	font-size: 16px;
+}
+
 :global(.light) .redWeak {
 	color: var(--red-1);
 }

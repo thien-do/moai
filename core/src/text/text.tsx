@@ -11,6 +11,7 @@ export const text = {
 	strong: s.strong as string,
 	p: s.p as string,
 	break: s.break as string,
+	big: s.big as string,
 	// ===
 	blueStrong: s.blueStrong as string,
 	blueWeak: s.blueWeak as string,
