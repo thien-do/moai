@@ -8,6 +8,7 @@ import { GalleryInput2 } from "./input-2";
 import { GalleryProgress } from "./progress";
 import { GalleryRadio } from "./radio";
 import { GallerySelect } from "./select";
+import { GalleryTextArea } from "./text-area";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
 	<div className="p-8" children={children} />
@@ -29,6 +30,7 @@ const Gallery = () => (
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryInput1 />} />
 			<Pane children={<GalleryInput2 />} />
+			<Pane children={<GalleryTextArea />} />
 		</div>
 		<Heading>Other controls</Heading>
 		<div className="flex flex-wrap p-8">
