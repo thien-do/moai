@@ -1,20 +1,20 @@
 import * as React from "react";
 import { DivPx } from "../../div/div";
-import { Paragraph, Strong } from "../../text/text";
+import { Paragraph, Strong, text } from "../../text/text";
 
-export type DialogMessage = string | React.ReactNode;
+export type DialogMessageChildren = string | React.ReactNode;
 
 type Tuple = [React.ReactNode, React.ReactNode];
 
-const isTuple = (target: DialogMessage): target is Tuple => {
+const isTuple = (target: DialogMessageChildren): target is Tuple => {
 	return Array.isArray(target) && target.length === 2;
 };
 
 interface Props {
-	children: DialogMessage;
+	children: DialogMessageChildren;
 }
 
-export const DialogMessageC = (props: Props) => {
+export const DialogMessage = (props: Props) => {
 	if (props.children === "string") {
 		return <Paragraph children={props.children} />;
 	}
@@ -22,7 +22,9 @@ export const DialogMessageC = (props: Props) => {
 		const [title, description] = props.children;
 		return (
 			<>
-				<Paragraph children={<Strong children={title} />} />
+				<div className={[text.big, text.strong].join(" ")}>
+					<Paragraph children={title} />
+				</div>
 				<DivPx size={8} />
 				<Paragraph children={description} />
 			</>

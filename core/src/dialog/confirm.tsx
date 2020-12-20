@@ -2,11 +2,11 @@ import * as React from "react";
 import { Button } from "../button/button";
 import { DivPx } from "../div/div";
 import { Dialog, DialogProps } from "./dialog";
-import { DialogMessage, DialogMessageC } from "./utils/message";
+import { DialogMessageChildren, DialogMessage } from "./utils/message";
 import { renderDialog } from "./utils/render";
 
 interface Props {
-	children: DialogMessage;
+	children: DialogMessageChildren;
 	onOk: () => void;
 	onCancel: () => void;
 	width: DialogProps["width"];
@@ -15,7 +15,7 @@ interface Props {
 export const ConfirmDialog = (props: Props) => (
 	<Dialog onEsc={props.onCancel} width={props.width}>
 		<Dialog.Body>
-			<DialogMessageC children={props.children} />
+			<DialogMessage children={props.children} />
 		</Dialog.Body>
 		<Dialog.Footer>
 			<Button onClick={props.onCancel} children="Cancel" />
@@ -30,7 +30,7 @@ export const ConfirmDialog = (props: Props) => (
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
  */
 export const confirm = (
-	message: DialogMessage,
+	message: DialogMessageChildren,
 	width: DialogProps["width"] = "fixed"
 ): Promise<boolean> => {
 	return new Promise((resolve) => {

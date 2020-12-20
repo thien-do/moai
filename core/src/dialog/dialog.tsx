@@ -4,6 +4,7 @@ import { Border, borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
 import s from "./dialog.module.css";
+import { DialogMessage } from "./utils/message";
 
 interface ChildrenProps {
 	children: React.ReactNode;
@@ -13,6 +14,19 @@ export interface DialogProps extends ChildrenProps {
 	onEsc?: () => void;
 	width?: "fixed" | "content";
 }
+
+export const DialogPane = (props: DialogProps) => (
+	<div
+		className={[
+			background.primary,
+			borderColor.strong,
+			boxShadow.strong,
+			s.dialog,
+			props.width === "fixed" ? s.widthFixed : s.widthAuto,
+		].join(" ")}
+		children={props.children}
+	/>
+);
 
 export const Dialog = (props: DialogProps) => (
 	<div
@@ -26,16 +40,7 @@ export const Dialog = (props: DialogProps) => (
 			className={[background.secondary, s.backdrop, s.fill].join(" ")}
 			onClick={props.onEsc}
 		/>
-		<div
-			className={[
-				background.primary,
-				borderColor.strong,
-				boxShadow.strong,
-				s.dialog,
-				props.width === "fixed" ? s.widthFixed : s.widthAuto,
-			].join(" ")}
-			children={props.children}
-		/>
+		<DialogPane {...props} />
 	</div>
 );
 
@@ -60,3 +65,5 @@ Dialog.Footer = (props: ChildrenProps) => (
 		<DivPx size={16} />
 	</div>
 );
+
+Dialog.Message = DialogMessage;
