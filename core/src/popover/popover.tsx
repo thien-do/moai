@@ -17,7 +17,7 @@ interface ContentProps {
 	close: () => void;
 }
 
-interface Props {
+export interface PopoverProps {
 	target: (props: TargetProps) => React.ReactNode;
 	content: (props: ContentProps) => React.ReactNode;
 	TargetWrapper?: () => JSX.Element;
@@ -38,7 +38,7 @@ interface State {
 	toggle: () => void;
 }
 
-const Content = (props: Props & { state: State }) => (
+const Content = (props: PopoverProps & { state: State }) => (
 	<div
 		ref={props.state.setContent}
 		style={props.state.styles.popper}
@@ -57,11 +57,12 @@ const Content = (props: Props & { state: State }) => (
 		<div
 			style={props.state.styles.arrow}
 			ref={props.state.setArrow}
+			className={s.arrow}
 			{...props.state.attributes.arrow}
 		>
 			<div
 				className={[
-					s.arrow,
+					s.arrowShape,
 					borderColor.strong,
 					background.primary,
 				].join(" ")}
@@ -70,7 +71,7 @@ const Content = (props: Props & { state: State }) => (
 	</div>
 );
 
-export const Popover = (props: Props) => {
+export const Popover = (props: PopoverProps) => {
 	const [opened, setOpened] = React.useState(false);
 	const [target, setTarget] = React.useState<HTMLDivElement | null>(null);
 	const [content, setContent] = React.useState<HTMLDivElement | null>(null);
@@ -103,7 +104,10 @@ export const Popover = (props: Props) => {
 			onClose?.();
 			setOpened(false);
 		};
-		document.addEventListener("click", listener);
+		// Avoid trigger immediately
+		window.setTimeout(() => {
+			document.addEventListener("click", listener);
+		}, 0);
 		return () => document.removeEventListener("click", listener);
 	}, [opened, content, onClose]);
 

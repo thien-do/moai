@@ -2,7 +2,7 @@ import * as React from "react";
 import { Border } from "../../border/border";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
-import { MenuItem as IMenuItem } from "../menu";
+import { MenuItemProps as IMenuItem } from "../menu";
 import s from "./item.module.css";
 
 interface Props {
@@ -25,7 +25,6 @@ export const MenuItem = ({ item }: Props) =>
 				s.action,
 				Button.style.flat.main,
 				Button.size.medium.main,
-				item.disabled ? Button.style.flat.disabled : "",
 			].join(" ")}
 		/>
 	);

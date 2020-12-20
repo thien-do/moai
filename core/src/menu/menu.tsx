@@ -3,7 +3,7 @@ import { background } from "../background/background";
 import { borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
-import { MenuItem as MenuItemC } from "./item/item";
+import { MenuItem } from "./item/item";
 import s from "./menu.module.css";
 
 export interface MenuItemAction {
@@ -12,10 +12,10 @@ export interface MenuItemAction {
 	disabled?: boolean;
 }
 
-export type MenuItem = MenuItemAction | "divider";
+export type MenuItemProps = MenuItemAction | "divider";
 
 interface Props {
-	items: MenuItem[];
+	items: MenuItemProps[];
 	onEsc?: () => void;
 }
 
@@ -48,7 +48,7 @@ export const Menu = (props: Props) => {
 		>
 			<DivPx size={8} />
 			{props.items.map((item, index) => (
-				<MenuItemC key={index} item={item} />
+				<MenuItem key={index} item={item} />
 			))}
 			<DivPx size={8} />
 		</div>
