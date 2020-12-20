@@ -1,10 +1,10 @@
 import { ForwardedRef, ReactNode } from "react";
-import { icons } from "../../../icon/src";
 import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
 import self from "./radio.module.css";
 import s from "../checkbox/shared.module.css";
+import { coreIcons } from "../icons/icons";
 
 export interface RadioProps {
 	name: string;
@@ -37,7 +37,7 @@ export const Radio = (props: RadioProps): JSX.Element => (
 			ref={props.forwardedRef}
 		/>
 		<span className={[s.icon, self.icon].join(" ")}>
-			<Icon display="block" path={icons.boldDot} />
+			<Icon display="block" path={coreIcons.boldDot} />
 		</span>
 		<span className={s.label}>{props.children}</span>
 	</label>

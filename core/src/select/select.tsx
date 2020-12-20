@@ -1,9 +1,9 @@
 import { ChangeEventHandler, ForwardedRef } from "react";
-import { icons } from "../../../icon/src";
 import sRadius from "../button/border-radius.module.css";
 import flat from "../button/flat.module.css";
 import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
+import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
 import s from "./select.module.css";
 
@@ -93,7 +93,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 			/>
 			<span
 				className={cls.icon}
-				children={<Icon display="block" path={icons.caret} />}
+				children={<Icon display="block" path={coreIcons.caret} />}
 			/>
 		</div>
 	);

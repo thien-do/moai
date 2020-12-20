@@ -1,5 +1,3 @@
-import React from "react";
-
 import s from "./icon.module.css";
 
 export type IconSize = 12 | 16 | 36;

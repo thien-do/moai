@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { icons } from "../../../icon/src";
 import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
+import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
 import self from "./checkbox.module.css";
 import s from "./shared.module.css";
@@ -58,10 +58,10 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				onChange={(e) => props.setChecked?.(e.target.checked)}
 			/>
 			<span className={[s.icon, self.check].join(" ")}>
-				<Icon display="block" path={icons.boldTick} />
+				<Icon display="block" path={coreIcons.boldTick} />
 			</span>
 			<span className={[s.icon, self.indeterminate].join(" ")}>
-				<Icon display="block" path={icons.smallMinus} />
+				<Icon display="block" path={coreIcons.smallMinus} />
 			</span>
 			<span className={s.label}>{props.children}</span>
 		</label>
