@@ -11,9 +11,9 @@ const items: M.MenuItemProps[] = [
 
 export const GalleryPane = () => (
 	<div className="flex space-x-8">
-		<div style={{ width: 120 }} className="space-y-8">
+		<div className="flex-1 space-y-8">
 			<M.Popover
-				content={() => "Ahih"}
+				content={() => <div className="p-8">Popover content</div>}
 				target={({ toggle, opened }) => (
 					<M.Button
 						onClick={toggle}
@@ -33,7 +33,7 @@ export const GalleryPane = () => (
 				</Paragraph>
 			</M.Pane>
 		</div>
-		<div style={{ width: 120 }} className="space-y-8">
+		<div className="flex-1 space-y-8">
 			<M.ButtonMenu
 				items={items}
 				button={{ fill: true, children: "Open menu" }}

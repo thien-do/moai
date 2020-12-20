@@ -1,19 +1,8 @@
 .container {
 	border-width: 1px;
+	border-style: solid;
 }
 
 .padding {
 	padding: 16px;
-}
-
-@media (max-width: 960px) {
-	.container {
-		border-style: solid none;
-	}
-}
-
-@media (min-width: 961px) {
-	.container {
-		border-style: solid solid;
-	}
 }

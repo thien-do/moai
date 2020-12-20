@@ -12,14 +12,18 @@ export const GalleryButton3 = (): JSX.Element => (
 		<div className="flex space-x-8">
 			<Button children="Back" icon={icons.arrowLeft} />
 			<Button children="Next" icon={icons.arrowRight} reverse />
+			<Button iconLabel="Search" icon={icons.search} />
+			<Button iconLabel="Search" icon={icons.search} disabled />
 		</div>
 		<div className="flex space-x-8">
 			<ButtonGroup>
 				<Button icon={icons.plus} children="Add" />
 				<Button icon={icons.caret} iconLabel="More" />
 			</ButtonGroup>
-			<Button iconLabel="Search" icon={icons.search} />
-			<Button iconLabel="Search" icon={icons.search} disabled />
+			<ButtonGroup>
+				<Button disabled icon={icons.plus} children="Add" />
+				<Button disabled icon={icons.caret} iconLabel="More" />
+			</ButtonGroup>
 		</div>
 		<div className="flex space-x-8">
 			<Button icon={icon} size={medium} children="Medium" />

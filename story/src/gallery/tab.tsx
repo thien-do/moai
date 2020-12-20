@@ -22,7 +22,7 @@ const First = () => (
 const Third = () => <Paragraph>Third tab</Paragraph>;
 
 export const GalleryTab = () => (
-	<div style={{ width: 240 }}>
+	<div>
 		<Tabs
 			children={[
 				{ id: "1", title: "First", pane: First },

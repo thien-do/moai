@@ -24,10 +24,11 @@ const Column = ({ style }: ColumnProps): JSX.Element => {
 		defaultValue: "select",
 	};
 	return (
-		<div className="space-y-8">
-			<Select {...base} />
-			<Select {...base} disabled />
-			<Select {...base} size={Select.size.small} />
+		<div className="flex-1">
+			<div className="space-y-8 w-max">
+				<Select {...base} />
+				<Select {...base} disabled />
+			</div>
 		</div>
 	);
 };

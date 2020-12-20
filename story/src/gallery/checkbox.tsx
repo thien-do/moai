@@ -4,7 +4,7 @@ const CheckboxRow = (props: Partial<CheckboxProps>): JSX.Element => (
 	<>
 		<Checkbox {...props} defaultChecked={false} children="Unchecked" />
 		<Checkbox {...props} defaultChecked={true} children="Checked" />
-		<Checkbox {...props} indeterminate={true} children="Indeterminated" />
+		<Checkbox {...props} indeterminate={true} children="Mixed" />
 	</>
 );
 
@@ -36,12 +36,12 @@ const RadioRow = (props: RadioRowProps): JSX.Element => (
 );
 
 export const GalleryCheckbox = (): JSX.Element => (
-	<div className="flex space-x-16">
-		<div className="space-y-8">
+	<div className="flex space-x-8">
+		<div className="flex-1 space-y-8">
 			<CheckboxRow />
 			<CheckboxRow disabled />
 		</div>
-		<div className="space-y-8">
+		<div className="flex-1 space-y-8">
 			<RadioRow name="enabled sample" />
 			<RadioRow name="disabled sample" disabled />
 		</div>

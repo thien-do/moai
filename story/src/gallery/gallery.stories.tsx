@@ -13,50 +13,64 @@ import { GallerySelect } from "./select";
 import { GalleryTab } from "./tab";
 import { GalleryTextArea } from "./text-area";
 
-const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
-	<div className="p-8" style={{ width: 288 }} children={children} />
+const Pane = ({
+	noFill,
+	children,
+}: {
+	noFill?: boolean;
+	children: React.ReactNode;
+}): JSX.Element => (
+	<div
+		className={["py-8", noFill ? "" : "px-8"].join(" ")}
+		style={{ width: noFill ? "auto" : 288 }}
+		children={children}
+	/>
 );
 
-const Heading = ({ children }: { children: string }): JSX.Element => {
-	return null;
-	// 	return (
-	// 	<h2 className="px-16 pt-16 text-lg font-semibold leading-24">{children}</h2>
-	// );
-};
+const Section = ({
+	title,
+	children,
+}: {
+	title: string;
+	children: React.ReactNode;
+}): JSX.Element => (
+	<div className="flex flex-wrap border-0 p-8">
+		<div className="p-8" style={{ width: 240 }}>
+			<h2 className="text-xl font-semibold py-4 leading-24">{title}</h2>
+		</div>
+		<div className="flex flex-wrap" style={{ maxWidth: 288 * 3 }}>
+			{children}
+		</div>
+	</div>
+);
 
 const Gallery = () => (
-	<div className="mx-auto" style={{ maxWidth: 960 }}>
-		<Heading>Buttons</Heading>
-		<div className="flex flex-wrap p-8">
+	<div className="mx-auto" style={{ maxWidth: 1200 }}>
+		<Section title="Buttons">
 			<Pane children={<GalleryButton1 />} />
-			<Pane children={<GalleryButton2 />} />
 			<Pane children={<GalleryButton3 />} />
-		</div>
-		<Heading>Text boxes</Heading>
-		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryButton2 />} />
+		</Section>
+		<Section title="Text boxes">
 			<Pane children={<GalleryInput1 />} />
 			<Pane children={<GalleryInput2 />} />
 			<Pane children={<GalleryTextArea />} />
-		</div>
-		<Heading>Other controls</Heading>
-		<div className="flex flex-wrap p-8">
+		</Section>
+		<Section title="Selection controls">
 			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
-		</div>
-		<Heading>Progress indicators</Heading>
-		<div className="flex flex-wrap p-8">
+		</Section>
+		<Section title="Progress indicators">
 			<Pane children={<GalleryProgress />} />
-		</div>
-		<Heading>Containers</Heading>
-		<div className="flex flex-wrap p-8">
+		</Section>
+		<Section title="Containers">
 			<Pane children={<GalleryDialog />} />
 			<Pane children={<GalleryPane />} />
 			<Pane children={<GalleryTab />} />
-		</div>
-		<Heading>Icons</Heading>
-		<div className="flex flex-wrap p-8">
-			<Pane children={<GalleryIcon />} />
-		</div>
+		</Section>
+		<Section title="Icons">
+			<Pane children={<GalleryIcon />} noFill />
+		</Section>
 	</div>
 );
 
