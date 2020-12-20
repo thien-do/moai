@@ -11,9 +11,22 @@
 }
 
 .select {
+	/* This does not really set the size of Select, but just follow its parent,
+	which is where we actually control the size of the component */
 	width: 100%;
 	text-align: left;
 	cursor: pointer;
+	/* Reset sanitize css form */
+	appearance: none;
+}
+
+.select:disabled {
+	cursor: auto;
+	pointer-events: none;
+}
+
+select.select:not([multiple]):not([size]) {
+	background-image: none;
 }
 
 .icon {

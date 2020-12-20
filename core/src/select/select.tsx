@@ -1,4 +1,5 @@
 import { ChangeEventHandler, ForwardedRef } from "react";
+import { icons } from "../../../icon/src";
 import sRadius from "../button/border-radius.module.css";
 import flat from "../button/flat.module.css";
 import outset from "../button/outset.module.css";
@@ -35,7 +36,7 @@ export interface SelectOption<T> {
 	disabled?: boolean;
 }
 
-interface SelectProps<T> {
+export interface SelectProps<T> {
 	options: SelectOption<T>[];
 	// Uncontrolled
 	defaultValue?: T;
@@ -49,9 +50,6 @@ interface SelectProps<T> {
 	fill?: boolean;
 	disabled?: boolean;
 }
-
-const caret =
-	"M12 6.5c0-.28-.22-.5-.5-.5h-7c-.28 0-.5.22-.5.5 0 .13.05.24.13.33l3.5 4c.09.1.22.17.37.17s.28-.07.37-.17l3.5-4c.08-.09.13-.2.13-.33z";
 
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
 	<option
@@ -95,7 +93,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 			/>
 			<span
 				className={cls.icon}
-				children={<Icon display="block" path={caret} />}
+				children={<Icon display="block" path={icons.caret} />}
 			/>
 		</div>
 	);
