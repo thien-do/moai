@@ -26,7 +26,7 @@ const WithButton = ({ size }: SizeProps): JSX.Element => {
 const Column = ({ size }: SizeProps): JSX.Element => {
 	const base2: Partial<M.InputProps> = { ...base, size: size[0] };
 	return (
-		<div style={{ width: 120 }} className="space-y-8">
+		<div className="space-y-8 flex-1">
 			<div style={{ minHeight: 32 }}>
 				<M.Input {...base2} type="password" defaultValue="password" />
 			</div>

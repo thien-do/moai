@@ -7,23 +7,25 @@ import { GalleryDialog } from "./dialog";
 import { GalleryIcon } from "./icon";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
-import { GalleryMenu } from "./menu";
+import { GalleryPane } from "./pane";
 import { GalleryProgress } from "./progress";
-import { GalleryRadio } from "./radio";
 import { GallerySelect } from "./select";
 import { GalleryTab } from "./tab";
 import { GalleryTextArea } from "./text-area";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
-	<div className="p-8" children={children} />
+	<div className="p-8" style={{ width: 288 }} children={children} />
 );
 
-const Heading = ({ children }: { children: string }): JSX.Element => (
-	<h2 className="px-16 pt-16 text-lg font-semibold">{children}</h2>
-);
+const Heading = ({ children }: { children: string }): JSX.Element => {
+	return null;
+	// 	return (
+	// 	<h2 className="px-16 pt-16 text-lg font-semibold leading-24">{children}</h2>
+	// );
+};
 
 const Gallery = () => (
-	<div>
+	<div className="mx-auto" style={{ maxWidth: 960 }}>
 		<Heading>Buttons</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryButton1 />} />
@@ -40,7 +42,6 @@ const Gallery = () => (
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
-			<Pane children={<GalleryRadio />} />
 		</div>
 		<Heading>Progress indicators</Heading>
 		<div className="flex flex-wrap p-8">
@@ -49,7 +50,7 @@ const Gallery = () => (
 		<Heading>Containers</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryDialog />} />
-			<Pane children={<GalleryMenu />} />
+			<Pane children={<GalleryPane />} />
 			<Pane children={<GalleryTab />} />
 		</div>
 		<Heading>Icons</Heading>

@@ -1,19 +1,33 @@
-import { Tabs } from "../../../core/src";
+import { Paragraph, Tabs } from "../../../core/src";
+
+const Second = () => (
+	<Paragraph>
+		Second tab
+		<br />
+		<br />
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+		tempor incididunt ut labore et.
+	</Paragraph>
+);
+
+const First = () => (
+	<Paragraph>
+		First tab
+		<br />
+		<br />
+		Lorem ipsum dolor sit amet
+	</Paragraph>
+);
+
+const Third = () => <Paragraph>Third tab</Paragraph>;
 
 export const GalleryTab = () => (
-	<div>
+	<div style={{ width: 240 }}>
 		<Tabs
 			children={[
-				{
-					id: "published",
-					title: "Published",
-					pane: () => <div>Published posts</div>,
-				},
-				{
-					id: "draft",
-					title: "Drafts",
-					pane: () => <div>Drafts</div>,
-				},
+				{ id: "1", title: "First", pane: First },
+				{ id: "2", title: "Second", pane: Second },
+				{ id: "3", title: "Third", pane: Third },
 			]}
 		/>
 	</div>

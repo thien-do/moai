@@ -6,8 +6,8 @@ const Pane = () => (
 			<M.Dialog.Body>
 				<M.Dialog.Message
 					children={[
-						"Publish post?",
-						"Published posts can be seen by anyone on the internet.",
+						"Dialog title",
+						"Dialog content. Lorem ipsum dolor sit amet, consectetur."
 					]}
 				/>
 			</M.Dialog.Body>
