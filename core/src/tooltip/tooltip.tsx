@@ -5,13 +5,16 @@ import { boxShadow } from "../box-shadow/box-shadow";
 import { Paragraph } from "../text/text";
 import s from "./tooltip.module.css";
 
-interface Props {
+export interface TooltipProps {
 	content: React.ReactNode;
 	children: TippyProps["children"];
+	placement?: TippyProps["placement"];
 }
 
-export const Tooltip = (props: Props) => (
+export const Tooltip = (props: TooltipProps): JSX.Element => (
 	<Tippy
+		children={props.children}
+		placement={props.placement}
 		render={(attrs) => (
 			<div
 				className={[
@@ -28,6 +31,5 @@ export const Tooltip = (props: Props) => (
 				<Paragraph children={props.content} />
 			</div>
 		)}
-		children={props.children}
 	/>
 );
