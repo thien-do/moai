@@ -18,38 +18,6 @@
 	z-index: 1;
 }
 
-.flat {
-	/* pretty much nothing in normal state */
-	text-align: inherit;
-	text-decoration: inherit;
-	/* reset stuffs */
-	border: none;
-	border-radius: 0;
-	background-color: none;
-}
-
-/* mimic button.style.flat hover */
-:global(.light) .flat:hover:not([readonly]):not([disabled]) {
-	background-color: var(--gray-2);
-}
-:global(.dark) .flat:hover:not([readonly]):not([disabled]) {
-	background-color: var(--gray-7);
-}
-
-/* mimic background.primary */
-:global(.light) .flat:focus:not([readonly]):not([disabled]) {
-	background-color: var(--gray-0);
-}
-:global(.dark) .flat:focus:not([readonly]):not([disabled]) {
-	background-color: var(--gray-8);
-}
-
-.outset {
-	border-width: 1px;
-	border-style: solid;
-	border-radius: 3px;
-}
-
 .mediumMain,
 .mediumMainWithIcon {
 	padding-right: 12px;

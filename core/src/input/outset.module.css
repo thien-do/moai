@@ -1,0 +1,37 @@
+.main {
+	border-width: 1px;
+	border-style: solid;
+	--shadow-size: 0px 0.5px 1.5px inset;
+}
+
+:global(.light) .main {
+	background-color: var(--gray-0);
+	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
+	border-color: var(--gray-3);
+}
+
+:global(.dark) .main {
+	background-color: var(--gray-9);
+	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
+	border-color: var(--gray-10);
+}
+
+/* DISABLED & READ ONLY */
+
+:global(.light) .main:disabled,
+:global(.light) .main:read-only {
+	background-color: var(--gray-1);
+}
+:global(.light) .main:disabled {
+    color: var(--gray-5);
+    border-color: var(--gray-2);
+}
+
+:global(.dark) .main:disabled,
+:global(.dark) .main:read-only {
+	background-color: var(--gray-8);
+}
+:global(.dark) .main:disabled {
+	color: var(--gray-4);
+    border-color: var(--gray-9);
+}

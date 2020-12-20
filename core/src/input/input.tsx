@@ -1,10 +1,12 @@
 import React from "react";
 import { background } from "../background/background";
-import { borderColor } from "../border/border";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
 import s from "./input.module.css";
+import sOutset from "./outset.module.css";
+import sFlat from "./flat.module.css";
+import sRadius from "../button/border-radius.module.css";
 
 export interface InputStyle {
 	main: string;
@@ -18,32 +20,25 @@ export interface InputSize {
 	iconSize: IconSize;
 }
 
-const getClass = <T,>(props: Props<T>) => {
+const getClass = (props: InputProps): string => {
 	const styles = [s.input, outline.normal, props.style.main];
 	styles.push(props.icon ? props.size.mainWithIcon : props.size.main);
-	if (props.disabled) styles.push(props.style.disabled);
 	return styles.join(" ");
 };
 
-type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
-
-const onChange = <T,>(props: Props<T>) => (e: ChangeEvent) => {
-	if (props.setValue === undefined || props.value === undefined) return;
-	const { currentTarget: target } = e;
-	const isNumber = typeof props.value === "number";
-	props.setValue(isNumber ? target.valueAsNumber : (target.value as any));
-};
-
-interface Props<T> {
-	// Value
-	defaultValue?: T;
-	value?: T;
-	setValue?: (value: T) => void;
+export interface InputProps {
+	type?: string;
+	// Uncontrolled
+	defaultValue?: string | number;
+	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
+	// Controlled
+	value?: string;
+	setValue?: (value: string) => void;
 	/**
 	 * Id of a datalist element to be used. Can pass an object with values for
 	 * the Input component to create the datalist.
 	 */
-	list?: { id: string; values: T[] } | string;
+	list?: { id: string; values: string[] } | string;
 	// Style
 	icon?: IconPath;
 	style: InputStyle;
@@ -65,19 +60,7 @@ interface Props<T> {
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
-const getType = (props: Props<any>): string => {
-	const target = props.value ?? props.defaultValue;
-	switch (typeof target) {
-		case "string":
-			return "text";
-		case "number":
-			return "number";
-		default:
-			throw Error(`Unknown input type: "${typeof target}"`);
-	}
-};
-
-export const Input = <T extends number | string>(props: Props<T>) => {
+export const Input = (props: InputProps): JSX.Element => {
 	const ref = React.useRef<HTMLInputElement>(null);
 
 	React.useEffect(() => {
@@ -91,18 +74,20 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 		<div className={s.container}>
 			<input
 				ref={ref}
-				// value
-				type={getType(props)}
+				// Value
+				type={props.type}
 				defaultValue={props.defaultValue}
 				value={props.value}
-				onChange={onChange(props)}
-				// event handlers
+				onChange={(event) => {
+					props.setValue?.(event.currentTarget.value);
+				}}
+				// Event handlers
 				onBlur={props.onBlur}
 				onFocus={props.onFocus}
 				onKeyDown={props.onKeyDown}
 				onKeyPress={props.onKeyPress}
 				onKeyUp={props.onKeyUp}
-				// properties
+				// Properties
 				id={props.id}
 				className={getClass(props)}
 				list={
@@ -141,12 +126,15 @@ export const Input = <T extends number | string>(props: Props<T>) => {
 
 Input.style = {
 	outset: {
-		main: [s.outset, borderColor.strong, background.primary].join(" "),
-		disabled: "",
+		main: [
+			s.outset,
+			sOutset.main,
+			sRadius.container,
+			background.primary,
+		].join(" "),
 	} as InputStyle,
 	flat: {
-		main: s.flat,
-		disabled: text.muted,
+		main: [sFlat.main].join(" "),
 	} as InputStyle,
 };
 

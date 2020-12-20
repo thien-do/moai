@@ -1,0 +1,34 @@
+.main {
+	/* Pretty much nothing in normal state */
+	text-align: inherit;
+    text-decoration: inherit;
+
+	/* Reset stuffs */
+	border: none;
+	border-radius: 0;
+	background-color: none;
+}
+
+/* Mimic button.style.main hover */
+:global(.light) .main:hover {
+	background-color: var(--gray-2);
+}
+:global(.dark) .main:hover {
+	background-color: var(--gray-7);
+}
+
+/* Mimic background.primary */
+:global(.light) .main:focus {
+	background-color: var(--gray-0);
+}
+:global(.dark) .main:focus {
+	background-color: var(--gray-9);
+}
+
+:global(.light) .main:disabled {
+	color: var(--gray-5);
+}
+:global(.dark) .main:disabled {
+	color: var(--gray-4);
+}
+
