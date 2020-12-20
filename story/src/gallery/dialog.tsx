@@ -1,7 +1,6 @@
-import { useState } from "react";
 import * as M from "../../../core/src";
 
-const Foo = () => (
+const Pane = () => (
 	<M.DialogPane width="content">
 		<div style={{ width: 240 }}>
 			<M.Dialog.Body>
@@ -45,11 +44,11 @@ const prompt = async () => {
 
 export const GalleryDialog = () => (
 	<div className="space-y-8">
-		<Foo />
 		<div className="flex space-x-8">
-			<M.Button onClick={alert} children="Alert" />
-			<M.Button onClick={confirm} children="Confirm" />
-			<M.Button onClick={prompt} children="Prompt" />
+			<M.Button fill onClick={alert} children="Alert" />
+			<M.Button fill onClick={confirm} children="Confirm" />
+			<M.Button fill onClick={prompt} children="Prompt" />
 		</div>
+		<Pane />
 	</div>
 );

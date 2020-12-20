@@ -7,6 +7,7 @@ import { GalleryDialog } from "./dialog";
 import { GalleryIcon } from "./icon";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
+import { GalleryMenu } from "./menu";
 import { GalleryProgress } from "./progress";
 import { GalleryRadio } from "./radio";
 import { GallerySelect } from "./select";
@@ -22,14 +23,6 @@ const Heading = ({ children }: { children: string }): JSX.Element => (
 
 const Gallery = () => (
 	<div>
-		<Heading>Icons</Heading>
-		<div className="flex flex-wrap p-8">
-			<Pane children={<GalleryIcon />} />
-		</div>
-		<Heading>Containers</Heading>
-		<div className="flex flex-wrap p-8">
-			<Pane children={<GalleryDialog />} />
-		</div>
 		<Heading>Buttons</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryButton1 />} />
@@ -47,6 +40,15 @@ const Gallery = () => (
 			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
 			<Pane children={<GalleryRadio />} />
+		</div>
+		<Heading>Containers</Heading>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryDialog />} />
+			<Pane children={<GalleryMenu />} />
+		</div>
+		<Heading>Icons</Heading>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryIcon />} />
 		</div>
 		<Heading>Progress indicators</Heading>
 		<div className="flex flex-wrap p-8">
