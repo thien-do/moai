@@ -19,7 +19,7 @@ export const GalleryMenu = () => (
 		<ButtonMenu
 			items={items2}
 			button={{ fill: true, children: "Open menu" }}
-			placement="right"
+			placement="top"
 		/>
 		<Menu items={items1} />
 	</div>

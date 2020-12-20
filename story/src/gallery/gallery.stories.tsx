@@ -11,6 +11,7 @@ import { GalleryMenu } from "./menu";
 import { GalleryProgress } from "./progress";
 import { GalleryRadio } from "./radio";
 import { GallerySelect } from "./select";
+import { GalleryTab } from "./tab";
 import { GalleryTextArea } from "./text-area";
 
 const Pane = ({ children }: { children: React.ReactNode }): JSX.Element => (
@@ -41,18 +42,19 @@ const Gallery = () => (
 			<Pane children={<GalleryCheckbox />} />
 			<Pane children={<GalleryRadio />} />
 		</div>
+		<Heading>Progress indicators</Heading>
+		<div className="flex flex-wrap p-8">
+			<Pane children={<GalleryProgress />} />
+		</div>
 		<Heading>Containers</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryDialog />} />
 			<Pane children={<GalleryMenu />} />
+			<Pane children={<GalleryTab />} />
 		</div>
 		<Heading>Icons</Heading>
 		<div className="flex flex-wrap p-8">
 			<Pane children={<GalleryIcon />} />
-		</div>
-		<Heading>Progress indicators</Heading>
-		<div className="flex flex-wrap p-8">
-			<Pane children={<GalleryProgress />} />
 		</div>
 	</div>
 );
