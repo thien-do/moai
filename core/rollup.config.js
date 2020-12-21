@@ -13,7 +13,7 @@ const options = {
 	input: "src/index.ts",
 	output: [
 		{ dir: "dist/cjs", format: "cjs" },
-		{ dir: "dist/", format: "esm" },
+		{ dir: "dist/esm", format: "esm" },
 	],
 	external: ["react"],
 	plugins: [
@@ -26,7 +26,7 @@ const options = {
 			targets: [
 				// Font is not included by default (to allow users to use
 				// either local or remote fonts)
-				{ src: "font", dest: "dist/" },
+				{ src: "font/*", dest: "dist/" },
 				// To publish "dist" as a module on its own
 				{ src: "package.json", dest: "dist/" },
 			],
