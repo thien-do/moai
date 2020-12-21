@@ -1,12 +1,4 @@
-// This is the shared config for all tools (editor, Rollup, TSC). This is
-// because we compile .ts to .js with Rollup but generate .d.ts with TSC.
-// See also: https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html#babel-for-transpiling-tsc-for-types
 {
-	"compilerOptions": {
-		"strict": true,
-		"jsx": "react-jsx",
-		"allowSyntheticDefaultImports": true,
-		"isolatedModules": true
-	},
-	"include": ["src"]
+	"extends": "../tsconfig.json",
+	"files": ["./src/index.ts"]
 }

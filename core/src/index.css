@@ -1,5 +1,7 @@
-@import "~sanitize.css/evergreen.css";
-@import "~sanitize.css/forms.evergreen.css";
+/* External CSS must be inlined
+- See https://github.com/vercel/next.js/blob/master/errors/css-npm.md */
+@import "sanitize.css/evergreen.css";
+@import "sanitize.css/forms.evergreen.css";
 
 :root {
 	/* accent */

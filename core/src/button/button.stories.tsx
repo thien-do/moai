@@ -1,8 +1,6 @@
-// YourComponent.stories.tsx
-
 import { Story } from "@storybook/react/types-6-0";
 import React from "react";
-import { icons } from "../../../icon/src/index";
+import { coreIcons } from "../icons/icons";
 import { Button, ButtonProps } from "./button";
 
 // This default export determines where your story goes in the story list
@@ -41,15 +39,15 @@ export default {
 				type: "boolean",
 			},
 		},
-		icon: {
-			name: "icon",
-			type: { name: "object", required: false },
-			defaultValue: icons.blank,
-			control: {
-				type: "select",
-				options: icons,
-			},
-		},
+		// icon: {
+		// 	name: "icon",
+		// 	type: { name: "object", required: false },
+		// 	defaultValue: coreIcons.blank,
+		// 	control: {
+		// 		type: "select",
+		// 		options: icons,
+		// 	},
+		// },
 		disabled: {
 			name: "disable",
 			defaultValue: false,

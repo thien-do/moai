@@ -1,0 +1,9 @@
+/* Declaration options only. See the comment in ./tsconfig.base.json */
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"outDir": "dist/types",
+		"declaration": true,
+		"emitDeclarationOnly": true
+	}
+}
