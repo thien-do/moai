@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import * as M from "../../../core/src";
-import { Paragraph } from "../../../core/src";
+import { Button, Paragraph, Tooltip, TooltipPane } from "../../../core/src";
 
 const items: M.MenuItemProps[] = [
 	{ label: "Menu item 1" },
@@ -14,28 +15,35 @@ const items2: M.MenuItemProps[] = [
 	{ label: "Delete", disabled: true },
 ];
 
+const TooltipBlock = () => (
+	<div className="space-y-8">
+		<div className="w-max">
+			<TooltipPane children="Tooltip" />
+		</div>
+	</div>
+);
+
 const PopoverColumn = () => (
 	<div className="flex-1 space-y-8">
 		<M.Popover
-			content={() => <div className="p-8">Popover</div>}
+			content={() => <div className="p-8">Hello!</div>}
 			target={(popover) => (
-				<M.Button
-					onClick={popover.toggle}
-					selected={popover.opened}
-					children="Open popover"
-					fill
-				/>
+				<Tooltip placement="top" content="Click to open a popover">
+					<M.Button.Forwarded
+						onClick={popover.toggle}
+						selected={popover.opened}
+						fill
+						children="Open Popover"
+					/>
+				</Tooltip>
 			)}
 			placement="top"
 		/>
 		<M.Pane>
-			<Paragraph>
-				Pane
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet, consectetur.
-			</Paragraph>
+			<Paragraph>Pane</Paragraph>
+			<Paragraph>Lorem ipsum dolor sit amet, consectetur.</Paragraph>
 		</M.Pane>
+		<TooltipBlock />
 	</div>
 );
 
