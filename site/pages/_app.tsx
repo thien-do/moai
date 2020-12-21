@@ -15,6 +15,10 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 		<Head>
 			<title>Moai UI Kit</title>
 			<link rel="icon" type="image/svg+xml" href={favIcon} />
+			<meta
+				name="viewport"
+				content="initial-scale=1.0, width=device-width"
+			/>
 		</Head>
 		<Component {...pageProps} />
 	</>

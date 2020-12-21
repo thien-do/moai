@@ -1,0 +1,41 @@
+.container th {
+	vertical-align: top;
+}
+
+.overview {
+	width: 200px;
+	text-align: left;
+}
+
+.email {
+	width: 200px;
+	overflow-wrap: break-word;
+	text-align: left;
+}
+
+.phone {
+	width: 200px;
+	text-align: left;
+	font-feature-settings: "tnum";
+}
+
+.lastSeen {
+	width: 200px;
+	text-align: left;
+	font-feature-settings: "tnum";
+}
+
+.genres {
+	width: 240px;
+	text-align: left;
+}
+
+.note {
+	text-align: left;
+	width: 320px;
+}
+
+.action {
+	width: 240px;
+	text-align: right;
+}

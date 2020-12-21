@@ -1,16 +1,8 @@
-import {
-	Button,
-	ButtonGroup,
-	ButtonGroupItemProps,
-	Input,
-	Select,
-	SelectOption,
-	SelectProps,
-} from "@moai/core";
+import { Button, ButtonGroup, ButtonGroupItemProps, Input, Select, SelectOption, SelectProps } from "@moai/core"; // prettier-ignore
 import { icons } from "@moai/icon";
 import COLORS from "./samples/colors.json";
 
-const toOption = (text: string): SelectOption<string> => ({
+export const toOption = (text: string): SelectOption<string> => ({
 	id: text,
 	label: text,
 	value: text,

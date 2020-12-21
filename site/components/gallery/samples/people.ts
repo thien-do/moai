@@ -9,4 +9,5 @@ export interface Person {
 	genres: string;
 	color: string;
 	deployed: number;
+	lastSeen: string;
 }

@@ -14,15 +14,17 @@ import { GalleryTable } from "./table";
 import { GalleryTextArea } from "./text-area";
 
 const Pane = ({
-	noFill,
+	fill,
+	noPadding,
 	children,
 }: {
-	noFill?: boolean;
+	fill?: boolean;
+	noPadding?: boolean;
 	children: React.ReactNode;
 }): JSX.Element => (
 	<div
-		className={["py-8", noFill ? "" : "px-8"].join(" ")}
-		style={{ width: noFill ? "auto" : 288 }}
+		className={["py-8", noPadding ? "" : "px-8"].join(" ")}
+		style={{ width: fill ? "100%" : 288 }}
 		children={children}
 	/>
 );
@@ -38,7 +40,7 @@ const Section = ({
 		<div className="p-8" style={{ width: 240 }}>
 			<h2 className="text-xl font-semibold py-4 leading-24">{title}</h2>
 		</div>
-		<div className="flex flex-wrap" style={{ maxWidth: 288 * 3 }}>
+		<div className="flex flex-wrap w-full" style={{ maxWidth: 288 * 3 }}>
 			{children}
 		</div>
 	</div>
@@ -67,7 +69,7 @@ export const Gallery = () => (
 			<Pane children={<GalleryTab />} />
 		</Section>
 		<Section title="Tables">
-			<Pane children={<GalleryTable />} noFill />
+			<Pane children={<GalleryTable />} fill />
 		</Section>
 		<Section title="Progress indicators">
 			<Pane children={<GalleryProgress />} />
@@ -75,7 +77,7 @@ export const Gallery = () => (
 			<Pane children={<div />} />
 		</Section>
 		<Section title="Icons">
-			<Pane children={<GalleryIcon />} noFill />
+			<Pane children={<GalleryIcon />} fill noPadding />
 		</Section>
 	</div>
 );
