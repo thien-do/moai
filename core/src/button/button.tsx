@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
@@ -35,7 +35,7 @@ const getClass = (props: ButtonProps) => {
 };
 
 export interface ButtonProps {
-	forwardedRef?: React.LegacyRef<HTMLAnchorElement | HTMLButtonElement>;
+	forwardedRef?: React.ForwardedRef<HTMLButtonElement | HTMLAnchorElement>;
 	// target - button
 	type?: "submit" | "button" | "reset";
 	disabled?: boolean;
