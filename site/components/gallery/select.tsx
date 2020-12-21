@@ -8,7 +8,7 @@ import {
 	SelectProps,
 } from "@moai/core";
 import { icons } from "@moai/icon";
-import { SampleColors } from "./samples";
+import COLORS from "./samples/colors.json";
 
 const toOption = (text: string): SelectOption<string> => ({
 	id: text,
@@ -16,7 +16,7 @@ const toOption = (text: string): SelectOption<string> => ({
 	value: text,
 });
 
-const colorOptions: SelectOption<string>[] = SampleColors.map(toOption);
+const colorOptions: SelectOption<string>[] = COLORS.map(toOption);
 colorOptions.forEach((option) => {
 	option.disabled = Math.random() > 0.8;
 });

@@ -10,6 +10,7 @@ import { GalleryPane } from "./pane";
 import { GalleryProgress } from "./progress";
 import { GallerySelect } from "./select";
 import { GalleryTab } from "./tab";
+import { GalleryTable } from "./table";
 import { GalleryTextArea } from "./text-area";
 
 const Pane = ({
@@ -64,6 +65,9 @@ export const Gallery = () => (
 			<Pane children={<GalleryDialog />} />
 			<Pane children={<GalleryPane />} />
 			<Pane children={<GalleryTab />} />
+		</Section>
+		<Section title="Tables">
+			<Pane children={<GalleryTable />} noFill />
 		</Section>
 		<Section title="Progress indicators">
 			<Pane children={<GalleryProgress />} />

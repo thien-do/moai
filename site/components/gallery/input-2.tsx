@@ -1,6 +1,6 @@
 import * as M from "@moai/core";
 import { icons } from "@moai/icon";
-import { SampleColors } from "./samples";
+import COLORS from "./samples/colors.json";
 
 const base: Partial<M.InputProps> = {
 	defaultValue: "",
@@ -40,7 +40,7 @@ const Column = ({ size }: SizeProps): JSX.Element => {
 				<M.Input
 					{...base2}
 					placeholder="Suggest"
-					list={{ id: "sample-colors", values: SampleColors }}
+					list={{ id: "sample-colors", values: COLORS }}
 				/>
 			</div>
 		</div>
