@@ -1,12 +1,13 @@
 {
 	"name": "@moai/icon",
-	"version": "0.13.0",
+	"version": "0.14.0",
 	"description": "An iconset for @moai/core",
 	"main": "cjs/index.js",
 	"module": "esm/index.js",
 	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
+		"release": "./scripts/release.sh",
 		"release-minor": "./scripts/release.sh minor",
 		"release-patch": "./scripts/release.sh patch"
 	},
