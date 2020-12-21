@@ -1,55 +1,85 @@
-import { Select, SelectOption, SelectProps } from "../../../core/src";
+import { ButtonGroupItemProps } from "../../../core/dist/types";
+import {
+	Button,
+	ButtonGroup,
+	Input,
+	Select,
+	SelectOption,
+	SelectProps,
+} from "../../../core/src";
+import { icons } from "../../../icon/src";
 import { SampleColors } from "./samples";
 
-const ColorOptions: SelectOption<string>[] = SampleColors.map((color) => ({
-	id: color,
-	label: color,
-	value: color,
-	disabled: Math.random() > 0.8,
-}));
-
-ColorOptions.unshift({
-	id: "select",
-	label: "Select",
-	value: "select",
-	disabled: true,
+const toOption = (text: string): SelectOption<string> => ({
+	id: text,
+	label: text,
+	value: text,
 });
+
+const colorOptions: SelectOption<string>[] = SampleColors.map(toOption);
+colorOptions.forEach((option) => {
+	option.disabled = Math.random() > 0.8;
+});
+
+colorOptions.unshift({ ...toOption("Select"), disabled: true });
+
+const modelOptions: SelectOption<string>[] = [
+	"Posts",
+	"Users",
+	"Tags",
+	"All",
+].map(toOption);
 
 type ColumnProps = Pick<SelectProps<unknown>, "style">;
 
-const Column = ({ style }: ColumnProps): JSX.Element => {
-	const base: SelectProps<string> = {
-		options: ColorOptions,
-		style: style,
-		defaultValue: "select",
-	};
-	return (
-		<div className="flex-1">
-			<div className="space-y-8 w-max">
-				<Select {...base} />
-				<Select {...base} disabled />
-			</div>
-		</div>
-	);
+const base: SelectProps<string> = {
+	options: colorOptions,
+	defaultValue: "select",
 };
 
-export const GallerySelect = () => (
+const Column = ({ style }: ColumnProps): JSX.Element => (
+	<div className="flex-1">
+		<div className="space-y-8 w-max">
+			<Select {...base} style={style} />
+			<Select {...base} style={style} disabled />
+		</div>
+	</div>
+);
+
+const Full = (): JSX.Element => (
+	<Select
+		options={[
+			{
+				id: "full",
+				label: "Full-width Select",
+				value: "full",
+				disabled: true,
+			},
+			...colorOptions,
+		]}
+		defaultValue="full"
+	/>
+);
+
+const Group = (): JSX.Element => {
+	const select = <Select options={modelOptions} defaultValue="Posts" />;
+	const input = <Input defaultValue="" placeholder="Type to search" />;
+	const button = <Button iconLabel="Search" icon={icons.search} />;
+	const children: ButtonGroupItemProps[] = [
+		{ fill: false, element: select },
+		{ fill: true, element: input },
+		{ fill: false, element: button },
+	];
+	return <ButtonGroup fill children={children} />;
+};
+
+export const GallerySelect = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Column style={Select.style.outset} />
 			<Column style={Select.style.flat} />
 		</div>
-		<Select
-			options={[
-				{
-					id: "full",
-					label: "Full-width Select",
-					value: "full",
-					disabled: true,
-				},
-				...ColorOptions,
-			]}
-			defaultValue="full"
-		/>
+		<Group />
+		<Full />
 	</div>
 );
