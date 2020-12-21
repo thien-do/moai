@@ -1,4 +1,4 @@
-import * as M from "../../../core/src";
+import * as M from "@moai/core";
 
 const Pane = () => (
 	<M.DialogPane width="content">

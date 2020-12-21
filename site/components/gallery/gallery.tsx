@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react";
 import { GalleryButton1 } from "./button-1";
 import { GalleryButton2 } from "./button-2";
 import { GalleryButton3 } from "./button-3";
@@ -44,7 +43,7 @@ const Section = ({
 	</div>
 );
 
-const Gallery = () => (
+export const Gallery = () => (
 	<div className="mx-auto" style={{ maxWidth: 1200 }}>
 		<Section title="Buttons">
 			<Pane children={<GalleryButton1 />} />
@@ -76,7 +75,3 @@ const Gallery = () => (
 		</Section>
 	</div>
 );
-
-storiesOf("Gallery", module).add("Main", Gallery, {
-	layout: "fullscreen",
-});

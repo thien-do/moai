@@ -1,13 +1,13 @@
-import { ButtonGroupItemProps } from "../../../core/dist/types";
 import {
 	Button,
 	ButtonGroup,
+	ButtonGroupItemProps,
 	Input,
 	Select,
 	SelectOption,
 	SelectProps,
-} from "../../../core/src";
-import { icons } from "../../../icon/src";
+} from "@moai/core";
+import { icons } from "@moai/icon";
 import { SampleColors } from "./samples";
 
 const toOption = (text: string): SelectOption<string> => ({

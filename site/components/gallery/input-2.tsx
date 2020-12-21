@@ -1,5 +1,5 @@
-import * as M from "../../../core/src";
-import { icons } from "../../../icon/src";
+import * as M from "@moai/core";
+import { icons } from "@moai/icon";
 import { SampleColors } from "./samples";
 
 const base: Partial<M.InputProps> = {

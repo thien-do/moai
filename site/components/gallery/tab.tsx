@@ -1,4 +1,4 @@
-import { Paragraph, Tabs } from "../../../core/src";
+import { Paragraph, Tabs } from "@moai/core";
 
 const Second = () => (
 	<Paragraph>

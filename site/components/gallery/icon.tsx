@@ -1,5 +1,5 @@
-import { Icon } from "../../../core/src";
-import { icons } from "../../../icon/src";
+import { Icon } from "@moai/core";
+import { icons } from "@moai/icon";
 
 const IconBox = ({ name }: { name: string }): JSX.Element => (
 	<div

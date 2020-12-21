@@ -1,4 +1,4 @@
-import { alert, Button, ButtonProps } from "../../../core/src";
+import { alert, Button, ButtonProps } from "@moai/core";
 
 const base: ButtonProps = {
 	children: "Button",

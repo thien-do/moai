@@ -1,4 +1,4 @@
-import { TextArea } from "../../../core/src";
+import { TextArea } from "@moai/core";
 
 export const GalleryTextArea = (): JSX.Element => (
 	<div className="space-y-8">

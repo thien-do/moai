@@ -1,15 +1,15 @@
-import { Button } from "@moai/core";
-import Head from "next/head";
+import { useEffect } from "react";
+import { Gallery } from "../components/gallery/gallery";
 
-const Index = (): JSX.Element => (
-	<div>
-		<Head>
-			<title>Moai UI Kit</title>
-			<link rel="icon" href="/favicon.svg" />
-		</Head>
-		<p>Hello</p>
-		<Button children="Hi" />
-	</div>
-);
+const Index = (): JSX.Element => {
+	useEffect(() => {
+		const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		if (!dark) return;
+		const cls = window.document.documentElement.classList;
+		cls.remove("light");
+		cls.add("dark");
+	});
+	return <Gallery />;
+};
 
 export default Index;
