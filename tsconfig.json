@@ -11,12 +11,12 @@ and generate declaration files in 2 separate processes.
 		"strict": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
 		// https://github.com/microsoft/TypeScript/wiki/Performance#isolated-file-emit
 		"isolatedModules": true,
 		// https://github.com/microsoft/TypeScript/wiki/Performance#skipping-dts-checking
 		"skipLibCheck": true,
-		// // https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
-		// "types": ["global"],
-		// "typeRoots": ["./types"]
+		// https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
+		"types": [],
 	}
 }
