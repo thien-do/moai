@@ -16,6 +16,12 @@
 	border-color: var(--gray-10);
 }
 
+/* GROUP */
+
+:global(.group-tail) .main {
+	border-left: none;
+}
+
 /* DISABLED & READ ONLY */
 
 :global(.light) .main:disabled,
