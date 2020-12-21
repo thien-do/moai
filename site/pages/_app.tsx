@@ -8,7 +8,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 	<>
 		<Head>
 			<title>Moai UI Kit</title>
-			<link rel="icon" href="/favicon.svg" />
+			<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		</Head>
 		<Component {...pageProps} />
 	</>
