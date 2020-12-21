@@ -1,3 +1,7 @@
+const pcPrefix = require("autoprefixer");
+const pcImport = require("postcss-import");
+const pcTailwind = require("tailwindcss");
+
 /** @type {import("@storybook/core/types/index").StorybookConfig} */
 module.exports = {
 	stories: [
@@ -21,14 +25,19 @@ module.exports = {
 		},
 	},
 	webpackFinal: async (config) => {
-		// Support CSS Modules
 		config.module.rules.forEach((rule) => {
 			const test = rule.test.toString();
 			if (test.includes("css") === false) return;
 			rule.use.forEach((loader) => {
 				if (typeof loader === "string") return;
-				if (loader.loader.includes("css-loader") === false) return;
-				loader.options.modules = { auto: true };
+				// Support CSS Modules
+				if (loader.loader.includes("/css-loader")) {
+					loader.options.modules = { auto: true };
+				}
+				// Support PostCSS plugins
+				if (loader.loader.includes("/postcss-loader")) {
+					loader.options.plugins = [pcPrefix, pcImport, pcTailwind];
+				}
 			});
 		});
 		return config;

@@ -4,10 +4,8 @@
 	"description": "",
 	"private": true,
 	"scripts": {
-		"start": "npm run tw-start && start-storybook",
-		"build": "npm run tw-build && build-storybook",
-		"tw-start": "npx tailwindcss-cli@latest build ./src/tailwind.css -o .storybook/tailwind.css",
-		"tw-build": "NODE_ENV=production npm run tw-start"
+		"start": "start-storybook",
+		"build": "build-storybook"
 	},
 	"repository": {
 		"type": "git",
@@ -19,14 +17,20 @@
 		"url": "https://github.com/dvkndn/moai/issues"
 	},
 	"homepage": "https://moai.xyz",
+	"resolutions": {
+		"postcss": "8.2.1"
+	},
 	"dependencies": {
 		"@storybook/addon-actions": "6.1.11",
 		"@storybook/addon-essentials": "6.1.11",
 		"@storybook/addon-links": "6.1.11",
 		"@storybook/react": "6.1.11",
 		"@storybook/theming": "6.1.11",
-		"react": "^17.0.1",
+		"autoprefixer": "10.1.0",
+		"postcss": "8.2.1",
+		"postcss-import": "14.0.0",
+		"react": "17.0.1",
 		"storybook-dark-mode": "1.0.4",
-		"tailwindcss": "^2.0.2"
+		"tailwindcss": "2.0.2"
 	}
 }

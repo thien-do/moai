@@ -1,4 +1,4 @@
-import "../../core/font/font.css";
+import "../../core/font/local.css";
 import "../../core/src/index";
 import "./tailwind.css";
 
