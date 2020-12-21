@@ -28,6 +28,7 @@ export * from "./scrollbar/scrollbar";
 export * from "./select/select";
 export * from "./switcher/switcher";
 export * from "./tab/tab";
+export * from "./table/table";
 export * from "./tag/tag";
 export * from "./text-area/text-area";
 export * from "./text/text";
