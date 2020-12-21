@@ -59,14 +59,17 @@ const Gallery = () => (
 		<Section title="Selection controls">
 			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
-		</Section>
-		<Section title="Progress indicators">
-			<Pane children={<GalleryProgress />} />
+			<Pane children={<div />} />
 		</Section>
 		<Section title="Containers">
 			<Pane children={<GalleryDialog />} />
 			<Pane children={<GalleryPane />} />
 			<Pane children={<GalleryTab />} />
+		</Section>
+		<Section title="Progress indicators">
+			<Pane children={<GalleryProgress />} />
+			<Pane children={<div />} />
+			<Pane children={<div />} />
 		</Section>
 		<Section title="Icons">
 			<Pane children={<GalleryIcon />} noFill />

@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import * as M from "../../../core/src";
-import { Button, Paragraph, Tooltip, TooltipPane } from "../../../core/src";
 
 const items: M.MenuItemProps[] = [
 	{ label: "Menu item 1" },
@@ -18,7 +17,7 @@ const items2: M.MenuItemProps[] = [
 const TooltipBlock = () => (
 	<div className="space-y-8">
 		<div className="w-max">
-			<TooltipPane children="Tooltip" />
+			<M.TooltipPane children="Tooltip" />
 		</div>
 	</div>
 );
@@ -28,20 +27,20 @@ const PopoverColumn = () => (
 		<M.Popover
 			content={() => <div className="p-8">Hello!</div>}
 			target={(popover) => (
-				<Tooltip placement="top" content="Click to open a popover">
+				<M.Tooltip placement="top" content="Click to open a popover">
 					<M.Button.Forwarded
 						onClick={popover.toggle}
 						selected={popover.opened}
 						fill
 						children="Open Popover"
 					/>
-				</Tooltip>
+				</M.Tooltip>
 			)}
 			placement="top"
 		/>
 		<M.Pane>
-			<Paragraph>Pane</Paragraph>
-			<Paragraph>Lorem ipsum dolor sit amet, consectetur.</Paragraph>
+			<M.Paragraph>Pane</M.Paragraph>
+			<M.Paragraph>Lorem ipsum dolor sit amet, consectetur.</M.Paragraph>
 		</M.Pane>
 		<TooltipBlock />
 	</div>

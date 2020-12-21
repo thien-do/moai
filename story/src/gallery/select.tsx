@@ -34,7 +34,7 @@ type ColumnProps = Pick<SelectProps<unknown>, "style">;
 
 const base: SelectProps<string> = {
 	options: colorOptions,
-	defaultValue: "select",
+	defaultValue: "Select",
 };
 
 const Column = ({ style }: ColumnProps): JSX.Element => (
