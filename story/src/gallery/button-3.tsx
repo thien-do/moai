@@ -18,11 +18,11 @@ export const GalleryButton3 = (): JSX.Element => (
 		<div className="flex space-x-8">
 			<ButtonGroup>
 				<Button icon={icons.plus} children="Add" />
-				<Button icon={icons.caret} iconLabel="More" />
+				<Button icon={icons.caretDown} iconLabel="More" />
 			</ButtonGroup>
 			<ButtonGroup>
 				<Button disabled icon={icons.plus} children="Add" />
-				<Button disabled icon={icons.caret} iconLabel="More" />
+				<Button disabled icon={icons.caretDown} iconLabel="More" />
 			</ButtonGroup>
 		</div>
 		<div className="flex space-x-8">

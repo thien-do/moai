@@ -1,7 +1,7 @@
 import s from "./icon.module.css";
 
 export type IconSize = 12 | 16 | 36;
-export type IconPath = string;
+export type IconPath = string[];
 
 export interface IconProps {
 	path: IconPath;
@@ -16,6 +16,9 @@ export const Icon = ({ path, size, display }: IconProps): JSX.Element => (
 		viewBox="0 0 16 16"
 		width={size ?? 16}
 		height={size ?? 16}
-		children={<path d={path} />}
-	/>
+	>
+		{path.map((d, index) => (
+			<path key={index} d={d} />
+		))}
+	</svg>
 );
