@@ -87,7 +87,9 @@ const Genres: Column = ({ person }) => (
 	</div>
 );
 
-const Note: Column = ({ person }) => <Paragraph children={person.note} />;
+const Note: Column = ({ person }) => (
+	<Paragraph children={person.note.split(".").slice(0, 1).join(".")} />
+);
 
 const Phone: Column = ({ person }) => (
 	<div className="flex items-center space-x-8">
