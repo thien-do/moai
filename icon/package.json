@@ -2,8 +2,9 @@
 	"name": "@moai/icon",
 	"version": "0.16.0",
 	"description": "An iconset for @moai/core",
-	"main": "cjs/index.js",
-	"module": "esm/index.js",
+	"main": "index.js",
+	"module": "index.js",
+	"type": "module",
 	"types": "types/index.d.ts",
 	"scripts": {
 		"build": "./scripts/build.sh",
@@ -36,7 +37,7 @@
 	},
 	"homepage": "https://moai.xyz",
 	"devDependencies": {
-		"@rollup/plugin-typescript": "8.1.0",
+		"@svgr/rollup": "5.5.0",
 		"rollup": "2.35.1",
 		"rollup-plugin-copy": "3.3.0",
 		"tslib": "2.0.3",

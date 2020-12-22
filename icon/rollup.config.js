@@ -1,18 +1,13 @@
-import typescript from "@rollup/plugin-typescript";
+import svgr from "@svgr/rollup";
 import copy from "rollup-plugin-copy";
 
 /** @type {import("rollup").RollupOptions} */
 const options = {
 	input: "src/index.ts",
-	output: [
-		{ dir: "dist/esm", format: "esm" },
-		{ dir: "dist/cjs", format: "cjs" },
-	],
+	output: { dir: "dist", format: "esm" },
 	plugins: [
-		typescript(),
-		copy({
-			targets: [{ src: "package.json", dest: "dist/" }],
-		}),
+		svgr(),
+		copy({ targets: [{ src: "package.json", dest: "dist/" }] }),
 	],
 };
 
