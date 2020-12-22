@@ -1,7 +1,10 @@
 {
 	"extends": "../tsconfig.d.json",
-	// Note that we don't generate from the source file! This is because some
-	// how the typescript plugin
-	"compilerOptions": { "outDir": "./dist" },
-	"include": ["./src"]
+	// Note that we don't generate from the source file but the generated file
+	"compilerOptions": {
+		"allowJs": true,
+		"outDir": "./dist"
+	},
+	"include": ["./dist/**/*.js"],
+	"exclude": []
 }
