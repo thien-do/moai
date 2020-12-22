@@ -1,7 +1,7 @@
 import { Button, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
 import { icons } from "@moai/icon";
-import { Person } from "../../../site/components/gallery/samples/people";
-import PEOPLE from "../../../site/components/gallery/samples/people.json";
+import { Person } from "./samples/people";
+import PEOPLE from "./samples/people.json";
 import { toOption } from "./select";
 import s from "./table.module.css";
 
