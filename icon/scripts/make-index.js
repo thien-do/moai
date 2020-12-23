@@ -48,7 +48,7 @@ const generateProject = (project) => {
 	body.push(`\t${keys.join(",\n\t")}`);
 	body.push("};");
 
-	fs.writeFileSync(path.resolve(src, "index.js"), body.join("\n"));
+	fs.writeFileSync(path.resolve(src, "index.ts"), body.join("\n"));
 };
 
 // MAIN
