@@ -6,7 +6,7 @@ echo "1/5 Clearing previous build..."
 rm -rf ./dist
 
 echo "2/5 Generating indexes..."
-node ./scripts/make-index.js
+node ./scripts/make-index.mjs
 
 echo "3/5 Bundling svgs..."
 rollup --config --silent

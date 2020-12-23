@@ -2,7 +2,7 @@ import toCamel from "camelcase";
 import fs from "fs";
 import path from "path";
 import url from "url";
-import { PROJECTS } from "../projects.js";
+import { PROJECTS } from "../projects.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 const srcRoot = path.resolve(here, "../src");

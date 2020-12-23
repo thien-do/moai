@@ -7,8 +7,9 @@ import { PROJECTS } from "./projects";
  * @returns {import("rollup").RollupOptions}
  */
 const makeOptions = (project) => ({
-	input: `src/${project.id}/index.js`,
-	output: { dir: `dist/${project.id}`, format: "esm" },
+	input: `src/${project.id}/index.ts`,
+	// @TODO: Add ESM output
+	output: { dir: `dist/${project.id}`, format: "cjs" },
 	plugins: [svgr(), terser()],
 });
 
