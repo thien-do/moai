@@ -1,5 +1,5 @@
 import { Button, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
-import { icons } from "@moai/icon";
+import { bp as icons } from "@moai/icon/bp";
 import { Person } from "./samples/people";
 import PEOPLE from "./samples/people.json";
 import { toOption } from "./select";

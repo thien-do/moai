@@ -1,5 +1,5 @@
 import * as M from "@moai/core";
-import { icons } from "@moai/icon";
+import { bp as icons } from "@moai/icon/bp";
 import COLORS from "./samples/colors.json";
 
 const base: Partial<M.InputProps> = {

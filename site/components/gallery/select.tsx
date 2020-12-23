@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, ButtonGroupItemProps, Input, Select, SelectOption, SelectProps } from "@moai/core"; // prettier-ignore
-import { icons } from "@moai/icon";
+import { bp as icons } from "@moai/icon/bp";
 import COLORS from "./samples/colors.json";
 
 export const toOption = (text: string): SelectOption<string> => ({
@@ -31,7 +31,7 @@ const base: SelectProps<string> = {
 
 const Column = ({ style }: ColumnProps): JSX.Element => (
 	<div className="flex-1">
-		<div className="space-y-8 w-max">
+		<div className="space-y-8">
 			<Select {...base} style={style} />
 			<Select {...base} style={style} disabled />
 		</div>

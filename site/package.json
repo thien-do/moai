@@ -8,8 +8,8 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@moai/core": "0.136.0",
-		"@moai/icon": "0.16.0",
+		"@moai/core": "0.139.0",
+		"@moai/icon": "0.25.0",
 		"@types/node": "14.14.14",
 		"@types/react": "17.0.0",
 		"autoprefixer": "10.1.0",

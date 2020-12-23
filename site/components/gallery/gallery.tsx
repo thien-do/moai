@@ -15,15 +15,13 @@ import { GalleryTextArea } from "./text-area";
 
 const Pane = ({
 	fill,
-	noPadding,
 	children,
 }: {
 	fill?: boolean;
-	noPadding?: boolean;
 	children: React.ReactNode;
 }): JSX.Element => (
 	<div
-		className={["py-8", noPadding ? "" : "px-8"].join(" ")}
+		className="p-8"
 		style={{ width: fill ? "100%" : 288 }}
 		children={children}
 	/>
@@ -77,7 +75,7 @@ export const Gallery = () => (
 			<Pane children={<div />} />
 		</Section>
 		<Section title="Icons">
-			<Pane children={<GalleryIcon />} fill noPadding />
+			<Pane children={<GalleryIcon />} fill />
 		</Section>
 	</div>
 );
