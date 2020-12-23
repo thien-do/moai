@@ -1,0 +1,6 @@
+[submodule "icon/src/resources/blueprint"]
+	path = icon/src/resources/blueprint
+	url = https://github.com/palantir/blueprint
+[submodule "icon/src/resources/heroicons"]
+	path = icon/src/resources/heroicons
+	url = https://github.com/tailwindlabs/heroicons.git

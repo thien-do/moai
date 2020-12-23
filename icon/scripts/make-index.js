@@ -1,7 +1,12 @@
 import _fs from "fs";
 import _path from "path";
 import _url from "url";
-import { walkLeafDirs } from "../utilities/walk.js";
+
+const herePath = _path.dirname(_url.fileURLToPath(import.meta.url));
+const srcPath = _path.resolve(herePath, "../src");
+const resourcesPath = _path.resolve(srcPath, "resources")
+
+// FUNCTIONS
 
 const toCamel = (text) => text.replace(/-(\w)/g, (g) => g[1].toUpperCase());
 
@@ -15,7 +20,7 @@ const toExport = (name) => {
  * @param {string} path
  * @returns {void}
  */
-const generateIndex = (path) => {
+const generateProject = (path) => {
 	const names = _fs.readdirSync(path).filter((name) => name.endsWith(".svg"));
 	const body = names.map(toExport).join("\n");
 	_fs.writeFileSync(_path.resolve(path, "index.js"), body);
@@ -23,6 +28,11 @@ const generateIndex = (path) => {
 
 // MAIN
 
-const here = _path.dirname(_url.fileURLToPath(import.meta.url));
-const src = _path.resolve(here, "../src");
-walkLeafDirs(generateIndex, src);
+const projects = [
+	{ project: "bp", resource: "blueprint/resources/icons/16px" },
+	{ project: "hr-ol", resource: "heroicons/src/outline" },
+	{ project: "hr-sl", resource: "heroicons/src/solid" },
+];
+
+const a = _fs.readdirSync(_path.resolve(src, "icons", sources[0][0]));
+console.log(a.slice(0, 10));
