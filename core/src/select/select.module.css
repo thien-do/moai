@@ -1,12 +1,9 @@
 .container {
 	position: relative;
+	width: max-content;
 }
 
-.content {
-	width: fit-content;
-}
-
-.fill {
+.container.fill {
 	width: 100%;
 }
 
