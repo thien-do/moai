@@ -1,18 +1,22 @@
-import _fs from "fs";
-import _path from "path";
-import _url from "url";
+import toCamel from "camelcase";
+import fs from "fs";
+import path from "path";
+import url from "url";
+import { PROJECTS } from "../projects.js";
 
-const herePath = _path.dirname(_url.fileURLToPath(import.meta.url));
-const srcPath = _path.resolve(herePath, "../src");
-const resourcesPath = _path.resolve(srcPath, "resources")
+const here = path.dirname(url.fileURLToPath(import.meta.url));
+const srcPath = path.resolve(here, "../src");
+const resourcePath = path.resolve(srcPath, "resources");
 
 // FUNCTIONS
 
-const toCamel = (text) => text.replace(/-(\w)/g, (g) => g[1].toUpperCase());
-
-const toExport = (name) => {
+const toExport = (project) => (name) => {
+	const fromPath = path.relative(
+		path.resolve(srcPath, project.id),
+		path.resolve(resourcePath, project.resource, name)
+	);
 	const key = toCamel(name.replace(".svg", ""));
-	return `export { default as ${key} } from "./${name}"`;
+	return `export { default as ${key} } from "${fromPath}"`;
 };
 
 /**
@@ -20,19 +24,16 @@ const toExport = (name) => {
  * @param {string} path
  * @returns {void}
  */
-const generateProject = (path) => {
-	const names = _fs.readdirSync(path).filter((name) => name.endsWith(".svg"));
-	const body = names.map(toExport).join("\n");
-	_fs.writeFileSync(_path.resolve(path, "index.js"), body);
+const generateProject = (project) => {
+	const projectPath = path.resolve(srcPath, project.id);
+	const names = fs
+		.readdirSync(path.resolve(resourcePath, project.resource))
+		.filter((name) => name.endsWith(".svg"));
+	const body = names.map(toExport(project)).join("\n");
+	if (fs.existsSync(projectPath) === false) fs.mkdirSync(projectPath);
+	fs.writeFileSync(path.resolve(projectPath, "index.js"), body);
 };
 
 // MAIN
 
-const projects = [
-	{ project: "bp", resource: "blueprint/resources/icons/16px" },
-	{ project: "hr-ol", resource: "heroicons/src/outline" },
-	{ project: "hr-sl", resource: "heroicons/src/solid" },
-];
-
-const a = _fs.readdirSync(_path.resolve(src, "icons", sources[0][0]));
-console.log(a.slice(0, 10));
+PROJECTS.forEach(generateProject);
