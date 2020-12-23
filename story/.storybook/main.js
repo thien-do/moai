@@ -18,17 +18,9 @@ const modifySvgRule = (rule) => {
  * @returns {void}
  */
 const addSvgRule = (config) => {
-	const options = {
-		replaceAttrValues: {
-			"#000": "currentColor",
-			"#4A5568": "red",
-			"#374151": "blue",
-			"#4B5563": "green",
-		},
-	};
 	config.module.rules.push({
 		test: /\.svg$/,
-		use: [{ loader: "@svgr/webpack", options }],
+		use: ["@svgr/webpack"],
 	});
 };
 

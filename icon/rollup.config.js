@@ -9,7 +9,7 @@ import { PROJECTS } from "./projects";
 const makeOptions = (project) => ({
 	input: `src/${project.id}/index.js`,
 	output: { dir: `dist/${project.id}`, format: "esm" },
-	plugins: [svgr({ replaceAttrValues: project.replace }), terser()],
+	plugins: [svgr(), terser()],
 });
 
 const options = PROJECTS.map(makeOptions);

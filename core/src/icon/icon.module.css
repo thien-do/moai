@@ -10,9 +10,3 @@
 	position: relative;
 	top: 2px;
 }
-
-.icon path {
-	fill: currentColor;
-	fill-rule: evenodd;
-	clip-rule: evenodd;
-}

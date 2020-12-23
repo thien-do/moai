@@ -1,12 +1,10 @@
 import { storiesOf } from "@storybook/react";
 import { Icon } from "../../core/src";
-import { bp } from "../../icon/src/bp";
-
-console.log(bp.calendar);
+import { hrs as hro } from "../../icon/src/hrs";
 
 const Default = () => (
-	<div style={{ color: "purple" }}>
-        <Icon display="block" path={bp.calendar as any} />
+	<div style={{ color: "purple" }} className="flex flex-wrap">
+		<Icon display="block" path={hro.calendar} />
 	</div>
 );
 
