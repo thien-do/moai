@@ -1,13 +1,11 @@
 {
 	"name": "@moai/icon",
-	"version": "0.20.0",
+	"version": "0.22.0",
 	"description": "Several icon sets for @moai/core",
 	"type": "module",
 	"scripts": {
 		"build": "./scripts/build.sh",
-		"release": "./scripts/release.sh",
-		"release-minor": "./scripts/release.sh minor",
-		"release-patch": "./scripts/release.sh patch"
+		"release": "./scripts/release.sh"
 	},
 	"repository": {
 		"type": "git",
