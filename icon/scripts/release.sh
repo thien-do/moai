@@ -2,6 +2,11 @@
 
 set -e
 
+if [[ -z "$1" ]]; then
+    echo "Missing release version (minor or patch)" 1>&2
+    exit 1
+fi
+
 version=$(npm version $1)
 npm run build
 git add ./package.json ./package-lock.json

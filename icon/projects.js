@@ -7,7 +7,7 @@ export const PROJECTS = [
 		},
 	},
 	{
-		id: "hr-ol",
+		id: "hro",
 		resource: "heroicons/src/outline",
 		replace: {
 			"#4A5568": "red",
@@ -16,7 +16,7 @@ export const PROJECTS = [
 		},
 	},
 	{
-		id: "hr-sl",
+		id: "hrs",
 		resource: "heroicons/src/solid",
 		replace: {
 			"#4A5568": "red",
