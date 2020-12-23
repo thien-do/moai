@@ -1,7 +1,7 @@
 {
 	"name": "@moai/icon",
-	"version": "0.16.0",
-	"description": "An iconset for @moai/core",
+	"version": "0.20.0",
+	"description": "Several icon sets for @moai/core",
 	"type": "module",
 	"scripts": {
 		"build": "./scripts/build.sh",
@@ -36,12 +36,8 @@
 	"devDependencies": {
 		"@svgr/rollup": "5.5.0",
 		"rollup": "2.35.1",
-		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-terser": "7.0.2",
-		"tslib": "2.0.3",
-		"typescript": "4.1.3"
-	},
-	"dependencies": {
-		"camelcase": "^6.2.0"
+		"typescript": "4.1.3",
+		"camelcase": "6.2.0"
 	}
 }
