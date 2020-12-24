@@ -1,18 +1,36 @@
 import svgr from "@svgr/rollup";
+import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
-import { PROJECTS } from "./projects";
+import { PROJECTS } from "./projects.mjs";
 
 /**
- * Make RollupOptions for an icon set
+ * Create Rollup Options for a project
+ * @param {typeof PROJECTS[0]} project
  * @returns {import("rollup").RollupOptions}
  */
-const makeOptions = (project) => ({
-	input: `src/${project.id}/index.ts`,
-	// @TODO: Add ESM output
-	output: { dir: `dist/${project.id}`, format: "cjs" },
-	plugins: [svgr(), terser()],
-});
+const makeOptions = (project) => {
+	const dist = `dist/${project.id}`;
+	return {
+		input: [`src/${project.id}/index.js`],
+		output: [
+			{
+				dir: `${dist}/esm`,
+				format: "esm",
+			},
+			{
+				dir: `${dist}/cjs`,
+				format: "cjs",
+				exports: "named",
+				plugins: [terser()],
+			},
+		],
+		plugins: [
+			svgr(),
+			copy({
+				targets: [{ src: "src/package.json", dest: dist }],
+			}),
+		],
+	};
+};
 
-const options = PROJECTS.map(makeOptions);
-
-export default options;
+module.exports = PROJECTS.map(makeOptions);

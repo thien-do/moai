@@ -14,5 +14,7 @@ rollup --config --silent
 echo "4/5 Generating declarations..."
 tsc --project ./tsconfig.d.json
 
-echo "4/5 Copying static files..."
-cp ./package.json ./dist/package.json
+echo "5/5 Copy assets..."
+# Manually copy the package.json because our Rollup config only build
+# individual projects
+cp ./package.json ./dist/
