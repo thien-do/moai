@@ -16,6 +16,7 @@ export * from "./dialog/utils/message";
 export * from "./div/div";
 export * from "./form/field";
 export * from "./icon/icon";
+export * from "./icons/icons";
 export * from "./input/input";
 export * from "./menu/menu";
 export * from "./outline/outline";
