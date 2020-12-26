@@ -1,11 +1,4 @@
-.container {
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	position: relative;
-}
-
-.container table {
+.table {
 	position: relative;
 	/* To make heading's bottom border visible while scrolling */
 	border-collapse: separate;
@@ -15,8 +8,8 @@
 	overflow-wrap: normal;
 }
 
-.container th,
-.container td {
+.table th,
+.table td {
 	overflow: hidden;
 	padding: 12px 8px;
 	text-overflow: ellipsis;
@@ -25,19 +18,19 @@
 	border-bottom-width: 1px;
 }
 
-:global(.light) .container tr:hover td {
+:global(.light) .table tr:hover td {
 	background-color: var(--gray-1);
 }
-:global(.dark) .container tr:hover td {
+:global(.dark) .table tr:hover td {
 	background-color: var(--gray-9);
 }
 
-.container tr:last-child td {
+.table tr:last-child td {
 	border-bottom-style: none;
 }
 
-.container td:first-child,
-.container th:first-child {
+.table td:first-child,
+.table th:first-child {
 	position: sticky;
 	left: 0;
 	z-index: 1;
@@ -48,25 +41,25 @@
 }
 
 @media (max-width: 640px) {
-	.container td:first-child,
-	.container th:first-child {
+	.table td:first-child,
+	.table th:first-child {
 		/* Leave enough space for the rest of columns to be scrolled. It's
 		better to use "max-width: 50%" but it does not apply for td and th */
 		width: 160px;
 	}
 }
 
-.container td:nth-child(2),
-.container th:nth-child(2) {
+.table td:nth-child(2),
+.table th:nth-child(2) {
 	padding-left: 16px;
 }
 
-.container td:last-child,
-.container th:last-child {
+.table td:last-child,
+.table th:last-child {
 	padding-right: 16px;
 }
 
-.container th {
+.table th {
 	position: sticky;
 	top: 0;
 	z-index: 1;
@@ -74,6 +67,6 @@
 	border-bottom-style: solid;
 }
 
-.container th:first-child {
+.table th:first-child {
 	z-index: 2;
 }

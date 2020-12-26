@@ -40,14 +40,12 @@ const Row = (props: Props & { index: number }): JSX.Element => (
 );
 
 export const Table = (props: Props) => (
-	<div className={[s.container, background.primary].join(" ")}>
-		<table>
-			<thead children={<Head {...props} />} />
-			<tbody>
-				{new Array(props.rowsLength).fill(0).map((_v, index) => (
-					<Row {...props} key={props.rowKey(index)} index={index} />
-				))}
-			</tbody>
-		</table>
-	</div>
+	<table className={[s.container, background.primary].join(" ")}>
+		<thead children={<Head {...props} />} />
+		<tbody>
+			{new Array(props.rowsLength).fill(0).map((_v, index) => (
+				<Row {...props} key={props.rowKey(index)} index={index} />
+			))}
+		</tbody>
+	</table>
 );
