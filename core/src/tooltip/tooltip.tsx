@@ -33,7 +33,7 @@ export const TooltipPane = (props: PaneProps): JSX.Element => (
 export const Tooltip = (props: TooltipProps): JSX.Element => (
 	<Tippy
 		children={props.children}
-		placement={props.placement ?? "auto"}
+		placement={props.placement ?? "top"}
 		render={(attrs) => (
 			<TooltipPane children={props.content} attrs={attrs} />
 		)}
