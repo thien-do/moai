@@ -58,7 +58,7 @@ type Options = Pick<Props, "width" | "rows">;
  * Moai's alternative to window.prompt
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
  */
-export const prompt = (
+export const dialogPrompt = (
 	message: DialogMessageChildren,
 	initialText?: string,
 	options?: Options

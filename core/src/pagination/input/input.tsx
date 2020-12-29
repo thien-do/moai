@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { ButtonGroup } from "../../button-group/button-group";
 import { Button } from "../../button/button";
-import { alert } from "../../dialog/alert";
+import { dialogAlert } from "../../dialog/alert";
 import { Input } from "../../input/input";
 import s from "./input.module.css";
 
@@ -20,7 +20,7 @@ export const PaginationInput = (props: Props): JSX.Element => {
 		event.preventDefault();
 		const num = parseInt(value);
 		if (Number.isNaN(num)) {
-			alert("Please enter a valid number");
+			dialogAlert("Please enter a valid number");
 			return;
 		} else {
 			props.setValue(num);

@@ -29,7 +29,7 @@ export const ConfirmDialog = (props: Props) => (
  * Moai's alternative to window.confirm
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
  */
-export const confirm = (
+export const dialogConfirm = (
 	message: DialogMessageChildren,
 	width: DialogProps["width"] = "fixed"
 ): Promise<boolean> => {

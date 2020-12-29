@@ -25,7 +25,7 @@ export const AlertDialog = (props: Props) => (
  * Moai's alternative to window.alert
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
  */
-export const alert = (
+export const dialogAlert = (
 	message: DialogMessageChildren,
 	width: DialogProps["width"] = "fixed"
 ): Promise<void> => {

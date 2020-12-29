@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { ButtonGroup } from "../button-group/button-group";
 import { Button } from "../button/button";
-import { alert } from "../dialog/alert";
+import { dialogAlert } from "../dialog/alert";
 import { coreIcons } from "../icons/icons";
 import { Popover } from "../popover/popover";
 import { PaginationInput } from "./input/input";
@@ -24,7 +24,7 @@ export const Pagination = (props: PaginationProps): JSX.Element => {
 	const setValue = useCallback(
 		async (value: number) => {
 			if (value < min || value > max) {
-				await alert (rangeMsg(min, max));
+				await dialogAlert (rangeMsg(min, max));
 				return;
 			}
 			setBusy(true);
