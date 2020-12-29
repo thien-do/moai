@@ -58,10 +58,10 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				onChange={(e) => props.setChecked?.(e.target.checked)}
 			/>
 			<span className={[s.icon, self.check].join(" ")}>
-				<Icon display="block" path={coreIcons.boldTick} />
+				<Icon display="block" path={coreIcons.tick} />
 			</span>
 			<span className={[s.icon, self.indeterminate].join(" ")}>
-				<Icon display="block" path={coreIcons.smallMinus} />
+				<Icon display="block" path={coreIcons.minus} />
 			</span>
 			<span className={s.label}>{props.children}</span>
 		</label>
