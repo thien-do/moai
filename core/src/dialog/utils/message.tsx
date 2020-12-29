@@ -25,7 +25,7 @@ export const DialogMessage = (props: DialogMessageProps) => {
 				<div className={[text.big, text.strong].join(" ")}>
 					<Paragraph children={title} />
 				</div>
-				<DivPx size={8} />
+				<DivPx size={16} />
 				<Paragraph children={description} />
 			</>
 		);

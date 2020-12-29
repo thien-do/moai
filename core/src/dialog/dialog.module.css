@@ -26,15 +26,15 @@
 }
 
 .header {
-	padding: 16px;
+	padding: 24px;
 }
 
 .body {
-	padding: 16px;
+	padding: 24px;
 }
 
 .footer {
-	padding: 0 16px;
+	padding: 0 24px;
 }
 
 .footerBody {

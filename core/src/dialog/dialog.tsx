@@ -62,7 +62,7 @@ Dialog.Body = (props: ChildrenProps) => (
 Dialog.Footer = (props: ChildrenProps) => (
 	<div className={s.footer}>
 		<div className={s.footerBody} children={props.children} />
-		<DivPx size={16} />
+		<DivPx size={24} />
 	</div>
 );
 
