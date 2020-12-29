@@ -1,21 +1,7 @@
 import { storiesOf } from "@storybook/react";
-import { useCallback, useState } from "react";
-import { Pagination } from "../../core/src";
 
 const Default = () => {
-	const [page, setPage_] = useState(5);
-	const setPage = useCallback((page): Promise<void> => {
-		return new Promise((resolve, _reject) => {
-			setPage_(page);
-			window.setTimeout(() => resolve(), 1000);
-		});
-	}, []);
-
-	return (
-		<div>
-			<Pagination value={page} setValue={setPage} max={10} min={1} />
-		</div>
-	);
+	return <div>Test</div>;
 };
 
 storiesOf("Test", module).add("Default", Default);
