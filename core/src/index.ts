@@ -20,6 +20,7 @@ export * from "./icons/icons";
 export * from "./input/input";
 export * from "./menu/menu";
 export * from "./outline/outline";
+export * from "./pagination/pagination";
 export * from "./pane/pane";
 export * from "./popover/popover";
 export * from "./progress/circle";

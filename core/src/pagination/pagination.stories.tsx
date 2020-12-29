@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/react";
 import { useCallback, useState } from "react";
-import { Pagination } from "../../core/src";
+import { Pagination } from "./pagination";
 
 const Default = () => {
 	const [page, setPage_] = useState(5);
@@ -18,4 +18,4 @@ const Default = () => {
 	);
 };
 
-storiesOf("Test", module).add("Default", Default);
+storiesOf("Pagination", module).add("Default", Default);
