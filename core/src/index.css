@@ -16,15 +16,15 @@
 	--blue-8: #075783;
 	--blue-9: #0c4a6e;
 
-	--green-0: #2b7e40; /* positive */
-	--green-1: #36a14e;
-	--green-2: #45c263;
-	--green-3: #61db84;
+	--green-3: #34d399;
+	--green-2: #10b981;
+	--green-1: #059669;
+	--green-0: #047857;
 
-	--red-0: #b32821; /* negative */
-	--red-1: #d5342b;
-	--red-2: #e74d47;
-	--red-3: #f17673;
+	--red-3: #f87171;
+	--red-2: #ef4444;
+	--red-1: #dc2626;
+	--red-0: #b91c1c;
 
 	--gray-0: #ffffff; /* light-gray-0 */
 	--gray-1: #fafafa; /* light-gray-1 dark-gray-5 */
