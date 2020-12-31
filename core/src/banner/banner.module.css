@@ -1,0 +1,33 @@
+.container {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	width: max-content;
+	padding: 12px;
+
+	border-radius: 3px;
+}
+
+.bar {
+	width: 4px;
+	height: calc(100% - 8px);
+	border-radius: 4px;
+
+	position: absolute;
+	left: 4px;
+}
+
+.icon {
+	flex: 0 0 auto;
+}
+
+.children {
+	flex: 1 1 0px;
+}
+
+.button {
+	flex: 0 0 auto;
+	/* button's height is 24px while line-height is 16px */
+	margin: -4px;
+}
