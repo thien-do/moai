@@ -6,6 +6,7 @@
 	border-left-style: solid;
 	border-left-width: 1px;
 	align-self: stretch;
+	height: auto;
 }
 
 :global(.light) .weak {
