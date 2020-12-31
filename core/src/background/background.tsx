@@ -1,19 +1,24 @@
-import React from "react";
-
-import { validateStyles } from "../utils/utils";
+import { ReactNode } from "react";
 import s from "./background.module.css";
 
-const { primary, secondary, inverse } = s;
-
-export const background = { primary, secondary, inverse };
-
-validateStyles(background);
+export const background = {
+	primary: s.primary as string,
+	secondary: s.secondary as string,
+	inverse: s.inverse as string,
+	// ===
+	blueStrong: s.blueStrong as string,
+	blueWeak: s.blueWeak as string,
+	greenStrong: s.greenStrong as string,
+	greenWeak: s.greenWeak as string,
+	redStrong: s.redStrong as string,
+	redWeak: s.redWeak as string,
+};
 
 interface Props {
-	color: "primary" | "secondary" | "inverse";
-	children: React.ReactNode;
+	color: keyof typeof background;
+	children: ReactNode;
 }
 
-export const Background: React.FC<Props> = ({ color, children }) => (
+export const Background = ({ color, children }: Props): JSX.Element => (
 	<div className={s[color]}>{children}</div>
 );
