@@ -28,9 +28,19 @@
 	padding: 0 12px;
 }
 
+.mediumIcon {
+	height: 32px;
+	width: 32px;
+}
+
 .small {
 	height: 24px;
 	padding: 0 8px;
+}
+
+.smallIcon {
+	height: 24px;
+	width: 24px;
 }
 
 .text {

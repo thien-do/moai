@@ -161,8 +161,18 @@ Button.size = {
 		iconSize: 16,
 		iconMargin: 8,
 	} as ButtonSize,
+	mediumIcon: {
+		main: s.mediumIcon,
+		iconSize: 16,
+		iconMargin: 8,
+	} as ButtonSize,
 	small: {
 		main: s.small,
+		iconSize: 12,
+		iconMargin: 4,
+	} as ButtonSize,
+	smallIcon: {
+		main: s.smallIcon,
 		iconSize: 12,
 		iconMargin: 4,
 	} as ButtonSize,
