@@ -34,4 +34,5 @@ export * from "./table/table";
 export * from "./tag/tag";
 export * from "./text-area/text-area";
 export * from "./text/text";
+export * from "./toast/toast";
 export * from "./tooltip/tooltip";

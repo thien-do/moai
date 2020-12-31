@@ -1,26 +1,27 @@
 import { ReactNode } from "react";
-import { background } from "../background/background";
-import { Border } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
-import { Button } from "../button/button";
-import { DivPx } from "../div/div";
-import { Icon, IconPath } from "../icon/icon";
-import { coreIcons } from "../icons/icons";
-import { text } from "../text/text";
-import s from "./banner.module.css";
+import { background } from "../../background/background";
+import { Border } from "../../border/border";
+import { boxShadow } from "../../box-shadow/box-shadow";
+import { Button } from "../../button/button";
+import { DivPx } from "../../div/div";
+import { Icon, IconPath } from "../../icon/icon";
+import { coreIcons } from "../../icons/icons";
+import { text } from "../../text/text";
+import s from "./pane.module.css";
 
-interface BannerType {
+export interface ToastPaneType {
 	iconPath: IconPath;
 	iconCls: string;
 	barCls: string;
 }
 
 interface Props {
-	type: BannerType;
+	type: ToastPaneType;
 	children: ReactNode;
+	close: () => void;
 }
 
-export const Banner = (props: Props): JSX.Element => (
+export const ToastPane = (props: Props): JSX.Element => (
 	<div className="dark">
 		<div
 			className={[
@@ -29,8 +30,6 @@ export const Banner = (props: Props): JSX.Element => (
 				boxShadow.strong,
 			].join(" ")}
 		>
-			<div className={[s.bar, props.type.barCls].join(" ")} />
-			<DivPx size={8} />
 			<div className={[s.icon, props.type.iconCls].join(" ")}>
 				<Icon display="block" path={props.type.iconPath} />
 			</div>
@@ -47,21 +46,22 @@ export const Banner = (props: Props): JSX.Element => (
 					style={Button.style.flat}
 					icon={coreIcons.cross}
 					iconLabel="Close"
+					onClick={() => props.close()}
 				/>
 			</div>
 		</div>
 	</div>
 );
 
-Banner.colors = {
-	positive: {
+ToastPane.type = {
+	success: {
 		iconPath: coreIcons.success,
 		iconCls: text.greenStrong,
 		barCls: background.greenStrong,
-	} as BannerType,
-	negative: {
+	} as ToastPaneType,
+	error: {
 		iconPath: coreIcons.error,
 		iconCls: text.redStrong,
 		barCls: background.redStrong,
-	} as BannerType,
+	} as ToastPaneType,
 };
