@@ -81,7 +81,14 @@ html {
 	font-family: var(--font-sans);
 	font-size: 14px;
 	line-height: 16px;
+}
+
+.light {
 	font-weight: 425;
+}
+
+.dark {
+	font-weight: 450;
 }
 
 .light body,
