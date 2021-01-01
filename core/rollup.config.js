@@ -7,6 +7,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
+import fs from "fs";
 
 /**
  * Main bundling process
@@ -89,12 +90,20 @@ const bundleStatic = (() => {
 	];
 
 	/** @type {import("rollup-plugin-delete").Options["targets"]} */
-	const deleteTargets = [
-		"./dist/cjs.css",
-		"./dist/esm.css",
-		"./dist/dummy.js",
-		"./dist/types",
-	];
+	const deleteTargets = ["./dist/cjs.css", "./dist/esm.css", "./dist/types"];
+
+	/**
+	 * A custom plugin to throw away the main (dummy) output of this process.
+	 * - See: https://stackoverflow.com/a/59768507/6621213
+	 *
+	 * @type {import("rollup").Plugin}
+	 */
+	const deleteSelf = {
+		name: "Delete self",
+		writeBundle(options) {
+			fs.unlinkSync(options.file);
+		},
+	};
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
@@ -105,6 +114,7 @@ const bundleStatic = (() => {
 		plugins: [
 			copy({ targets: copyTargets, hook: "buildStart" }),
 			del({ targets: deleteTargets, hook: "buildEnd" }),
+			deleteSelf,
 		],
 	};
 
