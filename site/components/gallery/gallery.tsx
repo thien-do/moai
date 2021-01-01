@@ -3,6 +3,7 @@ import { GalleryButton2 } from "./button-2";
 import { GalleryButton3 } from "./button-3";
 import { GalleryCheckbox } from "./checkbox";
 import { GalleryDialog } from "./dialog";
+import { GalleryIcon } from "./icon";
 // import { GalleryIcon } from "./icon";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
@@ -77,8 +78,8 @@ export const Gallery = () => (
 		<Section title="Tables">
 			<Pane children={<GalleryTable />} fill />
 		</Section>
-		{/* <Section title="Icons">
+		<Section title="Icons">
 			<Pane children={<GalleryIcon />} fill />
-		</Section> */}
+		</Section>
 	</div>
 );

@@ -1,8 +1,33 @@
-import { Icon, IconPath, Select, SelectOption } from "@moai/core";
-import { useState } from "react";
+import { Icon, IconPath, Pane, Table, TableColumn, text } from "@moai/core";
 import * as bp from "@moai/icon/bp";
-import * as hrs from "@moai/icon/hrs";
 import * as hro from "@moai/icon/hro";
+import * as hrs from "@moai/icon/hrs";
+import s from "./icon.module.css";
+
+interface IconSet {
+	name: string;
+	link: string;
+	// Index in SAMPLE_ICONS
+	index: number;
+}
+
+const ICON_SETS: IconSet[] = [
+	{
+		name: "Heroicons Outline",
+		link: "https://heroicons.com/",
+		index: 1,
+	},
+	{
+		name: "Heroicons Solid",
+		link: "https://heroicons.com/",
+		index: 2,
+	},
+	{
+		name: "Blueprint",
+		link: "https://blueprintjs.com/docs/#icons",
+		index: 0,
+	},
+];
 
 const SAMPLE_ICONS = [
 	[bp.Archive, hro.Archive, hrs.Archive],
@@ -53,25 +78,53 @@ const Sample = ({ path }: { path: IconPath }): JSX.Element => (
 	</div>
 );
 
-const options: SelectOption<object>[] = [
-	{ id: "bp", label: "Blueprint", value: bp },
-	{ id: "hro", label: "Hero Outline", value: hro },
-	{ id: "hrs", label: "Hero Solid", value: hrs },
+interface RowProps {
+	set: IconSet;
+}
+
+const Name = ({ set }: RowProps): JSX.Element => (
+	<a
+		className={[text.blueStrong].join(" ")}
+		href={set.link}
+		target="_blank"
+		rel="noopener"
+		style={{ width: 160 }}
+		children={set.name}
+	/>
+);
+
+const Samples = ({ set }: RowProps): JSX.Element => (
+	<div className="flex">
+		{SAMPLE_ICONS.map((group) => (
+			<Sample path={group[set.index]} />
+		))}
+	</div>
+);
+
+const getTableColumns = (): TableColumn[] => [
+	{
+		title: "Icon set",
+		className: s.name,
+		render: (idx) => <Name set={ICON_SETS[idx]} />,
+	},
+	{
+		title: "Samples",
+		className: s.samples,
+		render: (idx) => <Samples set={ICON_SETS[idx]} />,
+	},
 ];
 
-export const GalleryIcon = () => {
-	const [group, setGroup] = useState<object>(bp);
-	return (
-		<div className="space-y-16">
-			<div className="space-x-8 flex items-center">
-				<Select value={group} setValue={setGroup} options={options} />
-				<p>Moai works with any icon set!</p>
+export const GalleryIcon = () => (
+	<div className="space-y-16">
+		<p className="leading-32">Moai works with any SVG-based icon set!</p>
+		<Pane noPadding>
+			<div className={s.table}>
+				<Table
+					columns={getTableColumns()}
+					rowKey={(idx) => ICON_SETS[idx].name}
+					rowsLength={ICON_SETS.length}
+				/>
 			</div>
-			<div className="flex flex-wrap -m-8">
-				{Object.keys(group).map((key) => (
-					<Sample key={key} path={(group as any)[key]} />
-				))}
-			</div>
-		</div>
-	);
-};
+		</Pane>
+	</div>
+);
