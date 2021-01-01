@@ -1,22 +1,17 @@
-/*
-This is the shared config for all tools (editor, Rollup, TSC) and all
-packages (core, icon, etc.).
-
-Note that this does not include the declaration part since we compile TS code
-and generate declaration files in 2 separate processes.
-- See: https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html#babel-for-transpiling-tsc-for-types
-*/
+/* This is the shared config for all tools (editor, Rollup, TSC) and all
+packages (core, icon, etc.). */
 {
 	"compilerOptions": {
 		"strict": true,
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
+		"declaration": true,
 		"resolveJsonModule": true,
 		// https://github.com/microsoft/TypeScript/wiki/Performance#isolated-file-emit
 		"isolatedModules": true,
 		// https://github.com/microsoft/TypeScript/wiki/Performance#skipping-dts-checking
 		"skipLibCheck": true,
 		// https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
-		"types": [],
+		"types": []
 	}
 }

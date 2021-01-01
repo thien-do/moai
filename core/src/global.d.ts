@@ -3,4 +3,7 @@ declare module "*.module.css" {
 	export default classes;
 }
 
-declare module "*.css";
+declare module "*.css" {
+	const classes: { readonly [key: string]: string | undefined };
+	export default classes;
+}
