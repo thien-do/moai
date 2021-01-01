@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import * as M from "@moai/core";
 
 const items: M.MenuItemProps[] = [

@@ -1,5 +1,5 @@
 import * as M from "@moai/core";
-import { bp as icons } from "@moai/icon/bp";
+import { Search } from "@moai/icon/bp";
 import COLORS from "./samples/colors.json";
 
 const base: Partial<M.InputProps> = {
@@ -14,7 +14,7 @@ interface SizeProps {
 const WithButton = ({ size }: SizeProps): JSX.Element => {
 	const input = <M.Input {...base} size={size[0]} />;
 	const button = (
-		<M.Button icon={icons.search} iconLabel="Search" size={size[1]} />
+		<M.Button icon={Search} iconLabel="Search" size={size[1]} />
 	);
 	const children: M.ButtonGroupItemProps[] = [
 		{ fill: true, element: input },
@@ -31,7 +31,7 @@ const Column = ({ size }: SizeProps): JSX.Element => {
 				<M.Input {...base2} type="password" defaultValue="password" />
 			</div>
 			<div style={{ minHeight: 32 }}>
-				<M.Input {...base2} icon={icons.search} />
+				<M.Input {...base2} icon={Search} />
 			</div>
 			<div style={{ minHeight: 32 }}>
 				<WithButton size={size} />

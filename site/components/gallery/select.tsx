@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, ButtonGroupItemProps, Input, Select, SelectOption, SelectProps } from "@moai/core"; // prettier-ignore
-import { bp as icons } from "@moai/icon/bp";
+import { Search } from "@moai/icon/bp";
 import COLORS from "./samples/colors.json";
 
 export const toOption = (text: string): SelectOption<string> => ({
@@ -50,13 +50,14 @@ const Full = (): JSX.Element => (
 			...colorOptions,
 		]}
 		defaultValue="full"
+		fill
 	/>
 );
 
 const Group = (): JSX.Element => {
 	const select = <Select options={modelOptions} defaultValue="Posts" />;
 	const input = <Input defaultValue="" placeholder="Type to search" />;
-	const button = <Button iconLabel="Search" icon={icons.search} />;
+	const button = <Button iconLabel="Search" icon={Search} />;
 	const children: ButtonGroupItemProps[] = [
 		{ fill: false, element: select },
 		{ fill: true, element: input },

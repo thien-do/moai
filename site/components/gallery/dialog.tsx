@@ -22,24 +22,24 @@ const Pane = () => (
 );
 
 const alert = () =>
-	M.alert([
+	M.dialogAlert([
 		"Cannot save post",
 		"There was a network error. Please check your connection and try again.",
 	]);
 
 const confirm = () =>
-	M.confirm([
+	M.dialogConfirm([
 		"Publish post?",
 		"Published posts can be seen by anyone on the internet.",
 	]);
 
 const prompt = async () => {
-	const title = await M.prompt([
+	const title = await M.dialogPrompt([
 		"Enter post title",
 		"Post title is required to publish",
 	]);
 	if (!title) return;
-	M.alert(`Post "${title}" is published!`);
+	M.dialogAlert(`Post "${title}" is published!`);
 };
 
 export const GalleryDialog = () => (

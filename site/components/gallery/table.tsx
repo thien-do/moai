@@ -1,5 +1,5 @@
 import { Button, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
-import { bp as icons } from "@moai/icon/bp";
+import { Duplicate, Search } from "@moai/icon/bp";
 import { Person } from "./samples/people";
 import PEOPLE from "./samples/people.json";
 import { toOption } from "./select";
@@ -15,7 +15,7 @@ const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 	<div className="space-y-8">
 		<div className="">{children}</div>
 		<div className="font-normal">
-			<Input icon={icons.search} placeholder="Search" />
+			<Input icon={Search} placeholder="Search" />
 		</div>
 	</div>
 );
@@ -94,11 +94,7 @@ const Note: Column = ({ person }) => (
 const Phone: Column = ({ person }) => (
 	<div className="flex items-center space-x-8">
 		<div>{person.phone}</div>
-		<Button
-			size={Button.size.small}
-			icon={icons.duplicate}
-			iconLabel="Copy"
-		/>
+		<Button size={Button.size.small} icon={Duplicate} iconLabel="Copy" />
 	</div>
 );
 
@@ -142,7 +138,7 @@ const getColumns = (): TableColumn[] => [
 
 export const GalleryTable = (): JSX.Element => (
 	<Pane noPadding>
-		<div className={s.container} style={{ height: 300 }}>
+		<div className={s.container}>
 			<Table
 				columns={getColumns()}
 				rowKey={(i) => PEOPLE[i].id}

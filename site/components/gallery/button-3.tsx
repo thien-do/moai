@@ -1,35 +1,34 @@
-import { Button, ButtonGroup, ButtonProps } from "@moai/core";
-import { bp as icons } from "@moai/icon/bp";
+import { Button, ButtonGroup, ButtonProps, coreIcons } from "@moai/core";
+import { Plus, ArrowLeft, ArrowRight, Search, CaretDown } from "@moai/icon/bp";
 
 const { medium, small } = Button.size;
 const { flat } = Button.style;
-const icon = icons.plus;
 
-const flatIcon: ButtonProps = { icon, style: flat };
+const flatIcon: ButtonProps = { icon: Plus, style: flat };
 
 export const GalleryButton3 = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
-			<Button children="Back" icon={icons.arrowLeft} />
-			<Button children="Next" icon={icons.arrowRight} reverse />
-			<Button iconLabel="Search" icon={icons.search} />
-			<Button iconLabel="Search" icon={icons.search} disabled />
+			<Button children="Back" icon={ArrowLeft} />
+			<Button children="Next" icon={ArrowRight} reverse />
+			<Button iconLabel="Search" icon={Search} />
+			<Button iconLabel="Search" icon={Search} disabled />
 		</div>
 		<div className="flex space-x-8">
 			<ButtonGroup>
-				<Button icon={icons.plus} children="Add" />
-				<Button icon={icons.caretDown} iconLabel="More" />
+				<Button icon={Plus} children="Add" />
+				<Button icon={coreIcons.caret} iconLabel="More" />
 			</ButtonGroup>
 			<ButtonGroup>
-				<Button disabled icon={icons.plus} children="Add" />
-				<Button disabled icon={icons.caretDown} iconLabel="More" />
+				<Button disabled icon={Plus} children="Add" />
+				<Button disabled icon={coreIcons.caret} iconLabel="More" />
 			</ButtonGroup>
 		</div>
 		<div className="flex space-x-8">
-			<Button icon={icon} size={medium} children="Medium" />
-			<Button icon={icon} size={small} children="Small" />
-			<Button icon={icon} size={small} iconLabel="Add" />
-			<Button icon={icon} size={small} iconLabel="Add" busy />
+			<Button icon={Plus} size={medium} children="Medium" />
+			<Button icon={Plus} size={small} children="Small" />
+			<Button icon={Plus} size={small} iconLabel="Add" />
+			<Button icon={Plus} size={small} iconLabel="Add" busy />
 		</div>
 		<div className="flex space-x-8">
 			<Button {...flatIcon} size={medium} children="Medium" />

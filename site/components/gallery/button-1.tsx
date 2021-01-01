@@ -1,9 +1,9 @@
-import { alert, Button, ButtonProps } from "@moai/core";
+import { Button, ButtonProps, dialogAlert } from "@moai/core";
 
 const base: ButtonProps = {
 	children: "Button",
 	onClick: () =>
-		alert(
+		dialogAlert(
 			["You clicked the button", "Press enter or esc to close"],
 			"content"
 		),
