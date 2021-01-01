@@ -1,11 +1,11 @@
 import { Button, Tooltip, TooltipPane } from "@moai/core";
 
 export const GalleryTooltip = () => (
-	<div className="space-y-16">
+	<div className="space-y-8">
 		<Tooltip content="Sample Tooltip">
-			<Button.Forwarded children="Hover to show a tooltip" />
+			<Button.Forwarded children="Hover to show a Tooltip" />
 		</Tooltip>
-		<TooltipPane children="Tooltip with short text" />
-		<TooltipPane children="Tooltip with long text. Lorem ipsum dolor sit amet, consectetur." />
+		<TooltipPane children="Short Tooltip" />
+		<TooltipPane children="Multi-line Tooltip. Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
 	</div>
 );

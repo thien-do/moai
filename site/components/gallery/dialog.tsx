@@ -2,16 +2,14 @@ import * as M from "@moai/core";
 
 const Pane = () => (
 	<M.DialogPane width="content">
-		<div style={{ width: 240 }}>
-			<M.Dialog.Body>
-				<M.Dialog.Message
-					children={[
-						"Dialog title",
-						"Dialog content. Lorem ipsum dolor sit amet, consectetur."
-					]}
-				/>
-			</M.Dialog.Body>
-		</div>
+		<M.Dialog.Body>
+			<M.Dialog.Message
+				children={[
+					"Dialog title",
+					"Dialog content. Lorem ipsum dolor sit amet, consectetur.",
+				]}
+			/>
+		</M.Dialog.Body>
 		<M.Dialog.Footer>
 			<div className="flex space-x-8">
 				<M.Button>Cancel</M.Button>

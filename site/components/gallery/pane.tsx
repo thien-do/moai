@@ -13,27 +13,17 @@ const items2: M.MenuItemProps[] = [
 	{ label: "Delete", disabled: true },
 ];
 
-const TooltipBlock = () => (
-	<div className="space-y-8">
-		<div className="w-max">
-			<M.TooltipPane children="Tooltip" />
-		</div>
-	</div>
-);
-
 const PopoverColumn = () => (
 	<div className="flex-1 space-y-8">
 		<M.Popover
 			content={() => <div className="p-8">Hello!</div>}
 			target={(popover) => (
-				<M.Tooltip placement="top" content="Click to open a popover">
-					<M.Button.Forwarded
-						onClick={popover.toggle}
-						selected={popover.opened}
-						fill
-						children="Open Popover"
-					/>
-				</M.Tooltip>
+				<M.Button
+					onClick={popover.toggle}
+					selected={popover.opened}
+					fill
+					children="Open Popover"
+				/>
 			)}
 			placement="top"
 		/>
@@ -41,7 +31,6 @@ const PopoverColumn = () => (
 			<M.Paragraph>Pane</M.Paragraph>
 			<M.Paragraph>Lorem ipsum dolor sit amet, consectetur.</M.Paragraph>
 		</M.Pane>
-		<TooltipBlock />
 	</div>
 );
 

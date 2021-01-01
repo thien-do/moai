@@ -25,7 +25,7 @@ const Pane = ({
 }): JSX.Element => (
 	<div
 		className="p-8"
-		style={{ width: fill ? "100%" : 288 }}
+		style={{ width: fill ? "100%" : 320 }}
 		children={children}
 	/>
 );
@@ -38,10 +38,10 @@ const Section = ({
 	children: React.ReactNode;
 }): JSX.Element => (
 	<div className="flex flex-wrap border-0 p-8">
-		<div className="p-8" style={{ width: 240 }}>
+		<div className="p-8" style={{ width: 200 }}>
 			<h2 className="text-xl font-semibold py-4 leading-24">{title}</h2>
 		</div>
-		<div className="flex flex-wrap w-full" style={{ maxWidth: 288 * 3 }}>
+		<div className="flex flex-wrap w-full" style={{ maxWidth: 320 * 3 }}>
 			{children}
 		</div>
 	</div>
@@ -64,15 +64,15 @@ export const Gallery = () => (
 			<Pane children={<GalleryCheckbox />} />
 			<Pane children={<GalleryPagination />} />
 		</Section>
-		<Section title="Containers">
-			<Pane children={<GalleryDialog />} />
-			<Pane children={<GalleryPane />} />
-			<Pane children={<GalleryTab />} />
-		</Section>
 		<Section title="Feedback">
 			<Pane children={<GalleryToast />} />
 			<Pane children={<GalleryTooltip />} />
 			<Pane children={<GalleryProgress />} />
+		</Section>
+		<Section title="Containers">
+			<Pane children={<GalleryDialog />} />
+			<Pane children={<GalleryPane />} />
+			<Pane children={<GalleryTab />} />
 		</Section>
 		<Section title="Tables">
 			<Pane children={<GalleryTable />} fill />
