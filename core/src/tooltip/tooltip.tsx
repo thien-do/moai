@@ -16,17 +16,23 @@ interface PaneProps {
 }
 
 export const TooltipPane = (props: PaneProps): JSX.Element => (
-	<div
-		className={[s.content, background.inverse, boxShadow.strong].join(" ")}
-		tabIndex={-1}
-		{...props.attrs}
-	>
-		{props.attrs && (
-			<div data-popper-arrow className={s.arrowWrapper}>
-				<div className={[s.arrow, background.inverse].join(" ")} />
-			</div>
-		)}
-		<Paragraph children={props.children} />
+	<div className="dark">
+		<div
+			className={[s.content, background.secondary, boxShadow.strong].join(
+				" "
+			)}
+			tabIndex={-1}
+			{...props.attrs}
+		>
+			{props.attrs && (
+				<div data-popper-arrow className={s.arrowWrapper}>
+					<div
+						className={[s.arrow, background.secondary].join(" ")}
+					/>
+				</div>
+			)}
+			<Paragraph children={props.children} />
+		</div>
 	</div>
 );
 
