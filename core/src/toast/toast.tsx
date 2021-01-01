@@ -2,6 +2,8 @@ import { render } from "react-dom";
 import toastController from "react-hot-toast";
 import { ToastContainer } from "./container/container";
 
+export * from "./pane/pane";
+
 const inited = { current: false };
 
 const init = (): Promise<HTMLDivElement> => {
