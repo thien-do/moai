@@ -13,6 +13,7 @@ import { GallerySelect } from "./select";
 import { GalleryTab } from "./tab";
 import { GalleryTable } from "./table";
 import { GalleryTextArea } from "./text-area";
+import { GalleryToast } from "./toast";
 
 const Pane = ({
 	fill,
@@ -67,13 +68,12 @@ export const Gallery = () => (
 			<Pane children={<GalleryPane />} />
 			<Pane children={<GalleryTab />} />
 		</Section>
+		<Section title="Feedback">
+			<Pane children={<GalleryToast />} />
+			<Pane children={<GalleryProgress />} />
+		</Section>
 		<Section title="Tables">
 			<Pane children={<GalleryTable />} fill />
-		</Section>
-		<Section title="Progress indicators">
-			<Pane children={<GalleryProgress />} />
-			<Pane children={<div />} />
-			<Pane children={<div />} />
 		</Section>
 		{/* <Section title="Icons">
 			<Pane children={<GalleryIcon />} fill />
