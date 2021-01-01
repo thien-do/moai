@@ -4,10 +4,12 @@
 	width: 100%;
 }
 
+/* Follow Button.size.medium */
 .medium {
-	padding: 6px 8px;
+	padding: 6px 12px;
 }
 
+/* Follow Button.size.small */
 .small {
 	padding: 2px 8px;
 }
