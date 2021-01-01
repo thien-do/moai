@@ -6,6 +6,7 @@ import { GalleryDialog } from "./dialog";
 // import { GalleryIcon } from "./icon";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
+import { GalleryPagination } from "./pagination";
 import { GalleryPane } from "./pane";
 import { GalleryProgress } from "./progress";
 import { GallerySelect } from "./select";
@@ -59,7 +60,7 @@ export const Gallery = () => (
 		<Section title="Selection controls">
 			<Pane children={<GallerySelect />} />
 			<Pane children={<GalleryCheckbox />} />
-			<Pane children={<div />} />
+			<Pane children={<GalleryPagination />} />
 		</Section>
 		<Section title="Containers">
 			<Pane children={<GalleryDialog />} />
