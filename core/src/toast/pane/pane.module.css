@@ -4,7 +4,8 @@
 	position: relative;
 
 	width: max-content;
-	padding: 12px;
+	max-width: 288px;
+	padding: 8px 12px;
 
 	border-radius: 3px;
 }
