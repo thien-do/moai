@@ -5,7 +5,6 @@ import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
-import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
 import fs from "fs";
 
@@ -45,7 +44,6 @@ const bundleMain = (() => {
 			del({ targets: ["dist"] }),
 			postcss(postcssOptions),
 			typescript({ useTsconfigDeclarationDir: true }),
-			terser(),
 		],
 	};
 
@@ -94,6 +92,8 @@ const bundleStatic = (() => {
 
 	/**
 	 * A custom plugin to throw away the main (dummy) output of this process.
+	 * This cannot be done with the "copyTargets" above because the dummy is
+	 * the build output
 	 * - See: https://stackoverflow.com/a/59768507/6621213
 	 *
 	 * @type {import("rollup").Plugin}
