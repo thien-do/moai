@@ -14,6 +14,7 @@ import { GalleryTab } from "./tab";
 import { GalleryTable } from "./table";
 import { GalleryTextArea } from "./text-area";
 import { GalleryToast } from "./toast";
+import { GalleryTooltip } from "./tooltip";
 
 const Pane = ({
 	fill,
@@ -70,6 +71,7 @@ export const Gallery = () => (
 		</Section>
 		<Section title="Feedback">
 			<Pane children={<GalleryToast />} />
+			<Pane children={<GalleryTooltip />} />
 			<Pane children={<GalleryProgress />} />
 		</Section>
 		<Section title="Tables">

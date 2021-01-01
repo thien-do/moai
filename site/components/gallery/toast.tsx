@@ -12,7 +12,7 @@ export const GalleryToast = (): JSX.Element => (
 			<ToastPane
 				close={noop}
 				type={ToastPane.type.success}
-				children="Success toast"
+				children='Toast with "success" type'
 			/>
 		</div>
 		<div className="space-y-8">
@@ -23,7 +23,7 @@ export const GalleryToast = (): JSX.Element => (
 			<ToastPane
 				close={noop}
 				type={ToastPane.type.error}
-				children="Error toast"
+				children='Toast with "error" type'
 			/>
 		</div>
 	</div>
