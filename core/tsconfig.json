@@ -3,5 +3,6 @@
 	"compilerOptions": {
 		"declarationDir": "./dist/types"
 	},
-	"include": ["./src"]
+	"include": ["./src"],
+	"exclude": ["./src/**/*.stories.tsx"]
 }
