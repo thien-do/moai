@@ -95,22 +95,22 @@ const Name = ({ set }: RowProps): JSX.Element => (
 
 const Samples = ({ set }: RowProps): JSX.Element => (
 	<div className="flex">
-		{SAMPLE_ICONS.map((group) => (
-			<Sample path={group[set.index]} />
+		{SAMPLE_ICONS.map((group, index) => (
+			<Sample key={index} path={group[set.index]} />
 		))}
 	</div>
 );
 
-const getTableColumns = (): TableColumn[] => [
+const getTableColumns = (): TableColumn<IconSet>[] => [
 	{
 		title: "Icon set",
 		className: s.name,
-		render: (idx) => <Name set={ICON_SETS[idx]} />,
+		render: (set) => <Name set={set} />,
 	},
 	{
 		title: "Samples",
 		className: s.samples,
-		render: (idx) => <Samples set={ICON_SETS[idx]} />,
+		render: (set) => <Samples set={set} />,
 	},
 ];
 
@@ -119,10 +119,10 @@ export const GalleryIcon = () => (
 		<p className="leading-32">Moai works with any SVG-based icon set!</p>
 		<Pane noPadding>
 			<div className={s.table}>
-				<Table
+				<Table<IconSet>
+					rows={ICON_SETS}
 					columns={getTableColumns()}
-					rowKey={(idx) => ICON_SETS[idx].name}
-					rowsLength={ICON_SETS.length}
+					rowKey={set => set.name}
 				/>
 			</div>
 		</Pane>

@@ -1,13 +1,15 @@
 import { Button, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
 import { Duplicate, Search } from "@moai/icon/bp";
 import { Person } from "./samples/people";
-import PEOPLE from "./samples/people.json";
+import PEOPLE_RAW from "./samples/people.json";
 import { toOption } from "./select";
 import s from "./table.module.css";
 
 interface RowProps {
 	person: Person;
 }
+
+const PEOPLE: Person[] = PEOPLE_RAW;
 
 type Column = (props: RowProps) => JSX.Element;
 
@@ -98,40 +100,40 @@ const Phone: Column = ({ person }) => (
 	</div>
 );
 
-const getColumns = (): TableColumn[] => [
+const getColumns = (): TableColumn<Person>[] => [
 	{
 		title: <SearchHeader children="Bot" />,
-		render: (i) => <Overview person={PEOPLE[i]} />,
+		render: (p) => <Overview person={p} />,
 		className: s.overview,
 	},
 	{
 		title: <LastSeenHeader />,
-		render: (i) => PEOPLE[i].lastSeen,
+		render: (p) => p.lastSeen,
 		className: s.lastSeen,
 	},
 	{
 		title: <SearchHeader children="Phone" />,
-		render: (i) => <Phone person={PEOPLE[i]} />,
+		render: (p) => <Phone person={p} />,
 		className: s.phone,
 	},
 	{
 		title: <GenresHeader />,
-		render: (i) => <Genres person={PEOPLE[i]} />,
+		render: (p) => <Genres person={p} />,
 		className: s.genres,
 	},
 	{
 		title: <SearchHeader children="Email" />,
-		render: (i) => PEOPLE[i].email,
+		render: (p) => p.email,
 		className: s.email,
 	},
 	{
 		title: <SearchHeader children="Note" />,
-		render: (i) => <Note person={PEOPLE[i]} />,
+		render: (p) => <Note person={p} />,
 		className: s.note,
 	},
 	{
 		title: "Action",
-		render: (i) => <Action person={PEOPLE[i]} />,
+		render: (p) => <Action person={p} />,
 		className: s.action,
 	},
 ];
@@ -139,11 +141,7 @@ const getColumns = (): TableColumn[] => [
 export const GalleryTable = (): JSX.Element => (
 	<Pane noPadding>
 		<div className={s.container}>
-			<Table
-				columns={getColumns()}
-				rowKey={(i) => PEOPLE[i].id}
-				rowsLength={PEOPLE.length}
-			/>
+			<Table rows={PEOPLE} columns={getColumns()} rowKey={(p) => p.id} />
 		</div>
 	</Pane>
 );
