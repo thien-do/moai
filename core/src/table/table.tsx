@@ -50,7 +50,9 @@ export const Table = <R,>(props: Props<R>) => (
 		</thead>
 		<tbody>
 			{props.rows.map((row) => (
-				<tr key={props.rowKey(row)} children={renderTd(row)} />
+				<tr key={props.rowKey(row)}>
+					{props.columns.map(renderTd(row))}
+				</tr>
 			))}
 		</tbody>
 	</table>
