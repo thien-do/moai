@@ -1,50 +1,56 @@
+import { ReactNode } from "react";
 import { background } from "../background/background";
 import { borderColor } from "../border/border";
 import { text } from "../text/text";
 import s from "./table.module.css";
 
-export interface TableColumn {
-	title: React.ReactNode;
+export interface TableColumn<R> {
+	title: ReactNode;
 	className?: string;
-	render: (index: number) => React.ReactNode;
+	render:
+		| keyof R // Accessor
+		| ((row: R) => ReactNode); // Render function;
 }
 
-interface Props {
-	columns: TableColumn[];
-	rowsLength: number;
-	rowKey: (index: number) => string;
+interface Props<R> {
+	columns: TableColumn<R>[];
+	rows: R[];
+	rowKey: (row: R) => string;
 }
 
-const topCls = [borderColor.weak, background.secondary, text.strong].join(" ");
+const thCls = [borderColor.weak, background.secondary, text.strong].join(" ");
 
-const Head = (props: Props): JSX.Element => (
-	<tr>
-		{props.columns.map((column, index) => (
-			<th className={[topCls, column.className].join(" ")} key={index}>
-				{column.title}
-			</th>
-		))}
-	</tr>
+const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
+	<th key={index} className={[thCls, column.className].join(" ")}>
+		{column.title}
+	</th>
 );
 
-const rowCls = [borderColor.weak, background.primary].join(" ");
+const tdCls = [borderColor.weak, background.primary].join(" ");
 
-const Row = (props: Props & { index: number }): JSX.Element => (
-	<tr>
-		{props.columns.map((column, index) => (
-			<td className={[rowCls, column.className].join(" ")} key={index}>
-				{column.render(props.index)}
-			</td>
-		))}
-	</tr>
+const renderTd = <R,>(row: R) => (
+	column: TableColumn<R>,
+	index: number
+): JSX.Element => (
+	<td
+		key={index}
+		className={[tdCls, column.className].join(" ")}
+		children={
+			typeof column.render === "function"
+				? column.render(row) // Render function
+				: row[column.render] // Accessor
+		}
+	/>
 );
 
-export const Table = (props: Props) => (
+export const Table = <R,>(props: Props<R>) => (
 	<table className={[s.container, background.primary].join(" ")}>
-		<thead children={<Head {...props} />} />
+		<thead>
+			<tr>{props.columns.map(renderTh)}</tr>
+		</thead>
 		<tbody>
-			{new Array(props.rowsLength).fill(0).map((_v, index) => (
-				<Row {...props} key={props.rowKey(index)} index={index} />
+			{props.rows.map((row) => (
+				<tr key={props.rowKey(row)} children={renderTd(row)} />
 			))}
 		</tbody>
 	</table>
