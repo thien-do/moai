@@ -12,7 +12,8 @@
 	"bugs": {
 		"url": "https://github.com/dvkndn/moai/issues"
 	},
-	"devDependencies": {
+	"dependencies": {
+		"@storybook/react": "6.1.11",
 		"prettier": "2.0.5"
 	},
 	"homepage": "https://moai.xyz"

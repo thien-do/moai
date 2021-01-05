@@ -1,10 +1,7 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"declarationDir": "./dist/types",
-		"paths": {
-			"@storybook/react": ["../story/node_modules/@storybook/react"]
-		}
+		"declarationDir": "./dist/types"
 	},
 	"include": ["./src"]
 }
