@@ -1,6 +1,5 @@
 import svgr from "@svgr/rollup";
 import copy from "rollup-plugin-copy";
-import { terser } from "rollup-plugin-terser";
 import { PROJECTS } from "./projects.mjs";
 
 /**
@@ -13,22 +12,12 @@ const makeOptions = (project) => {
 	return {
 		input: [`src/${project.id}/index.js`],
 		output: [
-			{
-				dir: `${dist}/esm`,
-				format: "esm",
-			},
-			{
-				dir: `${dist}/cjs`,
-				format: "cjs",
-				exports: "named",
-				plugins: [terser()],
-			},
+			{ dir: `${dist}/esm`, format: "esm" },
+			{ dir: `${dist}/cjs`, format: "cjs" },
 		],
 		plugins: [
 			svgr(),
-			copy({
-				targets: [{ src: "src/package.json", dest: dist }],
-			}),
+			copy({ targets: [{ src: "src/package.json", dest: dist }] }),
 		],
 	};
 };
