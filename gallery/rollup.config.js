@@ -1,9 +1,7 @@
-import replace from "@rollup/plugin-replace";
 import cssPrefix from "autoprefixer";
-import cssImport from "postcss-import";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
-import dts from "rollup-plugin-dts";
+import json from "@rollup/plugin-json";
 import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
 import fs from "fs";
@@ -14,8 +12,7 @@ import fs from "fs";
 const bundleMain = (() => {
 	/** @type {import("rollup-plugin-postcss").PostCSSPluginConf } */
 	const postcssOptions = {
-		plugins: [cssPrefix, cssImport],
-		minimize: true,
+		plugins: [cssPrefix],
 		// Extracting is important because we should not force the
 		// consumers to use a specific way to import CSS
 		extract: true,
@@ -23,18 +20,17 @@ const bundleMain = (() => {
 
 	/** @type {import("rollup").RollupOptions["external"]} */
 	const external = [
-		"@tippyjs/react/headless",
-		"focus-visible",
-		"react-dom",
-		"react-hot-toast",
-		"react-popper",
 		"react",
 		"react/jsx-runtime",
+		"@moai/icon/bp",
+		"@moai/icon/hro",
+		"@moai/icon/hrs",
+		"@moai/core",
 	];
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
-		input: "src/index.ts",
+		input: "src/index.tsx",
 		output: [
 			{ file: "dist/cjs.js", format: "cjs" },
 			{ file: "dist/esm.js", format: "esm" },
@@ -44,32 +40,8 @@ const bundleMain = (() => {
 			del({ targets: ["dist"] }),
 			postcss(postcssOptions),
 			typescript({ useTsconfigDeclarationDir: true }),
+			json(),
 		],
-	};
-
-	return options;
-})();
-
-/**
- * Declaration bundling process
- *
- * Bundling declarations manually because TS doesn't support this yet
- * See: https://github.com/microsoft/TypeScript/issues/4433
- */
-const bundleDts = (() => {
-	/**
-	 * Not really sure why "import index.css" is left in index.d.ts. It's not
-	 * necessary but making the DTS plugin to fail. We simply need to remove it.
-	 *
-	 * @type {import("@rollup/plugin-replace").RollupReplaceOptions}
-	 */
-	const removeCSS = { 'import "./index.css";': "", delimiters: ["", ""] };
-
-	/** @type {import("rollup").RollupOptions} */
-	const options = {
-		input: "./dist/types/index.d.ts",
-		output: [{ file: "./dist/index.d.ts" }],
-		plugins: [replace(removeCSS), dts()],
 	};
 
 	return options;
@@ -83,8 +55,8 @@ const bundleStatic = (() => {
 	/** @type {import("rollup-plugin-copy").Target[]} */
 	const copyTargets = [
 		{ src: "./package.json", dest: "./dist" },
-		{ src: "./font", dest: "./dist" },
 		{ src: "./dist/cjs.css", dest: "./dist", rename: "index.css" },
+		{ src: "./dist/types/index.d.ts", dest: "./dist" },
 	];
 
 	/** @type {import("rollup-plugin-delete").Options["targets"]} */
@@ -121,4 +93,4 @@ const bundleStatic = (() => {
 	return options;
 })();
 
-export default [bundleMain, bundleDts, bundleStatic];
+export default [bundleMain, bundleStatic];
