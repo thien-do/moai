@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Gallery } from "../components/gallery/gallery";
+import { Gallery } from "@moai/gallery";
+import "@moai/gallery/index.css";
 
 const Index = (): JSX.Element => {
 	useEffect(() => {
