@@ -4,7 +4,6 @@ import { GalleryButton3 } from "./button-3";
 import { GalleryCheckbox } from "./checkbox";
 import { GalleryDialog } from "./dialog";
 import { GalleryIcon } from "./icon";
-// import { GalleryIcon } from "./icon";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
 import { GalleryPagination } from "./pagination";
