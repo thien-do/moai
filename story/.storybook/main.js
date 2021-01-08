@@ -46,10 +46,9 @@ const modifyCssRule = (rule) => {
 /** @type {import("@storybook/core/types/index").StorybookConfig} */
 module.exports = {
 	stories: [
-		"../src/**/*.stories.mdx",
-		"../src/**/*.stories.@(js|jsx|ts|tsx)",
-		"../../core/src/**/*.stories.mdx",
-		"../../core/src/**/*.stories.@(js|jsx|ts|tsx)",
+		"../src/**/*.stories.@(ts|tsx)",
+		"../../core/src/**/*.stories.@(ts|tsx)",
+		"../../gallery/src/**/*.stories.@(ts|tsx)",
 	],
 	addons: [
 		"@storybook/addon-links",
