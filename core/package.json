@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.156.0",
+	"version": "0.157.0",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "cjs.js",
 	"module": "esm.js",
