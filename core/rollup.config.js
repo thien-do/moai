@@ -1,6 +1,5 @@
 import replace from "@rollup/plugin-replace";
 import cssPrefix from "autoprefixer";
-import cssImport from "postcss-import";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
 import dts from "rollup-plugin-dts";
@@ -14,8 +13,8 @@ import fs from "fs";
 const bundleMain = (() => {
 	/** @type {import("rollup-plugin-postcss").PostCSSPluginConf } */
 	const postcssOptions = {
-		plugins: [cssPrefix, cssImport],
-		minimize: true,
+		plugins: [cssPrefix],
+		minimize: false,
 		// Extracting is important because we should not force the
 		// consumers to use a specific way to import CSS
 		extract: true,
@@ -63,7 +62,7 @@ const bundleDts = (() => {
 	 *
 	 * @type {import("@rollup/plugin-replace").RollupReplaceOptions}
 	 */
-	const removeCSS = { 'import "./index.css";': "", delimiters: ["", ""] };
+	const removeCSS = { 'import "./style/style";': "", delimiters: ["", ""] };
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {

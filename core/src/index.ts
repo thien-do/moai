@@ -1,5 +1,5 @@
 import "focus-visible";
-import "./index.css";
+import "./style/style";
 
 export * from "./background/background";
 export * from "./border/border";
