@@ -29,31 +29,31 @@
 }
 
 :global(.light) .redWeak {
-	background-color: var(--red-1);
+	background-color: var(--red-6);
 }
 :global(.dark) .redWeak {
-	background-color: var(--red-2);
+	background-color: var(--red-5);
 }
 
 :global(.light) .redStrong {
-	background-color: var(--red-0);
+	background-color: var(--red-7);
 }
 :global(.dark) .redStrong {
-	background-color: var(--red-3);
+	background-color: var(--red-5);
 }
 
 :global(.light) .greenWeak {
-	background-color: var(--green-1);
+	background-color: var(--green-6);
 }
 :global(.dark) .greenWeak {
-	background-color: var(--green-2);
+	background-color: var(--green-6);
 }
 
 :global(.light) .greenStrong {
-	background-color: var(--green-0);
+	background-color: var(--green-7);
 }
 :global(.dark) .greenStrong {
-	background-color: var(--green-3);
+	background-color: var(--green-5);
 }
 
 :global(.light) .blueWeak {

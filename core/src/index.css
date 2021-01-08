@@ -18,15 +18,27 @@ These external CSS will be inlined by the import-css plugin of PostCSS
 	--blue-8: #075783;
 	--blue-9: #0c4a6e;
 
-	--green-3: #34d399;
-	--green-2: #10b981;
-	--green-1: #059669;
-	--green-0: #047857;
+	--green-0: #ecfdf5;
+	--green-1: #d1fae5;
+	--green-2: #a7f3d0;
+	--green-3: #6ee7b7;
+	--green-4: #34d399;
+	--green-5: #10b981;
+	--green-6: #059669;
+	--green-7: #047857;
+	--green-8: #065f46;
+	--green-9: #064e3b;
 
-	--red-3: #f87171;
-	--red-2: #ef4444;
-	--red-1: #dc2626;
-	--red-0: #b91c1c;
+	--red-0: #fff1f2;
+	--red-1: #ffe4e6;
+	--red-2: #fecdd3;
+	--red-3: #fda4af;
+	--red-4: #fb7185;
+	--red-5: #f43f5e;
+	--red-6: #e11d48;
+	--red-7: #be123c;
+	--red-8: #9f1239;
+	--red-9: #881337;
 
 	/*
 	Format:

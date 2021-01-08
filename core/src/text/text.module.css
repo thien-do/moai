@@ -15,31 +15,31 @@
 }
 
 :global(.light) .redWeak {
-	color: var(--red-1);
+	color: var(--red-6);
 }
 :global(.dark) .redWeak {
-	color: var(--red-2);
+	color: var(--red-5);
 }
 
 :global(.light) .redStrong {
-	color: var(--red-0);
+	color: var(--red-7);
 }
 :global(.dark) .redStrong {
-	color: var(--red-3);
+	color: var(--red-5);
 }
 
 :global(.light) .greenWeak {
-	color: var(--green-1);
+	color: var(--green-6);
 }
 :global(.dark) .greenWeak {
-	color: var(--green-2);
+	color: var(--green-5);
 }
 
 :global(.light) .greenStrong {
-	color: var(--green-0);
+	color: var(--green-7);
 }
 :global(.dark) .greenStrong {
-	color: var(--green-3);
+	color: var(--green-5);
 }
 
 :global(.light) .blueWeak {
