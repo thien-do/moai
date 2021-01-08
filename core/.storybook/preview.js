@@ -1,11 +1,15 @@
-import "../src";
+import { Border, DivPx, ThemeSwitcher } from "../src";
 
-export const decorators = [
-	(Story) => (
-		<div style={{ margin: "3em" }}>
-			<Story />
-		</div>
-	),
-];
+const Decorator = (Story) => (
+	<div>
+		<ThemeSwitcher />
+		<DivPx size={16} />
+		<Border color="strong" />
+		<DivPx size={16} />
+		<Story />
+	</div>
+);
+
+export const decorators = [Decorator];
 
 export const parameters = {};
