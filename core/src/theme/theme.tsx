@@ -23,12 +23,11 @@ export const useTheme = (): {
 	theme: ThemeOption;
 	setTheme: Dispatch<SetStateAction<ThemeOption>>;
 } => {
-	const [theme, setTheme] = useState<ThemeOption>("auto");
-
-	useEffect(() => {
+	const [theme, setTheme] = useState<ThemeOption>(() => {
+		if (!window) return "auto"; // Server-side rendering
 		const stored = window.localStorage.getItem(KEY) as ThemeOption | null;
-		if (stored !== null) setTheme(stored);
-	}, []);
+		return stored ?? "auto";
+	});
 
 	useEffect(() => {
 		window.localStorage.setItem(KEY, theme);
@@ -50,7 +49,7 @@ export const useTheme = (): {
 };
 
 export const ThemeSwitcher = (): JSX.Element => {
-    const { theme, setTheme } = useTheme();
+	const { theme, setTheme } = useTheme();
 
 	return (
 		<Switcher<ThemeOption>
