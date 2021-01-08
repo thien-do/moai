@@ -34,17 +34,17 @@ These external CSS will be inlined by the import-css plugin of PostCSS
 	- bg/fg/br: background, foreground, border
 	- 1st/2nd: primary (strong), secondary (weak)
 	*/
-	--gray-0: #ffffff; /* l bg 1st */
-	--gray-1: #fafafa; /* l bg 2nd, d fg 1st */
-	--gray-2: #e4e4e7; /* l br 2nd */
-	--gray-3: #c3c4cb; /* l br 1st */
-	--gray-4: #a1a1aa; /* d fg 2nd */
-	--gray-5: #71717a; /* l fg 2nd */
-	--gray-6: #52525b; /* d br 1st */
-	--gray-7: #3f3f46; /* d br 2nd */
-	--gray-8: #34353c; /* d bg 1st */
-	--gray-9: #27272a; /* d bg 2nd */
-	--gray-10: #18181b; /* do not use */
+	--gray-0: hsl(0, 0%, 100%); /* l bg 1st */
+	--gray-1: hsl(0, 0%, 98%); /* l bg 2nd, d fg 1st */
+	--gray-2: hsl(240, 6%, 90%); /* l br 2nd */
+	--gray-3: hsl(232, 7%, 78%); /* l br 1st */
+	--gray-4: hsl(240, 5%, 65%); /* d fg 2nd */
+	--gray-5: hsl(240, 4%, 46%); /* l fg 2nd */
+	--gray-6: hsl(240, 5%, 34%); /* d br 1st */
+	--gray-7: hsl(240, 5%, 26%); /* d br 2nd */
+	--gray-8: hsl(232, 7%, 22%); /* d bg 1st */
+	--gray-9: hsl(240, 4%, 16%); /* d bg 2nd */
+	--gray-10: hsl(240, 6%, 10%); /* do not use */
 
 	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	font size */
