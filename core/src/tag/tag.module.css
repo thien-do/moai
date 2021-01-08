@@ -1,6 +1,48 @@
 .container {
-    padding: 4px 8px;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 3px;
+	display: inline-flex;
+	align-items: center;
+	padding: 0 8px;
+    height: 24px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+:global(.light) .neutral {
+	background-color: var(--gray-2);
+	color: var(--gray-7);
+}
+
+:global(.dark) .neutral {
+	background-color: var(--gray-6);
+	color: var(--gray-1);
+}
+
+:global(.light) .failure {
+	background-color: var(--red-1);
+	color: var(--red-9);
+}
+
+:global(.dark) .failure {
+	background-color: var(--red-9);
+	color: var(--red-2);
+}
+
+:global(.light) .highlight {
+	background-color: var(--blue-1);
+	color: var(--blue-9);
+}
+
+:global(.dark) .highlight {
+	background-color: var(--blue-9);
+	color: var(--blue-2);
+}
+
+:global(.light) .success {
+	background-color: var(--green-1);
+	color: var(--green-9);
+}
+
+:global(.dark) .success {
+	background-color: var(--green-9);
+	color: var(--green-2);
 }
