@@ -18,7 +18,7 @@ interface PaneProps {
 export const TooltipPane = (props: PaneProps): JSX.Element => (
 	<div className="dark">
 		<div
-			className={[s.content, background.secondary, boxShadow.strong].join(
+			className={[s.content, background.primary, boxShadow.strong].join(
 				" "
 			)}
 			tabIndex={-1}
@@ -27,7 +27,7 @@ export const TooltipPane = (props: PaneProps): JSX.Element => (
 			{props.attrs && (
 				<div data-popper-arrow className={s.arrowWrapper}>
 					<div
-						className={[s.arrow, background.secondary].join(" ")}
+						className={[s.arrow, background.primary].join(" ")}
 					/>
 				</div>
 			)}

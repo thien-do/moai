@@ -26,7 +26,7 @@ export const ToastPane = (props: Props): JSX.Element => (
 		<div
 			className={[
 				s.container,
-				background.secondary,
+				background.primary,
 				boxShadow.strong,
 			].join(" ")}
 		>
