@@ -39,7 +39,7 @@
 	background-color: var(--red-7);
 }
 :global(.dark) .redStrong {
-	background-color: var(--red-5);
+	background-color: var(--red-4);
 }
 
 :global(.light) .greenWeak {
