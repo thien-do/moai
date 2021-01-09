@@ -27,12 +27,12 @@
 	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
 	border-color: var(--blue-7);
 }
-:global(.light) .input:checked:hover,
-:global(.light) .input:indeterminate:hover {
+:global(.light) .input:not(:disabled):checked:hover,
+:global(.light) .input:not(:disabled):indeterminate:hover {
 	background-color: var(--blue-4);
 }
-:global(.light) .input:checked:active,
-:global(.light) .input:indeterminate:active {
+:global(.light) .input:not(:disabled):checked:active,
+:global(.light) .input:not(:disabled):indeterminate:active {
 	background-color: var(--blue-6);
 	box-shadow: none;
 }
@@ -43,12 +43,12 @@
 	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
 	border-color: var(--gray-10);
 }
-:global(.dark) .input:checked:hover,
-:global(.dark) .input:indeterminate:hover {
+:global(.dark) .input:not(:disabled):checked:hover,
+:global(.dark) .input:not(:disabled):indeterminate:hover {
 	background-color: var(--blue-4);
 }
-:global(.dark) .input:checked:active,
-:global(.dark) .input:indeterminate:active {
+:global(.dark) .input:not(:disabled):checked:active,
+:global(.dark) .input:not(:disabled):indeterminate:active {
 	background-color: var(--blue-6);
 	box-shadow: none;
 }

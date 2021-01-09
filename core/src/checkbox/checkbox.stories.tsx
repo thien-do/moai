@@ -9,5 +9,11 @@ storiesOf("Checkbox", module).add("Main", () => (
 		<Checkbox defaultChecked>Checkbox</Checkbox>
 		<DivPx size={8} />
 		<Checkbox>Checkbox</Checkbox>
+		<DivPx size={8} />
+		<Checkbox disabled indeterminate>Checkbox</Checkbox>
+		<DivPx size={8} />
+		<Checkbox disabled defaultChecked>Checkbox</Checkbox>
+		<DivPx size={8} />
+		<Checkbox disabled>Checkbox</Checkbox>
 	</div>
 ));
