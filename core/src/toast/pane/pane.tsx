@@ -42,8 +42,8 @@ export const ToastPane = (props: Props): JSX.Element => (
 			<DivPx size={12} />
 			<div className={s.button}>
 				<Button
-					size={Button.size.smallIcon}
-					style={Button.style.flat}
+					size={Button.sizes.smallIcon}
+					style={Button.styles.flat}
 					icon={coreIcons.cross}
 					iconLabel="Close"
 					onClick={() => props.close()}

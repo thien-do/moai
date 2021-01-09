@@ -23,8 +23,8 @@ export type ButtonSize = {
 
 const getClass = (props: ButtonProps) => {
 	const { highlight, selected, fill, busy, reverse, icon } = props;
-	const size = props.size ?? Button.size.medium;
-	const style = props.style ?? Button.style.outset;
+	const size = props.size ?? Button.sizes.medium;
+	const style = props.style ?? Button.styles.outset;
 	const classes = [s.button, size.main, style.main];
 	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
@@ -62,7 +62,7 @@ export interface ButtonProps {
 }
 
 export const ButtonChildren = (props: ButtonProps): JSX.Element => {
-	const size = props.size ?? Button.size.medium;
+	const size = props.size ?? Button.sizes.medium;
 	return (
 		<>
 			{props.busy && (
@@ -91,7 +91,7 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 
 const buttonTests: [(props: ButtonProps) => boolean, string][] = [
 	[
-		(p) => p.style === Button.style.flat && p.highlight === true,
+		(p) => p.style === Button.styles.flat && p.highlight === true,
 		"Flat buttons can not have highlight style",
 	],
 	[
@@ -140,7 +140,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
 	);
 };
 
-Button.style = {
+Button.styles = {
 	outset: {
 		main: [borderRadius.container, outset.main, outline.normal].join(" "),
 		selected: outset.selected,
@@ -155,7 +155,7 @@ Button.style = {
 	} as ButtonStyle,
 };
 
-Button.size = {
+Button.sizes = {
 	medium: {
 		main: s.medium,
 		iconSize: 16,
@@ -182,3 +182,5 @@ Button.Forwarded = React.forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
 	ButtonProps
 >((props, ref) => <Button forwardedRef={ref} {...props} />);
+
+Button.borderRadius = borderRadius;
