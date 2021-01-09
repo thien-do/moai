@@ -83,7 +83,7 @@ const Genres: Column = ({ person }) => (
 	<div className="flex flex-wrap -mx-4 -my-8">
 		{person.genres.split("|").map((genre) => (
 			<div className="px-4 py-8" key={genre}>
-				<Tag children={genre} />
+				<Tag type={Tag.types.neutral} children={genre} />
 			</div>
 		))}
 	</div>
@@ -138,7 +138,7 @@ const getColumns = (): TableColumn<Person>[] => [
 	},
 ];
 
-export const GalleryTable = (): JSX.Element => (
+export const TableGallery = (): JSX.Element => (
 	<Pane noPadding>
 		<div className={s.container}>
 			<Table rows={PEOPLE} columns={getColumns()} rowKey={(p) => p.id} />

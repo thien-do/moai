@@ -30,7 +30,7 @@ const bundleMain = (() => {
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
-		input: "src/index.tsx",
+		input: "src/index.ts",
 		output: [
 			{ file: "dist/cjs.js", format: "cjs" },
 			{ file: "dist/esm.js", format: "esm" },

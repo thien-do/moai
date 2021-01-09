@@ -17,7 +17,7 @@ const Row = (props: ButtonProps): JSX.Element => (
 	</div>
 );
 
-export const GalleryButton1 = (): JSX.Element => (
+export const Button1Gallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<Row />
 		<Row selected />

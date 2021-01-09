@@ -2,7 +2,7 @@ import { Button, toast, ToastPane } from "@moai/core";
 
 const noop = () => {};
 
-export const GalleryToast = (): JSX.Element => (
+export const ToastGallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<div className="flex-1 space-y-8">

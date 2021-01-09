@@ -45,7 +45,7 @@ const MenuColumn = () => (
 	</div>
 );
 
-export const GalleryPane = () => (
+export const PaneGallery = () => (
 	<div className="flex space-x-8">
 		<PopoverColumn />
 		<MenuColumn />

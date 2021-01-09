@@ -21,7 +21,7 @@ const First = () => (
 
 const Third = () => <Paragraph>Third tab</Paragraph>;
 
-export const GalleryTab = () => (
+export const TabGallery = () => (
 	<div>
 		<Tabs
 			children={[

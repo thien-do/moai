@@ -114,7 +114,7 @@ const getTableColumns = (): TableColumn<IconSet>[] => [
 	},
 ];
 
-export const GalleryIcon = () => (
+export const IconGallery = () => (
 	<div className="space-y-16">
 		<p className="leading-32">Moai works with any SVG-based icon set!</p>
 		<Pane noPadding>

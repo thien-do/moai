@@ -1,7 +1,7 @@
 import { Pagination } from "@moai/core";
 import { useCallback, useState } from "react";
 
-export const GalleryPagination = () => {
+export const PaginationGallery = () => {
 	const [page, setPage_] = useState(5);
 	const setPage = useCallback((page): Promise<void> => {
 		return new Promise((resolve, _reject) => {

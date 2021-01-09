@@ -1,6 +1,9 @@
 module.exports = {
-	purge: ["./src/**/*.tsx"],
-	darkMode: false, // or 'media' or 'class'
+	purge: {
+		enabled: true,
+		content: ["./src/**/*.tsx"]
+	},
+	darkMode: false,
 	theme: {
 		lineHeight: {
 			"16": "16px",
@@ -10,7 +13,6 @@ module.exports = {
 		spacing: {
 			"4": "4px",
 			"8": "8px",
-			"12": "12px",
 			"16": "16px",
 			"32": "32px",
 		},

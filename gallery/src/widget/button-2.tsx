@@ -44,7 +44,7 @@ const Toggle = (): JSX.Element => {
 	);
 };
 
-export const GalleryButton2 = (): JSX.Element => (
+export const Button2Gallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Toggle />

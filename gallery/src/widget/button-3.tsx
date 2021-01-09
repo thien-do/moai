@@ -6,7 +6,7 @@ const { flat } = Button.style;
 
 const flatIcon: ButtonProps = { icon: Plus, style: flat };
 
-export const GalleryButton3 = (): JSX.Element => (
+export const Button3Gallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Button children="Back" icon={ArrowLeft} />
