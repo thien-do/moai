@@ -18,29 +18,72 @@
 	cursor: auto;
 }
 
+/* INPUT CHECKED */
+
+:global(.light) .input:checked,
+:global(.light) .input:indeterminate {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
+	background-color: var(--blue-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
+	border-color: var(--blue-7);
+}
+:global(.light) .input:checked:hover,
+:global(.light) .input:indeterminate:hover {
+	background-color: var(--blue-4);
+}
+:global(.light) .input:checked:active,
+:global(.light) .input:indeterminate:active {
+	background-color: var(--blue-6);
+	box-shadow: none;
+}
+
+:global(.dark) .input:checked,
+:global(.dark) .input:indeterminate {
+	background-color: var(--blue-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
+	border-color: var(--gray-10);
+}
+:global(.dark) .input:checked:hover,
+:global(.dark) .input:indeterminate:hover {
+	background-color: var(--blue-4);
+}
+:global(.dark) .input:checked:active,
+:global(.dark) .input:indeterminate:active {
+	background-color: var(--blue-6);
+	box-shadow: none;
+}
+
 /* ICON */
 
 .icon {
 	position: absolute;
 	/* wins the z-index of outline */
-    z-index: 2;
-    /* icon is always 16 x 16 */
+	z-index: 2;
+	/* icon is always 16 x 16 */
 	top: 2px;
-    left: 2px;
-    /* avoid stealing click event on input */
-    pointer-events: none;
-    /* should be shown based on input:checked */
+	left: 2px;
+	/* avoid stealing click event on input */
+	pointer-events: none;
+	/* should be shown based on input:checked */
 	opacity: 0;
 }
 
 :global(.light) .icon {
 	color: var(--gray-9);
 }
+:global(.light) .input:checked ~ .icon,
+:global(.light) .input:indeterminate ~ .icon {
+	color: var(--gray-1);
+}
 :global(.light) .input:disabled ~ .icon {
 	color: var(--gray-5);
 }
 
 :global(.dark) .icon {
+	color: var(--gray-1);
+}
+:global(.dark) .input:checked ~ .icon,
+:global(.dark) .input:indeterminate ~ .icon {
 	color: var(--gray-1);
 }
 :global(.dark) .input:disabled ~ .icon {
@@ -50,9 +93,9 @@
 /* LABEL */
 
 .label {
-    flex: 1 1 0px;
+	flex: 1 1 0px;
 	cursor: pointer;
-    /* Padding instead of margin so cursor all over the control */
+	/* Padding instead of margin so cursor all over the control */
 	padding-left: 8px;
 }
 

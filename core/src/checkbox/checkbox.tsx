@@ -20,6 +20,9 @@ export interface CheckboxProps {
 }
 
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
+	// Note that there is no intermediate state here, as we'd like to support
+	// the uncontrolled mode properly, with ref support
+
 	const ref = React.useRef<HTMLInputElement>(null);
 
 	// Broadcast ref
