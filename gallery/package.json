@@ -8,11 +8,13 @@
 	"scripts": {
 		"build": "npm run build-rollup",
 		"build-storybook": "build-storybook",
-		"build-tailwind": "npx tailwindcss-cli@latest build ./src/style/src.css -o ./src/style/style.css",
 		"build-rollup": "rollup --config",
-		"start": "npm run build-tailwind && start-storybook -p 6006",
+		"build-tailwind": "NODE_ENV=production npm run tailwind",
+		"start": "npm run start-tailwind && start-storybook -p 6006",
+		"start-tailwind": "NODE_ENV=development npm run tailwind",
 		"release-minor": "./scripts/release.sh minor",
-		"release-patch": "./scripts/release.sh patch"
+		"release-patch": "./scripts/release.sh patch",
+		"tailwind": "npx tailwindcss-cli@latest build ./src/style/src.css -o ./src/style/style.css"
 	},
 	"repository": {
 		"type": "git",

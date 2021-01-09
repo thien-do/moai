@@ -1,4 +1,4 @@
-import { Pane, Section } from "../section/section";
+import { ReactNode } from "react";
 import { Button1Gallery } from "./button-1";
 import { Button2Gallery } from "./button-2";
 import { Button3Gallery } from "./button-3";
@@ -15,40 +15,38 @@ import { TableGallery } from "./table";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
 import { TooltipGallery } from "./tooltip";
+import s from "./widget.module.css";
 
-/*
-		<Section title="Buttons">
-		</Section>
-		<Section title="Text boxes">
-		</Section>
-		<Section title="Selection controls">
-		</Section>
-		<Section title="Feedback">
-		</Section>
-		<Section title="Containers">
-		</Section>
-		<Section title="Tables">
-		</Section>
-*/
+const Heading = ({ children }: { children: ReactNode }): JSX.Element => (
+	<div>
+		<h2 className="text-xl font-semibold py-4 leading-24">{children}</h2>
+	</div>
+);
 
 export const WidgetGallery = () => (
-	<div className="grid">
+	<div className={[s.container, "grid gap-x-16 gap-y-32"].join(" ")}>
+		<Heading>Buttons</Heading>
 		<Button1Gallery />
 		<Button3Gallery />
 		<Button2Gallery />
+		<Heading>Text fields</Heading>
 		<Input1Gallery />
 		<Input2Gallery />
 		<TextAreaGallery />
+		<Heading>Selection controls</Heading>
 		<SelectGallery />
 		<CheckboxGallery />
 		<PaginationGallery />
+		<Heading>Feedback</Heading>
 		<ToastGallery />
 		<TooltipGallery />
 		<ProgressGallery />
+		<Heading>Containers</Heading>
 		<DialogGallery />
 		<PaneGallery />
 		<TabGallery />
-		<div>
+		<Heading>Tables</Heading>
+		<div className={s.table}>
 			<TableGallery />
 		</div>
 	</div>
