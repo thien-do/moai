@@ -58,7 +58,7 @@
 }
 
 :global(.dark) .highlight {
-	color: var(--gray-0);
+	color: var(--gray-1);
 	background-color: var(--blue-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
 	border-color: var(--gray-10);
