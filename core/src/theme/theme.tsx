@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Switcher } from "../switcher/switcher";
 
-type ThemeOption = "light" | "dark" | "auto";
+type ThemeOption = "light" | "dark" | "system";
 type ThemeClass = "light" | "dark";
 
 const KEY = "moai-theme";
@@ -14,7 +14,7 @@ const applyThemeClass = (theme: ThemeClass): void => {
 };
 
 const getThemeClass = (option: ThemeOption): ThemeClass => {
-	if (option !== "auto") return option;
+	if (option !== "system") return option;
 	const media = window.matchMedia("(prefers-color-scheme: dark)");
 	return media.matches ? "dark" : "light";
 };
@@ -24,9 +24,9 @@ export const useTheme = (): {
 	setTheme: Dispatch<SetStateAction<ThemeOption>>;
 } => {
 	const [theme, setTheme] = useState<ThemeOption>(() => {
-		if (!window) return "auto"; // Server-side rendering
+		if (!window) return "system"; // Server-side rendering
 		const stored = window.localStorage.getItem(KEY) as ThemeOption | null;
-		return stored ?? "auto";
+		return stored ?? "system";
 	});
 
 	useEffect(() => {
@@ -36,7 +36,7 @@ export const useTheme = (): {
 
 	// Watch if auto
 	useEffect(() => {
-		if (theme !== "auto") return;
+		if (theme !== "system") return;
 		const media = window.matchMedia("(prefers-color-scheme: dark)");
 		const listener = (ev: MediaQueryListEvent): void => {
 			applyThemeClass(ev.matches ? "dark" : "light");
@@ -55,7 +55,7 @@ export const ThemeSwitcher = (): JSX.Element => {
 		<Switcher<ThemeOption>
 			options={[
 				{ value: "light", label: "Light" },
-				{ value: "auto", label: "Auto" },
+				{ value: "system", label: "System" },
 				{ value: "dark", label: "Dark" },
 			]}
 			setValue={setTheme}
