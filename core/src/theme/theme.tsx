@@ -23,18 +23,21 @@ export const useTheme = (): {
 	theme: ThemeOption;
 	setTheme: Dispatch<SetStateAction<ThemeOption>>;
 } => {
-	const [theme, setTheme] = useState<ThemeOption>(() => {
-		if (!window) return "system"; // Server-side rendering
+	const [theme, setTheme] = useState<ThemeOption>("system");
+
+	useEffect(() => {
+		// Set initial theme in an effect instead of useState to avoid mismatch
+		// between server and client rendering
 		const stored = window.localStorage.getItem(KEY) as ThemeOption | null;
-		return stored ?? "system";
-	});
+		setTheme(stored ?? "system");
+	}, []);
 
 	useEffect(() => {
 		window.localStorage.setItem(KEY, theme);
 		applyThemeClass(getThemeClass(theme));
 	}, [theme]);
 
-	// Watch if auto
+	// Watch if system
 	useEffect(() => {
 		if (theme !== "system") return;
 		const media = window.matchMedia("(prefers-color-scheme: dark)");
