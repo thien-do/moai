@@ -27,8 +27,8 @@
 	},
 	"homepage": "https://moaijs.com",
 	"dependencies": {
-		"@moai/core": "*",
-		"@moai/icon": "*"
+		"@moai/core": "0.161.0",
+		"@moai/icon": "0.35.0"
 	},
 	"peerDependencies": {
 		"react": ">=16"
