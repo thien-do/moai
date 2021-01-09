@@ -1,22 +1,15 @@
 import { IconSize } from "../icon/icon";
 import s from "./circle.module.css";
 
-// This file follows blueprint's spinner. Please see the source here:
-// https://github.com/palantir/blueprint/blob/develop/packages/core/src/components/spinner/spinner.tsx
-
-type Color = "base" | "highlight" | "inverse";
+export interface ProgressCircleColor {
+	container: string;
+}
 
 interface Props {
 	size: IconSize | 24 | 32;
-	value: number | null;
-	color?: Color;
+	value: number | "indeterminate";
+	color?: ProgressCircleColor;
 }
-
-const ColorStyle: Record<Color, string> = {
-	base: s.base!,
-	highlight: s.highlight!,
-	inverse: s.inverse!,
-};
 
 const R = 45;
 // prettier-ignore
@@ -33,24 +26,32 @@ const getViewBox = (strokeWidth: number) => {
 	return `${viewBoxX} ${viewBoxX} ${viewBoxWidth} ${viewBoxWidth}`;
 };
 
-export const ProgressCircle = (props: Props) => {
-	// keep spinner track width consistent at all sizes (down to about 10px).
-	// prettier-ignore
-	const strokeWidth = Math.min(MIN_STROKE_WIDTH, (STROKE_WIDTH * SIZE_LARGE) / props.size);
-	const strokeOffset = PATH_LENGTH - PATH_LENGTH * (props.value ?? 0.25);
+// This follows blueprint's spinner. Please see the magic here:
+// https://github.com/palantir/blueprint/blob/develop/packages/core/src/components/spinner/spinner.tsx
+const getStroke = (props: Props) => {
+	const width = Math.min(
+		MIN_STROKE_WIDTH,
+		(STROKE_WIDTH * SIZE_LARGE) / props.size
+	);
+	const value = props.value === "indeterminate" ? 0.25 : props.value;
+	const offset = PATH_LENGTH - PATH_LENGTH * value;
+	return { width, offset };
+};
 
+export const ProgressCircle = (props: Props) => {
+	const stroke = getStroke(props);
 	return (
 		<span className={s.wrapper}>
 			<svg
 				className={[
 					s.container,
 					props.value === null ? s.animate : "",
-					ColorStyle[props.color ?? "base"],
+					(props.color ?? ProgressCircle.colors.base).container,
 				].join(" ")}
 				width={props.size}
 				height={props.size}
-				strokeWidth={strokeWidth}
-				viewBox={getViewBox(strokeWidth)}
+				strokeWidth={stroke.width}
+				viewBox={getViewBox(stroke.width)}
 			>
 				<path className={s.track} d={SPINNER_TRACK} />
 				<path
@@ -58,9 +59,15 @@ export const ProgressCircle = (props: Props) => {
 					d={SPINNER_TRACK}
 					pathLength={PATH_LENGTH}
 					strokeDasharray={`${PATH_LENGTH} ${PATH_LENGTH}`}
-					strokeDashoffset={strokeOffset}
+					strokeDashoffset={stroke.offset}
 				/>
 			</svg>
 		</span>
 	);
+};
+
+ProgressCircle.colors = {
+	base: { container: s.base } as ProgressCircleColor,
+	highlight: { container: s.highlight } as ProgressCircleColor,
+	inverse: { container: s.inverse } as ProgressCircleColor,
 };
