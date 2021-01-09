@@ -6,7 +6,7 @@
 	"module": "esm.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "npm run build-rollup",
+		"build": "npm run build-tailwind && npm run build-rollup",
 		"build-storybook": "build-storybook",
 		"build-rollup": "rollup --config",
 		"build-tailwind": "NODE_ENV=production npm run tailwind",
@@ -28,7 +28,9 @@
 	"homepage": "https://moaijs.com",
 	"dependencies": {
 		"@moai/core": "0.161.0",
-		"@moai/icon": "0.35.0"
+		"@moai/icon": "0.35.0",
+		"@rollup/plugin-replace": "2.3.4",
+		"rollup-plugin-dts": "2.0.1"
 	},
 	"peerDependencies": {
 		"react": ">=16"

@@ -76,7 +76,6 @@ const bundleDts = (() => {
 
 /**
  * Static bundling process. Basically re-organizing the generated distribution.
- *
  */
 const bundleStatic = (() => {
 	/** @type {import("rollup-plugin-copy").Target[]} */
