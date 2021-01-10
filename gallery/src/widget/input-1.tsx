@@ -11,7 +11,7 @@ const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 
 export const Input1Gallery = (): JSX.Element => (
 	<div className="flex space-x-8">
-		<Column style={Input.style.outset} />
-		<Column style={Input.style.flat} />
+		<Column style={Input.styles.outset} />
+		<Column style={Input.styles.flat} />
 	</div>
 );

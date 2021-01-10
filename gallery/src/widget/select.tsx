@@ -69,8 +69,8 @@ const Group = (): JSX.Element => {
 export const SelectGallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
-			<Column style={Select.style.outset} />
-			<Column style={Select.style.flat} />
+			<Column style={Select.styles.outset} />
+			<Column style={Select.styles.flat} />
 		</div>
 		<Group />
 		<Full />

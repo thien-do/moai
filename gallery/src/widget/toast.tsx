@@ -7,23 +7,23 @@ export const ToastGallery = (): JSX.Element => (
 		<div className="flex space-x-8">
 			<div className="flex-1 space-y-8">
 				<Button
-					onClick={() => toast("success", "Post published")}
+					onClick={() => toast(toast.types.success, "Post published")}
 					children="Toast Success"
 				/>
 				<ToastPane
 					close={noop}
-					type={ToastPane.type.success}
+					type={ToastPane.types.success}
 					children="Toast"
 				/>
 			</div>
 			<div className="flex-1 space-y-8">
 				<Button
-					onClick={() => toast("error", "Cannot publish post")}
-					children="Toast Error"
+					onClick={() => toast(toast.types.failure, "Cannot publish")}
+					children="Toast Failure"
 				/>
 				<ToastPane
 					close={noop}
-					type={ToastPane.type.error}
+					type={ToastPane.types.failure}
 					children="Toast"
 				/>
 			</div>
@@ -31,7 +31,7 @@ export const ToastGallery = (): JSX.Element => (
 		<div>
 			<ToastPane
 				close={noop}
-				type={ToastPane.type.success}
+				type={ToastPane.types.success}
 				children="Multi-line Toast. Lorem ipsum dolor sit amet"
 			/>
 		</div>
