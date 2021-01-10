@@ -4,8 +4,9 @@
 	"description": "Icon sets for Moai UI Kit",
 	"sideEffects": false,
 	"scripts": {
-		"build": "./scripts/build.sh",
-		"release": "./scripts/release.sh"
+		"build": "rollup --config",
+		"release-minor": "./scripts/release.sh minor",
+		"release-patch": "./scripts/release.sh patch"
 	},
 	"repository": {
 		"type": "git",
@@ -20,7 +21,7 @@
 		"framework"
 	],
 	"contributors": [
-		"Thien Do <dvkndn@gmail.com>",
+		"Thien Do <hello@thien.do>",
 		"Dang Bui <dang.bui@be.com.vn>",
 		"Hai Nguyen <hai.nguyen@be.com.vn>",
 		"Hieu Nguyen <hieu.nguyen2@be.com.vn>",
@@ -30,7 +31,7 @@
 	"bugs": {
 		"url": "https://github.com/dvkndn/moai/issues"
 	},
-	"homepage": "https://moai.xyz",
+	"homepage": "https://moaijs.com",
 	"peerDependencies": {
 		"react": "*"
 	},
@@ -39,6 +40,8 @@
 		"change-case": "4.1.2",
 		"rollup": "2.35.1",
 		"rollup-plugin-copy": "3.3.0",
+		"rollup-plugin-delete": "2.0.0",
+		"rollup-plugin-execute": "1.1.1",
 		"typescript": "4.1.3"
 	}
 }

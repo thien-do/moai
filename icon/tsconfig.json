@@ -1,4 +1,10 @@
 {
 	"extends": "../tsconfig.json",
-	"include": ["./src"]
+	"compilerOptions": {
+		"emitDeclarationOnly": true,
+		"declarationDir": null,
+		"allowJs": true
+	},
+	"include": ["./dist"],
+	"exclude": ["./dist/dummy.js"]
 }

@@ -40,7 +40,7 @@ const bundleMain = (() => {
 		],
 		external: external,
 		plugins: [
-			// del({ targets: ["dist"] }),
+			del({ targets: ["dist"] }),
 			postcss(postcssOptions),
 			typescript({ useTsconfigDeclarationDir: true }),
 		],
