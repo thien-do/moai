@@ -1,5 +1,6 @@
 import { render } from "react-dom";
-import toastController from "react-hot-toast";
+import RHTToast from "react-hot-toast";
+import type { ToastType as RHTToastType } from "react-hot-toast/dist/core/types";
 import { ToastContainer } from "./container/container";
 import { ToastPane, ToastPaneType } from "./pane/pane";
 
@@ -19,7 +20,7 @@ const init = (): Promise<HTMLDivElement> => {
 	});
 };
 
-type ToastHandler = typeof toastController["success"];
+type ToastHandler = typeof RHTToast["success"];
 
 export interface ToastType {
 	handler: ToastHandler;
@@ -37,11 +38,18 @@ export const toast = async (
 
 toast.types = {
 	success: {
-		handler: toastController.success,
+		handler: RHTToast.success,
 		paneType: ToastPane.types.success,
 	} as ToastType,
 	failure: {
-		handler: toastController.error,
+		handler: RHTToast.error,
 		paneType: ToastPane.types.failure,
 	} as ToastType,
+};
+
+export const TOAST_TYPE_MAP: Record<RHTToastType, ToastType | undefined> = {
+	blank: undefined,
+	error: toast.types.failure,
+	loading: undefined,
+	success: toast.types.success,
 };

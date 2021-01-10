@@ -1,24 +1,17 @@
-import toastController, { useToaster } from "react-hot-toast";
+import toastController, { useToaster as useRHTToaster } from "react-hot-toast";
 import type * as RHT from "react-hot-toast/dist/core/types";
 import { ToastPane, ToastPaneType } from "../pane/pane";
+import { TOAST_TYPE_MAP } from "../toast";
 import s from "./container.module.css";
-import { toast, ToastType } from "../toast";
-
-const typeMap: Record<RHT.ToastType, ToastType | undefined> = {
-	blank: undefined,
-	error: toast.types.failure,
-	loading: undefined,
-	success: toast.types.success,
-};
 
 const getType = (from: RHT.ToastType): ToastPaneType => {
-	const type = typeMap[from];
+	const type = TOAST_TYPE_MAP[from];
 	if (type !== undefined) return type.paneType;
 	throw Error(`Unknown type: "${from}"`);
 };
 
 export const ToastContainer = () => {
-	const { toasts, handlers } = useToaster();
+	const { toasts, handlers } = useRHTToaster();
 	const { startPause, endPause, calculateOffset, updateHeight } = handlers;
 
 	const renderToast = (toast: RHT.Toast): JSX.Element => {
