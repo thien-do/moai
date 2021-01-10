@@ -1,6 +1,6 @@
 {
 	"name": "@moai/icon",
-	"version": "0.35.0",
+	"version": "0.36.0",
 	"description": "Icon sets for Moai UI Kit",
 	"sideEffects": false,
 	"scripts": {
