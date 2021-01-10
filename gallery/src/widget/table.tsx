@@ -96,7 +96,7 @@ const Note: Column = ({ person }) => (
 const Phone: Column = ({ person }) => (
 	<div className="flex items-center space-x-8">
 		<div>{person.phone}</div>
-		<Button size={Button.size.small} icon={Duplicate} iconLabel="Copy" />
+		<Button.sizes={Button.sizes.small} icon={Duplicate} iconLabel="Copy" />
 	</div>
 );
 

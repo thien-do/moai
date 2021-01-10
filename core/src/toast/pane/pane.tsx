@@ -53,13 +53,13 @@ export const ToastPane = (props: Props): JSX.Element => (
 	</div>
 );
 
-ToastPane.type = {
+ToastPane.types = {
 	success: {
 		iconPath: coreIcons.success,
 		iconCls: text.greenStrong,
 		barCls: background.greenStrong,
 	} as ToastPaneType,
-	error: {
+	failure: {
 		iconPath: coreIcons.error,
 		iconCls: text.redStrong,
 		barCls: background.redStrong,

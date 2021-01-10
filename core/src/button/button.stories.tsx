@@ -10,24 +10,24 @@ export default {
 		style: {
 			name: "style",
 			type: { name: "object", required: true },
-			defaultValue: JSON.stringify(Button.style.outset),
+			defaultValue: JSON.stringify(Button.styles.outset),
 			control: {
 				type: "inline-radio",
 				options: {
-					outset: JSON.stringify(Button.style.outset),
-					flat: JSON.stringify(Button.style.flat),
+					outset: JSON.stringify(Button.styles.outset),
+					flat: JSON.stringify(Button.styles.flat),
 				},
 			},
 		},
 		size: {
 			name: "size",
 			type: { name: "object", required: true },
-			defaultValue: JSON.stringify(Button.size.medium),
+			defaultValue: JSON.stringify(Button.sizes.medium),
 			control: {
 				type: "inline-radio",
 				options: {
-					medium: JSON.stringify(Button.size.medium),
-					small: JSON.stringify(Button.size.small),
+					medium: JSON.stringify(Button.sizes.medium),
+					small: JSON.stringify(Button.sizes.small),
 				},
 			},
 		},

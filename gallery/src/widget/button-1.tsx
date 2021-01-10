@@ -13,7 +13,7 @@ const Row = (props: ButtonProps): JSX.Element => (
 	<div className="flex space-x-8">
 		<Button {...base} highlight {...props} />
 		<Button {...base} {...props} />
-		<Button {...base} style={Button.style.flat} {...props} />
+		<Button {...base} style={Button.styles.flat} {...props} />
 	</div>
 );
 

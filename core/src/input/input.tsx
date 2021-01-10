@@ -124,7 +124,7 @@ export const Input = (props: InputProps): JSX.Element => {
 	);
 };
 
-Input.style = {
+Input.styles = {
 	outset: {
 		main: [
 			s.outset,
@@ -138,7 +138,7 @@ Input.style = {
 	} as InputStyle,
 };
 
-Input.size = {
+Input.sizes = {
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
@@ -154,6 +154,6 @@ Input.size = {
 };
 
 Input.defaultProps = {
-	style: Input.style.outset,
-	size: Input.size.medium,
+	style: Input.styles.outset,
+	size: Input.sizes.medium,
 };

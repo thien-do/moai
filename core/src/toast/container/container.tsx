@@ -6,9 +6,9 @@ import s from "./container.module.css";
 const getType = (from: ToastType): ToastPaneType => {
 	switch (from) {
 		case "error":
-			return ToastPane.type.error;
+			return ToastPane.types.failure;
 		case "success":
-			return ToastPane.type.success;
+			return ToastPane.types.success;
 		default:
 			throw Error(`Unsupported type: "${from}"`);
 	}

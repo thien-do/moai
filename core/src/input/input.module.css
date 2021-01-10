@@ -24,7 +24,7 @@
 	height: 32px;
 }
 
-/* Follow Button.size.medium */
+/* Follow Button.sizes.medium */
 .mediumMain {
 	padding-left: 12px;
 }
@@ -38,7 +38,7 @@
 	left: 12px;
 }
 
-/* Follow Button.size.small */
+/* Follow Button.sizes.small */
 .smallMain,
 .smallMainWithIcon {
 	padding-right: 8px;

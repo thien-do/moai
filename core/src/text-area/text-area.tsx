@@ -91,17 +91,17 @@ export const TextArea = (props: TextAreaProps) => {
 	);
 };
 
-TextArea.style = {
-	outset: Input.style.outset,
-	flat: Input.style.flat,
+TextArea.styles = {
+	outset: Input.styles.outset,
+	flat: Input.styles.flat,
 };
 
-TextArea.size = {
+TextArea.sizes = {
 	medium: { main: s.medium } as TextAreaSize,
 	small: { main: s.small } as TextAreaSize,
 };
 
 TextArea.defaultProps = {
-	style: TextArea.style.outset,
-	size: TextArea.size.medium,
+	style: TextArea.styles.outset,
+	size: TextArea.sizes.medium,
 };

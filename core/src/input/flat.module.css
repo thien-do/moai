@@ -9,7 +9,7 @@
 	background-color: none;
 }
 
-/* Mimic button.style.main hover */
+/* Mimic Button.styles.main hover */
 :global(.light) .main:hover {
 	background-color: var(--gray-2);
 }

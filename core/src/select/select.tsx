@@ -19,8 +19,8 @@ export interface SelectSize {
 }
 
 const getClassNames = <T,>(props: SelectProps<T>) => {
-	const style = props.style ?? Select.style.outset;
-	const size = props.size ?? Select.size.medium;
+	const style = props.style ?? Select.styles.outset;
+	const size = props.size ?? Select.sizes.medium;
 	const width = props.fill ? s.fill : "";
 	return {
 		select: [s.select, style.select, size.select].join(" "),
@@ -98,7 +98,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 	);
 };
 
-Select.style = {
+Select.styles = {
 	outset: {
 		select: [sRadius.container, outline.normal, outset.main].join(" "),
 		container: "",
@@ -109,7 +109,7 @@ Select.style = {
 	} as SelectStyle,
 };
 
-Select.size = {
+Select.sizes = {
 	medium: {
 		select: s.mediumSelect,
 		icon: s.mediumIcon,

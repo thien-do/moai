@@ -1,8 +1,8 @@
 import { Button, ButtonGroup, ButtonProps, coreIcons } from "@moai/core";
 import { Plus, ArrowLeft, ArrowRight, Search, CaretDown } from "@moai/icon/bp";
 
-const { medium, small } = Button.size;
-const { flat } = Button.style;
+const { medium, small } = Button.sizes;
+const { flat } = Button.styles;
 
 const flatIcon: ButtonProps = { icon: Plus, style: flat };
 
