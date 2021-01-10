@@ -1,24 +1,27 @@
 import toastController, { useToaster } from "react-hot-toast";
-import type { Toast, ToastType } from "react-hot-toast/dist/core/types";
+import type * as RHT from "react-hot-toast/dist/core/types";
 import { ToastPane, ToastPaneType } from "../pane/pane";
 import s from "./container.module.css";
+import { toast, ToastType } from "../toast";
 
-const getType = (from: ToastType): ToastPaneType => {
-	switch (from) {
-		case "error":
-			return ToastPane.types.failure;
-		case "success":
-			return ToastPane.types.success;
-		default:
-			throw Error(`Unsupported type: "${from}"`);
-	}
+const typeMap: Record<RHT.ToastType, ToastType | undefined> = {
+	blank: undefined,
+	error: toast.types.failure,
+	loading: undefined,
+	success: toast.types.success,
+};
+
+const getType = (from: RHT.ToastType): ToastPaneType => {
+	const type = typeMap[from];
+	if (type !== undefined) return type.paneType;
+	throw Error(`Unknown type: "${from}"`);
 };
 
 export const ToastContainer = () => {
 	const { toasts, handlers } = useToaster();
 	const { startPause, endPause, calculateOffset, updateHeight } = handlers;
 
-	const renderToast = (toast: Toast): JSX.Element => {
+	const renderToast = (toast: RHT.Toast): JSX.Element => {
 		const offsetOpts = { reverseOrder: false, margin: 8 };
 		const offset = calculateOffset(toast.id, offsetOpts);
 		const ref = (el: HTMLDivElement) => {
