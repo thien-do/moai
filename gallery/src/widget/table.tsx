@@ -1,5 +1,4 @@
-import { Button, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
-import { Duplicate, Search } from "@moai/icon/bp";
+import { Button, coreIcons, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
 import { Person } from "./samples/people";
 import PEOPLE_RAW from "./samples/people.json";
 import { toOption } from "./select";
@@ -17,7 +16,7 @@ const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 	<div className="space-y-8">
 		<div className="">{children}</div>
 		<div className="font-normal">
-			<Input icon={Search} placeholder="Search" />
+			<Input icon={coreIcons.search} placeholder="Search" />
 		</div>
 	</div>
 );
@@ -96,7 +95,11 @@ const Note: Column = ({ person }) => (
 const Phone: Column = ({ person }) => (
 	<div className="flex items-center space-x-8">
 		<div>{person.phone}</div>
-		<Button size={Button.sizes.small} icon={Duplicate} iconLabel="Copy" />
+		<Button
+			size={Button.sizes.small}
+			icon={coreIcons.plus}
+			iconLabel="Copy"
+		/>
 	</div>
 );
 

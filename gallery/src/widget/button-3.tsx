@@ -1,18 +1,19 @@
 import { Button, ButtonGroup, ButtonProps, coreIcons } from "@moai/core";
-import { Plus, ArrowLeft, ArrowRight, Search, CaretDown } from "@moai/icon/bp";
 
 const { medium, small } = Button.sizes;
 const { flat } = Button.styles;
+
+const Plus = coreIcons.plus;
 
 const flatIcon: ButtonProps = { icon: Plus, style: flat };
 
 export const Button3Gallery = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
-			<Button children="Back" icon={ArrowLeft} />
-			<Button children="Next" icon={ArrowRight} reverse />
-			<Button iconLabel="Search" icon={Search} />
-			<Button iconLabel="Search" icon={Search} disabled />
+			<Button children="Back" icon={coreIcons.arrowLeft} />
+			<Button children="Next" icon={coreIcons.arrowRight} reverse />
+			<Button iconLabel="Search" icon={coreIcons.search} />
+			<Button iconLabel="Search" icon={coreIcons.search} disabled />
 		</div>
 		<div className="flex space-x-8">
 			<ButtonGroup>
