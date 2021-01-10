@@ -45,7 +45,7 @@ export const ProgressCircle = (props: Props) => {
 			<svg
 				className={[
 					s.container,
-					props.value === null ? s.animate : "",
+					props.value === "indeterminate" ? s.animate : "",
 					(props.color ?? ProgressCircle.colors.base).container,
 				].join(" ")}
 				width={props.size}
