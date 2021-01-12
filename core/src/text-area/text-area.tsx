@@ -8,14 +8,15 @@ export interface TextAreaSize {
 }
 
 const getClass = (props: TextAreaProps) => {
-	const styles = [
+	const style = props.style ?? TextArea.styles.outset;
+	const size = props.size ?? TextArea.sizes.medium;
+	return [
 		s.container,
 		outline.normal,
-		props.style.main,
-		props.size.main,
-	];
-	if (props.disabled) styles.push(props.style.disabled);
-	return styles.join(" ");
+		style.main,
+		size.main,
+		props.disabled ? style.disabled : "",
+	].join(" ");
 };
 
 type ChangeEvent = React.ChangeEvent<HTMLTextAreaElement>;
@@ -33,8 +34,8 @@ export interface TextAreaProps {
 	value?: string;
 	setValue?: (value: string) => void;
 	// Style
-	style: InputStyle;
-	size: TextAreaSize;
+	style?: InputStyle;
+	size?: TextAreaSize;
 	// Attributes
 	rows?: number;
 	disabled?: boolean;
@@ -99,9 +100,4 @@ TextArea.styles = {
 TextArea.sizes = {
 	medium: { main: s.medium } as TextAreaSize,
 	small: { main: s.small } as TextAreaSize,
-};
-
-TextArea.defaultProps = {
-	style: TextArea.styles.outset,
-	size: TextArea.sizes.medium,
 };

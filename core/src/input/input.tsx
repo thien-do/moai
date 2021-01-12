@@ -21,8 +21,10 @@ export interface InputSize {
 }
 
 const getClass = (props: InputProps): string => {
-	const styles = [s.input, outline.normal, props.style.main];
-	styles.push(props.icon ? props.size.mainWithIcon : props.size.main);
+	const style = props.style ?? Input.styles.outset;
+	const styles = [s.input, outline.normal, style.main];
+	const size = props.size ?? Input.sizes.medium;
+	styles.push(props.icon ? size.mainWithIcon : size.main);
 	return styles.join(" ");
 };
 
@@ -41,8 +43,8 @@ export interface InputProps {
 	list?: { id: string; values: string[] } | string;
 	// Style
 	icon?: IconPath;
-	style: InputStyle;
-	size: InputSize;
+	style?: InputStyle;
+	size?: InputSize;
 	// Attributes
 	id?: string;
 	disabled?: boolean;
@@ -69,6 +71,8 @@ export const Input = (props: InputProps): JSX.Element => {
 		if (element === null) throw Error("ref is null");
 		element.select();
 	}, []);
+
+	const size = props.size ?? Input.sizes.medium;
 
 	return (
 		<div className={s.container}>
@@ -103,13 +107,11 @@ export const Input = (props: InputProps): JSX.Element => {
 				aria-labelledby={props["aria-labelledby"]}
 			/>
 			{props.icon && (
-				<div
-					className={[s.icon, text.muted, props.size.icon].join(" ")}
-				>
+				<div className={[s.icon, text.muted, size.icon].join(" ")}>
 					<Icon
 						display="block"
 						path={props.icon}
-						size={props.size.iconSize}
+						size={size.iconSize}
 					/>
 				</div>
 			)}
@@ -151,9 +153,4 @@ Input.sizes = {
 		icon: s.smallIcon,
 		iconSize: 12,
 	} as InputSize,
-};
-
-Input.defaultProps = {
-	style: Input.styles.outset,
-	size: Input.sizes.medium,
 };

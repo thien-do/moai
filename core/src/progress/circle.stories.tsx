@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/react";
 import { DivPx } from "../div/div";
-import { background } from "../background/background";
 import { ProgressCircle } from "./circle";
 
 storiesOf("Progress", module).add("Circle", () => (
