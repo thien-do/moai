@@ -1,4 +1,3 @@
-import { DivPx } from "@moai/core";
 import { GallerySection } from "../section/section";
 import { Button1Gallery } from "./button-1";
 import { Button2Gallery } from "./button-2";
