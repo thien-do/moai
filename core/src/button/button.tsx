@@ -25,7 +25,7 @@ const getClass = (props: ButtonProps) => {
 	const { highlight, selected, fill, busy, reverse, icon } = props;
 	const size = props.size ?? Button.sizes.medium;
 	const style = props.style ?? Button.styles.outset;
-	const classes = [s.button, size.main, style.main];
+	const classes = [s.button, size.main, style.main, outline.normal];
 	if (fill) classes.push(s.fill);
 	if (selected) classes.push(style.selected);
 	if (highlight) classes.push(style.highlight);
@@ -146,13 +146,13 @@ export const Button = (props: ButtonProps): JSX.Element => {
 
 Button.styles = {
 	outset: {
-		main: [borderRadius.container, outset.main, outline.normal].join(" "),
+		main: [borderRadius.container, outset.main].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
 		busy: outset.busy,
 	} as ButtonStyle,
 	flat: {
-		main: [flat.main, outline.normal].join(" "),
+		main: [flat.main].join(" "),
 		selected: flat.selected,
 		highlight: "",
 		busy: flat.busy,
