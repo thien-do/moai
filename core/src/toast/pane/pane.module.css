@@ -8,6 +8,8 @@
 	padding: 8px 12px;
 
 	border-radius: 3px;
+	background-color: var(--gray-7);
+	color: var(--gray-1);
 }
 
 .icon {

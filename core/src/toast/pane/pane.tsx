@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { background } from "../../background/background";
 import { Border } from "../../border/border";
 import { boxShadow } from "../../box-shadow/box-shadow";
 import { Button } from "../../button/button";
@@ -12,7 +11,6 @@ import s from "./pane.module.css";
 export interface ToastPaneType {
 	iconPath: IconPath;
 	iconCls: string;
-	barCls: string;
 }
 
 interface Props {
@@ -23,13 +21,7 @@ interface Props {
 
 export const ToastPane = (props: Props): JSX.Element => (
 	<div className="dark">
-		<div
-			className={[
-				s.container,
-				background.primary,
-				boxShadow.strong,
-			].join(" ")}
-		>
+		<div className={[s.container, boxShadow.strong].join(" ")}>
 			<div className={[s.icon, props.type.iconCls].join(" ")}>
 				<Icon display="block" path={props.type.iconPath} />
 			</div>
@@ -57,11 +49,9 @@ ToastPane.types = {
 	success: {
 		iconPath: coreIcons.success,
 		iconCls: text.greenStrong,
-		barCls: background.greenStrong,
 	} as ToastPaneType,
 	failure: {
 		iconPath: coreIcons.error,
 		iconCls: text.redStrong,
-		barCls: background.redStrong,
 	} as ToastPaneType,
 };
