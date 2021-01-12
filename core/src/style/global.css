@@ -48,7 +48,7 @@
 	--gray-6: hsl(240, 5%, 34%); /* d br 1st */
 	--gray-7: hsl(240, 5%, 26%); /* d br 2nd */
 	--gray-8: hsl(232, 7%, 22%); /* d bg 1st */
-	--gray-9: hsl(240, 4%, 16%); /* d bg 2nd */
+	--gray-9: hsl(240, 4%, 16%); /* d bg 2nd, l fg 1st */
 	--gray-10: hsl(240, 6%, 10%); /* do not use */
 
 	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
