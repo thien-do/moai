@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
-import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
 import self from "./checkbox.module.css";
-import s from "./shared.module.css";
+import shared from "./shared.module.css";
+import outset from "./outset.module.css";
+
+interface CheckboxStyle {
+	input: string;
+	icon: string;
+	label: string;
+}
 
 export interface CheckboxProps {
 	// Controlled
@@ -42,14 +48,16 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 		ref.current.indeterminate = props.indeterminate;
 	}, [props.indeterminate]);
 
+	const style = Checkbox.styles.outset;
+
 	return (
-		<label className={s.container}>
+		<label className={shared.container}>
 			<input
 				type="checkbox"
 				className={[
-					s.input,
+					shared.input,
+					style.input,
 					self.input,
-					outset.main,
 					outline.normal,
 				].join(" ")}
 				disabled={props.disabled}
@@ -60,13 +68,28 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				checked={props.checked}
 				onChange={(e) => props.setChecked?.(e.target.checked)}
 			/>
-			<span className={[s.icon, self.check].join(" ")}>
-				<Icon display="block" path={coreIcons.tick} />
-			</span>
-			<span className={[s.icon, self.indeterminate].join(" ")}>
-				<Icon display="block" path={coreIcons.minus} />
-			</span>
-			<span className={s.label}>{props.children}</span>
+			<span
+				className={[shared.icon, style.icon, self.check].join(" ")}
+				children={<Icon display="block" path={coreIcons.tick} />}
+			/>
+			<span
+				className={[shared.icon, style.icon, self.indeterminate].join(
+					" "
+				)}
+				children={<Icon display="block" path={coreIcons.minus} />}
+			/>
+			<span
+				className={[shared.label, style.label].join(" ")}
+				children={props.children}
+			/>
 		</label>
 	);
+};
+
+Checkbox.styles = {
+	outset: {
+		input: outset.input,
+		icon: outset.icon,
+		label: outset.label,
+	} as CheckboxStyle,
 };

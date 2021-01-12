@@ -18,41 +18,6 @@
 	cursor: auto;
 }
 
-/* INPUT CHECKED */
-
-:global(.light) .input:checked,
-:global(.light) .input:indeterminate {
-	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
-	border-color: var(--blue-7);
-}
-:global(.light) .input:not(:disabled):checked:hover,
-:global(.light) .input:not(:disabled):indeterminate:hover {
-	background-color: var(--blue-4);
-}
-:global(.light) .input:not(:disabled):checked:active,
-:global(.light) .input:not(:disabled):indeterminate:active {
-	background-color: var(--blue-6);
-	box-shadow: none;
-}
-
-:global(.dark) .input:checked,
-:global(.dark) .input:indeterminate {
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
-	border-color: var(--gray-10);
-}
-:global(.dark) .input:not(:disabled):checked:hover,
-:global(.dark) .input:not(:disabled):indeterminate:hover {
-	background-color: var(--blue-4);
-}
-:global(.dark) .input:not(:disabled):checked:active,
-:global(.dark) .input:not(:disabled):indeterminate:active {
-	background-color: var(--blue-6);
-	box-shadow: none;
-}
-
 /* ICON */
 
 .icon {
@@ -68,28 +33,6 @@
 	opacity: 0;
 }
 
-:global(.light) .icon {
-	color: var(--gray-9);
-}
-:global(.light) .input:checked ~ .icon,
-:global(.light) .input:indeterminate ~ .icon {
-	color: var(--gray-1);
-}
-:global(.light) .input:disabled ~ .icon {
-	color: var(--gray-5);
-}
-
-:global(.dark) .icon {
-	color: var(--gray-1);
-}
-:global(.dark) .input:checked ~ .icon,
-:global(.dark) .input:indeterminate ~ .icon {
-	color: var(--gray-1);
-}
-:global(.dark) .input:disabled ~ .icon {
-	color: var(--gray-4);
-}
-
 /* LABEL */
 
 .label {
@@ -101,12 +44,4 @@
 
 .input:disabled ~ .label {
 	cursor: auto;
-}
-
-:global(.light) .input:disabled ~ .label {
-	color: var(--gray-5);
-}
-
-:global(.dark) .input:disabled ~ .label {
-	color: var(--gray-4);
 }

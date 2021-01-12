@@ -3,6 +3,8 @@ import s from "./circle.module.css";
 
 export interface ProgressCircleColor {
 	container: string;
+	head: string;
+	track: string;
 }
 
 interface Props {
@@ -66,8 +68,13 @@ export const ProgressCircle = (props: Props) => {
 	);
 };
 
+const colorBase: Omit<ProgressCircleColor, "container"> = {
+	head: s.head!,
+	track: s.track!,
+};
+
 ProgressCircle.colors = {
-	base: { container: s.base } as ProgressCircleColor,
-	highlight: { container: s.highlight } as ProgressCircleColor,
-	inverse: { container: s.inverse } as ProgressCircleColor,
+	base: { ...colorBase, container: s.base } as ProgressCircleColor,
+	highlight: { ...colorBase, container: s.highlight } as ProgressCircleColor,
+	inverse: { ...colorBase, container: s.inverse } as ProgressCircleColor,
 };
