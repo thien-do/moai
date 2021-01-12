@@ -19,6 +19,7 @@ export const GallerySection = (props: Props): JSX.Element => (
 			className="flex-1 overflow-hidden grid gap-16 p-8 -m-8"
 			style={{
 				gridTemplateColumns: "repeat(auto-fill, min(320px, 100%))",
+				maxWidth: "calc(320px * 3 + 16px * 2 + 8px * 2)"
 			}}
 			children={props.children}
 		/>
