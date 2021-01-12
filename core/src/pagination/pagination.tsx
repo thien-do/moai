@@ -40,7 +40,7 @@ export const Pagination = (props: PaginationProps): JSX.Element => {
 				<Button
 					icon={coreIcons.chevronLeft}
 					iconLabel="Previous"
-					disabled={props.value === min}
+					disabled={props.value === min || busy}
 					onClick={() => setValue(props.value - 1)}
 				/>
 				<Popover
@@ -70,7 +70,7 @@ export const Pagination = (props: PaginationProps): JSX.Element => {
 				<Button
 					icon={coreIcons.chevronRight}
 					iconLabel="Next"
-					disabled={props.value === max}
+					disabled={props.value === max || busy}
 					onClick={() => setValue(props.value + 1)}
 				/>
 			</ButtonGroup>
