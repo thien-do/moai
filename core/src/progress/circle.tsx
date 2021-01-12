@@ -42,22 +42,26 @@ const getStroke = (props: Props) => {
 
 export const ProgressCircle = (props: Props) => {
 	const stroke = getStroke(props);
+	const color = props.color ?? ProgressCircle.colors.base;
 	return (
 		<span className={s.wrapper}>
 			<svg
 				className={[
 					s.container,
 					props.value === "indeterminate" ? s.animate : "",
-					(props.color ?? ProgressCircle.colors.base).container,
+					color.container,
 				].join(" ")}
 				width={props.size}
 				height={props.size}
 				strokeWidth={stroke.width}
 				viewBox={getViewBox(stroke.width)}
 			>
-				<path className={s.track} d={SPINNER_TRACK} />
 				<path
-					className={s.head}
+					className={[s.track, color.track].join(" ")}
+					d={SPINNER_TRACK}
+				/>
+				<path
+					className={[s.head, color.head].join(" ")}
 					d={SPINNER_TRACK}
 					pathLength={PATH_LENGTH}
 					strokeDasharray={`${PATH_LENGTH} ${PATH_LENGTH}`}
