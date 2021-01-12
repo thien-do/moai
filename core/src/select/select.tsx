@@ -8,9 +8,7 @@ import { outline } from "../outline/outline";
 import s from "./select.module.css";
 
 export type SelectStyle = {
-	container: string;
 	select: string;
-	disabled: string;
 };
 
 export interface SelectSize {
@@ -23,8 +21,8 @@ const getClassNames = <T,>(props: SelectProps<T>) => {
 	const size = props.size ?? Select.sizes.medium;
 	const width = props.fill ? s.fill : "";
 	return {
-		select: [s.select, style.select, size.select].join(" "),
-		container: [s.container, style.container, width].join(" "),
+		select: [s.select, style.select, size.select, outline.normal].join(" "),
+		container: [s.container, width].join(" "),
 		icon: [s.icon, size.icon].join(" "),
 	};
 };
@@ -100,12 +98,10 @@ export const Select = <T,>(props: SelectProps<T>) => {
 
 Select.styles = {
 	outset: {
-		select: [sRadius.container, outline.normal, outset.main].join(" "),
-		container: "",
+		select: [sRadius.container, outset.main].join(" "),
 	} as SelectStyle,
 	flat: {
-		select: [flat.main, outline.normal].join(" "),
-		container: s.flatContainer,
+		select: [flat.main].join(" "),
 	} as SelectStyle,
 };
 

@@ -56,7 +56,3 @@ select.select:not([multiple]):not([size]) {
 .smallIcon {
 	right: 4px;
 }
-
-.flatContainer {
-	text-decoration: inherit;
-}
