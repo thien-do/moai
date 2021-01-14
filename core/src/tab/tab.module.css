@@ -7,6 +7,10 @@
 .titles {
 	flex: 0 0 auto;
 	margin-bottom: -1px;
+	padding: 0 16px;
+	/* So this can hide .content */
+	position: relative;
+	z-index: 1;
 }
 
 .title {
@@ -17,6 +21,7 @@
 
 .content {
 	flex: 1 1 0px;
+	overflow: hidden;
 }
 
 /* OUTSET */
@@ -36,6 +41,10 @@
 
 .flatPadding {
 	padding: 16px;
+}
+
+.flatFullHeight {
+	height: 100%;
 }
 
 .flatContent {

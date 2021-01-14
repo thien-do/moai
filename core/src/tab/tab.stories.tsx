@@ -1,40 +1,25 @@
 import { storiesOf } from "@storybook/react"; //eslint-disable-line
 import React from "react";
-import { Tabs } from "./tab";
+import { Tab, Tabs } from "./tab";
 import { DivPx } from "../div/div";
+
+const tabs: Tab[] = [
+	{ id: "First", title: "First", pane: () => <p>1st</p> },
+	{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
+];
 
 storiesOf("Tab", module).add("Primary", () => (
 	<div>
-		<Tabs
-			children={[
-				{ id: "First", title: "First", pane: () => <p>1st</p> },
-				{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
-			]}
-		/>
+		<Tabs children={tabs} />
 		<DivPx size={16} />
-		<Tabs
-			children={[
-				{ id: "First", title: "First", pane: () => <p>1st</p> },
-				{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
-			]}
-			noPadding
-		/>
+		<Tabs children={tabs} noPadding />
 		<DivPx size={16} />
-		<Tabs
-			style={Tabs.styles.flat}
-			children={[
-				{ id: "First", title: "First", pane: () => <p>1st</p> },
-				{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
-			]}
-		/>
+		<Tabs style={Tabs.styles.flat} children={tabs} />
 		<DivPx size={16} />
-		<Tabs
-			style={Tabs.styles.flat}
-			children={[
-				{ id: "First", title: "First", pane: () => <p>1st</p> },
-				{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
-			]}
-			noPadding
-		/>
+		<Tabs style={Tabs.styles.flat} children={tabs} noPadding />
+		<DivPx size={16} />
+		<div style={{ height: 200 }}>
+			<Tabs children={tabs} fullHeight />
+		</div>
 	</div>
 ));

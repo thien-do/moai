@@ -16,10 +16,7 @@ interface TabStyle {
 	title: string;
 	active: string;
 	inactive: string;
-	renderContent: (
-		children: React.ReactNode,
-		noPadding?: boolean
-	) => JSX.Element;
+	renderContent: (children: React.ReactNode, props: Props) => JSX.Element;
 }
 
 interface Props {
@@ -74,32 +71,43 @@ export const Tabs = (props: Props): JSX.Element => {
 				{children.map(renderTitle(props, state))}
 			</div>
 			<div className={[s.content, style.content].join(" ")}>
-				{style.renderContent(activeTab.pane(), props.noPadding)}
+				{style.renderContent(activeTab.pane(), props)}
 			</div>
 		</div>
 	);
 };
 
+const outsetStyle: TabStyle = {
+	content: s.outsetContent!,
+	title: s.outsetTitle!,
+	active: [borderColor.strong, background.primary].join(" "),
+	inactive: s.outsetInactive!,
+	renderContent: (children, props) => (
+		<Pane
+			noPadding={props.noPadding}
+			fullHeight={props.fullHeight}
+			children={children}
+		/>
+	),
+};
+
+const flatStyle: TabStyle = {
+	content: [s.flatContent, borderColor.weak].join(" "),
+	title: s.flatTitle!,
+	active: borderColor.blueStrong,
+	inactive: s.flatInactive!,
+	renderContent: (children, props) => (
+		<div
+			className={[
+				props.noPadding ? "" : s.flatPadding,
+				props.fullHeight ? s.flatFullHeight : "",
+			].join(" ")}
+			children={children}
+		/>
+	),
+};
+
 Tabs.styles = {
-	outset: {
-		content: s.outsetContent,
-		title: s.outsetTitle,
-		active: [borderColor.strong, background.primary].join(" "),
-		inactive: s.outsetInactive,
-		renderContent: (children, noPadding) => (
-			<Pane noPadding={noPadding} children={children} />
-		),
-	} as TabStyle,
-	flat: {
-		content: [s.flatContent, borderColor.weak].join(" "),
-		title: s.flatTitle,
-		active: borderColor.blueStrong,
-		inactive: s.flatInactive,
-		renderContent: (children, noPadding) => (
-			<div
-				className={noPadding ? "" : s.flatPadding}
-				children={children}
-			/>
-		),
-	} as TabStyle,
+	outset: outsetStyle,
+	flat: flatStyle,
 };
