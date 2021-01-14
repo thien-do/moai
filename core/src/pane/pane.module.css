@@ -6,3 +6,7 @@
 .padding {
 	padding: 16px;
 }
+
+.fullHeight {
+	height: 100%;
+}
