@@ -1076,12 +1076,12 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@moai/core@0.173.0":
-  version "0.173.0"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.173.0.tgz#519e47685ada5e250b55a91f47dbb966e0454833"
-  integrity sha512-9Y4WUDLJkePU4hSiqXLzg9oTYjAw0nbnpELVrNY4pX4sSTYDiWf8hAb4L4d2kheV+tB89+l+lrWZ6MiWSl8zdA==
+"@moai/core@0.182.0":
+  version "0.182.0"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.182.0.tgz#50c1d82c530cba8fc6f7f79086933e9b4394f4ec"
+  integrity sha512-Q4A4Zcyr7d4HBRsszZPMUZUO9ue8qi0s6CVaEAZKKQVx8lTQOAH2AMXHH3WFp6x7bfrHUonN+MEqiqMSC2W5FA==
   dependencies:
-    "@popperjs/core" "2.5.4"
+    "@popperjs/core" "2.6.0"
     "@tippyjs/react" "4.2.0"
     focus-visible "5.2.0"
     react-hot-toast "1.0.1"
@@ -1146,12 +1146,7 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@popperjs/core@2.5.4":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.5.4.tgz#de25b5da9f727985a3757fd59b5d028aba75841a"
-  integrity sha512-ZpKr+WTb8zsajqgDkvCEWgp6d5eJT6Q63Ng2neTbzBO76Lbe91vX/iVIW9dikq+Fs3yEo+ls4cxeXABD2LtcbQ==
-
-"@popperjs/core@^2.4.4", "@popperjs/core@^2.5.4":
+"@popperjs/core@2.6.0", "@popperjs/core@^2.4.4", "@popperjs/core@^2.5.4":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==

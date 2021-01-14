@@ -10,7 +10,7 @@ import { PaginationGallery } from "./pagination";
 import { PaneGallery } from "./pane";
 import { ProgressGallery } from "./progress";
 import { SelectGallery } from "./select";
-import { TabGallery } from "./tab";
+import { Tab1Gallery, Tab2Gallery, Tab3Gallery } from "./tab";
 import { TableGallery } from "./table";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
@@ -41,7 +41,11 @@ export const WidgetGallery = () => (
 		<GallerySection title="Container">
 			<DialogGallery />
 			<PaneGallery />
-			<TabGallery />
+		</GallerySection>
+		<GallerySection title="Tabs">
+			<Tab1Gallery />
+			<Tab2Gallery />
+			<Tab3Gallery />
 		</GallerySection>
 		<GallerySection title="Table">
 			<div className="col-span-full">

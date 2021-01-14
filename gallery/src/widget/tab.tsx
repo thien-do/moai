@@ -1,4 +1,4 @@
-import { Paragraph, Tabs } from "@moai/core";
+import { Paragraph, Tab, Tabs } from "@moai/core";
 
 const Second = () => (
 	<Paragraph>
@@ -21,14 +21,20 @@ const First = () => (
 
 const Third = () => <Paragraph>Third tab</Paragraph>;
 
-export const TabGallery = () => (
-	<div>
-		<Tabs
-			children={[
-				{ id: "1", title: "First", pane: First },
-				{ id: "2", title: "Second", pane: Second },
-				{ id: "3", title: "Third", pane: Third },
-			]}
-		/>
+const tabs: Tab[] = [
+	{ id: "1", title: "First", pane: First },
+	{ id: "2", title: "Second", pane: Second },
+	{ id: "3", title: "Third", pane: Third },
+];
+
+export const Tab1Gallery = () => <Tabs children={tabs} />;
+
+export const Tab2Gallery = () => (
+	<Tabs children={tabs} style={Tabs.styles.flat} />
+);
+
+export const Tab3Gallery = () => (
+	<div style={{ height: 300 }}>
+		<Tabs children={tabs} fullHeight />
 	</div>
 );
