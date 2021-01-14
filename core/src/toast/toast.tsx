@@ -1,6 +1,5 @@
 import { render } from "react-dom";
 import RHTToast from "react-hot-toast";
-import type { ToastType as RHTToastType } from "react-hot-toast/dist/core/types";
 import { ToastContainer } from "./container/container";
 import { ToastPane, ToastPaneType } from "./pane/pane";
 
@@ -45,11 +44,4 @@ toast.types = {
 		handler: RHTToast.error,
 		paneType: ToastPane.types.failure,
 	} as ToastType,
-};
-
-export const TOAST_TYPE_MAP: Record<RHTToastType, ToastType | undefined> = {
-	blank: undefined,
-	error: toast.types.failure,
-	loading: undefined,
-	success: toast.types.success,
 };

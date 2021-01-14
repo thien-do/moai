@@ -6,12 +6,12 @@
 	"module": "esm.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "npm run build-tailwind && npm run build-rollup",
+		"build": "yarn run build-tailwind && yarn run build-rollup",
 		"build-storybook": "build-storybook",
 		"build-rollup": "rollup --config",
-		"build-tailwind": "NODE_ENV=production npm run tailwind",
-		"start": "npm run start-tailwind && start-storybook -p 6006",
-		"start-tailwind": "NODE_ENV=development npm run tailwind",
+		"build-tailwind": "NODE_ENV=production yarn run tailwind",
+		"start": "yarn run start-tailwind && start-storybook -p 6006",
+		"start-tailwind": "NODE_ENV=development yarn run tailwind",
 		"release-minor": "./scripts/release.sh minor",
 		"release-patch": "./scripts/release.sh patch",
 		"tailwind": "npx tailwindcss-cli@latest build ./src/style/src.css -o ./src/style/style.css"
