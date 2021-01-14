@@ -6,7 +6,6 @@
 
 .titles {
 	flex: 0 0 auto;
-	margin-bottom: -1px;
 	padding: 0 16px;
 	/* So this can hide .content */
 	position: relative;
@@ -25,6 +24,15 @@
 }
 
 /* OUTSET */
+
+.outsetContent {
+	/* Allow .titles to overlap */
+	position: relative;
+	top: -1px;
+	/* Because children may have shadow */
+	padding: 8px;
+	margin: -8px;
+}
 
 .outsetTitle {
 	border-style: solid;
@@ -49,6 +57,7 @@
 
 .flatContent {
 	border-top: solid 1px;
+	margin-top: -1px;
 }
 
 .flatTitle {
