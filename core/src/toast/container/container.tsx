@@ -1,7 +1,7 @@
 import toastController, { useToaster as useRHTToaster } from "react-hot-toast";
 import type * as RHT from "react-hot-toast/dist/core/types";
 import { ToastPane, ToastPaneType } from "../pane/pane";
-import { TOAST_TYPE_MAP } from "../toast";
+import { TOAST_TYPE_MAP } from "../type/type";
 import s from "./container.module.css";
 
 const getType = (from: RHT.ToastType): ToastPaneType => {

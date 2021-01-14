@@ -1,7 +1,6 @@
 import { render } from "react-dom";
-import RHTToast from "react-hot-toast";
 import { ToastContainer } from "./container/container";
-import { ToastPane, ToastPaneType } from "./pane/pane";
+import { ToastType, toastTypes } from "./type/type";
 
 export * from "./pane/pane";
 
@@ -19,13 +18,6 @@ const init = (): Promise<HTMLDivElement> => {
 	});
 };
 
-type ToastHandler = typeof RHTToast["success"];
-
-export interface ToastType {
-	handler: ToastHandler;
-	paneType: ToastPaneType;
-}
-
 export const toast = async (
 	type: ToastType,
 	message: string
@@ -35,13 +27,4 @@ export const toast = async (
 	type.handler(message);
 };
 
-toast.types = {
-	success: {
-		handler: RHTToast.success,
-		paneType: ToastPane.types.success,
-	} as ToastType,
-	failure: {
-		handler: RHTToast.error,
-		paneType: ToastPane.types.failure,
-	} as ToastType,
-};
+toast.types = toastTypes;
