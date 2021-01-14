@@ -16,9 +16,9 @@
 }
 
 :global(.dark) .header {
-	background-color: hsl(217, 33%, 22%, 0.8);
+	background-color: hsla(232, 7%, 22%, 0.6);
 }
 
 .body {
-	padding: 16px 0;
+	padding: 32px 0;
 }

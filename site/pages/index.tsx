@@ -12,7 +12,9 @@ const Index = (): JSX.Element => (
 			<WidgetGallery />
 			<DivPx size={32} />
 			<GallerySection title="Icons">
-				<IconGallery />
+				<div style={{ gridColumn: "1 / -1" }}>
+					<IconGallery />
+				</div>
 			</GallerySection>
 		</div>
 	</div>
