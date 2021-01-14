@@ -34,6 +34,10 @@
 
 /* Flat */
 
+.flatPadding {
+	padding: 16px;
+}
+
 .flatContent {
 	border-top: solid 1px;
 }
