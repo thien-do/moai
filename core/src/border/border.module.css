@@ -24,3 +24,17 @@
 :global(.dark) .strong {
 	border-color: var(--gray-6);
 }
+
+:global(.light) .blueWeak {
+	border-color: var(--blue-6);
+}
+:global(.dark) .blueWeak {
+	border-color: var(--blue-5);
+}
+
+:global(.light) .blueStrong {
+	border-color: var(--blue-5);
+}
+:global(.dark) .blueStrong {
+	border-color: var(--blue-5);
+}

@@ -3,6 +3,7 @@ import { background } from "../background/background";
 import { Border, borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
+import { pane } from "../pane/style";
 import s from "./dialog.module.css";
 import { DialogMessage } from "./utils/message";
 
@@ -15,18 +16,15 @@ export interface DialogProps extends ChildrenProps {
 	width?: "fixed" | "content";
 }
 
-export const DialogPane = (props: DialogProps) => (
-	<div
-		className={[
-			background.primary,
-			borderColor.strong,
-			boxShadow.strong,
-			s.dialog,
-			props.width === "fixed" ? s.widthFixed : s.widthAuto,
-		].join(" ")}
-		children={props.children}
-	/>
-);
+export const DialogPane = (props: DialogProps) => {
+	const width = props.width === "fixed" ? s.widthFixed : s.widthAuto;
+	return (
+		<div
+			className={[s.dialog, pane.outset, width].join(" ")}
+			children={props.children}
+		/>
+	);
+};
 
 export const Dialog = (props: DialogProps) => (
 	<div

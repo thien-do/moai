@@ -1,15 +1,18 @@
 .arrowShape {
-	border-width: 1px;
 	width: 8px;
 	height: 8px;
 	transform: rotate(45deg);
 	position: relative;
 }
 
+/* Disable box shadow in arrow since we do the rotate trick */
+:global(.light) .arrowShape:not(.x),
+:global(.dark) .arrowShape:not(.x) {
+	box-shadow: none;
+}
+
 .content {
 	z-index: 2;
-	border-style: solid;
-	border-width: 1px;
 }
 
 .content[data-popper-placement^="top"] .arrow {

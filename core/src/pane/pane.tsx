@@ -1,8 +1,6 @@
 import * as React from "react";
-import { background } from "../background/background";
-import { borderColor } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
 import s from "./pane.module.css";
+import { pane } from "./style";
 
 interface Props {
 	children: React.ReactNode;
@@ -11,13 +9,7 @@ interface Props {
 
 export const Pane = ({ children, noPadding }: Props): JSX.Element => (
 	<div
-		className={[
-			s.container,
-			background.primary,
-			boxShadow.strong,
-			borderColor.strong,
-			noPadding ? "" : s.padding,
-		].join(" ")}
+		className={[pane.outset, noPadding ? "" : s.padding].join(" ")}
 		children={children}
 	/>
 );

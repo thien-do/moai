@@ -5,6 +5,7 @@ import { usePopper } from "react-popper";
 import { background } from "../background/background";
 import { borderColor } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
+import { pane } from "../pane/style";
 import { getPortalContainer } from "../utils/utils";
 import s from "./popover.module.css";
 
@@ -42,12 +43,7 @@ const Content = (props: PopoverProps & { state: State }) => (
 	<div
 		ref={props.state.setContent}
 		style={props.state.styles.popper}
-		className={[
-			s.content,
-			background.primary,
-			borderColor.strong,
-			boxShadow.strong,
-		].join(" ")}
+		className={[s.content, pane.outset].join(" ")}
 		{...props.state.attributes.popper}
 	>
 		{props.content({ close: props.state.toggle })}
@@ -60,13 +56,7 @@ const Content = (props: PopoverProps & { state: State }) => (
 			className={s.arrow}
 			{...props.state.attributes.arrow}
 		>
-			<div
-				className={[
-					s.arrowShape,
-					borderColor.strong,
-					background.primary,
-				].join(" ")}
-			/>
+			<div className={[s.arrowShape, pane.outset].join(" ")} />
 		</div>
 	</div>
 );

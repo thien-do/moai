@@ -1,20 +1,14 @@
-import React from "react";
 import s from "./border.module.css";
 
-type BorderColorValue = string;
-
-type BorderColorKey = "strong" | "weak";
-
-if (s.strong === undefined || s.weak === undefined)
-	throw Error("border color is not defined");
-
-export const borderColor: { [key in BorderColorKey]: BorderColorValue } = {
+export const borderColor = {
 	strong: s.strong,
 	weak: s.weak,
+	blueStrong: s.blueStrong,
+	blueWeak: s.blueWeak,
 };
 
 interface Props {
-	color: BorderColorKey;
+	color: keyof typeof borderColor;
 }
 
 export const Border = (props: Props) => (
