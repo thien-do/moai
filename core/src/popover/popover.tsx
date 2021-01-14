@@ -2,10 +2,7 @@ import { Placement } from "@popperjs/core";
 import * as React from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
-import { background } from "../background/background";
-import { borderColor } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
-import { pane } from "../pane/style";
+import { paneStyle } from "../pane/style";
 import { getPortalContainer } from "../utils/utils";
 import s from "./popover.module.css";
 
@@ -43,7 +40,7 @@ const Content = (props: PopoverProps & { state: State }) => (
 	<div
 		ref={props.state.setContent}
 		style={props.state.styles.popper}
-		className={[s.content, pane.outset].join(" ")}
+		className={[s.content, paneStyle.outset].join(" ")}
 		{...props.state.attributes.popper}
 	>
 		{props.content({ close: props.state.toggle })}
@@ -56,7 +53,7 @@ const Content = (props: PopoverProps & { state: State }) => (
 			className={s.arrow}
 			{...props.state.attributes.arrow}
 		>
-			<div className={[s.arrowShape, pane.outset].join(" ")} />
+			<div className={[s.arrowShape, paneStyle.outset].join(" ")} />
 		</div>
 	</div>
 );

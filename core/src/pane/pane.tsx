@@ -1,5 +1,5 @@
 import s from "./pane.module.css";
-import { pane } from "./style";
+import { paneStyle } from "./style";
 
 interface Props {
 	children: React.ReactNode;
@@ -7,10 +7,12 @@ interface Props {
 	fullHeight?: boolean;
 }
 
+export { paneStyle };
+
 export const Pane = (props: Props): JSX.Element => (
 	<div
 		className={[
-			pane.outset,
+			paneStyle.outset,
 			props.noPadding ? "" : s.padding,
 			props.fullHeight ? s.fullHeight : "",
 		].join(" ")}
