@@ -1,18 +1,49 @@
+.full {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 .titles {
-	padding: 0 16px;
+	flex: 0 0 auto;
 	margin-bottom: -1px;
 }
 
 .title {
 	padding: 8px 12px;
 	cursor: pointer;
+	transition: outline 0.2s;
+}
+
+.content {
+	flex: 1 1 0px;
+}
+
+/* OUTSET */
+
+.outsetTitle {
 	border-style: solid;
 	border-width: 1px;
 	border-bottom: none;
-	transition: outline 0.2s;
 	border-radius: 3px 3px 0 0;
 }
 
-.nonactive {
+.outsetInactive {
 	border-color: transparent;
+}
+
+/* Flat */
+
+.flatContent {
+	border-top: solid 1px;
+}
+
+.flatTitle {
+	border: none; /* Reset default border of buttons */
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+}
+
+.flatInactive {
+	border-bottom-color: transparent;
 }
