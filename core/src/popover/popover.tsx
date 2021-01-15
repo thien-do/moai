@@ -44,7 +44,7 @@ const Content = (props: PopoverProps & { state: State }) => {
 		<div
 			ref={props.state.setContent}
 			style={props.state.styles.popper}
-			className={[s.content, style.content, style.pane].join(" ")}
+			className={[s.content, style.content].join(" ")}
 			{...props.state.attributes.popper}
 		>
 			{props.content({ close: props.state.toggle })}
@@ -57,7 +57,7 @@ const Content = (props: PopoverProps & { state: State }) => {
 				className={s.arrow}
 				{...props.state.attributes.arrow}
 			>
-				<div className={[s.arrowShape, style.pane].join(" ")} />
+				<div className={[s.arrowShape, style.arrow].join(" ")} />
 			</div>
 		</div>
 	);
@@ -123,7 +123,14 @@ export const Popover = (props: PopoverProps) => {
 
 Popover.styles = {
 	outset: {
-		content: [shadow.dropStrong].join(" "),
-		pane: [border.px1, border.strong, background.strong].join(" ")
+		content: [
+			shadow.dropStrong,
+			border.px1,
+			border.strong,
+			background.strong,
+		].join(" "),
+		arrow: "", // Looks below
 	},
 };
+
+Popover.styles.outset.arrow = Popover.styles.outset.content;
