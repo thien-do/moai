@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { background } from "../background/background";
-import { borderColor } from "../border/border";
+import { border } from "../border/border";
 import { text } from "../text/text";
 import s from "./table.module.css";
 
@@ -18,7 +18,7 @@ interface Props<R> {
 	rowKey: (row: R) => string;
 }
 
-const thCls = [borderColor.weak, background.secondary, text.strong].join(" ");
+const thCls = [border.weak, background.weak, text.strong].join(" ");
 
 const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
 	<th key={index} className={[thCls, column.className].join(" ")}>
@@ -26,7 +26,7 @@ const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
 	</th>
 );
 
-const tdCls = [borderColor.weak, background.primary].join(" ");
+const tdCls = [border.weak, background.strong].join(" ");
 
 const renderTd = <R,>(row: R) => (
 	column: TableColumn<R>,
@@ -44,7 +44,7 @@ const renderTd = <R,>(row: R) => (
 );
 
 export const Table = <R,>(props: Props<R>) => (
-	<table className={[s.container, background.primary].join(" ")}>
+	<table className={[s.container, background.strong].join(" ")}>
 		<thead>
 			<tr>{props.columns.map(renderTh)}</tr>
 		</thead>

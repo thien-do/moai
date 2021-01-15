@@ -1,8 +1,8 @@
 import * as React from "react";
 import { background } from "../background/background";
-import { Border } from "../border/border";
+import { Border, border } from "../border/border";
+import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
-import { paneStyle } from "../pane/style";
 import s from "./dialog.module.css";
 import { DialogMessage } from "./utils/message";
 
@@ -15,14 +15,24 @@ export interface DialogProps extends ChildrenProps {
 	width?: "fixed" | "content";
 }
 
-export const DialogPane = (props: DialogProps) => {
+export const DialogPane = (props: DialogProps): JSX.Element => {
 	const width = props.width === "fixed" ? s.widthFixed : s.widthAuto;
+	const style = DialogPane.styles.outset;
 	return (
 		<div
-			className={[s.dialog, paneStyle.outset, width].join(" ")}
+			className={[s.dialog, style, width].join(" ")}
 			children={props.children}
 		/>
 	);
+};
+
+DialogPane.styles = {
+	outset: [
+		border.px1,
+		border.strong,
+		boxShadow.strong,
+		background.strong,
+	].join(" "),
 };
 
 export const Dialog = (props: DialogProps) => (
@@ -34,7 +44,7 @@ export const Dialog = (props: DialogProps) => (
 	>
 		{/* Separate so we can use opacity instead of alpha channel */}
 		<div
-			className={[background.secondary, s.backdrop, s.fill].join(" ")}
+			className={[background.weak, s.backdrop, s.fill].join(" ")}
 			onClick={props.onEsc}
 		/>
 		<DialogPane {...props} />

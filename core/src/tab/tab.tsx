@@ -1,6 +1,6 @@
 import * as React from "react";
 import { background } from "../background/background";
-import { borderColor } from "../border/border";
+import { border } from "../border/border";
 import { outline } from "../outline/outline";
 import { Pane } from "../pane/pane";
 import s from "./tab.module.css";
@@ -80,7 +80,7 @@ export const Tabs = (props: Props): JSX.Element => {
 const outsetStyle: TabStyle = {
 	content: s.outsetContent!,
 	title: s.outsetTitle!,
-	active: [borderColor.strong, background.primary].join(" "),
+	active: [border.strong, background.strong].join(" "),
 	inactive: s.outsetInactive!,
 	renderContent: (children, props) => (
 		<Pane
@@ -92,9 +92,9 @@ const outsetStyle: TabStyle = {
 };
 
 const flatStyle: TabStyle = {
-	content: [s.flatContent, borderColor.weak].join(" "),
+	content: [s.flatContent, border.weak].join(" "),
 	title: s.flatTitle!,
-	active: borderColor.blueStrong,
+	active: border.blueStrong,
 	inactive: s.flatInactive!,
 	renderContent: (children, props) => (
 		<div

@@ -1,12 +1,6 @@
-.border {
-	border-right: none;
-	border-bottom: none;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-left-style: solid;
-	border-left-width: 1px;
-	align-self: stretch;
-	height: auto;
+.px1 {
+	border-width: 1px;
+	border-style: solid;
 }
 
 :global(.light) .weak {
@@ -37,4 +31,13 @@
 }
 :global(.dark) .blueStrong {
 	border-color: var(--blue-5);
+}
+
+.borderFull {
+	border-right: none;
+	border-bottom: none;
+	border-top-style: solid;
+	border-left-style: solid;
+	align-self: stretch;
+	height: auto;
 }

@@ -1076,10 +1076,10 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@moai/core@0.185.0":
-  version "0.185.0"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.185.0.tgz#09f73549fe28ac46e87d539e4c3c75cb79c3989c"
-  integrity sha512-Dk07GS5c0u9sxfQoe2FY5UrPhwd+fognDP8WNuNvpRg5YqNvgYFOy41k6jDf3LrLViB9ynX8VuTzW1XrYx90Jw==
+"@moai/core@0.186.0":
+  version "0.186.0"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.186.0.tgz#d59183e50881033d17aebdaed3966debcbdd69fb"
+  integrity sha512-mPrNbxNkWy/4VMZLG4viM1RWRdRFPN6+QTqbmJLuWsAaQlc5lMrh9IPugOpdT0243YR/Vt9SRdfCDnRTuaXnGQ==
   dependencies:
     "@popperjs/core" "2.6.0"
     "@tippyjs/react" "4.2.0"

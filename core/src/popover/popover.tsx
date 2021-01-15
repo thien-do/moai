@@ -2,7 +2,9 @@ import { Placement } from "@popperjs/core";
 import * as React from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
-import { paneStyle } from "../pane/style";
+import { background } from "../background/background";
+import { border } from "../border/border";
+import { boxShadow } from "../box-shadow/box-shadow";
 import { getPortalContainer } from "../utils/utils";
 import s from "./popover.module.css";
 
@@ -36,27 +38,30 @@ interface State {
 	toggle: () => void;
 }
 
-const Content = (props: PopoverProps & { state: State }) => (
-	<div
-		ref={props.state.setContent}
-		style={props.state.styles.popper}
-		className={[s.content, paneStyle.outset].join(" ")}
-		{...props.state.attributes.popper}
-	>
-		{props.content({ close: props.state.toggle })}
-
-		{/* Popper will apply inline transform to the ref-ed elemenet so we
-		need another element so we can rotate it */}
+const Content = (props: PopoverProps & { state: State }) => {
+	const style = Popover.styles.outset;
+	return (
 		<div
-			style={props.state.styles.arrow}
-			ref={props.state.setArrow}
-			className={s.arrow}
-			{...props.state.attributes.arrow}
+			ref={props.state.setContent}
+			style={props.state.styles.popper}
+			className={[s.content, style].join(" ")}
+			{...props.state.attributes.popper}
 		>
-			<div className={[s.arrowShape, paneStyle.outset].join(" ")} />
+			{props.content({ close: props.state.toggle })}
+
+			{/* Popper will apply inline transform to the ref-ed elemenet so we
+		need another element so we can rotate it */}
+			<div
+				style={props.state.styles.arrow}
+				ref={props.state.setArrow}
+				className={s.arrow}
+				{...props.state.attributes.arrow}
+			>
+				<div className={[s.arrowShape, style].join(" ")} />
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 export const Popover = (props: PopoverProps) => {
 	const [opened, setOpened] = React.useState(false);
@@ -114,4 +119,13 @@ export const Popover = (props: PopoverProps) => {
 				)}
 		</div>
 	);
+};
+
+Popover.styles = {
+	outset: [
+		border.px1,
+		border.strong,
+		boxShadow.strong,
+		background.strong,
+	].join(" "),
 };

@@ -1,7 +1,6 @@
-import React from "react";
-
 import s from "./field.module.css";
 import { DivPx } from "../div/div";
+import { createElement } from "react";
 
 interface Props {
 	label?: React.ReactNode;
@@ -13,7 +12,7 @@ interface Props {
 export const FormField: React.FC<Props> = (props) => {
 	const { label, children, useLabelTag, labelWidth } = props;
 	const labelStyle = { width: labelWidth ?? "auto" };
-	return React.createElement(
+	return createElement(
 		useLabelTag ? "label" : "div",
 		{ className: s.container },
 		<span className={s.label} style={labelStyle}>

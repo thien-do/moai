@@ -132,7 +132,7 @@ Input.styles = {
 			s.outset,
 			sOutset.main,
 			sRadius.container,
-			background.primary,
+			background.strong,
 		].join(" "),
 	} as InputStyle,
 	flat: {

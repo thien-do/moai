@@ -2,10 +2,11 @@ import { ReactNode } from "react";
 import s from "./background.module.css";
 
 export const background = {
-	primary: s.primary as string,
-	secondary: s.secondary as string,
+	// Grayscale
+	strong: s.strong as string,
+	weak: s.weak as string,
 	inverse: s.inverse as string,
-	// ===
+	// Colored
 	blueStrong: s.blueStrong as string,
 	blueWeak: s.blueWeak as string,
 	greenStrong: s.greenStrong as string,

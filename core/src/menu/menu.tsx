@@ -1,10 +1,9 @@
 import * as React from "react";
 import { background } from "../background/background";
-import { borderColor } from "../border/border";
+import { border } from "../border/border";
 import { boxShadow } from "../box-shadow/box-shadow";
 import { DivPx } from "../div/div";
 import { MenuItem } from "./item/item";
-import s from "./menu.module.css";
 
 export interface MenuItemAction {
 	label: string;
@@ -36,16 +35,10 @@ export const Menu = (props: Props) => {
 		return () => document.removeEventListener("click", listener);
 	}, [onEsc]);
 
+	const style = Menu.styles.outset;
+
 	return (
-		<div
-			className={[
-				s.container,
-				background.primary,
-				borderColor.strong,
-				boxShadow.strong,
-			].join(" ")}
-			ref={ref}
-		>
+		<div className={style} ref={ref}>
 			<DivPx size={8} />
 			{props.items.map((item, index) => (
 				<MenuItem key={index} item={item} />
@@ -53,4 +46,13 @@ export const Menu = (props: Props) => {
 			<DivPx size={8} />
 		</div>
 	);
+};
+
+Menu.styles = {
+	outset: [
+		border.px1,
+		border.strong,
+		boxShadow.strong,
+		background.strong,
+	].join(" "),
 };

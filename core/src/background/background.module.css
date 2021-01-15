@@ -1,19 +1,19 @@
-:global(.light) .primary {
+:global(.light) .strong {
 	background-color: var(--gray-0);
 	color: var(--gray-9);
 }
 
-:global(.dark) .primary {
+:global(.dark) .strong {
 	background-color: var(--gray-8);
 	color: var(--gray-1);
 }
 
-:global(.light) .secondary {
+:global(.light) .weak {
 	background-color: var(--gray-1);
 	color: var(--gray-9);
 }
 
-:global(.dark) .secondary {
+:global(.dark) .weak {
 	background-color: var(--gray-9);
 	color: var(--gray-1);
 }
