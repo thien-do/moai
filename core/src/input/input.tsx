@@ -6,7 +6,7 @@ import { text } from "../text/text";
 import s from "./input.module.css";
 import sOutset from "./outset.module.css";
 import sFlat from "./flat.module.css";
-import sRadius from "../button/border-radius.module.css";
+import { border } from "../border/border";
 
 export interface InputStyle {
 	main: string;
@@ -131,7 +131,7 @@ Input.styles = {
 		main: [
 			s.outset,
 			sOutset.main,
-			sRadius.container,
+			border.radius,
 			background.strong,
 		].join(" "),
 	} as InputStyle,

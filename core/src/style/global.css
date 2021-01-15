@@ -56,6 +56,9 @@
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
 	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
+
+	/* Border Radius */
+	--radius-weak: 3px
 }
 
 p,

@@ -1,6 +1,6 @@
 {
 	"name": "@moai/gallery",
-	"version": "0.18.0",
+	"version": "0.21.0",
 	"description": "Widget gallery of Moai UI kit 🗿",
 	"main": "cjs.js",
 	"module": "esm.js",
@@ -28,7 +28,7 @@
 	},
 	"homepage": "https://moaijs.com",
 	"dependencies": {
-		"@moai/core": "0.186.0",
+		"@moai/core": "0.188.0",
 		"@moai/icon": "0.36.0"
 	},
 	"peerDependencies": {

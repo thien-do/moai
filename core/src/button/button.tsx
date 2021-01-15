@@ -1,9 +1,9 @@
 import React from "react";
+import { border } from "../border/border";
 import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { ProgressCircle } from "../progress/circle";
-import borderRadius from "./border-radius.module.css";
 import s from "./button.module.css";
 import flat from "./flat.module.css";
 import outset from "./outset.module.css";
@@ -146,7 +146,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
 
 Button.styles = {
 	outset: {
-		main: [borderRadius.container, outset.main].join(" "),
+		main: [border.radius, outset.main].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
 		busy: outset.busy,
@@ -186,5 +186,3 @@ Button.Forwarded = React.forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
 	ButtonProps
 >((props, ref) => <Button forwardedRef={ref} {...props} />);
-
-Button.borderRadius = borderRadius;

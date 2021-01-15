@@ -1,5 +1,5 @@
 import { ChangeEventHandler, ForwardedRef } from "react";
-import sRadius from "../button/border-radius.module.css";
+import { border } from "../border/border";
 import flat from "../button/flat.module.css";
 import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
@@ -98,7 +98,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 
 Select.styles = {
 	outset: {
-		select: [sRadius.container, outset.main].join(" "),
+		select: [border.radius, outset.main].join(" "),
 	} as SelectStyle,
 	flat: {
 		select: [flat.main].join(" "),

@@ -3,6 +3,8 @@
 	border-style: solid;
 }
 
+/* Color */
+
 :global(.light) .weak {
 	border-color: var(--gray-2);
 }
@@ -40,4 +42,20 @@
 	border-left-style: solid;
 	align-self: stretch;
 	height: auto;
+}
+
+/* Radius */
+
+.radius {
+	border-radius: var(--radius-weak);
+}
+
+:global(.group-tail) .radius {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+:global(.group-init) .radius {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }

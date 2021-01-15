@@ -1,6 +1,8 @@
 import s from "./border.module.css";
 
 export const border = {
+	// Radius
+	radius: s.radius,
 	// Size
 	px1: s.px1,
 	// Grayscale
