@@ -3,7 +3,7 @@ import "./style/style";
 
 export * from "./background/background";
 export * from "./border/border";
-export * from "./box-shadow/box-shadow";
+export * from "./shadow/shadow";
 export * from "./button-group/button-group";
 export * from "./button-menu/button-menu";
 export * from "./button/button";

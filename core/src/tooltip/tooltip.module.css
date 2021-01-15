@@ -2,7 +2,6 @@
 	padding: 8px 12px;
 	width: max-content;
 	max-width: 288px;
-	border-radius: 2px;
 	background-color: var(--gray-7);
 	color: var(--gray-1);
 }

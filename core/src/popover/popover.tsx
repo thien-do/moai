@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import { background } from "../background/background";
 import { border } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
+import { shadow } from "../shadow/shadow";
 import { getPortalContainer } from "../utils/utils";
 import s from "./popover.module.css";
 
@@ -44,7 +44,7 @@ const Content = (props: PopoverProps & { state: State }) => {
 		<div
 			ref={props.state.setContent}
 			style={props.state.styles.popper}
-			className={[s.content, style].join(" ")}
+			className={[s.content, style.content, style.pane].join(" ")}
 			{...props.state.attributes.popper}
 		>
 			{props.content({ close: props.state.toggle })}
@@ -57,7 +57,7 @@ const Content = (props: PopoverProps & { state: State }) => {
 				className={s.arrow}
 				{...props.state.attributes.arrow}
 			>
-				<div className={[s.arrowShape, style].join(" ")} />
+				<div className={[s.arrowShape, style.pane].join(" ")} />
 			</div>
 		</div>
 	);
@@ -122,10 +122,8 @@ export const Popover = (props: PopoverProps) => {
 };
 
 Popover.styles = {
-	outset: [
-		border.px1,
-		border.strong,
-		boxShadow.strong,
-		background.strong,
-	].join(" "),
+	outset: {
+		content: [shadow.dropStrong].join(" "),
+		pane: [border.px1, border.strong, background.strong].join(" ")
+	},
 };

@@ -5,9 +5,9 @@
 	--blue-2: #bae5fd;
 	--blue-3: #7ed4fc;
 	--blue-4: #3abff8;
-	--blue-5: #0da2e7; /* blue-2 blue 3 */
-	--blue-6: #0284c5; /* blue-1 */
-	--blue-7: #0369a0; /* blue-0 */
+	--blue-5: #0da2e7;
+	--blue-6: #0284c5;
+	--blue-7: #0369a0;
 	--blue-8: #075783;
 	--blue-9: #0c4a6e;
 
@@ -58,7 +58,11 @@
 	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
 
 	/* Border Radius */
-	--radius-weak: 3px
+	--radius-1: 3px;
+
+	/* Shadow */
+	--shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.1);
+	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 p,

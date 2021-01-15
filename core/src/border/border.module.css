@@ -47,7 +47,7 @@
 /* Radius */
 
 .radius {
-	border-radius: var(--radius-weak);
+	border-radius: var(--radius-1);
 }
 
 :global(.group-tail) .radius {

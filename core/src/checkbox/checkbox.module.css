@@ -1,7 +1,3 @@
-.input {
-	border-radius: 3px;
-}
-
 .input:checked ~ .check,
 .input:indeterminate ~ .indeterminate {
 	opacity: 1;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
+import { shadow } from "../shadow/shadow";
 import { DivPx } from "../div/div";
 import { MenuItem } from "./item/item";
 
@@ -52,7 +52,7 @@ Menu.styles = {
 	outset: [
 		border.px1,
 		border.strong,
-		boxShadow.strong,
+		shadow.boxStrong,
 		background.strong,
 	].join(" "),
 };

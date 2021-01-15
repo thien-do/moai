@@ -38,7 +38,8 @@
 	border-style: solid;
 	border-width: 1px;
 	border-bottom: none;
-	border-radius: 3px 3px 0 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 .outsetInactive {

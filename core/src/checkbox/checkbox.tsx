@@ -5,6 +5,7 @@ import { outline } from "../outline/outline";
 import self from "./checkbox.module.css";
 import shared from "./shared.module.css";
 import outset from "./outset.module.css";
+import { border } from "../border/border";
 
 interface CheckboxStyle {
 	input: string;
@@ -58,6 +59,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 					shared.input,
 					style.input,
 					self.input,
+					border.radius,
 					outline.normal,
 				].join(" ")}
 				disabled={props.disabled}

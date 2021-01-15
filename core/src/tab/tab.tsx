@@ -79,7 +79,7 @@ export const Tabs = (props: Props): JSX.Element => {
 
 const outsetStyle: TabStyle = {
 	content: s.outsetContent!,
-	title: s.outsetTitle!,
+	title: [s.outsetTitle!, border.radius].join(" "),
 	active: [border.strong, background.strong].join(" "),
 	inactive: s.outsetInactive!,
 	renderContent: (children, props) => (

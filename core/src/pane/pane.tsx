@@ -1,6 +1,6 @@
 import { background } from "../background/background";
 import { border } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
+import { shadow } from "../shadow/shadow";
 import s from "./pane.module.css";
 
 interface Props {
@@ -21,7 +21,7 @@ export const Pane = (props: Props): JSX.Element => (
 );
 
 Pane.styles = {
-	outset: [border.px1, background.strong, border.strong, boxShadow.weak].join(
+	outset: [border.px1, background.strong, border.strong, shadow.boxWeak].join(
 		" "
 	),
 };

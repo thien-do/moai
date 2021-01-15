@@ -1,5 +1,6 @@
 import Tippy, { TippyProps } from "@tippyjs/react/headless";
-import { boxShadow } from "../box-shadow/box-shadow";
+import { border } from "../border/border";
+import { shadow } from "../shadow/shadow";
 import { Paragraph } from "../text/text";
 import s from "./tooltip.module.css";
 
@@ -17,7 +18,7 @@ interface PaneProps {
 export const TooltipPane = (props: PaneProps): JSX.Element => (
 	<div className="dark">
 		<div
-			className={[s.content, boxShadow.strong].join(" ")}
+			className={[s.content, shadow.boxStrong, border.radius].join(" ")}
 			tabIndex={-1}
 			{...props.attrs}
 		>

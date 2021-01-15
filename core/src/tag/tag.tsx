@@ -1,3 +1,4 @@
+import { border } from "../border/border";
 import s from "./tag.module.css";
 
 export interface TagType {
@@ -10,7 +11,10 @@ interface Props {
 }
 
 export const Tag = ({ children, type }: Props): JSX.Element => (
-	<span className={[s.container, type.cls].join(" ")} children={children} />
+	<span
+		className={[border.radius, s.container, type.cls].join(" ")}
+		children={children}
+	/>
 );
 
 Tag.types = {

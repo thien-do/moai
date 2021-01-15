@@ -1,7 +1,7 @@
 import * as React from "react";
 import { background } from "../background/background";
 import { Border, border } from "../border/border";
-import { boxShadow } from "../box-shadow/box-shadow";
+import { shadow } from "../shadow/shadow";
 import { DivPx } from "../div/div";
 import s from "./dialog.module.css";
 import { DialogMessage } from "./utils/message";
@@ -30,7 +30,7 @@ DialogPane.styles = {
 	outset: [
 		border.px1,
 		border.strong,
-		boxShadow.strong,
+		shadow.boxStrong,
 		background.strong,
 	].join(" "),
 };

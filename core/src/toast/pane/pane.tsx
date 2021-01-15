@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { Border } from "../../border/border";
-import { boxShadow } from "../../box-shadow/box-shadow";
+import { border, Border } from "../../border/border";
+import { shadow } from "../../shadow/shadow";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
 import { Icon, IconPath } from "../../icon/icon";
@@ -21,7 +21,9 @@ interface Props {
 
 export const ToastPane = (props: Props): JSX.Element => (
 	<div className="dark">
-		<div className={[s.container, boxShadow.strong].join(" ")}>
+		<div
+			className={[s.container, shadow.boxStrong, border.radius].join(" ")}
+		>
 			<div className={[s.icon, props.type.iconCls].join(" ")}>
 				<Icon display="block" path={props.type.iconPath} />
 			</div>
