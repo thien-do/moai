@@ -46,28 +46,28 @@
 :global(.light) .highlight {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
 	color: var(--gray-1);
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
-	border-color: var(--blue-7);
+	background-color: var(--highlight-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	border-color: var(--highlight-7);
 }
 :global(.light) .highlight:hover {
-	background-color: var(--blue-4);
+	background-color: var(--highlight-4);
 }
 :global(.light) .highlight:active {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 }
 
 :global(.dark) .highlight {
 	color: var(--gray-1);
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
+	background-color: var(--highlight-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
 	border-color: var(--gray-10);
 }
 :global(.dark) .highlight:hover {
-	background-color: var(--blue-4);
+	background-color: var(--highlight-4);
 }
 :global(.dark) .highlight:active {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 	box-shadow: none;
 }
 
@@ -79,7 +79,7 @@
 }
 
 :global(.light) .highlight.selected:not(.win-pseudo) {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 	box-shadow: 0px 0px 0px transparent;
 }
 
@@ -93,7 +93,7 @@
 :global(.dark) .highlight.selected,
 :global(.dark) .highlight.selected:hover,
 :global(.dark) .highlight.selected:active {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 	box-shadow: 0px 0px 0px transparent;
 }
 

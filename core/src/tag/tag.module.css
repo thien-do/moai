@@ -17,31 +17,31 @@
 }
 
 :global(.light) .failure {
-	background-color: var(--red-1);
-	color: var(--red-9);
+	background-color: var(--failure-1);
+	color: var(--failure-9);
 }
 
 :global(.dark) .failure {
-	background-color: var(--red-9);
-	color: var(--red-2);
+	background-color: var(--failure-9);
+	color: var(--failure-2);
 }
 
 :global(.light) .highlight {
-	background-color: var(--blue-1);
-	color: var(--blue-9);
+	background-color: var(--highlight-1);
+	color: var(--highlight-9);
 }
 
 :global(.dark) .highlight {
-	background-color: var(--blue-9);
-	color: var(--blue-2);
+	background-color: var(--highlight-9);
+	color: var(--highlight-2);
 }
 
 :global(.light) .success {
-	background-color: var(--green-1);
-	color: var(--green-9);
+	background-color: var(--success-1);
+	color: var(--success-9);
 }
 
 :global(.dark) .success {
-	background-color: var(--green-9);
-	color: var(--green-2);
+	background-color: var(--success-9);
+	color: var(--success-2);
 }

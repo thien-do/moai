@@ -50,10 +50,10 @@ export const ToastPane = (props: Props): JSX.Element => (
 ToastPane.types = {
 	success: {
 		iconPath: coreIcons.success,
-		iconCls: text.greenStrong,
+		iconCls: text.successStrong,
 	} as ToastPaneType,
 	failure: {
 		iconPath: coreIcons.error,
-		iconCls: text.redStrong,
+		iconCls: text.failureStrong,
 	} as ToastPaneType,
 };

@@ -28,44 +28,44 @@
 	color: var(--gray-1);
 }
 
-:global(.light) .redWeak {
-	background-color: var(--red-6);
+:global(.light) .failureWeak {
+	background-color: var(--failure-6);
 }
-:global(.dark) .redWeak {
-	background-color: var(--red-5);
-}
-
-:global(.light) .redStrong {
-	background-color: var(--red-7);
-}
-:global(.dark) .redStrong {
-	background-color: var(--red-4);
+:global(.dark) .failureWeak {
+	background-color: var(--failure-5);
 }
 
-:global(.light) .greenWeak {
-	background-color: var(--green-6);
+:global(.light) .failureStrong {
+	background-color: var(--failure-7);
 }
-:global(.dark) .greenWeak {
-	background-color: var(--green-6);
-}
-
-:global(.light) .greenStrong {
-	background-color: var(--green-7);
-}
-:global(.dark) .greenStrong {
-	background-color: var(--green-5);
+:global(.dark) .failureStrong {
+	background-color: var(--failure-4);
 }
 
-:global(.light) .blueWeak {
-	background-color: var(--blue-6);
+:global(.light) .successWeak {
+	background-color: var(--success-6);
 }
-:global(.dark) .blueWeak {
-	background-color: var(--blue-5);
+:global(.dark) .successWeak {
+	background-color: var(--success-6);
 }
 
-:global(.light) .blueStrong {
-	background-color: var(--blue-7);
+:global(.light) .successStrong {
+	background-color: var(--success-7);
 }
-:global(.dark) .blueStrong {
-	background-color: var(--blue-5);
+:global(.dark) .successStrong {
+	background-color: var(--success-5);
+}
+
+:global(.light) .highlightWeak {
+	background-color: var(--highlight-6);
+}
+:global(.dark) .highlightWeak {
+	background-color: var(--highlight-5);
+}
+
+:global(.light) .highlightStrong {
+	background-color: var(--highlight-7);
+}
+:global(.dark) .highlightStrong {
+	background-color: var(--highlight-5);
 }

@@ -9,8 +9,8 @@ export const border = {
 	strong: s.strong,
 	weak: s.weak,
 	// Colored
-	blueStrong: s.blueStrong,
-	blueWeak: s.blueWeak,
+	highlightStrong: s.highlightStrong,
+	highlightWeak: s.highlightWeak,
 };
 
 interface Props {

@@ -7,12 +7,12 @@ export const background = {
 	weak: s.weak as string,
 	inverse: s.inverse as string,
 	// Colored
-	blueStrong: s.blueStrong as string,
-	blueWeak: s.blueWeak as string,
-	greenStrong: s.greenStrong as string,
-	greenWeak: s.greenWeak as string,
-	redStrong: s.redStrong as string,
-	redWeak: s.redWeak as string,
+	highlightStrong: s.highlightStrong as string,
+	highlightWeak: s.highlightWeak as string,
+	successStrong: s.successStrong as string,
+	successWeak: s.successWeak as string,
+	failureStrong: s.failureStrong as string,
+	failureWeak: s.failureWeak as string,
 };
 
 interface Props {

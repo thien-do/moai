@@ -1,37 +1,36 @@
 :root {
-	/* accent */
-	--blue-0: #f0f9ff;
-	--blue-1: #e1f3fe;
-	--blue-2: #bae5fd;
-	--blue-3: #7ed4fc;
-	--blue-4: #3abff8;
-	--blue-5: #0da2e7;
-	--blue-6: #0284c5;
-	--blue-7: #0369a0;
-	--blue-8: #075783;
-	--blue-9: #0c4a6e;
+	--highlight-0: #f0f9ff;
+	--highlight-1: #e1f3fe;
+	--highlight-2: #bae5fd;
+	--highlight-3: #7ed4fc;
+	--highlight-4: #3abff8;
+	--highlight-5: #0da2e7;
+	--highlight-6: #0284c5;
+	--highlight-7: #0369a0;
+	--highlight-8: #075783;
+	--highlight-9: #0c4a6e;
 
-	--green-0: #ecfdf5;
-	--green-1: #d1fae5;
-	--green-2: #a7f3d0;
-	--green-3: #6ee7b7;
-	--green-4: #34d399;
-	--green-5: #10b981;
-	--green-6: #059669;
-	--green-7: #047857;
-	--green-8: #065f46;
-	--green-9: #064e3b;
+	--success-0: #ecfdf5;
+	--success-1: #d1fae5;
+	--success-2: #a7f3d0;
+	--success-3: #6ee7b7;
+	--success-4: #34d399;
+	--success-5: #10b981;
+	--success-6: #059669;
+	--success-7: #047857;
+	--success-8: #065f46;
+	--success-9: #064e3b;
 
-	--red-0: #fff1f2;
-	--red-1: #ffe4e6;
-	--red-2: #fecdd3;
-	--red-3: #fda4af;
-	--red-4: #fb7185;
-	--red-5: #f43f5e;
-	--red-6: #e11d48;
-	--red-7: #be123c;
-	--red-8: #9f1239;
-	--red-9: #881337;
+	--failure-0: #fff1f2;
+	--failure-1: #ffe4e6;
+	--failure-2: #fecdd3;
+	--failure-3: #fda4af;
+	--failure-4: #fb7185;
+	--failure-5: #f43f5e;
+	--failure-6: #e11d48;
+	--failure-7: #be123c;
+	--failure-8: #9f1239;
+	--failure-9: #881337;
 
 	/*
 	Format:

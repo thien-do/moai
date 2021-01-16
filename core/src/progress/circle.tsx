@@ -42,7 +42,7 @@ const getStroke = (props: Props) => {
 
 export const ProgressCircle = (props: Props) => {
 	const stroke = getStroke(props);
-	const color = props.color ?? ProgressCircle.colors.base;
+	const color = props.color ?? ProgressCircle.colors.neutral;
 	return (
 		<span className={s.wrapper}>
 			<svg
@@ -78,7 +78,7 @@ const colorBase: Omit<ProgressCircleColor, "container"> = {
 };
 
 ProgressCircle.colors = {
-	base: { ...colorBase, container: s.base } as ProgressCircleColor,
+	neutral: { ...colorBase, container: s.neutral } as ProgressCircleColor,
 	highlight: { ...colorBase, container: s.highlight } as ProgressCircleColor,
 	inverse: { ...colorBase, container: s.inverse } as ProgressCircleColor,
 };

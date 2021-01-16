@@ -16,7 +16,7 @@ storiesOf("Progress", module).add("Circle", () => (
 			/>
 		</div>
 		<DivPx size={16} />
-		<div style={{ background: "var(--blue-5)", padding: 8 }}>
+		<div style={{ background: "var(--highlight-5)", padding: 8 }}>
 			<ProgressCircle
 				size={16}
 				value="indeterminate"

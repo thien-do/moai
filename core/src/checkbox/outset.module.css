@@ -40,33 +40,33 @@
 :global(.light) .input:checked,
 :global(.light) .input:indeterminate {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
-	border-color: var(--blue-7);
+	background-color: var(--highlight-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	border-color: var(--highlight-7);
 }
 :global(.light) .input:checked:hover,
 :global(.light) .input:indeterminate:hover {
-	background-color: var(--blue-4);
+	background-color: var(--highlight-4);
 }
 :global(.light) .input:checked:active,
 :global(.light) .input:indeterminate:active {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 	box-shadow: none;
 }
 
 :global(.dark) .input:checked,
 :global(.dark) .input:indeterminate {
-	background-color: var(--blue-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--blue-4);
+	background-color: var(--highlight-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
 	border-color: var(--gray-10);
 }
 :global(.dark) .input:checked:hover,
 :global(.dark) .input:indeterminate:hover {
-	background-color: var(--blue-4);
+	background-color: var(--highlight-4);
 }
 :global(.dark) .input:checked:active,
 :global(.dark) .input:indeterminate:active {
-	background-color: var(--blue-6);
+	background-color: var(--highlight-6);
 	box-shadow: none;
 }
 
