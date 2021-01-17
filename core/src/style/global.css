@@ -99,7 +99,13 @@ a {
 html {
 	font-family: var(--font-sans);
 	font-size: 14px;
-	line-height: 16px;
+
+	/*
+	This must be larger than the original line-height at 14px (defined by the
+	font itself) which is 17px to avoid Firefox to reset it. Also it must be
+	large enough to not cut the character (test with "g" and "ấ")
+	*/
+	line-height: 20px;
 }
 
 .light {
