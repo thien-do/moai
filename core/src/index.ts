@@ -28,6 +28,7 @@ export * from "./radio/radio";
 export * from "./range/range";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";
+export * from "./step/step";
 export * from "./switcher/switcher";
 export * from "./tab/tab";
 export * from "./table/table";
