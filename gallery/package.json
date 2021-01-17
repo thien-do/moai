@@ -1,6 +1,6 @@
 {
 	"name": "@moai/gallery",
-	"version": "0.22.0",
+	"version": "0.23.0",
 	"description": "Widget gallery of Moai UI kit 🗿",
 	"main": "cjs.js",
 	"module": "esm.js",
@@ -27,15 +27,16 @@
 		"url": "https://github.com/thien-do/moai/issues"
 	},
 	"homepage": "https://moaijs.com",
-	"dependencies": {
-		"@moai/core": "^0.190.0",
-		"@moai/icon": "0.36.0"
-	},
+	"dependencies": {},
 	"peerDependencies": {
+		"@moai/core": ">=0",
+		"@moai/icon": ">=0",
 		"react": ">=16"
 	},
 	"devDependencies": {
 		"@babel/core": "7.12.10",
+		"@moai/core": ">=0.192.0",
+		"@moai/icon": ">=0",
 		"@rollup/plugin-json": "4.1.0",
 		"@rollup/plugin-replace": "2.3.4",
 		"@storybook/react": "6.1.14",
@@ -44,7 +45,7 @@
 		"autoprefixer": "10.2.1",
 		"babel-loader": "8.2.2",
 		"postcss": "8.2.4",
-		"rollup": "2.36.1",
+		"rollup": "2.36.2",
 		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-delete": "2.0.0",
 		"rollup-plugin-dts": "2.0.1",

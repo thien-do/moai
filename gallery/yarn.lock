@@ -1076,10 +1076,10 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@moai/core@^0.190.0":
-  version "0.190.0"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.190.0.tgz#ab63d23f48136bd93249849a5c405b9b7ceedf7f"
-  integrity sha512-OK+rYKQl/RyS6hkP32aXlfX2l2RtFm1FYp+Kf+71/v+I8OIcQjoxWwgMF8MW+oLGHvVDKv2KW9msr4ec7s7i3Q==
+"@moai/core@>=0.192.0":
+  version "0.192.0"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.192.0.tgz#aac40c607df584fabc357517505442177c5de260"
+  integrity sha512-or+KB0M9yOh2Yo/Kja5boqJrlGxGJ/u8K35xM0hn9Jjjg+Jsgf5hi4VOk+E21v+gkk538OulQDAJZoJaIt46xw==
   dependencies:
     "@popperjs/core" "2.6.0"
     "@tippyjs/react" "4.2.0"
@@ -1088,7 +1088,7 @@
     react-popper "2.2.4"
     sanitize.css "12.0.1"
 
-"@moai/icon@0.36.0":
+"@moai/icon@>=0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@moai/icon/-/icon-0.36.0.tgz#10a8e390d3feb066ea7f407aa2a78c8387793702"
   integrity sha512-GNArXJqb/QlzUzJ8JZNcSSvZxV7ReWGvaQfNcuNCWU9Vq8O2VfIcMovdDrYETLu6w5hr33/CH/xzPNe9A4V3nA==
@@ -8101,10 +8101,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.36.1:
-  version "2.36.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.36.1.tgz#2174f0c25c7b400d57b05628d0e732c7ae8d2178"
-  integrity sha512-eAfqho8dyzuVvrGqpR0ITgEdq0zG2QJeWYh+HeuTbpcaXk8vNFc48B7bJa1xYosTCKx0CuW+447oQOW8HgBIZQ==
+rollup@2.36.2:
+  version "2.36.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.36.2.tgz#883fc793c70c8481ad604f1065cd79ab0a4e9c49"
+  integrity sha512-qjjiuJKb+/8n0EZyQYVW+gFU4bNRBcZaXVzUgSVrGw0HlQBlK2aWyaOMMs1Ufic1jV69b9kW3u3i9B+hISDm3A==
   optionalDependencies:
     fsevents "~2.1.2"
 
