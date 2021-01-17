@@ -73,7 +73,7 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 						color={
 							props.highlight
 								? ProgressCircle.colors.inverse
-								: ProgressCircle.colors.base
+								: ProgressCircle.colors.neutral
 						}
 					/>
 				</span>
