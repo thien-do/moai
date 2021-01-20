@@ -1,0 +1,9 @@
+.input:checked ~ .line {
+	background-color: var(--highlight-3);
+}
+
+.input:checked ~ .dot {
+	background-color: var(--highlight-5);
+	transform: translateX(90%);
+	border-color: var(--highlight-5);;
+}

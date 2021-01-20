@@ -1,0 +1,7 @@
+
+/* DOT */
+
+:global(.dark) .dot {
+	border-color: var(--gray-0);
+	background-color: var(--gray-0);
+}

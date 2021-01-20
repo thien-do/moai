@@ -1,0 +1,33 @@
+.container {
+	display: flex;
+	align-items: flex-start;
+	line-height: 20px;
+	position: relative;
+	width: max-content;
+	cursor: pointer;
+}
+
+.input {
+	display: none;
+}
+
+.line {
+	height: 14px;
+	width: 34px;
+	background-color: var(--gray-5);
+	border-radius: 7px;
+}
+
+.dot {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	border-width: 2px;
+	border-color: var(--gray-8);
+	border-style: solid;
+	background-color: var(--gray-8);
+	position: absolute;
+	top: -3px;
+	transform: translateX(0);
+	transition: transform 0.1s ease-out;
+}
