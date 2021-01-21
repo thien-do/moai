@@ -84,7 +84,7 @@ interface RowProps {
 
 const Name = ({ set }: RowProps): JSX.Element => (
 	<a
-		className={[text.blueStrong].join(" ")}
+		className={[text.highlightStrong].join(" ")}
 		href={set.link}
 		target="_blank"
 		rel="noopener"
