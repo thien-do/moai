@@ -21,19 +21,17 @@ interface TabStyle {
 
 interface Props {
 	children: Tab[];
+	activeTab: string;
+	setActiveTab: (tab: string) => void;
 	initialTab?: string;
 	noPadding?: boolean;
 	style?: TabStyle;
 	fullHeight?: boolean;
+	callbackOnTab?: (tabId: string) => void;
 }
 
-interface State {
-	active: string;
-	setActive: (str: string) => void;
-}
-
-const renderTitle = (props: Props, state: State) => (tab: Tab) => {
-	const { active, setActive } = state;
+const renderTitle = (props: Props) => (tab: Tab) => {
+	const { activeTab, setActiveTab } = props;
 	const style = props.style ?? Tabs.styles.outset;
 	return (
 		<button
@@ -41,9 +39,14 @@ const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 				s.title,
 				outline.normal,
 				style.title,
-				active === tab.id ? style.active : style.inactive,
+				activeTab === tab.id ? style.active : style.inactive,
 			].join(" ")}
-			onClick={() => setActive(tab.id)}
+			onClick={() => {
+				setActiveTab(tab.id);
+				if (props.callbackOnTab) {
+					props.callbackOnTab(tab.id)
+				}
+			}}
 			key={tab.id}
 			children={tab.title}
 		/>
@@ -51,27 +54,23 @@ const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 };
 
 export const Tabs = (props: Props): JSX.Element => {
-	const { children } = props;
+	const { children, activeTab } = props;
 	const style = props.style ?? Tabs.styles.outset;
 
 	if (children.length < 1) throw Error("Tabs must have at least one tab");
-	const [active, setActive] = React.useState(
-		props.initialTab ?? children[0].id
-	);
-	const state = { active, setActive };
 
-	const activeTab = children.find((tab) => tab.id === active);
-	if (activeTab === undefined) throw Error(`Tab "${active}" is not defined`);
+	const tab = children.find((tab) => tab.id === activeTab);
+	if (tab === undefined) throw Error(`Tab "${activeTab}" is not defined`);
 
 	const container = [s.container, props.fullHeight ? s.full : ""].join(" ");
 
 	return (
 		<div className={container}>
 			<div className={s.titles}>
-				{children.map(renderTitle(props, state))}
+				{children.map(renderTitle(props))}
 			</div>
 			<div className={[s.content, style.content].join(" ")}>
-				{style.renderContent(activeTab.pane(), props)}
+				{style.renderContent(tab.pane(), props)}
 			</div>
 		</div>
 	);
