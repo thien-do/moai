@@ -21,8 +21,10 @@ interface TabStyle {
 
 interface Props {
 	children: Tab[];
-	activeTab: string;
-	setActiveTab: (tab: string) => void;
+	control?: {
+		activeTab: string;
+		setActiveTab: (tab: string) => void;
+	}
 	initialTab?: string;
 	noPadding?: boolean;
 	style?: TabStyle;
@@ -30,19 +32,50 @@ interface Props {
 	callbackOnTab?: (tabId: string) => void;
 }
 
-const renderTitle = (props: Props) => (tab: Tab) => {
-	const { activeTab, setActiveTab } = props;
+interface State {
+	active: string;
+	setActive: (tab: string) => void;
+}
+
+const renderTitle = (props: Props, state: State) => (tab: Tab) => {
+	const { control } = props;
 	const style = props.style ?? Tabs.styles.outset;
+
+	// control
+	if(control) {
+		const { activeTab, setActiveTab } = control
+		return (
+			<button
+				className={[
+					s.title,
+					outline.normal,
+					style.title,
+					activeTab === tab.id ? style.active : style.inactive,
+				].join(" ")}
+				onClick={() => {
+					setActiveTab(tab.id);
+					if (props.callbackOnTab) {
+						props.callbackOnTab(tab.id)
+					}
+				}}
+				key={tab.id}
+				children={tab.title}
+			/>
+		);
+	}
+
+	// uncontrol
+	const { active, setActive } = state;
 	return (
 		<button
 			className={[
 				s.title,
 				outline.normal,
 				style.title,
-				activeTab === tab.id ? style.active : style.inactive,
+				active === tab.id ? style.active : style.inactive,
 			].join(" ")}
 			onClick={() => {
-				setActiveTab(tab.id);
+				setActive(tab.id);
 				if (props.callbackOnTab) {
 					props.callbackOnTab(tab.id)
 				}
@@ -54,20 +87,44 @@ const renderTitle = (props: Props) => (tab: Tab) => {
 };
 
 export const Tabs = (props: Props): JSX.Element => {
-	const { children, activeTab } = props;
+	const { children, control } = props;
 	const style = props.style ?? Tabs.styles.outset;
 
 	if (children.length < 1) throw Error("Tabs must have at least one tab");
 
-	const tab = children.find((tab) => tab.id === activeTab);
-	if (tab === undefined) throw Error(`Tab "${activeTab}" is not defined`);
-
+	const [active, setActive] = React.useState(	
+		props.initialTab ?? children[0].id	
+	);
+	const state = { active, setActive };
 	const container = [s.container, props.fullHeight ? s.full : ""].join(" ");
+
+	// control
+	if (control) {
+		const{ activeTab } = control;
+		
+		const tab = children.find((tab) => tab.id === activeTab);
+		if (tab === undefined) throw Error(`Tab "${activeTab}" is not defined`);
+		
+		return (
+			<div className={container}>
+				<div className={s.titles}>
+					{children.map(renderTitle(props, state))}
+				</div>
+				<div className={[s.content, style.content].join(" ")}>
+					{style.renderContent(tab.pane(), props)}
+				</div>
+			</div>
+		);
+	}
+
+	// uncontrol
+	const tab = children.find((tab) => tab.id === active);
+	if (tab === undefined) throw Error(`Tab "${active}" is not defined`);
 
 	return (
 		<div className={container}>
 			<div className={s.titles}>
-				{children.map(renderTitle(props))}
+				{children.map(renderTitle(props, state))}
 			</div>
 			<div className={[s.content, style.content].join(" ")}>
 				{style.renderContent(tab.pane(), props)}

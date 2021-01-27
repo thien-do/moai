@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/react"; //eslint-disable-line
-import React, { useState } from "react";
+import React from "react";
 import { Tab, Tabs } from "./tab";
 import { DivPx } from "../div/div";
 
@@ -8,20 +8,44 @@ const tabs: Tab[] = [
 	{ id: "Second", title: "Second", pane: () => <p>2nd</p> },
 ];
 
-storiesOf("Tab", module).add("Primary", () => {
-	const [activeTab, setActiveTab] = useState('Second')
+const tabsHaveCallback: Tab[] = [
+	{ id: "First", title: "First", pane: () => <p>Tab First has callback function</p> },
+	{ id: "Second", title: "Second", pane: () => <p>Tab Second has callback function</p> },
+];
+
+storiesOf("Tab", module).add("Control", () => {
+	const [activeTab, setActiveTab] = React.useState('Second')
 	return (
 		<div>
-			<Tabs setActiveTab={setActiveTab} activeTab={activeTab} children={tabs} callbackOnTab={(tabId) => alert(tabId)} />
+			<Tabs control={{activeTab, setActiveTab}} children={tabsHaveCallback} callbackOnTab={(tabId) => alert(tabId)} />
 			<DivPx size={16} />
-			<Tabs setActiveTab={setActiveTab} activeTab={activeTab} children={tabs} noPadding />
+			<Tabs control={{activeTab, setActiveTab}} children={tabs} noPadding />
 			<DivPx size={16} />
-			<Tabs setActiveTab={setActiveTab} activeTab={activeTab} style={Tabs.styles.flat} children={tabs} />
+			<Tabs control={{activeTab, setActiveTab}} style={Tabs.styles.flat} children={tabs} />
 			<DivPx size={16} />
-			<Tabs setActiveTab={setActiveTab} activeTab={activeTab} style={Tabs.styles.flat} children={tabs} noPadding />
+			<Tabs control={{activeTab, setActiveTab}} style={Tabs.styles.flat} children={tabs} noPadding />
 			<DivPx size={16} />
 			<div style={{ height: 200 }}>
-				<Tabs setActiveTab={setActiveTab} activeTab={activeTab} children={tabs} fullHeight />
+				<Tabs control={{activeTab, setActiveTab}} children={tabs} fullHeight />
+			</div>
+		</div>
+	)
+});
+
+
+storiesOf("Tab", module).add("Uncontrol", () => {
+	return (
+		<div>
+			<Tabs children={tabsHaveCallback} callbackOnTab={(tabId) => alert(tabId)} />
+			<DivPx size={16} />
+			<Tabs children={tabs} noPadding />
+			<DivPx size={16} />
+			<Tabs style={Tabs.styles.flat} children={tabs} />
+			<DivPx size={16} />
+			<Tabs style={Tabs.styles.flat} children={tabs} noPadding />
+			<DivPx size={16} />
+			<div style={{ height: 200 }}>
+				<Tabs children={tabs} fullHeight />
 			</div>
 		</div>
 	)
