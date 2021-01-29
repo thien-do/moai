@@ -5,6 +5,14 @@ import { outline } from "../outline/outline";
 import { Pane } from "../pane/pane";
 import s from "./tab.module.css";
 
+const ERRORS = {
+	UNDEF_SET: `"setActiveTab" must be defined when "active" is defined (Tabs is controlled)`,
+	DEF_INITIAL: `"initialTab" must be undefined when "active" is defined (Tabs is controlled)`,
+	LENGTH: "Tabs must have at least one tab",
+	DEF_SET: `"setActiveTab" must be undefined when "active" is undefined (Tabs is uncontrolled)`,
+	UNDEF_TAB: (t: string) => `Tab "${t}" is not defined`,
+};
+
 export interface Tab {
 	id: string;
 	title: string;
@@ -21,51 +29,24 @@ interface TabStyle {
 
 interface Props {
 	children: Tab[];
-	control?: {
-		activeTab: string;
-		setActiveTab: (tab: string) => void;
-	}
-	initialTab?: string;
 	noPadding?: boolean;
 	style?: TabStyle;
 	fullHeight?: boolean;
-	callbackOnTab?: (tabId: string) => void;
+	// Uncontrolled
+	initialTab?: string;
+	// Controlled
+	activeTab?: string;
+	setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface State {
 	active: string;
-	setActive: (tab: string) => void;
+	setActive: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const renderTitle = (props: Props, state: State) => (tab: Tab) => {
-	const { control } = props;
-	const style = props.style ?? Tabs.styles.outset;
-
-	// control
-	if(control) {
-		const { activeTab, setActiveTab } = control
-		return (
-			<button
-				className={[
-					s.title,
-					outline.normal,
-					style.title,
-					activeTab === tab.id ? style.active : style.inactive,
-				].join(" ")}
-				onClick={() => {
-					setActiveTab(tab.id);
-					if (props.callbackOnTab) {
-						props.callbackOnTab(tab.id)
-					}
-				}}
-				key={tab.id}
-				children={tab.title}
-			/>
-		);
-	}
-
-	// uncontrol
 	const { active, setActive } = state;
+	const style = props.style ?? Tabs.styles.outset;
 	return (
 		<button
 			className={[
@@ -74,52 +55,41 @@ const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 				style.title,
 				active === tab.id ? style.active : style.inactive,
 			].join(" ")}
-			onClick={() => {
-				setActive(tab.id);
-				if (props.callbackOnTab) {
-					props.callbackOnTab(tab.id)
-				}
-			}}
+			onClick={() => setActive(tab.id)}
 			key={tab.id}
 			children={tab.title}
 		/>
 	);
 };
 
-export const Tabs = (props: Props): JSX.Element => {
-	const { children, control } = props;
-	const style = props.style ?? Tabs.styles.outset;
+const useTabState = (props: Props): State => {
+	const { children, activeTab, setActiveTab, initialTab } = props;
+	if (children.length < 1) throw Error(ERRORS.LENGTH);
 
-	if (children.length < 1) throw Error("Tabs must have at least one tab");
+	// Self state for uncontrolled
+	const state = React.useState(initialTab ?? children[0].id);
 
-	const [active, setActive] = React.useState(	
-		props.initialTab ?? children[0].id	
-	);
-	const state = { active, setActive };
-	const container = [s.container, props.fullHeight ? s.full : ""].join(" ");
-
-	// control
-	if (control) {
-		const{ activeTab } = control;
-		
-		const tab = children.find((tab) => tab.id === activeTab);
-		if (tab === undefined) throw Error(`Tab "${activeTab}" is not defined`);
-		
-		return (
-			<div className={container}>
-				<div className={s.titles}>
-					{children.map(renderTitle(props, state))}
-				</div>
-				<div className={[s.content, style.content].join(" ")}>
-					{style.renderContent(tab.pane(), props)}
-				</div>
-			</div>
-		);
+	if (activeTab !== undefined) {
+		// Controlled
+		if (setActiveTab === undefined) throw Error(ERRORS.UNDEF_SET);
+		if (initialTab !== undefined) throw Error(ERRORS.DEF_INITIAL);
+		return { active: activeTab, setActive: setActiveTab };
+	} else {
+		// Uncontrolled
+		if (setActiveTab !== undefined) throw Error(ERRORS.DEF_SET);
+		return { active: state[0], setActive: state[1] };
 	}
+};
 
-	// uncontrol
-	const tab = children.find((tab) => tab.id === active);
-	if (tab === undefined) throw Error(`Tab "${active}" is not defined`);
+export const Tabs = (props: Props): JSX.Element => {
+	const { children } = props;
+	const style = props.style ?? Tabs.styles.outset;
+	const state = useTabState(props);
+
+	const activeTab = children.find((tab) => tab.id === state.active);
+	if (activeTab === undefined) throw Error(ERRORS.UNDEF_TAB(state.active));
+
+	const container = [s.container, props.fullHeight ? s.full : ""].join(" ");
 
 	return (
 		<div className={container}>
@@ -127,7 +97,7 @@ export const Tabs = (props: Props): JSX.Element => {
 				{children.map(renderTitle(props, state))}
 			</div>
 			<div className={[s.content, style.content].join(" ")}>
-				{style.renderContent(tab.pane(), props)}
+				{style.renderContent(activeTab.pane(), props)}
 			</div>
 		</div>
 	);
