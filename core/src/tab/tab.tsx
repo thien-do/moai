@@ -37,6 +37,7 @@ interface Props {
 	// Controlled
 	activeTab?: string;
 	setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
+	callbackOnTab?: (tab: string) => void;
 }
 
 interface State {
@@ -55,7 +56,12 @@ const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 				style.title,
 				active === tab.id ? style.active : style.inactive,
 			].join(" ")}
-			onClick={() => setActive(tab.id)}
+			onClick={() => {
+				setActive(tab.id);
+				if (props.callbackOnTab){
+					props.callbackOnTab(tab.id)
+				}
+			}}
 			key={tab.id}
 			children={tab.title}
 		/>
