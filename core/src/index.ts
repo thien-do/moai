@@ -1,4 +1,3 @@
-import "focus-visible";
 import "./style/style";
 
 export * from "./background/background";

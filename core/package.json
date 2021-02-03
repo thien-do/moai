@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.196.0",
+	"version": "0.197.0",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "cjs.js",
 	"module": "esm.js",
@@ -36,7 +36,6 @@
 	"dependencies": {
 		"@popperjs/core": "2.6.0",
 		"@tippyjs/react": "4.2.0",
-		"focus-visible": "5.2.0",
 		"react-hot-toast": "1.0.1",
 		"react-popper": "2.2.4",
 		"sanitize.css": "12.0.1"
