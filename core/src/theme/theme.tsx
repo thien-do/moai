@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Switcher } from "../switcher/switcher";
+import { Switcher, SwitcherOption } from "../switcher/switcher";
 
-type ThemeOption = "light" | "dark" | "system";
+export type ThemeOption = "light" | "dark" | "system";
 type ThemeClass = "light" | "dark";
 
 const KEY = "moai-theme";
@@ -51,16 +51,17 @@ export const useTheme = (): {
 	return { theme, setTheme };
 };
 
+export const getThemeOptions = (): SwitcherOption<ThemeOption>[] => [
+	{ value: "light", label: "Light" },
+	{ value: "system", label: "System" },
+	{ value: "dark", label: "Dark" },
+];
+
 export const ThemeSwitcher = (): JSX.Element => {
 	const { theme, setTheme } = useTheme();
-
 	return (
 		<Switcher<ThemeOption>
-			options={[
-				{ value: "light", label: "Light" },
-				{ value: "system", label: "System" },
-				{ value: "dark", label: "Dark" },
-			]}
+			options={getThemeOptions()}
 			setValue={setTheme}
 			value={theme}
 		/>
