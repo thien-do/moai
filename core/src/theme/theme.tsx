@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Switcher, SwitcherOption } from "../switcher/switcher";
 
-export type ThemeOption = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";
 type ThemeClass = "light" | "dark";
 
 const KEY = "moai-theme";
@@ -13,22 +13,24 @@ const applyThemeClass = (theme: ThemeClass): void => {
 	classes.add(theme);
 };
 
-const getThemeClass = (option: ThemeOption): ThemeClass => {
+const getThemeClass = (option: Theme): ThemeClass => {
 	if (option !== "system") return option;
 	const media = window.matchMedia("(prefers-color-scheme: dark)");
 	return media.matches ? "dark" : "light";
 };
 
-export const useTheme = (): {
-	theme: ThemeOption;
-	setTheme: Dispatch<SetStateAction<ThemeOption>>;
-} => {
-	const [theme, setTheme] = useState<ThemeOption>("system");
+export interface ThemeState {
+	theme: Theme;
+	setTheme: Dispatch<SetStateAction<Theme>>;
+}
+
+export const useTheme = (): ThemeState => {
+	const [theme, setTheme] = useState<Theme>("system");
 
 	useEffect(() => {
 		// Set initial theme in an effect instead of useState to avoid mismatch
 		// between server and client rendering
-		const stored = window.localStorage.getItem(KEY) as ThemeOption | null;
+		const stored = window.localStorage.getItem(KEY) as Theme | null;
 		setTheme(stored ?? "system");
 	}, []);
 
@@ -51,7 +53,7 @@ export const useTheme = (): {
 	return { theme, setTheme };
 };
 
-export const getThemeOptions = (): SwitcherOption<ThemeOption>[] => [
+export const getThemeOptions = (): SwitcherOption<Theme>[] => [
 	{ value: "light", label: "Light" },
 	{ value: "system", label: "System" },
 	{ value: "dark", label: "Dark" },
@@ -60,7 +62,7 @@ export const getThemeOptions = (): SwitcherOption<ThemeOption>[] => [
 export const ThemeSwitcher = (): JSX.Element => {
 	const { theme, setTheme } = useTheme();
 	return (
-		<Switcher<ThemeOption>
+		<Switcher<Theme>
 			options={getThemeOptions()}
 			setValue={setTheme}
 			value={theme}
