@@ -1,3 +1,5 @@
+/* VARIABLES */
+
 :root {
 	--highlight-0: #f0f9ff;
 	--highlight-1: #e1f3fe;
@@ -64,6 +66,8 @@
 	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* RESET */
+
 p,
 hr,
 h1,
@@ -96,6 +100,14 @@ a {
 	color: inherit;
 }
 
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* BASE STYLES */
+
 html {
 	font-family: var(--font-sans);
 	font-size: 14px;
@@ -116,6 +128,7 @@ html {
 	font-weight: 450;
 }
 
+/* The theme classes ("light" or "dark") may be added in both html and body */
 .light body,
 body.light {
 	background-color: var(--gray-0);
