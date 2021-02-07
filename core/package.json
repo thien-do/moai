@@ -2,15 +2,15 @@
 	"name": "@moai/core",
 	"version": "0.200.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "cjs.js",
-	"module": "esm.js",
-	"types": "index.d.ts",
+	"main": "dist/cjs.js",
+	"module": "dist/esm.js",
+	"types": "dist/types/index.d.ts",
 	"scripts": {
 		"build": "yarn run build-rollup",
 		"build-storybook": "build-storybook",
 		"build-rollup": "rollup --config",
 		"start": "start-storybook -p 6006",
-		"postversion": "yarn build && yarn publish ./dist --new-version $npm_package_version"
+		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
 	},
 	"repository": {
 		"type": "git",
@@ -42,7 +42,6 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.12.10",
-		"@rollup/plugin-replace": "2.3.4",
 		"@storybook/react": "6.1.14",
 		"@types/react": "17.0.0",
 		"@types/react-dom": "17.0.0",
@@ -53,7 +52,6 @@
 		"rollup": "2.36.1",
 		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-delete": "2.0.0",
-		"rollup-plugin-dts": "2.0.1",
 		"rollup-plugin-postcss": "4.0.0",
 		"rollup-plugin-typescript2": "0.29.0",
 		"storybook-css-modules-preset": "1.0.5",
