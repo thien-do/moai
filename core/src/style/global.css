@@ -1,7 +1,7 @@
 /* VARIABLES */
 
 :root {
-	--highlight-0: #f0f9ff;
+	--highlight-0: #ffffff;
 	--highlight-1: #e1f3fe;
 	--highlight-2: #bae5fd;
 	--highlight-3: #7ed4fc;
@@ -34,24 +34,6 @@
 	--failure-8: #9f1239;
 	--failure-9: #881337;
 
-	/*
-	Format:
-	- l/d: light or dark mode
-	- bg/fg/br: background, foreground, border
-	- 1st/2nd: primary (strong), secondary (weak)
-	*/
-	--gray-0: hsl(0, 0%, 100%); /* l bg 1st */
-	--gray-1: hsl(0, 0%, 98%); /* l bg 2nd, d fg 1st */
-	--gray-2: hsl(240, 6%, 90%); /* l br 2nd */
-	--gray-3: hsl(232, 7%, 78%); /* l br 1st */
-	--gray-4: hsl(240, 5%, 65%); /* d fg 2nd */
-	--gray-5: hsl(240, 4%, 46%); /* l fg 2nd */
-	--gray-6: hsl(240, 5%, 34%); /* d br 1st */
-	--gray-7: hsl(240, 5%, 26%); /* d br 2nd */
-	--gray-8: hsl(232, 7%, 22%); /* d bg 1st */
-	--gray-9: hsl(240, 4%, 16%); /* d bg 2nd, l fg 1st */
-	--gray-10: hsl(240, 6%, 10%); /* do not use */
-
 	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	font size */
 	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
@@ -64,6 +46,35 @@
 	/* Shadow */
 	--shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.1);
 	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* The theme classes ("light" or "dark") may be added in both html and body */
+.light body,
+body.light {
+	--neutral-0: hsl(00, 00%, 100%); /* gray-0 background strong */
+	--neutral-1: hsl(235, 18%, 98%); /* gray-1 background weak */
+	--neutral-2: hsl(220, 13%, 90%); /* gray-2 border weak */
+	--neutral-3: hsl(216, 12%, 78%); /* gray-3 border strong */
+	--neutral-4: hsl(220, 09%, 46%); /* gray-5 foreground weak */
+	--neutral-5: hsl(216, 13%, 15%); /* gray-9 foreground strong */
+
+	background-color: var(--neutral-1);
+	color: var(--neutral-5);
+}
+
+.dark body,
+body.dark {
+	--neutral-negative-1: hsl(240, 6%, 10%); /* gray-10 do not use */
+
+	--neutral-0: hsl(216, 13%, 15%); /* gray-9 background weak */
+	--neutral-1: hsl(220, 13%, 18%); /* gray-8 background strong */
+	--neutral-2: hsl(222, 13%, 26%); /* gray-7 border weak */
+	--neutral-3: hsl(221, 13%, 32%); /* gray-6 border strong */
+	--neutral-4: hsl(218, 11%, 65%); /* gray-4 foreground weak */
+	--neutral-5: hsl(235, 18%, 98%); /* gray-1 foreground strong */
+
+	background-color: var(--neutral-0);
+	color: var(--neutral-5);
 }
 
 /* RESET */
@@ -126,17 +137,4 @@ html {
 
 .dark {
 	font-weight: 450;
-}
-
-/* The theme classes ("light" or "dark") may be added in both html and body */
-.light body,
-body.light {
-	background-color: var(--gray-0);
-	color: var(--gray-9);
-}
-
-.dark body,
-body.dark {
-	background-color: var(--gray-8);
-	color: var(--gray-1);
 }

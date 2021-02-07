@@ -10,25 +10,25 @@
 :global(.light) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
 	background-color: var(--gray-1);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-0);
-	border-color: var(--gray-3);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-0);
+	border-color: var(--neutral-3);
 }
 :global(.light) .input:hover {
-	background-color: var(--gray-0);
+	background-color: var(--neutral-0);
 }
 :global(.light) .input:active {
-	background-color: var(--gray-2);
+	background-color: var(--neutral-2);
 	box-shadow: none;
 }
 
 :global(.dark) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	background-color: var(--gray-7);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-6);
+	background-color: var(--neutral-2);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-3);
 	border-color: var(--gray-10);
 }
 :global(.dark) .input:hover {
-	background-color: var(--gray-6);
+	background-color: var(--neutral-3);
 }
 :global(.dark) .input:active {
 	background-color: var(--gray-9);
@@ -75,17 +75,17 @@
 :global(.light) .input:disabled,
 :global(.light) .input:checked:disabled,
 :global(.light) .input:indeterminate:disabled {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 	box-shadow: none;
 	background-color: var(--gray-1);
-	border-color: var(--gray-2);
+	border-color: var(--neutral-2);
 }
 
 :global(.dark) .input:disabled,
 :global(.dark) .input:checked:disabled,
 :global(.dark) .input:indeterminate:disabled {
-	color: var(--gray-4);
-	background-color: var(--gray-7);
+	color: var(--neutral-4);
+	background-color: var(--neutral-2);
 	box-shadow: none;
 	border-color: var(--gray-9);
 }
@@ -100,7 +100,7 @@
 	color: var(--gray-1);
 }
 :global(.light) .input:disabled ~ .icon {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 }
 
 :global(.dark) .icon {
@@ -111,15 +111,15 @@
 	color: var(--gray-1);
 }
 :global(.dark) .input:disabled ~ .icon {
-	color: var(--gray-4);
+	color: var(--neutral-4);
 }
 
 /* LABEL */
 
 :global(.light) .input:disabled ~ .label {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 }
 
 :global(.dark) .input:disabled ~ .label {
-	color: var(--gray-4);
+	color: var(--neutral-4);
 }

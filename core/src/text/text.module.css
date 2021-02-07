@@ -57,8 +57,8 @@
 }
 
 :global(.light) .muted {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 }
 :global(.dark) .muted {
-	color: var(--gray-4);
+	color: var(--neutral-4);
 }

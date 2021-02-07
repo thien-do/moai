@@ -32,16 +32,16 @@
 /* COLOR */
 
 :global(.light) .neutral .head {
-	stroke: var(--gray-5);
+	stroke: var(--neutral-4);
 }
 :global(.light) .neutral .track {
-	stroke: var(--gray-2);
+	stroke: var(--neutral-2);
 }
 :global(.dark) .neutral .head {
-	stroke: var(--gray-4);
+	stroke: var(--neutral-4);
 }
 :global(.dark) .neutral .track {
-	stroke: var(--gray-6);
+	stroke: var(--neutral-3);
 }
 
 :global(.light) .highlight .head {

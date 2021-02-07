@@ -28,15 +28,15 @@
 
 .icon.done {
 	background-color: var(--highlight-5);
-	color: var(--gray-0);
+	color: var(--highlight-0);
 }
 
 :global(.light) .icon.notDone {
-	background-color: var(--gray-2);
+	background-color: var(--neutral-2);
 }
 
 :global(.dark) .icon.notDone {
-	background-color: var(--gray-6);
+	background-color: var(--neutral-3);
 }
 
 .divider {

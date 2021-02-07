@@ -13,12 +13,12 @@
 }
 
 :global(.light) .neutral {
-	background-color: var(--gray-2);
-	color: var(--gray-7);
+	background-color: var(--neutral-2);
+	color: var(--neutral-2);
 }
 
 :global(.dark) .neutral {
-	background-color: var(--gray-6);
+	background-color: var(--neutral-3);
 	color: var(--gray-1);
 }
 

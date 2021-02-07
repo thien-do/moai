@@ -16,25 +16,25 @@
 :global(.light) .main {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
 	background-color: var(--gray-1);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-0);
-	border-color: var(--gray-3);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-0);
+	border-color: var(--neutral-3);
 }
 :global(.light) .main:hover {
-	background-color: var(--gray-0);
+	background-color: var(--neutral-0);
 }
 :global(.light) .main:active {
-	background-color: var(--gray-2);
+	background-color: var(--neutral-2);
 	box-shadow: none;
 }
 
 :global(.dark) .main {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	background-color: var(--gray-7);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-6);
+	background-color: var(--neutral-2);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-3);
 	border-color: var(--gray-10);
 }
 :global(.dark) .main:hover {
-	background-color: var(--gray-6);
+	background-color: var(--neutral-3);
 }
 :global(.dark) .main:active {
 	background-color: var(--gray-9);
@@ -74,7 +74,7 @@
 /* SELECTED */
 
 :global(.light) .selected:not(.win-pseudo) {
-	background-color: var(--gray-2);
+	background-color: var(--neutral-2);
 	box-shadow: 0px 0px 0px transparent;
 }
 
@@ -100,14 +100,14 @@
 /* DISABLED */
 
 :global(.light) .main:not(.busy):disabled {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 	box-shadow: none;
 	background-color: var(--gray-1);
-	border-color: var(--gray-2);
+	border-color: var(--neutral-2);
 }
 :global(.dark) .main:not(.busy):disabled {
-	color: var(--gray-4);
-	background-color: var(--gray-7);
+	color: var(--neutral-4);
+	background-color: var(--neutral-2);
 	box-shadow: none;
 	border-color: var(--gray-9);
 }

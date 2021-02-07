@@ -11,24 +11,24 @@
 
 /* Mimic Button.styles.main hover */
 :global(.light) .main:hover {
-	background-color: var(--gray-2);
+	background-color: var(--neutral-2);
 }
 :global(.dark) .main:hover {
-	background-color: var(--gray-7);
+	background-color: var(--neutral-2);
 }
 
 /* Mimic background.primary */
 :global(.light) .main:focus {
-	background-color: var(--gray-0);
+	background-color: var(--neutral-0);
 }
 :global(.dark) .main:focus {
 	background-color: var(--gray-9);
 }
 
 :global(.light) .main:disabled {
-	color: var(--gray-5);
+	color: var(--neutral-4);
 }
 :global(.dark) .main:disabled {
-	color: var(--gray-4);
+	color: var(--neutral-4);
 }
 

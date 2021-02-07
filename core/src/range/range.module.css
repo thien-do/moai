@@ -8,7 +8,7 @@
 
 @mixin track {
     :global(.light)  {
-        background-color: var(--gray-3);
+        background-color: var(--neutral-3);
     }
     :global(.dark)  {
         background-color: var(--gray-10);
