@@ -3,7 +3,7 @@
 	width: max-content;
 	max-width: 288px;
 	background-color: var(--neutral-2);
-	color: var(--gray-1);
+	color: var(--neutral-5);
 }
 
 .arrow {

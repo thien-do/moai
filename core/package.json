@@ -6,9 +6,7 @@
 	"module": "dist/esm.js",
 	"types": "dist/types/index.d.ts",
 	"scripts": {
-		"build": "yarn run build-rollup",
-		"build-storybook": "build-storybook",
-		"build-rollup": "rollup --config",
+		"build": "rollup --config",
 		"start": "start-storybook -p 6006",
 		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
 	},
@@ -36,20 +34,20 @@
 	"dependencies": {
 		"@popperjs/core": "2.6.0",
 		"@tippyjs/react": "4.2.0",
-		"react-hot-toast": "1.0.1",
+		"react-hot-toast": "1.0.2",
 		"react-popper": "2.2.4",
 		"sanitize.css": "12.0.1"
 	},
 	"devDependencies": {
-		"@babel/core": "7.12.10",
-		"@storybook/react": "6.1.14",
-		"@types/react": "17.0.0",
+		"@babel/core": "7.12.13",
+		"@storybook/react": "6.1.17",
+		"@types/react": "17.0.1",
 		"@types/react-dom": "17.0.0",
 		"@types/rollup-plugin-postcss": "2.0.1",
-		"autoprefixer": "10.2.1",
+		"autoprefixer": "10.2.4",
 		"babel-loader": "8.2.2",
-		"postcss": "8.2.4",
-		"rollup": "2.36.1",
+		"postcss": "8.2.5",
+		"rollup": "2.38.5",
 		"rollup-plugin-copy": "3.3.0",
 		"rollup-plugin-delete": "2.0.0",
 		"rollup-plugin-postcss": "4.0.0",

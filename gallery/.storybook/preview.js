@@ -1,12 +1,10 @@
-import { Border, DivPx, ThemeSwitcher } from "@moai/core";
+import "@moai/core/dist/index.css";
+import { GalleryToolbar} from "../src/toolbar/toolbar";
 import "../src/index";
 
 const Decorator = (Story) => (
 	<div>
-		<ThemeSwitcher />
-		<DivPx size={16} />
-		<Border color="strong" />
-		<DivPx size={16} />
+		<GalleryToolbar />
 		<Story />
 	</div>
 );

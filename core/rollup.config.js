@@ -91,4 +91,4 @@ const bundleStatic = (() => {
 	return options;
 })();
 
-export default [bundleMain, bundleDts, bundleStatic];
+export default [bundleMain, bundleStatic];

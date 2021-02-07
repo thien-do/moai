@@ -59,7 +59,7 @@
 
 :global(.light) .inverse .head,
 :global(.dark) .inverse .head {
-	stroke: var(--gray-1);
+	stroke: var(--neutral-5);
 }
 :global(.light) .inverse .track,
 :global(.dark) .inverse .track {

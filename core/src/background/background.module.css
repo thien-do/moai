@@ -1,31 +1,31 @@
 :global(.light) .strong {
 	background-color: var(--neutral-0);
-	color: var(--gray-9);
+	color: var(--neutral-5);
 }
 
 :global(.dark) .strong {
 	background-color: var(--neutral-1);
-	color: var(--gray-1);
+	color: var(--neutral-5);
 }
 
 :global(.light) .weak {
-	background-color: var(--gray-1);
-	color: var(--gray-9);
+	background-color: var(--neutral-1);
+	color: var(--neutral-5);
 }
 
 :global(.dark) .weak {
-	background-color: var(--gray-9);
-	color: var(--gray-1);
+	background-color: var(--neutral-0);
+	color: var(--neutral-5);
 }
 
 :global(.light) .inverse {
-	background-color: var(--gray-9);
+	background-color: var(--neutral-0);
 	color: var(--neutral-0);
 }
 
 :global(.dark) .inverse {
 	background-color: var(--neutral-3);
-	color: var(--gray-1);
+	color: var(--neutral-5);
 }
 
 :global(.light) .failureWeak {

@@ -11,7 +11,7 @@
 }
 
 :global(.dark) .main {
-	background-color: var(--gray-9);
+	background-color: var(--neutral-0);
 	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
 	border-color: var(--gray-10);
 }
@@ -26,7 +26,7 @@
 
 :global(.light) .main:disabled,
 :global(.light) .main:read-only {
-	background-color: var(--gray-1);
+	background-color: var(--neutral-1);
 }
 :global(.light) .main:disabled {
     color: var(--neutral-4);
@@ -39,5 +39,5 @@
 }
 :global(.dark) .main:disabled {
 	color: var(--neutral-4);
-    border-color: var(--gray-9);
+    border-color: var(--neutral-5);
 }

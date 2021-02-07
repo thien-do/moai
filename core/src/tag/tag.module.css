@@ -19,7 +19,7 @@
 
 :global(.dark) .neutral {
 	background-color: var(--neutral-3);
-	color: var(--gray-1);
+	color: var(--neutral-5);
 }
 
 :global(.light) .failure {

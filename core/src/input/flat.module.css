@@ -22,7 +22,7 @@
 	background-color: var(--neutral-0);
 }
 :global(.dark) .main:focus {
-	background-color: var(--gray-9);
+	background-color: var(--neutral-0);
 }
 
 :global(.light) .main:disabled {

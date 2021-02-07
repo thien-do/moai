@@ -19,7 +19,7 @@
 	background-color: var(--neutral-2);
 }
 :global(.dark) .main:active {
-	background-color: var(--gray-9);
+	background-color: var(--neutral-0);
 }
 
 :global(.light) .selected,

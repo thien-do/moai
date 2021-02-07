@@ -6,16 +6,10 @@
 	"module": "esm.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "yarn run build-tailwind && yarn run build-rollup",
-		"build-storybook": "build-storybook",
-		"build-rollup": "rollup --config",
-		"build-tailwind": "NODE_ENV=production yarn run tailwind",
-		"start": "yarn run start-tailwind && start-storybook -p 6006",
-		"start-tailwind": "NODE_ENV=development yarn run tailwind",
-		"release-minor": "./scripts/release.sh minor",
-		"release-patch": "./scripts/release.sh patch",
+		"build": "NODE_ENV=production yarn run tailwind && rollup --config",
+		"start": "NODE_ENV=development yarn run tailwind && start-storybook -p 6006",
 		"tailwind": "npx tailwindcss-cli@latest build ./src/style/src.css -o ./src/style/style.css",
-		"postversion": "yarn build && yarn publish ./dist --new-version $npm_package_version"
+		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
 	},
 	"repository": {
 		"type": "git",

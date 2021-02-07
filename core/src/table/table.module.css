@@ -19,10 +19,10 @@
 }
 
 :global(.light) .container tr:hover td {
-	background-color: var(--gray-1);
+	background-color: var(--neutral-1);
 }
 :global(.dark) .container tr:hover td {
-	background-color: var(--gray-9);
+	background-color: var(--neutral-0);
 }
 
 .container tr:last-child td {
