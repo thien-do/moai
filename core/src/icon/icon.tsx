@@ -1,7 +1,7 @@
 import { SVGAttributes } from "react";
 import s from "./icon.module.css";
 
-export type IconSize = 12 | 16 | 32 | 36 | 48;
+export type IconSize = 12 | 16 | 20 | 24 | 32 | 36 | 48;
 export type IconPath = React.FC<SVGAttributes<SVGElement>>;
 
 export interface IconProps {
