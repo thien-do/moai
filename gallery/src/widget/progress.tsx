@@ -1,4 +1,4 @@
-import { ProgressCircle, Tag } from "@moai/core";
+import { ProgressCircle, Tag } from "@moai/core/src";
 
 export const ProgressGallery = (): JSX.Element => (
 	<div className="space-y-8">

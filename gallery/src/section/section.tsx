@@ -1,4 +1,4 @@
-import { DivPx } from "@moai/core";
+import { DivPx } from "@moai/core/src";
 import { ReactNode } from "react";
 
 interface Props {

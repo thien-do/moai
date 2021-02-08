@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxProps, Radio, RadioProps } from "@moai/core";
+import { Checkbox, CheckboxProps, Radio, RadioProps } from "@moai/core/src";
 
 const CheckboxRow = (props: Partial<CheckboxProps>): JSX.Element => (
 	<>

@@ -25,7 +25,7 @@
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
 	background-color: var(--neutral-2);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-3);
-	border-color: var(--gray-10);
+	border-color: var(--neutral-negative-1);
 }
 :global(.dark) .input:hover {
 	background-color: var(--neutral-3);
@@ -58,7 +58,7 @@
 :global(.dark) .input:indeterminate {
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
-	border-color: var(--gray-10);
+	border-color: var(--neutral-negative-1);
 }
 :global(.dark) .input:checked:hover,
 :global(.dark) .input:indeterminate:hover {
@@ -92,34 +92,19 @@
 
 /* ICON */
 
-:global(.light) .icon {
+.icon {
 	color: var(--neutral-5);
 }
-:global(.light) .input:checked ~ .icon,
-:global(.light) .input:indeterminate ~ .icon {
-	color: var(--neutral-5);
+.input:checked ~ .icon,
+.input:indeterminate ~ .icon {
+	color: var(--highlight-0);
 }
-:global(.light) .input:disabled ~ .icon {
-	color: var(--neutral-4);
-}
-
-:global(.dark) .icon {
-	color: var(--neutral-5);
-}
-:global(.dark) .input:checked ~ .icon,
-:global(.dark) .input:indeterminate ~ .icon {
-	color: var(--neutral-5);
-}
-:global(.dark) .input:disabled ~ .icon {
+.input:disabled ~ .icon {
 	color: var(--neutral-4);
 }
 
 /* LABEL */
 
-:global(.light) .input:disabled ~ .label {
-	color: var(--neutral-4);
-}
-
-:global(.dark) .input:disabled ~ .label {
+.input:disabled ~ .label {
 	color: var(--neutral-4);
 }

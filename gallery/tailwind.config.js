@@ -2,6 +2,9 @@ module.exports = {
 	purge: ["./src/**/*.tsx"],
 	darkMode: false,
 	theme: {
+		inset: {
+			"0": "0px"
+		},
 		lineHeight: {
 			"16": "16px",
 			"24": "24px",

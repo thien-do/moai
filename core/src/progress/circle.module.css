@@ -31,27 +31,18 @@
 
 /* COLOR */
 
-:global(.light) .neutral .head {
+.neutral .head {
 	stroke: var(--neutral-4);
 }
-:global(.light) .neutral .track {
+.neutral .track {
 	stroke: var(--neutral-2);
 }
-:global(.dark) .neutral .head {
-	stroke: var(--neutral-4);
-}
-:global(.dark) .neutral .track {
-	stroke: var(--neutral-3);
-}
 
-:global(.light) .highlight .head {
+.highlight .head {
 	stroke: var(--highlight-5);
 }
 :global(.light) .highlight .track {
 	stroke: var(--highlight-1);
-}
-:global(.dark) .highlight .head {
-	stroke: var(--highlight-5);
 }
 :global(.dark) .highlight .track {
 	stroke: var(--highlight-8);
@@ -59,7 +50,7 @@
 
 :global(.light) .inverse .head,
 :global(.dark) .inverse .head {
-	stroke: var(--neutral-5);
+	stroke: var(--highlight-0);
 }
 :global(.light) .inverse .track,
 :global(.dark) .inverse .track {

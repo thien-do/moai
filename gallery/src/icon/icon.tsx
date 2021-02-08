@@ -1,4 +1,4 @@
-import { Icon, IconPath, Pane, Table, TableColumn, text } from "@moai/core";
+import { Icon, IconPath, Pane, Table, TableColumn, text } from "@moai/core/src";
 import * as bp from "@moai/icon/bp";
 import * as hro from "@moai/icon/hro";
 import * as hrs from "@moai/icon/hrs";

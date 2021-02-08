@@ -2,7 +2,7 @@
 	padding: 8px 12px;
 	width: max-content;
 	max-width: 288px;
-	background-color: var(--neutral-2);
+	background-color: var(--neutral-0);
 	color: var(--neutral-5);
 }
 
@@ -11,7 +11,7 @@
 	height: 8px;
 	transform: rotate(45deg);
 	position: relative;
-	background-color: var(--neutral-2);
+	background-color: var(--neutral-0);
 }
 
 .content[data-placement^="top"] .arrowWrapper {

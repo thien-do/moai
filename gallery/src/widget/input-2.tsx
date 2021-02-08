@@ -1,4 +1,4 @@
-import * as M from "@moai/core";
+import * as M from "@moai/core/src";
 import COLORS from "./samples/colors.json";
 
 const base: Partial<M.InputProps> = {

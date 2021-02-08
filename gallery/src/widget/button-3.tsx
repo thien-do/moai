@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, ButtonProps, coreIcons } from "@moai/core";
+import { Button, ButtonGroup, ButtonProps, coreIcons } from "@moai/core/src";
 
 const { medium, small } = Button.sizes;
 const { flat } = Button.styles;

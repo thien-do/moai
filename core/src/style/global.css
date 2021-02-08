@@ -48,33 +48,23 @@
 	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* The theme classes ("light" or "dark") may be added in both html and body */
-.light body,
-body.light {
+.light {
 	--neutral-0: hsl(00, 00%, 100%); /* gray-0 background strong */
 	--neutral-1: hsl(235, 18%, 98%); /* gray-1 background weak */
 	--neutral-2: hsl(220, 13%, 90%); /* gray-2 border weak */
 	--neutral-3: hsl(216, 12%, 78%); /* gray-3 border strong */
 	--neutral-4: hsl(220, 09%, 46%); /* gray-5 foreground weak */
 	--neutral-5: hsl(216, 13%, 15%); /* gray-9 foreground strong */
-
-	background-color: var(--neutral-1);
-	color: var(--neutral-5);
 }
 
-.dark body,
-body.dark {
-	--neutral-negative-1: hsl(240, 6%, 10%); /* gray-10 do not use */
-
+.dark {
+	--neutral-negative-1: hsl(240, 6%, 10%); /* neutral-negative-1 do not use */
 	--neutral-0: hsl(216, 13%, 15%); /* gray-9 background weak */
 	--neutral-1: hsl(220, 13%, 18%); /* gray-8 background strong */
 	--neutral-2: hsl(222, 13%, 26%); /* gray-7 border weak */
 	--neutral-3: hsl(221, 13%, 32%); /* gray-6 border strong */
 	--neutral-4: hsl(218, 11%, 65%); /* gray-4 foreground weak */
 	--neutral-5: hsl(235, 18%, 98%); /* gray-1 foreground strong */
-
-	background-color: var(--neutral-0);
-	color: var(--neutral-5);
 }
 
 /* RESET */
@@ -122,6 +112,7 @@ fieldset {
 html {
 	font-family: var(--font-sans);
 	font-size: 14px;
+	color: var(--neutral-5);
 
 	/*
 	This must be larger than the original line-height at 14px (defined by the
@@ -131,10 +122,15 @@ html {
 	line-height: 20px;
 }
 
-.light {
+/* The theme classes ("light" or "dark") may be added in both html and body */
+.light body,
+body.light {
 	font-weight: 425;
+	background-color: var(--neutral-1);
 }
 
-.dark {
+.dark body,
+body.dark {
 	font-weight: 450;
+	background-color: var(--neutral-0);
 }

@@ -1,9 +1,10 @@
 import "@moai/core/dist/index.css";
-import { GalleryToolbar} from "../src/toolbar/toolbar";
+import "@moai/core/dist/font/local.css";
+import { GalleryToolbar } from "../src/toolbar/toolbar";
 import "../src/index";
 
 const Decorator = (Story) => (
-	<div>
+	<div className="px-16 pb-16">
 		<GalleryToolbar />
 		<Story />
 	</div>
@@ -11,4 +12,6 @@ const Decorator = (Story) => (
 
 export const decorators = [Decorator];
 
-export const parameters = {};
+export const parameters = {
+	layout: "fullscreen",
+};

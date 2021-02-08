@@ -1,4 +1,4 @@
-import { background, Switcher } from "@moai/core";
+import { background, Switcher } from "@moai/core/src";
 import { useEffect, useState } from "react";
 
 export const ToolbarBackground = (): JSX.Element => {

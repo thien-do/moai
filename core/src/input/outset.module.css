@@ -13,7 +13,7 @@
 :global(.dark) .main {
 	background-color: var(--neutral-0);
 	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	border-color: var(--gray-10);
+	border-color: var(--neutral-negative-1);
 }
 
 /* GROUP */

@@ -1,4 +1,4 @@
-import { Button, coreIcons, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
+import { Button, coreIcons, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core/src"; // prettier-ignore
 import { Person } from "./samples/people";
 import PEOPLE_RAW from "./samples/people.json";
 import { toOption } from "./select";

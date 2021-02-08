@@ -1,4 +1,4 @@
-import { Button, Tooltip, TooltipPane } from "@moai/core";
+import { Button, Tooltip, TooltipPane } from "@moai/core/src";
 
 export const TooltipGallery = () => (
 	<div className="space-y-8">

@@ -29,12 +29,12 @@
 
 :global(.dark) .main {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	background-color: var(--neutral-2);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-3);
-	border-color: var(--gray-10);
+	background-color: var(--neutral-1);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-2);
+	border-color: var(--neutral-negative-1);
 }
 :global(.dark) .main:hover {
-	background-color: var(--neutral-3);
+	background-color: var(--neutral-2);
 }
 :global(.dark) .main:active {
 	background-color: var(--neutral-0);
@@ -45,7 +45,7 @@
 
 :global(.light) .highlight {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
-	color: var(--neutral-5);
+	color: var(--highlight-0);
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
 	border-color: var(--highlight-7);
@@ -58,10 +58,10 @@
 }
 
 :global(.dark) .highlight {
-	color: var(--neutral-5);
+	color: var(--highlight-0);
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
-	border-color: var(--gray-10);
+	border-color: var(--neutral-negative-1);
 }
 :global(.dark) .highlight:hover {
 	background-color: var(--highlight-4);
@@ -109,5 +109,5 @@
 	color: var(--neutral-4);
 	background-color: var(--neutral-2);
 	box-shadow: none;
-	border-color: var(--neutral-5);
+	border-color: var(--neutral-negative-1);
 }

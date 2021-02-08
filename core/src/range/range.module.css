@@ -11,7 +11,7 @@
         background-color: var(--neutral-3);
     }
     :global(.dark)  {
-        background-color: var(--gray-10);
+        background-color: var(--neutral-negative-1);
     }
 	height: 2px;
 }

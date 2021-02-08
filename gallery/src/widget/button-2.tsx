@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Switcher } from "@moai/core";
+import { Button, Switcher } from "@moai/core/src";
 
 const Theme = ({ fill }: { fill: boolean }): JSX.Element => {
 	const [value, setValue] = useState("Auto");

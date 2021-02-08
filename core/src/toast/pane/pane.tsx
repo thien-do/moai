@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
-import { border, Border } from "../../border/border";
-import { shadow } from "../../shadow/shadow";
+import { Border, border } from "../../border/border";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
 import { Icon, IconPath } from "../../icon/icon";
 import { coreIcons } from "../../icons/icons";
+import { shadow } from "../../shadow/shadow";
 import { Paragraph, text } from "../../text/text";
 import s from "./pane.module.css";
 

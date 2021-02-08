@@ -1,4 +1,4 @@
-import { Pagination } from "@moai/core";
+import { Pagination } from "@moai/core/src";
 import { useCallback, useState } from "react";
 
 export const PaginationGallery = () => {
