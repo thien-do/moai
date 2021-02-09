@@ -7,8 +7,9 @@
 	max-width: 288px;
 	padding: 8px 12px;
 
-	background-color: var(--gray-7);
-	color: var(--gray-1);
+	/* Avoid gray-7 and 8 since they are dark's backgrounds */
+	background-color: var(--gray-6);
+	color: var(--white);
 }
 
 .icon {

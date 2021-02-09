@@ -6,19 +6,19 @@
 /* Color */
 
 :global(.light) .weak {
-	border-color: var(--gray-2);
+	border-color: var(--gray-1);
 }
 
 :global(.dark) .weak {
-	border-color: var(--gray-7);
+	border-color: var(--gray-6);
 }
 
 :global(.light) .strong {
-	border-color: var(--gray-3);
+	border-color: var(--gray-2);
 }
 
 :global(.dark) .strong {
-	border-color: var(--gray-6);
+	border-color: var(--gray-4);
 }
 
 :global(.light) .highlightWeak {

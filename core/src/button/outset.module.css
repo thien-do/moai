@@ -90,7 +90,7 @@
 /* DISABLED */
 
 :global(.light) .main:not(.busy):disabled {
-	color: var(--gray-4);
+	color: var(--gray-3);
 	box-shadow: none;
 	background-color: var(--gray-0);
 	border-color: var(--gray-1);

@@ -11,24 +11,35 @@
 
 /* Mimic Button.styles.main hover */
 :global(.light) .main:hover {
-	background-color: var(--gray-2);
+	background-color: var(--gray-1);
 }
 :global(.dark) .main:hover {
-	background-color: var(--gray-7);
+	background-color: var(--gray-6);
 }
 
 /* Mimic background.primary */
 :global(.light) .main:focus {
-	background-color: var(--gray-0);
+	background-color: var(--white);
 }
 :global(.dark) .main:focus {
 	background-color: var(--gray-9);
 }
 
 :global(.light) .main:disabled {
-	color: var(--gray-5);
+	color: var(--gray-3);
 }
 :global(.dark) .main:disabled {
 	color: var(--gray-4);
 }
 
+/* PLACEHOLDER */
+
+:global(.light) .main::placeholder {
+	color: var(--gray-4);
+	opacity: 1;
+}
+
+:global(.dark) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
+}

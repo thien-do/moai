@@ -41,14 +41,14 @@
 
 	--gray-0: hsl(235, 18%, 98%); /* light app bg */
 	--gray-1: hsl(220, 13%, 90%);
-	--gray-2: hsl(216, 12%, 75%);
+	--gray-2: hsl(216, 12%, 77%);
 	--gray-3: hsl(218, 11%, 65%);
 	--gray-4: hsl(220, 09%, 46%);
 	--gray-5: hsl(221, 13%, 32%);
 	--gray-6: hsl(222, 13%, 26%);
 	--gray-7: hsl(220, 13%, 18%);
 	--gray-8: hsl(216, 13%, 15%); /* dark app bg */
-	--gray-9: hsl(240, 06%, 10%);
+	--gray-9: hsl(216, 13%, 10%);
 
 	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	font size */

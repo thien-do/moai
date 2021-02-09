@@ -5,15 +5,15 @@
 }
 
 :global(.light) .main {
-	background-color: var(--gray-0);
+	background-color: var(--white);
 	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
-	border-color: var(--gray-3);
+	border-color: var(--gray-2);
 }
 
 :global(.dark) .main {
 	background-color: var(--gray-9);
 	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	border-color: var(--gray-10);
+	border-color: var(--black);
 }
 
 /* GROUP */
@@ -26,18 +26,30 @@
 
 :global(.light) .main:disabled,
 :global(.light) .main:read-only {
-	background-color: var(--gray-1);
+	background-color: var(--gray-0);
 }
 :global(.light) .main:disabled {
-    color: var(--gray-5);
-    border-color: var(--gray-2);
+    color: var(--gray-3);
+    border-color: var(--gray-1);
 }
 
 :global(.dark) .main:disabled,
 :global(.dark) .main:read-only {
-	background-color: var(--gray-8);
+	background-color: var(--gray-6);
 }
 :global(.dark) .main:disabled {
 	color: var(--gray-4);
-    border-color: var(--gray-9);
+    border-color: var(--black);
+}
+
+/* PLACEHOLDER */
+
+:global(.light) .main::placeholder {
+	color: var(--gray-4);
+	opacity: 1;
+}
+
+:global(.dark) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
 }
