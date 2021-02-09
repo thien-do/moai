@@ -9,29 +9,29 @@
 
 :global(.light) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
-	background-color: var(--neutral-1);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-0);
-	border-color: var(--neutral-3);
+	background-color: var(--gray-1);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-0);
+	border-color: var(--gray-3);
 }
 :global(.light) .input:hover {
-	background-color: var(--neutral-0);
+	background-color: var(--gray-0);
 }
 :global(.light) .input:active {
-	background-color: var(--neutral-2);
+	background-color: var(--gray-2);
 	box-shadow: none;
 }
 
 :global(.dark) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	background-color: var(--neutral-2);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--neutral-3);
-	border-color: var(--neutral-negative-1);
+	background-color: var(--gray-7);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-6);
+	border-color: var(--gray-10);
 }
 :global(.dark) .input:hover {
-	background-color: var(--neutral-3);
+	background-color: var(--gray-6);
 }
 :global(.dark) .input:active {
-	background-color: var(--neutral-0);
+	background-color: var(--gray-9);
 	box-shadow: none;
 }
 
@@ -58,7 +58,7 @@
 :global(.dark) .input:indeterminate {
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
-	border-color: var(--neutral-negative-1);
+	border-color: var(--gray-10);
 }
 :global(.dark) .input:checked:hover,
 :global(.dark) .input:indeterminate:hover {
@@ -75,36 +75,51 @@
 :global(.light) .input:disabled,
 :global(.light) .input:checked:disabled,
 :global(.light) .input:indeterminate:disabled {
-	color: var(--neutral-4);
+	color: var(--gray-5);
 	box-shadow: none;
-	background-color: var(--neutral-1);
-	border-color: var(--neutral-2);
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
 }
 
 :global(.dark) .input:disabled,
 :global(.dark) .input:checked:disabled,
 :global(.dark) .input:indeterminate:disabled {
-	color: var(--neutral-4);
-	background-color: var(--neutral-2);
+	color: var(--gray-4);
+	background-color: var(--gray-7);
 	box-shadow: none;
-	border-color: var(--neutral-5);
+	border-color: var(--gray-9);
 }
 
 /* ICON */
 
-.icon {
-	color: var(--neutral-5);
+:global(.light) .icon {
+	color: var(--gray-9);
 }
-.input:checked ~ .icon,
-.input:indeterminate ~ .icon {
-	color: var(--highlight-0);
+:global(.light) .input:checked ~ .icon,
+:global(.light) .input:indeterminate ~ .icon {
+	color: var(--gray-1);
 }
-.input:disabled ~ .icon {
-	color: var(--neutral-4);
+:global(.light) .input:disabled ~ .icon {
+	color: var(--gray-5);
+}
+
+:global(.dark) .icon {
+	color: var(--gray-1);
+}
+:global(.dark) .input:checked ~ .icon,
+:global(.dark) .input:indeterminate ~ .icon {
+	color: var(--gray-1);
+}
+:global(.dark) .input:disabled ~ .icon {
+	color: var(--gray-4);
 }
 
 /* LABEL */
 
-.input:disabled ~ .label {
-	color: var(--neutral-4);
+:global(.light) .input:disabled ~ .label {
+	color: var(--gray-5);
+}
+
+:global(.dark) .input:disabled ~ .label {
+	color: var(--gray-4);
 }

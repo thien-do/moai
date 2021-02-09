@@ -10,36 +10,36 @@
 	border-right: solid 1px transparent;
 }
 :global(.light) .main:hover {
-	background-color: var(--neutral-2);
+	background-color: var(--gray-2);
 }
 :global(.light) .main:active {
-	background-color: var(--neutral-3);
+	background-color: var(--gray-3);
 }
 :global(.dark) .main:hover {
-	background-color: var(--neutral-2);
+	background-color: var(--gray-7);
 }
 :global(.dark) .main:active {
-	background-color: var(--neutral-0);
+	background-color: var(--gray-9);
 }
 
 :global(.light) .selected,
 :global(.light) .selected:hover,
 :global(.light) .selected:active {
-	background-color: var(--neutral-2);
+	background-color: var(--gray-2);
 }
 :global(.dark) .selected,
 :global(.dark) .selected:hover,
 :global(.dark) .selected:active {
-	background-color: var(--neutral-1);
+	background-color: var(--gray-8);
 }
 
 :global(.light) .main:disabled,
 :global(.light) .main:disabled:hover,
 :global(.light) .main:disabled:active {
-	color: var(--neutral-4);
+	color: var(--gray-5);
 }
 :global(.dark) .main:disabled,
 :global(.dark) .main:disabled:hover,
 :global(.dark) .main:disabled:active {
-	color: var(--neutral-4);
+	color: var(--gray-4);
 }
