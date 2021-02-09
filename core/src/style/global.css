@@ -5,10 +5,10 @@
 	--highlight-1: #e1f3fe;
 	--highlight-2: #bae5fd;
 	--highlight-3: #7ed4fc;
-	--highlight-4: #3abff8;
-	--highlight-5: #0da2e7;
-	--highlight-6: #0284c5;
-	--highlight-7: #0369a0;
+	--highlight-4: hsl(198, 93%, 55%);
+	--highlight-5: hsl(199, 89%, 48%);
+	--highlight-6: hsl(200, 98%, 39%);
+	--highlight-7: hsl(201, 96%, 32%);
 	--highlight-8: #075783;
 	--highlight-9: #0c4a6e;
 
@@ -34,23 +34,21 @@
 	--failure-8: #9f1239;
 	--failure-9: #881337;
 
-	/*
-	Format:
-	- l/d: light or dark mode
-	- bg/fg/br: background, foreground, border
-	- 1st/2nd: primary (strong), secondary (weak)
-	*/
-	--gray-0: hsl(0, 0%, 100%); /* l bg 1st */
-	--gray-1: hsl(0, 0%, 98%); /* l bg 2nd, d fg 1st */
-	--gray-2: hsl(240, 6%, 90%); /* l br 2nd */
-	--gray-3: hsl(232, 7%, 78%); /* l br 1st */
-	--gray-4: hsl(240, 5%, 65%); /* d fg 2nd */
-	--gray-5: hsl(240, 4%, 46%); /* l fg 2nd */
-	--gray-6: hsl(240, 5%, 34%); /* d br 1st */
-	--gray-7: hsl(240, 5%, 26%); /* d br 2nd */
-	--gray-8: hsl(232, 7%, 22%); /* d bg 1st */
-	--gray-9: hsl(240, 4%, 16%); /* d bg 2nd, l fg 1st */
-	--gray-10: hsl(240, 6%, 10%); /* do not use */
+	--white: #ffffff;
+	--black: #000000;
+
+	--white: hsl(00, 00%, 100%);
+
+	--gray-0: hsl(235, 18%, 98%); /* light app bg */
+	--gray-1: hsl(220, 13%, 90%);
+	--gray-2: hsl(216, 12%, 75%);
+	--gray-3: hsl(218, 11%, 65%);
+	--gray-4: hsl(220, 09%, 46%);
+	--gray-5: hsl(221, 13%, 32%);
+	--gray-6: hsl(222, 13%, 26%);
+	--gray-7: hsl(220, 13%, 18%);
+	--gray-8: hsl(216, 13%, 15%); /* dark app bg */
+	--gray-9: hsl(240, 06%, 10%);
 
 	/* Avoid Ubuntu Mono as it's significantly smaller than others at the same
 	font size */
@@ -59,7 +57,7 @@
 	--font-sans: "Inter var", system-ui, -apple-system, sans-serif;
 
 	/* Border Radius */
-	--radius-1: 3px;
+	--radius-1: 2px;
 
 	/* Shadow */
 	--shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.1);

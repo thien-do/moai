@@ -15,57 +15,55 @@
 
 :global(.light) .main {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
-	background-color: var(--gray-1);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-0);
-	border-color: var(--gray-3);
+	background-color: var(--gray-0);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--white);
+	border-color: var(--gray-2);
 }
 :global(.light) .main:hover {
-	background-color: var(--gray-0);
+	background-color: var(--white);
 }
 :global(.light) .main:active {
-	background-color: var(--gray-2);
+	background-color: var(--gray-1);
 	box-shadow: none;
 }
 
 :global(.dark) .main {
-	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
-	background-color: var(--gray-7);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-6);
-	border-color: var(--gray-10);
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.5);
+	background-color: var(--gray-6);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-5);
+	border-color: var(--black);
 }
 :global(.dark) .main:hover {
-	background-color: var(--gray-6);
+	background-color: var(--gray-5);
 }
 :global(.dark) .main:active {
-	background-color: var(--gray-9);
+	background-color: var(--gray-7);
 	box-shadow: none;
 }
 
 /* HIGHLIGHT */
 
-:global(.light) .highlight {
-	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
-	color: var(--gray-1);
+:global(.light) .highlight,
+:global(.dark) .highlight {
+	color: var(--white);
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+}
+
+:global(.light) .highlight {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
 	border-color: var(--highlight-7);
-}
-:global(.light) .highlight:hover {
-	background-color: var(--highlight-4);
-}
-:global(.light) .highlight:active {
-	background-color: var(--highlight-6);
 }
 
 :global(.dark) .highlight {
-	color: var(--gray-1);
-	background-color: var(--highlight-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
-	border-color: var(--gray-10);
+	border-color: var(--black);
 }
+
+:global(.light) .highlight:hover,
 :global(.dark) .highlight:hover {
 	background-color: var(--highlight-4);
 }
+:global(.light) .highlight:active,
 :global(.dark) .highlight:active {
 	background-color: var(--highlight-6);
 	box-shadow: none;
@@ -73,41 +71,33 @@
 
 /* SELECTED */
 
-:global(.light) .selected:not(.win-pseudo) {
-	background-color: var(--gray-2);
-	box-shadow: 0px 0px 0px transparent;
+:global(.light) .selected:not(.x) {
+	background-color: var(--gray-1);
+	box-shadow: none;
 }
 
-:global(.light) .highlight.selected:not(.win-pseudo) {
-	background-color: var(--highlight-6);
-	box-shadow: 0px 0px 0px transparent;
-}
-
-:global(.dark) .selected,
-:global(.dark) .selected:hover,
-:global(.dark) .selected:active {
+:global(.dark) .selected:not(.x) {
 	background-color: var(--gray-9);
-	box-shadow: 0px 0px 0px transparent;
+	box-shadow: none;
 }
 
-:global(.dark) .highlight.selected,
-:global(.dark) .highlight.selected:hover,
-:global(.dark) .highlight.selected:active {
+:global(.light) .highlight.selected:not(.x),
+:global(.dark) .highlight.selected:not(.x) {
 	background-color: var(--highlight-6);
-	box-shadow: 0px 0px 0px transparent;
+	box-shadow: none;
 }
 
 /* DISABLED */
 
 :global(.light) .main:not(.busy):disabled {
-	color: var(--gray-5);
+	color: var(--gray-4);
 	box-shadow: none;
-	background-color: var(--gray-1);
-	border-color: var(--gray-2);
+	background-color: var(--gray-0);
+	border-color: var(--gray-1);
 }
 :global(.dark) .main:not(.busy):disabled {
 	color: var(--gray-4);
-	background-color: var(--gray-7);
 	box-shadow: none;
-	border-color: var(--gray-9);
+	background-color: var(--gray-6);
+	border-color: var(--black);
 }
