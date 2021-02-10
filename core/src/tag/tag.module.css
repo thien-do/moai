@@ -10,7 +10,14 @@
 	exact) */
 	height: 24px;
 	margin: -4px 0; /* reset the height back to 16px */
+}
 
+:global(.light) .container {
 	background-color: var(--category-1);
 	color: var(--category-8);
+}
+
+:global(.dark) .container {
+	background-color: var(--category-8);
+	color: var(--category-1);
 }
