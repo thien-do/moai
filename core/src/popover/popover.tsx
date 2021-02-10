@@ -1,12 +1,11 @@
 import { Placement } from "@popperjs/core";
-import * as React from "react";
+import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
-import { usePopper } from "react-popper";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { shadow } from "../shadow/shadow";
 import { getPortalContainer } from "../utils/utils";
-import s from "./popover.module.css";
+import { PopoverPane } from "./pane/pane";
 
 interface TargetProps {
 	toggle: () => void;
@@ -22,7 +21,6 @@ export interface PopoverProps {
 	content: (props: ContentProps) => React.ReactNode;
 	TargetWrapper?: () => JSX.Element;
 	placement?: Placement;
-	onClose?: () => void;
 }
 
 const DefaultTargetWrapper = (props: {
@@ -30,81 +28,12 @@ const DefaultTargetWrapper = (props: {
 	children: React.ReactNode;
 }): JSX.Element => <div ref={props.setTarget} children={props.children} />;
 
-interface State {
-	styles: { [key: string]: React.CSSProperties };
-	attributes: { [key: string]: { [key: string]: string } | undefined };
-	setContent: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
-	setArrow: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>;
-	toggle: () => void;
-}
-
-const Content = (props: PopoverProps & { state: State }) => {
-	const style = Popover.styles.outset;
-	return (
-		<div
-			ref={props.state.setContent}
-			style={props.state.styles.popper}
-			className={[s.content, style.content].join(" ")}
-			{...props.state.attributes.popper}
-		>
-			{props.content({ close: props.state.toggle })}
-
-			{/* Popper will apply inline transform to the ref-ed elemenet so we
-		need another element so we can rotate it */}
-			<div
-				style={props.state.styles.arrow}
-				ref={props.state.setArrow}
-				className={s.arrow}
-				{...props.state.attributes.arrow}
-			>
-				<div className={[s.arrowShape, style.arrow].join(" ")} />
-			</div>
-		</div>
-	);
-};
-
 export const Popover = (props: PopoverProps) => {
-	const [opened, setOpened] = React.useState(false);
-	const [target, setTarget] = React.useState<HTMLDivElement | null>(null);
-	const [content, setContent] = React.useState<HTMLDivElement | null>(null);
-	const [arrow, setArrow] = React.useState<HTMLDivElement | null>(null);
-	const { styles, attributes, update } = usePopper(
-		target,
-		opened ? content : null,
-		{
-			placement: props.placement ?? "bottom",
-			modifiers: [
-				{ name: "offset", options: { offset: [0, 8] } },
-				{ name: "arrow", options: { element: arrow } },
-			],
-		}
-	);
+	const [opened, setOpened] = useState(false);
+	const [target, setTarget] = useState<HTMLDivElement | null>(null);
 
-	// Because Arrow and Menu is rendered conditionally, the position of arrow
-	// in initial render may be wrong. This forces a Popper's update to fix it
-	React.useEffect(() => {
-		if (opened && update !== null) update();
-	}, [opened, update]);
-
-	// Close on outside click
-	const { onClose } = props;
-	React.useEffect(() => {
-		if (!opened || content === null) return;
-		const listener = (event: MouseEvent) => {
-			if (!(event.target instanceof Node)) return;
-			if (content.contains(event.target)) return;
-			onClose?.();
-			setOpened(false);
-		};
-		// Avoid trigger immediately
-		window.setTimeout(() => {
-			document.addEventListener("click", listener);
-		}, 0);
-		return () => document.removeEventListener("click", listener);
-	}, [opened, content, onClose]);
-
-	const toggle = () => setOpened((b) => !b);
-	const state = { setArrow, setContent, attributes, styles, toggle };
+	const toggle = useCallback(() => setOpened((b) => !b), []);
+	const close = useCallback(() => void setOpened(false), []);
 	const TargetWrapper = props.TargetWrapper ?? DefaultTargetWrapper;
 
 	return (
@@ -113,8 +42,14 @@ export const Popover = (props: PopoverProps) => {
 				{props.target({ toggle, opened })}
 			</TargetWrapper>
 			{opened &&
+				target &&
 				createPortal(
-					<Content {...props} state={state} />,
+					<PopoverPane
+						children={props.content({ close })}
+						target={target}
+						placement={props.placement}
+						onOutsideClick={close}
+					/>,
 					getPortalContainer()
 				)}
 		</div>
