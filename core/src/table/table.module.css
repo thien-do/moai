@@ -22,7 +22,7 @@
 	background-color: var(--gray-1);
 }
 :global(.dark) .container tr:hover td {
-	background-color: var(--gray-9);
+	background-color: var(--gray-6);
 }
 
 .container tr:last-child td {
