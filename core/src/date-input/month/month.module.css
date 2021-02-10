@@ -1,0 +1,9 @@
+.wrapper {
+	display: table-caption;
+	text-align: left;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}

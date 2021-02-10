@@ -10,12 +10,13 @@ import { PaginationGallery } from "./pagination";
 import { PaneGallery } from "./pane";
 import { TagGallery } from "./tag";
 import { SelectGallery } from "./select";
-import { Tab1Gallery, Tab2Gallery, Tab3Gallery } from "./tab";
+import { TabDefaultGallery, TabFlatGallery, TabHeightGallery } from "./tab";
 import { TableGallery } from "./table";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
 import { TooltipGallery } from "./tooltip";
 import { ProgressGallery } from "./progress";
+import { DateInputGallery } from "./date-input";
 
 export const WidgetGallery = () => (
 	<div className="space-y-32">
@@ -32,7 +33,10 @@ export const WidgetGallery = () => (
 		<GallerySection title="Selection controls">
 			<SelectGallery />
 			<CheckboxGallery />
-			<PaginationGallery />
+			<div className="space-y-16">
+				<DateInputGallery />
+				<PaginationGallery />
+			</div>
 		</GallerySection>
 		<GallerySection title="Feedback">
 			<ToastGallery />
@@ -47,9 +51,9 @@ export const WidgetGallery = () => (
 			<PaneGallery />
 		</GallerySection>
 		<GallerySection title="Tabs">
-			<Tab1Gallery />
-			<Tab2Gallery />
-			<Tab3Gallery />
+			<TabDefaultGallery />
+			<TabFlatGallery />
+			<TabHeightGallery />
 		</GallerySection>
 		<GallerySection title="Table">
 			<div className="col-span-full">

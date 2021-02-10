@@ -60,9 +60,28 @@ export interface InputProps {
 	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
 	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+	onClick?: React.KeyboardEventHandler<HTMLInputElement>;
+	/**
+	 * You should not need to use onChange! This exists only for compatibility
+	 * with 3rd-party libraries (those that passing props to a custom rendered
+	 * component)
+	 */
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
+const ERRORS = {
+	onChangeSetValue: `"onChange" and "setValue" must not be defined at the same time`,
+};
+
+const validate = (props: InputProps): void => {
+	if (props.onChange !== undefined && props.setValue !== undefined) {
+		throw Error(ERRORS.onChangeSetValue);
+	}
+};
+
 export const Input = (props: InputProps): JSX.Element => {
+	validate(props);
+
 	const ref = React.useRef<HTMLInputElement>(null);
 
 	React.useEffect(() => {
@@ -83,6 +102,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				defaultValue={props.defaultValue}
 				value={props.value}
 				onChange={(event) => {
+					props.onChange?.(event);
 					props.setValue?.(event.currentTarget.value);
 				}}
 				// Event handlers
@@ -128,12 +148,9 @@ export const Input = (props: InputProps): JSX.Element => {
 
 Input.styles = {
 	outset: {
-		main: [
-			s.outset,
-			sOutset.main,
-			border.radius,
-			background.strong,
-		].join(" "),
+		main: [s.outset, sOutset.main, border.radius, background.strong].join(
+			" "
+		),
 	} as InputStyle,
 	flat: {
 		main: [sFlat.main].join(" "),
@@ -154,3 +171,7 @@ Input.sizes = {
 		iconSize: 12,
 	} as InputSize,
 };
+
+Input.Forwarded = React.forwardRef<HTMLInputElement, InputProps>(
+	(props, ref) => <Input forwardedRef={ref} {...props} />
+);

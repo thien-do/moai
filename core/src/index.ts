@@ -8,6 +8,7 @@ export * from "./button-menu/button-menu";
 export * from "./button/button";
 export * from "./category/category";
 export * from "./checkbox/checkbox";
+export * from "./date-input/date-input";
 export * from "./dialog/alert";
 export * from "./dialog/confirm";
 export * from "./dialog/dialog";
