@@ -56,6 +56,11 @@
 	background-color: var(--success-5);
 }
 
+:global(.light) .highlight,
+:global(.dark) .highlight {
+	background-color: var(--highlight-5);
+}
+
 :global(.light) .highlightWeak {
 	background-color: var(--highlight-6);
 }

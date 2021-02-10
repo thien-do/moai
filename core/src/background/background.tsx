@@ -7,6 +7,7 @@ export const background = {
 	weak: s.weak as string,
 	inverse: s.inverse as string,
 	// Colored
+	highlight: s.highlight as string,
 	highlightStrong: s.highlightStrong as string,
 	highlightWeak: s.highlightWeak as string,
 	successStrong: s.successStrong as string,

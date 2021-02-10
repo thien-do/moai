@@ -1,7 +1,7 @@
 import { Tag } from "@moai/core/src";
 
 export const TagGallery = (): JSX.Element => (
-	<div className="space-y-16">
+	<div className="space-y-8">
 		<div>
 			<span>Tag is </span>
 			<Tag color={Tag.colors.gray}>inline</Tag>

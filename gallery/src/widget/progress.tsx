@@ -1,7 +1,7 @@
-import { ProgressCircle } from "@moai/core/src";
+import { background, ProgressCircle } from "@moai/core/src";
 
 export const ProgressGallery = (): JSX.Element => (
-	<div className="flex space-x-8">
+	<div className="flex space-x-8 items-start">
 		<div className="space-y-8">
 			<div className="flex space-x-8">
 				<ProgressCircle
@@ -10,6 +10,17 @@ export const ProgressGallery = (): JSX.Element => (
 					color={ProgressCircle.colors.highlight}
 				/>
 				<ProgressCircle size={16} value="indeterminate" />
+				<div>
+					<div
+						className={[background.highlight, "p-4 -m-4"].join(" ")}
+					>
+						<ProgressCircle
+							size={16}
+							value="indeterminate"
+							color={ProgressCircle.colors.inverse}
+						/>
+					</div>
+				</div>
 			</div>
 			<div className="flex space-x-8">
 				<ProgressCircle size={16} value={0} />
