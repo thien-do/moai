@@ -10,44 +10,7 @@
 	exact) */
 	height: 24px;
 	margin: -4px 0; /* reset the height back to 16px */
-}
 
-:global(.light) .neutral {
-	background-color: var(--gray-2);
-	color: var(--gray-7);
-}
-
-:global(.dark) .neutral {
-	background-color: var(--gray-6);
-	color: var(--gray-1);
-}
-
-:global(.light) .failure {
-	background-color: var(--failure-1);
-	color: var(--failure-9);
-}
-
-:global(.dark) .failure {
-	background-color: var(--failure-9);
-	color: var(--failure-2);
-}
-
-:global(.light) .highlight {
-	background-color: var(--highlight-1);
-	color: var(--highlight-9);
-}
-
-:global(.dark) .highlight {
-	background-color: var(--highlight-9);
-	color: var(--highlight-2);
-}
-
-:global(.light) .success {
-	background-color: var(--success-1);
-	color: var(--success-9);
-}
-
-:global(.dark) .success {
-	background-color: var(--success-9);
-	color: var(--success-2);
+	background-color: var(--category-1);
+	color: var(--category-8);
 }

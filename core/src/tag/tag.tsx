@@ -1,4 +1,5 @@
 import { border } from "../border/border";
+import { CategoryColor, categoryColors } from "../category/category";
 import s from "./tag.module.css";
 
 export interface TagType {
@@ -7,19 +8,14 @@ export interface TagType {
 
 interface Props {
 	children: string;
-	type: TagType;
+	color: CategoryColor;
 }
 
-export const Tag = ({ children, type }: Props): JSX.Element => (
+export const Tag = ({ children, color }: Props): JSX.Element => (
 	<span
-		className={[border.radius, s.container, type.cls].join(" ")}
+		className={[border.radius, s.container, color].join(" ")}
 		children={children}
 	/>
 );
 
-Tag.types = {
-	neutral: { cls: s.neutral } as TagType,
-	highlight: { cls: s.highlight } as TagType,
-	success: { cls: s.success } as TagType,
-	failure: { cls: s.failure } as TagType,
-};
+Tag.colors = categoryColors;

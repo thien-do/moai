@@ -6,6 +6,7 @@ export * from "./shadow/shadow";
 export * from "./button-group/button-group";
 export * from "./button-menu/button-menu";
 export * from "./button/button";
+export * from "./category/category";
 export * from "./checkbox/checkbox";
 export * from "./dialog/alert";
 export * from "./dialog/confirm";

@@ -1,0 +1,40 @@
+.gray {
+	--category-1: #f3f4f6;
+	--category-5: #6b7280;
+	--category-8: #1f2937;
+}
+.red {
+	--category-1: #fee2e2;
+	--category-5: #ef4444;
+	--category-8: #991b1b;
+}
+.yellow {
+	--category-1: #fef3c7;
+	--category-5: #f59e0b;
+	--category-8: #92400e;
+}
+.green {
+	--category-1: #d1fae5;
+	--category-5: #10b981;
+	--category-8: #065f46;
+}
+.blue {
+	--category-1: #dbeafe;
+	--category-5: #3b82f6;
+	--category-8: #1e40af;
+}
+.indigo {
+	--category-1: #e0e7ff;
+	--category-5: #6366f1;
+	--category-8: #3730a3;
+}
+.purple {
+	--category-1: #ede9fe;
+	--category-5: #8b5cf6;
+	--category-8: #5b21b6;
+}
+.pink {
+	--category-1: #fce7f3;
+	--category-5: #ec4899;
+	--category-8: #9d174d;
+}
