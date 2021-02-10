@@ -8,13 +8,14 @@ import { Input1Gallery } from "./input-1";
 import { Input2Gallery } from "./input-2";
 import { PaginationGallery } from "./pagination";
 import { PaneGallery } from "./pane";
-import { ProgressGallery } from "./progress";
+import { TagGallery } from "./tag";
 import { SelectGallery } from "./select";
 import { Tab1Gallery, Tab2Gallery, Tab3Gallery } from "./tab";
 import { TableGallery } from "./table";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
 import { TooltipGallery } from "./tooltip";
+import { ProgressGallery } from "./progress";
 
 export const WidgetGallery = () => (
 	<div className="space-y-32">
@@ -36,7 +37,10 @@ export const WidgetGallery = () => (
 		<GallerySection title="Feedback">
 			<ToastGallery />
 			<TooltipGallery />
-			<ProgressGallery />
+			<div className="space-y-16">
+				<TagGallery />
+				<ProgressGallery />
+			</div>
 		</GallerySection>
 		<GallerySection title="Container">
 			<DialogGallery />

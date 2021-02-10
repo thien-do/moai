@@ -82,7 +82,7 @@ const Genres: Column = ({ person }) => (
 	<div className="flex flex-wrap -mx-4 -my-8">
 		{person.genres.split("|").map((genre) => (
 			<div className="px-4 py-8" key={genre}>
-				<Tag type={Tag.types.neutral} children={genre} />
+				<Tag color={Tag.colors.gray} children={genre} />
 			</div>
 		))}
 	</div>
