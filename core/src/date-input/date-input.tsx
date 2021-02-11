@@ -3,10 +3,12 @@ import DayPickerInput from "react-day-picker/DayPickerInput";
 import { Input, InputProps } from "../input/input";
 import { PopoverPane } from "../popover/pane/pane";
 import "./date-input.css";
+import { DateInputFormat, dateInputFormats } from "./format";
 import { DateInputMonth } from "./month/month";
 import { DateInputNavbar } from "./navbar/navbar";
 
 interface Props {
+	format: DateInputFormat;
 	value?: Date | null;
 	setValue?: (date: Date | null) => void;
 	initialValue?: Date | null;
@@ -80,7 +82,13 @@ export const DateInput = (props: Props): JSX.Element => {
 					if (props.setValue === undefined) return;
 					props.setValue(day ?? null);
 				}}
+				// Format
+				placeholder={props.format.placeholder}
+				formatDate={props.format.format}
+				parseDate={props.format.parse}
 			/>
 		</div>
 	);
 };
+
+DateInput.formats = dateInputFormats;
