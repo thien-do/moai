@@ -66,6 +66,7 @@ export const DateInput = (props: Props): JSX.Element => {
 				ref={props.forwardedRef}
 				inputProps={{ style: props.style, size: props.size }}
 				component={Input.Forwarded}
+				clickUnselectsDay
 				overlayComponent={(dayPicker: DayPickerOverlayProps) => (
 					<Overlay target={target} {...dayPicker} />
 				)}
