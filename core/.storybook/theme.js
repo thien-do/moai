@@ -1,37 +1,24 @@
 import { create } from "@storybook/theming";
 
-export default create({
+export const storyTheme = create({
 	base: "light",
 
-	colorPrimary: "red",
-	colorSecondary: "hsl(199, 89%, 48%)",
+	colorPrimary: "hsl(199, 89%, 48%)", // highlight-5
+	colorSecondary: "hsl(199, 89%, 48%)", // highlight-5
 
 	// UI
-	appBg: "var(--gray-0)",
-	appContentBg: "green",
-	appBorderColor: "blue",
+	appBg: "hsl(235, 18%, 98%)", // gray-0
+	appContentBg: "#ffffff", // white
+	appBorderColor: "hsl(216, 12%, 77%)", // gray-2
 	appBorderRadius: 2,
 
 	// Typography
-	fontBase: '"Open Sans", sans-serif',
-	fontCode: "monospace",
+	fontBase: '"Inter var", sans-serif',
 
 	// Text colors
-	textColor: "black",
-	textInverseColor: "rgba(255,255,255,0.9)",
+	textColor: "hsl(216, 13%, 15%)", // gray-8
+	textMutedColor: "hsl(220, 09%, 46%)", // gray-4
 
-	// Toolbar default and active colors
-	barTextColor: "silver",
-	barSelectedColor: "black",
-	barBg: "hotpink",
-
-	// Form colors
-	inputBg: "white",
-	inputBorder: "silver",
-	inputTextColor: "black",
-	inputBorderRadius: 4,
-
-	brandTitle: "My custom storybook",
-	brandUrl: "https://example.com",
-	brandImage: "https://placehold.it/350x150",
+	brandTitle: "Moai UI kit",
+	brandUrl: "https://moaijs.com",
 });

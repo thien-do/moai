@@ -6,6 +6,7 @@ import "../src/global/global";
 import { Switcher } from "../src/switcher/switcher";
 import { getThemeClass, getThemeOptions, useTheme } from "../src/theme/theme";
 import "./preview.css";
+import { storyTheme } from "./theme";
 
 const Container = ({ children, context }) => {
 	const { theme, setTheme } = useTheme();
@@ -36,13 +37,13 @@ const Container = ({ children, context }) => {
 
 export const parameters = {
 	docs: {
-		theme: themes.light,
+		theme: storyTheme,
 		container: Container,
 	},
 	viewMode: "docs",
 	options: {
 		storySort: {
-			order: ["Checkbox"],
+			order: ["Components"],
 		},
 	},
 };

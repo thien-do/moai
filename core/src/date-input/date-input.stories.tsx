@@ -6,7 +6,7 @@ import { DivPx } from "../div/div";
 import { DateInput } from "./date-input";
 
 export default {
-	title: "components/DateInput",
+	title: "Components/DateInput",
 	component: DateInput,
 } as Meta;
 

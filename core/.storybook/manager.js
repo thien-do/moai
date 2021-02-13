@@ -1,6 +1,7 @@
 import { addons } from "@storybook/addons";
 import "../src/global/global";
-import theme from "./theme";
+import "../font/remote.css";
+import { storyTheme } from "./theme";
 
 addons.setConfig({
 	initialActive: "addons",
@@ -11,5 +12,5 @@ addons.setConfig({
 			disabled: true,
 		},
 	},
-	theme: theme,
+	theme: storyTheme,
 });

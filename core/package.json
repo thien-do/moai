@@ -7,7 +7,7 @@
 	"types": "dist/types/index.d.ts",
 	"scripts": {
 		"build": "rollup --config",
-		"start": "start-storybook -p 6006",
+		"start": "start-storybook --no-manager-cache -p 6006",
 		"build-storybook": "build-storybook",
 		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
 	},
