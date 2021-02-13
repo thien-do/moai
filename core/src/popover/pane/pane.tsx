@@ -13,7 +13,7 @@ interface Props {
 	onOutsideClick?: () => void;
 }
 
-export const PopoverPane = (props: Props) => {
+export const PopoverPane = (props: Props): JSX.Element => {
 	const [content, setContent] = useState<HTMLDivElement | null>(null);
 	const [arrow, setArrow] = useState<HTMLDivElement | null>(null);
 	const style = Popover.styles.outset;
