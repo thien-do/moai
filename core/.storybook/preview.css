@@ -30,7 +30,7 @@
 
 /* "name" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(1) {
-	width: 120px;
+	width: 160px;
 }
 
 /* "description" column */

@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 export const Primary = () => (
-	<div className={s.container}>
+	<div className={s.primary}>
 		{/* It's optional but highly recommended to define the type of Table's
 		rows as soon as possible */}
 		<Table<Faker.ContextualCard>
@@ -31,6 +31,24 @@ export const Primary = () => (
 				return faker.helpers.contextualCard();
 			})}
 			rowKey={(p) => p.email}
+		/>
+	</div>
+);
+
+export const Expandable = () => (
+	<div className={s.expandable}>
+		<Table<Faker.ContextualCard>
+			columns={[
+				{ title: "Name", render: "name", className: s.name },
+				{ title: "Phone", render: "phone" },
+				{ title: "Username", render: "username" },
+				{ title: "Website", render: "website" },
+			]}
+			rows={Array.from({ length: 5 }, () => {
+				return faker.helpers.contextualCard();
+			})}
+			rowKey={(p) => p.email}
+			expandRowRender={(card) => JSON.stringify(card.address)}
 		/>
 	</div>
 );

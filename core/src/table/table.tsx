@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { text } from "../text/text";
+import { getTableRow } from "./row/row";
 import s from "./table.module.css";
 
 export interface TableColumn<R> {
@@ -27,7 +28,7 @@ export interface TableColumn<R> {
 		| ((row: R) => ReactNode); // Render function;
 }
 
-interface Props<R> {
+export interface TableProps<R> {
 	/**
 	 * Rows of the Table. The type of Row is [generic][1], which is usually the
 	 * interface of a model.
@@ -43,6 +44,16 @@ interface Props<R> {
 	 * Columns of the Table. See the "TableColumn" tab for detail.
 	 */
 	columns: TableColumn<R>[];
+	/**
+	 * A [render prop][1] that enables row expanding. Setting this prop will
+	 * add a button to each row that allows users to expand or collapse it.
+	 *
+	 * This should return the React element to be rendered when the given row
+	 * is expanded.
+	 *
+	 * [1]: https://reactjs.org/docs/render-props.html
+	 */
+	expandRowRender?: (row: R) => ReactNode;
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
@@ -53,34 +64,33 @@ const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
 	</th>
 );
 
-const tdCls = [border.weak, background.strong].join(" ");
+export interface TableState {
+	expanded: Set<string>;
+	setExpanded: (key: string, value: boolean) => void;
+}
 
-const renderTd = <R,>(row: R) => (
-	column: TableColumn<R>,
-	index: number
-): JSX.Element => (
-	<td
-		key={index}
-		className={[tdCls, column.className].join(" ")}
-		children={
-			typeof column.render === "function"
-				? column.render(row) // Render function
-				: row[column.render] // Accessor
-		}
-	/>
-);
+export const Table = <R,>(props: TableProps<R>) => {
+	const [expanded, _setExpanded] = useState(() => new Set<string>());
+	const setExpanded: TableState["setExpanded"] = (key, value) => {
+		_setExpanded((prev) => {
+			const next = new Set(prev);
+			value ? next.add(key) : next.delete(key);
+			return next;
+		});
+	};
+	const state = { expanded, setExpanded };
 
-export const Table = <R,>(props: Props<R>) => (
-	<table className={[s.container, background.strong].join(" ")}>
-		<thead>
-			<tr>{props.columns.map(renderTh)}</tr>
-		</thead>
-		<tbody>
-			{props.rows.map((row) => (
-				<tr key={props.rowKey(row)}>
-					{props.columns.map(renderTd(row))}
-				</tr>
-			))}
-		</tbody>
-	</table>
-);
+	const body: JSX.Element[] = [];
+	props.rows.forEach((row) => {
+		const elements = getTableRow({ row, state, table: props });
+		body.push(...elements);
+	});
+	return (
+		<table className={[s.container, background.strong].join(" ")}>
+			<thead>
+				<tr>{props.columns.map(renderTh)}</tr>
+			</thead>
+			<tbody children={body} />
+		</table>
+	);
+};

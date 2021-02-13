@@ -1,20 +1,24 @@
 /* These are minimum amount of CSS to have sticky header and first column */
 
-.container {
+.primary {
 	height: 245px;
 	overflow: auto;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
 
-.container table {
+.primary table {
 	min-width: 1400px;
 }
 
-.container th {
+.primary th {
 	text-align: left;
 }
 
 .name {
-	width: 120px;
+	width: 160px;
+}
+
+.expandable th {
+	text-align: left;
 }
