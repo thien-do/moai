@@ -1,9 +1,9 @@
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { themes } from "@storybook/theming";
 import { useEffect, useState } from "react";
+import { BackgroundSwitcher } from "../src/background/switcher";
 import "../src/global/global";
 import { Switcher } from "../src/switcher/switcher";
-import { BackgroundSwitcher } from "../src/background/switcher";
 import { getThemeClass, getThemeOptions, useTheme } from "../src/theme/theme";
 import "./preview.css";
 

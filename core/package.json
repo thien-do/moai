@@ -8,6 +8,7 @@
 	"scripts": {
 		"build": "rollup --config",
 		"start": "start-storybook -p 6006",
+		"build-storybook": "build-storybook",
 		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
 	},
 	"repository": {
@@ -43,11 +44,13 @@
 		"@storybook/addon-docs": "6.1.17",
 		"@storybook/react": "6.1.17",
 		"@storybook/theming": "6.1.17",
+		"@types/faker": "5.1.6",
 		"@types/react": "17.0.1",
 		"@types/react-dom": "17.0.0",
 		"@types/rollup-plugin-postcss": "2.0.1",
 		"autoprefixer": "10.2.4",
 		"babel-loader": "8.2.2",
+		"faker": "5.4.0",
 		"postcss": "8.2.5",
 		"rollup": "2.38.5",
 		"rollup-plugin-copy": "3.3.0",
