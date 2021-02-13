@@ -1,15 +1,48 @@
-import { Border, DivPx, ThemeSwitcher } from "../src";
+import { DocsContainer } from "@storybook/addon-docs/blocks";
+import { themes } from "@storybook/theming";
+import { useEffect, useState } from "react";
+import "../src/global/global";
+import { Switcher } from "../src/switcher/switcher";
+import { BackgroundSwitcher } from "../src/background/switcher";
+import { getThemeClass, getThemeOptions, useTheme } from "../src/theme/theme";
+import "./preview.css";
 
-const Decorator = (Story) => (
-	<div>
-		<ThemeSwitcher />
-		<DivPx size={16} />
-		<Border color="strong" />
-		<DivPx size={16} />
-		<Story />
-	</div>
-);
+const Container = ({ children, context }) => {
+	const { theme, setTheme } = useTheme();
 
-export const decorators = [Decorator];
+	useEffect(() => {
+		const cls = getThemeClass(theme);
+		const docsTheme = cls === "dark" ? themes.dark : themes.light;
+		context.parameters.docs.theme = docsTheme;
+		// Force a re-render with updated context
+		setValue({});
+	}, [theme]);
 
-export const parameters = {};
+	const setValue = useState({})[1];
+	return (
+		<DocsContainer context={context}>
+			<div className="moai-toolbar">
+				<Switcher
+					options={getThemeOptions()}
+					setValue={setTheme}
+					value={theme}
+				/>
+				<BackgroundSwitcher />
+			</div>
+			{children}
+		</DocsContainer>
+	);
+};
+
+export const parameters = {
+	docs: {
+		theme: themes.light,
+		container: Container,
+	},
+	viewMode: "docs",
+	options: {
+		storySort: {
+			order: ["Checkbox"],
+		},
+	},
+};

@@ -1,0 +1,17 @@
+.sbdocs-wrapper:not(.x) {
+	padding: 24px;
+	background-color: transparent;
+}
+
+.sbdocs-preview:not(.x) {
+	background-color: transparent;
+}
+
+.moai-toolbar {
+	display: flex;
+	margin-bottom: 24px;
+}
+
+.moai-toolbar > * + * {
+	margin-left: 16px;
+}
