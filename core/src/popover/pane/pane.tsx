@@ -1,6 +1,8 @@
 import { Placement } from "@popperjs/core";
 import { ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
+import { getPortalContainer } from "../../utils/utils";
 import { Popover } from "../popover";
 import s from "./pane.module.css";
 
@@ -46,7 +48,7 @@ export const PopoverPane = (props: Props) => {
 		update?.();
 	}, [update]);
 
-	return (
+	const element = (
 		<div
 			ref={setContent}
 			style={styles.popper}
@@ -67,4 +69,6 @@ export const PopoverPane = (props: Props) => {
 			</div>
 		</div>
 	);
+
+	return createPortal(element, getPortalContainer());
 };

@@ -1,10 +1,8 @@
 import { Placement } from "@popperjs/core";
 import { useCallback, useState } from "react";
-import { createPortal } from "react-dom";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { shadow } from "../shadow/shadow";
-import { getPortalContainer } from "../utils/utils";
 import { PopoverPane } from "./pane/pane";
 
 interface TargetProps {
@@ -41,17 +39,14 @@ export const Popover = (props: PopoverProps) => {
 			<TargetWrapper setTarget={setTarget}>
 				{props.target({ toggle, opened })}
 			</TargetWrapper>
-			{opened &&
-				target &&
-				createPortal(
-					<PopoverPane
-						children={props.content({ close })}
-						target={target}
-						placement={props.placement}
-						onOutsideClick={close}
-					/>,
-					getPortalContainer()
-				)}
+			{opened && target && (
+				<PopoverPane
+					children={props.content({ close })}
+					target={target}
+					placement={props.placement}
+					onOutsideClick={close}
+				/>
+			)}
 		</div>
 	);
 };
