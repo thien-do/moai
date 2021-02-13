@@ -8,12 +8,36 @@ import { DateInputMonth } from "./month/month";
 import { DateInputNavbar } from "./navbar/navbar";
 
 interface Props {
+	/**
+	 * Date format of the text box. This is used to display the selected date
+	 * as well as parse the user's input into Date. Choose one from
+	 * `DateInput.formats`.
+	 */
 	format: DateInputFormat;
+	/**
+	 * Value of the input in controlled mode
+	 */
 	value?: Date | null;
+	/**
+	 * Handler to set the value in controlled mode
+	 */
 	setValue?: (date: Date | null) => void;
-	initialValue?: Date | null;
+	/**
+	 * Initial value of the input in uncontrolled mode
+	 */
+	defaultValue?: Date | null;
+	/**
+	 * Size of the text box. Choose one from `DateInput.sizes`.
+	 */
 	size?: InputProps["size"];
+	/**
+	 * Style of the text box. Choose one from `DateInput.styles`.
+	 */
 	style?: InputProps["style"];
+	/**
+	 * Reference to the underlying [DayPickerInput](https://react-day-picker.js.org/api/DayPickerInput/)
+	 * instance.
+	 */
 	forwardedRef?: RefObject<DayPickerInput>;
 }
 
@@ -49,8 +73,8 @@ const getValue = (props: Props): Date | undefined => {
 		return props.value ?? undefined;
 	}
 	// Uncontrolled w initial value
-	if (props.initialValue !== undefined) {
-		return props.initialValue ?? undefined;
+	if (props.defaultValue !== undefined) {
+		return props.defaultValue ?? undefined;
 	}
 	// Uncontrolled wo initial value
 	return undefined;
@@ -93,3 +117,5 @@ export const DateInput = (props: Props): JSX.Element => {
 };
 
 DateInput.formats = dateInputFormats;
+DateInput.sizes = Input.sizes;
+DateInput.styles = Input.styles;

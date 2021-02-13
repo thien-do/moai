@@ -1,8 +1,13 @@
-import { storiesOf } from "@storybook/react";
+import { Meta, storiesOf } from "@storybook/react";
 import { Checkbox } from "./checkbox";
 import { DivPx } from "../div/div";
 
-storiesOf("Checkbox", module).add("Main", () => (
+export default {
+	title: "Checkbox",
+	component: Checkbox,
+} as Meta;
+
+export const Main = () => (
 	<div>
 		<Checkbox indeterminate>Checkbox</Checkbox>
 		<DivPx size={8} />
@@ -16,4 +21,4 @@ storiesOf("Checkbox", module).add("Main", () => (
 		<DivPx size={8} />
 		<Checkbox disabled>Checkbox</Checkbox>
 	</div>
-));
+);
