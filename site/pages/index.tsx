@@ -1,11 +1,12 @@
-import { borderColor, DivPx, ThemeSwitcher } from "@moai/core";
-import { GallerySection, IconGallery, WidgetGallery } from "@moai/gallery";
-import "@moai/gallery/index.css";
+import { border, DivPx, ThemeSwitcher } from "@moai/core";
+import { IconGallery } from "../components/icon/icon";
+import { GallerySection } from "../components/section/section";
+import { WidgetGallery } from "../components/widget/widget";
 import s from "./index.module.css";
 
 const Index = (): JSX.Element => (
 	<div className={s.container}>
-		<div className={[s.header, borderColor.strong].join(" ")}>
+		<div className={[s.header, border.strong].join(" ")}>
 			<ThemeSwitcher />
 		</div>
 		<div className={s.body}>
