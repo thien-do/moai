@@ -1,6 +1,9 @@
 import "./global/global";
 
 export * from "./background/background";
+// Independently export "background/switcher" from "background" to avoid
+// circular dependencies
+export * from "./background/switcher";
 export * from "./border/border";
 export * from "./shadow/shadow";
 export * from "./button-group/button-group";
