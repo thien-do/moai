@@ -1,5 +1,5 @@
 .sbdocs-wrapper:not(.x) {
-	padding: 24px;
+	padding: 0;
 	background-color: transparent;
 }
 
@@ -9,11 +9,22 @@
 
 .moai-toolbar {
 	display: flex;
-	margin-bottom: 24px;
+	padding: 16px 24px;
+
+	position: sticky;
+	top: 0;
+	z-index: 10;
+
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 }
 
 .moai-toolbar > * + * {
 	margin-left: 16px;
+}
+
+.moai-body {
+	padding: 24px;
 }
 
 .docblock-argstable {

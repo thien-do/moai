@@ -1,5 +1,7 @@
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { themes } from "@storybook/theming";
+import { background } from "../src/background/background";
+import { border } from "../src/border/border";
 import { useEffect, useState } from "react";
 import { BackgroundSwitcher } from "../src/background/switcher";
 import "../src/global/global";
@@ -22,7 +24,13 @@ const Container = ({ children, context }) => {
 	const setValue = useState({})[1];
 	return (
 		<DocsContainer context={context}>
-			<div className="moai-toolbar">
+			<div
+				className={[
+					"moai-toolbar",
+					background.strong,
+					border.weak,
+				].join(" ")}
+			>
 				<Switcher
 					options={getThemeOptions()}
 					setValue={setTheme}
@@ -30,7 +38,7 @@ const Container = ({ children, context }) => {
 				/>
 				<BackgroundSwitcher />
 			</div>
-			{children}
+			<div className="moai-body">{children}</div>
 		</DocsContainer>
 	);
 };
