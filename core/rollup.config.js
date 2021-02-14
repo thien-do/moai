@@ -27,6 +27,7 @@ const bundleMain = (() => {
 		"react-popper",
 		"react",
 		"react/jsx-runtime",
+		"react-day-picker/DayPickerInput",
 	];
 
 	/** @type {import("rollup").RollupOptions} */

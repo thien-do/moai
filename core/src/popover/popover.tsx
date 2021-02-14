@@ -1,8 +1,5 @@
 import { Placement } from "@popperjs/core";
 import { useCallback, useState } from "react";
-import { background } from "../background/background";
-import { border } from "../border/border";
-import { shadow } from "../shadow/shadow";
 import { PopoverPane } from "./pane/pane";
 
 interface TargetProps {
@@ -51,16 +48,4 @@ export const Popover = (props: PopoverProps) => {
 	);
 };
 
-Popover.styles = {
-	outset: {
-		content: [
-			shadow.dropStrong,
-			border.px1,
-			border.strong,
-			background.strong,
-		].join(" "),
-		arrow: "", // Looks below
-	},
-};
-
-Popover.styles.outset.arrow = Popover.styles.outset.content;
+Popover.styles = PopoverPane.styles;

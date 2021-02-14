@@ -1,9 +1,11 @@
 import { Placement } from "@popperjs/core";
+import { background } from "../../background/background";
+import { border } from "../../border/border";
+import { shadow } from "../../shadow/shadow";
 import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import { getPortalContainer } from "../../utils/utils";
-import { Popover } from "../popover";
 import s from "./pane.module.css";
 
 interface Props {
@@ -16,7 +18,7 @@ interface Props {
 export const PopoverPane = (props: Props): JSX.Element => {
 	const [content, setContent] = useState<HTMLDivElement | null>(null);
 	const [arrow, setArrow] = useState<HTMLDivElement | null>(null);
-	const style = Popover.styles.outset;
+	const style = PopoverPane.styles.outset;
 
 	const { styles, attributes, update } = usePopper(props.target, content, {
 		placement: props.placement ?? "bottom",
@@ -72,3 +74,17 @@ export const PopoverPane = (props: Props): JSX.Element => {
 
 	return createPortal(element, getPortalContainer());
 };
+
+PopoverPane.styles = {
+	outset: {
+		content: [
+			shadow.dropStrong,
+			border.px1,
+			border.strong,
+			background.strong,
+		].join(" "),
+		arrow: "", // Looks below
+	},
+};
+
+PopoverPane.styles.outset.arrow = PopoverPane.styles.outset.content;
