@@ -34,7 +34,7 @@ export const TabFlatGallery = () => (
 );
 
 export const TabHeightGallery = () => (
-	<div style={{ height: 300 }}>
+	<div style={{ height: 240 }}>
 		<Tabs children={tabs} fullHeight />
 	</div>
 );
