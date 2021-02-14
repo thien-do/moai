@@ -1,24 +1,13 @@
-.container {
-	padding: 0 16px;
-}
-
 .header {
-	position: sticky;
-	top: 0;
-	padding: 16px 0;
 	border-bottom: solid 1px;
 	z-index: 10;
 	backdrop-filter: saturate(200%) blur(20px);
 }
 
 :global(.light) .header {
-	background-color: hsla(0, 100%, 100%, 0.8);
+	background-color: hsla(0, 100%, 100%, 0.8); /* white */
 }
 
 :global(.dark) .header {
-	background-color: hsla(232, 7%, 22%, 0.6);
-}
-
-.body {
-	padding: 32px 0;
+	background-color: hsla(220, 13%, 18%, 0.6); /* gray-7 */
 }

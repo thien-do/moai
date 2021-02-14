@@ -89,7 +89,10 @@ const Genres: Column = ({ person }) => (
 );
 
 const Note: Column = ({ person }) => (
-	<Paragraph children={person.note.split(".").slice(0, 1).join(".")} />
+	<Paragraph>
+		<span>{person.note.split(".").slice(0, 1).join(".")}</span>
+		<span>{` — ${person.first_name} ${person.last_name}`}</span>
+	</Paragraph>
 );
 
 const Phone: Column = ({ person }) => (
@@ -97,7 +100,7 @@ const Phone: Column = ({ person }) => (
 		<div>{person.phone}</div>
 		<Button
 			size={Button.sizes.small}
-			icon={coreIcons.plus}
+			icon={coreIcons.duplicate}
 			iconLabel="Copy"
 		/>
 	</div>
@@ -130,11 +133,6 @@ const getColumns = (): TableColumn<Person>[] => [
 		className: s.email,
 	},
 	{
-		title: <SearchHeader children="Note" />,
-		render: (p) => <Note person={p} />,
-		className: s.note,
-	},
-	{
 		title: "Action",
 		render: (p) => <Action person={p} />,
 		className: s.action,
@@ -144,7 +142,12 @@ const getColumns = (): TableColumn<Person>[] => [
 export const TableGallery = (): JSX.Element => (
 	<Pane noPadding>
 		<div className={s.container}>
-			<Table rows={PEOPLE} columns={getColumns()} rowKey={(p) => p.id} />
+			<Table
+				rows={PEOPLE}
+				columns={getColumns()}
+				rowKey={(p) => p.id}
+				expandRowRender={(p) => <Note person={p} />}
+			/>
 		</div>
 	</Pane>
 );

@@ -9,7 +9,7 @@ const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 	</div>
 );
 
-export const Input1Gallery = (): JSX.Element => (
+export const InputBaseGallery = (): JSX.Element => (
 	<div className="flex space-x-8">
 		<Column style={Input.styles.outset} />
 		<Column style={Input.styles.flat} />

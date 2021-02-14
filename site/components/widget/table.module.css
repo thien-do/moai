@@ -9,7 +9,7 @@
 }
 
 .overview {
-	width: 200px;
+	width: 240px;
 	text-align: left;
 }
 
@@ -32,13 +32,8 @@
 }
 
 .genres {
-	width: 240px;
-	text-align: left;
-}
-
-.note {
-	text-align: left;
 	width: 320px;
+	text-align: left;
 }
 
 .action {
