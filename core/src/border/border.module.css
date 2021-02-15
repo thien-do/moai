@@ -18,7 +18,7 @@
 }
 
 :global(.dark) .strong {
-	border-color: var(--gray-4);
+	border-color: var(--gray-5);
 }
 
 :global(.light) .highlightWeak {
