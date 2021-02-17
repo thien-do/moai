@@ -1,13 +1,46 @@
 # Moai UI Kit - [moaijs.com](https://moaijs.com)
 
-## Packages
+## Getting started
 
-### Public packages
+### Core
 
-- **Core ([source](/core) - [npm](https://www.npmjs.com/package/@moai/core)):** Basic components (e.g. Button, Table, Select) and CSS
-- **Icon ([source](/icon) - [npm](https://www.npmjs.com/package/@moai/icon)):** Multiple icon sets for Moai
+1. Install the package:
 
-### Internal packages
+```
+yarn add @moai/core
+```
 
-- **Gallery ([source](/gallery) - [npm](https://www.npmjs.com/package/@moai/gallery)):** Widget gallery of Moai UI kit, including core and icon packages
-- **Site ([source](/source)):** Website at moaijs.com
+2. Import global CSS:
+
+```tsx
+import "@moai/core/dist/index.css";
+import "@moai/core/dist/font/remote.css";
+```
+
+3. Import components to use:
+
+```tsx
+import { Button } from "@moai/core";
+
+export const Foo = (): JSX.Element => (
+	<Button>Hello</Button>
+);
+```
+
+### Icon
+
+1. Install the package:
+
+```
+yarn add @moai/icon
+```
+
+2. Import icons from each set to use:
+
+```tsx
+import { Bell } from "@moai/icon/hrs";
+
+export const Foo = (): JSX.Element => (
+	<Button icon={Bell}>Hello</Button>
+);
+```
