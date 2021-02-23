@@ -1,11 +1,13 @@
 import { ReactNode, RefObject, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
+import { Modifier } from "react-day-picker";
 import { Input, InputProps } from "../input/input";
 import { PopoverPane } from "../popover/pane/pane";
 import "./date-input.css";
 import { DateInputFormat, dateInputFormats } from "./format";
 import { DateInputMonth } from "./month/month";
 import { DateInputNavbar } from "./navbar/navbar";
+import { coreIcons } from '../icons/icons'
 
 interface Props {
 	/**
@@ -34,6 +36,14 @@ interface Props {
 	 * Style of the text box. Choose one from `DateInput.styles`.
 	 */
 	style?: InputProps["style"];
+
+	disabled?: InputProps["disabled"];
+
+	maxDate?: Date;
+
+	minDate?: Date;
+
+	icon?: boolean;
 	/**
 	 * Reference to the underlying [DayPickerInput](https://react-day-picker.js.org/api/DayPickerInput/)
 	 * instance.
@@ -84,11 +94,29 @@ export const DateInput = (props: Props): JSX.Element => {
 	const [target, setTarget] = useState<HTMLDivElement | null>(null);
 	const [month, setMonth] = useState<Date>(() => new Date());
 
+	let disabledDays: Modifier = undefined
+	if (props.maxDate) {
+		disabledDays = {
+			after: props.maxDate
+		}
+	}
+	if (props.minDate) {
+		disabledDays = {
+			...disabledDays,
+			before: props.minDate
+		}
+	}
+
 	return (
 		<div ref={setTarget}>
 			<DayPickerInput
 				ref={props.forwardedRef}
-				inputProps={{ style: props.style, size: props.size }}
+				inputProps={{ 
+					style: props.style,
+					size: props.size, 
+					disabled: props.disabled,
+					icon: props.icon ? coreIcons.duplicate : undefined
+				}}
 				component={Input.Forwarded}
 				clickUnselectsDay
 				overlayComponent={(dayPicker: DayPickerOverlayProps) => (
@@ -100,6 +128,7 @@ export const DateInput = (props: Props): JSX.Element => {
 					captionElement: ({ date }) => (
 						<DateInputMonth value={date} setValue={setMonth} />
 					),
+					disabledDays,
 				}}
 				value={getValue(props)}
 				// The lib's type is missing "undefined" case

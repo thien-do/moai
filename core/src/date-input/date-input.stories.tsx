@@ -27,6 +27,37 @@ export const Primary = () => {
 	);
 };
 
+export const Disabled = () => {
+	const [date, setDate] = useState<null | Date>(() => new Date());
+	return (
+		<div style={{ width: 240 }}>
+			<DateInput
+				format={DateInput.formats.dmy}
+				value={date}
+				setValue={setDate}
+				disabled
+				icon
+			/>
+		</div>
+	);
+};
+
+export const MinMax = () => {
+	const [date, setDate] = useState<null | Date>(() => new Date());
+	return (
+		<div style={{ width: 240 }}>
+			<DateInput
+				format={DateInput.formats.dmy}
+				value={date}
+				setValue={setDate}
+				maxDate={today}
+				minDate={yesterday}
+				icon
+			/>
+		</div>
+	);
+};
+
 export const Controlled = () => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
 	return (

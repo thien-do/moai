@@ -59,6 +59,16 @@
 	width: 32px;
 	outline: none;
 }
+.light .DayPicker-Day--disabled {
+	background-color: var(--gray-1);
+	opacity: 0.5	;
+}
+
+.dark .DayPicker-Day--disabled {
+	background-color: var(--gray-6);
+	opacity: 0.5	;
+}
+
 .light .DayPicker-Day:hover {
 	background-color: var(--gray-1);
 }

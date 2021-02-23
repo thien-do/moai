@@ -50,6 +50,9 @@ export interface InputProps {
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
+	// allow types: number, range, date, datetime-local, month, time and week
+	min?: Date | number;
+	max?: Date | number;
 	autoFocus?: boolean;
 	autoSelect?: boolean;
 	"aria-label"?: string;
