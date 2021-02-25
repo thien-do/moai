@@ -12,7 +12,7 @@ interface Props {
 	/**
 	 * Date format of the text box. This is used to display the selected date
 	 * as well as parse the user's input into Date. Choose one from
-	 * `DateInput.formats`. Defaults to "yyyy/mm/dd".
+	 * `DateInput.formats`. Defaults to "dd/mm/yyyy".
 	 */
 	format?: DateInputFormat;
 	/**
