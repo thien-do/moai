@@ -25,7 +25,7 @@
 	color: var(--gray-4);
 }
 .dark .DayPicker-Weekdays {
-	color: var(--gray-4);
+	color: var(--gray-3);
 }
 
 .DayPicker-WeekdaysRow {
@@ -58,15 +58,6 @@
 	height: 32px;
 	width: 32px;
 	outline: none;
-}
-.light .DayPicker-Day--disabled {
-	background-color: var(--gray-1);
-	opacity: 0.5	;
-}
-
-.dark .DayPicker-Day--disabled {
-	background-color: var(--gray-6);
-	opacity: 0.5	;
 }
 
 .light .DayPicker-Day:hover {
@@ -108,4 +99,14 @@
 	background-color: var(--highlight-5);
 	color: var(--white);
 	font-weight: 600;
+}
+
+.DayPicker-Day--disabled {
+	pointer-events: none;
+}
+.light .DayPicker-Day--disabled {
+	color: var(--gray-3);
+}
+.dark .DayPicker-Day--disabled {
+	color: var(--gray-4);
 }
