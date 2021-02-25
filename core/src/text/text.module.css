@@ -60,5 +60,5 @@
 	color: var(--gray-4);
 }
 :global(.dark) .muted {
-	color: var(--gray-4);
+	color: var(--gray-3);
 }
