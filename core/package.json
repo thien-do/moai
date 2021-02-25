@@ -52,6 +52,8 @@
 		"babel-loader": "8.2.2",
 		"faker": "5.4.0",
 		"postcss": "8.2.6",
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
 		"rollup": "2.39.1",
 		"rollup-plugin-copy": "3.4.0",
 		"rollup-plugin-delete": "2.0.0",
