@@ -12,31 +12,47 @@ export default {
 
 const today = new Date();
 const yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
+yesterday.setDate(today.getDate() - 1);
+const lastWeek = new Date();
+lastWeek.setDate(today.getDate() - 7);
 
 export const Primary = () => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
 	return (
 		<div style={{ width: 240 }}>
-			<DateInput
-				format={DateInput.formats.dmy}
-				value={date}
-				setValue={setDate}
-			/>
+			<DateInput value={date} setValue={setDate} />
 		</div>
 	);
 };
+
+export const DateFormats = () => (
+	<div style={{ width: 240 }}>
+		<DateInput defaultValue={today} />
+		<DivPx size={8} />
+		<DateInput format={DateInput.formats.mdy} defaultValue={today} />
+		<DivPx size={8} />
+		<DateInput format={DateInput.formats.ymd} defaultValue={today} />
+	</div>
+);
+
+export const MinMaxRange = () => (
+	<div style={{ width: 240 }}>
+		<DateInput maxDate={today} minDate={lastWeek} />
+	</div>
+);
+
+export const Disabled = () => (
+	<div style={{ width: 240 }}>
+		<DateInput disabled />
+	</div>
+);
 
 export const Controlled = () => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
 	return (
 		<div style={{ display: "flex", alignItems: "center" }}>
 			<div style={{ width: 240 }}>
-				<DateInput
-					format={DateInput.formats.dmy}
-					value={date}
-					setValue={setDate}
-				/>
+				<DateInput value={date} setValue={setDate} />
 			</div>
 			<DivPx size={8} />
 			<Button
@@ -54,7 +70,7 @@ export const Uncontrolled = () => {
 	return (
 		<div style={{ display: "flex", alignItems: "center" }}>
 			<div style={{ width: 240 }}>
-				<DateInput format={DateInput.formats.dmy} forwardedRef={ref} />
+				<DateInput forwardedRef={ref} />
 			</div>
 			<DivPx size={8} />
 			<Button
@@ -70,36 +86,18 @@ export const Uncontrolled = () => {
 
 export const UncontrolledWithInitialValue = () => (
 	<div style={{ width: 240 }}>
-		<DateInput format={DateInput.formats.dmy} defaultValue={yesterday} />
-	</div>
-);
-
-export const DateFormats = () => (
-	<div style={{ width: 240 }}>
-		<DateInput format={DateInput.formats.dmy} defaultValue={today} />
-		<DivPx size={8} />
-		<DateInput format={DateInput.formats.mdy} defaultValue={today} />
-		<DivPx size={8} />
-		<DateInput format={DateInput.formats.ymd} defaultValue={today} />
+		<DateInput defaultValue={yesterday} />
 	</div>
 );
 
 export const SmallSize = () => (
 	<div style={{ width: 240 }}>
-		<DateInput
-			format={DateInput.formats.dmy}
-			defaultValue={today}
-			size={DateInput.sizes.small}
-		/>
+		<DateInput defaultValue={today} size={DateInput.sizes.small} />
 	</div>
 );
 
 export const FlatStyle = () => (
 	<div style={{ width: 240 }}>
-		<DateInput
-			format={DateInput.formats.mdy}
-			defaultValue={today}
-			style={DateInput.styles.flat}
-		/>
+		<DateInput defaultValue={today} style={DateInput.styles.flat} />
 	</div>
 );
