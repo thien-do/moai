@@ -9,7 +9,7 @@ export interface DateInputFormat {
 /** Split arr to year month day respectively */
 type Split = (arr: string[]) => [string, string, string];
 
-// A modified of the default handler of RDP
+// A modified of the default handler of react-day-picker
 // https://github.com/gpbl/react-day-picker/blob/5615f547abbfa37b4ea3044ec14bd5c917de48c5/src/DayPickerInput.js#L62
 const makeParse = (foo: Split) => (str: string): Date | undefined => {
 	if (typeof str !== "string") return undefined;
@@ -26,7 +26,10 @@ const makeParse = (foo: Split) => (str: string): Date | undefined => {
 	if (isNaN(month) || month < 0 || month >= 12) return undefined;
 
 	// Always set noon to avoid time zone issues
-	return new Date(year, month, day, 12, 0, 0, 0);
+	const date = new Date(year, month, day, 12, 0, 0, 0);
+	// https://stackoverflow.com/questions/5863327/tips-for-working-with-pre-1000-a-d-dates-in-javascript
+	date.setFullYear(year);
+	return date;
 };
 
 const splitDate = (date: Date): [string, string, string] => {
