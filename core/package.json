@@ -1,6 +1,6 @@
 {
 	"name": "@moai/core",
-	"version": "0.207.0",
+	"version": "0.212.0",
 	"description": "A React UI toolkit for the web 🗿",
 	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
@@ -10,9 +10,7 @@
 		"start": "start-storybook --no-manager-cache -p 6006",
 		"storybook": "start-storybook",
 		"build": "build-storybook -c .storybook -o public",
-		"release-minor": "yarn version minor",
-		"release-patch": "yarn version patch",
-		"postversion": "yarn rollup && yarn publish --new-version $npm_package_version"
+		"prepublishOnly": "yarn rollup"
 	},
 	"repository": {
 		"type": "git",
