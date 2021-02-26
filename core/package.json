@@ -6,10 +6,13 @@
 	"module": "dist/esm.js",
 	"types": "dist/types/index.d.ts",
 	"scripts": {
-		"build": "rollup --config",
+		"rollup": "rollup --config",
 		"start": "start-storybook --no-manager-cache -p 6006",
-		"build-storybook": "build-storybook",
-		"postversion": "yarn build && yarn publish --new-version $npm_package_version"
+		"storybook": "start-storybook",
+		"build": "build-storybook -c .storybook -o public",
+		"release-minor": "yarn version minor",
+		"release-patch": "yarn version patch",
+		"postversion": "yarn rollup && yarn publish --new-version $npm_package_version"
 	},
 	"repository": {
 		"type": "git",
