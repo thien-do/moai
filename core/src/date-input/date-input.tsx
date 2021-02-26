@@ -43,11 +43,13 @@ interface Props {
 	disabled?: InputProps["disabled"];
 
 	/**
-	 * Size of the text box. Choose one from `DateInput.sizes`.
+	 * Size of the text box. Choose one from `DateInput.sizes`. Same default as
+	 * the "Input" component.
 	 */
 	size?: InputProps["size"];
 	/**
-	 * Style of the text box. Choose one from `DateInput.styles`.
+	 * Style of the text box. Choose one from `DateInput.styles`. Same default
+	 * as the "Input" component.
 	 */
 	style?: InputProps["style"];
 	/**
@@ -57,7 +59,7 @@ interface Props {
 
 	/**
 	 * Reference to the underlying [DayPickerInput](https://react-day-picker.js.org/api/DayPickerInput/)
-	 * instance.
+	 * instance. Usually useful in uncontrolled mode.
 	 */
 	forwardedRef?: RefObject<DayPickerInput>;
 }
