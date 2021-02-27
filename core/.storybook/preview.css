@@ -1,8 +1,3 @@
-/* Added by Moai's sanitize CSS */
-select:not(#x) {
-	background-image: none;
-}
-
 .sbdocs-wrapper:not(.x) {
 	padding: 0;
 	background-color: transparent;

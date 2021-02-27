@@ -4,25 +4,20 @@ import DayPickerInput from "react-day-picker/types/DayPickerInput";
 import { Button } from "../button/button";
 import { DivPx } from "../div/div";
 import { DateInput } from "./date-input";
-
-const makeObjArg = (object: object) => ({
-	control: { type: "radio", options: Object.keys(object) },
-});
-
-const nullArg = { control: { type: null } };
+import { _StoryUtils } from "../utils/_story";
 
 export default {
 	title: "Components/DateInput",
 	component: DateInput,
 	argTypes: {
-		style: makeObjArg(DateInput.styles),
-		size: makeObjArg(DateInput.sizes),
-		format: makeObjArg(DateInput.formats),
+		style: _StoryUtils.makeObjArg(DateInput.styles),
+		size: _StoryUtils.makeObjArg(DateInput.sizes),
+		format: _StoryUtils.makeObjArg(DateInput.formats),
 		disabled: { control: { type: "boolean" } },
-		value: nullArg,
-		setValue: nullArg,
-		defaultValue: nullArg,
-		forwardedRef: nullArg,
+		value: _StoryUtils.nullArg,
+		setValue: _StoryUtils.nullArg,
+		defaultValue: _StoryUtils.nullArg,
+		forwardedRef: _StoryUtils.nullArg,
 	},
 } as Meta;
 
