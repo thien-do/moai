@@ -14,10 +14,13 @@ export default {
 		size: _StoryUtils.makeObjArg(DateInput.sizes),
 		format: _StoryUtils.makeObjArg(DateInput.formats),
 		disabled: { control: { type: "boolean" } },
-		value: _StoryUtils.nullArg,
-		setValue: _StoryUtils.nullArg,
-		defaultValue: _StoryUtils.nullArg,
-		forwardedRef: _StoryUtils.nullArg,
+		minDate: { control: { type: "date" } },
+		maxDate: { control: { type: "date" } },
+		value: { control: { type: null } },
+		setValue: { control: { type: null } },
+		defaultValue: { control: { type: null } },
+		forwardedRef: { control: { type: null } },
+		icon: { control: { type: null } },
 	},
 } as Meta;
 
@@ -31,8 +34,6 @@ interface Props {
 const today = new Date();
 const yesterday = new Date();
 yesterday.setDate(today.getDate() - 1);
-const lastWeek = new Date();
-lastWeek.setDate(today.getDate() - 7);
 
 export const Primary = (props: Props) => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
@@ -50,12 +51,6 @@ export const Primary = (props: Props) => {
 		</div>
 	);
 };
-
-export const MinMaxRange = () => (
-	<div style={{ width: 240 }}>
-		<DateInput maxDate={today} minDate={lastWeek} />
-	</div>
-);
 
 export const Controlled = () => {
 	const [date, setDate] = useState<null | Date>(() => new Date());

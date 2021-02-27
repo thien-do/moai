@@ -1,9 +1,18 @@
-import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { themes } from "@storybook/theming";
 import { useEffect, useState } from "react";
 import * as M from "../src";
 import "./preview.css";
 import { storyTheme } from "./theme";
+import {
+	Title,
+	Subtitle,
+	Description,
+	Primary,
+	ArgsTable,
+	Stories,
+	PRIMARY_STORY,
+	DocsContainer,
+} from "@storybook/addon-docs/blocks";
 
 const Container = ({ children, context }) => {
 	const { theme, setTheme } = M.useTheme();
@@ -38,10 +47,26 @@ const Container = ({ children, context }) => {
 	);
 };
 
+const Page = () => (
+	<div>
+		<Title />
+		<Subtitle />
+		<Description />
+		<div className="primary-container">
+			<div className="primary">
+				<Primary />
+			</div>
+			<ArgsTable story={PRIMARY_STORY} />
+		</div>
+		<Stories />
+	</div>
+);
+
 export const parameters = {
 	docs: {
 		theme: storyTheme,
 		container: Container,
+		page: Page,
 	},
 	viewMode: "docs",
 	options: {

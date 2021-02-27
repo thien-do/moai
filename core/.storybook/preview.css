@@ -31,20 +31,23 @@
 	table-layout: fixed;
 }
 
-/* Hide the "default" column */
-.docblock-argstable-head:not(.x) th:nth-of-type(3) {
-	display: none;
-}
-.docblock-argstable-body:not(.x) td:nth-of-type(3) {
-	display: none;
-}
-
 /* "name" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(1) {
-	width: 160px;
+	width: 20%;
 }
 
 /* "description" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(2) {
-	width: 100%;
+	width: 50%;
+}
+
+/* "default" column */
+.docblock-argstable-head:not(.x) th:nth-of-type(3),
+.docblock-argstable-body:not(.x) td:nth-of-type(3) {
+	display: none;
+}
+
+/* "controls" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(4) {
+	width: 30%;
 }
