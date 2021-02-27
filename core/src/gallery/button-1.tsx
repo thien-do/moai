@@ -1,4 +1,4 @@
-import { Button, ButtonProps, dialogAlert } from "@moai/core";
+import { Button, ButtonProps, dialogAlert } from "..";
 
 const base: ButtonProps = {
 	children: "Button",

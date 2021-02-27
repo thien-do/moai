@@ -1,4 +1,4 @@
-import { DivPx } from "../../components";
+import { DivPx } from "..";
 import { ReactNode } from "react";
 
 interface Props {

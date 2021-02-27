@@ -7,7 +7,7 @@ import {
 	Input,
 	InputSize,
 	InputStyle,
-} from "@moai/core";
+} from "..";
 
 const { search } = coreIcons;
 const bs = Button.styles;

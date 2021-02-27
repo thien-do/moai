@@ -1,4 +1,4 @@
-import { GallerySection } from "../section/section";
+import { GallerySection } from "./section";
 import { Button1Gallery } from "./button-1";
 import { Button2Gallery } from "./button-2";
 import { Button3Gallery } from "./button-3";
@@ -18,7 +18,7 @@ import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
 import { TooltipGallery } from "./tooltip";
 
-export const WidgetGallery = () => (
+export const Gallery = () => (
 	<div className="space-y-32">
 		<GallerySection title="Buttons">
 			<Button1Gallery />

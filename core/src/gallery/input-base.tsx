@@ -1,4 +1,4 @@
-import { Input, InputStyle } from "@moai/core";
+import { Input, InputStyle } from "..";
 
 const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 	<div className="space-y-8 flex-1">

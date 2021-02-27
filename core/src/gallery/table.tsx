@@ -1,6 +1,6 @@
-import { Button, coreIcons, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from "@moai/core"; // prettier-ignore
+import { Button, coreIcons, Input, Pane, Paragraph, Select, Table, TableColumn, Tag } from ".."; // prettier-ignore
 import { Person } from "./samples/people";
-import PEOPLE_RAW from "./samples/people.json";
+// import PEOPLE_RAW from "./samples/people.json";
 import { toOption } from "./select";
 import s from "./table.module.css";
 
@@ -8,7 +8,7 @@ interface RowProps {
 	person: Person;
 }
 
-const PEOPLE: Person[] = PEOPLE_RAW;
+const PEOPLE: Person[] = [];
 
 type Column = (props: RowProps) => JSX.Element;
 
@@ -63,7 +63,11 @@ const Action: Column = ({ person }) => (
 
 const ALL_GENRES: string[] = [
 	"Filter: All",
-	...new Set(PEOPLE.flatMap((p) => p.genres.split("|"))),
+	...new Set(
+		PEOPLE.reduce((prev: string[], person) => {
+			return prev.concat(person.genres.split("|"));
+		}, [])
+	),
 ];
 
 const GenresHeader = (): JSX.Element => (

@@ -1,6 +1,7 @@
-import * as M from "@moai/core";
-import { DateInput } from "@moai/core";
-import COLORS from "./samples/colors.json";
+import * as M from "..";
+import { DateInput } from "..";
+
+const COLORS = [""];
 
 export const InputTypeGallery = (): JSX.Element => (
 	<div className="space-y-8 flex-1" style={{ width: 180 }}>

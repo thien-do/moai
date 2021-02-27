@@ -1,4 +1,4 @@
-import { Button, toast, ToastPane } from "@moai/core";
+import { Button, toast, ToastPane } from "..";
 
 const noop = () => {};
 

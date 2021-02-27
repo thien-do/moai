@@ -1,4 +1,4 @@
-import { background, ProgressCircle } from "@moai/core";
+import { background, ProgressCircle } from "..";
 
 export const ProgressGallery = (): JSX.Element => (
 	<div className="flex space-x-8 items-start">

@@ -1,4 +1,4 @@
-import { Tag } from "@moai/core";
+import { Tag } from "..";
 
 export const TagGallery = (): JSX.Element => (
 	<div className="space-y-8">
