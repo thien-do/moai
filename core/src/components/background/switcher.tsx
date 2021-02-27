@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Switcher } from "../switcher/switcher";
 import { background } from "./background";
 
+// Independently export "background/switcher" from "background" to avoid
+// circular dependencies
 export const BackgroundSwitcher = (): JSX.Element => {
 	const [strong, setStrong] = useState(true);
 
