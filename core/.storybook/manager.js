@@ -1,6 +1,9 @@
 import { addons } from "@storybook/addons";
-import "../src/global/global";
-import "../font/remote.css";
+// Manager is run on another process, which does not have complex setup (like
+// one to handle CSS Modules) so here we should only import the global css
+// directly
+import "../src/components/global.css";
+import "../src/font/local.css";
 import { storyTheme } from "./theme";
 
 addons.setConfig({

@@ -1,20 +1,15 @@
 import { DocsContainer } from "@storybook/addon-docs/blocks";
 import { themes } from "@storybook/theming";
-import { background } from "../src/background/background";
-import { border } from "../src/border/border";
 import { useEffect, useState } from "react";
-import { BackgroundSwitcher } from "../src/background/switcher";
-import "../src/global/global";
-import { Switcher } from "../src/switcher/switcher";
-import { getThemeClass, getThemeOptions, useTheme } from "../src/theme/theme";
+import * as M from "../src";
 import "./preview.css";
 import { storyTheme } from "./theme";
 
 const Container = ({ children, context }) => {
-	const { theme, setTheme } = useTheme();
+	const { theme, setTheme } = M.useTheme();
 
 	useEffect(() => {
-		const cls = getThemeClass(theme);
+		const cls = M.getThemeClass(theme);
 		const docsTheme = cls === "dark" ? themes.dark : themes.light;
 		context.parameters.docs.theme = docsTheme;
 		// Force a re-render with updated context
@@ -27,16 +22,16 @@ const Container = ({ children, context }) => {
 			<div
 				className={[
 					"moai-toolbar",
-					background.strong,
-					border.weak,
+					M.background.strong,
+					M.border.weak,
 				].join(" ")}
 			>
-				<Switcher
-					options={getThemeOptions()}
+				<M.Switcher
+					options={M.getThemeOptions()}
 					setValue={setTheme}
 					value={theme}
 				/>
-				<BackgroundSwitcher />
+				<M.BackgroundSwitcher />
 			</div>
 			<div className="moai-body">{children}</div>
 		</DocsContainer>

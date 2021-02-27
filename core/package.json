@@ -7,8 +7,7 @@
 	"types": "dist/types/index.d.ts",
 	"scripts": {
 		"rollup": "rollup --config",
-		"start": "start-storybook --no-manager-cache -p 6006",
-		"storybook": "start-storybook",
+		"storybook": "start-storybook --no-manager-cache -p 6006",
 		"build": "build-storybook -c .storybook -o public",
 		"prepublishOnly": "yarn rollup"
 	},

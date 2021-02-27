@@ -61,7 +61,7 @@ const bundleGallery = (() => {
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
-		input: "src/gallery/index.tsx",
+		input: "src/gallery/gallery.tsx",
 		// It's too complicated to support both CJS and ESM here as we need
 		// another package.json to instruct the end user's bundler
 		output: { file: `${dist}/gallery/index.js`, format: "cjs" },
