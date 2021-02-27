@@ -3,16 +3,7 @@ import { useEffect, useState } from "react";
 import * as M from "../src";
 import "./preview.css";
 import { storyTheme } from "./theme";
-import {
-	Title,
-	Subtitle,
-	Description,
-	Primary,
-	ArgsTable,
-	Stories,
-	PRIMARY_STORY,
-	DocsContainer,
-} from "@storybook/addon-docs/blocks";
+import * as D from "@storybook/addon-docs/blocks";
 
 const Container = ({ children, context }) => {
 	const { theme, setTheme } = M.useTheme();
@@ -27,7 +18,7 @@ const Container = ({ children, context }) => {
 
 	const setValue = useState({})[1];
 	return (
-		<DocsContainer context={context}>
+		<D.DocsContainer context={context}>
 			<div
 				className={[
 					"moai-toolbar",
@@ -43,22 +34,22 @@ const Container = ({ children, context }) => {
 				<M.BackgroundSwitcher />
 			</div>
 			<div className="moai-body">{children}</div>
-		</DocsContainer>
+		</D.DocsContainer>
 	);
 };
 
 const Page = () => (
 	<div>
-		<Title />
-		<Subtitle />
-		<Description />
-		<div className="primary-container">
-			<div className="primary">
-				<Primary />
+		<D.Title />
+		<D.Subtitle />
+		<D.Description />
+		<div className="moai-hero">
+			<div className="moai-primary">
+				<D.Primary />
 			</div>
-			<ArgsTable story={PRIMARY_STORY} />
+			<D.ArgsTable story={D.PRIMARY_STORY} />
 		</div>
-		<Stories />
+		<D.Stories />
 	</div>
 );
 

@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { Input } from "./input";
+
+<Meta title="Components/Input" component={Input} />
+
+# Input
+
+With `MDX` we can define a story for `Checkbox` right in the middle of our
+Markdown documentation.
+
+<Canvas>
+	<Story name="ahihi">
+		{() => {
+			const a = 2;
+			return <Input />;
+		}}
+	</Story>
+</Canvas>

@@ -1,3 +1,12 @@
+html {
+	tab-size: 4;
+}
+
+/* Hide the "Stories" heading */
+.sbdocs-h2#stories {
+	display: none;
+}
+
 .sbdocs-wrapper:not(.x) {
 	padding: 0;
 	background-color: transparent;
@@ -38,7 +47,7 @@
 
 /* "description" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(2) {
-	width: 50%;
+	width: 60%;
 }
 
 /* "default" column */
@@ -49,5 +58,5 @@
 
 /* "controls" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(4) {
-	width: 30%;
+	width: 20%;
 }
