@@ -1,62 +1,34 @@
-import { themes } from "@storybook/theming";
-import { useEffect, useState } from "react";
 import * as M from "../src";
+import "../src/font/remote.css";
 import "./preview.css";
 import { storyTheme } from "./theme";
 import * as D from "@storybook/addon-docs/blocks";
+import { useTheme } from "../src";
 
-const Container = ({ children, context }) => {
-	const { theme, setTheme } = M.useTheme();
-
-	useEffect(() => {
-		const cls = M.getThemeClass(theme);
-		const docsTheme = cls === "dark" ? themes.dark : themes.light;
-		context.parameters.docs.theme = docsTheme;
-		// Force a re-render with updated context
-		setValue({});
-	}, [theme]);
-
-	const setValue = useState({})[1];
+const Page = () => {
+	useTheme();
 	return (
-		<D.DocsContainer context={context}>
-			<div
-				className={[
-					"moai-toolbar",
-					M.background.strong,
-					M.border.weak,
-				].join(" ")}
-			>
-				<M.Switcher
-					options={M.getThemeOptions()}
-					setValue={setTheme}
-					value={theme}
-				/>
-				<M.BackgroundSwitcher />
+		<div>
+			<D.Title />
+			<D.Subtitle />
+			<D.Description />
+			<div className="moai-hero">
+				<div
+					className={["moai-primary", M.background.strong].join(" ")}
+				>
+					<D.Primary />
+				</div>
+				<D.ArgsTable story={D.PRIMARY_STORY} />
 			</div>
-			<div className="moai-body">{children}</div>
-		</D.DocsContainer>
+			<D.Stories />
+		</div>
 	);
 };
-
-const Page = () => (
-	<div>
-		<D.Title />
-		<D.Subtitle />
-		<D.Description />
-		<div className="moai-hero">
-			<div className="moai-primary">
-				<D.Primary />
-			</div>
-			<D.ArgsTable story={D.PRIMARY_STORY} />
-		</div>
-		<D.Stories />
-	</div>
-);
 
 export const parameters = {
 	docs: {
 		theme: storyTheme,
-		container: Container,
+		// container: Container,
 		page: Page,
 	},
 	viewMode: "docs",

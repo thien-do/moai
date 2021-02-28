@@ -8,32 +8,12 @@ html {
 }
 
 .sbdocs-wrapper:not(.x) {
-	padding: 0;
-	background-color: transparent;
+	padding: 24px;
+	background-color: var(--white);
 }
 
 .sbdocs-preview:not(.x) {
 	background-color: transparent;
-}
-
-.moai-toolbar {
-	display: flex;
-	padding: 16px 24px;
-
-	position: sticky;
-	top: 0;
-	z-index: 10;
-
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-.moai-toolbar > * + * {
-	margin-left: 16px;
-}
-
-.moai-body {
-	padding: 24px;
 }
 
 .docblock-argstable {
@@ -59,4 +39,12 @@ html {
 /* "controls" column */
 .docblock-argstable-head:not(#x) th:nth-of-type(4) {
 	width: 20%;
+}
+
+/* Moai specific components */
+
+.moai-primary {
+	position: sticky;
+	top: 0;
+	z-index: 1;
 }

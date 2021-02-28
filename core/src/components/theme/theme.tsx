@@ -13,10 +13,14 @@ const applyThemeClass = (theme: ThemeClass): void => {
 	classes.add(theme);
 };
 
-export const getThemeClass = (option: Theme): ThemeClass => {
-	if (option !== "system") return option;
+const getMediaClass = (): ThemeClass => {
 	const media = window.matchMedia("(prefers-color-scheme: dark)");
 	return media.matches ? "dark" : "light";
+}
+
+export const getThemeClass = (option: Theme): ThemeClass => {
+	if (option !== "system") return option;
+	return getMediaClass();
 };
 
 export interface ThemeState {

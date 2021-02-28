@@ -3,7 +3,9 @@ import { addons } from "@storybook/addons";
 // one to handle CSS Modules) so here we should only import the global css
 // directly
 import "../src/components/global.css";
-import "../src/font/local.css";
+// Use the remote font since the manager is not set up to import local fonts
+// (i.e. woff2 files)
+import "../src/font/remote.css";
 import { storyTheme } from "./theme";
 
 addons.setConfig({
