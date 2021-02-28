@@ -5,8 +5,14 @@ import { storyTheme } from "./theme";
 import * as D from "@storybook/addon-docs/blocks";
 import { useTheme } from "../src";
 
-const Page = () => {
+const Container = ({ children, context }) => {
 	useTheme();
+	// console.log(context.parameters.stickyPrimary)
+	return <D.DocsContainer context={context}>{children}</D.DocsContainer>;
+};
+
+const Page = (props) => {
+	console.log(JSON.stringify(props));
 	return (
 		<div>
 			<D.Title />
@@ -28,8 +34,8 @@ const Page = () => {
 export const parameters = {
 	docs: {
 		theme: storyTheme,
-		// container: Container,
-		page: Page,
+		container: Container,
+		// page: Page,
 	},
 	viewMode: "docs",
 	options: {

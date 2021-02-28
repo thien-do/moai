@@ -115,3 +115,9 @@ Select.sizes = {
 		icon: s.smallIcon,
 	} as SelectSize,
 };
+
+Select.toStringOption = (text: string): SelectOption<string> => ({
+	value: text,
+	id: text,
+	label: text,
+});

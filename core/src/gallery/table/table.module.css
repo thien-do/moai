@@ -1,7 +1,11 @@
 .container {
-	height: 300px;
+	height: 400px;
 	width: 100%;
 	overflow: auto;
+}
+
+.container th input {
+	font-weight: 400;
 }
 
 .container th {
@@ -13,16 +17,26 @@
 	text-align: left;
 }
 
+/* First column of expandable table */
+.overviewCell {
+	display: flex;
+	align-items: center;
+}
+
 .email {
 	width: 200px;
-	overflow-wrap: break-word;
 	text-align: left;
 }
 
-.phone {
+.mac {
 	width: 200px;
 	text-align: left;
 	font-feature-settings: "tnum";
+}
+
+td.mac > div {
+	display: flex;
+	align-items: center;
 }
 
 .lastSeen {
@@ -31,12 +45,27 @@
 	font-feature-settings: "tnum";
 }
 
-.genres {
+.materials {
 	width: 320px;
 	text-align: left;
+}
+
+td.materials > div {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -4px 0;
+}
+
+td.materials > div > div {
+	padding: 4px;
 }
 
 .action {
 	width: 240px;
 	text-align: right;
+}
+
+td.action > div {
+	display: flex;
+	justify-content: flex-end;
 }

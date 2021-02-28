@@ -12,7 +12,7 @@ import { PaneGallery } from "./pane";
 import { ProgressGallery } from "./progress";
 import { SelectGallery } from "./select";
 import { TabDefaultGallery, TabFlatGallery, TabHeightGallery } from "./tab";
-import { TableGallery } from "./table";
+import { TableGallery } from "./table/table";
 import { TagGallery } from "./tag";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";

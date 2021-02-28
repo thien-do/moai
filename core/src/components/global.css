@@ -66,6 +66,10 @@
 	box-sizing: border-box;
 }
 
+svg {
+	fill: currentColor;
+}
+
 p,
 hr,
 h1,

@@ -5,6 +5,4 @@ const { custom } = s;
 
 export const scrollbar = { custom };
 
-console.log("s", s);
-
 validateStyles(scrollbar);

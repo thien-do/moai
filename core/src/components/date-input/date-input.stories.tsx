@@ -22,6 +22,7 @@ export default {
 		forwardedRef: _Story.arg(null),
 		icon: _Story.arg(null),
 	},
+	parameters: { stickyPrimary: true },
 } as Meta;
 
 interface Props {
