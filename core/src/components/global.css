@@ -109,6 +109,10 @@ textarea {
 	letter-spacing: inherit;
 }
 
+th {
+	text-align: left;
+}
+
 html {
 	font-family: var(--font-sans);
 	font-size: 14px;
