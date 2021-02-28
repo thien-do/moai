@@ -5,6 +5,7 @@ import { Table } from "./table";
 import { TableColumn } from "./fake-table-column";
 import { TableGallery } from "../../gallery/table/table";
 import { Robot, ROBOTS } from "../../gallery/table/robots";
+import { Select } from "../select/select";
 
 export default {
 	title: "Components/Table",
@@ -57,6 +58,8 @@ wrap it inside a \`Pane\` component.
 
 export const Fixed = () => (
 	<div>
+		{/* In practice these CSS are usually defined via better methods, 
+		such as CSS Modules, Tailwind or just external files. */}
 		<style
 			dangerouslySetInnerHTML={{
 				__html: `
@@ -64,13 +67,15 @@ export const Fixed = () => (
 	height: 200px; /* limit the height of the table */
 	overflow: auto; /* show scrollbar(s) */
 }
-.fixed-table table {
-	/* set big table width to trigger horizontal overflow. In practice, this
-	usually happen by defining width for each columns. */
-	min-width: 2000px;
-}
-.name-column {
+.fixed-table .name {
 	width: 160px;
+}
+/* For demo purpose, we intentionally define big width for these columns so
+that the table's width exceeds the width of its container (.fixed-table) */
+.fixed-table .id,
+.fixed-table .seen,
+.fixed-table .email {
+	width: 500px;
 }
 				`,
 			}}
@@ -80,10 +85,10 @@ export const Fixed = () => (
 				rows={ROBOTS}
 				rowKey={(robot) => robot.id.toString()}
 				columns={[
-					{ title: "MAC", className: "name-column", render: "MAC" },
-					{ title: "Id", render: "id" },
-					{ title: "Last seen", render: "lastSeen" },
-					{ title: "Email", render: "email" },
+					{ title: "Bot", className: "name", render: "MAC" },
+					{ title: "Id", className: "id", render: "id" },
+					{ title: "Seen", className: "seen", render: "lastSeen" },
+					{ title: "Email", className: "email", render: "email" },
 				]}
 			/>
 		</div>
@@ -91,13 +96,35 @@ export const Fixed = () => (
 );
 
 _Story.desc(Fixed)(`
-Out of the box, the Table component fills 100% of horizontal space (i.e. 
-\`width: 100%\`) and takes as much vertical space as necessary (i.e.
+Out of the box, the Table component takes 100% of the horizontal space (i.e. 
+\`width: 100%\`) and as much vertical space as necessary (i.e.
 \`height: fit-content\`).
 
-If there is not enough horizontal space, usually when you define the width for
-columns or the whole table, the table will have horizontal scrollbar, with the
-first column is always visible (fixed/stickied). Likewise, when the height of
-the table is limited, it will have vertical scrollbar, with the header is kept
-fixed at top.
+If the table's width is bigger than its container's width (which is usually
+when its columns' \`(min-)width\` are defined), there will be a horizontal
+scrollbar. When the user scrolls, the first column is kept fixed on the left
+sided. Likewise, when the height of the table is limited, there will be a
+vertical scrollbar, with the table's header is kept fixed at top.
+
+Note that technically the table's container (\`.fixed-table\` in this example)
+is the table's "viewport" and it is where scrollbars are defined.
 `);
+
+export const Expandable = () => (
+	<Table<Robot>
+		rows={ROBOTS.slice(0, 3)}
+		rowKey={(robot) => robot.id.toString()}
+		columns={[
+			{ title: "Bot", className: "name", render: "MAC" },
+			{ title: "Id", render: "id" },
+		]}
+		expandRowRender={(robot) => robot.note}
+	/>
+);
+
+_Story.desc(Expandable)(`
+The users can expand a table's rows if the \`expandRowRender\` is prop provided.
+It should be a function that returns what to be rendered when the user expands
+a row. The returned result is rendered below the row, spanning all columns (i.e.
+\`colSpan={columns.length}\`).
+`)

@@ -16,7 +16,23 @@ html {
 	background-color: transparent;
 }
 
-.docblock-argstable {
+/* Typography */
+.sbdocs-code:not(.x),
+.sbdocs-p:not(.x),
+.docblock-argstable:not(#x) {
+	font-size: 16px;
+	line-height: 28px;
+}
+
+.sbdocs-code:not(.x) {
+	display: inline;
+}
+
+.sbdocs-h3 {
+	font-weight: 600;
+}
+
+.docblock-argstable:not(#x) {
 	table-layout: fixed;
 }
 
