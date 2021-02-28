@@ -1,4 +1,4 @@
-import { TableColumn as TableColumnProps } from "./table";
+import { TableColumn as TableColumnProps } from "../table";
 
 /**
  * DO NOT USE THIS COMPONENT.
