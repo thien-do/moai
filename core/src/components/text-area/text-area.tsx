@@ -28,16 +28,31 @@ const onChange = (props: TextAreaProps) => (e: ChangeEvent) => {
 
 export interface TextAreaProps {
 	// Uncontrolled
+	/**
+	 * Initial value of the input
+	 */
 	defaultValue?: string;
 	forwardedRef?: ForwardedRef<HTMLTextAreaElement>;
 	// Controlled
 	value?: string;
+
+	/**
+	 * Handler to set the value
+	 */
 	setValue?: (value: string) => void;
 	// Style
+
+	/**
+	 * Style of the text box. Same default as the "Input" component
+	 */
 	style?: InputStyle;
 	size?: TextAreaSize;
 	// Attributes
 	rows?: number;
+
+	/**
+	 * Whether the input is disabled. This disables the whole input.
+	 */
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
