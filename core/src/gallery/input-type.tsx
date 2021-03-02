@@ -1,5 +1,5 @@
-import * as M from "..";
-import { DateInput } from "..";
+import * as M from "../components";
+import { DateInput } from "../components";
 
 const COLORS = [""];
 

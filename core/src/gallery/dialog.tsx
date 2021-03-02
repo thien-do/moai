@@ -1,4 +1,4 @@
-import * as M from "..";
+import * as M from "../components";
 
 const Pane = () => (
 	<M.DialogPane width="content">

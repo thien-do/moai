@@ -1,4 +1,4 @@
-import { Tag } from "..";
+import { Tag } from "../components";
 
 export const GalleryTag = (): JSX.Element => (
 	<div className="space-y-8">
@@ -9,7 +9,7 @@ export const GalleryTag = (): JSX.Element => (
 		<div className="flex flex-wrap">
 			{Object.keys(Tag.colors).map((color) => (
 				<div key={color} className="p-4">
-					<Tag color={Tag.colors[color]} children={color} />
+					<Tag color={(Tag.colors as any)[color]} children={color} />
 				</div>
 			))}
 		</div>

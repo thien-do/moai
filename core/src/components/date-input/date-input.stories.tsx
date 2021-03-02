@@ -4,7 +4,7 @@ import DayPickerInput from "react-day-picker/types/DayPickerInput";
 import { Button } from "../button/button";
 import { DivPx } from "../div/div";
 import { DateInput } from "./date-input";
-import { _Story } from "../../_story";
+import { _Story } from "../_story";
 
 export default {
 	title: "Components/DateInput",

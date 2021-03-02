@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
-import { _Story } from "../../_story";
+import { _Story } from "../_story";
 import { DocsPage } from "@storybook/addon-docs/blocks";
 import { Table } from "./table";
 import { TableColumn } from "./fake-table-column";
-import { TableGallery } from "../../gallery/table/table";
+import { GalleryTable } from "../../gallery/table/table";
 import { Robot, ROBOTS } from "../../gallery/table/robots";
 import { Select } from "../select/select";
 
@@ -17,7 +17,7 @@ export default {
 export const Primary = () => (
 	// This table is quite complicated. Please see the "Basic" section for
 	// simpler code to get started with Table.
-	<TableGallery />
+	<GalleryTable />
 );
 
 export const Basic = () => {

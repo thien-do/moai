@@ -1,4 +1,4 @@
-import * as M from "../..";
+import * as M from "../../components";
 import { DivPx } from "../../components/div/div";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";

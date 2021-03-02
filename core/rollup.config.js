@@ -35,7 +35,7 @@ const bundleMain = (() => {
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
-		input: "src/index.ts",
+		input: "src/components/index.ts",
 		output: [
 			{ file: pkg.main, format: "cjs" },
 			{ file: pkg.module, format: "esm" },
@@ -57,11 +57,16 @@ const bundleMain = (() => {
  */
 const bundleGallery = (() => {
 	/** @type {import("rollup").RollupOptions["external"]} */
-	const external = ["..", "react", "react/jsx-runtime"];
+	const external = [
+		"../../components",
+		"../components",
+		"react",
+		"react/jsx-runtime",
+	];
 
 	/** @type {import("rollup").RollupOptions} */
 	const options = {
-		input: "src/gallery/gallery.tsx",
+		input: "src/gallery/index.tsx",
 		// It's too complicated to support both CJS and ESM here as we need
 		// another package.json to instruct the end user's bundler
 		output: { file: `${dist}/gallery/index.js`, format: "cjs" },

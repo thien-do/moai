@@ -1,4 +1,4 @@
-import { Pagination } from "..";
+import { Pagination } from "../components";
 import { useCallback, useState } from "react";
 
 export const GalleryPagination = () => {

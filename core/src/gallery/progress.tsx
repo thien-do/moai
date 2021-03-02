@@ -1,4 +1,4 @@
-import { background, ProgressCircle } from "..";
+import { background, ProgressCircle } from "../components";
 
 export const GalleryProgress = (): JSX.Element => (
 	<div className="flex space-x-8 items-start">

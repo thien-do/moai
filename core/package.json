@@ -2,9 +2,9 @@
 	"name": "@moai/core",
 	"version": "0.212.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "dist/index.js",
-	"module": "dist/esm.js",
-	"types": "dist/types/index.d.ts",
+	"main": "dist/components/index.js",
+	"module": "dist/components/esm.js",
+	"types": "dist/components/types/index.d.ts",
 	"scripts": {
 		"rollup": "rollup --config",
 		"storybook": "start-storybook --no-manager-cache -p 6006",

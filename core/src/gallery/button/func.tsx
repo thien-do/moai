@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Switcher, DivPx } from "../..";
+import { Button, Switcher, DivPx } from "../../components";
 import s from "../styles.module.css";
 
 const Theme = ({ fill }: { fill: boolean }): JSX.Element => {

@@ -1,4 +1,10 @@
-import { Button, ButtonGroup, ButtonProps, coreIcons, DivPx } from "../..";
+import {
+	Button,
+	ButtonGroup,
+	ButtonProps,
+	coreIcons,
+	DivPx,
+} from "../../components";
 import s from "../styles.module.css";
 
 const { medium, small } = Button.sizes;

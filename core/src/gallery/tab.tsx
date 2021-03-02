@@ -1,4 +1,4 @@
-import { Paragraph, Tab, Tabs } from "..";
+import { Paragraph, Tab, Tabs } from "../components";
 
 const Second = () => (
 	<Paragraph>

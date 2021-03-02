@@ -1,4 +1,4 @@
-import { Button, Tooltip, TooltipPane } from "..";
+import { Button, Tooltip, TooltipPane } from "../components";
 
 export const GalleryTooltip = () => (
 	<div className="space-y-8">
