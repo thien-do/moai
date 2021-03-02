@@ -1,34 +1,16 @@
-import * as M from "../src";
+import * as D from "@storybook/addon-docs/blocks";
+import { useEffect } from "react";
 import "../src/font/remote.css";
 import "./preview.css";
 import { storyTheme } from "./theme";
-import * as D from "@storybook/addon-docs/blocks";
-import { useTheme } from "../src";
 
 const Container = ({ children, context }) => {
-	useTheme();
-	// console.log(context.parameters.stickyPrimary)
+	useEffect(() => {
+		const ls = window.document.documentElement.classList;
+		ls.add("light");
+		return () => ls.remove("light");
+	}, []);
 	return <D.DocsContainer context={context}>{children}</D.DocsContainer>;
-};
-
-const Page = (props) => {
-	console.log(JSON.stringify(props));
-	return (
-		<div>
-			<D.Title />
-			<D.Subtitle />
-			<D.Description />
-			<div className="moai-hero">
-				<div
-					className={["moai-primary", M.background.strong].join(" ")}
-				>
-					<D.Primary />
-				</div>
-				<D.ArgsTable story={D.PRIMARY_STORY} />
-			</div>
-			<D.Stories />
-		</div>
-	);
 };
 
 export const parameters = {
