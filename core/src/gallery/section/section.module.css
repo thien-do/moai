@@ -1,0 +1,26 @@
+.children {
+	flex: 1 1 0px;
+	overflow: hidden;
+	display: grid;
+	gap: 16px;
+	padding: 8px;
+	margin: -8px;
+	grid-template-columns: repeat(auto-fill, min(320px, 100%));
+	max-width: calc(320px * 3 + 16px * 2 + 8px * 2);
+}
+
+.title {
+	flex: 0 0 auto;
+	width: 200px;
+}
+
+.heading {
+	font-size: 18px;
+	font-weight: 600;
+	padding: 4px 0;
+	line-height: 24px;
+}
+
+.container {
+	display: flex;
+}

@@ -1,7 +1,5 @@
-import { GallerySection } from "./section";
-import { Button1Gallery } from "./button-1";
-import { Button2Gallery } from "./button-2";
-import { Button3Gallery } from "./button-3";
+import { GallerySection } from "./section/section";
+import s from "./styles.module.css";
 import { CheckboxGallery } from "./checkbox";
 import { DialogGallery } from "./dialog";
 import { InputBaseGallery } from "./input-base";
@@ -17,48 +15,61 @@ import { TagGallery } from "./tag";
 import { TextAreaGallery } from "./text-area";
 import { ToastGallery } from "./toast";
 import { TooltipGallery } from "./tooltip";
+import { ButtonStyleGallery } from "./button/style";
+import { ButtonSizeGallery } from "./button/size";
+import { ButtonFunctionGallery } from "./button/func";
+import { DivPx } from "../components/div/div";
 
 export const Gallery = () => (
-	<div className="space-y-32">
+	<div>
 		<GallerySection title="Buttons">
-			<Button1Gallery />
-			<Button3Gallery />
-			<Button2Gallery />
+			<ButtonStyleGallery />
+			<ButtonSizeGallery />
+			<ButtonFunctionGallery />
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Text fields">
 			<InputBaseGallery />
-			<div className="space-y-8">
+			<div>
 				<InputSizeGallery />
+				<DivPx size={8} />
 				<PaginationGallery />
 			</div>
-			<div className="flex space-x-16">
-				<div className="flex-1" children={<InputTypeGallery />} />
-				<div className="flex-1" children={<TextAreaGallery />} />
+			<div className={s.flex}>
+				<div className={s.flex1} children={<InputTypeGallery />} />
+				<DivPx size={16} />
+				<div className={s.flex1} children={<TextAreaGallery />} />
 			</div>
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Selection controls">
 			<SelectGallery />
 			<CheckboxGallery />
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Feedback">
 			<ToastGallery />
 			<TooltipGallery />
-			<div className="space-y-16">
+			<div>
 				<TagGallery />
+				<DivPx size={16} />
 				<ProgressGallery />
 			</div>
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Container">
 			<DialogGallery />
 			<PaneGallery />
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Tabs">
 			<TabDefaultGallery />
 			<TabFlatGallery />
 			<TabHeightGallery />
 		</GallerySection>
+		<DivPx size={32} />
 		<GallerySection title="Table">
-			<div className="col-span-full">
+			<div className={s.colFull}>
 				<TableGallery />
 			</div>
 		</GallerySection>

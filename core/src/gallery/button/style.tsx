@@ -1,4 +1,5 @@
-import { Button, ButtonProps, dialogAlert } from "..";
+import { DivPx, Button, ButtonProps, dialogAlert } from "../..";
+import s from "../styles.module.css";
 
 const base: ButtonProps = {
 	children: "Button",
@@ -10,18 +11,23 @@ const base: ButtonProps = {
 };
 
 const Row = (props: ButtonProps): JSX.Element => (
-	<div className="flex space-x-8">
+	<div className={s.flex}>
 		<Button {...base} highlight {...props} />
+		<DivPx size={8} />
 		<Button {...base} {...props} />
+		<DivPx size={8} />
 		<Button {...base} style={Button.styles.flat} {...props} />
 	</div>
 );
 
-export const Button1Gallery = (): JSX.Element => (
-	<div className="space-y-8">
+export const ButtonStyleGallery = (): JSX.Element => (
+	<div>
 		<Row />
+		<DivPx size={8} />
 		<Row selected />
+		<DivPx size={8} />
 		<Row disabled />
+		<DivPx size={8} />
 		<Row busy />
 	</div>
 );

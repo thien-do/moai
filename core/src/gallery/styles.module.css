@@ -1,0 +1,11 @@
+.flex {
+	display: flex;
+}
+
+.colFull {
+	grid-column: 1/-1;
+}
+
+.flex1 {
+	flex: 1 1 0px;
+}

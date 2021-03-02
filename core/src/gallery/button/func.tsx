@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Switcher } from "..";
+import { Button, Switcher, DivPx } from "../..";
+import s from "../styles.module.css";
 
 const Theme = ({ fill }: { fill: boolean }): JSX.Element => {
 	const [value, setValue] = useState("Auto");
@@ -44,15 +45,20 @@ const Toggle = (): JSX.Element => {
 	);
 };
 
-export const Button2Gallery = (): JSX.Element => (
-	<div className="space-y-8">
-		<div className="flex space-x-8">
+export const ButtonFunctionGallery = (): JSX.Element => (
+	<div>
+		<div className={s.flex}>
 			<Toggle />
+			<DivPx size={8} />
 			<Busy />
+			<DivPx size={8} />
 			<Button target="_blank" href="https://moai.xyz" children="Link" />
 		</div>
+		<DivPx size={8} />
 		<Theme fill={false} />
+		<DivPx size={8} />
 		<Theme fill={true} />
+		<DivPx size={8} />
 		<Button fill children="Full-width Button" />
 	</div>
 );
