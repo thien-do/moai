@@ -1,5 +1,4 @@
 import * as M from "../../components";
-import { DivPx } from "../../components/div/div";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";
 
@@ -12,7 +11,7 @@ type Column = (props: RowProps) => JSX.Element;
 const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 	<div>
 		<div>{children}</div>
-		<DivPx size={8} />
+		<M.DivPx size={8} />
 		<M.Input icon={M.coreIcons.search} placeholder="Search" />
 	</div>
 );
@@ -27,7 +26,7 @@ const Overview: Column = ({ robot }) => (
 			className="block"
 			style={{ background: `${robot.color}20` }}
 		/>
-		<DivPx size={8} />
+		<M.DivPx size={8} />
 		<div>
 			{robot.name.first} {robot.name.last}
 		</div>
@@ -37,7 +36,7 @@ const Overview: Column = ({ robot }) => (
 const LastSeenHeader = (): JSX.Element => (
 	<div>
 		<div>Last seen</div>
-		<DivPx size={8} />
+		<M.DivPx size={8} />
 		<M.Input type="date" placeholder="Search" />
 	</div>
 );
@@ -49,7 +48,7 @@ const Action: Column = ({ robot }) => (
 		) : (
 			<>
 				<M.Button children="Retreat" />
-				<DivPx size={8} />
+				<M.DivPx size={8} />
 				<M.Button children="Upgrade" />
 			</>
 		)}
@@ -74,7 +73,7 @@ const MATERIAL_TAGS = {
 const MaterialsHeader = (): JSX.Element => (
 	<div>
 		<div>Materials</div>
-		<DivPx size={8} />
+		<M.DivPx size={8} />
 		<M.Select
 			options={[...Object.keys(MATERIAL_TAGS), "Filter: All"].map(
 				M.Select.toStringOption
@@ -115,7 +114,7 @@ const Mac: Column = ({ robot }) => (
 			icon={M.coreIcons.duplicate}
 			iconLabel="Copy"
 		/>
-		<DivPx size={8} />
+		<M.DivPx size={8} />
 		<div>{robot.MAC}</div>
 	</div>
 );
