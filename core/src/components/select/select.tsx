@@ -35,17 +35,53 @@ export interface SelectOption<T> {
 }
 
 export interface SelectProps<T> {
+	/**
+	 * Array of items in the list
+	 */
 	options: SelectOption<T>[];
+
 	// Uncontrolled
+
+	/**
+	 * Initial value of the select box in uncontrolled mode
+	 */
 	defaultValue?: T;
+
+	/**
+	 * Usually useful in uncontrolled mode.
+	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
+	 */
 	forwardedRef?: ForwardedRef<HTMLSelectElement>;
+
 	// Controlled
+
+	/**
+	 * Value of the select in controlled mode
+	 */
 	value?: T;
+
+	/**
+	 * Handler to set the value in controlled mode
+	 */
 	setValue?: (value: T) => void;
+
 	// Visual
+
+	/**
+	 * Style of the select box. Choose one from Select.styles.
+	 */
 	style?: SelectStyle;
+
+	/**
+	 * Size of the select box. Choose one from Select.sizes.
+	 */
 	size?: SelectSize;
+
+	/**
+	 * Whether the fill is enabled. The select box will fill the page.
+	 */
 	fill?: boolean;
+
 	disabled?: boolean;
 }
 
@@ -71,6 +107,21 @@ const onChange = <T,>(
 	if (!option) throw Error(`Option not found: "${id}"`);
 	props.setValue(option.value);
 };
+
+/**
+ * Select let users select a value from a list of items.
+ *
+ * `Select<T>` is a generic component to work with your data types, the type of one item in items. In TypeScript, you must first obtain a non-generic reference:
+ *
+ * ```typescript
+ 	const selectItem: SelectOption<string> = {
+ 			value: "elect",
+ 			id: "select",
+ 			label: "Select",
+				disabled: true, // As optional
+	};
+ * ```
+ */
 
 export const Select = <T,>(props: SelectProps<T>) => {
 	const cls = getClassNames(props);
