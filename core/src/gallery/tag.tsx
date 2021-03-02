@@ -1,6 +1,6 @@
 import { Tag } from "..";
 
-export const TagGallery = (): JSX.Element => (
+export const GalleryTag = (): JSX.Element => (
 	<div className="space-y-8">
 		<div>
 			<span>Tag is </span>

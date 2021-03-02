@@ -40,7 +40,7 @@ const prompt = async () => {
 	M.dialogAlert(`Post "${title}" is published!`);
 };
 
-export const DialogGallery = () => (
+export const GalleryDialog = () => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<M.Button fill onClick={alert} children="Alert" />

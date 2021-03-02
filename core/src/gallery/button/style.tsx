@@ -20,7 +20,7 @@ const Row = (props: ButtonProps): JSX.Element => (
 	</div>
 );
 
-export const ButtonStyleGallery = (): JSX.Element => (
+export const GalleryButtonStyle = (): JSX.Element => (
 	<div>
 		<Row />
 		<DivPx size={8} />

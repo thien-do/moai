@@ -35,7 +35,7 @@ const RadioRow = (props: RadioRowProps): JSX.Element => (
 	</>
 );
 
-export const CheckboxGallery = (): JSX.Element => (
+export const GalleryCheckbox = (): JSX.Element => (
 	<div className="flex space-x-8">
 		<div className="flex-1 space-y-8">
 			<CheckboxRow />

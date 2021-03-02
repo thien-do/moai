@@ -3,7 +3,7 @@ import { DateInput } from "..";
 
 const COLORS = [""];
 
-export const InputTypeGallery = (): JSX.Element => (
+export const GalleryInputType = (): JSX.Element => (
 	<div className="space-y-8 flex-1" style={{ width: 180 }}>
 		<div style={{ minHeight: 32 }}>
 			<M.Input type="date" />

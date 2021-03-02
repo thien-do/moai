@@ -46,7 +46,7 @@ const Column = ({ sizes }: { sizes: [ButtonSize, InputSize] }): JSX.Element => (
 	</div>
 );
 
-export const InputSizeGallery = (): JSX.Element => (
+export const GalleryInputSize = (): JSX.Element => (
 	<div className="flex space-x-8">
 		<Column sizes={[Button.sizes.medium, Input.sizes.medium]} />
 		<Column sizes={[Button.sizes.small, Input.sizes.small]} />

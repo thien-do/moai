@@ -1,6 +1,6 @@
 import { Button, Tooltip, TooltipPane } from "..";
 
-export const TooltipGallery = () => (
+export const GalleryTooltip = () => (
 	<div className="space-y-8">
 		<Tooltip content="Sample Tooltip">
 			<Button.Forwarded children="Hover to show a Tooltip" />

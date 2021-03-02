@@ -45,7 +45,7 @@ const Toggle = (): JSX.Element => {
 	);
 };
 
-export const ButtonFunctionGallery = (): JSX.Element => (
+export const GalleryButtonFunction = (): JSX.Element => (
 	<div>
 		<div className={s.flex}>
 			<Toggle />

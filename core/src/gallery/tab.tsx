@@ -27,13 +27,13 @@ const tabs: Tab[] = [
 	{ id: "3", title: "Third", pane: Third },
 ];
 
-export const TabDefaultGallery = () => <Tabs children={tabs} />;
+export const GalleryTabDefault = () => <Tabs children={tabs} />;
 
-export const TabFlatGallery = () => (
+export const GalleryTabFlat = () => (
 	<Tabs children={tabs} style={Tabs.styles.flat} />
 );
 
-export const TabHeightGallery = () => (
+export const GalleryTabHeight = () => (
 	<div style={{ height: 240 }}>
 		<Tabs children={tabs} fullHeight />
 	</div>

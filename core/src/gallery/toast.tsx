@@ -2,7 +2,7 @@ import { Button, toast, ToastPane } from "..";
 
 const noop = () => {};
 
-export const ToastGallery = (): JSX.Element => (
+export const GalleryToast = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<div className="flex-1 space-y-8">

@@ -8,7 +8,7 @@ const Plus = () => coreIcons.plus;
 
 const flatIcon: ButtonProps = { icon: Plus(), style: flat };
 
-export const ButtonSizeGallery = (): JSX.Element => (
+export const GalleryButtonSize = (): JSX.Element => (
 	<div>
 		<div className={s.flex}>
 			<Button children="Back" icon={coreIcons.arrowLeft} />

@@ -1,6 +1,6 @@
 import { background, ProgressCircle } from "..";
 
-export const ProgressGallery = (): JSX.Element => (
+export const GalleryProgress = (): JSX.Element => (
 	<div className="flex space-x-8 items-start">
 		<div className="space-y-8">
 			<div className="flex space-x-8">

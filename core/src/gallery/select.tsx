@@ -66,7 +66,7 @@ const Group = (): JSX.Element => {
 	return <ButtonGroup fill children={children} />;
 };
 
-export const SelectGallery = (): JSX.Element => (
+export const GallerySelect = (): JSX.Element => (
 	<div className="space-y-8">
 		<div className="flex space-x-8">
 			<Column style={Select.styles.outset} />

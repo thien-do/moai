@@ -153,7 +153,7 @@ const getColumns = (): M.TableColumn<Robot>[] => [
 	},
 ];
 
-export const TableGallery = (): JSX.Element => (
+export const GalleryTable = (): JSX.Element => (
 	<M.Pane noPadding>
 		<div className={s.container}>
 			<M.Table
