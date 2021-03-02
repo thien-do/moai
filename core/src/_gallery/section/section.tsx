@@ -1,4 +1,4 @@
-import { DivPx } from "../..";
+import { DivPx } from "..";
 import s from "./section.module.css";
 
 interface Props {

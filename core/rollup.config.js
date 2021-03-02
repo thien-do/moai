@@ -37,7 +37,12 @@ const bundleMain = {
 	],
 	plugins: [
 		del({ targets: ["dist"] }),
-		copy({ targets: [{ src: "font", dest: "dist" }] }),
+		copy({
+			targets: [
+				{ src: "font", dest: "dist" },
+				{ src: "src/package.json", dest: "dist" },
+			],
+		}),
 		postcss(postcssOptions),
 		typescript({ useTsconfigDeclarationDir: true }),
 	],
@@ -58,7 +63,6 @@ const bundleGallery = {
 		"react/jsx-runtime",
 		// References to "root" folder is considered as external so that
 		// they will not be bundled inside the "gallery" module
-		"../..",
 		"..",
 	],
 	plugins: [
@@ -72,4 +76,7 @@ const bundleGallery = {
 	],
 };
 
-export default [bundleMain, bundleGallery];
+export default [
+	bundleMain,
+	bundleGallery
+];

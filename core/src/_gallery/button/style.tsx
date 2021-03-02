@@ -1,4 +1,4 @@
-import { DivPx, Button, ButtonProps, dialogAlert } from "../..";
+import { DivPx, Button, ButtonProps, dialogAlert } from "..";
 import s from "../styles.module.css";
 
 const base: ButtonProps = {

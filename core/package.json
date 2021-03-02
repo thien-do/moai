@@ -1,8 +1,8 @@
 {
 	"name": "@moai/core",
-	"version": "0.214.0",
+	"version": "0.219.0",
 	"description": "A React UI toolkit for the web 🗿",
-	"main": "dist/index.js",
+	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
 	"types": "dist/types/index.d.ts",
 	"files": [
