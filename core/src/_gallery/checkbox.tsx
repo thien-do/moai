@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxProps, Radio, RadioProps } from "../components";
+import { Checkbox, CheckboxProps, Radio, RadioProps } from "..";
 
 const CheckboxRow = (props: Partial<CheckboxProps>): JSX.Element => (
 	<>

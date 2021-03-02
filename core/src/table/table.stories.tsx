@@ -1,11 +1,10 @@
-import { Meta } from "@storybook/react";
-import { _Story } from "../_story";
 import { DocsPage } from "@storybook/addon-docs/blocks";
-import { Table } from "./table";
+import { Meta } from "@storybook/react";
+import { Robot, ROBOTS } from "../_gallery/table/robots";
+import { GalleryTable } from "../_gallery/table/table";
+import { _Story } from "../_story";
 import { TableColumn } from "./fake-table-column";
-import { GalleryTable } from "../../gallery/table/table";
-import { Robot, ROBOTS } from "../../gallery/table/robots";
-import { Select } from "../select/select";
+import { Table } from "./table";
 
 export default {
 	title: "Components/Table",
@@ -127,4 +126,4 @@ The users can expand a table's rows if the \`expandRowRender\` is prop provided.
 It should be a function that returns what to be rendered when the user expands
 a row. The returned result is rendered below the row, spanning all columns (i.e.
 \`colSpan={columns.length}\`).
-`)
+`);

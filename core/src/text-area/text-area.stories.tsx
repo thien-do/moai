@@ -1,4 +1,4 @@
-import { _Story } from "../../_story";
+import { _Story } from "../_story";
 import { TextArea } from "./text-area";
 
 export default {

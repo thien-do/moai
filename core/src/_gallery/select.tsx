@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, ButtonGroupItemProps, coreIcons, Input, Select, SelectOption, SelectProps } from "../components"; // prettier-ignore
+import { Button, ButtonGroup, ButtonGroupItemProps, coreIcons, Input, Select, SelectOption, SelectProps } from ".."; // prettier-ignore
 
 const COLORS: string[] = [];
 

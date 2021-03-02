@@ -1,4 +1,4 @@
-import * as M from "../components";
+import * as M from "..";
 
 const items: M.MenuItemProps[] = [
 	{ label: "Menu item 1" },

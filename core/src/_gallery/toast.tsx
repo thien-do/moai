@@ -1,4 +1,4 @@
-import { Button, toast, ToastPane } from "../components";
+import { Button, toast, ToastPane } from "..";
 
 const noop = () => {};
 

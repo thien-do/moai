@@ -1,4 +1,4 @@
-import { TextArea } from "../components";
+import { TextArea } from "..";
 
 export const GalleryTextArea = (): JSX.Element => (
 	<div className="space-y-8">

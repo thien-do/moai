@@ -4,7 +4,7 @@ import {
 	ButtonProps,
 	coreIcons,
 	DivPx,
-} from "../../components";
+} from "../..";
 import s from "../styles.module.css";
 
 const { medium, small } = Button.sizes;

@@ -1,4 +1,4 @@
-import { Tag } from "../components";
+import { Tag } from "..";
 
 export const GalleryTag = (): JSX.Element => (
 	<div className="space-y-8">

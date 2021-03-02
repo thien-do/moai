@@ -7,7 +7,7 @@ import {
 	Input,
 	InputSize,
 	InputStyle,
-} from "../components";
+} from "..";
 
 const { search } = coreIcons;
 const bs = Button.styles;

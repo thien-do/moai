@@ -1,5 +1,0 @@
-{
-	"types": "gallery/index.d.ts",
-	"main": "index.js",
-	"module": "esm.js"
-}

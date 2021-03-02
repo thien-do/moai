@@ -1,4 +1,4 @@
-import { Input, InputStyle } from "../components";
+import { Input, InputStyle } from "..";
 
 const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 	<div className="space-y-8 flex-1">

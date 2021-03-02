@@ -1,6 +1,6 @@
 import * as D from "@storybook/addon-docs/blocks";
 import { useEffect } from "react";
-import "../src/font/remote.css";
+import "../font/remote.css";
 import "./preview.css";
 import { storyTheme } from "./theme";
 

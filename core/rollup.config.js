@@ -20,9 +20,9 @@ const postcssOptions = {
  * @type {import("rollup").RollupOptions}
  */
 const bundleMain = {
-	input: "src/components/index.ts",
+	input: "src/index.ts",
 	output: [
-		{ file: "dist/index.js", format: "cjs" },
+		{ file: "dist/cjs.js", format: "cjs" },
 		{ file: "dist/esm.js", format: "esm" },
 	],
 	external: [
@@ -37,11 +37,9 @@ const bundleMain = {
 	],
 	plugins: [
 		del({ targets: ["dist"] }),
-		copy({ targets: [{ src: "src/font", dest: "dist" }] }),
+		copy({ targets: [{ src: "font", dest: "dist" }] }),
 		postcss(postcssOptions),
-		// "components" should only use code inside itself (no reference
-		// to "gallery") so it's better to place the types right there
-		typescript({}),
+		typescript({ useTsconfigDeclarationDir: true }),
 	],
 };
 
@@ -50,27 +48,24 @@ const bundleMain = {
  * @type {import("rollup").RollupOptions}
  */
 const bundleGallery = {
-	input: "src/gallery/index.tsx",
+	input: "src/_gallery/gallery.tsx",
 	output: [
-		{ file: "dist/gallery/index.js", format: "cjs" },
-		{ file: "dist/gallery/esm.js", format: "esm" },
+		{ file: "dist/_gallery/cjs.js", format: "cjs" },
+		{ file: "dist/_gallery/esm.js", format: "esm" },
 	],
 	external: [
 		"react",
 		"react/jsx-runtime",
-		// References to "components" folder is considered as external so that
+		// References to "root" folder is considered as external so that
 		// they will not be bundled inside the "gallery" module
-		"../../components",
-		"../components",
+		"../..",
+		"..",
 	],
 	plugins: [
 		postcss(postcssOptions),
 		copy({
 			targets: [
-				{
-					src: "src/gallery/package.json",
-					dest: "dist/gallery/package.json",
-				},
+				{ src: "src/_gallery/package.json", dest: "dist/_gallery" },
 			],
 		}),
 		typescript({}),

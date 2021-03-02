@@ -18,7 +18,7 @@ import { GalleryTooltip } from "./tooltip";
 import { GalleryButtonStyle } from "./button/style";
 import { GalleryButtonSize } from "./button/size";
 import { GalleryButtonFunction } from "./button/func";
-import { DivPx } from "../components";
+import { DivPx } from "..";
 
 export const Gallery = () => (
 	<div>
