@@ -28,16 +28,45 @@ const onChange = (props: TextAreaProps) => (e: ChangeEvent) => {
 
 export interface TextAreaProps {
 	// Uncontrolled
+	/**
+	 * Initial value of the input
+	 */
 	defaultValue?: string;
+
+	/**
+	 * Usually useful in uncontrolled mode.
+	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
+	 */
 	forwardedRef?: ForwardedRef<HTMLTextAreaElement>;
+
 	// Controlled
+
+	/**
+	 * Value of the input in controllerd mode
+	 */
 	value?: string;
+
+	/**
+	 * Handler to set the value in controlled mode
+	 */
 	setValue?: (value: string) => void;
-	// Style
+
+	/**
+	 * Style of the text box. Choose one from `TextArea.styles` for example: `TextArea.styles.flat`. Same default as the "Input" component.
+	 */
 	style?: InputStyle;
+
+	/**
+	 * Size of the text box. Choose one from `TextArea.sizes` for example: `TextArea.size.medium`. Same default as the "Input" component.
+	 */
 	size?: TextAreaSize;
+
 	// Attributes
+	/**
+	 * Number of row you will see in text area.
+	 */
 	rows?: number;
+
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
