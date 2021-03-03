@@ -1,7 +1,6 @@
 .container {
 	display: flex;
 	padding: 16px 0;
-	background-color: hsla(0, 0%, 100%, 0.8);
 	backdrop-filter: saturate(200%) blur(20px);
 
 	position: sticky;
@@ -10,4 +9,12 @@
 
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
+}
+
+:global(.light) .container {
+	background-color: hsla(0, 0%, 100%, 0.8);
+}
+
+:global(.dark) .container {
+	background-color: hsla(220, 13%, 18% 0.6);
 }
