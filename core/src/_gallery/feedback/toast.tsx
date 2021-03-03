@@ -1,26 +1,30 @@
-import { Button, toast, ToastPane } from "..";
+import { DivPx, Button, toast, ToastPane } from "..";
+import s from "../styles.module.css";
 
 const noop = () => {};
 
-export const GalleryToast = (): JSX.Element => (
-	<div className="space-y-8">
-		<div className="flex space-x-8">
-			<div className="flex-1 space-y-8">
+export const GalleryFeedbackToast = (): JSX.Element => (
+	<div>
+		<div className={s.flex}>
+			<div className={s.flex1}>
 				<Button
 					onClick={() => toast(toast.types.success, "Post published")}
 					children="Toast Success"
 				/>
+				<DivPx size={8} />
 				<ToastPane
 					close={noop}
 					type={ToastPane.types.success}
 					children="Toast"
 				/>
 			</div>
-			<div className="flex-1 space-y-8">
+			<DivPx size={8} />
+			<div className={s.flex1}>
 				<Button
 					onClick={() => toast(toast.types.failure, "Cannot publish")}
 					children="Toast Failure"
 				/>
+				<DivPx size={8} />
 				<ToastPane
 					close={noop}
 					type={ToastPane.types.failure}
@@ -28,6 +32,7 @@ export const GalleryToast = (): JSX.Element => (
 				/>
 			</div>
 		</div>
+		<DivPx size={8} />
 		<div>
 			<ToastPane
 				close={noop}

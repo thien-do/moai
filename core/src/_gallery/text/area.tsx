@@ -1,8 +1,9 @@
-import { TextArea } from "..";
+import { DivPx, TextArea } from "..";
 
 export const GalleryTextArea = (): JSX.Element => (
-	<div className="space-y-8">
+	<div>
 		<TextArea defaultValue="Text area" rows={2} />
+		<DivPx size={8} />
 		<TextArea defaultValue="Text area" rows={2} disabled />
 	</div>
 );

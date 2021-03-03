@@ -99,6 +99,8 @@ button,
 input,
 select,
 textarea {
+	display: block;
+
 	background: none;
 	border: none;
 	margin: 0;

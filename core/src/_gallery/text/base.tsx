@@ -13,7 +13,7 @@ const Column = ({ style }: { style: InputStyle }): JSX.Element => (
 	</div>
 );
 
-export const GalleryInputBase = (): JSX.Element => (
+export const GalleryTextBase = (): JSX.Element => (
 	<div className={s.flex}>
 		<Column style={Input.styles.outset} />
 		<DivPx size={8} />

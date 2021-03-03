@@ -3,22 +3,22 @@ import { GalleryButtonFunction } from "./button/func";
 import { GalleryButtonSize } from "./button/size";
 import { GalleryButtonStyle } from "./button/style";
 import { GalleryDialog } from "./dialog";
-import { GalleryInputBase } from "./input/base";
-import { GalleryInputSize } from "./input/size";
-import { GalleryInputType } from "./input/type";
+import { GalleryProgress } from "./feedback/progress";
+import { GalleryTag } from "./feedback/tag";
+import { GalleryFeedbackToast } from "./feedback/toast";
+import { GalleryTooltip } from "./feedback/tooltip";
 import { GalleryPagination } from "./pagination";
 import { GalleryPane } from "./pane";
-import { GalleryProgress } from "./progress";
 import { GallerySection } from "./section/section";
 import { GallerySelectionCheckbox } from "./selection/checkbox";
 import { GallerySelectionSelect } from "./selection/select";
 import s from "./styles.module.css";
 import { GalleryTabDefault, GalleryTabFlat, GalleryTabHeight } from "./tab";
 import { GalleryTable } from "./table/table";
-import { GalleryTag } from "./tag";
-import { GalleryTextArea } from "./text-area";
-import { GalleryToast } from "./toast";
-import { GalleryTooltip } from "./tooltip";
+import { GalleryTextArea } from "./text/area";
+import { GalleryTextBase } from "./text/base";
+import { GalleryTextSize } from "./text/size";
+import { GalleryTextType } from "./text/type";
 
 export const Gallery = () => (
 	<div>
@@ -29,14 +29,14 @@ export const Gallery = () => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Text fields">
-			<GalleryInputBase />
+			<GalleryTextBase />
 			<div>
-				<GalleryInputSize />
+				<GalleryTextSize />
 				<DivPx size={8} />
 				<GalleryPagination />
 			</div>
 			<div className={s.flex}>
-				<div className={s.flex1} children={<GalleryInputType />} />
+				<div className={s.flex1} children={<GalleryTextType />} />
 				<DivPx size={16} />
 				<div className={s.flex1} children={<GalleryTextArea />} />
 			</div>
@@ -48,7 +48,7 @@ export const Gallery = () => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Feedback">
-			<GalleryToast />
+			<GalleryFeedbackToast />
 			<GalleryTooltip />
 			<div>
 				<GalleryTag />

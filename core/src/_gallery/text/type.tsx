@@ -3,7 +3,7 @@ import { DivPx } from "../../div/div";
 import s from "../styles.module.css";
 import { MATERIALS } from "../table/robots";
 
-export const GalleryInputType = (): JSX.Element => (
+export const GalleryTextType = (): JSX.Element => (
 	<div className={s.flex1} style={{ width: 180 }}>
 		<div style={{ minHeight: 32 }}>
 			<M.Input type="date" placeholder="Native date input" />

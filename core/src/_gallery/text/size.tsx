@@ -38,7 +38,7 @@ const Column = ({ sizes }: { sizes: [M.ButtonSize, M.InputSize] }): JSX.Element 
 	</div>
 );
 
-export const GalleryInputSize = (): JSX.Element => (
+export const GalleryTextSize = (): JSX.Element => (
 	<div className={s.flex}>
 		<Column sizes={[M.Button.sizes.medium, M.Input.sizes.medium]} />
 		<M.DivPx size={8} />
