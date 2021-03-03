@@ -341,3 +341,13 @@ export const ROBOTS: Robot[] = [
 			"Magnam tenetur tempora. Eveniet expedita veniam perspiciatis quia odit ab ullam. Sunt cum est enim unde. Quo atque quo debitis. Tempora et excepturi. Earum et eos maxime sapiente velit aperiam.",
 	},
 ];
+
+export const MATERIALS: string[] = (() => {
+	const set = new Set<string>();
+	ROBOTS.forEach((robot) => {
+		robot.materials.forEach((material) => {
+			if (set.has(material) === false) set.add(material);
+		});
+	});
+	return [...set];
+})();

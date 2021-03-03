@@ -1,9 +1,12 @@
-import { Checkbox, CheckboxProps, Radio, RadioProps } from "..";
+import { DivPx, Checkbox, CheckboxProps, Radio, RadioProps } from "..";
+import s from "../styles.module.css";
 
 const CheckboxRow = (props: Partial<CheckboxProps>): JSX.Element => (
 	<>
 		<Checkbox {...props} defaultChecked={false} children="Unchecked" />
+		<DivPx size={8} />
 		<Checkbox {...props} defaultChecked={true} children="Checked" />
+		<DivPx size={8} />
 		<Checkbox {...props} indeterminate={true} children="Mixed" />
 	</>
 );
@@ -20,12 +23,14 @@ const RadioRow = (props: RadioRowProps): JSX.Element => (
 			value="unchecked"
 			{...props}
 		/>
+		<DivPx size={8} />
 		<Radio
 			defaultChecked={true}
 			children="Checked"
 			value="checked"
 			{...props}
 		/>
+		<DivPx size={8} />
 		<Radio
 			defaultChecked={false}
 			children="Unchecked"
@@ -35,14 +40,16 @@ const RadioRow = (props: RadioRowProps): JSX.Element => (
 	</>
 );
 
-export const GalleryCheckbox = (): JSX.Element => (
-	<div className="flex space-x-8">
-		<div className="flex-1 space-y-8">
+export const GallerySelectionCheckbox = (): JSX.Element => (
+	<div className={s.flex}>
+		<div className={s.flex1}>
 			<CheckboxRow />
+			<DivPx size={8} />
 			<CheckboxRow disabled />
 		</div>
-		<div className="flex-1 space-y-8">
+		<div className={s.flex1}>
 			<RadioRow name="enabled sample" />
+			<DivPx size={8} />
 			<RadioRow name="disabled sample" disabled />
 		</div>
 	</div>

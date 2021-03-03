@@ -1,13 +1,12 @@
 import * as M from "..";
 import { DivPx } from "../../div/div";
 import s from "../styles.module.css";
-
-const COLORS = [""];
+import { MATERIALS } from "../table/robots";
 
 export const GalleryInputType = (): JSX.Element => (
 	<div className={s.flex1} style={{ width: 180 }}>
 		<div style={{ minHeight: 32 }}>
-			<M.Input type="date" />
+			<M.Input type="date" placeholder="Native date input" />
 		</div>
 		<DivPx size={8} />
 		<div style={{ minHeight: 32 }}>
@@ -17,7 +16,7 @@ export const GalleryInputType = (): JSX.Element => (
 		<div style={{ minHeight: 32 }}>
 			<M.Input
 				placeholder="Autocomplete"
-				list={{ id: "sample-colors", values: COLORS }}
+				list={{ id: "materials", values: MATERIALS }}
 			/>
 		</div>
 		<DivPx size={8} />

@@ -3,8 +3,8 @@
 	text-decoration: inherit;
 	/* Reset */
 	border: none;
-	background-color: none;
-	border-radius: none;
+	background: none;
+	border-radius: 0;
 	/* To have same width with outset buttons */
 	border-left: solid 1px transparent;
 	border-right: solid 1px transparent;

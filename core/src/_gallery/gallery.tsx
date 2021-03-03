@@ -1,6 +1,7 @@
-import { GallerySection } from "./section/section";
-import s from "./styles.module.css";
-import { GalleryCheckbox } from "./checkbox";
+import { DivPx } from "..";
+import { GalleryButtonFunction } from "./button/func";
+import { GalleryButtonSize } from "./button/size";
+import { GalleryButtonStyle } from "./button/style";
 import { GalleryDialog } from "./dialog";
 import { GalleryInputBase } from "./input/base";
 import { GalleryInputSize } from "./input/size";
@@ -8,17 +9,16 @@ import { GalleryInputType } from "./input/type";
 import { GalleryPagination } from "./pagination";
 import { GalleryPane } from "./pane";
 import { GalleryProgress } from "./progress";
-import { GallerySelect } from "./select";
+import { GallerySection } from "./section/section";
+import { GallerySelectionCheckbox } from "./selection/checkbox";
+import { GallerySelectionSelect } from "./selection/select";
+import s from "./styles.module.css";
 import { GalleryTabDefault, GalleryTabFlat, GalleryTabHeight } from "./tab";
 import { GalleryTable } from "./table/table";
 import { GalleryTag } from "./tag";
 import { GalleryTextArea } from "./text-area";
 import { GalleryToast } from "./toast";
 import { GalleryTooltip } from "./tooltip";
-import { GalleryButtonStyle } from "./button/style";
-import { GalleryButtonSize } from "./button/size";
-import { GalleryButtonFunction } from "./button/func";
-import { DivPx } from "..";
 
 export const Gallery = () => (
 	<div>
@@ -43,8 +43,8 @@ export const Gallery = () => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Selection controls">
-			<GallerySelect />
-			<GalleryCheckbox />
+			<GallerySelectionSelect />
+			<GallerySelectionCheckbox />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Feedback">
