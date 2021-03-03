@@ -1,6 +1,0 @@
-/* Tailwind-style utilities CSS Modules. We don't include Tailwind here to
-simplify the setup */
-
-.flex {
-	display: flex;
-}

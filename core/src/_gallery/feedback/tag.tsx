@@ -1,14 +1,16 @@
-import { Tag } from "..";
+import { DivPx, Tag } from "..";
+import s from "../styles.module.css";
 
-export const GalleryTag = (): JSX.Element => (
-	<div className="space-y-8">
+export const GalleryFeedbackTag = (): JSX.Element => (
+	<div>
 		<div>
 			<span>Tag is </span>
 			<Tag color={Tag.colors.gray}>inline</Tag>
 		</div>
-		<div className="flex flex-wrap">
+		<DivPx size={8} />
+		<div className={[s.flex, s.flexWrap].join(" ")}>
 			{Object.keys(Tag.colors).map((color) => (
-				<div key={color} className="p-4">
+				<div key={color} className={s.p4}>
 					<Tag color={(Tag.colors as any)[color]} children={color} />
 				</div>
 			))}

@@ -10,6 +10,7 @@
 	/* So this can hide .content */
 	position: relative;
 	z-index: 1;
+	display: flex;
 }
 
 .title {

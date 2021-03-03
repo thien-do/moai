@@ -1,4 +1,5 @@
 import * as M from "..";
+import s from "../styles.module.css";
 
 const items: M.MenuItemProps[] = [
 	{ label: "Menu item 1" },
@@ -14,9 +15,9 @@ const items2: M.MenuItemProps[] = [
 ];
 
 const PopoverColumn = () => (
-	<div className="flex-1 space-y-8">
+	<div className={s.flex1}>
 		<M.Popover
-			content={() => <div className="p-8">Hello!</div>}
+			content={() => <div>Hello!</div>}
 			target={(popover) => (
 				<M.Button
 					onClick={popover.toggle}
@@ -27,6 +28,7 @@ const PopoverColumn = () => (
 			)}
 			placement="top"
 		/>
+		<M.DivPx size={8} />
 		<M.Pane>
 			<M.Paragraph>Pane</M.Paragraph>
 			<M.Paragraph>Lorem ipsum dolor sit amet, consectetur.</M.Paragraph>
@@ -35,19 +37,21 @@ const PopoverColumn = () => (
 );
 
 const MenuColumn = () => (
-	<div className="flex-1 space-y-8">
+	<div className={s.flex1}>
 		<M.ButtonMenu
 			items={items2}
 			button={{ fill: true, children: "Open menu" }}
 			placement="top"
 		/>
+		<M.DivPx size={8} />
 		<M.Menu items={items} />
 	</div>
 );
 
-export const GalleryPane = () => (
-	<div className="flex space-x-8">
+export const GalleryContainerPane = () => (
+	<div className={s.flex}>
 		<PopoverColumn />
+		<M.DivPx size={16} />
 		<MenuColumn />
 	</div>
 );

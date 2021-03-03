@@ -1,4 +1,6 @@
 import * as M from "..";
+import { DivPx } from "../../div/div";
+import s from "../styles.module.css";
 
 const Pane = () => (
 	<M.DialogPane width="content">
@@ -11,8 +13,9 @@ const Pane = () => (
 			/>
 		</M.Dialog.Body>
 		<M.Dialog.Footer>
-			<div className="flex space-x-8">
+			<div className={s.flex}>
 				<M.Button>Cancel</M.Button>
+				<DivPx size={8} />
 				<M.Button highlight>Publish</M.Button>
 			</div>
 		</M.Dialog.Footer>
@@ -40,13 +43,16 @@ const prompt = async () => {
 	M.dialogAlert(`Post "${title}" is published!`);
 };
 
-export const GalleryDialog = () => (
-	<div className="space-y-8">
-		<div className="flex space-x-8">
+export const GalleryContainerDialog = () => (
+	<div>
+		<div className={s.flex}>
 			<M.Button fill onClick={alert} children="Alert" />
+			<M.DivPx size={8} />
 			<M.Button fill onClick={confirm} children="Confirm" />
+			<M.DivPx size={8} />
 			<M.Button fill onClick={prompt} children="Prompt" />
 		</div>
+		<M.DivPx size={8} />
 		<Pane />
 	</div>
 );
