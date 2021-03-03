@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-import { Switcher } from "../switcher/switcher";
-import { background } from "./background";
+import { Switcher, background } from "..";
 
-// Independently export "background/switcher" from "background" to avoid
-// circular dependencies
 export const BackgroundSwitcher = (): JSX.Element => {
 	const [strong, setStrong] = useState(true);
 
 	useEffect(() => {
 		const cls = strong ? background.strong : background.weak;
-		document.body.classList.add(cls);
-		return () => document.body.classList.remove(cls);
+		const ls = window.document.body.classList;
+		ls.add(cls);
+		return () => ls.remove(cls);
 	}, [strong]);
 
 	return (

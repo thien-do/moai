@@ -1,7 +1,6 @@
 import "./global.css";
 
 export * from "./background/background";
-export * from "./background/switcher";
 export * from "./border/border";
 export * from "./shadow/shadow";
 export * from "./button-group/button-group";

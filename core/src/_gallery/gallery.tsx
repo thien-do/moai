@@ -19,9 +19,12 @@ import { GalleryTextArea } from "./text/area";
 import { GalleryTextBase } from "./text/base";
 import { GalleryTextSize } from "./text/size";
 import { GalleryTextType } from "./text/type";
+import { GalleryToolbar } from "./toolbar/toolbar";
 
 export const Gallery = () => (
 	<div>
+		<GalleryToolbar />
+		<DivPx size={32} />
 		<GallerySection title="Buttons">
 			<GalleryButtonStyle />
 			<GalleryButtonSize />

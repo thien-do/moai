@@ -1,5 +1,4 @@
 import * as M from "..";
-import { DivPx } from "../../div/div";
 import s from "../styles.module.css";
 
 const Pane = () => (
@@ -15,7 +14,7 @@ const Pane = () => (
 		<M.Dialog.Footer>
 			<div className={s.flex}>
 				<M.Button>Cancel</M.Button>
-				<DivPx size={8} />
+				<M.DivPx size={8} />
 				<M.Button highlight>Publish</M.Button>
 			</div>
 		</M.Dialog.Footer>
