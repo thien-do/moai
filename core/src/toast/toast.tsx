@@ -6,17 +6,16 @@ export * from "./pane/pane";
 
 const inited = { current: false };
 
-const init = (): Promise<HTMLDivElement> => {
-	return new Promise((resolve) => {
-		const element = document.createElement("div");
-		document.body.append(element);
-		const callback = async () => {
-			inited.current = true;
-			await new Promise((resolve) => setTimeout(resolve, 100));
-			resolve(element);
-		};
-		render(<ToastContainer />, element, callback);
-	});
+const init = async (resolve: (div: HTMLDivElement) => void): Promise<void> => {
+	const element = document.createElement("div");
+	document.body.append(element);
+	render(<ToastContainer />, element);
+	// The callback in "render" is called after the component is rendered,
+	// but we need to wait after it is mounted, thus this timeout
+	await new Promise((resolve) => setTimeout(resolve, 100));
+	// Report back
+	inited.current = true;
+	resolve(element);
 };
 
 export const toast = async (
@@ -24,7 +23,7 @@ export const toast = async (
 	message: string
 ): Promise<void> => {
 	console.log(inited.current);
-	if (inited.current === false) await init();
+	if (inited.current === false) await new Promise(init);
 	type.handler(message);
 };
 
