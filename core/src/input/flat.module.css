@@ -27,9 +27,15 @@
 
 :global(.light) .main:disabled {
 	color: var(--gray-3);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
 }
 :global(.dark) .main:disabled {
 	color: var(--gray-4);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-4);
+	opacity: 1;
 }
 
 /* PLACEHOLDER */

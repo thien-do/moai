@@ -29,8 +29,11 @@
 	background-color: var(--gray-0);
 }
 :global(.light) .main:disabled {
-    color: var(--gray-3);
-    border-color: var(--gray-1);
+	color: var(--gray-3);
+	border-color: var(--gray-1);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
 }
 
 :global(.dark) .main:disabled,
@@ -39,7 +42,10 @@
 }
 :global(.dark) .main:disabled {
 	color: var(--gray-4);
-    border-color: var(--black);
+	border-color: var(--black);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-4);
+	opacity: 1;
 }
 
 /* PLACEHOLDER */

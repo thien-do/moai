@@ -22,7 +22,7 @@ export interface InputSize {
 
 const getClass = (props: InputProps): string => {
 	const style = props.style ?? Input.styles.outset;
-	const styles = [s.input, outline.normal, style.main];
+	const styles = [s.input, outline.always, style.main];
 	const size = props.size ?? Input.sizes.medium;
 	styles.push(props.icon ? size.mainWithIcon : size.main);
 	return styles.join(" ");

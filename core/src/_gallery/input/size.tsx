@@ -1,32 +1,23 @@
-import {
-	Button,
-	ButtonGroup,
-	ButtonSize,
-	ButtonStyle,
-	coreIcons,
-	Input,
-	InputSize,
-	InputStyle,
-} from "..";
+import * as M from "..";
+import s from "../styles.module.css";
 
-const { search } = coreIcons;
-const bs = Button.styles;
-const is = Input.styles;
+const { search } = M.coreIcons;
 
-const button = (size: ButtonSize) => (
-	<Button icon={search} iconLabel="Search" size={size} />
+const button = (size: M.ButtonSize) => (
+	<M.Button icon={search} iconLabel="Search" size={size} />
 );
-const input = (size: InputSize) => (
-	<Input placeholder="With Button" size={size} />
+const input = (size: M.InputSize) => (
+	<M.Input placeholder="With Button" size={size} />
 );
 
-const Column = ({ sizes }: { sizes: [ButtonSize, InputSize] }): JSX.Element => (
-	<div className="space-y-8">
+const Column = ({ sizes }: { sizes: [M.ButtonSize, M.InputSize] }): JSX.Element => (
+	<div>
 		<div style={{ minHeight: 32 }}>
-			<Input icon={search} placeholder="With Icon" size={sizes[1]} />
+			<M.Input icon={search} placeholder="With Icon" size={sizes[1]} />
 		</div>
+		<M.DivPx size={8} />
 		<div style={{ minHeight: 32 }}>
-			<ButtonGroup
+			<M.ButtonGroup
 				fill
 				children={[
 					{ fill: true, element: input(sizes[1]) },
@@ -34,8 +25,9 @@ const Column = ({ sizes }: { sizes: [ButtonSize, InputSize] }): JSX.Element => (
 				]}
 			/>
 		</div>
+		<M.DivPx size={8} />
 		<div style={{ minHeight: 32 }}>
-			<ButtonGroup
+			<M.ButtonGroup
 				fill
 				children={[
 					{ fill: false, element: button(sizes[0]) },
@@ -47,8 +39,9 @@ const Column = ({ sizes }: { sizes: [ButtonSize, InputSize] }): JSX.Element => (
 );
 
 export const GalleryInputSize = (): JSX.Element => (
-	<div className="flex space-x-8">
-		<Column sizes={[Button.sizes.medium, Input.sizes.medium]} />
-		<Column sizes={[Button.sizes.small, Input.sizes.small]} />
+	<div className={s.flex}>
+		<Column sizes={[M.Button.sizes.medium, M.Input.sizes.medium]} />
+		<M.DivPx size={8} />
+		<Column sizes={[M.Button.sizes.small, M.Input.sizes.small]} />
 	</div>
 );

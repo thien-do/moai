@@ -13,8 +13,17 @@
 }
 
 .normal:global(.focus-visible),
-.normal:focus-visible,
 .always:focus {
+	outline-width: 2px;
+	position: relative;
+	z-index: 1;
+	outline-color: var(--highlight-5);
+}
+
+/* Don't group this with ":focus" even though they have the same body. This is
+because some browsers don't understand ":focus-visible" yet and the whole CSS
+definition will not be used if a selector is invalid. */
+.normal:focus-visible {
 	outline-width: 2px;
 	position: relative;
 	z-index: 1;
