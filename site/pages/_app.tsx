@@ -2,6 +2,7 @@ import "@moai/core/dist/font/local.css";
 import "@moai/core/dist/bundle.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { scrollbar } from "@moai/core";
 
 const favIcon: string = [
 	"data:image/svg+xml,",
@@ -19,7 +20,9 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 				content="initial-scale=1.0, width=device-width"
 			/>
 		</Head>
-		<Component {...pageProps} />
+		<div className={scrollbar.custom}>
+			<Component {...pageProps} />
+		</div>
 	</>
 );
 

@@ -1,4 +1,4 @@
-import { Icon, IconPath, Pane, Table, TableColumn, text } from "@moai/core";
+import * as M from "@moai/core";
 import * as bp from "@moai/icon/bp";
 import * as hro from "@moai/icon/hro";
 import * as hrs from "@moai/icon/hrs";
@@ -72,9 +72,9 @@ const SAMPLE_ICONS = [
 	[bp.VolumeUp, hro.VolumeUp, hrs.VolumeUp],
 ];
 
-const Sample = ({ path }: { path: IconPath }): JSX.Element => (
-	<div className="p-8">
-		<Icon display="block" path={path} />
+const Sample = ({ path }: { path: M.IconPath }): JSX.Element => (
+	<div className={s.sample}>
+		<M.Icon display="block" path={path} />
 	</div>
 );
 
@@ -84,7 +84,7 @@ interface RowProps {
 
 const Name = ({ set }: RowProps): JSX.Element => (
 	<a
-		className={[text.highlightStrong].join(" ")}
+		className={[M.text.highlightStrong].join(" ")}
 		href={set.link}
 		target="_blank"
 		rel="noopener"
@@ -94,14 +94,14 @@ const Name = ({ set }: RowProps): JSX.Element => (
 );
 
 const Samples = ({ set }: RowProps): JSX.Element => (
-	<div className="flex">
+	<div className={s.samplesContainer}>
 		{SAMPLE_ICONS.map((group, index) => (
 			<Sample key={index} path={group[set.index]} />
 		))}
 	</div>
 );
 
-const getTableColumns = (): TableColumn<IconSet>[] => [
+const getTableColumns = (): M.TableColumn<IconSet>[] => [
 	{
 		title: "Icon set",
 		className: s.name,
@@ -114,17 +114,18 @@ const getTableColumns = (): TableColumn<IconSet>[] => [
 	},
 ];
 
-export const IconGallery = () => (
-	<div className="space-y-16">
-		<p className="leading-32">Moai works with any SVG-based icon set!</p>
-		<Pane noPadding>
+export const GalleryIcon = () => (
+	<div>
+		<p className={s.description}>Moai works with any SVG-based icon set!</p>
+		<M.DivPx size={16} />
+		<M.Pane noPadding>
 			<div className={s.table}>
-				<Table<IconSet>
+				<M.Table<IconSet>
 					rows={ICON_SETS}
 					columns={getTableColumns()}
-					rowKey={set => set.name}
+					rowKey={(set) => set.name}
 				/>
 			</div>
-		</Pane>
+		</M.Pane>
 	</div>
 );

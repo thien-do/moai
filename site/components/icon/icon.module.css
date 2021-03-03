@@ -12,3 +12,15 @@
     width: 1300px;
 	text-align: left;
 }
+
+.samplesContainer {
+	display: flex;
+}
+
+.sample {
+	padding: 8px;
+}
+
+.description {
+	line-height: 32px;
+}
