@@ -62,11 +62,16 @@
 	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+body {
+	margin: 0;
+}
+
 * {
 	box-sizing: border-box;
 }
 
-svg {
+/* Avoid override filled icons */
+svg:not([fill]) {
 	fill: currentColor;
 }
 
