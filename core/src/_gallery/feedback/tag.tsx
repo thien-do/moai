@@ -8,7 +8,10 @@ export const GalleryFeedbackTag = (): JSX.Element => (
 			<Tag color={Tag.colors.gray}>inline</Tag>
 		</div>
 		<DivPx size={8} />
-		<div className={[s.flex, s.flexWrap].join(" ")}>
+		<div
+			className={[s.flex, s.flexWrap].join(" ")}
+			style={{ margin: "-4" }}
+		>
 			{Object.keys(Tag.colors).map((color) => (
 				<div key={color} className={s.p4}>
 					<Tag color={(Tag.colors as any)[color]} children={color} />

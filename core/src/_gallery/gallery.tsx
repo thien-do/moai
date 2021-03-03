@@ -1,4 +1,4 @@
-import { DivPx } from "..";
+import { DivPx, scrollbar } from "..";
 import { GalleryButtonFunction } from "./button/func";
 import { GalleryButtonSize } from "./button/size";
 import { GalleryButtonStyle } from "./button/style";
@@ -24,7 +24,7 @@ import { GalleryToolbar } from "./toolbar/toolbar";
 export { GallerySection };
 
 export const Gallery = () => (
-	<div>
+	<div className={scrollbar.custom}>
 		<GalleryToolbar />
 		<DivPx size={32} />
 		<GallerySection title="Buttons">

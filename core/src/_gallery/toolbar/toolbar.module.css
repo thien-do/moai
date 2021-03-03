@@ -16,5 +16,5 @@
 }
 
 :global(.dark) .container {
-	background-color: hsla(220, 13%, 18% 0.6);
+	background-color: hsla(220, 13%, 18%, 0.6);
 }
