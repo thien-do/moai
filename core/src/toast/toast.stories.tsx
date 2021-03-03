@@ -1,25 +1,65 @@
-import { storiesOf } from "@storybook/react";
-import { Button } from "../button/button";
-import { DivPx } from "../div/div";
-import { ToastPane } from "./pane/pane";
 import { toast } from "./toast";
+import { Button } from "../";
+import { _Story } from "../_story";
+import { toastTypes } from "./type/type";
 
-storiesOf("Toast", module).add("Main", () => (
-	<div>
-		<Button onClick={() => toast(toast.types.success, "Hello")}>
-			Hello
+export default {
+	title: "Components/Toast",
+	component: toast,
+	argTypes: {
+		type: _Story.arg(toastTypes),
+		message: _Story.arg("text"),
+	},
+};
+
+interface Props {
+	type?: string | undefined;
+	message?: string;
+}
+
+export const Primary = (props: Props) => {
+	if (props.type === undefined) {
+		props.type = "success";
+	}
+
+	if (props.message === undefined) {
+		props.message =
+			toastTypes[props.type] === toastTypes.success
+				? "Post published"
+				: "Cannot publish";
+	}
+
+	return (
+		<div>
+			<Button
+				onClick={() => toast(toastTypes[props.type], props.message)}
+			>
+				Click to show toast
+			</Button>
+		</div>
+	);
+};
+
+export const Usage = () => {
+	return (
+		<Button
+			onClick={() =>
+				toast(toastTypes.success, "Will render success pane")
+			}
+		>
+			Success toast
 		</Button>
-		<DivPx size={16} />
-		<Button onClick={() => toast(toast.types.failure, "Hello")}>
-			Hello
-		</Button>
-		<DivPx size={16} />
-		<ToastPane type={ToastPane.types.success} close={() => {}}>
-			Success Toast
-		</ToastPane>
-		<DivPx size={16} />
-		<ToastPane type={ToastPane.types.failure} close={() => {}}>
-			Failure Toast
-		</ToastPane>
-	</div>
-));
+	);
+};
+
+_Story.desc(Usage)(`
+Using toast very easy, you just need declare toast with button and provide \`type: ToastType\` and \`message: string\`.
+
+For example:
+
+\`\`\`typescript
+<Button onClick={() => toast(toastTypes.success, "Will render success pane" >
+	Success toast
+</Button>
+\`\`\`
+`);
