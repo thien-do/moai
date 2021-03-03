@@ -21,6 +21,8 @@ import { GalleryTextSize } from "./text/size";
 import { GalleryTextType } from "./text/type";
 import { GalleryToolbar } from "./toolbar/toolbar";
 
+export { GallerySection };
+
 export const Gallery = () => (
 	<div>
 		<GalleryToolbar />
