@@ -21,6 +21,8 @@
 	line-height: 24px;
 }
 
-.container {
-	display: flex;
+@media (min-width: 640px) {
+	.container {
+		display: flex;
+	}
 }
