@@ -8,16 +8,13 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@moai/core": "0.205.0",
+		"@moai/core": "0.220.0",
 		"@moai/icon": "0.36.0",
-		"@types/node": "14.14.27",
+		"@types/node": "14.14.31",
 		"@types/react": "17.0.2",
-		"autoprefixer": "10.2.4",
-		"next": "10.0.6",
-		"postcss": "8.2.6",
+		"next": "10.0.7",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
-		"tailwindcss": "2.0.3",
-		"typescript": "4.1.5"
+		"typescript": "4.2.2"
 	}
 }

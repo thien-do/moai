@@ -1,8 +1,7 @@
-import "@moai/core/dist/font/remote.css";
-import "@moai/core/dist/index.css";
+import "@moai/core/dist/font/local.css";
+import "@moai/core/dist/bundle.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import "tailwindcss/utilities.css";
 
 const favIcon: string = [
 	"data:image/svg+xml,",
