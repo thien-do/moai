@@ -158,6 +158,12 @@ Input.styles = {
 };
 
 Input.sizes = {
+	large: {
+		main: s.largeMain,
+		mainWithIcon: s.largeMainWithIcon,
+		icon: s.largeIcon,
+		iconSize: 16,
+	} as InputSize,
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
