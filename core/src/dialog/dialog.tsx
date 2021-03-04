@@ -12,6 +12,10 @@ interface ChildrenProps {
 
 export interface DialogProps extends ChildrenProps {
 	onEsc?: () => void;
+
+	/**
+	 * Width of the pane
+	 */
 	width?: "fixed" | "content";
 }
 
@@ -35,6 +39,10 @@ DialogPane.styles = {
 	].join(" "),
 };
 
+/**
+ *
+ * Dialogs present content overlaid over other parts of the UI.
+ */
 export const Dialog = (props: DialogProps) => (
 	<div
 		className={[s.container, s.fill].join(" ")}
