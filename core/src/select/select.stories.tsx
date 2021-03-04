@@ -1,7 +1,7 @@
 import { _Story } from "../_story";
 import { Select, SelectOption } from "./select";
 import { DivPx } from "../div/div";
-import { Input, Button, ButtonGroup, ButtonGroupItemProps, coreIcons } from "../.."; // prettier-ignore
+import { Input, Button, ButtonGroup, ButtonGroupItemProps, coreIcons } from "../"; // prettier-ignore
 
 export default {
 	title: "Components/Select",
