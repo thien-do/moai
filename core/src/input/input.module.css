@@ -18,6 +18,26 @@
 	z-index: 1;
 }
 
+/* Follow Button.sizes.large */
+.largeMain,
+.largeMainWithIcon {
+	padding-right: 12px;
+	height: 40px;
+}
+
+.largeMain {
+	padding-left: 12px;
+}
+
+.largeMainWithIcon {
+	/* 12 + 16 + 8 */
+	padding-left: 36px;
+}
+
+.largeIcon {
+	left: 12px;
+}
+
 .mediumMain,
 .mediumMainWithIcon {
 	padding-right: 12px;
