@@ -4,6 +4,4 @@
 		"declarationDir": "dist/types"
 	},
 	"files": ["src/index.ts", "src/_gallery/gallery.tsx", "src/global.d.ts"]
-	// "include": ["src"],
-	// "exclude": ["src/**/*.stories.ts"]
 }
