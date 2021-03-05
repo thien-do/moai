@@ -1,14 +1,11 @@
 .main {
 	transition: background-color 0.1s, outline 0.2s ease-out;
-	text-decoration: inherit;
-	/* Reset */
-	border: none;
-	background: none;
 	border-radius: 0;
-	/* To have same width with outset buttons */
-	border-left: solid 1px transparent;
-	border-right: solid 1px transparent;
+	/* To have same layout with outset buttons */
+	border: solid 1px transparent;
 }
+
+/* INTERACTION */
 :global(.light) .main:hover {
 	background-color: var(--gray-1);
 }
@@ -22,12 +19,16 @@
 	background-color: var(--gray-9);
 }
 
+/* SELECTED */
+
 :global(.light) .selected:not(.x) {
 	background-color: var(--gray-1);
 }
 :global(.dark) .selected:not(.x) {
 	background-color: var(--gray-9);
 }
+
+/* DISABLED */
 
 :global(.light) .main:disabled:not(.x) {
 	color: var(--gray-3);

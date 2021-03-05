@@ -10,7 +10,6 @@ import { border } from "../border/border";
 
 export interface InputStyle {
 	main: string;
-	disabled: string;
 }
 
 export interface InputSize {
@@ -147,14 +146,8 @@ export const Input = (props: InputProps): JSX.Element => {
 };
 
 Input.styles = {
-	outset: {
-		main: [s.outset, sOutset.main, border.radius, background.strong].join(
-			" "
-		),
-	} as InputStyle,
-	flat: {
-		main: [sFlat.main].join(" "),
-	} as InputStyle,
+	outset: { main: [sOutset.main, border.radius].join(" ") } as InputStyle,
+	flat: { main: [sFlat.main].join(" ") } as InputStyle,
 };
 
 Input.sizes = {
