@@ -1,4 +1,6 @@
 .main {
+	transition: background-color 0.1s, outline 0.2s ease-out;
+
 	border-width: 1px;
 	border-style: solid;
 	--shadow-size: 0px 0.5px 1.5px inset;

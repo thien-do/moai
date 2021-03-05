@@ -5,7 +5,6 @@
 
 .input {
 	width: 100%;
-	transition: background-color 0.1s, outline 0.2s ease-out;
 }
 
 .icon {

@@ -1,4 +1,6 @@
 .main {
+	transition: background-color 0.1s, outline 0.2s ease-out;
+
 	/* Pretty much nothing in normal state */
 	text-align: inherit;
     text-decoration: inherit;

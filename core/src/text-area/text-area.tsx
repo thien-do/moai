@@ -10,13 +10,7 @@ export interface TextAreaSize {
 const getClass = (props: TextAreaProps) => {
 	const style = props.style ?? TextArea.styles.outset;
 	const size = props.size ?? TextArea.sizes.medium;
-	return [
-		s.container,
-		outline.normal,
-		style.main,
-		size.main,
-		props.disabled ? style.disabled : "",
-	].join(" ");
+	return [s.container, outline.always, style.main, size.main].join(" ");
 };
 
 type ChangeEvent = React.ChangeEvent<HTMLTextAreaElement>;
