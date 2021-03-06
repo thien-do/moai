@@ -159,28 +159,19 @@ Button.styles = {
 	} as ButtonStyle,
 };
 
-Button.sizes = {
-	medium: {
-		main: s.medium,
-		iconSize: 16,
-		iconMargin: 8,
-	} as ButtonSize,
-	mediumIcon: {
-		main: s.mediumIcon,
-		iconSize: 16,
-		iconMargin: 8,
-	} as ButtonSize,
-	small: {
-		main: s.small,
-		iconSize: 12,
-		iconMargin: 4,
-	} as ButtonSize,
-	smallIcon: {
-		main: s.smallIcon,
-		iconSize: 12,
-		iconMargin: 4,
-	} as ButtonSize,
-};
+Button.sizes = (() => {
+	const largeIcon = { iconSize: 20, iconMargin: 12 };
+	const mediumIcon = { iconSize: 16, iconMargin: 8 };
+	const smallIcon = { iconSize: 12, iconMargin: 4 };
+	return {
+		large: { main: s.large, ...largeIcon } as ButtonSize,
+		largeIcon: { main: s.largeIcon, ...largeIcon } as ButtonSize,
+		medium: { main: s.medium, ...mediumIcon } as ButtonSize,
+		mediumIcon: { main: s.mediumIcon, ...mediumIcon } as ButtonSize,
+		small: { main: s.small, ...smallIcon } as ButtonSize,
+		smallIcon: { main: s.smallIcon, ...smallIcon } as ButtonSize,
+	};
+})();
 
 Button.Forwarded = React.forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
