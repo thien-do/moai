@@ -1,61 +1,46 @@
-import {
-	Button,
-	ButtonGroup,
-	ButtonProps,
-	coreIcons,
-	DivPx,
-} from "..";
+import { Button, ButtonGroup, coreIcons, DivPx } from "..";
 import s from "../styles.module.css";
 
-const { medium, small } = Button.sizes;
-const { flat } = Button.styles;
+const ss = Button.sizes;
+const mi = ss.mediumIcon;
+const i = coreIcons;
 
-const Plus = () => coreIcons.plus;
-
-const flatIcon: ButtonProps = { icon: Plus(), style: flat };
+const IconRow = ({ disabled }: { disabled: boolean }): JSX.Element => {
+	const d = { disabled };
+	return (
+		<div className={s.flex}>
+			<Button {...d} iconLabel="Search" icon={i.search} />
+			<DivPx size={8} />
+			<Button {...d} iconLabel="Search" icon={i.search} size={mi} />
+			<DivPx size={8} />
+			<ButtonGroup>
+				<Button {...d} icon={i.plus} children="Add" />
+				<Button {...d} icon={i.caret} iconLabel="More" size={mi} />
+			</ButtonGroup>
+		</div>
+	);
+};
 
 export const GalleryButtonSize = (): JSX.Element => (
-	<div>
-		<div className={s.flex}>
-			<Button children="Back" icon={coreIcons.arrowLeft} />
+	<div className={s.flex}>
+		<div>
+			<Button icon={i.plus} size={ss.large} children="Large" />
 			<DivPx size={8} />
-			<Button children="Next" icon={coreIcons.arrowRight} reverse />
+			<Button icon={i.plus} size={ss.medium} children="Medium" />
 			<DivPx size={8} />
-			<Button iconLabel="Search" icon={coreIcons.search} />
-			<DivPx size={8} />
-			<Button iconLabel="Search" icon={coreIcons.search} disabled />
+			<Button icon={i.plus} size={ss.small} children="Small" />
 		</div>
 		<DivPx size={8} />
-		<div className={s.flex}>
-			<ButtonGroup>
-				<Button icon={Plus()} children="Add" />
-				<Button icon={coreIcons.caret} iconLabel="More" />
-			</ButtonGroup>
+		<div>
+			<div className={s.flex}>
+				<Button children="Previous" icon={i.arrowLeft} />
+				<DivPx size={8} />
+				<Button children="Next" icon={i.arrowRight} reverse />
+			</div>
 			<DivPx size={8} />
-			<ButtonGroup>
-				<Button disabled icon={Plus()} children="Add" />
-				<Button disabled icon={coreIcons.caret} iconLabel="More" />
-			</ButtonGroup>
-		</div>
-		<DivPx size={8} />
-		<div className={s.flex}>
-			<Button icon={Plus()} size={medium} children="Medium" />
+			<IconRow disabled={false} />
 			<DivPx size={8} />
-			<Button icon={Plus()} size={small} children="Small" />
-			<DivPx size={8} />
-			<Button icon={Plus()} size={small} iconLabel="Add" />
-			<DivPx size={8} />
-			<Button icon={Plus()} size={small} iconLabel="Add" busy />
-		</div>
-		<DivPx size={8} />
-		<div className={s.flex}>
-			<Button {...flatIcon} size={medium} children="Medium" />
-			<DivPx size={8} />
-			<Button {...flatIcon} size={small} children="Small" />
-			<DivPx size={8} />
-			<Button {...flatIcon} size={small} iconLabel="Add" />
-			<DivPx size={8} />
-			<Button {...flatIcon} size={small} iconLabel="Add" busy />
+			<IconRow disabled={true} />
 		</div>
 	</div>
 );

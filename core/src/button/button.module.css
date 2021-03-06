@@ -23,26 +23,6 @@
 	width: 100%;
 }
 
-.medium {
-	height: 32px;
-	padding: 0 12px;
-}
-
-.mediumIcon {
-	height: 32px;
-	width: 32px;
-}
-
-.small {
-	height: 24px;
-	padding: 0 8px;
-}
-
-.smallIcon {
-	height: 24px;
-	width: 24px;
-}
-
 .text {
 	flex: 0 0 auto;
 	display: flex;
@@ -67,4 +47,36 @@
 .busy ~ .icon,
 .busy ~ .text {
 	opacity: 0;
+}
+
+/* SIZE */
+
+.large {
+	height: 40px;
+	padding: 0 16px;
+}
+
+.largeIcon {
+	height: 40px;
+	width: 40px;
+}
+
+.medium {
+	height: 32px;
+	padding: 0 12px;
+}
+
+.mediumIcon {
+	height: 32px;
+	width: 32px;
+}
+
+.small {
+	height: 24px;
+	padding: 0 8px;
+}
+
+.smallIcon {
+	height: 24px;
+	width: 24px;
 }
