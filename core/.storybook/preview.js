@@ -2,6 +2,7 @@ import * as D from "@storybook/addon-docs/blocks";
 import { useEffect } from "react";
 import "../font/remote.css";
 import "./preview.css";
+import "./syntax.css";
 import { storyTheme } from "./theme";
 
 const Container = ({ children, context }) => {
