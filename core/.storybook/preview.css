@@ -13,7 +13,9 @@ html {
 }
 
 .sbdocs-preview:not(.x) {
-	background-color: transparent;
+	background-color: var(--white);
+	box-shadow: none;
+	border: solid 2px var(--gray-1);
 }
 
 /* Typography */
@@ -34,6 +36,11 @@ html {
 
 .docblock-argstable:not(#x) {
 	table-layout: fixed;
+}
+
+.docblock-argstable-body:not(#x) {
+	box-shadow: none;
+	border: solid 2px var(--gray-1);
 }
 
 /* "name" column */
