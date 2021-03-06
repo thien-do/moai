@@ -29,8 +29,8 @@ export const Gallery = () => (
 		<DivPx size={32} />
 		<GallerySection title="Buttons">
 			<GalleryButtonStyle />
-			<GalleryButtonSize />
 			<GalleryButtonFunction />
+			<GalleryButtonSize />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Text fields">

@@ -9,6 +9,11 @@
 	max-width: calc(320px * 3 + 16px * 2 + 8px * 2);
 }
 
+/* For debugging */
+/* .children > * {
+	background-color: var(--gray-1);
+} */
+
 .title {
 	flex: 0 0 auto;
 	width: 200px;
