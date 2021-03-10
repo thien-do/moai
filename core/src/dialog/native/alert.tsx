@@ -1,5 +1,6 @@
 import { Button } from "../../button/button";
-import { Dialog, DialogProps } from "../dialog";
+import { DialogMain, DialogProps } from "../main/main";
+import { DialogBody, DialogFooter } from "../sub/sub";
 import { renderDialog } from "./native";
 
 interface Props {
@@ -9,9 +10,9 @@ interface Props {
 }
 
 export const AlertDialog = (props: Props) => (
-	<Dialog onEsc={props.onOk} width={props.width}>
-		<Dialog.Body children={props.children} />
-		<Dialog.Footer>
+	<DialogMain onEsc={props.onOk} width={props.width}>
+		<DialogBody children={props.children} />
+		<DialogFooter>
 			<Button
 				minWidth
 				autoFocus
@@ -19,8 +20,8 @@ export const AlertDialog = (props: Props) => (
 				onClick={props.onOk}
 				children="OK"
 			/>
-		</Dialog.Footer>
-	</Dialog>
+		</DialogFooter>
+	</DialogMain>
 );
 
 /**

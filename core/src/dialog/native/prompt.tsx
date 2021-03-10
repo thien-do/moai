@@ -3,7 +3,8 @@ import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
 import { Input } from "../../input/input";
 import { TextArea } from "../../text-area/text-area";
-import { Dialog, DialogProps } from "../dialog";
+import { DialogMain, DialogProps } from "../main/main";
+import { DialogBody, DialogFooter } from "../sub/sub";
 import { renderDialog } from "./native";
 
 interface Props {
@@ -26,9 +27,9 @@ export const PromptDialog = (props: Props) => {
 	};
 	const rows = props.rows ?? 1;
 	return (
-		<Dialog onEsc={props.onCancel} width={props.width}>
+		<DialogMain onEsc={props.onCancel} width={props.width}>
 			<form onSubmit={() => props.onOk(text)}>
-				<Dialog.Body>
+				<DialogBody>
 					{props.children}
 					<DivPx size={16} />
 					{rows !== 1 ? (
@@ -36,8 +37,8 @@ export const PromptDialog = (props: Props) => {
 					) : (
 						<Input {...base} />
 					)}
-				</Dialog.Body>
-				<Dialog.Footer>
+				</DialogBody>
+				<DialogFooter>
 					<Button minWidth onClick={props.onCancel}>
 						Cancel
 					</Button>
@@ -45,9 +46,9 @@ export const PromptDialog = (props: Props) => {
 					<Button minWidth type="submit" highlight>
 						OK
 					</Button>
-				</Dialog.Footer>
+				</DialogFooter>
 			</form>
-		</Dialog>
+		</DialogMain>
 	);
 };
 

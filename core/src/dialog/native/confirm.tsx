@@ -1,6 +1,7 @@
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
-import { Dialog, DialogProps } from "../dialog";
+import { DialogMain, DialogProps } from "../main/main";
+import { DialogBody, DialogFooter } from "../sub/sub";
 import { renderDialog } from "./native";
 
 interface Props {
@@ -11,9 +12,9 @@ interface Props {
 }
 
 export const ConfirmDialog = (props: Props) => (
-	<Dialog onEsc={props.onCancel} width={props.width}>
-		<Dialog.Body children={props.children} />
-		<Dialog.Footer>
+	<DialogMain onEsc={props.onCancel} width={props.width}>
+		<DialogBody children={props.children} />
+		<DialogFooter>
 			<Button minWidth onClick={props.onCancel} children="Cancel" />
 			<DivPx size={16} />
 			<Button
@@ -23,8 +24,8 @@ export const ConfirmDialog = (props: Props) => (
 				onClick={props.onOk}
 				children="OK"
 			/>
-		</Dialog.Footer>
-	</Dialog>
+		</DialogFooter>
+	</DialogMain>
 );
 
 /**

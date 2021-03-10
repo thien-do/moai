@@ -1,5 +1,6 @@
 import { border } from "../../border/border";
-import { DivPx, text } from "../../_gallery";
+import { DivPx } from "../../div/div";
+import { text } from "../../text/text";
 import s from "./sub.module.css";
 
 // This must be exported in order for Dialog to re-export Body, Header and
