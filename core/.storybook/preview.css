@@ -21,6 +21,7 @@ html {
 /* Typography */
 .sbdocs-code:not(.x),
 .sbdocs-p:not(.x),
+.sbdocs-li:not(.x),
 .docblock-argstable:not(#x) {
 	font-size: 16px;
 	line-height: 28px;
