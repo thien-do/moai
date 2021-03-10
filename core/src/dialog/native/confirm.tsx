@@ -1,26 +1,28 @@
-import * as React from "react";
-import { Button } from "../button/button";
-import { DivPx } from "../div/div";
-import { Dialog, DialogProps } from "./dialog";
-import { DialogMessageChildren, DialogMessage } from "./utils/message";
-import { renderDialog } from "./utils/render";
+import { Button } from "../../button/button";
+import { DivPx } from "../../div/div";
+import { Dialog, DialogProps } from "../dialog";
+import { renderDialog } from "./native";
 
 interface Props {
-	children: DialogMessageChildren;
+	children: React.ReactNode;
 	onOk: () => void;
 	onCancel: () => void;
-	width: DialogProps["width"];
+	width?: DialogProps["width"];
 }
 
 export const ConfirmDialog = (props: Props) => (
 	<Dialog onEsc={props.onCancel} width={props.width}>
-		<Dialog.Body>
-			<DialogMessage children={props.children} />
-		</Dialog.Body>
+		<Dialog.Body children={props.children} />
 		<Dialog.Footer>
-			<Button onClick={props.onCancel} children="Cancel" />
+			<Button minWidth onClick={props.onCancel} children="Cancel" />
 			<DivPx size={16} />
-			<Button autoFocus highlight onClick={props.onOk} children="OK" />
+			<Button
+				minWidth
+				autoFocus
+				highlight
+				onClick={props.onOk}
+				children="OK"
+			/>
 		</Dialog.Footer>
 	</Dialog>
 );
@@ -30,8 +32,10 @@ export const ConfirmDialog = (props: Props) => (
  * See https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
  */
 export const dialogConfirm = (
-	message: DialogMessageChildren,
-	width: DialogProps["width"] = "fixed"
+	message: React.ReactNode,
+	options?: {
+		width?: DialogProps["width"];
+	}
 ): Promise<boolean> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (
@@ -45,7 +49,7 @@ export const dialogConfirm = (
 					unmount();
 				}}
 				children={message}
-				width={width}
+				width={options?.width}
 			/>
 		));
 	});

@@ -1,87 +1,114 @@
+import { Meta } from "@storybook/react";
 import { _Story } from "../_story";
+import { useState } from "react";
 import { Button } from "../button/button";
-import { DivPx } from "../div/div";
-import { Dialog, DialogPane } from "./dialog";
-import { dialogAlert, dialogConfirm, dialogPrompt } from "../";
-
-const _width = {
-	content: "content",
-	fixed: "fixed",
-};
+import { Paragraph } from "../text/text";
+import { Dialog } from "./dialog";
+import { DivGrow, DivPx } from "../div/div";
 
 export default {
 	title: "Components/Dialog",
 	component: Dialog,
-	argTypes: {
-		width: _width,
-	},
-};
+} as Meta;
 
-interface Props {
-	width: "content" | "fixed";
-}
-
-export const Primary = (props: Props) => {
+export const Primary = (): JSX.Element => {
+	const [visible, setVisible] = useState(false);
+	const show = () => setVisible(true);
+	const hide = () => setVisible(false);
 	return (
-		<DialogPane width={props.width}>
-			<Dialog.Body>
-				<Dialog.Message
-					children={[
-						"Dialog title",
-						"Dialog content. Lorem ipsum dolor sit amet, consectetur.",
-					]}
-				/>
-			</Dialog.Body>
-			<Dialog.Footer>
-				<Button>Cancel</Button>
-				<DivPx size={8} />
-				<Button highlight>Publish</Button>
-			</Dialog.Footer>
-		</DialogPane>
+		<>
+			<Button onClick={show} children="Show a dialog" />
+			{visible && (
+				<Dialog onEsc={hide}>
+					<Dialog.Body>
+						<Dialog.Title>There was a network error</Dialog.Title>
+						<Paragraph>
+							Please check your connection and try again
+						</Paragraph>
+					</Dialog.Body>
+					<Dialog.Footer>
+						<Button minWidth highlight onClick={hide} autoFocus>
+							OK
+						</Button>
+					</Dialog.Footer>
+				</Dialog>
+			)}
+		</>
 	);
 };
 
-export const Alert = () => {
-	const alert = () =>
-		dialogAlert([
-			"Cannot save post",
-			"There was a network error. Please check your connection and try again.",
-		]);
-	return <Button onClick={alert} children="Show alert" />;
+export const Basic = () => {
+	const [visible, setVisible] = useState(false);
+	return (
+		<>
+			<Button onClick={() => setVisible(true)} children="Show" />
+			{visible && (
+				<Dialog onEsc={() => setVisible(false)}>Hello world!</Dialog>
+			)}
+		</>
+	);
 };
 
-_Story.desc(Alert)(`
- Moai's alternative to window.alert
- See https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
+_Story.desc(Basic)(`
+Dialog is just a component that renders some content on top of your app, on a
+backdrop (thus the term "modal").
+
+Using a dialog is similar to using a [controlled][1] component: you
+maintain the state (i.e. whether the dialog should be visible) and set that
+state upon the user's interaction (e.g. use Dialog's "onEsc" to set it to
+false):
+
+[1]: https://reactjs.org/docs/forms.html#controlled-components
 `);
 
-export const Confirm = () => {
-	const confirm = () =>
-		dialogConfirm([
-			"Publish post?",
-			"Published posts can be seen by anyone on the internet.",
-		]);
-	return <Button onClick={confirm} children="Show confirm" />;
-};
+export const Layout = (): JSX.Element => (
+	<Dialog.Pane>
+		<Dialog.Body>
+			<Dialog.Title>Title</Dialog.Title>
+			<Paragraph>Body</Paragraph>
+		</Dialog.Body>
+		<Dialog.Footer>
+			<Button>First</Button>
+			<DivGrow />
+			<Button>Second</Button>
+			<DivPx size={16} />
+			<Button highlight>Third</Button>
+		</Dialog.Footer>
+	</Dialog.Pane>
+);
 
-_Story.desc(Confirm)(`
- Moai's alternative to window.confirm
- See https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+_Story.desc(Layout)(`
+To allow maximum customization, Dialog renders its children as-is out of the
+box (e.g. no padding or border). That being said, it also comes with supporting
+components to help you easily build common dialog layout:
+
+- \`Dialog.Body\` wraps its children inside a padding.
+- \`Dialog.Footer\` places its children horizontally, aligned to end.
+- \`Dialog.Title\` makes its children bold and larger, like a title.
+
+Note that in the example below we use "Dialog.Pane" instead of "Dialog", to
+simplify the demo code. "Pane" just renders its children in-place, without any
+backdrop or overlay. In practice, you should always use "Dialog".
 `);
 
-export const Prompt = () => {
-	const prompt = async () => {
-		const title = await dialogPrompt([
-			"Enter post title",
-			"Post title is required to publish",
-		]);
-		if (!title) return;
-		dialogAlert(`Post "${title}" is published!`);
-	};
-	return <Button onClick={prompt} children="Show prompt" />;
-};
+export const Utilities = (): JSX.Element => (
+	<Button
+		onClick={async () => {
+			const name = await Dialog.prompt("What's your name?");
+			const yes = await Dialog.confirm(`Is your name: "${name}"?`);
+			Dialog.alert(yes ? `Hello ${name}!` : "But you said so!");
+		}}
+		children="Ask name"
+	/>
+);
 
-_Story.desc(Prompt)(`
- Moai's alternative to window.prompt
- See https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+_Story.desc(Utilities)(`
+The Dialog component has 3 static methods: \`Dialog.alert\`,
+\`Dialog.confirm\`, and \`Dialog.prompt\` as alternatives to the browser's
+built-in [\`alert\`][a], [\`confirm\`][c] and [\`prompt\`][p]. They have async
+APIs and use Moai's components instead of the browser's built-in dialogs.
+
+[a]: https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
+[c]: https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+[p]: https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
 `);

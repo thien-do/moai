@@ -1,4 +1,3 @@
-import { DocsPage } from "@storybook/addon-docs/blocks";
 import { Meta } from "@storybook/react";
 import { Robot, ROBOTS } from "../_gallery/table/robots";
 import { GalleryTable } from "../_gallery/table/table";
@@ -10,7 +9,6 @@ export default {
 	title: "Components/Table",
 	component: Table,
 	subcomponents: { Table, TableColumn },
-	parameters: { docs: { page: DocsPage }, stickyPrimary: false },
 } as Meta;
 
 export const Primary = () => (
