@@ -51,6 +51,10 @@
 
 /* SIZE */
 
+.minWidth {
+	min-width: 80px;
+}
+
 .large {
 	height: 40px;
 	padding: 0 16px;

@@ -1,84 +1,31 @@
-import * as React from "react";
-import { background } from "../background/background";
-import { Border, border } from "../border/border";
-import { shadow } from "../shadow/shadow";
-import { DivPx } from "../div/div";
-import s from "./dialog.module.css";
-import { DialogMessage } from "./utils/message";
-
-interface ChildrenProps {
-	children: React.ReactNode;
-}
-
-export interface DialogProps extends ChildrenProps {
-	onEsc?: () => void;
-
-	/**
-	 * Width of the pane
-	 */
-	width?: "fixed" | "content";
-}
-
-export const DialogPane = (props: DialogProps): JSX.Element => {
-	const width = props.width === "fixed" ? s.widthFixed : s.widthAuto;
-	const style = DialogPane.styles.outset;
-	return (
-		<div
-			className={[s.dialog, style, width].join(" ")}
-			children={props.children}
-		/>
-	);
-};
-
-DialogPane.styles = {
-	outset: [
-		border.px1,
-		border.strong,
-		shadow.boxStrong,
-		background.strong,
-	].join(" "),
-};
+import { DialogPane, DialogMain, DialogProps } from "./main/main";
+import { DialogBody, DialogHeader, DialogFooter, DialogTitle } from "./sub/sub";
+import { dialogAlert } from "./native/alert";
+import { dialogConfirm } from "./native/confirm";
+import { dialogPrompt } from "./native/prompt";
 
 /**
+ * The component that many incorrectly call "Modal".
  *
- * Dialogs present content overlaid over other parts of the UI.
+ * Usage notes:
+ *
+ * - https://www.nngroup.com/articles/modal-nonmodal-dialog/
  */
-export const Dialog = (props: DialogProps) => (
-	<div
-		className={[s.container, s.fill].join(" ")}
-		onKeyDown={(event) => {
-			if (event.key === "Escape") props.onEsc?.();
-		}}
-	>
-		{/* Separate so we can use opacity instead of alpha channel */}
-		<div
-			className={[background.weak, s.backdrop, s.fill].join(" ")}
-			onClick={props.onEsc}
-		/>
-		<DialogPane {...props} />
-	</div>
+export const Dialog = (props: DialogProps): JSX.Element => (
+	// DialogMain is extracted to its own folder to avoid circular dependencies
+	<DialogMain {...props} />
 );
 
-Dialog.defaultProps = {
-	width: "fixed",
-};
+// Layout components
+Dialog.Body = DialogBody;
+Dialog.Footer = DialogFooter;
+Dialog.Title = DialogTitle;
 
-Dialog.Header = (props: ChildrenProps) => (
-	<>
-		<div className={s.header} children={props.children} />
-		<Border color="weak" />
-	</>
-);
+// Utilities
+Dialog.alert = dialogAlert;
+Dialog.confirm = dialogConfirm;
+Dialog.prompt = dialogPrompt;
 
-Dialog.Body = (props: ChildrenProps) => (
-	<div className={s.body} children={props.children} />
-);
-
-Dialog.Footer = (props: ChildrenProps) => (
-	<div className={s.footer}>
-		<div className={s.footerBody} children={props.children} />
-		<DivPx size={24} />
-	</div>
-);
-
-Dialog.Message = DialogMessage;
+// Not sure if we should expose these actually
+Dialog.Header = DialogHeader;
+Dialog.Pane = DialogPane;
