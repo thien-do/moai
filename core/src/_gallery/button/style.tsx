@@ -1,13 +1,8 @@
-import { DivPx, Button, ButtonProps, dialogAlert } from "..";
+import { Button, ButtonProps, DivPx } from "..";
 import s from "../styles.module.css";
 
 const base: ButtonProps = {
 	children: "Button",
-	onClick: () =>
-		dialogAlert(
-			["You clicked the button", "Press enter or esc to close"],
-			"content"
-		),
 };
 
 const Row = (props: ButtonProps): JSX.Element => (

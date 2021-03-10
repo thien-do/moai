@@ -38,9 +38,13 @@ export const PromptDialog = (props: Props) => {
 					)}
 				</Dialog.Body>
 				<Dialog.Footer>
-					<Button onClick={props.onCancel} children="Cancel" />
+					<Button minWidth onClick={props.onCancel}>
+						Cancel
+					</Button>
 					<DivPx size={16} />
-					<Button type="submit" highlight children="OK" />
+					<Button minWidth type="submit" highlight>
+						OK
+					</Button>
 				</Dialog.Footer>
 			</form>
 		</Dialog>

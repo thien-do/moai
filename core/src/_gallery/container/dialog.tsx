@@ -1,45 +1,34 @@
 import * as M from "..";
+import { Paragraph } from "../../text/text";
 import s from "../styles.module.css";
 
 const Pane = () => (
 	<M.DialogPane width="content">
 		<M.Dialog.Body>
-			<M.Dialog.Message
-				children={[
-					"Dialog title",
-					"Dialog content. Lorem ipsum dolor sit amet, consectetur.",
-				]}
-			/>
+			<M.Dialog.Title>Dialog title</M.Dialog.Title>
+			<Paragraph>
+				Dialog content. Lorem ipsum dolor sit amet, consectetur.
+			</Paragraph>
 		</M.Dialog.Body>
 		<M.Dialog.Footer>
 			<div className={s.flex}>
-				<M.Button>Cancel</M.Button>
+				<M.Button minWidth>Cancel</M.Button>
 				<M.DivPx size={8} />
-				<M.Button highlight>Publish</M.Button>
+				<M.Button minWidth highlight>Publish</M.Button>
 			</div>
 		</M.Dialog.Footer>
 	</M.DialogPane>
 );
 
 const alert = () =>
-	M.dialogAlert([
-		"Cannot save post",
-		"There was a network error. Please check your connection and try again.",
-	]);
+	M.Dialog.alert("Cannot save post. There was a network error.");
 
-const confirm = () =>
-	M.dialogConfirm([
-		"Publish post?",
-		"Published posts can be seen by anyone on the internet.",
-	]);
+const confirm = () => M.Dialog.confirm("Publish post?");
 
 const prompt = async () => {
-	const title = await M.dialogPrompt([
-		"Enter post title",
-		"Post title is required to publish",
-	]);
+	const title = await M.Dialog.prompt("Enter post title");
 	if (!title) return;
-	M.dialogAlert(`Post "${title}" is published!`);
+	M.Dialog.alert(`Post "${title}" is published!`);
 };
 
 export const GalleryContainerDialog = () => (

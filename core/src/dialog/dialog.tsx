@@ -23,7 +23,6 @@ export interface DialogProps {
 	 * The method to decide width of the Dialog:
 	 *
 	 * - "content" will grow (or shrink) the Dialog width to fit its children
-	 *
 	 * - "fixed" will keep the Dialog width fixed, not depend on its content.
 	 * This is the default value.
 	 */

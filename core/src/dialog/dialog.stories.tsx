@@ -86,9 +86,9 @@ components to help you easily build common dialog layout:
 - \`Dialog.Footer\` places its children horizontally, aligned to end.
 - \`Dialog.Title\` makes its children bold and larger, like a title.
 
-Note that in the example below we use "Dialog.Pane" instead of "Dialog", to
-simplify the demo code. "Pane" just renders its children in-place, without any
-backdrop or overlay. In practice, you should always use "Dialog".
+Note that the example below uses \`Dialog.Pane\` instead of \`Dialog\` to
+simplify the demo code. \`Pane\` just renders its children in-place, without any
+backdrop or overlay. In practice, you should always use \`Dialog\`.
 `);
 
 export const Utilities = (): JSX.Element => (
