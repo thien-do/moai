@@ -22,15 +22,15 @@ export type ButtonSize = {
 };
 
 const getClass = (props: ButtonProps) => {
-	const { highlight, selected, fill, busy, reverse, icon } = props;
 	const size = props.size ?? Button.sizes.medium;
 	const style = props.style ?? Button.styles.outset;
 	const classes = [s.button, size.main, style.main, outline.normal];
-	if (fill) classes.push(s.fill);
-	if (selected) classes.push(style.selected);
-	if (highlight) classes.push(style.highlight);
-	if (busy) classes.push(style.busy);
-	if (icon && reverse) classes.push(s.reverse);
+	if (props.fill) classes.push(s.fill);
+	if (props.minWidth) classes.push(s.minWidth);
+	if (props.selected) classes.push(style.selected);
+	if (props.highlight) classes.push(style.highlight);
+	if (props.busy) classes.push(style.busy);
+	if (props.icon && props.reverse) classes.push(s.reverse);
 	return classes.join(" ");
 };
 
@@ -53,6 +53,12 @@ export interface ButtonProps {
 	fill?: boolean;
 	style?: ButtonStyle;
 	size?: ButtonSize;
+	/**
+	 * Too short buttons look ugly when placed next to long ones, especially in
+	 * dialog (e.g. try "Cancel" and "Ok" pair). This prop ensures a min-width
+	 * for buttons so they are not too short.
+	 */
+	minWidth?: boolean;
 	// Children
 	children?: React.ReactNode;
 	icon?: IconPath;
@@ -97,6 +103,10 @@ const buttonTests: [(props: ButtonProps) => boolean, string][] = [
 	[
 		(p) => p.style === Button.styles.flat && p.highlight === true,
 		"Flat buttons can not have highlight style",
+	],
+	[
+		(p) => p.minWidth === true && isIconSize(p.size),
+		'Icon-sized buttons cannot have "minWidth" set',
 	],
 	[
 		(p) => p.icon === undefined && p.children === undefined,
@@ -172,6 +182,11 @@ Button.sizes = (() => {
 		smallIcon: { main: s.smallIcon, ...smallIcon } as ButtonSize,
 	};
 })();
+
+const isIconSize = (s?: ButtonSize): boolean =>
+	s === Button.sizes.largeIcon ||
+	s === Button.sizes.mediumIcon ||
+	s === Button.sizes.smallIcon;
 
 Button.Forwarded = React.forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
