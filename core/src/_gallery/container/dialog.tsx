@@ -3,7 +3,7 @@ import { Paragraph } from "../../text/text";
 import s from "../styles.module.css";
 
 const Pane = () => (
-	<M.DialogPane width="content">
+	<M.Dialog.Pane width="content">
 		<M.Dialog.Body>
 			<M.Dialog.Title>Dialog title</M.Dialog.Title>
 			<Paragraph>
@@ -17,7 +17,7 @@ const Pane = () => (
 				<M.Button minWidth highlight>Publish</M.Button>
 			</div>
 		</M.Dialog.Footer>
-	</M.DialogPane>
+	</M.Dialog.Pane>
 );
 
 const alert = () =>

@@ -50,13 +50,6 @@ DialogPane.styles = {
 	].join(" "),
 };
 
-/**
- * The component that many incorrectly call "Modal".
- * 
- * Usage notes: 
- * 
- * - https://www.nngroup.com/articles/modal-nonmodal-dialog/
- */
 export const DialogMain = (props: DialogProps): JSX.Element => (
 	<div
 		className={[s.container, s.fill].join(" ")}
