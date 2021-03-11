@@ -1,0 +1,17 @@
+.container {
+	font-size: 16px;
+	padding: 64px 16px;
+}
+
+.tagline {
+	font-weight: 700;
+	font-feature-settings: "cv05";
+
+	font-size: 50px;
+	line-height: 50px;
+	letter-spacing: -1px;
+}
+
+.buttons {
+	display: flex;
+}
