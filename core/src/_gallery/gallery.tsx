@@ -35,12 +35,12 @@ export const Gallery = () => (
 		<DivPx size={32} />
 		<GallerySection title="Text fields">
 			<GalleryTextBase />
-			<GalleryTextSize />
 			<div className={s.flex}>
 				<div className={s.flex1} children={<GalleryTextType />} />
 				<DivPx size={16} />
 				<div className={s.flex1} children={<GalleryTextArea />} />
 			</div>
+			<GalleryTextSize />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Selection controls">
