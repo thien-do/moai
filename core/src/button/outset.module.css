@@ -5,6 +5,10 @@
 	--inset-shadow: inset 0px 1px 0px;
 }
 
+a.main {
+	color: inherit;
+}
+
 :global(.group-tail) .main {
 	border-left: none;
 }
