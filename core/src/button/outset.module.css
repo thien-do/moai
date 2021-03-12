@@ -1,8 +1,6 @@
 .main {
 	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
 	border: solid 1px transparent;
-	font-weight: 450;
-
 	--shadow-size: 0px 0.5px 2px;
 	--inset-shadow: inset 0px 1px 0px;
 }
@@ -48,6 +46,7 @@
 	color: var(--white);
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	font-weight: 500;
 }
 
 :global(.light) .highlight {
