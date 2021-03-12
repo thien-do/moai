@@ -1,14 +1,13 @@
-import { border, DivPx, ThemeSwitcher } from "..";
-import { Border } from "../../border/border";
-import { BackgroundSwitcher } from "./background";
+import { border, ThemeSwitcher } from "..";
+import { background } from "../../background/background";
+import { DivPx } from "../../div/div";
 import s from "./toolbar.module.css";
 
 export const GalleryToolbar = () => (
-	<div className={s.wrapper}>
-		<div className={s.container}>
-			<div children={<ThemeSwitcher />} />
-			<div children={<BackgroundSwitcher />} />
-		</div>
-		<Border color="strong" />
+	<div className={[s.container, border.weak, background.strong].join(" ")}>
+		<span>Theme:</span>
+		<DivPx size={16} />
+		<ThemeSwitcher />
+		{/* <div children={<BackgroundSwitcher />} /> */}
 	</div>
 );
