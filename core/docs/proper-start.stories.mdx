@@ -69,23 +69,24 @@ render.
 
 ### 2.3. Font (Optional)
 
-Out of the box, Moai uses [system fonts]. For example, on a modern Mac OS you
-would see the [San Francisco] typeface. This requires no additional setup,
+Out of the box, Moai uses [system fonts]. For example, on a modern Mac OS, you
+would see the [San Francisco] typeface. This requires no additional setup
 and is the best solution performance-wise.
 
-However, for best visual result, we highly recommend the [Inter] typeface. To
-use it, just import the following CSS at your app's root, and Moai will use
+However, the for best visual result, we highly recommend the [Inter] typeface.
+To use it, just import the following CSS at your app's root, and Moai will use
 Inter instead:
 
 ```tsx
 import "@moai/core/dist/font/remote.css";
 ```
 
-- Moai uses the [variable] version of Inter. Check browser compatibilty if you
+- Moai uses the [variable] version of Inter. Check browser compatibility if you
 need to support old browsers.
-- If your app cannot make network request, replace "remote" with "local" in the
-path above to use a bundled version of Inter. This may require [special setup].
-- It is NOT recommend to use the version on Google Fonts since it lost many
+- If your app cannot make network requests, replace "remote" with "local" in the
+path above to use a bundled version of Inter. This may require a [special
+setup].
+- It is NOT recommended to use the version on Google Fonts since it lost many
 [OpenType features].
 
 [system fonts]: https://github.com/moaijs/moai/blob/d3c7c957016b0a8de7838c35fe309384154f9f40/core/src/global.css#L54-L55
@@ -99,7 +100,7 @@ path above to use a bundled version of Inter. This may require [special setup].
 ## 3. Use the components
 
 After the setup, just import the components from the package to use. All
-components are exported at top level:
+components are exported at the top level:
 
 ```tsx
 import { Button } from "@moai/core";
