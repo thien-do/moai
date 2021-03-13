@@ -2,6 +2,7 @@ import * as D from "@storybook/addon-docs/blocks";
 import { useEffect } from "react";
 import "../font/remote.css";
 import "./preview.css";
+import "./typography.css";
 import "./syntax.css";
 import { storyTheme } from "./theme";
 
@@ -23,7 +24,8 @@ export const parameters = {
 	viewMode: "docs",
 	options: {
 		storySort: {
-			order: ["Components"],
+			method: "alphabetical",
+			order: ["Quick Start", "Proper Start", "Gallery"],
 		},
 	},
 };

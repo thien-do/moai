@@ -18,21 +18,8 @@ html {
 	border: solid 2px var(--gray-1);
 }
 
-/* Typography */
-.sbdocs-code:not(.x),
-.sbdocs-p:not(.x),
-.sbdocs-li:not(.x),
-.docblock-argstable:not(#x) {
-	font-size: 16px;
-	line-height: 28px;
-}
-
 .sbdocs-code:not(.x) {
 	display: inline;
-}
-
-.sbdocs-h3 {
-	font-weight: 600;
 }
 
 .docblock-argstable:not(#x) {
