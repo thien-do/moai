@@ -1,0 +1,119 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Proper Start" />
+
+# Proper Start
+
+## 1. Install
+
+The [@moai/core] package is the basis of the Moai kit. It provides all basic
+components, from buttons to dialogs and tables, along with necessary CSS.
+Install it with your package manager:
+
+```
+yarn add @moai/core
+```
+
+- It has [react] and [react-dom] as peer dependencies, so make sure they are
+installed. (Which is usually the case if you use a framework like [Next.js] or
+[CRA].)
+- Moai is written entirely in TypeScript (strict mode!) so all typings are
+bundled in the packages.
+
+[typing]: https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
+[react]: https://www.npmjs.com/package/react
+[react-dom]: https://www.npmjs.com/package/react-dom
+[@moai/core]: https://www.npmjs.com/package/@moai/core
+[Next.js]: https://nextjs.org/
+[CRA]: https://create-react-app.dev/
+
+## 2. Setup
+
+There are a few things you need to do **once** before using Moai's components:
+
+### 2.1. Styling
+
+Import Moai's CSS bundle at your app root. This contains CSS for all components
+in the "core" package.
+
+```tsx
+import "@moai/core/dist/bundle.css";
+```
+
+- In Next.js, use the [custom App]. In CRA, use `src/index`.
+- The bundled CSS contains a [simple reset], so it's best to not include
+another one.
+- All CSS for components use [CSS Modules]. This means all class names are
+scoped so you can use other class-based libraries like [Tailwind CSS] or
+[Tachyons] without worrying about naming conflict.
+
+[simple reset]: https://github.com/moaijs/moai/blob/main/core/src/global.css
+[CSS Modules]: https://github.com/css-modules/css-modules
+[Tailwind CSS]: https://tailwindcss.com
+[Tachyons]: https://tachyons.io/
+[custom App]: https://nextjs.org/docs/advanced-features/custom-app
+
+### 2.2. Theme
+
+Moai comes with both light and dark themes out of the box. However, there is no
+default, so you must explicitly set a class on your `html` tag to specify the
+theme: either `light` or `dark`.
+
+- In Next.js, use the [custom Document]. In CRA, use [`public/index.html`].
+- To avoid a [FOUC], ensure that your `html` tag has the class in the initial
+render.
+
+[custom Document]: https://nextjs.org/docs/advanced-features/custom-document
+[`public/index.html`]: https://create-react-app.dev/docs/using-the-public-folder/#changing-the-html
+[FOUC]: https://en.wikipedia.org/wiki/Flash_of_unstyled_content
+
+### 2.3. Font (Optional)
+
+Out of the box, Moai uses [system fonts]. For example, on a modern Mac OS you
+would see the [San Francisco] typeface. This requires no additional setup,
+and is the best solution performance-wise.
+
+However, for best visual result, we highly recommend the [Inter] typeface. To
+use it, just import the following CSS at your app's root, and Moai will use
+Inter instead:
+
+```tsx
+import "@moai/core/dist/font/remote.css";
+```
+
+- Moai uses the [variable] version of Inter. Check browser compatibilty if you
+need to support old browsers.
+- If your app cannot make network request, replace "remote" with "local" in the
+path above to use a bundled version of Inter. This may require [special setup].
+- It is NOT recommend to use the version on Google Fonts since it lost many
+[OpenType features].
+
+[system fonts]: https://github.com/moaijs/moai/blob/d3c7c957016b0a8de7838c35fe309384154f9f40/core/src/global.css#L54-L55
+[San Francisco]: https://en.wikipedia.org/wiki/San_Francisco_(sans-serif_typeface)
+[Inter]: https://rsms.me/inter/
+[variable]: https://en.wikipedia.org/wiki/Variable_font
+[instruction]: https://rsms.me/inter/#usage
+[OpenType features]: https://en.wikipedia.org/wiki/List_of_typographic_features
+[special setup]: https://webpack.js.org/guides/asset-management/#loading-fonts
+
+## 3. Use the components
+
+After the setup, just import the components from the package to use. All
+components are exported at top level:
+
+```tsx
+import { Button } from "@moai/core";
+
+export const Foo = (): JSX.Element => (
+	<Button>Hello</Button>
+);
+```
+
+- Moai is distributed with an [ES6 module] version. If you are using an
+ES6-aware bundler (such as [Rollup] or [Webpack 2+]), your app won't contain
+the whole Moai library but only the components that you used, which may
+significantly reduce your app size.
+
+[ES6 module]: https://github.com/rollup/rollup/wiki/pkg.module
+[Rollup]: https://rollupjs.org/guide/en/
+[Webpack 2+]: https://webpack.js.org/guides/tree-shaking/

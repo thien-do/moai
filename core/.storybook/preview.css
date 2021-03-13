@@ -27,12 +27,42 @@ html {
 	line-height: 28px;
 }
 
+/* Margin */
+.sbdocs-p:not(#x),
+.sbdocs-title:not(.x),
+.sbdocs-h1:not(#x),
+.sbdocs-h2:not(#x),
+.sbdocs-h3:not(#x),
+.docblock-source:not(#x),
+.sbdocs-ul:not(#x),
+.sbdocs-ol:not(#x),
+.sbdocs-preview:not(#x) {
+	margin: 24px 0;
+}
+
 .sbdocs-code:not(.x) {
 	display: inline;
 }
 
-.sbdocs-h3 {
+.sbdocs-h2:not(.x) {
 	font-weight: 600;
+	padding: 0;
+	border: none;
+	font-size: 24px;
+	line-height: 24px;
+}
+
+.sbdocs-title:not(.x),
+.sbdocs-h1:not(.x) {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 30px;
+}
+
+.sbdocs-h3:not(.x) {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 20px;
 }
 
 .docblock-argstable:not(#x) {

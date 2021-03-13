@@ -1,12 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
+/* Standalone source code */
+.docblock-source:not(.x) {
+	background-color: var(--gray-0);
+	border: solid 2px var(--gray-1);
+	box-shadow: none;
+}
+
+.prismjs:not(#x) {
+	font-size: 15px;
+	line-height: 21px;
+	color: var(--gray-8);
+}
+
 /* Source code of a story */
 .docs-story + div:last-child {
 	background-color: var(--gray-0);
 	border-top: solid 2px var(--gray-1);
-	color: var(--gray-8);
-	font-size: 15px;
-	line-height: 21px;
 }
 
 .token:not(#x) {

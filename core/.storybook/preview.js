@@ -23,7 +23,8 @@ export const parameters = {
 	viewMode: "docs",
 	options: {
 		storySort: {
-			order: ["Components"],
+			method: "alphabetical",
+			order: ["Quick Start", "Proper Start", "Gallery"],
 		},
 	},
 };
