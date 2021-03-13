@@ -7,6 +7,7 @@ import s from "./index.module.css";
 
 const Index = (): JSX.Element => (
 	<div className={s.container}>
+		ahihi
 		<div className={[background.weak].join(" ")}>
 			<div className={s.content} children={<Hero />} />
 			<Border color="strong" />
