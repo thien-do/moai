@@ -1,0 +1,45 @@
+/* Vertical rhythm */
+.sbdocs-p:not(#x),
+.sbdocs-title:not(.x),
+.sbdocs-h1:not(#x),
+.sbdocs-h2:not(#x),
+.sbdocs-h3:not(#x),
+.docblock-source:not(#x),
+.sbdocs-ul:not(#x),
+.sbdocs-ol:not(#x),
+.sbdocs-preview:not(#x) {
+	margin: 24px 0;
+}
+
+/* Body text */
+.sbdocs-code:not(.x),
+.sbdocs-p:not(.x),
+.sbdocs-li:not(.x),
+.docblock-argstable:not(#x) {
+	font-size: 16px;
+	line-height: 28px;
+}
+
+/* 1st heading */
+.sbdocs-title:not(.x),
+.sbdocs-h1:not(.x) {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 30px;
+}
+
+/* 2nd heading */
+.sbdocs-h2:not(.x) {
+	padding: 0;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 24px;
+	border: none;
+}
+
+/* 3rd heading */
+.sbdocs-h3:not(.x) {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 20px;
+}
