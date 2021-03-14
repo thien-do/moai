@@ -23,10 +23,18 @@ import { GalleryToolbar } from "./toolbar/toolbar";
 
 export { GallerySection };
 
-export const Gallery = () => (
+interface Props {
+	toolbarVisible: boolean;
+}
+
+export const Gallery = (props: Props): JSX.Element => (
 	<div className={scrollbar.custom}>
-		<GalleryToolbar />
-		<DivPx size={32} />
+		{props.toolbarVisible && (
+			<>
+				<GalleryToolbar />
+				<DivPx size={32} />
+			</>
+		)}
 		<GallerySection title="Buttons">
 			<GalleryButtonStyle />
 			<GalleryButtonFunction />
