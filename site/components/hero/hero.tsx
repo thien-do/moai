@@ -17,7 +17,7 @@ export const Hero = (): JSX.Element => (
 				icon={ArrowCircleRight}
 				reverse
 				highlight
-				children="Get started"
+				children="Docs"
 				href="https://docs.moaijs.com"
 			/>
 			<DivPx size={16} />
