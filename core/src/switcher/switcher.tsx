@@ -22,18 +22,23 @@ interface Props<T> {
 
 export const Switcher = <T,>(props: Props<T>) => (
 	<ButtonGroup fill={props.fill}>
-		{props.options.map((option) => (
-			<Button
-				key={option.label || option.key}
-				icon={option.icon}
-				children={option.label}
-				onClick={() => props.setValue(option.value)}
-				selected={option.value === props.value}
-				disabled={option.disabled}
-				fill={props.fill}
-				size={props.size}
-				style={props.style}
-			/>
-		))}
+		{props.options.map((option) => {
+			const selected = option.value === props.value;
+			return (
+				<Button
+					key={option.label || option.key}
+					icon={option.icon}
+					children={option.label}
+					onClick={() => {
+						if (selected === false) props.setValue(option.value);
+					}}
+					selected={selected}
+					disabled={option.disabled}
+					fill={props.fill}
+					size={props.size}
+					style={props.style}
+				/>
+			);
+		})}
 	</ButtonGroup>
 );
