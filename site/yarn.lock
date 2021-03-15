@@ -59,10 +59,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@moai/core@0.233.0":
-  version "0.233.0"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.233.0.tgz#899dd860ff2cecb0cad9021f99e0b07d4220c562"
-  integrity sha512-aL/jvDk6efnyDJodEkikPLtcyGmyxdBM7MlTuT/dur8gqi1Rq61Xst3hI0fIFk5qE1/9f4McRsaJcNzMs9P/Rw==
+"@moai/core@0.234.0":
+  version "0.234.0"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.234.0.tgz#6407c23446207445c06235178eba83fbd6cbbf34"
+  integrity sha512-NbSvXxk+rqVGOd2FwuyjFIqCXC4Sskbd1ssR1uvdW25Klk4rO0hqS7Fi09YYf0JZEZ6nI163BiknCSgDQnYevg==
   dependencies:
     "@popperjs/core" "2.9.1"
     "@tippyjs/react" "4.2.4"
