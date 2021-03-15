@@ -16,10 +16,21 @@ export const Toolbar = () => {
 		>
 			<span>Theme:</span>
 			<DivPx size={16} />
-			{mounted && (
+			{mounted ? (
 				<Switcher<string>
 					value={theme ?? "system"}
 					setValue={setTheme}
+					options={[
+						{ value: "light", label: "Light" },
+						{ value: "system", label: "System" },
+						{ value: "dark", label: "Dark" },
+					]}
+				/>
+			) : (
+				// A dummy Switcher to avoid layout shift
+				<Switcher<string>
+					value={""}
+					setValue={() => {}}
 					options={[
 						{ value: "light", label: "Light" },
 						{ value: "system", label: "System" },
