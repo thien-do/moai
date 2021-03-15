@@ -4,7 +4,9 @@ import { MATERIALS } from "../table/robots";
 
 const materialOptions: M.SelectOption<string>[] = MATERIALS.map((material) => {
 	const option = M.Select.toStringOption(material);
-	option.disabled = Math.random() > 0.8;
+	// Trying to be random here but still keep the same result between server
+	// and client render (thus no "Math.random")
+	option.disabled = material.length % 2 === 1;
 	return option;
 });
 
