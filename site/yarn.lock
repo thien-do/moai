@@ -59,13 +59,13 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@moai/core@0.232.0":
-  version "0.232.0"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.232.0.tgz#8d7e71a51bbe9c4f95172d5ea98c67f8c735335f"
-  integrity sha512-q+274MmT5Y8CWXnvPGjPTbyrVUjRhEbu8QlT2xdQWOagGMaoIjexvEiyU38jpM8jpZ8koSwRKqNikM/hQ48VLg==
+"@moai/core@0.233.0":
+  version "0.233.0"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-0.233.0.tgz#899dd860ff2cecb0cad9021f99e0b07d4220c562"
+  integrity sha512-aL/jvDk6efnyDJodEkikPLtcyGmyxdBM7MlTuT/dur8gqi1Rq61Xst3hI0fIFk5qE1/9f4McRsaJcNzMs9P/Rw==
   dependencies:
-    "@popperjs/core" "2.8.6"
-    "@tippyjs/react" "4.2.1"
+    "@popperjs/core" "2.9.1"
+    "@tippyjs/react" "4.2.4"
     react-day-picker "7.4.8"
     react-hot-toast "1.0.2"
     react-popper "2.2.4"
@@ -119,22 +119,22 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
-"@popperjs/core@2.8.6":
-  version "2.8.6"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.8.6.tgz#ad75ebe8dbecfa145af3c7e4d0ae98016458d005"
-  integrity sha512-1oXH2bAFXz9SttE1v/0Jp+2ZVePsPEAPGIuPKrmljWZcS3FPBEn2Q4WcANozZC0YiCjTWOF55k0g6rbSZS39ew==
+"@popperjs/core@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.1.tgz#7f554e7368c9ab679a11f4a042ca17149d70cf12"
+  integrity sha512-DvJbbn3dUgMxDnJLH+RZQPnXak1h4ZVYQ7CWiFWjQwBFkVajT4rfw2PdpHLTSTwxrYfnoEXkuBiwkDm6tPMQeA==
 
 "@popperjs/core@^2.8.3":
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.0.tgz#32e63212293dd3efbb521cd35a5020ab66eaa546"
   integrity sha512-wjtKehFAIARq2OxK8j3JrggNlEslJfNuSm2ArteIbKyRMts2g0a7KzTxfRVNUM+O0gnBJ2hNV8nWPOYBgI1sew==
 
-"@tippyjs/react@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.1.tgz#c26aebdcaa84528618e0b360a69eee7d75fba209"
-  integrity sha512-AewTIG9jojsNwMtiQNj2TshKGg4dQvOlxzw1Kkd4eu6oiOfuy5jwpXokyjf7bybgHi9W4Z7zWwj4ZXJVm6sGZw==
+"@tippyjs/react@4.2.4":
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.4.tgz#b4ff76a19e3805a170c166377c8ff124cc045749"
+  integrity sha512-reg/57H/HTrMnu5kkaUMqm5o4242iZw6qEmumCk+BvwJVI+B8JMlSa23MYmS4jTCQauDhTuGivdt+EO+Tt3DQA==
   dependencies:
-    tippy.js "^6.3.0"
+    tippy.js "^6.3.1"
 
 "@types/node@14.14.34":
   version "14.14.34"
@@ -936,6 +936,11 @@ native-url@0.3.4:
   dependencies:
     querystring "^0.2.0"
 
+next-themes@0.0.13-beta.2:
+  version "0.0.13-beta.2"
+  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.0.13-beta.2.tgz#196a1f399ce2e1b1a738bd684d14626da08ae85b"
+  integrity sha512-qnEsA9Or/CsMWJvTraF/MJ5hPsYEL0DRVpyIefiHqYn79JlcH4Aj6yX1FTPq2AE+PWk2O+SSTSBtplh98PVfgA==
+
 next@10.0.8:
   version "10.0.8"
   resolved "https://registry.yarnpkg.com/next/-/next-10.0.8.tgz#a2232c11ffad974d67f3d572b8db2acaa5ddedd7"
@@ -1520,7 +1525,7 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tippy.js@^6.3.0:
+tippy.js@^6.3.1:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.3.1.tgz#3788a007be7015eee0fd589a66b98fb3f8f10181"
   integrity sha512-JnFncCq+rF1dTURupoJ4yPie5Cof978inW6/4S6kmWV7LL9YOSEVMifED3KdrVPEG+Z/TFH2CDNJcQEfaeuQww==

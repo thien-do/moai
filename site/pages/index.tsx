@@ -3,6 +3,7 @@ import { Gallery, GallerySection } from "@moai/core/dist/_gallery";
 import "@moai/core/dist/_gallery/bundle.css";
 import { Hero } from "../components/hero/hero";
 import { GalleryIcon } from "../components/icon/icon";
+import { Toolbar } from "../components/toolbar/toolbar";
 import s from "./index.module.css";
 
 const Index = (): JSX.Element => (
@@ -12,6 +13,8 @@ const Index = (): JSX.Element => (
 			<Border color="strong" />
 		</div>
 		<div className={[background.strong, s.gallery, s.content].join(" ")}>
+			<Toolbar />
+			<DivPx size={32} />
 			<Gallery />
 			<DivPx size={32} />
 			<GallerySection title="Icons">
