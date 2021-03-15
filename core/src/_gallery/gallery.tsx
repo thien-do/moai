@@ -19,22 +19,11 @@ import { GalleryTextArea } from "./text/area";
 import { GalleryTextBase } from "./text/base";
 import { GalleryTextSize } from "./text/size";
 import { GalleryTextType } from "./text/type";
-import { GalleryToolbar } from "./toolbar/toolbar";
 
 export { GallerySection };
 
-interface Props {
-	toolbarVisible: boolean;
-}
-
-export const Gallery = (props: Props): JSX.Element => (
+export const Gallery = (): JSX.Element => (
 	<div className={scrollbar.custom}>
-		{props.toolbarVisible && (
-			<>
-				<GalleryToolbar />
-				<DivPx size={32} />
-			</>
-		)}
 		<GallerySection title="Buttons">
 			<GalleryButtonStyle />
 			<GalleryButtonFunction />
