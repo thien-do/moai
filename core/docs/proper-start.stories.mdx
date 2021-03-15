@@ -64,13 +64,17 @@ Moai comes with both light and dark themes out of the box. However, there is no
 default, so you must explicitly set a class on your `html` tag to specify the
 theme: either `light` or `dark`.
 
-- In Next.js, use the [custom Document]. In CRA, use [`public/index.html`].
 - To avoid a [FOUC], ensure that your `html` tag has the class in the initial
-render.
+render. This is usually done via a "template" file. In CRA, for example, set it
+in [`public/index.html`].
+- In Next.js, we recommend the [`next-themes`] package. It allows your users
+to change the theme, including a "system" option, without any flashing in
+initial render.
 
 [custom Document]: https://nextjs.org/docs/advanced-features/custom-document
 [`public/index.html`]: https://create-react-app.dev/docs/using-the-public-folder/#changing-the-html
 [FOUC]: https://en.wikipedia.org/wiki/Flash_of_unstyled_content
+[`next-themes`]: https://github.com/pacocoursey/next-themes
 
 ### 2.3. Font (Optional)
 
