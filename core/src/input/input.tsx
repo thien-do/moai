@@ -28,22 +28,53 @@ const getClass = (props: InputProps): string => {
 };
 
 export interface InputProps {
+	/**
+	 * Type of input. For example: button, email, password, number, etc...
+	 */
 	type?: string;
 	// Uncontrolled
+
+	/**
+	 * Initial value of the input in uncontrolled mode
+	 */
 	defaultValue?: string | number;
+
+	/**
+	 * Usually useful in uncontrolled mode.
+	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
+	 */
 	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
 	// Controlled
+
+	/**
+	 * Value of the select in controlled mode
+	 */
 	value?: string;
+
+	/**
+	 * Handler to set the value in controlled mode
+	 */
 	setValue?: (value: string) => void;
+
 	/**
 	 * Id of a datalist element to be used. Can pass an object with values for
 	 * the Input component to create the datalist.
 	 */
 	list?: { id: string; values: string[] } | string;
+
 	// Style
 	icon?: IconPath;
+
+	/**
+	 * Style of the text box. Choose one from Input.styles
+	 */
 	style?: InputStyle;
+
+	/**
+	 * Size of the text box. Choose one from Input.sizes
+	 */
 	size?: InputSize;
+
 	// Attributes
 	id?: string;
 	disabled?: boolean;
@@ -53,6 +84,8 @@ export interface InputProps {
 	autoSelect?: boolean;
 	"aria-label"?: string;
 	"aria-labelledby"?: string;
+	maxLength?: number;
+
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
@@ -124,6 +157,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				autoFocus={props.autoFocus}
 				aria-label={props["aria-label"]}
 				aria-labelledby={props["aria-labelledby"]}
+				maxLength={props.maxLength}
 			/>
 			{props.icon && (
 				<div className={[s.icon, text.muted, size.icon].join(" ")}>
