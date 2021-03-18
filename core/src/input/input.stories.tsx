@@ -1,11 +1,29 @@
+import { Button } from "../button/button";
+import { DivPx } from "../div/div";
 import { _Story } from "../_story";
 import { Input } from "./input";
+import { Dialog } from "../dialog/dialog";
+import React, { useState } from "react";
 
 export default {
 	title: "Components/Input",
 	component: Input,
 	argTypes: {
-		type: _Story.arg(null),
+		type: {
+			name: "type",
+			type: { name: "object", required: true },
+			defaultValue: "text",
+			control: {
+				type: "inline-radio",
+				options: {
+					text: "text",
+					number: "number",
+					email: "email",
+					password: "password",
+					url: "url",
+				},
+			},
+		},
 		style: _Story.arg(Input.styles),
 		size: _Story.arg(Input.sizes),
 		maxLength: _Story.arg("number"),
@@ -15,7 +33,9 @@ export default {
 		icon: _Story.arg(null),
 
 		value: _Story.arg(null),
+		defaultValue: _Story.arg(null),
 		setValue: _Story.arg(null),
+		forwardedRef: _Story.arg(null),
 
 		list: _Story.arg(null),
 
@@ -44,15 +64,35 @@ interface Props {
 	readOnly?: boolean;
 }
 
-export const Primary = (props: Props) => {
+export const Primary = (props: Props): JSX.Element => {
+	const [text, setText] = useState("");
+	const onSubmit = (e: { preventDefault: () => void }) => {
+		e.preventDefault();
+		Dialog.alert(`You entered: ${text}`);
+	};
 	return (
-		<Input
-			type={props.type}
-			style={Input.styles[props.style]}
-			size={Input.sizes[props.size]}
-			maxLength={props.maxLength}
-			disabled={props.disabled}
-			readOnly={props.readOnly}
-		/>
+		<>
+			<form onSubmit={onSubmit}>
+				<div>
+					<Input
+						type={props.type}
+						style={Input.styles[props.style]}
+						size={Input.sizes[props.size]}
+						maxLength={props.maxLength}
+						disabled={props.disabled}
+						readOnly={props.readOnly}
+						setValue={(val: string) => setText(val)}
+					/>
+					<DivPx size={8} />
+					<Button
+						type="submit"
+						disabled={!text ? true : false}
+						highlight
+					>
+						Submit
+					</Button>
+				</div>
+			</form>
+		</>
 	);
 };
