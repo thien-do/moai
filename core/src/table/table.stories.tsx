@@ -8,7 +8,7 @@ import { Table } from "./table";
 export default {
 	title: "Components/Table",
 	component: Table,
-	subcomponents: { Table, TableColumn },
+	subcomponents: { TableColumn },
 } as Meta;
 
 export const Primary = () => (

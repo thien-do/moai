@@ -28,60 +28,70 @@ const getClassNames = <T,>(props: SelectProps<T>) => {
 };
 
 export interface SelectOption<T> {
+	/**
+	 * The value of the option. This is a [generic][1] type so you can use
+	 * Moai's Select for not only string but anything.
+	 * 
+	 * [1]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+	 */
 	value: T;
+	/**
+	 * The id of the option. This should be unique across the option list.
+	 */
 	id: string;
+	/**
+	 * The label of the option to be displayed in the option menu.
+	 */
 	label: string;
+	/**
+	 * Whether the option is disabled.
+	 */
 	disabled?: boolean;
 }
 
 export interface SelectProps<T> {
 	/**
-	 * Array of items in the list
+	 * The option list of this select. See "SelectOption" tab for detail.
 	 */
 	options: SelectOption<T>[];
-
-	// Uncontrolled
-
 	/**
-	 * Initial value of the select box in uncontrolled mode
+	 * Initial value of the select in uncontrolled mode
 	 */
 	defaultValue?: T;
-
 	/**
-	 * Usually useful in uncontrolled mode.
-	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
+	 * [Reference][1] to the `select` element. Usually useful in uncontrolled mode.
+	 *
+	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 	forwardedRef?: ForwardedRef<HTMLSelectElement>;
-
-	// Controlled
-
 	/**
-	 * Value of the select in controlled mode
+	 * Value of the selected option in controlled mode
 	 */
 	value?: T;
-
 	/**
-	 * Handler to set the value in controlled mode
+	 * Callback to set the value in controlled mode
 	 */
 	setValue?: (value: T) => void;
-
-	// Visual
-
 	/**
-	 * Style of the select box. Choose one from Select.styles.
+	 * Style of the select. Choose one from `Select.styles`.
 	 */
 	style?: SelectStyle;
-
 	/**
-	 * Size of the select box. Choose one from Select.sizes.
+	 * Size of the select. Choose one from `Select.sizes`.
 	 */
 	size?: SelectSize;
-
 	/**
-	 * Whether the fill is enabled. The select box will fill the page.
+	 * By default, the width of a select is based on its longest option to
+	 * avoid changing layout when users switching between options.
+	 * 
+	 * Set the `fill` prop to `true` to let the select expands to fill its
+	 * container instead. This helps you to control the select's width. (By
+	 * setting the width of its container.)
 	 */
 	fill?: boolean;
-
+	/**
+	 * Whether the select is disabled
+	 */
 	disabled?: boolean;
 }
 
@@ -107,21 +117,6 @@ const onChange = <T,>(
 	if (!option) throw Error(`Option not found: "${id}"`);
 	props.setValue(option.value);
 };
-
-/**
- * Select let users select a value from a list of items.
- *
- * `Select<T>` is a generic component to work with your data types, the type of one item in items. In TypeScript, you must first obtain a non-generic reference:
- *
- * ```typescript
- 	const selectItem: SelectOption<string> = {
- 			value: "elect",
- 			id: "select",
- 			label: "Select",
-				disabled: true, // As optional
-	};
- * ```
- */
 
 export const Select = <T,>(props: SelectProps<T>) => {
 	const cls = getClassNames(props);

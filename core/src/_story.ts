@@ -20,11 +20,22 @@ const fixPrimary = (story: any) => {
 	story.parameters.docs.source.type = "code";
 }
 
+const name = (story: any, text: string) => {
+	story.storyName = text;
+};
+
 /**
  * Utilities to work with Storybook
  */
 export const _Story = {
+	/**
+	 * Try to generate the suitable controls for passed "target"
+	 */
 	arg,
+	/**
+	 * Add Markdown-based description for the story. This will be rendered
+	 * above the story's canvas.
+	 */
 	desc,
 	/**
 	 * Storybook Docs plugin has a "smart" feature that will dynamically
@@ -38,4 +49,8 @@ export const _Story = {
 	 * [1]: https://storybook.js.org/docs/react/writing-docs/doc-blocks#docspage-1
 	 */
 	fixPrimary,
+	/**
+	 * Override the story's name
+	 */
+	name,
 };

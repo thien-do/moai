@@ -1,11 +1,13 @@
+import { Meta } from "@storybook/react";
+import { useState } from "react";
 import { _Story } from "../_story";
-import { Select, SelectOption } from "./select";
-import { DivPx } from "../div/div";
-import { Input, Button, ButtonGroup, ButtonGroupItemProps, coreIcons } from "../"; // prettier-ignore
+import { SelectOptionComponent } from "./fake-select-option";
+import { Select } from "./select";
 
 export default {
 	title: "Components/Select",
 	component: Select,
+	subcomponents: { SelectOption: SelectOptionComponent },
 	argTypes: {
 		options: _Story.arg(null),
 		style: _Story.arg(Select.styles),
@@ -17,18 +19,7 @@ export default {
 		value: _Story.arg(null),
 		setValue: _Story.arg(null),
 	},
-};
-
-const bookOptions: SelectOption<string>[] = [
-	"Action and Adventure",
-	"Classics",
-	"Comic Book or Graphic Novel",
-	"Detective and Mystery",
-	"Fantasy",
-	"Historical Fiction",
-	"Horror",
-	"Literary Fiction",
-].map(Select.toStringOption);
+} as Meta;
 
 interface Props {
 	style?: string;
@@ -37,76 +28,94 @@ interface Props {
 	disabled?: boolean;
 }
 
-export const Primary = (props: Props) => {
-	const value1Item: SelectOption<string> = {
-		value: "Item 1",
-		id: "Item 1",
-		label: "Item 1",
-	};
+export const Primary = (props: Props) => (
+	<Select<number>
+		options={[
+			{ value: 0, id: "red", label: "Red" },
+			{ value: 1, id: "blue", label: "Blue" },
+			{ value: 2, id: "green", label: "Green" },
+		]}
+		style={Select.styles[props.style]}
+		size={Select.sizes[props.size]}
+		fill={props.fill}
+		disabled={props.disabled}
+	/>
+);
 
-	const value2Item: SelectOption<string> = {
-		value: "Item 2",
-		id: "Item 2",
-		label: "Item 2",
-	};
+_Story.fixPrimary(Primary);
 
+export const Basic = () => {
+	const [value, setValue] = useState<number>(1);
 	return (
-		<Select
-			options={[value1Item, value2Item]}
-			style={Select.styles[props.style]}
-			size={Select.sizes[props.size]}
-			fill={props.fill}
-			disabled={props.disabled}
+		<Select<number>
+			options={[
+				{ value: 0, id: "red", label: "Red" },
+				{ value: 1, id: "blue", label: "Blue" },
+				{ value: 2, id: "green", label: "Green" },
+			]}
+			value={value}
+			setValue={setValue}
 		/>
 	);
 };
 
-_Story.fixPrimary(Primary);
+_Story.desc(Basic)(`
+To use the Select component, define its options as an array via the \`options\`
+prop. See the "Select Option" tab at the argument table for the shape of these
+options.
 
-export const Fill = () => {
+Moai's Select is a generic component, so the type of your option's value can be
+anything. This helps you use Select directly with values of arbitrary type
+instead of just string. In the example below, the type of value is \`number\`,
+but in practice you can use more complex types such as objects or symbols.
+`);
+
+export const StringOptionUtility = () => (
+	<Select<string>
+		options={["Red", "Blue", "Green"].map(Select.toStringOption)}
+	/>
+);
+
+_Story.desc(StringOptionUtility)(`
+Technically, your options must have "id", "label" and "value" fields defined.
+However, if these 3 fields are the same (usually in case of \`string\`-typed
+Select), you can use \`Select.toStringOption\` to simplify the definition:
+`);
+
+_Story.name(StringOptionUtility, "toStringOption Utility");
+
+export const Placeholder = () => {
+	const [value, setValue] = useState<null | number>(null);
 	return (
-		<div>
-			<Select
-				options={[
-					{
-						id: "full",
-						label: "Full-width Select",
-						value: "full",
-						disabled: true,
-					},
-					...bookOptions,
-				]}
-				defaultValue="full"
-				fill
-			/>
-			<DivPx size={8} />
-		</div>
+		<Select<number>
+			options={[
+				{
+					value: null,
+					id: "null",
+					// The "placeholder"
+					label: "Select a color",
+					// Remove this if users should be able to select the
+					// "empty" state
+					disabled: true,
+				},
+				{ value: 0, id: "red", label: "Red" },
+				{ value: 1, id: "blue", label: "Blue" },
+				{ value: 2, id: "green", label: "Green" },
+			]}
+			value={value}
+			setValue={setValue}
+		/>
 	);
 };
 
-_Story.desc(Fill)(
-	`By default, the width of a Select button is based on its longest item to avoid changing layout when users switching between items.
+_Story.desc(Placeholder)(`
+A select can not have value outside of its options. To have a blank/empty state
+for your select, explicitly define it as a disabled option. We recommend using
+\`null\` to represent this option's value. The type of your Select (and your
+state) should then be \`null | Something\`.
 
-  When set, the width of the button will be 100% of the Select's parent:`
-);
+This actually follows the [common practice][1] as when using the native
+\`select\` tag in HTML.
 
-const modelOptions: SelectOption<string>[] = [
-	"Posts",
-	"Users",
-	"Tags",
-	"All",
-].map(Select.toStringOption);
-
-export const Group = () => {
-	const select = <Select options={modelOptions} defaultValue="Posts" />;
-	const input = <Input defaultValue="" placeholder="Type to search" />;
-	const button = <Button iconLabel="Search" icon={coreIcons.search} />;
-	const children: ButtonGroupItemProps[] = [
-		{ fill: false, element: select },
-		{ fill: true, element: input },
-		{ fill: false, element: button },
-	];
-	return <ButtonGroup fill children={children} />;
-};
-
-_Story.desc(Group)(`You can also group components to make search form like:`);
+[1]: https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box
+`);
