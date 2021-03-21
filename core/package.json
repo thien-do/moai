@@ -9,8 +9,8 @@
 		"dist"
 	],
 	"scripts": {
-		"rollup": "rollup --config",
-		"storybook": "start-storybook --no-manager-cache -p 6006",
+		"rollup": "yarn && rollup --config",
+		"storybook": "yarn && start-storybook --no-manager-cache -p 6006",
 		"build": "build-storybook -c .storybook -o public",
 		"prepublishOnly": "yarn rollup",
 		"postpublish": "yarn report",
