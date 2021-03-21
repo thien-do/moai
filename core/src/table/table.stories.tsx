@@ -17,6 +17,8 @@ export const Primary = () => (
 	<GalleryTable />
 );
 
+_Story.fixPrimary(Primary);
+
 export const Basic = () => {
 	// The definition of interface here is only for explanation purpose. In
 	// practice the interface/type/model should already be defined outside of

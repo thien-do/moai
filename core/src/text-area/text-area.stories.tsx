@@ -35,15 +35,13 @@ interface Props {
 	readOnly?: boolean;
 }
 
-export const Primary = (props: Props) => {
-	return (
-		<div>
-			<TextArea
-				style={TextArea.styles[props.style]}
-				size={TextArea.sizes[props.size]}
-				disabled={props.disabled}
-				readOnly={props.readOnly}
-			/>
-		</div>
-	);
-};
+export const Primary = (props: Props) => (
+	<TextArea
+		style={TextArea.styles[props.style]}
+		size={TextArea.sizes[props.size]}
+		disabled={props.disabled}
+		readOnly={props.readOnly}
+	/>
+);
+
+_Story.fixPrimary(Primary);

@@ -40,6 +40,8 @@ export const Primary = (props: Props) => {
 	);
 };
 
+_Story.fixPrimary(Primary);
+
 export const Usage = () => {
 	return (
 		<Button

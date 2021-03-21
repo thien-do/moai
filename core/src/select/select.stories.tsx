@@ -61,6 +61,8 @@ export const Primary = (props: Props) => {
 	);
 };
 
+_Story.fixPrimary(Primary);
+
 export const Fill = () => {
 	return (
 		<div>

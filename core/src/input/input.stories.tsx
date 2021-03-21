@@ -44,15 +44,15 @@ interface Props {
 	readOnly?: boolean;
 }
 
-export const Primary = (props: Props) => {
-	return (
-		<Input
-			type={props.type}
-			style={Input.styles[props.style]}
-			size={Input.sizes[props.size]}
-			maxLength={props.maxLength}
-			disabled={props.disabled}
-			readOnly={props.readOnly}
-		/>
-	);
-};
+export const Primary = (props: Props) => (
+	<Input
+		type={props.type}
+		style={Input.styles[props.style]}
+		size={Input.sizes[props.size]}
+		maxLength={props.maxLength}
+		disabled={props.disabled}
+		readOnly={props.readOnly}
+	/>
+);
+
+_Story.fixPrimary(Primary);

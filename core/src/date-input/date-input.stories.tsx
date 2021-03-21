@@ -49,6 +49,8 @@ export const Primary = (props: Props) => {
 	);
 };
 
+_Story.primary(Primary);
+
 export const MinMax = () => {
 	const today = new Date();
 	const lastWeek = new Date();
