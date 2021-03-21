@@ -72,5 +72,5 @@
 }
 
 .container th:first-child {
-	z-index: calc(var(--z-th) + 1);
+	z-index: var(--z-th-first-child);
 }

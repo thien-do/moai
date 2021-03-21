@@ -64,6 +64,7 @@
 	/* z-index, depend on each other */
 	--z-icon: 2;
 	--z-th: 3; /* th always > icon */
+	--z-th-first-child: 4; /* th first child is always larger than th */
 }
 
 body {
