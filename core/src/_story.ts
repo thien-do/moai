@@ -13,10 +13,15 @@ const desc = (story: any) => (text: string) => {
 	story.parameters.docs.description.story = text;
 };
 
+const name = (story: any, text: string) => {
+	story.storyName = text;
+};
+
 /**
  * Utilities to work with Storybook
  */
 export const _Story = {
 	arg,
 	desc,
+	name,
 };
