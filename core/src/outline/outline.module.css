@@ -3,7 +3,7 @@
 	transition: outline 0.2s ease-out;
 	outline: solid 8px transparent;
 	/* outline-offset should be the same size with outline-width so overflow
-	won't cut it */
+	won't cut it (i.e. outline stays inside the component) */
 	outline-offset: -2px;
 }
 
@@ -15,9 +15,12 @@
 .normal:global(.focus-visible),
 .always:focus {
 	outline-width: 2px;
-	position: relative;
-	z-index: 1;
 	outline-color: var(--highlight-5);
+	/* Avoid the outline being cut if it's outside the component. Currently
+	this is not the case of Moai but it's good to have it anyway since it's not
+	rare for focus style to be outside of the component */
+	position: relative;
+	z-index: var(--z-outline);
 }
 
 /* Don't group this with ":focus" even though they have the same body. This is
@@ -26,6 +29,6 @@ definition will not be used if a selector is invalid. */
 .normal:focus-visible {
 	outline-width: 2px;
 	position: relative;
-	z-index: 1;
+	z-index: var(--z-outline);
 	outline-color: var(--highlight-5);
 }

@@ -12,7 +12,7 @@
 }
 
 .container {
-	z-index: 2;
+	z-index: var(--z-overlay-base);
 }
 
 .container[data-popper-placement^="top"] .arrow {
