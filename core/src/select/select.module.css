@@ -33,8 +33,7 @@ select.select:not([multiple]):not([size]) {
 	bottom: 0px;
 	height: 16px;
 	pointer-events: none;
-	/* wins the z-index of outline */
-	z-index: 1;
+	z-index: var(--z-base);
 }
 
 .mediumSelect {
