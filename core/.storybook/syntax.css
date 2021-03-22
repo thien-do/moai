@@ -25,7 +25,11 @@
 
 .token:not(#x).selector,
 .token:not(#x).tag {
-	color: #21252b;
+	color: #22863a;
+}
+.token:not(#x).attr-value,
+.token:not(#x).string {
+	color: #032f62;
 }
 .token:not(#x).rule,
 .token:not(#x).keyword {
@@ -33,6 +37,7 @@
 }
 .token:not(#x).class-name,
 .token:not(#x).type-definition,
+.token:not(#x).maybe-class-name,
 .token:not(#x).function {
 	color: #6f42c1;
 }
@@ -43,12 +48,9 @@
 .token:not(#x).number,
 .token:not(#x).constant,
 .token:not(#x).operator,
+.token:not(#x).property-access,
 .token:not(#x).boolean {
 	color: #005cc5;
-}
-.token:not(#x).attr-value,
-.token:not(#x).string {
-	color: #22863a;
 }
 .token:not(#x).punctuation,
 .token:not(#x).comment {

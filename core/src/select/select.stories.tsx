@@ -42,6 +42,8 @@ export const Primary = (props: Props) => (
 	/>
 );
 
+_Story.fixPrimary(Primary);
+
 export const Basic = () => {
 	const [value, setValue] = useState<number>(1);
 	return (
