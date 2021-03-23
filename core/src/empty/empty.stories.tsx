@@ -1,14 +1,21 @@
 import { storiesOf } from "@storybook/react";
 import { Empty } from "../empty/empty";
+import { Dialog } from "../dialog/dialog";
 
 storiesOf("Empty", module).add("Main", () => (
 	<div>
-		<Empty active={false} errorMsg="Lỗi kết nối, vui lòng chờ trong giây lát." />
+		<Empty
+			message="Lỗi kết nối, vui lòng chờ trong giây lát."
+			actionLabel="Thử lại"
+		/>
 		<br />
-		<Empty active={true} errorMsg="Lỗi kết nối, vui lòng thử lại sau" onClickBtn={alertRetry}/>
+		<Empty
+			message="Lỗi kết nối, vui lòng thử lại sau"
+			actionLabel="Thử lại"
+			actionHandler={alertRetry} />
 	</div>
 ));
 
-let alertRetry = () => {
-	alert("retry connection !");
+const alertRetry = async () => {
+	Dialog.alert("Retry connection !!!");
 }

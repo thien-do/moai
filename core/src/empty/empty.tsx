@@ -4,25 +4,25 @@ import { Button } from "../button/button";
 import cloudImg from "./empty1.jpg";
 
 interface EmptyProps {
-    active: boolean,
-    errorMsg: string,
-    onClickBtn?: React.MouseEventHandler
+    message: string,
+    actionLabel: string,
+    actionHandler?: React.MouseEventHandler
 }
 
 export const Empty = (props: EmptyProps): JSX.Element => {
-    const { active, errorMsg, onClickBtn } = props;
+    const { message, actionLabel, actionHandler } = props;
     return (
         <div className={s.container}>
             <img src={cloudImg} />
-            <p className={s.errorText}>{errorMsg}</p>
+            <p className={s.errorText}>{message}</p>
             {
-                active && <Button
-                    onClick={props.onClickBtn}
-                    highlight={true}
+                actionHandler && <Button
+                    onClick={actionHandler}
+                    highlight
                     size={Button.sizes.medium}
                     style={Button.styles.outset}
                 >
-                    Thử lại
+                    {actionLabel}
                 </Button>
             }
         </div>
