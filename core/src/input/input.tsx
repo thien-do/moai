@@ -29,7 +29,7 @@ const getClass = (props: InputProps): string => {
 
 export interface InputProps {
 	/**
-	 * Type of input. For example: button, email, password, number, etc...
+	 * Type of input. For example: email, password, number, etc...
 	 */
 	type?: string;
 	// Uncontrolled
@@ -40,25 +40,29 @@ export interface InputProps {
 	defaultValue?: string | number;
 
 	/**
-	 * Usually useful in uncontrolled mode.
-	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
+	 * [Reference][1] to the `Input` element. Usually useful in uncontrolled mode.
+	 *
+	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
+
 	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
 	// Controlled
 
 	/**
-	 * Value of the select in controlled mode
+	 * Value of the Input in controlled mode
 	 */
 	value?: string;
 
 	/**
-	 * Handler to set the value in controlled mode
+	 * Callback to set the value in controlled mode
 	 */
 	setValue?: (value: string) => void;
 
 	/**
-	 * Id of a datalist element to be used. Can pass an object with values for
-	 * the Input component to create the datalist.
+	 * Id of a [datalist][1] element to be used. Can pass an object with values for
+	 * the Input component to create the [datalist][1].
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
 	list?: { id: string; values: string[] } | string;
 
@@ -66,12 +70,12 @@ export interface InputProps {
 	icon?: IconPath;
 
 	/**
-	 * Style of the text box. Choose one from Input.styles
+	 * Style of the text box. Choose one from `Input.styles`
 	 */
 	style?: InputStyle;
 
 	/**
-	 * Size of the text box. Choose one from Input.sizes
+	 * Size of the text box. Choose one from `Input.sizes`
 	 */
 	size?: InputSize;
 
