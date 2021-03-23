@@ -66,32 +66,28 @@ interface Props {
 
 export const Primary = (props: Props) => {
 	const [text, setText] = useState("");
-	const onSubmit = (e: { preventDefault: () => void }) => {
-		e.preventDefault();
-		Dialog.alert(`You entered: ${text}`);
-	};
 	return (
 		<>
-			<form onSubmit={onSubmit}>
-				<div>
-					<Input
-						type={props.type}
-						style={Input.styles[props.style]}
-						size={Input.sizes[props.size]}
-						maxLength={props.maxLength}
-						disabled={props.disabled}
-						readOnly={props.readOnly}
-						setValue={(val: string) => setText(val)}
-					/>
-					<DivPx size={8} />
-					<Button
-						type="submit"
-						disabled={!text ? true : false}
-						highlight
-					>
-						Submit
-					</Button>
-				</div>
+			<form
+				onSubmit={(e) => {
+					e.preventDefault();
+					Dialog.alert(`You entered: ${text}`);
+				}}
+			>
+				<Input
+					type={props.type}
+					style={Input.styles[props.style]}
+					size={Input.sizes[props.size]}
+					maxLength={props.maxLength}
+					disabled={props.disabled}
+					readOnly={props.readOnly}
+					setValue={setText}
+					value={text}
+				/>
+				<DivPx size={8} />
+				<Button type="submit" disabled={!text ? true : false} highlight>
+					Submit
+				</Button>
 			</form>
 		</>
 	);
