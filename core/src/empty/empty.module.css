@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Inter;
+}
+
+.errorText {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    /* ent_color_neutral/navy500 */
+    color: #5E6D84;
+    padding: 1rem;
+}
