@@ -23,36 +23,51 @@ export const Basic = () => {
 	// The definition of interface here is only for explanation purpose. In
 	// practice the interface/type/model should already be defined outside of
 	// your component.
-	interface Person {
-		id: number;
-		name: string;
-		email: string;
+	interface Book {
+		isbn: number;
+		title: string;
+		author: string;
 	}
 
 	return (
-		<Table<Person>
+		<Table<Book>
 			rows={[
-				{ id: 0, name: "Jensen", email: "jensen.romaguera@gmail.com" },
-				{ id: 1, name: "Enos", email: "enos@yahoo.com" },
-				{ id: 2, name: "Kasey", email: "kaseykoelpin@hotmail.com" },
+				{
+					isbn: 9780679783268,
+					title: "Pride and Prejudic",
+					author: "Jane Austen",
+				},
+				{
+					isbn: 9780743273565,
+					title: "The Great Gatsby",
+					author: "Francis Scott Fitzgerald",
+				},
+				{
+					isbn: 9780684830490,
+					title: "The Old Man and the Sea",
+					author: "Ernest Hemingway",
+				},
 			]}
-			rowKey={(person) => person.id.toString()}
+			rowKey={(book) => book.isbn.toString()}
 			columns={[
-				{ title: "Name", render: "name" },
-				{ title: "Email", render: "email" },
+				{ title: "Title", render: "title" },
+				{ title: "Author", render: "author" },
 			]}
 		/>
 	);
 };
 
 _Story.desc(Basic)(`
-To display your data with the Table component, first provide the data via
-the \`rows\` prop, then describe how to render them with the \`columns\`
-prop, and how to get their keys with the \`rowKey\` prop. See the argument
-table above for the details of these props.
+Every table requires 3 props: \`rows\`, \`columns\` and \`rowKey\`. See the
+argument table above for the detail of these props.
 
-Note that Table does not have any border or shadow built-in. For that, you can
-wrap it inside a \`Pane\` component.
+The CSS of Moai's Table is kept [as little as possible][1] to preserve the
+native behaviour of the \`table\` tag. For example, the size of a table depends
+on its content, while text breaks ["normally"][2]. It also doesn't have any
+outer border or shadow. For that, use the \`Pane\` component.
+
+[1]: https://github.com/moaijs/moai/blob/main/core/src/table/table.module.css
+[2]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
 `);
 
 export const Fixed = () => (
@@ -65,16 +80,7 @@ export const Fixed = () => (
 .fixed-table {
 	height: 200px; /* limit the height of the table */
 	overflow: auto; /* show scrollbar(s) */
-}
-.fixed-table .name {
-	width: 160px;
-}
-/* For demo purpose, we intentionally define big width for these columns so
-that the table's width exceeds the width of its container (.fixed-table) */
-.fixed-table .id,
-.fixed-table .seen,
-.fixed-table .email {
-	width: 500px;
+	white-space: nowrap;
 }
 				`,
 			}}
@@ -84,29 +90,30 @@ that the table's width exceeds the width of its container (.fixed-table) */
 				rows={ROBOTS}
 				rowKey={(robot) => robot.id.toString()}
 				columns={[
-					{ title: "Bot", className: "name", render: "MAC" },
-					{ title: "Id", className: "id", render: "id" },
-					{ title: "Seen", className: "seen", render: "lastSeen" },
-					{ title: "Email", className: "email", render: "email" },
+					{ title: "Bot", render: "MAC" },
+					{ title: "Id", render: "id" },
+					{ title: "Seen", render: "lastSeen" },
+					{ title: "Email", render: "email" },
+					{ title: "Avatar", render: "avatar" },
 				]}
+				fixed
 			/>
 		</div>
 	</div>
 );
 
 _Story.desc(Fixed)(`
-Out of the box, the Table component takes 100% of the horizontal space (i.e. 
-\`width: 100%\`) and as much vertical space as necessary (i.e.
-\`height: fit-content\`).
+If the \`fixed\` prop is set to \`true\`, the table's header and first column
+would stay fixed while the user scrolls the rest of the table. Note that the
+fixed position here is relative to the table's nearets scrolling ancestor. In
+practice, this means the container of the table should have:
 
-If the table's width is bigger than its container's width (which is usually
-when its columns' \`(min-)width\` are defined), there will be a horizontal
-scrollbar. When the user scrolls, the first column is kept fixed on the left
-sided. Likewise, when the height of the table is limited, there will be a
-vertical scrollbar, with the table's header is kept fixed at top.
+- "auto" or "scroll" overflow, and
+- a defined height, either fixed (e.g. "400px") or relative (e.g. "100%")
 
-Note that technically the table's container (\`.fixed-table\` in this example)
-is the table's "viewport" and it is where scrollbars are defined.
+Since Moai's Table doesn't alter the line breaking CSS, you may also need
+\`white-space: nowrap\` or defining width for your columns to avoid the default
+line break behaviour.
 `);
 
 export const Expandable = () => (
@@ -117,13 +124,13 @@ export const Expandable = () => (
 			{ title: "Bot", className: "name", render: "MAC" },
 			{ title: "Id", render: "id" },
 		]}
-		expandRowRender={(robot) => robot.note}
+		expandRowRender={(robot) => robot.email}
 	/>
 );
 
 _Story.desc(Expandable)(`
 The users can expand a table's rows if the \`expandRowRender\` is prop provided.
 It should be a function that returns what to be rendered when the user expands
-a row. The returned result is rendered below the row, spanning all columns (i.e.
-\`colSpan={columns.length}\`).
+a row. The returned result is rendered below the row, spanning all columns
+(i.e. a \`td\` with \`colSpan={columns.length}\`).
 `);

@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { text } from "../text/text";
+import fixed from "./fixed.module.css";
 import { getTableRow } from "./row/row";
 import s from "./table.module.css";
 
@@ -30,30 +31,39 @@ export interface TableColumn<R> {
 
 export interface TableProps<R> {
 	/**
-	 * Rows of the Table. The type of Row is [generic][1], which is usually the
-	 * interface of a model.
+	 * An array of [generic][1] items to render as rows of the table (e.g. a
+	 * list of `Book`).
+	 * 
 	 * [1]: https://www.typescriptlang.org/docs/handbook/generics.html
 	 */
 	rows: R[];
 	/**
-	 * A function that returns the [key][1] of a Row.
+	 * A function to return the [React's key][1] of an item (e.g. a book's
+	 * ISBN).
+	 * 
 	 * [1]: https://reactjs.org/docs/lists-and-keys.html#keys
 	 */
 	rowKey: (row: R) => string;
 	/**
-	 * Columns of the Table. See the "TableColumn" tab for detail.
+	 * An array of `TableColumn`s which describe how to render the table's
+	 * `rows` (e.g. a book's title, author). See the "TableColumn" tab for
+	 * detail.
 	 */
 	columns: TableColumn<R>[];
 	/**
-	 * A [render prop][1] that enables row expanding. Setting this prop will
-	 * add a button to each row that allows users to expand or collapse it.
-	 *
-	 * This should return the React element to be rendered when the given row
-	 * is expanded.
+	 * A [render prop][1] that, when set, allows users to expand or collapse
+	 * the table's rows. This should return the React element to be rendered
+	 * when a row is expanded.
 	 *
 	 * [1]: https://reactjs.org/docs/render-props.html
 	 */
 	expandRowRender?: (row: R) => ReactNode;
+	/**
+	 * Whether to fix the table's header and first column position while the
+	 * rest is scrolled. These positions are relative to the table's nearest
+	 * scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
+	 */
+	fixed?: boolean;
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
@@ -85,8 +95,15 @@ export const Table = <R,>(props: TableProps<R>) => {
 		const elements = getTableRow({ row, state, table: props });
 		body.push(...elements);
 	});
+
 	return (
-		<table className={[s.container, background.strong].join(" ")}>
+		<table
+			className={[
+				s.container,
+				props.fixed ? fixed.container : "",
+				background.strong,
+			].join(" ")}
+		>
 			<thead>
 				<tr>{props.columns.map(renderTh)}</tr>
 			</thead>
