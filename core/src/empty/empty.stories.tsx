@@ -15,8 +15,6 @@ storiesOf("Empty", module).add("Main", () => (
 						Dialog.alert("Retry the connection !!!");
 					}}
 					highlight
-					size={Button.sizes.medium}
-					style={Button.styles.outset}
 				>
 					Retry
 				</Button>
