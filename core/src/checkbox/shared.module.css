@@ -22,8 +22,7 @@
 
 .icon {
 	position: absolute;
-	/* wins the z-index of outline */
-	z-index: var(--z-icon);
+	z-index: var(--z-base);
 	/* icon is always 16 x 16 */
 	top: 2px;
 	left: 2px;

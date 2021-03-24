@@ -3,7 +3,7 @@
 	top: 8px;
 	left: 0px;
 	right: 0px;
-	z-index: 20;
+	z-index: var(--z-overlay-top);
 }
 
 .item {
