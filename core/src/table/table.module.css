@@ -1,22 +1,32 @@
+/* Try to have as little CSS here as possible, so that our tables behave like
+in native HTML */
+
+/* container is the "table" tag */
 .container {
-	position: relative;
 	/* To make heading's bottom border visible while scrolling */
 	border-collapse: separate;
+	/* Avoid actually "separate" the borders */
 	border-spacing: 0;
-	table-layout: fixed;
-	width: 100%;
-	overflow-wrap: normal;
 }
+
+/* Cell spacing */
 
 .container th,
 .container td {
-	overflow: hidden;
 	padding: 12px 8px;
-	text-overflow: ellipsis;
-
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
 }
+
+.container td:first-child,
+.container th:first-child {
+	padding-left: 16px;
+}
+
+.container td:last-child,
+.container th:last-child {
+	padding-right: 16px;
+}
+
+/* Row's background change on hover */
 
 /* Same as background.weak */
 :global(.light) .container tr:hover td {
@@ -26,51 +36,14 @@
 	background-color: var(--gray-8);
 }
 
+/* Bordering */
+
+.container th,
+.container td {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
 .container tr:last-child td {
 	border-bottom-style: none;
-}
-
-.container td:first-child,
-.container th:first-child {
-	position: sticky;
-	left: 0;
-	border-right-style: solid;
-	border-right-width: 1px;
-	padding-left: 16px;
-	padding-right: 16px;
-}
-
-.container td:first-child {
-	z-index: var(--z-sticky-1);
-}
-
-@media (max-width: 640px) {
-	.container td:first-child,
-	.container th:first-child {
-		/* Leave enough space for the rest of columns to be scrolled. It's
-		better to use "max-width: 50%" but it does not apply for td and th */
-		width: 160px;
-	}
-}
-
-.container td:nth-child(2),
-.container th:nth-child(2) {
-	padding-left: 16px;
-}
-
-.container td:last-child,
-.container th:last-child {
-	padding-right: 16px;
-}
-
-.container th {
-	position: sticky;
-	top: 0;
-	z-index: var(--z-sticky-1);
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-.container th:first-child {
-	z-index: var(--z-sticky-2);
 }
