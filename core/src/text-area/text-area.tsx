@@ -66,6 +66,7 @@ export interface TextAreaProps {
 	placeholder?: string;
 	autoFocus?: boolean;
 	autoSelect?: boolean;
+	required?: boolean;
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
 	onFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
@@ -111,6 +112,7 @@ export const TextArea = (props: TextAreaProps) => {
 			disabled={props.disabled}
 			placeholder={props.placeholder}
 			autoFocus={props.autoFocus}
+			required={props.required}
 		/>
 	);
 };

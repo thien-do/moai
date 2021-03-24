@@ -85,6 +85,7 @@ export interface InputProps {
 	"aria-label"?: string;
 	"aria-labelledby"?: string;
 	maxLength?: number;
+	required?: boolean;
 
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
@@ -158,6 +159,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				aria-label={props["aria-label"]}
 				aria-labelledby={props["aria-labelledby"]}
 				maxLength={props.maxLength}
+				required={props.required}
 			/>
 			{props.icon && (
 				<div className={[s.icon, text.muted, size.icon].join(" ")}>
