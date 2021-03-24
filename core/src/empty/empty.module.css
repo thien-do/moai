@@ -2,13 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Inter;
 }
 
-.errorText {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
+.messageText {
     padding: 1rem;
 }
