@@ -1,19 +1,10 @@
 .table {
 	width: 100%;
 	overflow: auto;
-}
-
-.name {
-	width: 160px;
-	text-align: left;
+	white-space: nowrap;
 }
 
 .samples {
-    width: 1300px;
-	text-align: left;
-}
-
-.samplesContainer {
 	display: flex;
 }
 
