@@ -94,7 +94,7 @@ const Name = ({ set }: RowProps): JSX.Element => (
 );
 
 const Samples = ({ set }: RowProps): JSX.Element => (
-	<div className={s.samplesContainer}>
+	<div className={s.samples}>
 		{SAMPLE_ICONS.map((group, index) => (
 			<Sample key={index} path={group[set.index]} />
 		))}
@@ -102,16 +102,8 @@ const Samples = ({ set }: RowProps): JSX.Element => (
 );
 
 const getTableColumns = (): M.TableColumn<IconSet>[] => [
-	{
-		title: "Icon set",
-		className: s.name,
-		render: (set) => <Name set={set} />,
-	},
-	{
-		title: "Samples",
-		className: s.samples,
-		render: (set) => <Samples set={set} />,
-	},
+	{ title: "Icon set", render: (set) => <Name set={set} /> },
+	{ title: "Samples", render: (set) => <Samples set={set} /> },
 ];
 
 export const GalleryIcon = () => (
@@ -124,6 +116,7 @@ export const GalleryIcon = () => (
 					rows={ICON_SETS}
 					columns={getTableColumns()}
 					rowKey={(set) => set.name}
+					fixed
 				/>
 			</div>
 		</M.Pane>
