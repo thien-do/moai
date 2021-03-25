@@ -2,70 +2,29 @@
 	height: 400px;
 	width: 100%;
 	overflow: auto;
+	white-space: nowrap;
 }
 
-.container th input {
-	font-weight: 400;
+/* Quick fix to un-bold the inputs in header */
+.container th input,
+.container th select {
+	font-weight: 425;
 }
 
-.container th {
-	vertical-align: top;
-}
-
-.overview {
-	width: 240px;
-	text-align: left;
-}
-
-/* First column of expandable table */
-.overviewCell {
+.actions {
 	display: flex;
-	align-items: center;
-}
-
-.email {
-	width: 200px;
-	text-align: left;
-}
-
-.mac {
-	width: 200px;
-	text-align: left;
-	font-feature-settings: "tnum";
-}
-
-td.mac > div {
-	display: flex;
-	align-items: center;
-}
-
-.lastSeen {
-	width: 200px;
-	text-align: left;
-	font-feature-settings: "tnum";
 }
 
 .materials {
-	width: 320px;
-	text-align: left;
-}
-
-td.materials > div {
 	display: flex;
-	flex-wrap: wrap;
-	margin: -4px 0;
 }
 
-td.materials > div > div {
-	padding: 4px;
-}
-
-.action {
-	width: 240px;
-	text-align: right;
-}
-
-td.action > div {
+.overview {
 	display: flex;
-	justify-content: flex-end;
+	align-items: center;
+}
+
+.mac {
+	display: flex;
+	align-items: center;
 }

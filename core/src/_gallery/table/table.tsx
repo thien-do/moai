@@ -1,4 +1,6 @@
+import { Fragment } from "react";
 import * as M from "..";
+import { DivPx } from "../../div/div";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";
 
@@ -17,7 +19,7 @@ const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 );
 
 const Overview: Column = ({ robot }) => (
-	<div className={s.overviewCell}>
+	<div className={s.overview}>
 		<img
 			width="32"
 			height="32"
@@ -42,7 +44,7 @@ const LastSeenHeader = (): JSX.Element => (
 );
 
 const Action: Column = ({ robot }) => (
-	<div>
+	<div className={s.actions}>
 		{robot.deployed ? (
 			<M.Button highlight children="Deploy" />
 		) : (
@@ -84,14 +86,15 @@ const MaterialsHeader = (): JSX.Element => (
 );
 
 const Materials: Column = ({ robot }) => (
-	<div>
-		{robot.materials.map((material) => (
-			<div key={material}>
+	<div className={s.materials}>
+		{robot.materials.map((material, index) => (
+			<Fragment key={material}>
+				{index > 0 && <DivPx size={4} />}
 				<M.Tag
 					color={(MATERIAL_TAGS as any)[material]}
 					children={material}
 				/>
-			</div>
+			</Fragment>
 		))}
 	</div>
 );
@@ -108,7 +111,7 @@ const Note: Column = ({ robot }) => (
 );
 
 const Mac: Column = ({ robot }) => (
-	<div>
+	<div className={s.mac}>
 		<M.Button
 			size={M.Button.sizes.small}
 			icon={M.coreIcons.duplicate}
@@ -123,32 +126,26 @@ const getColumns = (): M.TableColumn<Robot>[] => [
 	{
 		title: <SearchHeader children="Bot" />,
 		render: (robot) => <Overview robot={robot} />,
-		className: s.overview,
 	},
 	{
 		title: <LastSeenHeader />,
 		render: (robot) => <LastSeen robot={robot} />,
-		className: s.lastSeen,
 	},
 	{
 		title: <SearchHeader children="MAC" />,
 		render: (robot) => <Mac robot={robot} />,
-		className: s.mac,
 	},
 	{
 		title: <MaterialsHeader />,
 		render: (robot) => <Materials robot={robot} />,
-		className: s.materials,
 	},
 	{
 		title: <SearchHeader children="Email" />,
 		render: "email",
-		className: s.email,
 	},
 	{
 		title: "Action",
 		render: (robot) => <Action robot={robot} />,
-		className: s.action,
 	},
 ];
 
@@ -160,6 +157,7 @@ export const GalleryTable = (): JSX.Element => (
 				columns={getColumns()}
 				rowKey={(robot) => robot.id}
 				expandRowRender={(robot) => <Note robot={robot} />}
+				fixed
 			/>
 		</div>
 	</M.Pane>

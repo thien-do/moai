@@ -1,0 +1,40 @@
+/* First column */
+.container th:first-child,
+.container td:first-child {
+	position: sticky;
+	left: 0;
+	z-index: var(--z-sticky-1);
+}
+
+@media (max-width: 640px) {
+	.container td:first-child,
+	.container th:first-child {
+		/* Leave enough space for the rest of columns to be scrolled.
+		"max-width: 50%" is better but it does not apply for td and th */
+		width: 160px;
+	}
+}
+
+/* Heading */
+.container th {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-sticky-1);
+}
+
+/* Fix z-index of the special top-left cell */
+.container th:first-child {
+	z-index: var(--z-sticky-2);
+}
+
+/* Visual touch to make first column stands out more */
+.container td:first-child,
+.container th:first-child {
+	padding-right: 16px;
+	border-right-width: 1px;
+	border-right-style: solid;
+}
+.container td:nth-child(2),
+.container th:nth-child(2) {
+	padding-left: 16px;
+}

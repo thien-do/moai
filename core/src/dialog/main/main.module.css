@@ -7,7 +7,7 @@
 
 .container {
 	position: fixed;
-	z-index: 10;
+	z-index: var(--z-overlay-base);
 
 	display: flex;
 	align-items: center;

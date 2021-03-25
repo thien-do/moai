@@ -49,7 +49,7 @@ export const Primary = (props: Props) => {
 	);
 };
 
-_Story.primary(Primary);
+_Story.fixPrimary(Primary);
 
 export const MinMax = () => {
 	const today = new Date();
