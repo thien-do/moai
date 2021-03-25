@@ -94,3 +94,7 @@ export const Primary = (props: Props) => {
 };
 
 _Story.fixPrimary(Primary);
+
+export const ColorPicker = (): JSX.Element => {
+	return <Input type="color" />;
+};

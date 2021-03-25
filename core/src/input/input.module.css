@@ -7,6 +7,10 @@
 	width: 100%;
 }
 
+.input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
 .icon {
 	position: absolute;
 	top: 0;
@@ -22,6 +26,11 @@
 	padding-right: 12px;
 	height: 40px;
 	font-size: 16px;
+}
+
+.largeColor {
+	height: 40px;
+	width: 40px;
 }
 
 .largeMain {
@@ -48,6 +57,11 @@
 	padding-left: 12px;
 }
 
+.mediumColor {
+	height: 32px;
+	width: 32px;
+}
+
 .mediumMainWithIcon {
 	/* 12 + 16 + 8 */
 	padding-left: 36px;
@@ -66,6 +80,11 @@
 
 .smallMain {
 	padding-left: 8px;
+}
+
+.smallColor {
+	height: 24px;
+	width: 24px;
 }
 
 .smallMainWithIcon {
