@@ -93,6 +93,10 @@ export interface SelectProps<T> {
 	 * Whether the select is disabled
 	 */
 	disabled?: boolean;
+	/**
+	 * The "id" attribute in HTML
+	 */
+	id?: string;
 }
 
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
@@ -125,6 +129,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 	return (
 		<div className={cls.container}>
 			<select
+				id={props.id}
 				className={cls.select}
 				disabled={props.disabled}
 				children={props.options.map(renderOption)}
