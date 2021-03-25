@@ -2,6 +2,7 @@
 	height: 400px;
 	width: 100%;
 	overflow: auto;
+	white-space: nowrap;
 }
 
 /* Quick fix to un-bold the inputs in header */
@@ -21,7 +22,6 @@
 .overview {
 	display: flex;
 	align-items: center;
-	white-space: nowrap;
 }
 
 .mac {
