@@ -8,7 +8,11 @@ in native HTML */
 	/* Avoid actually "separate" the borders */
 	border-spacing: 0;
 }
+.containerFill {
+	/* To make the table takes 100% of its container width */
+	min-width: 100%;
 
+}
 /* Cell spacing */
 
 .container th,

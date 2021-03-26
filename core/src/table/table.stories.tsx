@@ -70,6 +70,26 @@ outer border or shadow. For that, use the \`Pane\` component.
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
 `);
 
+
+export const Fill = () => {
+	return (
+		<Table<Robot>
+			rows={ROBOTS.slice(0, 3)}
+			rowKey={(robot) => robot.id.toString()}
+			columns={[
+				{ title: "Bot", render: "MAC" },
+				{ title: "Id", render: "id" },
+			]}
+			fill
+		/>
+	);
+};
+
+_Story.desc(Fill)(`
+If the \`fill\` prop is set to \`true\`, the table's width will full \`100%\` and depend on it's container.
+`);
+
+
 export const Fixed = () => (
 	<div>
 		{/* In practice these CSS are usually defined via better methods, 

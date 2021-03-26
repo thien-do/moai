@@ -64,6 +64,10 @@ export interface TableProps<R> {
 	 * scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
 	fixed?: boolean;
+	/**
+ 	*	 when you want to make the table takes 100% of its container width
+	*/
+	fill?: boolean;
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
@@ -101,6 +105,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 			className={[
 				s.container,
 				props.fixed ? fixed.container : "",
+				props.fill ? s.containerFill: "",
 				background.strong,
 			].join(" ")}
 		>
