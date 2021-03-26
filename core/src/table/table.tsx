@@ -65,10 +65,9 @@ export interface TableProps<R> {
 	 */
 	fixed?: boolean;
 	/**
-	 *	when you want to full 100% width of table
-	 */
-	 fill?: boolean;
-
+ 	*	 when you want to make the table takes 100% of its container width
+	*/
+	fill?: boolean;
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
@@ -106,7 +105,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 			className={[
 				s.container,
 				props.fixed ? fixed.container : "",
-				props.fill ? s['container-fill']: "",
+				props.fill ? s.containerFill: "",
 				background.strong,
 			].join(" ")}
 		>

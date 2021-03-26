@@ -72,40 +72,15 @@ outer border or shadow. For that, use the \`Pane\` component.
 
 
 export const Fill = () => {
-	// The definition of interface here is only for explanation purpose. In
-	// practice the interface/type/model should already be defined outside of
-	// your component.
-	interface Book {
-		isbn: number;
-		title: string;
-		author: string;
-	}
-
 	return (
-		<Table<Book>
-			fill
-			rows={[
-				{
-					isbn: 9780679783268,
-					title: "Pride and Prejudic",
-					author: "Jane Austen",
-				},
-				{
-					isbn: 9780743273565,
-					title: "The Great Gatsby",
-					author: "Francis Scott Fitzgerald",
-				},
-				{
-					isbn: 9780684830490,
-					title: "The Old Man and the Sea",
-					author: "Ernest Hemingway",
-				},
-			]}
-			rowKey={(book) => book.isbn.toString()}
+		<Table<Robot>
+			rows={ROBOTS.slice(0, 3)}
+			rowKey={(robot) => robot.id.toString()}
 			columns={[
-				{ title: "Title", render: "title" },
-				{ title: "Author", render: "author" },
+				{ title: "Bot", render: "MAC" },
+				{ title: "Id", render: "id" },
 			]}
+			fill
 		/>
 	);
 };
