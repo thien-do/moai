@@ -102,7 +102,7 @@ export interface SelectProps<T> {
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
 	<option
 		key={option.id}
-		value={option.id}
+		value={option.value}
 		disabled={option.disabled}
 		children={option.label}
 	/>
