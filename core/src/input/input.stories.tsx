@@ -9,21 +9,14 @@ export default {
 	title: "Components/Input",
 	component: Input,
 	argTypes: {
-		type: {
-			name: "type",
-			type: { name: "object", required: true },
-			defaultValue: "text",
-			control: {
-				type: "inline-radio",
-				options: {
-					text: "text",
-					number: "number",
-					email: "email",
-					password: "password",
-					url: "url",
-				},
-			},
-		},
+		type: _Story.arg([
+			"text",
+			"number",
+			"email",
+			"password",
+			"url",
+			"color",
+		]),
 		style: _Story.arg(Input.styles),
 		size: _Story.arg(Input.sizes),
 		maxLength: _Story.arg("number"),
