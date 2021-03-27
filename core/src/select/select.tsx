@@ -102,7 +102,11 @@ export interface SelectProps<T> {
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
 	<option
 		key={option.id}
-		value={option.value}
+		// This uses "id" because HTML's option can only receive string value.
+		// However, this won't be the value we passed to props.setValue. In the
+		// onChange handler we'll use this id to return the generic typed
+		// option.value
+		value={option.id}
 		disabled={option.disabled}
 		children={option.label}
 	/>
@@ -116,6 +120,7 @@ const onChange = <T,>(
 	props: SelectProps<T>
 ): ChangeEventHandler<HTMLSelectElement> => (event): void => {
 	if (props.setValue === undefined) return;
+	// Use option.value as the "id" to look for the actual, generic-type value
 	const id = event.target.value;
 	const option = props.options.find((o) => o.id === id);
 	if (!option) throw Error(`Option not found: "${id}"`);
