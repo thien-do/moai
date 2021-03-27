@@ -1,12 +1,11 @@
 const arg = (target: object | null | string) => {
 	if (target === null) {
-		return
+		return { control: { type: null } }
 	} else if (Array.isArray(target)) {
-		console.log("hey!")
 		return { control : { type: "radio", options: target } }
 	} else if (typeof target === "object") {
 		return { control : { type: "radio", options: Object.keys(target) } }
-	}  else {
+	} else {
 		return { control: { type: target }}
 	}
 }
