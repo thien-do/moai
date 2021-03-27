@@ -1,6 +1,10 @@
 const arg = (target: object | null | string) => {
-	if (target !== null && typeof target === "object") {
-		return { control: { type: "radio", options: Object.keys(target) } }
+	if (target === null) {
+		return { control: { type: null } }
+	} else if (Array.isArray(target)) {
+		return { control : { type: "radio", options: target } }
+	} else if (typeof target === "object") {
+		return { control : { type: "radio", options: Object.keys(target) } }
 	} else {
 		return { control: { type: target }}
 	}
@@ -43,9 +47,9 @@ export const _Story = {
 	 * usually happens with the Primary story. However, the feature is not
 	 * really smart and often drop necessary code. This function fixes the
 	 * behavior by forcing the use of our raw source code.
-	 * 
+	 *
 	 * See the "docs.source.type" section on [DocsPage][1].
-	 * 
+	 *
 	 * [1]: https://storybook.js.org/docs/react/writing-docs/doc-blocks#docspage-1
 	 */
 	fixPrimary,
