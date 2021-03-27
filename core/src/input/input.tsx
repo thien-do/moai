@@ -17,6 +17,7 @@ export interface InputSize {
 	mainWithIcon: string;
 	icon: string;
 	iconSize: IconSize;
+	typeColor: string;
 }
 
 const getClass = (props: InputProps): string => {
@@ -24,6 +25,13 @@ const getClass = (props: InputProps): string => {
 	const styles = [s.input, outline.always, style.main];
 	const size = props.size ?? Input.sizes.medium;
 	styles.push(props.icon ? size.mainWithIcon : size.main);
+	return styles.join(" ");
+};
+
+const getColorClass = (props: InputProps): string => {
+	const style = props.style ?? Input.styles.outset;
+	const size = props.size ?? Input.sizes.medium;
+	const styles = [s.input, outline.always, style.main, size.typeColor];
 	return styles.join(" ");
 };
 
@@ -149,7 +157,11 @@ export const Input = (props: InputProps): JSX.Element => {
 				onKeyUp={props.onKeyUp}
 				// Properties
 				id={props.id}
-				className={getClass(props)}
+				className={
+					props.type === "color"
+						? getColorClass(props)
+						: getClass(props)
+				}
 				list={
 					typeof props.list === "string"
 						? props.list
@@ -194,18 +206,21 @@ Input.sizes = {
 		mainWithIcon: s.largeMainWithIcon,
 		icon: s.largeIcon,
 		iconSize: 16,
+		typeColor: s.largeColor,
 	} as InputSize,
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
 		icon: s.mediumIcon,
 		iconSize: 16,
+		typeColor: s.mediumColor,
 	} as InputSize,
 	small: {
 		main: s.smallMain,
 		mainWithIcon: s.smallMainWithIcon,
 		icon: s.smallIcon,
 		iconSize: 12,
+		typeColor: s.smallColor,
 	} as InputSize,
 };
 

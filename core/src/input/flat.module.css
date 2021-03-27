@@ -3,12 +3,16 @@
 
 	/* Pretty much nothing in normal state */
 	text-align: inherit;
-    text-decoration: inherit;
+	text-decoration: inherit;
 
 	/* Reset stuffs */
 	border: none;
 	border-radius: 0;
 	background-color: none;
+}
+
+.main[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
 }
 
 /* Mimic Button.styles.main hover */
