@@ -6,6 +6,11 @@
 	--shadow-size: 0px 0.5px 1.5px inset;
 }
 
+.main[type="color"]::-webkit-color-swatch-wrapper {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
 :global(.light) .main {
 	background-color: var(--white);
 	box-shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
