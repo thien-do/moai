@@ -29,7 +29,9 @@ export interface TableColumn<R> {
 		| ((row: R) => ReactNode); // Render function;
 }
 
-export type TableSize = "small" | "medium" | "large";
+export type TableSize = {
+	cell: string;
+};
 
 export interface TableProps<R> {
 	/**
@@ -113,7 +115,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill: "",
 				background.strong,
-				getTableSizeClassName(props.size),
+				props.size?.cell ?? Table.sizes.medium.cell
 			].join(" ")}
 		>
 			<thead>
@@ -124,14 +126,10 @@ export const Table = <R,>(props: TableProps<R>) => {
 	);
 };
 
-const getTableSizeClassName = (tableSize?: TableSize): string => {
-	if (!tableSize || tableSize === "medium") {
-		return s.medium
+Table.sizes = (() => {
+	return {
+		large: { cell: s.large } as TableSize,
+		medium: { cell: s.medium } as TableSize,
+		small: { cell: s.small } as TableSize,
 	}
-	
-	if (tableSize === "small") {
-		return s.small
-	}
-	
-	return s.large
-}
+})()

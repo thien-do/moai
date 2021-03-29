@@ -52,16 +52,52 @@ in native HTML */
 	border-bottom-style: none;
 }
 
-/* SIZE */
+/* Cell spacing */
 
-.small tr {
-	height: 24px;
+/* Medium */
+.medium th,
+.medium td {
+	padding: 12px 8px;
 }
 
-.medium tr {
-	height: 32px;
+.medium td:first-child,
+.medium th:first-child {
+	padding-left: 16px;
 }
 
-.large tr {
-	height: 40px;
+.medium td:last-child,
+.medium th:last-child {
+	padding-right: 16px;
+}
+
+.small th,
+.small td {
+	padding: 9px 6px;
+}
+
+/* Small */
+.small td:first-child,
+.small th:first-child {
+	padding-left: 12px;
+}
+
+.small td:last-child,
+.small th:last-child {
+	padding-right: 12px;
+}
+
+/* Large */
+.large th,
+.large td {
+	padding: 11px 7.5px;
+}
+
+.large td:first-child,
+.large th:first-child {
+	padding-left: 15px;
+}
+
+.large td:last-child,
+.large th:last-child {
+	padding-right: 15px;
 }
