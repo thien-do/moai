@@ -29,6 +29,10 @@ export interface TableColumn<R> {
 		| ((row: R, index: number) => ReactNode); // Render function;
 }
 
+export type TableSize = {
+	cell: string;
+};
+
 export interface TableProps<R> {
 	/**
 	 * An array of [generic][1] items to render as rows of the table (e.g. a
@@ -68,6 +72,10 @@ export interface TableProps<R> {
 	 *	 when you want to make the table takes 100% of its container width
 	 */
 	fill?: boolean;
+	/**
+	 * Size of the table. Choose one from Table.sizes.
+	 */
+	size?: TableSize;
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
@@ -107,6 +115,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill : "",
 				background.strong,
+				props.size?.cell ?? Table.sizes.medium.cell
 			].join(" ")}
 		>
 			<thead>
@@ -116,3 +125,9 @@ export const Table = <R,>(props: TableProps<R>) => {
 		</table>
 	);
 };
+
+Table.sizes = {
+	large: { cell: s.large } as TableSize,
+	medium: { cell: s.medium } as TableSize,
+	small: { cell: s.small } as TableSize,
+}
