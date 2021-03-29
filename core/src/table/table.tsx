@@ -26,7 +26,7 @@ export interface TableColumn<R> {
 	 */
 	render:
 		| keyof R // Accessor
-		| ((row: R) => ReactNode); // Render function;
+		| ((row: R, index: number) => ReactNode); // Render function;
 }
 
 export interface TableProps<R> {

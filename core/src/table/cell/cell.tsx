@@ -19,7 +19,7 @@ export const TableCell = <R,>(props: Props<R>): JSX.Element => {
 	const rowKey = table.rowKey(row, rowIndex);
 	const body =
 		typeof column.render === "function"
-			? column.render(row) // Render function
+			? column.render(row, rowIndex) // Render function
 			: row[column.render]; // Accessor
 	const children = (() => {
 		if (index !== 0) return body;
