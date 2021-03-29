@@ -154,3 +154,19 @@ It should be a function that returns what to be rendered when the user expands
 a row. The returned result is rendered below the row, spanning all columns
 (i.e. a \`td\` with \`colSpan={columns.length}\`).
 `);
+
+export const SizedTable = () => (
+	<Table<Robot>
+		rows={ROBOTS.slice(0, 3)}
+		rowKey={(robot) => robot.id.toString()}
+		columns={[
+			{ title: "Bot", className: "name", render: "MAC" },
+			{ title: "Id", render: "id" },
+		]}
+		size={Table.sizes.small}
+	/>
+)
+
+_Story.desc(SizedTable)(`
+User can also define table cell size with \`size\` prop.
+`);
