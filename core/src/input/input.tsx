@@ -16,18 +16,18 @@ export interface InputSize {
 	mainWithIcon: string;
 	icon: string;
 	iconSize: IconSize;
-	typeColor: string;
+	mainColor: string;
 }
 
 const getClass = (props: InputProps): string => {
 	const style = props.style ?? Input.styles.outset;
 	const styles = [s.input, outline.always, style.main];
 	const size = props.size ?? Input.sizes.medium;
-	styles.push(props.icon ? size.mainWithIcon : size.main);
 
 	if (props.type === "color") {
-		styles.pop();
-		styles.push(size.typeColor);
+		styles.push(size.mainColor);
+	} else {
+		styles.push(props.icon ? size.mainWithIcon : size.main);
 	}
 	return styles.join(" ");
 };
@@ -199,21 +199,21 @@ Input.sizes = {
 		mainWithIcon: s.largeMainWithIcon,
 		icon: s.largeIcon,
 		iconSize: 16,
-		typeColor: s.largeColor,
+		mainColor: s.largeColor,
 	} as InputSize,
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
 		icon: s.mediumIcon,
 		iconSize: 16,
-		typeColor: s.mediumColor,
+		mainColor: s.mediumColor,
 	} as InputSize,
 	small: {
 		main: s.smallMain,
 		mainWithIcon: s.smallMainWithIcon,
 		icon: s.smallIcon,
 		iconSize: 12,
-		typeColor: s.smallColor,
+		mainColor: s.smallColor,
 	} as InputSize,
 };
 
