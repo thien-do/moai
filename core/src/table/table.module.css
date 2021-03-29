@@ -51,3 +51,17 @@ in native HTML */
 .container tr:last-child td {
 	border-bottom-style: none;
 }
+
+/* SIZE */
+
+.small tr {
+	height: 24px;
+}
+
+.medium tr {
+	height: 32px;
+}
+
+.large tr {
+	height: 40px;
+}
