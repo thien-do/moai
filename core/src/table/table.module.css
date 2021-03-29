@@ -72,7 +72,7 @@ in native HTML */
 
 .small th,
 .small td {
-	padding: 9px 6px;
+	padding: 8px 6px;
 }
 
 /* Small */
@@ -89,15 +89,15 @@ in native HTML */
 /* Large */
 .large th,
 .large td {
-	padding: 11px 7.5px;
+	padding: 16px 12px;
 }
 
 .large td:first-child,
 .large th:first-child {
-	padding-left: 15px;
+	padding-left: 16px;
 }
 
 .large td:last-child,
 .large th:last-child {
-	padding-right: 15px;
+	padding-right: 16px;
 }

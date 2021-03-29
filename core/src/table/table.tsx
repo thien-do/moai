@@ -73,7 +73,7 @@ export interface TableProps<R> {
 	*/
 	fill?: boolean;
 	/**
-	 * A string that describes the table size, which controls table row height.
+	 * Size of the table. Choose one from Table.sizes.
 	 */
 	size?: TableSize;
 }
@@ -126,10 +126,8 @@ export const Table = <R,>(props: TableProps<R>) => {
 	);
 };
 
-Table.sizes = (() => {
-	return {
-		large: { cell: s.large } as TableSize,
-		medium: { cell: s.medium } as TableSize,
-		small: { cell: s.small } as TableSize,
-	}
-})()
+Table.sizes = {
+	large: { cell: s.large } as TableSize,
+	medium: { cell: s.medium } as TableSize,
+	small: { cell: s.small } as TableSize,
+}
