@@ -101,10 +101,6 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 
 const buttonTests: [(props: ButtonProps) => boolean, string][] = [
 	[
-		(p) => p.style === Button.styles.flat && p.highlight === true,
-		"Flat buttons can not have highlight style",
-	],
-	[
 		(p) => p.minWidth === true && isIconSize(p.size),
 		'Icon-sized buttons cannot have "minWidth" set',
 	],
@@ -164,7 +160,7 @@ Button.styles = {
 	flat: {
 		main: [flat.main].join(" "),
 		selected: flat.selected,
-		highlight: "",
+		highlight: flat.highlight,
 		busy: flat.busy,
 	} as ButtonStyle,
 };
