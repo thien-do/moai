@@ -33,17 +33,17 @@ export interface TableProps<R> {
 	/**
 	 * An array of [generic][1] items to render as rows of the table (e.g. a
 	 * list of `Book`).
-	 * 
+	 *
 	 * [1]: https://www.typescriptlang.org/docs/handbook/generics.html
 	 */
 	rows: R[];
 	/**
 	 * A function to return the [React's key][1] of an item (e.g. a book's
 	 * ISBN).
-	 * 
+	 *
 	 * [1]: https://reactjs.org/docs/lists-and-keys.html#keys
 	 */
-	rowKey: (row: R) => string;
+	rowKey: (row: R, index: number) => string;
 	/**
 	 * An array of `TableColumn`s which describe how to render the table's
 	 * `rows` (e.g. a book's title, author). See the "TableColumn" tab for
@@ -65,8 +65,8 @@ export interface TableProps<R> {
 	 */
 	fixed?: boolean;
 	/**
- 	*	 when you want to make the table takes 100% of its container width
-	*/
+	 *	 when you want to make the table takes 100% of its container width
+	 */
 	fill?: boolean;
 }
 
@@ -95,8 +95,8 @@ export const Table = <R,>(props: TableProps<R>) => {
 	const state = { expanded, setExpanded };
 
 	const body: JSX.Element[] = [];
-	props.rows.forEach((row) => {
-		const elements = getTableRow({ row, state, table: props });
+	props.rows.forEach((row, index) => {
+		const elements = getTableRow({ row, index, state, table: props });
 		body.push(...elements);
 	});
 
@@ -105,7 +105,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 			className={[
 				s.container,
 				props.fixed ? fixed.container : "",
-				props.fill ? s.containerFill: "",
+				props.fill ? s.containerFill : "",
 				background.strong,
 			].join(" ")}
 		>

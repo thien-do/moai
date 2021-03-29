@@ -9,13 +9,14 @@ interface Props<R> {
 	table: TableProps<R>;
 	state: TableState;
 	row: R;
+	rowIndex: number;
 	column: TableColumn<R>;
 	index: number;
 }
 
 export const TableCell = <R,>(props: Props<R>): JSX.Element => {
-	const { table, state, row, column, index } = props;
-	const rowKey = table.rowKey(row);
+	const { table, state, row, column, index, rowIndex } = props;
+	const rowKey = table.rowKey(row, rowIndex);
 	const body =
 		typeof column.render === "function"
 			? column.render(row) // Render function

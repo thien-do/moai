@@ -11,13 +11,19 @@ interface Props<R> {
 	table: TableProps<R>;
 	state: TableState;
 	row: R;
+	index: number;
 }
 
-const renderTd = <R,>(table: TableProps<R>, state: TableState, row: R) => (
-	column: TableColumn<R>,
-	index: number
-): JSX.Element => (
-	<TableCell {...{ row, state, column, index, table }} key={index} />
+const renderTd = <R,>(
+	table: TableProps<R>,
+	state: TableState,
+	row: R,
+	rowIndex: number
+) => (column: TableColumn<R>, index: number): JSX.Element => (
+	<TableCell
+		{...{ row, rowIndex, state, column, index, table }}
+		key={index}
+	/>
 );
 
 const FullCell = <R,>(props: Props<R>): JSX.Element => {
@@ -34,10 +40,10 @@ const FullCell = <R,>(props: Props<R>): JSX.Element => {
 };
 
 export const getTableRow = <R,>(props: Props<R>): JSX.Element[] => {
-	const { table, state, row } = props;
-	const key = table.rowKey(row);
+	const { table, state, row, index } = props;
+	const key = table.rowKey(row, index);
 
-	const cells = table.columns.map(renderTd(table, state, row));
+	const cells = table.columns.map(renderTd(table, state, row, index));
 	const mainTr = <tr key={key} children={cells} />;
 	if (state.expanded.has(key) === false) return [mainTr];
 
