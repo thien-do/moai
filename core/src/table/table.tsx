@@ -68,6 +68,10 @@ export interface TableProps<R> {
  	*	 when you want to make the table takes 100% of its container width
 	*/
 	fill?: boolean;
+	/**
+	 * A string that describes the table size, which controls table row height.
+	 */
+	size?: "dense" | "normal" | "loose";
 }
 
 const thCls = [border.weak, background.weak, text.strong].join(" ");
