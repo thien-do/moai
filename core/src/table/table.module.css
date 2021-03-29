@@ -94,10 +94,10 @@ in native HTML */
 
 .large td:first-child,
 .large th:first-child {
-	padding-left: 16px;
+	padding-left: 24px;
 }
 
 .large td:last-child,
 .large th:last-child {
-	padding-right: 16px;
+	padding-right: 24px;
 }
