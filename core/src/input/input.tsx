@@ -1,5 +1,4 @@
 import React from "react";
-import { background } from "../background/background";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
@@ -25,13 +24,11 @@ const getClass = (props: InputProps): string => {
 	const styles = [s.input, outline.always, style.main];
 	const size = props.size ?? Input.sizes.medium;
 	styles.push(props.icon ? size.mainWithIcon : size.main);
-	return styles.join(" ");
-};
 
-const getColorClass = (props: InputProps): string => {
-	const style = props.style ?? Input.styles.outset;
-	const size = props.size ?? Input.sizes.medium;
-	const styles = [s.input, outline.always, style.main, size.typeColor];
+	if (props.type === "color") {
+		styles.pop();
+		styles.push(size.typeColor);
+	}
 	return styles.join(" ");
 };
 
@@ -157,11 +154,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				onKeyUp={props.onKeyUp}
 				// Properties
 				id={props.id}
-				className={
-					props.type === "color"
-						? getColorClass(props)
-						: getClass(props)
-				}
+				className={getClass(props)}
 				list={
 					typeof props.list === "string"
 						? props.list
