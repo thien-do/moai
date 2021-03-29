@@ -1,5 +1,4 @@
 import React from "react";
-import { background } from "../background/background";
 import { Icon, IconPath, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
@@ -17,13 +16,19 @@ export interface InputSize {
 	mainWithIcon: string;
 	icon: string;
 	iconSize: IconSize;
+	mainColor: string;
 }
 
 const getClass = (props: InputProps): string => {
 	const style = props.style ?? Input.styles.outset;
 	const styles = [s.input, outline.always, style.main];
 	const size = props.size ?? Input.sizes.medium;
-	styles.push(props.icon ? size.mainWithIcon : size.main);
+
+	if (props.type === "color") {
+		styles.push(size.mainColor);
+	} else {
+		styles.push(props.icon ? size.mainWithIcon : size.main);
+	}
 	return styles.join(" ");
 };
 
@@ -194,18 +199,21 @@ Input.sizes = {
 		mainWithIcon: s.largeMainWithIcon,
 		icon: s.largeIcon,
 		iconSize: 16,
+		mainColor: s.largeColor,
 	} as InputSize,
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
 		icon: s.mediumIcon,
 		iconSize: 16,
+		mainColor: s.mediumColor,
 	} as InputSize,
 	small: {
 		main: s.smallMain,
 		mainWithIcon: s.smallMainWithIcon,
 		icon: s.smallIcon,
 		iconSize: 12,
+		mainColor: s.smallColor,
 	} as InputSize,
 };
 

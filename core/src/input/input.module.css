@@ -37,6 +37,11 @@
 	left: 12px;
 }
 
+.largeColor {
+	height: 40px;
+	width: 40px;
+}
+
 .mediumMain,
 .mediumMainWithIcon {
 	padding-right: 12px;
@@ -57,6 +62,11 @@
 	left: 12px;
 }
 
+.mediumColor {
+	height: 32px;
+	width: 32px;
+}
+
 /* Follow Button.sizes.small */
 .smallMain,
 .smallMainWithIcon {
@@ -75,4 +85,9 @@
 
 .smallIcon {
 	left: 8px;
+}
+
+.smallColor {
+	height: 24px;
+	width: 24px;
 }
