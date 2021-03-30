@@ -8,7 +8,7 @@
 /* HIGHLIGHT */
 
 :global(.light) .highlight {
-	color: var(--highlight-7);
+	color: var(--highlight-6);
 }
 
 :global(.dark) .highlight {
