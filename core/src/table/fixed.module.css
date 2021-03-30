@@ -4,8 +4,17 @@
 .container.lastColumn th:last-child,
 .container.lastColumn td:last-child {
 	position: sticky;
-	left: 0;
 	z-index: var(--z-sticky-1);
+}
+
+.container.firstColumn th:first-child,
+.container.firstColumn td:first-child {
+	left: 0;
+}
+
+.container.lastColumn th:last-child,
+.container.lastColumn td:last-child {
+	right: 0;
 }
 
 @media (max-width: 640px) {
