@@ -33,6 +33,11 @@ export type TableSize = {
 	cell: string;
 };
 
+export enum TableFixedColumn {
+	First = 1 << 0,
+	Last = 1 << 1,
+}
+
 export interface TableProps<R> {
 	/**
 	 * An array of [generic][1] items to render as rows of the table (e.g. a
@@ -63,11 +68,11 @@ export interface TableProps<R> {
 	 */
 	expandRowRender?: (row: R) => ReactNode;
 	/**
-	 * Whether to fix the table's header and first column position while the
-	 * rest is scrolled. These positions are relative to the table's nearest
-	 * scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
+	 * Whether to fix the table's header, first column and/or last position
+	 * while the rest is scrolled. These positions are relative to the table's
+	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
-	fixed?: boolean;
+	fixed?: TableFixedColumn;
 	/**
 	 *	 when you want to make the table takes 100% of its container width
 	 */
@@ -108,14 +113,30 @@ export const Table = <R,>(props: TableProps<R>) => {
 		body.push(...elements);
 	});
 
+	const fixedTableClass = (() => {
+		if (!props.fixed) return [];
+
+		const resultClass = [fixed.container];
+
+		if ((props.fixed & TableFixedColumn.First) === TableFixedColumn.First) {
+			resultClass.push(fixed.firstColumn);
+		}
+
+		if ((props.fixed & TableFixedColumn.Last) === TableFixedColumn.Last) {
+			resultClass.push(fixed.lastColumn);
+		}
+
+		return resultClass;
+	})();
+
 	return (
 		<table
 			className={[
 				s.container,
-				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill : "",
 				background.strong,
-				props.size?.cell ?? Table.sizes.medium.cell
+				props.size?.cell ?? Table.sizes.medium.cell,
+				...fixedTableClass,
 			].join(" ")}
 		>
 			<thead>
@@ -130,4 +151,9 @@ Table.sizes = {
 	large: { cell: s.large } as TableSize,
 	medium: { cell: s.medium } as TableSize,
 	small: { cell: s.small } as TableSize,
-}
+};
+
+Table.column = {
+	first: TableFixedColumn.First,
+	last: TableFixedColumn.Last,
+};
