@@ -11,6 +11,8 @@ const Row = (props: ButtonProps): JSX.Element => (
 		<DivPx size={8} />
 		<Button {...base} {...props} />
 		<DivPx size={8} />
+		<Button {...base} highlight style={Button.styles.flat} {...props} />
+		<DivPx size={8} />
 		<Button {...base} style={Button.styles.flat} {...props} />
 	</div>
 );
