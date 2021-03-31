@@ -33,6 +33,12 @@ export type TableSize = {
 	cell: string;
 };
 
+export interface TableFixed {
+	firstColumn?: boolean;
+	lastColumn?: boolean;
+	header?: boolean;
+}
+
 export interface TableProps<R> {
 	/**
 	 * An array of [generic][1] items to render as rows of the table (e.g. a
@@ -63,11 +69,11 @@ export interface TableProps<R> {
 	 */
 	expandRowRender?: (row: R) => ReactNode;
 	/**
-	 * Whether to fix the table's header and first column position while the
-	 * rest is scrolled. These positions are relative to the table's nearest
-	 * scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
+	 * Whether to fix the table's header and/or first column and/or last column
+	 * while the rest is scrolled. These positions are relative to the table's
+	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
-	fixed?: boolean;
+	fixed?: TableFixed;
 	/**
 	 *	 when you want to make the table takes 100% of its container width
 	 */
@@ -108,14 +114,23 @@ export const Table = <R,>(props: TableProps<R>) => {
 		body.push(...elements);
 	});
 
+	const fixedTableClass = props.fixed
+		? [
+				fixed.container,
+				props.fixed.header && fixed.header,
+				props.fixed.firstColumn && fixed.firstColumn,
+				props.fixed.lastColumn && fixed.lastColumn,
+		  ].filter((e) => typeof e === "string")
+		: [];
+
 	return (
 		<table
 			className={[
 				s.container,
-				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill : "",
 				background.strong,
-				props.size?.cell ?? Table.sizes.medium.cell
+				props.size?.cell ?? Table.sizes.medium.cell,
+				...fixedTableClass,
 			].join(" ")}
 		>
 			<thead>
@@ -130,4 +145,4 @@ Table.sizes = {
 	large: { cell: s.large } as TableSize,
 	medium: { cell: s.medium } as TableSize,
 	small: { cell: s.small } as TableSize,
-}
+};
