@@ -28,8 +28,8 @@
 	}
 }
 
-/* Heading */
-.container th {
+/* Header */
+.container.header th {
 	position: sticky;
 	top: 0;
 	z-index: var(--z-sticky-1);

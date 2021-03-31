@@ -114,18 +114,18 @@ export const Fixed = () => (
 					{ title: "Email", render: "email" },
 					{ title: "Avatar", render: "avatar" },
 				]}
-				fixed={Table.column.first | Table.column.last}
+				fixed={{ firstColumn: true, lastColumn: true }}
 			/>
 		</div>
 	</div>
 );
 
 _Story.desc(Fixed)(`
-The \`fixed\` prop is a bitwise enum flag to specify if the table's header,
-first column and/or last column would stay fixed while the user scrolls the
-rest of the table. Note that the fixed position here is relative to the
-table's nearets scrolling ancestor. In practice, this means the container
-of the table should have:
+The \`fixed\` prop is an object, which indicates if the table's header
+and/or first column and/or last column would stay fixed while the user
+scrolls the rest of the table. Note that the fixed position here is
+relative to the table's nearets scrolling ancestor. In practice,
+this means the container of the table should have:
 
 - "auto" or "scroll" overflow, and
 - a defined height, either fixed (e.g. "400px") or relative (e.g. "100%")

@@ -33,9 +33,10 @@ export type TableSize = {
 	cell: string;
 };
 
-export enum TableFixedColumn {
-	First = 1 << 0,
-	Last = 1 << 1,
+export interface TableFixed {
+	firstColumn?: boolean;
+	lastColumn?: boolean;
+	header?: boolean;
 }
 
 export interface TableProps<R> {
@@ -72,7 +73,7 @@ export interface TableProps<R> {
 	 * while the rest is scrolled. These positions are relative to the table's
 	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
-	fixed?: TableFixedColumn;
+	fixed?: TableFixed;
 	/**
 	 *	 when you want to make the table takes 100% of its container width
 	 */
@@ -113,21 +114,14 @@ export const Table = <R,>(props: TableProps<R>) => {
 		body.push(...elements);
 	});
 
-	const fixedTableClass = (() => {
-		if (!props.fixed) return [];
-
-		const resultClass = [fixed.container];
-
-		if ((props.fixed & TableFixedColumn.First) === TableFixedColumn.First) {
-			resultClass.push(fixed.firstColumn);
-		}
-
-		if ((props.fixed & TableFixedColumn.Last) === TableFixedColumn.Last) {
-			resultClass.push(fixed.lastColumn);
-		}
-
-		return resultClass;
-	})();
+	const fixedTableClass = props.fixed
+		? [
+				fixed.container,
+				props.fixed.header && fixed.header,
+				props.fixed.firstColumn && fixed.firstColumn,
+				props.fixed.lastColumn && fixed.lastColumn,
+		  ].filter((e) => typeof e === "string")
+		: [];
 
 	return (
 		<table
@@ -151,9 +145,4 @@ Table.sizes = {
 	large: { cell: s.large } as TableSize,
 	medium: { cell: s.medium } as TableSize,
 	small: { cell: s.small } as TableSize,
-};
-
-Table.column = {
-	first: TableFixedColumn.First,
-	last: TableFixedColumn.Last,
 };
