@@ -69,7 +69,7 @@ export interface TableProps<R> {
 	 */
 	expandRowRender?: (row: R) => ReactNode;
 	/**
-	 * Whether to fix the table's header, first column and/or last position
+	 * Whether to fix the table's header and/or first column and/or last column
 	 * while the rest is scrolled. These positions are relative to the table's
 	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
