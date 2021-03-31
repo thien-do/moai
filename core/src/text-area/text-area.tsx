@@ -66,6 +66,9 @@ export interface TextAreaProps {
 	placeholder?: string;
 	autoFocus?: boolean;
 	autoSelect?: boolean;
+	/**
+	 * The "required" attribute in HTML
+	 */
 	required?: boolean;
 	// Events
 	onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;

@@ -97,6 +97,9 @@ export interface SelectProps<T> {
 	 * The "id" attribute in HTML
 	 */
 	id?: string;
+	/**
+	 * The "required" attribute in HTML
+	 */
 	required?: boolean;
 }
 

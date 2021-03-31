@@ -94,6 +94,9 @@ export interface InputProps {
 	"aria-label"?: string;
 	"aria-labelledby"?: string;
 	maxLength?: number;
+	/**
+	 * The "required" attribute in HTML
+	 */
 	required?: boolean;
 
 	// Events
