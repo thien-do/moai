@@ -1,8 +1,5 @@
 {
 	"name": "@moai/root",
-	"scripts": {
-		"prepare": "husky install && husky add .husky/pre-commit 'npx lint-staged'"
-	},
 	"lint-staged": {
 		"*.{ts,tsx,js,css,json}": "prettier --write"
 	},
