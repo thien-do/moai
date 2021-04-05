@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
 import { _Story } from "../_story";
-import { TimeInput, TimeInterval } from "./time-input";
+import { TimeInput } from "./time-input";
 
 export default {
 	title: "Components/TimeInput",
@@ -25,7 +25,11 @@ interface Props {
 }
 
 export const Primary = (props: Props) => {
-	const [value, setValue] = useState<Date>(new Date());
+	const [value, setValue] = useState<Date>(() => {
+		const date = new Date();
+		date.setSeconds(0); // TimeInput's value's second must be 0
+		return date;
+	});
 	return (
 		<TimeInput
 			value={value}
@@ -45,8 +49,8 @@ _Story.fixPrimary(Primary);
 export const Intervals = (): JSX.Element => {
 	const [value, setValue] = useState<Date>(() => {
 		const date = new Date();
-		// Ensure the Date value follows the "quarter" interval
-		date.setMinutes(15);
+		date.setSeconds(0); // Ensure second is zero
+		date.setMinutes(15); // Ensure value follows interval
 		return date;
 	});
 	return (
@@ -70,4 +74,4 @@ method to ensure this (see the code of the example below).
 will easily invalidating your "value" prop.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes
-`)
+`);

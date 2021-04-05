@@ -32,6 +32,9 @@ interface Props {
 	 * time must always be defined and follow the interval. TimeInput will
 	 * throw an error if the value's minute does not satisfy the "interval"
 	 * prop.
+	 *
+	 * Also, to avoid subtle bug when comparing times, the Date must have "0"
+	 * second. If not, TimeInput will throw a runtime error.
 	 */
 	value: Date;
 	/**
@@ -84,16 +87,22 @@ const OPTIONS_MAP: Record<TimeInterval, SelectOption<number>[]> = {
 const setHour = (props: Props) => (hour: number): void => {
 	const value = new Date(props.value.getTime());
 	value.setHours(hour);
+	value.setSeconds(0); // See comment at props.value
 	props.setValue(value);
 };
 
 const setMinute = (props: Props) => (minute: number): void => {
 	const value = new Date(props.value.getTime());
 	value.setMinutes(minute);
+	value.setSeconds(0); // See comment at props.value
 	props.setValue(value);
 };
 
 export const TimeInput = (props: Props) => {
+	// Avoid subtle time comparing bug by enforcing value Date has 0 second
+	if (props.value.getSeconds() !== 0)
+		throw Error("Date value of TimeInput must have 0 second");
+
 	const children: ButtonGroupItemProps[] = [];
 	const select: Partial<SelectProps<number>> = {
 		disabled: props.disabled,
