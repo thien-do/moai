@@ -182,3 +182,9 @@ Select.toStringOption = (text: string): SelectOption<string> => ({
 	id: text,
 	label: text,
 });
+
+Select.toNumberOption = (num: number): SelectOption<number> => ({
+	value: num,
+	id: num.toString(),
+	label: num.toString(),
+});
