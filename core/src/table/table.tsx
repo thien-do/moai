@@ -2,7 +2,8 @@ import { ReactNode, useState } from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { text } from "../text/text";
-import fixed from "./fixed.module.css";
+import sFixed from "./fixed.module.css";
+import sSizes from "./sizes.module.css";
 import { getTableRow } from "./row/row";
 import s from "./table.module.css";
 
@@ -75,11 +76,11 @@ export interface TableProps<R> {
 	 */
 	fixed?: TableFixed;
 	/**
-	 *	 when you want to make the table takes 100% of its container width
+	 * To make the table takes 100 of its container's width
 	 */
 	fill?: boolean;
 	/**
-	 * Size of the table. Choose one from Table.sizes.
+	 * Size of the table's cells. Choose one from `Table.sizes`.
 	 */
 	size?: TableSize;
 }
@@ -116,10 +117,10 @@ export const Table = <R,>(props: TableProps<R>) => {
 
 	const fixedTableClass = props.fixed
 		? [
-				fixed.container,
-				props.fixed.header && fixed.header,
-				props.fixed.firstColumn && fixed.firstColumn,
-				props.fixed.lastColumn && fixed.lastColumn,
+				sFixed.container,
+				props.fixed.header && sFixed.header,
+				props.fixed.firstColumn && sFixed.firstColumn,
+				props.fixed.lastColumn && sFixed.lastColumn,
 		  ].filter((e) => typeof e === "string")
 		: [];
 
@@ -142,7 +143,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 };
 
 Table.sizes = {
-	large: { cell: s.large } as TableSize,
-	medium: { cell: s.medium } as TableSize,
-	small: { cell: s.small } as TableSize,
+	large: { cell: sSizes.large } as TableSize,
+	medium: { cell: sSizes.medium } as TableSize,
+	small: { cell: sSizes.small } as TableSize,
 };

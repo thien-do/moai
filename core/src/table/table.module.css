@@ -11,23 +11,6 @@ in native HTML */
 .containerFill {
 	/* To make the table takes 100% of its container width */
 	min-width: 100%;
-
-}
-/* Cell spacing */
-
-.container th,
-.container td {
-	padding: 12px 8px;
-}
-
-.container td:first-child,
-.container th:first-child {
-	padding-left: 16px;
-}
-
-.container td:last-child,
-.container th:last-child {
-	padding-right: 16px;
 }
 
 /* Row's background change on hover */
@@ -50,54 +33,4 @@ in native HTML */
 
 .container tr:last-child td {
 	border-bottom-style: none;
-}
-
-/* Cell spacing */
-
-/* Medium */
-.medium th,
-.medium td {
-	padding: 12px 8px;
-}
-
-.medium td:first-child,
-.medium th:first-child {
-	padding-left: 16px;
-}
-
-.medium td:last-child,
-.medium th:last-child {
-	padding-right: 16px;
-}
-
-.small th,
-.small td {
-	padding: 8px 6px;
-}
-
-/* Small */
-.small td:first-child,
-.small th:first-child {
-	padding-left: 12px;
-}
-
-.small td:last-child,
-.small th:last-child {
-	padding-right: 12px;
-}
-
-/* Large */
-.large th,
-.large td {
-	padding: 16px 12px;
-}
-
-.large td:first-child,
-.large th:first-child {
-	padding-left: 24px;
-}
-
-.large td:last-child,
-.large th:last-child {
-	padding-right: 24px;
 }
