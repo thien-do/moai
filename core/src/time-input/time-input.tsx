@@ -5,27 +5,27 @@ import outset from "../button/outset.module.css";
 import { Icon } from "../icon/icon";
 import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
-import s from "./time-select.module.css";
+import s from "./time-input.module.css";
 
-export type TimeSelectStyle = {
+export type TimeInputStyle = {
 	select: string;
 };
 
-export interface TimeSelectSize {
+export interface TimeInputSize {
 	select: string;
 	icon: string;
 	iconCaret: string;
 }
 
-export interface TimeSelectType {
+export interface TimeInputType {
 	quarter?: 15;
 	half?: 30;
 	one?: 60;
 }
 
 const getClassNames = (props: SelectProps) => {
-	const style = props.style ?? TimeSelect.styles.outset;
-	const size = props.size ?? TimeSelect.sizes.medium;
+	const style = props.style ?? TimeInput.styles.outset;
+	const size = props.size ?? TimeInput.sizes.medium;
 	const width = props.fill ? s.fill : "";
 	return {
 		select: [s.select, style.select, size.select, outline.normal].join(" "),
@@ -35,7 +35,7 @@ const getClassNames = (props: SelectProps) => {
 	};
 };
 
-export interface SelectOption {
+interface SelectOption {
 	/**
 	 * The value of the option. This is a [generic][1] type so you can use
 	 * Moai's Select for not only string but anything.
@@ -57,7 +57,7 @@ export interface SelectOption {
 	disabled?: boolean;
 }
 
-export interface SelectProps {
+interface SelectProps {
 	/**
 	 * Initial value of the select in uncontrolled mode
 	 */
@@ -79,11 +79,11 @@ export interface SelectProps {
 	/**
 	 * Style of the select. Choose one from `Select.styles`.
 	 */
-	style?: TimeSelectStyle;
+	style?: TimeInputStyle;
 	/**
 	 * Size of the select. Choose one from `Select.sizes`.
 	 */
-	size?: TimeSelectSize;
+	size?: TimeInputSize;
 	/**
 	 * By default, the width of a select is based on its longest option to
 	 * avoid changing layout when users switching between options.
@@ -108,7 +108,7 @@ export interface SelectProps {
 	/**
 	 * props type is a distance between hours. default is one = 60 minus, half = 30 minus, quarter = 15 minus
 	 */
-	type?: 15 | 30 | 60; // or use keyof TimeSelectJump, pass props from TimeSelect.type
+	type?: 15 | 30 | 60; // or use keyof TimeInputJump, pass props from TimeInput.type
 }
 
 const formatTime = (date: Date) => {
@@ -142,12 +142,12 @@ const getOptions = (date: Date, type: number): SelectOption[] => {
 	let anphal = 0;
 
 	switch (type) {
-		case TimeSelect.type.quarter: {
+		case TimeInput.type.quarter: {
 			typeTime = 4;
 			numberOfLoops = numberOfLoops * typeTime; // loops 24 * 4
 			break;
 		}
-		case TimeSelect.type.half: {
+		case TimeInput.type.half: {
 			typeTime = 2;
 			numberOfLoops = numberOfLoops * typeTime; // loops 24 * 2
 			break;
@@ -208,10 +208,10 @@ const onChange = (
 	props.setValue(option.value);
 };
 
-export const TimeSelect = (props: SelectProps) => {
+export const TimeInput = (props: SelectProps) => {
 	const cls = getClassNames(props);
 	const date = (props.value && new Date(props.value)) || new Date(); // set date that you want to select the hour. default is today
-	const type = props.type || TimeSelect.type.one;
+	const type = props.type || TimeInput.type.one;
 	date.setHours(0, 0, 0); // default hour of date to select
 	const options = useMemo(() => getOptions(date, type), [type]);
 
@@ -242,30 +242,30 @@ export const TimeSelect = (props: SelectProps) => {
 	);
 };
 
-TimeSelect.styles = {
+TimeInput.styles = {
 	outset: {
 		select: [border.radius, outset.main].join(" "),
-	} as TimeSelectStyle,
+	} as TimeInputStyle,
 	flat: {
 		select: [flat.main].join(" "),
-	} as TimeSelectStyle,
+	} as TimeInputStyle,
 };
 
-TimeSelect.sizes = {
+TimeInput.sizes = {
 	medium: {
 		select: s.mediumSelect,
 		icon: s.mediumIcon,
 		iconCaret: s.mediumIconCaret,
-	} as TimeSelectSize,
+	} as TimeInputSize,
 	small: {
 		select: s.smallSelect,
 		icon: s.smallIcon,
 		iconCaret: s.smallIconCaret,
-	} as TimeSelectSize,
+	} as TimeInputSize,
 };
 
-TimeSelect.type = {
+TimeInput.type = {
 	quarter: 15,
 	half: 30,
 	one: 60,
-} as TimeSelectType;
+} as TimeInputType;

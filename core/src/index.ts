@@ -32,5 +32,6 @@ export * from "./table/table";
 export * from "./tag/tag";
 export * from "./text-area/text-area";
 export * from "./text/text";
+export * from "./time-input/time-input";
 export * from "./toast/toast";
 export * from "./tooltip/tooltip";
