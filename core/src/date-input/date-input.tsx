@@ -25,11 +25,14 @@ interface Props {
 	minDate?: Date;
 
 	/**
-	 * Value of the input in controlled mode
+	 * Value of the input in controlled mode. Note that it includes "null",
+	 * to represent the state where the user's input is invalid (e.g.
+	 * "31/2/1999"). This follows the behavior in HTML.
 	 */
 	value?: Date | null;
 	/**
-	 * Handler to set the value in controlled mode
+	 * Handler to set the value in controlled mode. Note that it includes
+	 * "null". See "value" prop for detail.
 	 */
 	setValue?: (date: Date | null) => void;
 	/**
