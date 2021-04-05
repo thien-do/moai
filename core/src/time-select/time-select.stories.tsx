@@ -1,13 +1,11 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
 import { _Story } from "../_story";
-import { SelectOptionComponent } from "./fake-time-select-option";
 import { TimeSelect } from "./time-select";
 
 export default {
 	title: "Components/Time-Select",
 	component: TimeSelect,
-	subcomponents: { SelectOption: SelectOptionComponent },
 	argTypes: {
 		options: _Story.arg(null),
 		style: _Story.arg(TimeSelect.styles),
