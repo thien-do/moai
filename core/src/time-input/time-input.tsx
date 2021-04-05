@@ -1,271 +1,134 @@
-import { ChangeEventHandler, ForwardedRef, useMemo } from "react";
-import { border } from "../border/border";
-import flat from "../button/flat.module.css";
-import outset from "../button/outset.module.css";
-import { Icon } from "../icon/icon";
-import { coreIcons } from "../icons/icons";
-import { outline } from "../outline/outline";
-import s from "./time-input.module.css";
+import {
+	ButtonGroup,
+	ButtonGroupItemProps,
+} from "../button-group/button-group";
+import {
+	Select,
+	SelectOption,
+	SelectProps,
+	SelectSize,
+	SelectStyle,
+} from "../select/select";
 
-export type TimeInputStyle = {
-	select: string;
-};
+// Minute
+export type TimeInterval = 1 | 15 | 30 | 60;
 
-export interface TimeInputSize {
-	select: string;
-	icon: string;
-	iconCaret: string;
-}
-
-export interface TimeInputType {
-	quarter?: 15;
-	half?: 30;
-	one?: 60;
-}
-
-const getClassNames = (props: SelectProps) => {
-	const style = props.style ?? TimeInput.styles.outset;
-	const size = props.size ?? TimeInput.sizes.medium;
-	const width = props.fill ? s.fill : "";
-	return {
-		select: [s.select, style.select, size.select, outline.normal].join(" "),
-		container: [s.container, width].join(" "),
-		icon: [s.icon, size.icon].join(" "),
-		iconCaret: [s.iconCaret, size.iconCaret].join(" "),
-	};
-};
-
-interface SelectOption {
+interface Props {
 	/**
-	 * The value of the option. This is a [generic][1] type so you can use
-	 * Moai's Select for not only string but anything.
+	 * The difference in minutes between 2 options. For example, if "interval"
+	 * is 15, the option would be 00:15, 00:30, 00:45 and so on. Should choose
+	 * from `TimeInput.intervals`.
 	 *
-	 * [1]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+	 * It is NOT supported to change the interval at run-time because the
+	 * "value" must always follow the interval.
+	 */
+	interval: TimeInterval;
+	/**
+	 * Value of the TimeInput in controlled mode. Currently we don't support
+	 * uncontrolled TimeInput. The format is Date but it will only use the
+	 * time info (i.e. hour, minute, second).
+	 *
+	 * Note that this does not include "null" or "undefined", which means the
+	 * time must always be defined and follow the interval. TimeInput will
+	 * throw an error if the value's minute does not satisfy the "interval"
+	 * prop.
 	 */
 	value: Date;
 	/**
-	 * The id of the option. This should be unique across the option list.
+	 * Callback to set the value in controlled mode. Currently we don't support
+	 * uncontrolled TimeInput. See "value" for explanation on the type.
 	 */
-	id: string;
+	setValue: (value: Date) => void;
 	/**
-	 * The label of the option to be displayed in the option menu.
+	 * Style of the input. Choose one from `TimeInput.styles`.
 	 */
-	label: string;
+	style?: SelectStyle;
 	/**
-	 * Whether the option is disabled.
+	 * Size of the input. Choose one from `TimeInput.sizes`.
 	 */
-	disabled?: boolean;
-}
-
-interface SelectProps {
+	size?: SelectSize;
 	/**
-	 * Initial value of the select in uncontrolled mode
-	 */
-	defaultValue?: Date;
-	/**
-	 * [Reference][1] to the `select` element. Usually useful in uncontrolled mode.
-	 *
-	 * [1]: https://reactjs.org/docs/forwarding-refs.html
-	 */
-	forwardedRef?: ForwardedRef<HTMLSelectElement>;
-	/**
-	 * Value of the selected option in controlled mode
-	 */
-	value?: Date;
-	/**
-	 * Callback to set the value in controlled mode
-	 */
-	setValue?: (value: Date) => void;
-	/**
-	 * Style of the select. Choose one from `Select.styles`.
-	 */
-	style?: TimeInputStyle;
-	/**
-	 * Size of the select. Choose one from `Select.sizes`.
-	 */
-	size?: TimeInputSize;
-	/**
-	 * By default, the width of a select is based on its longest option to
-	 * avoid changing layout when users switching between options.
-	 *
-	 * Set the `fill` prop to `true` to let the select expands to fill its
-	 * container instead. This helps you to control the select's width. (By
-	 * setting the width of its container.)
+	 * Make the TimeInput expands to fill its container. This helps you control
+	 * the TimeInput width by setting the width of its container.
 	 */
 	fill?: boolean;
 	/**
-	 * Whether the select is disabled
+	 * Whether the input is disabled
 	 */
 	disabled?: boolean;
 	/**
 	 * The "id" attribute in HTML
 	 */
 	id?: string;
-	/**
-	 * props date is the date you want to select the hour of that date. default is today
-	 */
-	date?: Date;
-	/**
-	 * props type is a distance between hours. default is one = 60 minus, half = 30 minus, quarter = 15 minus
-	 */
-	type?: 15 | 30 | 60; // or use keyof TimeInputJump, pass props from TimeInput.type
 }
 
-const formatTime = (date: Date) => {
-	return `${date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}:${
-		date.getMinutes() === 0 ? "00" : date.getMinutes()
-	}`;
+const toNumber = (num: number): SelectOption<number> => ({
+	value: num,
+	id: num.toString(),
+	label: `0${num.toString()}`.slice(-2),
+});
+
+type Option = SelectOption<number>;
+const hours: Option[] = [...Array(24).keys()].map(toNumber);
+const minutes: Option[] = [...Array(60).keys()].map(toNumber);
+const quaters: Option[] = [0, 15, 30, 45].map(toNumber);
+const halfs: Option[] = [0, 30].map(toNumber);
+
+const OPTIONS_MAP: Record<TimeInterval, SelectOption<number>[]> = {
+	"1": minutes,
+	"15": quaters,
+	"30": halfs,
+	"60": [],
 };
 
-const placeholderOption: SelectOption = {
-	value: null,
-	id: "null",
-	// The "placeholder"
-	label: "Select hour",
-	// Remove this if users should be able to select the
-	// "empty" state
-	disabled: true,
-}
+const setHour = (props: Props) => (hour: number): void => {
+	const value = new Date(props.value.getTime());
+	value.setHours(hour);
+	props.setValue(value);
+};
 
-const getOptions = (date: Date, type: number): SelectOption[] => {
-	let condition = 0;
-	const options: SelectOption[] = [
-		placeholderOption
-	];
-	const dateOfValue = new Date(
-		date.getFullYear(),
-		date.getMonth(),
-		date.getDate()
+const setMinute = (props: Props) => (minute: number): void => {
+	const value = new Date(props.value.getTime());
+	value.setMinutes(minute);
+	props.setValue(value);
+};
+
+export const TimeInput = (props: Props) => {
+	const children: ButtonGroupItemProps[] = [];
+	const select: Partial<SelectProps<number>> = {
+		disabled: props.disabled,
+		fill: props.fill,
+		style: props.style,
+		size: props.size,
+	};
+	const hour = (
+		<Select<number>
+			{...select}
+			value={props.value.getHours()}
+			setValue={setHour(props)}
+			options={hours}
+		/>
 	);
-	let typeTime: number = 1;
-	let numberOfLoops: number = 24;
-	let anphal = 0;
-
-	switch (type) {
-		case TimeInput.type.quarter: {
-			typeTime = 4;
-			numberOfLoops = numberOfLoops * typeTime; // loops 24 * 4
-			break;
-		}
-		case TimeInput.type.half: {
-			typeTime = 2;
-			numberOfLoops = numberOfLoops * typeTime; // loops 24 * 2
-			break;
-		}
-		default: {
-			numberOfLoops = numberOfLoops * typeTime; // loops 24
-		}
-	}
-
-	while (condition < numberOfLoops) {
-		const date = new Date(dateOfValue);
-		date.setHours(
-			Math.floor(condition / typeTime), // set hour
-			anphal * 60, // set minute
-			0 // set second
-		);
-		options.push({
-			value: date,
-			id: date.toString(),
-			label: formatTime(date),
-		});
-		condition += 1;
-		anphal +=  1 / typeTime;
-		if (anphal >= 1) {
-			anphal = 0;
-		}
-	}
-
-	return options;
-};
-
-const renderOption = (option: SelectOption): JSX.Element => (
-	<option
-		disabled={option.disabled}
-		value={option.id}
-		key={option.id}
-		children={option.label}
-	/>
-);
-
-const findId = (options: SelectOption[], value?: Date): string | undefined => {
-	if (value === null) {
-		return "null"; // display placeholder when prop value dont define
-	}
-	return options.find(
-		(o) => value && o.value && o.value.getTime() === value.getTime()
-	)?.id;
-};
-
-const onChange = (
-	props: SelectProps,
-	options: SelectOption[]
-): ChangeEventHandler<HTMLSelectElement> => (event): void => {
-	if (props.setValue === undefined) return;
-	const id = event.target.value;
-	const option = options.find((o) => o.id === id);
-	if (!option) throw Error(`Option not found: "${id}"`);
-	props.setValue(option.value);
-};
-
-export const TimeInput = (props: SelectProps) => {
-	const cls = getClassNames(props);
-	const date = (props.value && new Date(props.value)) || new Date(); // set date that you want to select the hour. default is today
-	const type = props.type || TimeInput.type.one;
-	date.setHours(0, 0, 0); // default hour of date to select
-	const options = useMemo(() => getOptions(date, type), [type]);
-
-	const value = findId(options, props.value);
-	const defaultValue = findId(options, props.defaultValue);
-
-	return (
-		<div className={cls.container}>
-			<select
-				id={props.id}
-				className={cls.select}
-				disabled={props.disabled}
-				children={options.map(renderOption)}
-				// Uncontrolled
-				defaultValue={defaultValue}
-				ref={props.forwardedRef}
-				// Controlled
-				value={value}
-				onChange={onChange(props, options)}
+	children.push({ fill: props.fill, element: hour });
+	if (props.interval !== 60) {
+		const minute = (
+			<Select<number>
+				{...select}
+				value={props.value.getMinutes()}
+				setValue={setMinute(props)}
+				options={OPTIONS_MAP[props.interval]}
 			/>
-			<span className={cls.iconCaret}>
-				<Icon display="block" path={coreIcons.caret} />
-			</span>
-			<span className={cls.icon}>
-				<Icon display="block" path={coreIcons.minus} />
-			</span>
-		</div>
-	);
+		);
+		children.push({ fill: props.fill, element: minute });
+	}
+	return <ButtonGroup fill={props.fill} children={children} />;
 };
 
-TimeInput.styles = {
-	outset: {
-		select: [border.radius, outset.main].join(" "),
-	} as TimeInputStyle,
-	flat: {
-		select: [flat.main].join(" "),
-	} as TimeInputStyle,
+TimeInput.styles = Select.styles;
+TimeInput.sizes = Select.sizes;
+TimeInput.intervals = {
+	minute: 1 as TimeInterval,
+	quarter: 15 as TimeInterval,
+	half: 30 as TimeInterval,
+	hour: 60 as TimeInterval,
 };
-
-TimeInput.sizes = {
-	medium: {
-		select: s.mediumSelect,
-		icon: s.mediumIcon,
-		iconCaret: s.mediumIconCaret,
-	} as TimeInputSize,
-	small: {
-		select: s.smallSelect,
-		icon: s.smallIcon,
-		iconCaret: s.smallIconCaret,
-	} as TimeInputSize,
-};
-
-TimeInput.type = {
-	quarter: 15,
-	half: 30,
-	one: 60,
-} as TimeInputType;
