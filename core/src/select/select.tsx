@@ -31,7 +31,7 @@ export interface SelectOption<T> {
 	/**
 	 * The value of the option. This is a [generic][1] type so you can use
 	 * Moai's Select for not only string but anything.
-	 * 
+	 *
 	 * [1]: https://www.typescriptlang.org/docs/handbook/2/generics.html
 	 */
 	value: T;
@@ -83,7 +83,7 @@ export interface SelectProps<T> {
 	/**
 	 * By default, the width of a select is based on its longest option to
 	 * avoid changing layout when users switching between options.
-	 * 
+	 *
 	 * Set the `fill` prop to `true` to let the select expands to fill its
 	 * container instead. This helps you to control the select's width. (By
 	 * setting the width of its container.)
@@ -97,6 +97,10 @@ export interface SelectProps<T> {
 	 * The "id" attribute in HTML
 	 */
 	id?: string;
+	/**
+	 * The "required" attribute in HTML
+	 */
+	required?: boolean;
 }
 
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
@@ -143,6 +147,7 @@ export const Select = <T,>(props: SelectProps<T>) => {
 				ref={props.forwardedRef}
 				// Controlled
 				value={value}
+				required={props.required}
 				onChange={onChange(props)}
 			/>
 			<span className={cls.icon}>
@@ -176,4 +181,10 @@ Select.toStringOption = (text: string): SelectOption<string> => ({
 	value: text,
 	id: text,
 	label: text,
+});
+
+Select.toNumberOption = (num: number): SelectOption<number> => ({
+	value: num,
+	id: num.toString(),
+	label: num.toString(),
 });

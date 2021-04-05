@@ -70,7 +70,6 @@ outer border or shadow. For that, use the \`Pane\` component.
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
 `);
 
-
 export const Fill = () => {
 	return (
 		<Table<Robot>
@@ -88,7 +87,6 @@ export const Fill = () => {
 _Story.desc(Fill)(`
 If the \`fill\` prop is set to \`true\`, the table's width will full \`100%\` and depend on it's container.
 `);
-
 
 export const Fixed = () => (
 	<div>
@@ -116,17 +114,18 @@ export const Fixed = () => (
 					{ title: "Email", render: "email" },
 					{ title: "Avatar", render: "avatar" },
 				]}
-				fixed
+				fixed={{ firstColumn: true, lastColumn: true }}
 			/>
 		</div>
 	</div>
 );
 
 _Story.desc(Fixed)(`
-If the \`fixed\` prop is set to \`true\`, the table's header and first column
-would stay fixed while the user scrolls the rest of the table. Note that the
-fixed position here is relative to the table's nearets scrolling ancestor. In
-practice, this means the container of the table should have:
+The \`fixed\` prop is an object, which indicates if the table's header
+and/or first column and/or last column would stay fixed while the user
+scrolls the rest of the table. Note that the fixed position here is
+relative to the table's nearets scrolling ancestor. In practice,
+this means the container of the table should have:
 
 - "auto" or "scroll" overflow, and
 - a defined height, either fixed (e.g. "400px") or relative (e.g. "100%")
@@ -153,4 +152,20 @@ The users can expand a table's rows if the \`expandRowRender\` is prop provided.
 It should be a function that returns what to be rendered when the user expands
 a row. The returned result is rendered below the row, spanning all columns
 (i.e. a \`td\` with \`colSpan={columns.length}\`).
+`);
+
+export const SizedTable = () => (
+	<Table<Robot>
+		rows={ROBOTS.slice(0, 3)}
+		rowKey={(robot) => robot.id.toString()}
+		columns={[
+			{ title: "Bot", className: "name", render: "MAC" },
+			{ title: "Id", render: "id" },
+		]}
+		size={Table.sizes.small}
+	/>
+);
+
+_Story.desc(SizedTable)(`
+User can also define table cell size with \`size\` prop.
 `);

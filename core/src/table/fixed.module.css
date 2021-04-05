@@ -1,40 +1,67 @@
-/* First column */
-.container th:first-child,
-.container td:first-child {
+/* First column & Last column */
+.container.firstColumn th:first-child,
+.container.firstColumn td:first-child,
+.container.lastColumn th:last-child,
+.container.lastColumn td:last-child {
 	position: sticky;
-	left: 0;
 	z-index: var(--z-sticky-1);
 }
 
+.container.firstColumn th:first-child,
+.container.firstColumn td:first-child {
+	left: 0;
+}
+
+.container.lastColumn th:last-child,
+.container.lastColumn td:last-child {
+	right: 0;
+}
+
 @media (max-width: 640px) {
-	.container td:first-child,
-	.container th:first-child {
-		/* Leave enough space for the rest of columns to be scrolled.
-		"max-width: 50%" is better but it does not apply for td and th */
-		width: 160px;
+      .container.firstColumn td:first-child,
+      .container.firstColumn th:first-child,
+      .container.lastColumn td:last-child,
+      .container.lastColumn th:last-child {
+            /* Leave enough space for the rest of columns to be scrolled.
+            "max-width: 50%" is better but it does not apply for td and th */
+            width: 160px;
 	}
 }
 
-/* Heading */
-.container th {
+/* Header */
+.container.header th {
 	position: sticky;
 	top: 0;
 	z-index: var(--z-sticky-1);
 }
 
-/* Fix z-index of the special top-left cell */
-.container th:first-child {
+/* Fix z-index of the special top-left and top-right cell */
+.container.firstColumn th:first-child,
+.container.lastColumn th:last-child {
 	z-index: var(--z-sticky-2);
 }
 
-/* Visual touch to make first column stands out more */
-.container td:first-child,
-.container th:first-child {
+/* Visual touch to make first column and last column stands out more */
+.container.firstColumn td:first-child,
+.container.firstColumn th:first-child {
 	padding-right: 16px;
 	border-right-width: 1px;
 	border-right-style: solid;
 }
-.container td:nth-child(2),
-.container th:nth-child(2) {
+
+.container.lastColumn td:last-child,
+.container.lastColumn th:last-child {
 	padding-left: 16px;
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+
+.container.firstColumn td:nth-child(2),
+.container.firstColumn th:nth-child(2) {
+	padding-left: 16px;
+}
+
+.container.lastColumn td:nth-last-child(2),
+.container.lastColumn th:nth-last-child(2) {
+	padding-right: 16px;
 }

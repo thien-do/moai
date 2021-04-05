@@ -5,7 +5,18 @@
 	border: solid 1px transparent;
 }
 
+/* HIGHLIGHT */
+
+:global(.light) .highlight {
+	color: var(--highlight-6);
+}
+
+:global(.dark) .highlight {
+	color: var(--highlight-5);
+}
+
 /* INTERACTION */
+
 :global(.light) .main:hover {
 	background-color: var(--gray-1);
 }
