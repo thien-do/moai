@@ -1,22 +1,36 @@
 import { storiesOf } from "@storybook/react";
+import React from "react";
 import { DivPx } from "../div/div";
 import { Tag } from "./tag";
 
-storiesOf("Tag", module).add("Main", () => (
-	<div>
-		<div style={{ display: "flex" }}>
-			<Tag type={Tag.types.neutral}>Neutral</Tag>
-			<DivPx size={8} />
-			<Tag type={Tag.types.success}>Success</Tag>
-			<DivPx size={8} />
-			<Tag type={Tag.types.highlight}>Highlight</Tag>
-			<DivPx size={8} />
-			<Tag type={Tag.types.failure}>Failure</Tag>
-		</div>
+storiesOf("Tag", module).add("Main", () => {
+	const colors: string[] = [
+		"red",
+		"yellow",
+		"green",
+		"blue",
+		"indigo",
+		"purple",
+		"pink",
+		"gray"
+	]
+
+	return (
 		<div>
-			<span>
-				<Tag type={Tag.types.neutral}>Test height</Tag>
-			</span>
+			<div style={{ display: "flex" }}>
+				{colors.map(color => (
+					<React.Fragment key={color}>
+						<Tag color={Tag.colors[color]}>{color}</Tag>
+						<DivPx size={8} />
+					</React.Fragment>
+				))}
+			</div>
+			<DivPx size={16} />
+			<div>
+				<span>
+					<Tag color={Tag.colors.gray}>Test height</Tag>
+				</span>
+			</div>
 		</div>
-	</div>
-));
+	)
+});
