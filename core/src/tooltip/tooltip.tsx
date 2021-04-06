@@ -5,8 +5,18 @@ import { Paragraph } from "../text/text";
 import s from "./tooltip.module.css";
 
 export interface TooltipProps {
+	/**
+	 * The content of the tooltip.
+	 * It could be either a `ReactNode` or function which returns a `ReactNode`
+	 */
 	content: React.ReactNode;
+	/**
+	 * The element to be wrapped
+	 */
 	children: TippyProps["children"];
+	/**
+	 * Placement position
+	 */
 	placement?: TippyProps["placement"];
 }
 
