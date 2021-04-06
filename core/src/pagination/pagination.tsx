@@ -8,9 +8,21 @@ import { PaginationInput } from "./input/input";
 import s from "./pagination.module.css";
 
 export interface PaginationProps {
+	/**
+	 * The number of the page to be selected.
+	 */
 	value: number;
+	/**
+	 * Callback fired when the page is changed
+	 */
 	setValue: (num: number) => void | Promise<void>;
+	/**
+	 * Minimum number of page to be displayed in the pagination
+	 */
 	min: number;
+	/**
+	 * Maximum numbers of page to be displayed in the pagination
+	 */
 	max: number;
 }
 
