@@ -1,9 +1,11 @@
 import { Meta } from "@storybook/react";
+import { useState } from "react";
+import { DivPx, Select, SelectOption } from "../_gallery";
 import { Robot, ROBOTS } from "../_gallery/table/robots";
 import { GalleryTable } from "../_gallery/table/table";
 import { _Story } from "../_story";
 import { TableColumn } from "./fake-table-column";
-import { Table } from "./table";
+import { Table, TableSize } from "./table";
 
 export default {
 	title: "Components/Table",
@@ -154,18 +156,36 @@ a row. The returned result is rendered below the row, spanning all columns
 (i.e. a \`td\` with \`colSpan={columns.length}\`).
 `);
 
-export const SizedTable = () => (
-	<Table<Robot>
-		rows={ROBOTS.slice(0, 3)}
-		rowKey={(robot) => robot.id.toString()}
-		columns={[
-			{ title: "Bot", className: "name", render: "MAC" },
-			{ title: "Id", render: "id" },
-		]}
-		size={Table.sizes.small}
-	/>
-);
+export const Size = () => {
+	const [size, setSize] = useState<TableSize>(Table.sizes.small);
+	const options: SelectOption<TableSize>[] = [
+		{ id: "small", label: "Small", value: Table.sizes.small },
+		{ id: "medium", label: "Medium", value: Table.sizes.medium },
+		{ id: "large", label: "Large", value: Table.sizes.large },
+	];
+	return (
+		<div>
+			<Select<TableSize>
+				value={size}
+				setValue={setSize}
+				options={options}
+			/>
+			<DivPx size={16} />
+			<Table<Robot>
+				rows={ROBOTS.slice(0, 3)}
+				rowKey={(robot) => robot.id.toString()}
+				columns={[
+					{ title: "Bot", className: "name", render: "MAC" },
+					{ title: "Id", render: "id" },
+				]}
+				size={size}
+			/>
+		</div>
+	);
+};
 
-_Story.desc(SizedTable)(`
-User can also define table cell size with \`size\` prop.
+_Story.desc(Size)(`
+To make a table looks more compact or loose, use the \`size\` prop. It controls
+the vertical padding of a table's cells. Choose a value from the \`Table.sizes\`
+list.
 `);
