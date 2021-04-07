@@ -1,9 +1,14 @@
-import { storiesOf } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { useCallback, useState } from "react";
 import { Pagination } from "./pagination";
 
-const Default = () => {
-	const [page, setPage_] = useState(5);
+export default {
+	title: "Components/Pagination",
+	component: Pagination,
+} as Meta;
+
+export const Primary = (): JSX.Element => {
+	const [page, setPage_] = useState(1);
 	const setPage = useCallback((page): Promise<void> => {
 		return new Promise((resolve, _reject) => {
 			setPage_(page);
@@ -17,5 +22,3 @@ const Default = () => {
 		</div>
 	);
 };
-
-storiesOf("Pagination", module).add("Default", Default);
