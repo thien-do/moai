@@ -1,4 +1,4 @@
-import { Meta, storiesOf } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { useCallback, useState } from "react";
 import { Pagination } from "./pagination";
 
