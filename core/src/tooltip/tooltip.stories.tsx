@@ -101,15 +101,16 @@ export const Positioning = (): JSX.Element => {
     )
 }
 
-_Story.desc(Positioning)(
-    `A tooltip is positioned in relation to its target. Tooltips have five primary standard positions: \`top\`, \`right\`, \`bottom\`, \`left\` and \`auto\`.
-    Each of primary position above have two more placements are: \`start\` and \`end\` could be written by connecting string with hyphen symbol (dash \`-\`).\n
-    Default value: \`top\``
-);
+_Story.desc(Positioning)(`
+A tooltip is positioned in relation to its target. Tooltips have five primary standard positions: \`top\`, \`right\`, \`bottom\`, \`left\` and \`auto\`.
+Each of primary position above have two more placements are: \`start\` and \`end\` could be written by connecting string with hyphen symbol (dash \`-\`).
+
+Default value: \`top\`
+`);
 
 export const Customization = (): JSX.Element => {
     return (
-        <Tooltip content={<img src='https://avatars.githubusercontent.com/u/76839396?s=200&v=4' />}>
+        <Tooltip content={<img src='https://avatars.githubusercontent.com/u/76839396?s=64&v=4' />}>
             <a>How did Moai look like?</a>
         </Tooltip>
     )
