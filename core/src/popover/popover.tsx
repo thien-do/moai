@@ -12,9 +12,21 @@ interface ContentProps {
 }
 
 export interface PopoverProps {
+	/**
+	 * The component that will be render Popover when action on it
+	 */
 	target: (props: TargetProps) => React.ReactNode;
+	/**
+	 * The elements to be displayed within the Popover
+	 */
 	content: (props: ContentProps) => React.ReactNode;
+	/**
+	 * `target`'s wrapper
+	 */
 	TargetWrapper?: () => JSX.Element;
+	/**
+	 * Describes the preferred placement of the Popover relative to the `target`
+	 */
 	placement?: Placement;
 }
 
@@ -23,6 +35,11 @@ const DefaultTargetWrapper = (props: {
 	children: React.ReactNode;
 }): JSX.Element => <div ref={props.setTarget} children={props.children} />;
 
+/**
+ * A Popover is a pop-up container. It can also contain controls.
+ * 
+ * Popover are displayed when triggered by a user action, usally by clicking.
+ */
 export const Popover = (props: PopoverProps) => {
 	const [opened, setOpened] = useState(false);
 	const [target, setTarget] = useState<HTMLDivElement | null>(null);
