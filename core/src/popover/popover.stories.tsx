@@ -115,6 +115,8 @@ A Popover is positioned in relation to its target. It can appear at the \`top\`,
 
 The \`auto\` placements places the Popover on the side with the most avaiable space.
 
+[Reference](https://popper.js.org/docs/v2/constructors/#options) to the Popper's Placement type.
+
 Default value: \`bottom\`
 `)
 

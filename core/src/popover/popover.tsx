@@ -13,7 +13,7 @@ interface ContentProps {
 
 export interface PopoverProps {
 	/**
-	 * The component that will be render Popover when action on it
+	 * The component that will be render Popover when action on it. The Popover will be positioned relative to this element
 	 */
 	target: (props: TargetProps) => React.ReactNode;
 	/**
@@ -21,11 +21,15 @@ export interface PopoverProps {
 	 */
 	content: (props: ContentProps) => React.ReactNode;
 	/**
-	 * `target`'s wrapper
+	 * `target`'s wrapper, that mean you can change `div` tag to any `JSX.Element` you want.
+	 * 
+	 * The usually case is change wrapper between "block" or "inline"
 	 */
 	TargetWrapper?: () => JSX.Element;
 	/**
-	 * Describes the preferred placement of the Popover relative to the `target`
+	 * Describes the preferred placement of the Popover relative to the `target`.
+	 * 
+	 * [Reference](https://popper.js.org/docs/v2/constructors/#options) to the Popper's Placement type
 	 */
 	placement?: Placement;
 }
