@@ -9,7 +9,7 @@ import s from "./pagination.module.css";
 
 export interface PaginationProps {
 	/**
-	 * The page to be selected. This will make this pagination controlled
+	 * The page to be selected
 	 */
 	value: number;
 	/**
@@ -17,11 +17,11 @@ export interface PaginationProps {
 	 */
 	setValue: (num: number) => void | Promise<void>;
 	/**
-	 * The smallest page to be displayed in the pagination
+	 * The smallest page to be displayed in the pagination. This is usually "0" or "1", depends on your counting
 	 */
 	min: number;
 	/**
-	 * The largest page to be displayed in the pagination
+	 * The largest page to be displayed in the pagination. In other words, this is the total of pages
 	 */
 	max: number;
 }

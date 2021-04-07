@@ -6,16 +6,17 @@ import s from "./tooltip.module.css";
 
 export interface TooltipProps {
 	/**
-	 * The content of the tooltip.
-	 * It could be either a `ReactNode` or function which returns a `ReactNode`
+	 * The content inside of the tooltip
 	 */
 	content: React.ReactNode;
 	/**
-	 * The element to be wrapped
+	 * The element that hover on will show the Tooltip
 	 */
 	children: TippyProps["children"];
 	/**
-	 * Placement position
+	 * The *preferred* placement where the Tooltip should appear relative to its `children`.
+	 * 
+	 * [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement
 	 */
 	placement?: TippyProps["placement"];
 }
