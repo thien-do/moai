@@ -28,7 +28,7 @@ export const Primary = (props: Props): JSX.Element => {
 
     return (
         <Tooltip content={props.content}>
-            <a>Hover over me</a>
+            <span>Hover over me</span>
         </Tooltip>
     )
 };
@@ -111,7 +111,7 @@ Default value: \`top\`
 export const Customization = (): JSX.Element => {
     return (
         <Tooltip content={<img src='https://avatars.githubusercontent.com/u/76839396?s=64&v=4' />}>
-            <a>How did Moai look like?</a>
+            <span>How did Moai look like?</span>
         </Tooltip>
     )
 }
