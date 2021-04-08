@@ -1,5 +1,5 @@
 import { Placement } from "@popperjs/core";
-import { useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import { PopoverPane } from "./pane/pane";
 
 interface TargetProps {
@@ -53,7 +53,7 @@ export const Popover = (props: PopoverProps) => {
 	const TargetWrapper = props.TargetWrapper ?? DefaultTargetWrapper;
 
 	return (
-		<div>
+		<Fragment>
 			<TargetWrapper setTarget={setTarget}>
 				{props.target({ toggle, opened })}
 			</TargetWrapper>
@@ -65,7 +65,7 @@ export const Popover = (props: PopoverProps) => {
 					onOutsideClick={close}
 				/>
 			)}
-		</div>
+		</Fragment>
 	);
 };
 
