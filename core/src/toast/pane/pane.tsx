@@ -16,7 +16,7 @@ export interface ToastPaneType {
 interface Props {
 	type: ToastPaneType;
 	children: ReactNode;
-	close: () => void;
+	close?: () => void;
 }
 
 export const ToastPane = (props: Props): JSX.Element => (
@@ -32,17 +32,20 @@ export const ToastPane = (props: Props): JSX.Element => (
 				<Paragraph>{props.children}</Paragraph>
 			</div>
 			<DivPx size={12} />
-			<Border color="strong" />
-			<DivPx size={12} />
-			<div className={s.button}>
-				<Button
-					size={Button.sizes.smallIcon}
-					style={Button.styles.flat}
-					icon={coreIcons.cross}
-					iconLabel="Close"
-					onClick={() => props.close()}
-				/>
-			</div>
+			{props.close && (
+				<>
+					<Border color="strong" />
+					<DivPx size={12} />
+					<div className={s.button}>
+						<Button
+							size={Button.sizes.smallIcon}
+							style={Button.styles.flat}
+							icon={coreIcons.cross}
+							iconLabel="Close"
+							onClick={() => props.close()}
+						/>
+					</div>
+			</>)}
 		</div>
 	</div>
 );
