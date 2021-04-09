@@ -28,7 +28,7 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
 	/>
 );
 
-export const RadioGroup = <T,>(props: Props<T>) => (
+export const RadioGroup = <T,>(props: Props<T>): JSX.Element => (
 	<div className={s.container}>
 		{props.options.map((option) => (
 			<div className={s.item} key={option.id}>

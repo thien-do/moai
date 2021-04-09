@@ -74,7 +74,7 @@ export interface TextAreaProps {
 	onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
-export const TextArea = (props: TextAreaProps) => {
+export const TextArea = (props: TextAreaProps): JSX.Element => {
 	const ref = React.useRef<HTMLTextAreaElement>(null);
 
 	React.useEffect(() => {

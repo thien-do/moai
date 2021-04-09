@@ -32,7 +32,7 @@ interface Props {
 	disabled?: boolean;
 }
 
-export const Primary = (props: Props) => {
+export const Primary = (props: Props): JSX.Element => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
 	return (
 		<div style={{ width: 240 }}>
@@ -51,7 +51,7 @@ export const Primary = (props: Props) => {
 
 _Story.fixPrimary(Primary);
 
-export const MinMax = () => {
+export const MinMax = (): JSX.Element => {
 	const today = new Date();
 	const lastWeek = new Date();
 	lastWeek.setDate(lastWeek.getDate() - 7);
@@ -69,7 +69,7 @@ _Story.desc(MinMax)(
 	inputs via keyboard.`
 );
 
-export const Controlled = () => {
+export const Controlled = (): JSX.Element => {
 	const yesterday = new Date();
 	yesterday.setDate(yesterday.getDate() - 1);
 
@@ -96,7 +96,7 @@ _Story.desc(Controlled)(
 	example, it can be set from outside the DateInput.`
 );
 
-export const Uncontrolled = () => {
+export const Uncontrolled = (): JSX.Element => {
 	const ref = useRef<DayPickerInput>(null);
 	return (
 		<div style={{ display: "flex", alignItems: "center" }}>

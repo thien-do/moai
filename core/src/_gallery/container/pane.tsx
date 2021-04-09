@@ -48,7 +48,7 @@ const MenuColumn = () => (
 	</div>
 );
 
-export const GalleryContainerPane = () => (
+export const GalleryContainerPane = (): JSX.Element => (
 	<div className={s.flex}>
 		<PopoverColumn />
 		<M.DivPx size={16} />

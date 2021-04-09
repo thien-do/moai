@@ -37,7 +37,7 @@ export const Primary = (): JSX.Element => {
 	);
 };
 
-export const Basic = () => {
+export const Basic = (): JSX.Element => {
 	const [visible, setVisible] = useState(false);
 	return (
 		<>

@@ -35,7 +35,7 @@ interface Props {
 	readOnly?: boolean;
 }
 
-export const Primary = (props: Props) => (
+export const Primary = (props: Props): JSX.Element => (
 	<TextArea
 		style={TextArea.styles[props.style]}
 		size={TextArea.sizes[props.size]}

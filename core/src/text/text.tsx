@@ -21,18 +21,18 @@ export const text = {
 	failureWeak: s.failureWeak as string,
 };
 
-export const Paragraph: React.FC<Props> = ({ children }) => (
+export const Paragraph = ({ children }: Props): JSX.Element => (
 	<p className={s.p}>{children}</p>
 );
 
-export const Strong: React.FC<Props> = ({ children }) => (
+export const Strong = ({ children }: Props): JSX.Element => (
 	<strong className={s.strong}>{children}</strong>
 );
 
-export const MutedDiv: React.FC<Props> = ({ children }) => (
+export const MutedDiv = ({ children }: Props): JSX.Element => (
 	<div className={s.muted}>{children}</div>
 );
 
-export const MutedSpan: React.FC<Props> = ({ children }) => (
+export const MutedSpan = ({ children }: Props): JSX.Element => (
 	<span className={s.muted}>{children}</span>
 );

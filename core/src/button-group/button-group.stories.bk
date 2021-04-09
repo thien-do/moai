@@ -5,7 +5,7 @@ const modelOptions: SelectOption<string>[] = [
 	"All",
 ].map(Select.toStringOption);
 
-export const Group = () => {
+export const Group = (): JSX.Element => {
 	const select = <Select options={modelOptions} defaultValue="Posts" />;
 	const input = <Input defaultValue="" placeholder="Type to search" />;
 	const button = <Button iconLabel="Search" icon={coreIcons.search} />;

@@ -9,7 +9,7 @@ interface Props {
 	labelWidth?: number;
 }
 
-export const FormField: React.FC<Props> = (props) => {
+export const FormField = (props: Props): JSX.Element => {
 	const { label, children, useLabelTag, labelWidth } = props;
 	const labelStyle = { width: labelWidth ?? "auto" };
 	return createElement(

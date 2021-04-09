@@ -23,7 +23,7 @@ const DefaultTargetWrapper = (props: {
 	children: React.ReactNode;
 }): JSX.Element => <div ref={props.setTarget} children={props.children} />;
 
-export const Popover = (props: PopoverProps) => {
+export const Popover = (props: PopoverProps): JSX.Element => {
 	const [opened, setOpened] = useState(false);
 	const [target, setTarget] = useState<HTMLDivElement | null>(null);
 

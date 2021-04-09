@@ -2,7 +2,7 @@ import { TableColumn as TableColumnProps } from "./table";
 
 /**
  * DO NOT USE THIS COMPONENT.
- * 
+ *
  * This is not a part of the source code. It exists only for Storybook's
  * ArgsTable to describe the TableColumn interface.
  */

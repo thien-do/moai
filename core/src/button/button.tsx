@@ -1,4 +1,4 @@
-import React from "react";
+import { forwardRef } from "react";
 import { border } from "../border/border";
 import { DivPx, DivSize } from "../div/div";
 import { Icon, IconPath, IconSize } from "../icon/icon";
@@ -128,6 +128,7 @@ const validateButton = (props: ButtonProps): void => {
 export const Button = (props: ButtonProps): JSX.Element => {
 	validateButton(props);
 	const common = {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		ref: props.forwardedRef as any,
 		className: getClass(props),
 		children: <ButtonChildren {...props} />,
@@ -188,7 +189,7 @@ const isIconSize = (s?: ButtonSize): boolean =>
 	s === Button.sizes.mediumIcon ||
 	s === Button.sizes.smallIcon;
 
-Button.Forwarded = React.forwardRef<
+Button.Forwarded = forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
 	ButtonProps
 >((props, ref) => <Button forwardedRef={ref} {...props} />);

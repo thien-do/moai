@@ -1,12 +1,12 @@
 .wrapper {
-    overflow: auto;
+	overflow: auto;
 }
 
 .container {
 	display: flex;
-    align-items: center;
-    min-width: max-content;
-    padding: 16px;
+	align-items: center;
+	min-width: max-content;
+	padding: 16px;
 }
 
 .step {
@@ -40,8 +40,8 @@
 }
 
 .divider {
-    flex: 1 0 auto;
-    width: 16px;
+	flex: 1 0 auto;
+	width: 16px;
 	border-top-style: solid;
 	border-top-width: 1px;
 	margin: 0 16px;

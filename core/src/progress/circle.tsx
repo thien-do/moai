@@ -40,7 +40,7 @@ const getStroke = (props: Props) => {
 	return { width, offset };
 };
 
-export const ProgressCircle = (props: Props) => {
+export const ProgressCircle = (props: Props): JSX.Element => {
 	const stroke = getStroke(props);
 	const color = props.color ?? ProgressCircle.colors.neutral;
 	return (
@@ -73,8 +73,8 @@ export const ProgressCircle = (props: Props) => {
 };
 
 const colorBase: Omit<ProgressCircleColor, "container"> = {
-	head: s.head!,
-	track: s.track!,
+	head: s.head,
+	track: s.track,
 };
 
 ProgressCircle.colors = {

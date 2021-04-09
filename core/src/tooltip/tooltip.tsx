@@ -12,7 +12,7 @@ export interface TooltipProps {
 
 interface PaneProps {
 	children: TooltipProps["content"];
-	attrs?: object;
+	attrs?: Record<string, unknown>;
 }
 
 export const TooltipPane = (props: PaneProps): JSX.Element => (

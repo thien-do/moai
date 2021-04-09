@@ -87,7 +87,7 @@ const Name = ({ set }: RowProps): JSX.Element => (
 		className={[M.text.highlightStrong].join(" ")}
 		href={set.link}
 		target="_blank"
-		rel="noopener"
+		rel="noreferrer"
 		style={{ width: 160 }}
 		children={set.name}
 	/>
@@ -106,7 +106,7 @@ const getTableColumns = (): M.TableColumn<IconSet>[] => [
 	{ title: "Samples", render: (set) => <Samples set={set} /> },
 ];
 
-export const GalleryIcon = () => (
+export const GalleryIcon = (): JSX.Element => (
 	<div>
 		<p className={s.description}>Moai works with any SVG-based icon set!</p>
 		<M.DivPx size={16} />

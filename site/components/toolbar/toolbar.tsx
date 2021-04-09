@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import s from "./toolbar.module.css";
 
-export const Toolbar = () => {
+export const Toolbar = (): JSX.Element => {
 	const { theme, setTheme } = useTheme();
 
 	const [mounted, setMounted] = useState(false);
@@ -30,7 +30,7 @@ export const Toolbar = () => {
 				// A dummy Switcher to avoid layout shift
 				<Switcher<string>
 					value={""}
-					setValue={() => {}}
+					setValue={() => void 0}
 					options={[
 						{ value: "light", label: "Light" },
 						{ value: "system", label: "System" },

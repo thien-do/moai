@@ -10,7 +10,7 @@ const getType = (from: RHT.ToastType): ToastPaneType => {
 	throw Error(`Unknown type: "${from}"`);
 };
 
-export const ToastContainer = () => {
+export const ToastContainer = (): JSX.Element => {
 	const { toasts, handlers } = useRHTToaster();
 	const { startPause, endPause, calculateOffset, updateHeight } = handlers;
 

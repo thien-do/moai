@@ -19,7 +19,8 @@ interface Props {
 const normalizeChild = (defaultFill: boolean | undefined) => {
 	return (raw: ButtonGroupItemProps | JSX.Element): ButtonGroupItemProps => {
 		// If child is full Item already
-		if ((raw as any).element) return raw as ButtonGroupItemProps;
+		if ((raw as ButtonGroupItemProps).element)
+			return raw as ButtonGroupItemProps;
 		// If child is only an element ---> fill should be inherited
 		return { element: raw as JSX.Element, fill: defaultFill };
 	};
@@ -27,7 +28,7 @@ const normalizeChild = (defaultFill: boolean | undefined) => {
 
 const SUPPORTED_CHILD_TYPES = [Button, ButtonMenu, Select, Tooltip, Input];
 
-export const ButtonGroup = (props: Props) => (
+export const ButtonGroup = (props: Props): JSX.Element => (
 	<div className={[s.container, props.fill ? s.containerFill : ""].join(" ")}>
 		{props.children.map(normalizeChild(props.fill)).map((child, index) => {
 			if (

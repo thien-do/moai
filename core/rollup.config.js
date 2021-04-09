@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 import cssPrefix from "autoprefixer";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
@@ -76,7 +78,4 @@ const bundleGallery = {
 	],
 };
 
-export default [
-	bundleMain,
-	bundleGallery
-];
+export default [bundleMain, bundleGallery];

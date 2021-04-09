@@ -11,7 +11,7 @@ export default {
 	subcomponents: { TableColumn },
 } as Meta;
 
-export const Primary = () => (
+export const Primary = (): JSX.Element => (
 	// This table is quite complicated. Please see the "Basic" section for
 	// simpler code to get started with Table.
 	<GalleryTable />
@@ -19,7 +19,7 @@ export const Primary = () => (
 
 _Story.fixPrimary(Primary);
 
-export const Basic = () => {
+export const Basic = (): JSX.Element => {
 	// The definition of interface here is only for explanation purpose. In
 	// practice the interface/type/model should already be defined outside of
 	// your component.
@@ -70,27 +70,23 @@ outer border or shadow. For that, use the \`Pane\` component.
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
 `);
 
-
-export const Fill = () => {
-	return (
-		<Table<Robot>
-			rows={ROBOTS.slice(0, 3)}
-			rowKey={(robot) => robot.id.toString()}
-			columns={[
-				{ title: "Bot", render: "MAC" },
-				{ title: "Id", render: "id" },
-			]}
-			fill
-		/>
-	);
-};
+export const Fill = (): JSX.Element => (
+	<Table<Robot>
+		rows={ROBOTS.slice(0, 3)}
+		rowKey={(robot) => robot.id.toString()}
+		columns={[
+			{ title: "Bot", render: "MAC" },
+			{ title: "Id", render: "id" },
+		]}
+		fill
+	/>
+);
 
 _Story.desc(Fill)(`
 If the \`fill\` prop is set to \`true\`, the table's width will full \`100%\` and depend on it's container.
 `);
 
-
-export const Fixed = () => (
+export const Fixed = (): JSX.Element => (
 	<div>
 		{/* In practice these CSS are usually defined via better methods, 
 		such as CSS Modules, Tailwind or just external files. */}
@@ -136,7 +132,7 @@ Since Moai's Table doesn't alter the line breaking CSS, you may also need
 line break behaviour.
 `);
 
-export const Expandable = () => (
+export const Expandable = (): JSX.Element => (
 	<Table<Robot>
 		rows={ROBOTS.slice(0, 3)}
 		rowKey={(robot) => robot.id.toString()}
@@ -155,7 +151,7 @@ a row. The returned result is rendered below the row, spanning all columns
 (i.e. a \`td\` with \`colSpan={columns.length}\`).
 `);
 
-export const SizedTable = () => (
+export const SizedTable = (): JSX.Element => (
 	<Table<Robot>
 		rows={ROBOTS.slice(0, 3)}
 		rowKey={(robot) => robot.id.toString()}
@@ -165,7 +161,7 @@ export const SizedTable = () => (
 		]}
 		size={Table.sizes.small}
 	/>
-)
+);
 
 _Story.desc(SizedTable)(`
 User can also define table cell size with \`size\` prop.

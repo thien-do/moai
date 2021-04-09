@@ -18,7 +18,7 @@ interface Props {
 	onEsc?: () => void;
 }
 
-export const Menu = (props: Props) => {
+export const Menu = (props: Props): JSX.Element => {
 	const { onEsc } = props;
 
 	const ref = React.useRef<HTMLDivElement>(null);

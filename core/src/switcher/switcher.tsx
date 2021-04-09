@@ -1,4 +1,3 @@
-import React from "react";
 import { ButtonGroup } from "../button-group/button-group";
 import { Button, ButtonSize, ButtonStyle } from "../button/button";
 import { IconPath } from "../icon/icon";
@@ -20,7 +19,7 @@ interface Props<T> {
 	style?: ButtonStyle;
 }
 
-export const Switcher = <T,>(props: Props<T>) => (
+export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 	<ButtonGroup fill={props.fill}>
 		{props.options.map((option) => {
 			const selected = option.value === props.value;

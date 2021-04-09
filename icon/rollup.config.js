@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 import svgr from "@svgr/rollup";
 import copy from "rollup-plugin-copy";
 import { PROJECTS } from "./projects.mjs";

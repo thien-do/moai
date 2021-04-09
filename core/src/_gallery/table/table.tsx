@@ -18,7 +18,7 @@ const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 	</div>
 );
 
-const Overview: Column = ({ robot }) => (
+const Overview: Column = ({ robot }: RowProps) => (
 	<div className={s.overview}>
 		<img
 			width="32"
@@ -43,7 +43,7 @@ const LastSeenHeader = (): JSX.Element => (
 	</div>
 );
 
-const Action: Column = ({ robot }) => (
+const Action: Column = ({ robot }: RowProps) => (
 	<div className={s.actions}>
 		{robot.deployed ? (
 			<M.Button highlight children="Deploy" />
@@ -85,12 +85,13 @@ const MaterialsHeader = (): JSX.Element => (
 	</div>
 );
 
-const Materials: Column = ({ robot }) => (
+const Materials: Column = ({ robot }: RowProps) => (
 	<div className={s.materials}>
 		{robot.materials.map((material, index) => (
 			<Fragment key={material}>
 				{index > 0 && <DivPx size={4} />}
 				<M.Tag
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					color={(MATERIAL_TAGS as any)[material]}
 					children={material}
 				/>
@@ -99,18 +100,18 @@ const Materials: Column = ({ robot }) => (
 	</div>
 );
 
-const LastSeen: Column = ({ robot }) => (
+const LastSeen: Column = ({ robot }: RowProps) => (
 	<div>{new Date(robot.lastSeen).toDateString()}</div>
 );
 
-const Note: Column = ({ robot }) => (
+const Note: Column = ({ robot }: RowProps) => (
 	<M.Paragraph>
 		<span>{robot.note}</span>
 		<span>{` — ${robot.name.last}`}</span>
 	</M.Paragraph>
 );
 
-const Mac: Column = ({ robot }) => (
+const Mac: Column = ({ robot }: RowProps) => (
 	<div className={s.mac}>
 		<M.Button
 			size={M.Button.sizes.small}

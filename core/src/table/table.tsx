@@ -91,7 +91,7 @@ export interface TableState {
 	setExpanded: (key: string, value: boolean) => void;
 }
 
-export const Table = <R,>(props: TableProps<R>) => {
+export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 	const [expanded, _setExpanded] = useState(() => new Set<string>());
 	const setExpanded: TableState["setExpanded"] = (key, value) => {
 		_setExpanded((prev) => {
@@ -115,7 +115,7 @@ export const Table = <R,>(props: TableProps<R>) => {
 				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill : "",
 				background.strong,
-				props.size?.cell ?? Table.sizes.medium.cell
+				props.size?.cell ?? Table.sizes.medium.cell,
 			].join(" ")}
 		>
 			<thead>
@@ -130,4 +130,4 @@ Table.sizes = {
 	large: { cell: s.large } as TableSize,
 	medium: { cell: s.medium } as TableSize,
 	small: { cell: s.small } as TableSize,
-}
+};

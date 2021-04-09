@@ -57,7 +57,7 @@ interface Props {
 	readOnly?: boolean;
 }
 
-export const Primary = (props: Props) => {
+export const Primary = (props: Props): JSX.Element => {
 	const [text, setText] = useState("");
 	return (
 		<>

@@ -1,30 +1,35 @@
-const arg = (target: object | null | string) => {
-	if (target === null) {
-		return { control: { type: null } }
-	} else if (Array.isArray(target)) {
-		return { control : { type: "radio", options: target } }
-	} else if (typeof target === "object") {
-		return { control : { type: "radio", options: Object.keys(target) } }
-	} else {
-		return { control: { type: target }}
-	}
-}
+import { ArgType } from "@storybook/addons";
 
-const desc = (story: any) => (text: string) => {
+const arg = (target: Record<string, unknown> | null | string): ArgType => {
+	if (target === null) {
+		return { control: { type: null } };
+	} else if (Array.isArray(target)) {
+		return { control: { type: "radio", options: target } };
+	} else if (typeof target === "object") {
+		return { control: { type: "radio", options: Object.keys(target) } };
+	} else {
+		return { control: { type: target } };
+	}
+};
+
+// eslint-disable-next-line
+const desc = (story: any) => (text: string): void => {
 	story.parameters ??= {};
 	story.parameters.docs ??= {};
 	story.parameters.docs.description ??= {};
 	story.parameters.docs.description.story = text;
 };
 
-const fixPrimary = (story: any) => {
+// eslint-disable-next-line
+const fixPrimary = (story: any): void => {
 	story.parameters ??= {};
 	story.parameters.docs ??= {};
 	story.parameters.docs.source ??= {};
 	story.parameters.docs.source.type = "code";
-}
+};
 
-const name = (story: any, text: string) => {
+// eslint-disable-next-line
+const name = (story: any, text: string): void => {
 	story.storyName = text;
 };
 
