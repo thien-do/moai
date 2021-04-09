@@ -1,6 +1,6 @@
 import { DivPx, Button, Tooltip, TooltipPane } from "..";
 
-export const GalleryFeedbackTooltip = () => (
+export const GalleryFeedbackTooltip = (): JSX.Element => (
 	<div>
 		<Tooltip content="Sample Tooltip">
 			<Button.Forwarded children="Hover to show a Tooltip" />

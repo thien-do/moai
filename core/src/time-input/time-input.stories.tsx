@@ -24,7 +24,7 @@ interface Props {
 	disabled?: boolean;
 }
 
-export const Primary = (props: Props) => {
+export const Primary = (props: Props): JSX.Element => {
 	const [value, setValue] = useState<Date>(() => {
 		const date = new Date();
 		date.setSeconds(0); // TimeInput's value's second must be 0

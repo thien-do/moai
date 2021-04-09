@@ -1,3 +1,4 @@
+/* eslint-disable */
 const cp = require("child_process");
 
 const files = [

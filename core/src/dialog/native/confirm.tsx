@@ -11,7 +11,7 @@ interface Props {
 	width?: DialogProps["width"];
 }
 
-export const ConfirmDialog = (props: Props) => (
+export const ConfirmDialog = (props: Props): JSX.Element => (
 	<DialogMain onEsc={props.onCancel} width={props.width}>
 		<DialogBody children={props.children} />
 		<DialogFooter>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, ButtonProps } from "../button/button";
 import { DivPx } from "../div/div";
 import { MenuItem } from "../menu/item/item";
@@ -14,7 +13,7 @@ interface Props {
 export const ButtonMenu = (props: Props): JSX.Element => (
 	<Popover
 		placement={props.placement}
-		content={(_popover) => (
+		content={() => (
 			<div>
 				<DivPx size={8} />
 				{props.items.map((item, index) => (

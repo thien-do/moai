@@ -1,6 +1,6 @@
 import { ReactNode, RefObject, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
-import { Modifier } from "react-day-picker";
+import { CaptionElementProps, Modifier } from "react-day-picker";
 import { Input, InputProps } from "../input/input";
 import { PopoverPane } from "../popover/pane/pane";
 import "./date-input.css";
@@ -84,6 +84,9 @@ interface OverlayProps extends DayPickerOverlayProps {
 }
 
 const Overlay = (props: OverlayProps): JSX.Element | null => {
+	// We don't need these props, but we need to remove them from the "rest" so
+	// that "rest" can be applied to the div element
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { target, children, selectedDay, classNames, month, input, ...rest } = props; // prettier-ignore
 	if (target === null) return null;
 	return (
@@ -139,7 +142,7 @@ export const DateInput = (props: Props): JSX.Element => {
 				dayPickerProps={{
 					month: month,
 					navbarElement: DateInputNavbar,
-					captionElement: ({ date }) => (
+					captionElement: ({ date }: CaptionElementProps) => (
 						<DateInputMonth value={date} setValue={setMonth} />
 					),
 					disabledDays: getDisabledDays(props),

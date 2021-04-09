@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Border } from "../../border/border";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
@@ -9,7 +8,7 @@ interface Props {
 	item: IMenuItem;
 }
 
-export const MenuItem = ({ item }: Props) =>
+export const MenuItem = ({ item }: Props): JSX.Element =>
 	item === "divider" ? (
 		<div>
 			<DivPx size={8} />

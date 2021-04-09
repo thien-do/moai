@@ -17,7 +17,7 @@ interface Props {
 	message?: string;
 }
 
-export const Primary = (props: Props) => {
+export const Primary = (props: Props): JSX.Element => {
 	if (props.type === undefined) {
 		props.type = "success";
 	}
@@ -42,7 +42,7 @@ export const Primary = (props: Props) => {
 
 _Story.fixPrimary(Primary);
 
-export const Usage = () => {
+export const Usage = (): JSX.Element => {
 	return (
 		<Button
 			onClick={() =>

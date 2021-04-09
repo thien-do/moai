@@ -1,4 +1,3 @@
-import { background } from "../background/background";
 import { border } from "../border/border";
 import { Icon } from "../icon/icon";
 import { coreIcons } from "../icons/icons";

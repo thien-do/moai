@@ -1,7 +1,8 @@
 import { DivPx, Button, toast, ToastPane } from "..";
+import { Dialog } from "../../dialog/dialog";
 import s from "../styles.module.css";
 
-const noop = () => {};
+const noop = () => Dialog.alert("Noop");
 
 export const GalleryFeedbackToast = (): JSX.Element => (
 	<div>

@@ -4,26 +4,25 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [15.x]
+                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    strategy:
-      matrix:
-        node-version: [15.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 15.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 15.x
-    - run: yarn install
-    - run: yarn test
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js 15.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 15.x
+            - run: yarn install
+            - run: yarn test

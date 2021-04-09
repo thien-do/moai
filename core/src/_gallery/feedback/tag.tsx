@@ -1,6 +1,11 @@
 import { DivPx, Tag } from "..";
 import s from "../styles.module.css";
 
+const getColor = (color: string): string => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return (Tag.colors as any)[color];
+};
+
 export const GalleryFeedbackTag = (): JSX.Element => (
 	<div>
 		<div>
@@ -14,7 +19,7 @@ export const GalleryFeedbackTag = (): JSX.Element => (
 		>
 			{Object.keys(Tag.colors).map((color) => (
 				<div key={color} className={s.p4}>
-					<Tag color={(Tag.colors as any)[color]} children={color} />
+					<Tag color={getColor(color)} children={color} />
 				</div>
 			))}
 		</div>

@@ -9,7 +9,7 @@ interface Props {
 	width?: DialogProps["width"];
 }
 
-export const AlertDialog = (props: Props) => (
+export const AlertDialog = (props: Props): JSX.Element => (
 	<DialogMain onEsc={props.onOk} width={props.width}>
 		<DialogBody children={props.children} />
 		<DialogFooter>

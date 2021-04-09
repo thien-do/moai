@@ -14,7 +14,9 @@ const Pane = () => (
 			<div className={s.flex}>
 				<M.Button minWidth>Cancel</M.Button>
 				<M.DivPx size={8} />
-				<M.Button minWidth highlight>Publish</M.Button>
+				<M.Button minWidth highlight>
+					Publish
+				</M.Button>
 			</div>
 		</M.Dialog.Footer>
 	</M.Dialog.Pane>
@@ -31,7 +33,7 @@ const prompt = async () => {
 	M.Dialog.alert(`Post "${title}" is published!`);
 };
 
-export const GalleryContainerDialog = () => (
+export const GalleryContainerDialog = (): JSX.Element => (
 	<div>
 		<div className={s.flex}>
 			<M.Button fill onClick={alert} children="Alert" />

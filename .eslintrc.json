@@ -1,0 +1,30 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"ignorePatterns": ["node_modules", "dist"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		// Must be last: https://github.com/prettier/eslint-config-prettier
+		"prettier"
+	],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		// https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
+		// This allows us to shorten some simple children definition
+		"react/no-children-prop": "off",
+		// We allow inline component definition
+		"react/display-name": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "17"
+		}
+	}
+}

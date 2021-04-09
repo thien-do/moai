@@ -98,7 +98,7 @@ const setMinute = (props: Props) => (minute: number): void => {
 	props.setValue(value);
 };
 
-export const TimeInput = (props: Props) => {
+export const TimeInput = (props: Props): JSX.Element => {
 	// Avoid subtle time comparing bug by enforcing value Date has 0 second
 	if (props.value.getSeconds() !== 0)
 		throw Error("Date value of TimeInput must have 0 second");

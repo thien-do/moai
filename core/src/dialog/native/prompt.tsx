@@ -17,7 +17,7 @@ interface Props {
 	width?: DialogProps["width"];
 }
 
-export const PromptDialog = (props: Props) => {
+export const PromptDialog = (props: Props): JSX.Element => {
 	const [text, setText] = useState<string>(props.initialText ?? "");
 	const base = {
 		value: text,

@@ -83,10 +83,6 @@ PopoverPane.styles = {
 			border.strong,
 			background.strong,
 		].join(" "),
-		arrow: [
-			border.px1,
-			border.strong,
-			background.strong
-		].join(" "),
+		arrow: [border.px1, border.strong, background.strong].join(" "),
 	},
 };

@@ -46,6 +46,8 @@ interface State {
 
 const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 	const { active, setActive } = state;
+	// Disable because "react/prop-types" wrongly detects this as a component
+	// eslint-disable-next-line react/prop-types
 	const style = props.style ?? Tabs.styles.outset;
 	return (
 		<button
@@ -104,13 +106,15 @@ export const Tabs = (props: Props): JSX.Element => {
 };
 
 const outsetStyle: TabStyle = {
-	content: s.outsetContent!,
-	title: [s.outsetTitle!, border.radius].join(" "),
+	content: s.outsetContent,
+	title: [s.outsetTitle, border.radius].join(" "),
 	active: [border.strong, background.strong].join(" "),
-	inactive: s.outsetInactive!,
+	inactive: s.outsetInactive,
 	renderContent: (children, props) => (
 		<Pane
+			// eslint-disable-next-line react/prop-types
 			noPadding={props.noPadding}
+			// eslint-disable-next-line react/prop-types
 			fullHeight={props.fullHeight}
 			children={children}
 		/>
@@ -119,13 +123,15 @@ const outsetStyle: TabStyle = {
 
 const flatStyle: TabStyle = {
 	content: [s.flatContent, border.weak].join(" "),
-	title: s.flatTitle!,
+	title: s.flatTitle,
 	active: border.highlightStrong,
-	inactive: s.flatInactive!,
+	inactive: s.flatInactive,
 	renderContent: (children, props) => (
 		<div
 			className={[
+				// eslint-disable-next-line react/prop-types
 				props.noPadding ? "" : s.flatPadding,
+				// eslint-disable-next-line react/prop-types
 				props.fullHeight ? s.flatFullHeight : "",
 			].join(" ")}
 			children={children}

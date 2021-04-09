@@ -15,7 +15,7 @@ export interface TooltipProps {
 	children: TippyProps["children"];
 	/**
 	 * The *preferred* placement where the Tooltip should appear relative to its `children`.
-	 * 
+	 *
 	 * [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement
 	 */
 	placement?: TippyProps["placement"];
@@ -23,7 +23,7 @@ export interface TooltipProps {
 
 interface PaneProps {
 	children: TooltipProps["content"];
-	attrs?: object;
+	attrs?: Record<string, unknown>;
 }
 
 export const TooltipPane = (props: PaneProps): JSX.Element => (

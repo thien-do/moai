@@ -28,7 +28,7 @@ interface Props {
 	disabled?: boolean;
 }
 
-export const Primary = (props: Props) => (
+export const Primary = (props: Props): JSX.Element => (
 	<Select<number>
 		options={[
 			{ value: 0, id: "red", label: "Red" },
@@ -44,7 +44,7 @@ export const Primary = (props: Props) => (
 
 _Story.fixPrimary(Primary);
 
-export const Basic = () => {
+export const Basic = (): JSX.Element => {
 	const [value, setValue] = useState<number>(1);
 	return (
 		<Select<number>
@@ -70,7 +70,7 @@ instead of just string. In the example below, the type of value is \`number\`,
 but in practice you can use more complex types such as objects or symbols.
 `);
 
-export const StringOptionUtility = () => (
+export const StringOptionUtility = (): JSX.Element => (
 	<Select<string>
 		options={["Red", "Blue", "Green"].map(Select.toStringOption)}
 	/>
@@ -87,7 +87,7 @@ options, which calls \`toString\` to provide "id" and "label" fields.
 
 _Story.name(StringOptionUtility, "toStringOption Utility");
 
-export const Placeholder = () => {
+export const Placeholder = (): JSX.Element => {
 	const [value, setValue] = useState<null | number>(null);
 	return (
 		<Select<number>

@@ -22,7 +22,6 @@ export * from "./pane/pane";
 export * from "./popover/popover";
 export * from "./progress/circle";
 export * from "./radio/radio";
-export * from "./range/range";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";
 export * from "./step/step";

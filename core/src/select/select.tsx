@@ -131,7 +131,7 @@ const onChange = <T,>(
 	props.setValue(option.value);
 };
 
-export const Select = <T,>(props: SelectProps<T>) => {
+export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
 	const cls = getClassNames(props);
 	const value = findId(props, props.value);
 	const defaultValue = findId(props, props.defaultValue);
