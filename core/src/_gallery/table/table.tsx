@@ -158,7 +158,7 @@ export const GalleryTable = (): JSX.Element => (
 				columns={getColumns()}
 				rowKey={(robot) => robot.id}
 				expandRowRender={(robot) => <Note robot={robot} />}
-				fixed
+				fixed={{ firstColumn: true }}
 			/>
 		</div>
 	</M.Pane>

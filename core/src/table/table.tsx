@@ -2,7 +2,8 @@ import { ReactNode, useState } from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { text } from "../text/text";
-import fixed from "./fixed.module.css";
+import sFixed from "./fixed.module.css";
+import sSizes from "./sizes.module.css";
 import { getTableRow } from "./row/row";
 import s from "./table.module.css";
 
@@ -32,6 +33,12 @@ export interface TableColumn<R> {
 export type TableSize = {
 	cell: string;
 };
+
+export interface TableFixed {
+	firstColumn?: boolean;
+	lastColumn?: boolean;
+	header?: boolean;
+}
 
 export interface TableProps<R> {
 	/**
@@ -63,17 +70,17 @@ export interface TableProps<R> {
 	 */
 	expandRowRender?: (row: R) => ReactNode;
 	/**
-	 * Whether to fix the table's header and first column position while the
-	 * rest is scrolled. These positions are relative to the table's nearest
-	 * scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
+	 * Whether to fix the table's header and/or first column and/or last column
+	 * while the rest is scrolled. These positions are relative to the table's
+	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
-	fixed?: boolean;
+	fixed?: TableFixed;
 	/**
-	 *	 when you want to make the table takes 100% of its container width
+	 * To make the table takes 100 of its container's width
 	 */
 	fill?: boolean;
 	/**
-	 * Size of the table. Choose one from Table.sizes.
+	 * Size of the table's cells. Choose one from `Table.sizes`.
 	 */
 	size?: TableSize;
 }
@@ -91,7 +98,7 @@ export interface TableState {
 	setExpanded: (key: string, value: boolean) => void;
 }
 
-export const Table = <R,>(props: TableProps<R>): JSX.Element => {
+export const Table = <R,>(props: TableProps<R>) => {
 	const [expanded, _setExpanded] = useState(() => new Set<string>());
 	const setExpanded: TableState["setExpanded"] = (key, value) => {
 		_setExpanded((prev) => {
@@ -108,14 +115,23 @@ export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 		body.push(...elements);
 	});
 
+	const fixedTableClass = props.fixed
+		? [
+				sFixed.container,
+				props.fixed.header && sFixed.header,
+				props.fixed.firstColumn && sFixed.firstColumn,
+				props.fixed.lastColumn && sFixed.lastColumn,
+		  ].filter((e) => typeof e === "string")
+		: [];
+
 	return (
 		<table
 			className={[
 				s.container,
-				props.fixed ? fixed.container : "",
 				props.fill ? s.containerFill : "",
 				background.strong,
 				props.size?.cell ?? Table.sizes.medium.cell,
+				...fixedTableClass,
 			].join(" ")}
 		>
 			<thead>
@@ -127,7 +143,7 @@ export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 };
 
 Table.sizes = {
-	large: { cell: s.large } as TableSize,
-	medium: { cell: s.medium } as TableSize,
-	small: { cell: s.small } as TableSize,
+	large: { cell: sSizes.large } as TableSize,
+	medium: { cell: sSizes.medium } as TableSize,
+	small: { cell: sSizes.small } as TableSize,
 };

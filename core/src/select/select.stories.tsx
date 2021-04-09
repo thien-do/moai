@@ -78,8 +78,11 @@ export const StringOptionUtility = (): JSX.Element => (
 
 _Story.desc(StringOptionUtility)(`
 Technically, your options must have "id", "label" and "value" fields defined.
-However, if these 3 fields are the same (usually in case of \`string\`-typed
-Select), you can use \`Select.toStringOption\` to simplify the definition:
+However, if these 3 fields are the same (usually in case of \`string\`-based
+options), you can use \`Select.toStringOption\` to simplify the definition.
+
+Similarly, there is also a \`Select.toNumberOption\` for \`number\`-based
+options, which calls \`toString\` to provide "id" and "label" fields.
 `);
 
 _Story.name(StringOptionUtility, "toStringOption Utility");

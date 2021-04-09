@@ -83,8 +83,10 @@ PopoverPane.styles = {
 			border.strong,
 			background.strong,
 		].join(" "),
-		arrow: "", // Looks below
+		arrow: [
+			border.px1,
+			border.strong,
+			background.strong
+		].join(" "),
 	},
 };
-
-PopoverPane.styles.outset.arrow = PopoverPane.styles.outset.content;

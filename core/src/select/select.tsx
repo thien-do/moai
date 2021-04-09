@@ -97,6 +97,10 @@ export interface SelectProps<T> {
 	 * The "id" attribute in HTML
 	 */
 	id?: string;
+	/**
+	 * The "required" attribute in HTML
+	 */
+	required?: boolean;
 }
 
 const renderOption = <T,>(option: SelectOption<T>): JSX.Element => (
@@ -143,6 +147,7 @@ export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
 				ref={props.forwardedRef}
 				// Controlled
 				value={value}
+				required={props.required}
 				onChange={onChange(props)}
 			/>
 			<span className={cls.icon}>
@@ -176,4 +181,10 @@ Select.toStringOption = (text: string): SelectOption<string> => ({
 	value: text,
 	id: text,
 	label: text,
+});
+
+Select.toNumberOption = (num: number): SelectOption<number> => ({
+	value: num,
+	id: num.toString(),
+	label: num.toString(),
 });
