@@ -19,6 +19,26 @@ interface Props {
 	close?: () => void;
 }
 
+const Close = (props: Props): JSX.Element | null => {
+	const close = props.close;
+	if (close === undefined) return null;
+	return (
+		<>
+			<Border color="strong" />
+			<DivPx size={12} />
+			<div className={s.button}>
+				<Button
+					size={Button.sizes.smallIcon}
+					style={Button.styles.flat}
+					icon={coreIcons.cross}
+					iconLabel="Close"
+					onClick={() => close()}
+				/>
+			</div>
+		</>
+	);
+};
+
 export const ToastPane = (props: Props): JSX.Element => (
 	<div className="dark">
 		<div
@@ -32,20 +52,7 @@ export const ToastPane = (props: Props): JSX.Element => (
 				<Paragraph>{props.children}</Paragraph>
 			</div>
 			<DivPx size={12} />
-			{props.close && (
-				<>
-					<Border color="strong" />
-					<DivPx size={12} />
-					<div className={s.button}>
-						<Button
-							size={Button.sizes.smallIcon}
-							style={Button.styles.flat}
-							icon={coreIcons.cross}
-							iconLabel="Close"
-							onClick={() => props.close()}
-						/>
-					</div>
-			</>)}
+			<Close {...props} />
 		</div>
 	</div>
 );

@@ -30,10 +30,10 @@ const bundleMain = {
 	external: [
 		"@tippyjs/react/headless",
 		"focus-visible",
-		"react-dom",
 		"react-hot-toast",
 		"react-popper",
 		"react",
+		"react-dom",
 		"react/jsx-runtime",
 		"react-day-picker/DayPickerInput",
 	],
@@ -62,6 +62,7 @@ const bundleGallery = {
 	],
 	external: [
 		"react",
+		"react-dom",
 		"react/jsx-runtime",
 		// References to "root" folder is considered as external so that
 		// they will not be bundled inside the "gallery" module

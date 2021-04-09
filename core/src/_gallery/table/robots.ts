@@ -342,7 +342,7 @@ export const ROBOTS: Robot[] = [
 	},
 ];
 
-export const MATERIALS: string[] = ((): JSX.Element => {
+export const MATERIALS: string[] = (() => {
 	const set = new Set<string>();
 	ROBOTS.forEach((robot) => {
 		robot.materials.forEach((material) => {

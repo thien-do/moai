@@ -12,13 +12,13 @@ storiesOf("Tag", module).add("Main", () => {
 		"indigo",
 		"purple",
 		"pink",
-		"gray"
-	]
+		"gray",
+	];
 
 	return (
 		<div>
 			<div style={{ display: "flex" }}>
-				{colors.map(color => (
+				{colors.map((color) => (
 					<React.Fragment key={color}>
 						<Tag color={Tag.colors[color]}>{color}</Tag>
 						<DivPx size={8} />
@@ -32,5 +32,5 @@ storiesOf("Tag", module).add("Main", () => {
 				</span>
 			</div>
 		</div>
-	)
+	);
 });

@@ -98,7 +98,7 @@ export interface TableState {
 	setExpanded: (key: string, value: boolean) => void;
 }
 
-export const Table = <R,>(props: TableProps<R>) => {
+export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 	const [expanded, _setExpanded] = useState(() => new Set<string>());
 	const setExpanded: TableState["setExpanded"] = (key, value) => {
 		_setExpanded((prev) => {
