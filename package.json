@@ -1,11 +1,21 @@
 {
 	"name": "@moai/root",
+	"scripts": {
+		"lint": "eslint --ext .ts,.tsx,.js  --ignore-path .gitignore .",
+		"lint:fix": "eslint --fix --ext .ts,.tsx,.js  --ignore-path .gitignore ."
+	},
 	"lint-staged": {
 		"*.{ts,tsx,js,css,json}": "prettier --write"
 	},
 	"devDependencies": {
-		"husky": "^6.0.0",
-		"lint-staged": "^10.5.4",
-		"prettier": "^2.2.1"
+		"@typescript-eslint/eslint-plugin": "4.21.0",
+		"@typescript-eslint/parser": "4.21.0",
+		"eslint": "7.23.0",
+		"eslint-config-prettier": "^8.1.0",
+		"eslint-plugin-react": "7.23.2",
+		"husky": "6.0.0",
+		"lint-staged": "10.5.4",
+		"prettier": "2.2.1",
+		"typescript": "4.2.3"
 	}
 }
