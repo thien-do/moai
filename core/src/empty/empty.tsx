@@ -1,12 +1,12 @@
 import s from "./empty.module.css";
-import cloudSVG from "./empty1.svg";
+import cloudSVG from "./empty.svg";
 
 interface EmptyProps {
 	message: string;
 	action?: React.ReactNode;
 }
 
-export const Empty = (props: EmptyProps): JSX.Element => {
+export const EmptyState = (props: EmptyProps): JSX.Element => {
 	const { message, action } = props;
 	return (
 		<div className={s.container}>
