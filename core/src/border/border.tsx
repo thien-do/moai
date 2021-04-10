@@ -17,6 +17,6 @@ interface Props {
 	color: keyof typeof border;
 }
 
-export const Border = (props: Props): JSX.Element => (
+export const Border = (props: Props) => (
 	<hr className={[border.px1, s.borderFull, border[props.color]].join(" ")} />
 );
