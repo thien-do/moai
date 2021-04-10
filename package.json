@@ -2,7 +2,7 @@
 	"name": "@moai/root",
 	"license": "MIT",
 	"scripts": {
-		"eslint": "eslint .",
+		"eslint": "eslint --max-warnings=0 .",
 		"prettier": "prettier --check .",
 		"test": "yarn eslint && yarn prettier"
 	},
