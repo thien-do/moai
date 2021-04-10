@@ -11,6 +11,7 @@ export * from "./checkbox/checkbox";
 export * from "./date-input/date-input";
 export * from "./dialog/dialog";
 export * from "./div/div";
+export * from "./empty/empty";
 export * from "./form/field";
 export * from "./icon/icon";
 export * from "./icons/icons";
