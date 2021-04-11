@@ -2,12 +2,10 @@
 	"name": "@moai/root",
 	"license": "MIT",
 	"scripts": {
-		"lint": "eslint .",
-		"lint-fix": "eslint --fix .",
-		"prettier": "prettier --write .",
-		"prettier-test": "prettier --check .",
-		"test": "yarn lint && yarn prettier-test",
-		"fix": "yarn lint-fix && yarn prettier"
+		"eslint": "eslint --max-warnings=0 .",
+		"prettier": "prettier --check .",
+		"test": "yarn eslint && yarn prettier",
+		"format-fix": "eslint --fix . && prettier --write ."
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "4.21.0",
