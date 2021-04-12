@@ -4,7 +4,8 @@
 	"scripts": {
 		"eslint": "eslint --max-warnings=0 .",
 		"prettier": "prettier --check .",
-		"test": "yarn eslint && yarn prettier"
+		"test": "yarn eslint && yarn prettier",
+		"format-fix": "eslint --fix . && prettier --write ."
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "4.21.0",
