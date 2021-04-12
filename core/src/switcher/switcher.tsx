@@ -28,6 +28,7 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 					key={option.label || option.key}
 					icon={option.icon}
 					children={option.label}
+					highlight={selected}
 					onClick={() => {
 						if (selected === false) props.setValue(option.value);
 					}}
