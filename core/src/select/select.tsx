@@ -7,9 +7,9 @@ import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
 import s from "./select.module.css";
 
-export type SelectStyle = {
+export interface SelectStyle {
 	select: string;
-};
+}
 
 export interface SelectSize {
 	select: string;

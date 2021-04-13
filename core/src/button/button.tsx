@@ -15,11 +15,11 @@ export interface ButtonStyle {
 	busy: string;
 }
 
-export type ButtonSize = {
+export interface ButtonSize {
 	main: string;
 	iconSize: IconSize;
 	iconMargin: DivSize;
-};
+}
 
 const getClass = (props: ButtonProps) => {
 	const size = props.size ?? Button.sizes.medium;
