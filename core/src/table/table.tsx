@@ -30,9 +30,9 @@ export interface TableColumn<R> {
 		| ((row: R, index: number) => ReactNode); // Render function;
 }
 
-export type TableSize = {
+export interface TableSize {
 	cell: string;
-};
+}
 
 export interface TableFixed {
 	firstColumn?: boolean;
