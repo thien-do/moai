@@ -18,6 +18,11 @@ interface Props<T> {
 	highlight?: boolean;
 	size?: ButtonSize;
 	style?: ButtonStyle;
+	/**
+	 * Whether to disable the Switcher. This disables all buttons. To disable
+	 * some option, use SwitcherOption.disabled attribute.
+	 */
+	disabled?: boolean;
 }
 
 export const Switcher = <T,>(props: Props<T>): JSX.Element => (
@@ -32,7 +37,7 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 					onClick={() => {
 						if (selected === false) props.setValue(option.value);
 					}}
-					disabled={option.disabled}
+					disabled={props.disabled || option.disabled}
 					fill={props.fill}
 					size={props.size}
 					style={props.style}
