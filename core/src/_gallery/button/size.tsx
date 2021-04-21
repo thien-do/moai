@@ -1,5 +1,5 @@
 import * as go from "react-icons/go";
-import { Button, ButtonGroup, coreIcons, DivPx } from "..";
+import { Button, ButtonGroup, DivPx } from "..";
 import s from "../styles.module.css";
 
 const ss = Button.sizes;
