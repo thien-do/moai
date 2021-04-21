@@ -6,6 +6,10 @@ export interface SwitcherOption<T> {
 	value: T;
 	label?: string;
 	icon?: IconType;
+	/**
+	 * The accessible label for the icon, if you provide no "label" prop.
+	 */
+	iconLabel?: ButtonProps["iconLabel"];
 	key?: string;
 	disabled?: boolean;
 }
@@ -33,6 +37,7 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 				<Button
 					key={option.label || option.key}
 					icon={option.icon}
+					iconLabel={option.iconLabel}
 					children={option.label}
 					onClick={() => {
 						if (selected === false) props.setValue(option.value);
