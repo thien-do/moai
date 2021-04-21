@@ -15,6 +15,7 @@ interface Props<T> {
 	setValue: (value: T) => void;
 	options: SwitcherOption<T>[];
 	fill?: boolean;
+	highlight?: boolean;
 	size?: ButtonSize;
 	style?: ButtonStyle;
 }
@@ -31,11 +32,13 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 					onClick={() => {
 						if (selected === false) props.setValue(option.value);
 					}}
-					selected={selected}
 					disabled={option.disabled}
 					fill={props.fill}
 					size={props.size}
 					style={props.style}
+					{...(props.highlight
+						? { selected: selected }
+						: { highlight: selected })}
 				/>
 			);
 		})}
