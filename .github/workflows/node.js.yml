@@ -12,4 +12,4 @@ jobs:
               with:
                   node-version: 15.x
             - run: yarn install
-            - run: yarn test
+            - run: yarn lint
