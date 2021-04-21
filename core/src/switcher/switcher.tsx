@@ -72,7 +72,7 @@ interface Props<T> {
 /**
  * The Switcher component displays several options as grouped buttons for the
  * users to select. It should be used when there are less than 5 options.
- * 
+ *
  * Switchers only supports 1 selected option. To let the users select several
  * options, use Checkboxes or ButtonGroup.
  */
