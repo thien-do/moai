@@ -1,6 +1,5 @@
-import * as ri from "react-icons/ri";
-import { BsDot } from "react-icons/bs";
 import * as go from "react-icons/go";
+import * as ri from "react-icons/ri";
 
 /**
  * A very small subset of the "icon" package. This contains icons that are used

@@ -1,10 +1,9 @@
+import * as go from "react-icons/go";
 import { Button, ButtonGroup, coreIcons, DivPx } from "..";
 import s from "../styles.module.css";
-import * as go from "react-icons/go";
 
 const ss = Button.sizes;
 const mi = ss.mediumIcon;
-const i = coreIcons;
 
 const IconRow = ({ disabled }: { disabled: boolean }): JSX.Element => {
 	const d = { disabled };
@@ -16,7 +15,12 @@ const IconRow = ({ disabled }: { disabled: boolean }): JSX.Element => {
 			<DivPx size={8} />
 			<ButtonGroup>
 				<Button {...d} icon={go.GoPlus} children="Add" />
-				<Button {...d} icon={go.GoKebabHorizontal} iconLabel="More" size={mi} />
+				<Button
+					{...d}
+					icon={go.GoKebabHorizontal}
+					iconLabel="More"
+					size={mi}
+				/>
 			</ButtonGroup>
 		</div>
 	);
