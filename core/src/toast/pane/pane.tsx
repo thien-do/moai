@@ -1,15 +1,16 @@
 import { ReactNode } from "react";
+import { IconType } from "react-icons";
 import { border, Border } from "../../border/border";
-import { shadow } from "../../shadow/shadow";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
-import { Icon, IconPath } from "../../icon/icon";
+import { Icon } from "../../icon/icon";
 import { coreIcons } from "../../icons/icons";
+import { shadow } from "../../shadow/shadow";
 import { Paragraph, text } from "../../text/text";
 import s from "./pane.module.css";
 
 export interface ToastPaneType {
-	iconPath: IconPath;
+	iconPath: IconType;
 	iconCls: string;
 }
 

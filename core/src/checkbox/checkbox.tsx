@@ -72,13 +72,13 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 			/>
 			<span
 				className={[shared.icon, style.icon, self.check].join(" ")}
-				children={<Icon display="block" path={coreIcons.tick} />}
+				children={<Icon display="block" path={coreIcons.check} />}
 			/>
 			<span
 				className={[shared.icon, style.icon, self.indeterminate].join(
 					" "
 				)}
-				children={<Icon display="block" path={coreIcons.minus} />}
+				children={<Icon display="block" path={coreIcons.dash} />}
 			/>
 			<span
 				className={[shared.label, style.label].join(" ")}

@@ -1,6 +1,7 @@
 import * as M from "..";
 import s from "../styles.module.css";
 import { MATERIALS } from "../table/robots";
+import { GoSearch } from "react-icons/go";
 
 const materialOptions: M.SelectOption<string>[] = MATERIALS.map((material) => {
 	const option = M.Select.toStringOption(material);
@@ -54,7 +55,7 @@ const Full = (): JSX.Element => (
 const Group = (): JSX.Element => {
 	const select = <M.Select options={modelOptions} defaultValue="Posts" />;
 	const input = <M.Input defaultValue="" placeholder="Type to search" />;
-	const button = <M.Button iconLabel="Search" icon={M.coreIcons.search} />;
+	const button = <M.Button iconLabel="Search" icon={GoSearch} />;
 	const children: M.ButtonGroupItemProps[] = [
 		{ fill: false, element: select },
 		{ fill: true, element: input },

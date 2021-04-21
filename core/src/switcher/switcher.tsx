@@ -1,11 +1,11 @@
+import { IconType } from "react-icons";
 import { ButtonGroup } from "../button-group/button-group";
 import { Button, ButtonSize, ButtonStyle } from "../button/button";
-import { IconPath } from "../icon/icon";
 
 export interface SwitcherOption<T> {
 	value: T;
 	label?: string;
-	icon?: IconPath;
+	icon?: IconType;
 	key?: string;
 	disabled?: boolean;
 }

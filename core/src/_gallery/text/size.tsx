@@ -1,4 +1,5 @@
-import { Input, Button, ButtonGroup, coreIcons, DivPx } from "..";
+import { GoSearch } from "react-icons/go";
+import { Button, ButtonGroup, DivPx, Input } from "..";
 import s from "../styles.module.css";
 
 const ss = Input.sizes;
@@ -6,7 +7,7 @@ const ss = Input.sizes;
 const Group = ({ disabled }: { disabled: boolean }): JSX.Element => {
 	const d = { disabled };
 	const input = <Input {...d} placeholder="With button" />;
-	const button = <Button {...d} iconLabel="Search" icon={coreIcons.search} />;
+	const button = <Button {...d} iconLabel="Search" icon={GoSearch} />;
 	return (
 		<ButtonGroup
 			fill
@@ -29,7 +30,7 @@ export const GalleryTextSize = (): JSX.Element => (
 		</div>
 		<DivPx size={8} />
 		<div>
-			<Input icon={coreIcons.search} placeholder="With icon" />
+			<Input icon={GoSearch} placeholder="With icon" />
 			<DivPx size={8} />
 			<Group disabled={false} />
 			<DivPx size={8} />

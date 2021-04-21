@@ -42,6 +42,7 @@
 		"@tippyjs/react": "4.2.5",
 		"react-day-picker": "7.4.10",
 		"react-hot-toast": "1.0.2",
+		"react-icons": "4.2.0",
 		"react-popper": "2.2.5"
 	},
 	"devDependencies": {

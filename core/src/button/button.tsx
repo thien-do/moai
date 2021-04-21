@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
+import { IconType } from "react-icons";
 import { border } from "../border/border";
 import { DivPx, DivSize } from "../div/div";
-import { Icon, IconPath, IconSize } from "../icon/icon";
+import { Icon, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { ProgressCircle } from "../progress/circle";
 import s from "./button.module.css";
@@ -61,7 +62,7 @@ export interface ButtonProps {
 	minWidth?: boolean;
 	// Children
 	children?: React.ReactNode;
-	icon?: IconPath;
+	icon?: IconType;
 	reverse?: boolean;
 	iconLabel?: string;
 	busy?: boolean;

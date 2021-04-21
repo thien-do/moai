@@ -18,9 +18,8 @@ export const TableCellExpand = (props: Props): JSX.Element => {
 	return (
 		<div className={s.container}>
 			<Button
-				selected={expanded}
 				onClick={() => state.setExpanded(rowKey, !expanded)}
-				icon={coreIcons.plus}
+				icon={expanded ? coreIcons.chevronUp : coreIcons.chevronDown}
 				iconLabel="Expand/collapse row"
 				size={Button.sizes.smallIcon}
 			/>

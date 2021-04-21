@@ -31,7 +31,8 @@ select.select:not([multiple]):not([size]) {
 	margin: auto;
 	top: 0px;
 	bottom: 0px;
-	height: 16px;
+	/* Also set in JSX */
+	height: 12px;
 	pointer-events: none;
 	z-index: var(--z-base);
 }

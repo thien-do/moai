@@ -30,12 +30,14 @@ const bundleMain = {
 	external: [
 		"@tippyjs/react/headless",
 		"focus-visible",
+		"react-day-picker/DayPickerInput",
+		"react-dom",
 		"react-hot-toast",
+		"react-icons/go",
+		"react-icons/ri",
 		"react-popper",
 		"react",
-		"react-dom",
 		"react/jsx-runtime",
-		"react-day-picker/DayPickerInput",
 	],
 	plugins: [
 		del({ targets: ["dist"] }),
@@ -61,8 +63,9 @@ const bundleGallery = {
 		{ file: "dist/_gallery/esm.js", format: "esm" },
 	],
 	external: [
-		"react",
 		"react-dom",
+		"react-icons/go",
+		"react",
 		"react/jsx-runtime",
 		// References to "root" folder is considered as external so that
 		// they will not be bundled inside the "gallery" module

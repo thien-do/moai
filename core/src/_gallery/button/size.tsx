@@ -1,5 +1,6 @@
 import { Button, ButtonGroup, coreIcons, DivPx } from "..";
 import s from "../styles.module.css";
+import * as go from "react-icons/go";
 
 const ss = Button.sizes;
 const mi = ss.mediumIcon;
@@ -9,13 +10,13 @@ const IconRow = ({ disabled }: { disabled: boolean }): JSX.Element => {
 	const d = { disabled };
 	return (
 		<div className={s.flex}>
-			<Button {...d} iconLabel="Search" icon={i.search} />
+			<Button {...d} iconLabel="Search" icon={go.GoSearch} />
 			<DivPx size={8} />
-			<Button {...d} iconLabel="Search" icon={i.search} size={mi} />
+			<Button {...d} iconLabel="Search" icon={go.GoSearch} size={mi} />
 			<DivPx size={8} />
 			<ButtonGroup>
-				<Button {...d} icon={i.plus} children="Add" />
-				<Button {...d} icon={i.caret} iconLabel="More" size={mi} />
+				<Button {...d} icon={go.GoPlus} children="Add" />
+				<Button {...d} icon={go.GoKebabHorizontal} iconLabel="More" size={mi} />
 			</ButtonGroup>
 		</div>
 	);
@@ -24,18 +25,18 @@ const IconRow = ({ disabled }: { disabled: boolean }): JSX.Element => {
 export const GalleryButtonSize = (): JSX.Element => (
 	<div className={s.flex}>
 		<div>
-			<Button icon={i.plus} size={ss.large} children="Large" />
+			<Button icon={go.GoPlus} size={ss.large} children="Large" />
 			<DivPx size={8} />
-			<Button icon={i.plus} size={ss.medium} children="Medium" />
+			<Button icon={go.GoPlus} size={ss.medium} children="Medium" />
 			<DivPx size={8} />
-			<Button icon={i.plus} size={ss.small} children="Small" />
+			<Button icon={go.GoPlus} size={ss.small} children="Small" />
 		</div>
 		<DivPx size={8} />
 		<div>
 			<div className={s.flex}>
-				<Button children="Previous" icon={i.arrowLeft} />
+				<Button children="Previous" icon={go.GoChevronLeft} />
 				<DivPx size={8} />
-				<Button children="Next" icon={i.arrowRight} reverse />
+				<Button children="Next" icon={go.GoChevronRight} reverse />
 			</div>
 			<DivPx size={8} />
 			<IconRow disabled={false} />

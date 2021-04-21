@@ -3,6 +3,7 @@ import * as M from "..";
 import { DivPx } from "../../div/div";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";
+import { GoSearch, GoMail } from "react-icons/go";
 
 interface RowProps {
 	robot: Robot;
@@ -14,7 +15,7 @@ const SearchHeader = ({ children }: { children: string }): JSX.Element => (
 	<div>
 		<div>{children}</div>
 		<M.DivPx size={8} />
-		<M.Input icon={M.coreIcons.search} placeholder="Search" />
+		<M.Input icon={GoSearch} placeholder="Search" />
 	</div>
 );
 
@@ -113,11 +114,7 @@ const Note: Column = ({ robot }: RowProps) => (
 
 const Mac: Column = ({ robot }: RowProps) => (
 	<div className={s.mac}>
-		<M.Button
-			size={M.Button.sizes.small}
-			icon={M.coreIcons.duplicate}
-			iconLabel="Copy"
-		/>
+		<M.Button size={M.Button.sizes.small} icon={GoMail} iconLabel="Mail" />
 		<M.DivPx size={8} />
 		<div>{robot.MAC}</div>
 	</div>
@@ -158,7 +155,7 @@ export const GalleryTable = (): JSX.Element => (
 				columns={getColumns()}
 				rowKey={(robot) => robot.id}
 				expandRowRender={(robot) => <Note robot={robot} />}
-				fixed={{ firstColumn: true }}
+				fixed={{ header: true, firstColumn: true }}
 			/>
 		</div>
 	</M.Pane>
