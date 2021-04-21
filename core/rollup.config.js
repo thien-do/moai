@@ -44,6 +44,8 @@ const bundleMain = {
 		copy({
 			targets: [
 				{ src: "font", dest: "dist" },
+				// This package.json is necessary for "gallery" to import
+				// "core"
 				{ src: "src/package.json", dest: "dist" },
 			],
 		}),

@@ -1,8 +1,7 @@
-import { background, Border, DivPx } from "@moai/core";
+import { background, Border, DivPx, Paragraph } from "@moai/core";
 import { Gallery, GallerySection } from "@moai/core/dist/_gallery";
 import "@moai/core/dist/_gallery/bundle.css";
 import { Hero } from "../components/hero/hero";
-import { GalleryIcon } from "../components/icon/icon";
 import { Toolbar } from "../components/toolbar/toolbar";
 import s from "./index.module.css";
 
@@ -18,9 +17,16 @@ const Index = (): JSX.Element => (
 			<Gallery />
 			<DivPx size={32} />
 			<GallerySection title="Icons">
-				<div style={{ gridColumn: "1 / -1" }}>
-					<GalleryIcon />
-				</div>
+				<Paragraph>
+					<span>Moai is fully compatible with </span>
+					<a
+						href="https://react-icons.github.io/react-icons/"
+						target="_blank"
+						rel="noreferrer"
+						children="react-icons"
+					/>
+					<span>!</span>
+				</Paragraph>
 			</GallerySection>
 		</div>
 	</div>
