@@ -47,8 +47,8 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 					size={props.size}
 					style={props.style}
 					{...(props.highlight
-						? { selected: selected }
-						: { highlight: selected })}
+						? { highlight: selected }
+						: { selected: selected })}
 				/>
 			);
 		})}
