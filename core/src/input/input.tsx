@@ -1,11 +1,12 @@
 import React from "react";
-import { Icon, IconPath, IconSize } from "../icon/icon";
+import { IconType } from "react-icons";
+import { border } from "../border/border";
+import { Icon, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
+import sFlat from "./flat.module.css";
 import s from "./input.module.css";
 import sOutset from "./outset.module.css";
-import sFlat from "./flat.module.css";
-import { border } from "../border/border";
 
 export interface InputStyle {
 	main: string;
@@ -72,7 +73,7 @@ export interface InputProps {
 	list?: { id: string; values: string[] } | string;
 
 	// Style
-	icon?: IconPath;
+	icon?: IconType;
 
 	/**
 	 * Style of the text box. Choose one from `Input.styles`

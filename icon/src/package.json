@@ -1,5 +1,0 @@
-{
-	"main": "cjs/index.js",
-	"module": "esm/index.js",
-	"sideEffects": false
-}

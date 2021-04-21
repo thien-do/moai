@@ -1,5 +1,5 @@
 import { Button, DivPx, text } from "@moai/core";
-import { ArrowCircleRight } from "@moai/icon/hro";
+import { GoChevronRight } from "react-icons/go";
 import s from "./hero.module.css";
 
 export const Hero = (): JSX.Element => (
@@ -14,7 +14,7 @@ export const Hero = (): JSX.Element => (
 		<div className={s.buttons}>
 			<Button
 				size={Button.sizes.large}
-				icon={ArrowCircleRight}
+				icon={GoChevronRight}
 				reverse
 				highlight
 				children="Docs"

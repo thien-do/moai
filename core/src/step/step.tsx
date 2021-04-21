@@ -30,7 +30,7 @@ const Title = (props: StepProps): JSX.Element => (
 			].join(" ")}
 		>
 			{props.index < props.current ? (
-				<Icon path={coreIcons.tick} size={16} display="block" />
+				<Icon path={coreIcons.check} size={16} display="block" />
 			) : (
 				<span>{props.index + 1}</span>
 			)}
