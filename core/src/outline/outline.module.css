@@ -7,9 +7,10 @@
 	outline-offset: -2px;
 }
 
-.normal::-moz-focus-inner,
-.always::-moz-focus-inner {
-	border: none;
+/* Resets the outline style set by Tailwind's preflight */
+.normal:focus {
+	outline-style: solid;
+	outline-color: transparent;
 }
 
 .normal:global(.focus-visible),

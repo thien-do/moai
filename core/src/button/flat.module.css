@@ -3,6 +3,7 @@
 	border-radius: 0;
 	/* To have same layout with outset buttons */
 	border: solid 1px transparent;
+	background: none;
 }
 
 /* HIGHLIGHT */
