@@ -89,6 +89,10 @@ generic reset CSS, see "reset.css"
 	--z-overlay-top: 6;
 }
 
+/**
+Tailwind's reset only inherit font-family and size. We need other properties,
+such as weight and variants.
+*/
 button,
 input,
 optgroup,
@@ -103,6 +107,18 @@ a {
 
 th {
 	text-align: left;
+}
+
+/**
+Reset the max-width def of Tailwind's preflight as it causes hard bugs when
+using inside intrinsic parent (e.g. min-content or overflowed table).
+
+See also:
+- https://github.com/tailwindlabs/tailwindcss/issues/4211
+*/
+img,
+video {
+	max-width: none;
 }
 
 html {
