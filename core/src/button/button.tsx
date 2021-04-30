@@ -4,16 +4,22 @@ import { border } from "../border/border";
 import { DivPx, DivSize } from "../div/div";
 import { Icon, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
-import { ProgressCircle } from "../progress/circle";
+import { ProgressCircle, ProgressCircleColor } from "../progress/circle";
 import s from "./button.module.css";
 import flat from "./flat.module.css";
 import outset from "./outset.module.css";
+
+interface ButtonBusyStyle {
+	className: string;
+	color: ProgressCircleColor;
+	highlightColor: ProgressCircleColor;
+}
 
 export interface ButtonStyle {
 	main: string;
 	selected: string;
 	highlight: string;
-	busy: string;
+	busy: ButtonBusyStyle;
 }
 
 export interface ButtonSize {
@@ -30,7 +36,7 @@ const getClass = (props: ButtonProps) => {
 	if (props.minWidth) classes.push(s.minWidth);
 	if (props.selected) classes.push(style.selected);
 	if (props.highlight) classes.push(style.highlight);
-	if (props.busy) classes.push(style.busy);
+	if (props.busy) classes.push(style.busy.className);
 	if (props.icon && props.reverse) classes.push(s.reverse);
 	return classes.join(" ");
 };
@@ -68,6 +74,11 @@ export interface ButtonProps {
 	busy?: boolean;
 }
 
+const getProgressColor = (props: ButtonProps): ProgressCircleColor => {
+	const style = props.style ?? Button.styles.outset;
+	return props.highlight ? style.busy.highlightColor : style.busy.color;
+};
+
 export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 	const size = props.size ?? Button.sizes.medium;
 	return (
@@ -77,11 +88,7 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 					<ProgressCircle
 						size={size.iconSize}
 						value="indeterminate"
-						color={
-							props.highlight
-								? ProgressCircle.colors.inverse
-								: ProgressCircle.colors.neutral
-						}
+						color={getProgressColor(props)}
 					/>
 				</span>
 			)}
@@ -157,13 +164,21 @@ Button.styles = {
 		main: [border.radius, outset.main].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
-		busy: outset.busy,
+		busy: {
+			className: outset.busy,
+			color: ProgressCircle.colors.neutral,
+			highlightColor: ProgressCircle.colors.inverse,
+		},
 	} as ButtonStyle,
 	flat: {
 		main: [flat.main].join(" "),
 		selected: flat.selected,
 		highlight: flat.highlight,
-		busy: flat.busy,
+		busy: {
+			className: flat.busy,
+			color: ProgressCircle.colors.neutral,
+			highlightColor: ProgressCircle.colors.highlight,
+		},
 	} as ButtonStyle,
 };
 
