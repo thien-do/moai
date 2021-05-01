@@ -1,14 +1,19 @@
+/**
+Moai's global styling, such as our theming and typography. For the neutral,
+generic reset CSS, see "reset.css"
+*/
+
 :root {
-	--highlight-0: #f0f9ff;
-	--highlight-1: #e1f3fe;
-	--highlight-2: #bae5fd;
-	--highlight-3: #7ed4fc;
+	--highlight-0: hsl(204, 100%, 97%);
+	--highlight-1: hsl(203, 94%, 94%);
+	--highlight-2: hsl(201, 94%, 86%);
+	--highlight-3: hsl(199, 95%, 74%);
 	--highlight-4: hsl(198, 93%, 55%);
 	--highlight-5: hsl(199, 89%, 48%);
 	--highlight-6: hsl(200, 98%, 39%);
 	--highlight-7: hsl(201, 96%, 32%);
-	--highlight-8: #075783;
-	--highlight-9: #0c4a6e;
+	--highlight-8: hsl(201, 90%, 27%);
+	--highlight-9: hsl(202, 80%, 24%);
 
 	--success-0: #ecfdf5;
 	--success-1: #d1fae5;
@@ -32,8 +37,8 @@
 	--failure-8: #9f1239;
 	--failure-9: #881337;
 
-	--white: #ffffff;
-	--black: #000000;
+	--white: hsl(0, 0%, 100%);
+	--black: hsl(0, 0%, 0%);
 
 	--gray-0: hsl(235, 18%, 98%); /* light app bg */
 	--gray-1: hsl(220, 13%, 90%);
@@ -84,62 +89,36 @@
 	--z-overlay-top: 6;
 }
 
-body {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-/* Avoid override filled icons */
-svg:not([fill]) {
-	fill: currentColor;
-}
-
-p,
-hr,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	/* Decouple semantic from styling */
-	margin: 0;
+/**
+Tailwind's reset only inherit font-family and size. We need other properties,
+such as weight and variants.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
 	font: inherit;
-}
-
-ul,
-ol {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
 }
 
 a {
 	color: var(--highlight-6);
 }
 
-fieldset,
-button,
-input,
-select,
-textarea {
-	display: block;
-
-	background: none;
-	border: none;
-	margin: 0;
-	padding: 0;
-
-	color: inherit;
-	font: inherit;
-	letter-spacing: inherit;
-}
-
 th {
 	text-align: left;
+}
+
+/**
+Reset the max-width def of Tailwind's preflight as it causes hard bugs when
+using inside intrinsic parent (e.g. min-content or overflowed table).
+
+See also:
+- https://github.com/tailwindlabs/tailwindcss/issues/4211
+*/
+img,
+video {
+	max-width: none;
 }
 
 html {
