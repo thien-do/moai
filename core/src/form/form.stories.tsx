@@ -1,14 +1,8 @@
 import { Description, Stories, Title } from "@storybook/addon-docs/blocks";
 import { Meta } from "@storybook/react/types-6-0";
-import {
-	ErrorMessage,
-	Field,
-	Form,
-	Formik,
-	FormikErrors,
-	FormikProps,
-} from "formik";
-import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
+import React, { useState } from "react";
 import { Button } from "../button/button";
 import { DivPx } from "../div/div";
 import { Input } from "../input/input";
@@ -28,10 +22,10 @@ export default {
 			),
 			description: {
 				component: `
-Moai doesn't come with a built-in form solution. Instead, our components (like
-[Input][3] and [TextArea][4]) are designed to work with popular form builders
-(such as [Formik][1] or [React Hook Form][2]) out of the box. This page
-showcases these usages.
+Moai doesn't come with a built-in form solution. Instead, our input components
+(like [Input][3] and [TextArea][4]) are designed to work with popular form
+builders (such as [Formik][1] or [React Hook Form][2]) out of the box. This
+page showcases these usages.
 
 [1]: https://formik.org/
 [2]: https://react-hook-form.com/
@@ -45,70 +39,190 @@ showcases these usages.
 
 interface FormValues {
 	email: string;
-	password: string;
+	pass: string;
 }
 
-const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const postToServer = async (values: FormValues): Promise<void> => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			alert(JSON.stringify(values, null, 2));
+			resolve();
+		}, 500);
+	});
+};
 
+// Is required by Storybook
 export const Primary = (): JSX.Element => <div>Skipped</div>;
 
 export const FormikExample = (): JSX.Element => {
 	/* import { Input, Button, FormError } from "@moai/core" */
 
-	const render = ({ isSubmitting }: FormikProps<FormValues>) => (
-		<Form>
-			<label htmlFor="email">Email</label>
-			<Field id="email" type="email" name="email" as={Input} />
+	const email = (
+		<>
+			<label htmlFor="fm-email">Email</label>
+			<Field id="fm-email" type="email" name="email" as={Input} />
 			<ErrorMessage name="email" component={FormError} />
-			<DivPx size={16} />
-
-			<label htmlFor="password">Password</label>
-			<Field id="password" type="password" name="password" as={Input} />
-			<ErrorMessage name="password" component={FormError} />
-			<DivPx size={16} />
-
-			<Button type="submit" highlight busy={isSubmitting}>
-				Submit
-			</Button>
-		</Form>
+		</>
 	);
+
+	const password = (
+		<>
+			<label htmlFor="fm-pass">Password</label>
+			<Field id="fm-pass" type="password" name="pass" as={Input} />
+			<ErrorMessage name="pass" component={FormError} />
+		</>
+	);
+
 	return (
-		<div style={{ width: 240 }}>
-			<Formik<FormValues>
-				initialValues={{ email: "", password: "" }}
-				validate={(values) => {
-					const errors: FormikErrors<FormValues> = {};
-					if (!values.email) {
-						errors.email = "Required";
-					} else if (!emailRegex.test(values.email)) {
-						errors.email = "Invalid email address";
-					}
-					return errors;
-				}}
-				onSubmit={(values, { setSubmitting }) => {
-					setTimeout(() => {
-						alert(JSON.stringify(values, null, 2));
-						setSubmitting(false);
-					}, 400);
-				}}
-				children={render}
-			/>
-		</div>
+		<Formik<FormValues>
+			initialValues={{ email: "", pass: "" }}
+			validate={(values) => {
+				const errors: FormikErrors<FormValues> = {};
+				if (!values.email) errors.email = "Email is required";
+				if (!values.pass) errors.pass = "Password is required";
+				return errors;
+			}}
+			onSubmit={async (values, { setSubmitting }) => {
+				await postToServer(values);
+				setSubmitting(false);
+			}}
+			children={({ isSubmitting: busy }) => (
+				<Form>
+					{email}
+					<DivPx size={16} />
+					{password}
+					<DivPx size={16} />
+					<Button
+						type="submit"
+						highlight
+						busy={busy}
+						children="Submit"
+					/>
+				</Form>
+			)}
+		/>
 	);
 };
 
 _Story.desc(FormikExample)(`
-Moai's [Input][3] and [TextArea][4] can be passed directly to the "as" prop of
-Formik's [Field][1] component. Similarly, FormError should be passed to the
-"component" prop of Formik's [ErrorMessage][2] component.
+To use Moai's input components with Formik, pass them to the "as" prop of
+Formik's [Field][1] component:
 
 [1]: https://formik.org/docs/api/field
+
+~~~tsx
+import { Field } from "formik";
+import { Input } from "@moai/core";
+
+<label htmlFor="email">Email</label>
+<Field id="email" type="email" name="email" as={Input} />
+~~~
+
+To show errors, pass FormError to the "component" prop of Formik's
+[ErrorMessage][2] component:
+
+~~~tsx
+import { ErrorMessage } from "formik";
+import { FormError } from "@moai/core";
+
+<ErrorMessage name="email" component={FormError} />
+~~~
+
 [2]: https://formik.org/docs/api/errormessage
-[3]: /docs/components-input--primary
-[4]: /docs/components-textarea--primary
 
-We are working on [Select][5] and other input components.
-
-[5]: /docs/components-textarea--primary
+Full example:
 `);
+
 _Story.name(FormikExample, "Formik");
+
+export const ReactHookForm = (): JSX.Element => {
+	/* import { Input, Button, FormError } from "@moai/core" */
+
+	const { control, formState, handleSubmit } = useForm<FormValues>();
+	const { errors } = formState;
+	const [busy, setBusy] = useState(false);
+
+	const email = (
+		<>
+			<label htmlFor="rhf-email">Email</label>
+			<Controller
+				name="email"
+				control={control}
+				render={({ field }) => (
+					<Input {...field} id="rhf-email" type="email" />
+				)}
+				rules={{ required: "Email is required" }}
+				defaultValue=""
+			/>
+			<FormError children={errors.email?.message} />
+		</>
+	);
+
+	const password = (
+		<>
+			<label htmlFor="rhf-password">Password</label>
+			<Controller
+				name="pass"
+				control={control}
+				render={({ field }) => (
+					<Input {...field} id="rhf-password" type="password" />
+				)}
+				rules={{ required: "Password is required" }}
+				defaultValue=""
+			/>
+			<FormError children={errors.pass?.message} />
+		</>
+	);
+
+	return (
+		<form
+			onSubmit={handleSubmit(async (data) => {
+				setBusy(true);
+				await postToServer(data);
+				setBusy(false);
+			})}
+		>
+			{email}
+			<DivPx size={16} />
+			{password}
+			<DivPx size={16} />
+			<Button type="submit" highlight busy={busy} children="Submit" />
+		</form>
+	);
+};
+
+_Story.desc(ReactHookForm)(`
+To use Moai's input components with React Hook Form, [render][2] them in the
+"render" prop of RHF's [Controller][1] component:
+
+~~~tsx
+import { Controller } from "react-hook-form";
+import { Input } from "@moai/core";
+
+<label htmlFor="email">Email</label>
+<Controller
+	name="email"
+	control={control}
+	render={({ field }) => (
+		<Input {...field} id="email" type="email" />
+	)}
+	rules={{ required: "Email is required" }}
+/>
+~~~
+
+[1]: https://react-hook-form.com/api#Controller
+[2]: https://react-hook-form.com/get-started#IntegratingwithUIlibraries
+
+To show errors, pass RHF's [error messages][3] as children of Moai's FormError
+component:
+
+~~~tsx
+import { FormError } from "@moai/core";
+
+<FormError children={errors.email?.message} />
+~~~
+
+[3]: https://react-hook-form.com/advanced-usage#ErrorMessages
+
+Full example:
+`);

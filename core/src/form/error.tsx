@@ -5,6 +5,7 @@ interface Props {
 	children?: React.ReactNode;
 }
 
-export const FormError = ({ children }: Props): JSX.Element => (
-	<div className={text.failureStrong} children={children} />
-);
+export const FormError = ({ children }: Props): JSX.Element | null => {
+	if (!children) return null;
+	return <div className={text.failureStrong} children={children} />;
+};

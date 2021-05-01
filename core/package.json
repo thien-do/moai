@@ -58,6 +58,7 @@
 		"postcss": "8.2.13",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
+		"react-hook-form": "7.3.6",
 		"rollup": "2.46.0",
 		"rollup-plugin-copy": "3.4.0",
 		"rollup-plugin-delete": "2.0.0",
