@@ -24,7 +24,7 @@ export default {
 				component: `
 Moai doesn't come with a built-in form solution. Instead, our input components
 (like [Input][3] and [TextArea][4]) are designed to work with popular form
-builders (such as [Formik][1] or [React Hook Form][2]) out of the box.
+builders (such as [Formik][1] and [React Hook Form][2]) out of the box.
 
 [1]: https://formik.org/
 [2]: https://react-hook-form.com/
@@ -159,16 +159,12 @@ export const ReactHookForm = (): JSX.Element => {
 
 	const password = (
 		<>
-			<label htmlFor="rhf-password">Password</label>
+			<label htmlFor="rhf-pass">Password</label>
 			<Controller
 				name="pass"
 				control={control}
 				render={({ field }) => (
-					<Input.Forwarded
-						{...field}
-						id="rhf-password"
-						type="password"
-					/>
+					<Input.Forwarded {...field} id="rhf-pass" type="password" />
 				)}
 				rules={{ required: "Password is required" }}
 				defaultValue=""
