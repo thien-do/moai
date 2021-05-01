@@ -15,14 +15,17 @@ interface Props {
 export const TableCellExpand = (props: Props): JSX.Element => {
 	const { state, rowKey, children } = props;
 	const expanded = state.expanded.has(rowKey);
+	const icon = expanded ? coreIcons.chevronUp : coreIcons.chevronDown;
 	return (
 		<div className={s.container}>
-			<Button
-				onClick={() => state.setExpanded(rowKey, !expanded)}
-				icon={expanded ? coreIcons.chevronUp : coreIcons.chevronDown}
-				iconLabel="Expand/collapse row"
-				size={Button.sizes.smallIcon}
-			/>
+			<div className={s.child}>
+				<Button
+					onClick={() => state.setExpanded(rowKey, !expanded)}
+					icon={icon}
+					iconLabel="Expand/collapse row"
+					size={Button.sizes.smallIcon}
+				/>
+			</div>
 			<DivPx size={16} />
 			{children}
 		</div>
