@@ -1,25 +1,31 @@
+import { Description, Stories, Title } from "@storybook/addon-docs/blocks";
 import { Meta } from "@storybook/react/types-6-0";
 import {
 	ErrorMessage,
-	FormikProps,
 	Field,
 	Form,
 	Formik,
 	FormikErrors,
+	FormikProps,
 } from "formik";
 import React from "react";
-import { _Story } from "../_story";
-import { Input } from "../input/input";
 import { Button } from "../button/button";
 import { DivPx } from "../div/div";
+import { Input } from "../input/input";
+import { _Story } from "../_story";
 import { FormError } from "./form";
-import { text } from "../text/text";
 
 export default {
 	title: "Guides/Form",
-	component: null,
 	parameters: {
 		docs: {
+			page: () => (
+				<>
+					<Title />
+					<Description />
+					<Stories />
+				</>
+			),
 			description: {
 				component: `
 Moai doesn't come with a built-in form solution. Instead, our components (like
@@ -44,12 +50,7 @@ interface FormValues {
 
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-export const Primary = (): JSX.Element => (
-	<div className={text.muted}>
-		This is a dummy element to bypass the Primary canvas requirement of
-		StoryBook
-	</div>
-);
+export const Primary = (): JSX.Element => <div>Skipped</div>;
 
 export const FormikExample = (): JSX.Element => {
 	/* import { Input, Button, FormError } from "@moai/core" */
