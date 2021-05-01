@@ -61,6 +61,8 @@ export interface TextAreaProps {
 	 */
 	rows?: number;
 
+	id?: string;
+	name?: string;
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
@@ -109,6 +111,8 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
 			onKeyPress={props.onKeyPress}
 			onKeyUp={props.onKeyUp}
 			// properties
+			id={props.id}
+			name={props.name}
 			className={getClass(props)}
 			rows={props.rows}
 			readOnly={props.readOnly}

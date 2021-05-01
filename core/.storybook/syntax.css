@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
 /* Standalone source code */
-.docblock-source:not(.x) {
+.docblock-source:not(.x),
+/* Source code inside a description */
+.sbdocs-pre:not(.x) > div {
 	background-color: var(--gray-0);
 	border: solid 2px var(--gray-1);
 	box-shadow: none;

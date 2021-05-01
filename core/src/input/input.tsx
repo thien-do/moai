@@ -87,6 +87,7 @@ export interface InputProps {
 
 	// Attributes
 	id?: string;
+	name?: string;
 	disabled?: boolean;
 	readOnly?: boolean;
 	placeholder?: string;
@@ -159,6 +160,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				onKeyUp={props.onKeyUp}
 				// Properties
 				id={props.id}
+				name={props.name}
 				className={getClass(props)}
 				list={
 					typeof props.list === "string"
