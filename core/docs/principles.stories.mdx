@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design Principles" />
+
+# Design Principles
+
+## Accessibility
+
+- Accessible, technical and visual
+- Friendly to human:
+	- Buttons have border, shadow to easily recognize
+	- Built-in colors pass WCAG AA
+- Friendly to machine:
+	- Icon-only buttons always have aria-label
+	- Always use native tag (Table, Select)
+- Out commitment: 95/100 of Lighthouse a11y score for apps built with Moai
+
+## Interoperability
+
+- Leverage current solutions
+- No built-in form builder, compatible with Formik and ReactHookForm
+- No built-in icon set, compatible with react-icons (remix, material, fa, you name it)
+- Compatible with Tailwind
+
+## Extension
+
+- https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
+- Public, stable API to extend
+- No CSS customization, no style overriding
+- Pseudo-headless
+
+## Developer Experience
+
+- TypeScript strict mode
+- In-code documentation
+- Commitment: 24-hour response
