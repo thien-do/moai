@@ -1,6 +1,7 @@
-import { Radio } from "./radio";
-import { _Story } from "../_story";
 import { useState } from "react";
+import { Radio } from "./radio";
+import { DivPx } from ".."
+import { _Story } from "../_story";
 
 export default {
 	title: "Components/Radio",
@@ -29,15 +30,19 @@ export const Primary = (props: Props): JSX.Element => {
 	}
 
 	return (
-		<Radio
-			defaultChecked
-			checked={props.checked}
-			disabled={props.disabled}
-			name="radio"
-			value={props.value}
-		>
-			Radio Button
-		</Radio>
+		<>
+			<Radio
+				defaultChecked
+				checked={props.checked}
+				disabled={props.disabled}
+				name="radio"
+				value={props.value}
+			>
+				Radio Button
+			</Radio>
+			<DivPx size={8} />
+			Current value: {props.value}
+		</>
 	);
 };
 
@@ -93,3 +98,8 @@ export const Group = (): JSX.Element => {
 		</>
 	);
 };
+
+_Story.desc(Group)(
+`Radio buttons allow users to select a single option from a list of options.
+All possible options are exposed up front for users to compare.`
+);
