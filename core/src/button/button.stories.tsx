@@ -1,9 +1,10 @@
 import { Meta } from "@storybook/react/types-6-0";
 import React from "react";
 import { _Story } from "../_story";
-import { Button } from "./button";
+import { Button, Input } from "../";
 import * as md from "react-icons/md";
 import { DivPx } from "../div/div";
+import { ButtonGroup } from "../button-group/button-group";
 
 // This default export determines where your story goes in the story list
 export default {
@@ -43,7 +44,7 @@ interface Props {
 	selected?: boolean;
 	busy?: boolean;
 	reverse?: boolean;
-	disable?: boolean;
+	disabled?: boolean;
 }
 
 export const Primary = (props: Props): JSX.Element => {
@@ -56,7 +57,7 @@ export const Primary = (props: Props): JSX.Element => {
 			selected={props.selected}
 			busy={props.busy}
 			reverse={props.reverse}
-			disabled={props.disable}
+			disabled={props.disabled}
 		>
 			{props.children ? props.children : "This is button"}
 		</Button>
@@ -93,14 +94,34 @@ By default, the icon is on the left side, you can change the direction by add \`
 
 _Story.name(ButtonWithIcon, "Button with icon");
 
-export const ButtonWithInput = (): JSX.Element => {
-	return <Button>Button loading state</Button>;
+export const GroupingButtons = (): JSX.Element => {
+	const input = <Input placeholder="Button with input" />;
+	const searchButtonIcon = <Button iconLabel="Search" icon={md.MdSearch} />;
+	const addButtonIcon = <Button iconLabel="Add" icon={md.MdAdd} />;
+	const saveButton = <Button children="Save" />;
+	return (
+		<>
+			<ButtonGroup
+				children={[
+					{ fill: true, element: input },
+					{ fill: false, element: searchButtonIcon },
+				]}
+			/>
+			<DivPx size={8} />
+			<ButtonGroup
+				children={[
+					{ fill: false, element: saveButton },
+					{ fill: false, element: addButtonIcon },
+				]}
+			/>
+		</>
+	);
 };
 
-_Story.desc(ButtonWithInput)(`
-WIP loading state
+_Story.desc(GroupingButtons)(`
+You can use \`ButtonGroup\` to group buttons.
 `);
-_Story.name(ButtonWithInput, "Button with input");
+_Story.name(GroupingButtons, "Grouping Buttons");
 
 export const ButtonWithLoading = (): JSX.Element => {
 	return <Button>Button loading state</Button>;
