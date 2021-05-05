@@ -1,105 +1,100 @@
-import { Story } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react/types-6-0";
 import React from "react";
-import { Button, ButtonProps } from "./button";
+import { _Story } from "../_story";
+import { Button } from "./button";
+import * as md from "react-icons/md";
 
 // This default export determines where your story goes in the story list
 export default {
-	title: "Button",
+	title: "Components/Button",
 	component: Button,
 	argTypes: {
-		style: {
-			name: "style",
-			type: { name: "object", required: true },
-			defaultValue: JSON.stringify(Button.styles.outset),
-			control: {
-				type: "inline-radio",
-				options: {
-					outset: JSON.stringify(Button.styles.outset),
-					flat: JSON.stringify(Button.styles.flat),
-				},
-			},
-		},
-		size: {
-			name: "size",
-			type: { name: "object", required: true },
-			defaultValue: JSON.stringify(Button.sizes.medium),
-			control: {
-				type: "inline-radio",
-				options: {
-					medium: JSON.stringify(Button.sizes.medium),
-					small: JSON.stringify(Button.sizes.small),
-				},
-			},
-		},
-		highlight: {
-			name: "highlight",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
-		// icon: {
-		// 	name: "icon",
-		// 	type: { name: "object", required: false },
-		// 	defaultValue: coreIcons.blank,
-		// 	control: {
-		// 		type: "select",
-		// 		options: icons,
-		// 	},
-		// },
-		disabled: {
-			name: "disable",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
-		selected: {
-			name: "selected",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
-		isFullWidth: {
-			name: "isFullWidth",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
-		isBusy: {
-			name: "isBusy",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
-		reverse: {
-			name: "reverse",
-			defaultValue: false,
-			control: {
-				type: "boolean",
-			},
-		},
+		style: _Story.arg(Button.styles),
+		size: _Story.arg(Button.sizes),
+		fill: _Story.arg("boolean"),
+		selected: _Story.arg("boolean"),
+		highlight: _Story.arg("boolean"),
+		children: _Story.arg("text"),
+		busy: _Story.arg("boolean"),
+		reverse: _Story.arg("boolean"),
+		disabled: _Story.arg("boolean"),
+		minWidth: _Story.arg(null),
+		target: _Story.arg(null),
+		href: _Story.arg(null),
+		icon: _Story.arg(null),
+		iconLabel: _Story.arg(null),
+		type: _Story.arg(null),
+		forwardedRef: _Story.arg(null),
+		onClick: _Story.arg(null),
+		onFocus: _Story.arg(null),
+		onBlur: _Story.arg(null),
+		autoFocus: _Story.arg(null),
+		dangerouslySetTabIndex: _Story.arg(null),
 	},
-};
+} as Meta;
 
-const Template: Story<ButtonProps> = (args) => {
+interface Props {
+	style?: string;
+	size?: string;
+	children?: string;
+	fill?: boolean;
+	highlight?: boolean;
+	selected?: boolean;
+	busy?: boolean;
+	reverse?: boolean;
+	disable?: boolean;
+}
+
+export const Primary = (props: Props): JSX.Element => {
 	return (
-		<>
-			<Button
-				{...args}
-				style={JSON.parse(args.style + "")}
-				size={JSON.parse(args.size + "")}
-			>
-				{args.children}
-			</Button>
-		</>
+		<Button
+			style={Button.styles[props.style]}
+			size={Button.sizes[props.size]}
+			fill={props.fill}
+			highlight={props.highlight}
+			selected={props.selected}
+			busy={props.busy}
+			reverse={props.reverse}
+			disabled={props.disable}
+		>
+			{props.children ? props.children : "This is button"}
+		</Button>
 	);
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-	children: "This is button",
+_Story.fixPrimary(Primary);
+
+export const ButtonWithIcon = (): JSX.Element => {
+	return (
+		<Button
+			highlight
+			iconLabel="Settings"
+			icon={md.MdBuild}
+			children="Settings"
+		/>
+	);
 };
+
+_Story.desc(ButtonWithIcon)(`
+You can add icon to the Button component using icon. You can also use icons from popular libraries like react-icons and pass it into the button.
+`);
+
+_Story.name(ButtonWithIcon, "Button with icon");
+
+export const ButtonWithInput = (): JSX.Element => {
+	return <Button>Button loading state</Button>;
+};
+
+_Story.desc(ButtonWithInput)(`
+WIP loading state
+`);
+_Story.name(ButtonWithInput, "Button with input");
+
+export const ButtonLoading = (): JSX.Element => {
+	return <Button>Button loading state</Button>;
+};
+
+_Story.desc(ButtonLoading)(`
+WIP loading state
+`);
+_Story.name(ButtonLoading, "Button loading state");
