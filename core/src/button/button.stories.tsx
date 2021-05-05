@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react/types-6-0";
-import React from "react";
+import React, { useState } from "react";
 import { _Story } from "../_story";
 import { Button, Input } from "../";
 import * as md from "react-icons/md";
@@ -124,10 +124,57 @@ You can use \`ButtonGroup\` to group buttons.
 _Story.name(GroupingButtons, "Grouping Buttons");
 
 export const ButtonWithLoading = (): JSX.Element => {
-	return <Button>Button loading state</Button>;
+	const [busy, setBusy] = useState(false);
+
+	return (
+		<Button
+			children="Load data"
+			busy={busy}
+			onClick={() => {
+				setBusy(true);
+				window.setTimeout(() => {
+					setBusy(false);
+				}, 1000);
+			}}
+		/>
+	);
 };
 
 _Story.desc(ButtonWithLoading)(`
-WIP loading state
+Pass the \`busy\` prop to show its loading state. By default, the button will show a spinner and leave the button's width unchanged.
 `);
 _Story.name(ButtonWithLoading, "Button with loading");
+
+export const ButtonWithToggle = (): JSX.Element => {
+	const [selected, setSelected] = useState(false);
+
+	return (
+		<Button
+			children="Toggle"
+			selected={selected}
+			onClick={() => setSelected(!selected)}
+		/>
+	);
+};
+
+_Story.desc(ButtonWithToggle)(`
+You can pass \`selected\` prop to use Moai's button as a toggle button.
+`);
+
+_Story.name(ButtonWithToggle, "Button with toggle");
+
+export const ButtonWithLink = (): JSX.Element => {
+	return (
+		<Button
+			target="_blank"
+			href="https://moaijs.com/"
+			children="Go to home page"
+		/>
+	);
+};
+
+_Story.desc(ButtonWithLink)(`
+Moai's button also support \`href\`, which is used to link from one page to another.
+`);
+
+_Story.name(ButtonWithLink, "Button with link");
