@@ -3,6 +3,7 @@ import React from "react";
 import { _Story } from "../_story";
 import { Button } from "./button";
 import * as md from "react-icons/md";
+import { DivPx } from "../div/div";
 
 // This default export determines where your story goes in the story list
 export default {
@@ -66,17 +67,28 @@ _Story.fixPrimary(Primary);
 
 export const ButtonWithIcon = (): JSX.Element => {
 	return (
-		<Button
-			highlight
-			iconLabel="Settings"
-			icon={md.MdBuild}
-			children="Settings"
-		/>
+		<>
+			<Button
+				iconLabel="Settings"
+				icon={md.MdBuild}
+				children="Settings"
+			/>
+			<DivPx size={8} />
+			<Button
+				highlight
+				iconLabel="Call us"
+				icon={md.MdCall}
+				children="Call us"
+				reverse
+			/>
+		</>
 	);
 };
 
 _Story.desc(ButtonWithIcon)(`
-You can add icon to the Button component using icon. You can also use icons from popular libraries like react-icons and pass it into the button.
+You can add icon to the Button component using \`icon\`. Moai also support icons from popular libraries like react-icons and pass them into the button.
+
+By default, the icon is on the left side, you can change the direction by add \`reverse\` to the button.
 `);
 
 _Story.name(ButtonWithIcon, "Button with icon");
@@ -90,11 +102,11 @@ WIP loading state
 `);
 _Story.name(ButtonWithInput, "Button with input");
 
-export const ButtonLoading = (): JSX.Element => {
+export const ButtonWithLoading = (): JSX.Element => {
 	return <Button>Button loading state</Button>;
 };
 
-_Story.desc(ButtonLoading)(`
+_Story.desc(ButtonWithLoading)(`
 WIP loading state
 `);
-_Story.name(ButtonLoading, "Button loading state");
+_Story.name(ButtonWithLoading, "Button with loading");

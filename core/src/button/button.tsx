@@ -99,8 +99,19 @@ export interface ButtonProps {
 	 */
 	children?: React.ReactNode;
 
+	/**
+	 * Icon of the button.
+	 */
 	icon?: IconType;
+
+	/**
+	 * Reverse an icon from left side to right side.
+	 */
 	reverse?: boolean;
+
+	/**
+	 * Label of an icon. Button must have either "icon" or "children" defined so users can see it
+	 */
 	iconLabel?: string;
 
 	/**
