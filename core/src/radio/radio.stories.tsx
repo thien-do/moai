@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Radio } from "./radio";
-import { DivPx } from ".."
+import { DivPx } from "..";
 import { _Story } from "../_story";
 
 export default {
@@ -100,6 +100,6 @@ export const Group = (): JSX.Element => {
 };
 
 _Story.desc(Group)(
-`Radio buttons allow users to select a single option from a list of options.
+	`Radio buttons allow users to select a single option from a list of options.
 All possible options are exposed up front for users to compare.`
 );
