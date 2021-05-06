@@ -38,43 +38,43 @@
 /* CHECKED */
 
 :global(.light) .input:checked,
-:global(.light) .input:indeterminate,
+:global(.light) .input[type="checkbox"]:indeterminate,
 :global(.dark) .input:checked,
-:global(.dark) .input:indeterminate {
+:global(.dark) .input[type="checkbox"]:indeterminate {
 	background-color: var(--highlight-5);
 	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
 }
 
 :global(.light) .input:checked,
-:global(.light) .input:indeterminate {
+:global(.light) .input[type="checkbox"]:indeterminate {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
 	border-color: var(--highlight-7);
 }
 
 :global(.dark) .input:checked,
-:global(.dark) .input:indeterminate {
+:global(.dark) .input[type="checkbox"]:indeterminate {
 	border-color: var(--black);
 }
 
 :global(.light) .input:checked:hover,
-:global(.light) .input:indeterminate:hover,
+:global(.light) .input[type="checkbox"]:indeterminate:hover,
 :global(.dark) .input:checked:hover,
-:global(.dark) .input:indeterminate:hover {
+:global(.dark) .input[type="checkbox"]:indeterminate:hover {
 	background-color: var(--highlight-4);
 }
 
 :global(.light) .input:checked:active,
-:global(.light) .input:indeterminate:active,
+:global(.light) .input[type="checkbox"]:indeterminate:active,
 :global(.dark) .input:checked:active,
-:global(.dark) .input:indeterminate:active {
+:global(.dark) .input[type="checkbox"]:indeterminate:active {
 	background-color: var(--highlight-6);
 	box-shadow: none;
 }
 
 :global(.light) .input:checked ~ .icon,
-:global(.light) .input:indeterminate ~ .icon,
+:global(.light) .input[type="checkbox"]:indeterminate ~ .icon,
 :global(.dark) .input:checked ~ .icon,
-:global(.dark) .input:indeterminate ~ .icon {
+:global(.dark) .input[type="checkbox"]:indeterminate ~ .icon {
 	color: var(--white);
 }
 
