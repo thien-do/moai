@@ -1,180 +1,151 @@
 import { Meta } from "@storybook/react/types-6-0";
-import React, { useState } from "react";
-import { _Story } from "../_story";
+import React from "react";
+import { GoPlus, GoSearch } from "react-icons/go";
 import { Button, Input } from "../";
-import * as md from "react-icons/md";
-import { DivPx } from "../div/div";
 import { ButtonGroup } from "../button-group/button-group";
+import { Dialog } from "../dialog/dialog";
+import { DivPx } from "../div/div";
+import { Select } from "../select/select";
+import { _Story } from "../_story";
 
-// This default export determines where your story goes in the story list
 export default {
 	title: "Components/Button",
 	component: Button,
 	argTypes: {
-		style: _Story.arg(Button.styles),
-		size: _Story.arg(Button.sizes),
-		fill: _Story.arg("boolean"),
-		selected: _Story.arg("boolean"),
-		highlight: _Story.arg("boolean"),
-		children: _Story.arg("text"),
-		busy: _Story.arg("boolean"),
-		reverse: _Story.arg("boolean"),
-		disabled: _Story.arg("boolean"),
-		minWidth: _Story.arg(null),
-		target: _Story.arg(null),
-		href: _Story.arg(null),
-		icon: _Story.arg(null),
-		iconLabel: _Story.arg(null),
-		type: _Story.arg(null),
-		forwardedRef: _Story.arg(null),
-		onClick: _Story.arg(null),
-		onFocus: _Story.arg(null),
-		onBlur: _Story.arg(null),
-		autoFocus: _Story.arg(null),
-		dangerouslySetTabIndex: _Story.arg(null),
+		busy: _Story.arg("boolean", "Visual"),
+		disabled: _Story.arg("boolean", "Visual"),
+		fill: _Story.arg("boolean", "Visual"),
+		highlight: _Story.arg("boolean", "Visual"),
+		minWidth: _Story.arg("boolean", "Visual"),
+		selected: _Story.arg("boolean", "Visual"),
+		size: _Story.arg(Button.sizes, "Visual"),
+		style: _Story.arg(Button.styles, "Visual"),
+
+		children: _Story.arg(null, "Content"),
+		icon: _Story.arg(null, "Content"),
+		iconLabel: _Story.arg(null, "Content"),
+		iconRight: _Story.arg(null, "Content"),
+
+		type: _Story.arg(null, "Button"),
+		forwardedRef: _Story.arg(null, "Button"),
+		onClick: _Story.arg(null, "Button"),
+		onFocus: _Story.arg(null, "Button"),
+		onBlur: _Story.arg(null, "Button"),
+		autoFocus: _Story.arg(null, "Button"),
+		dangerouslySetTabIndex: _Story.arg(null, "Button"),
+
+		target: _Story.arg(null, "Link"),
+		href: _Story.arg(null, "Link"),
 	},
+	parameters: { docs: { page: _Story.StickyPage } },
 } as Meta;
 
 interface Props {
 	style?: string;
 	size?: string;
-	children?: string;
 	fill?: boolean;
 	highlight?: boolean;
 	selected?: boolean;
 	busy?: boolean;
-	reverse?: boolean;
+	iconRight?: boolean;
 	disabled?: boolean;
 }
 
-export const Primary = (props: Props): JSX.Element => {
-	return (
-		<Button
-			style={Button.styles[props.style]}
-			size={Button.sizes[props.size]}
-			fill={props.fill}
-			highlight={props.highlight}
-			selected={props.selected}
-			busy={props.busy}
-			reverse={props.reverse}
-			disabled={props.disabled}
-		>
-			{props.children ? props.children : "This is button"}
-		</Button>
-	);
-};
+export const Primary = (props: Props): JSX.Element => (
+	<Button
+		onClick={() => Dialog.alert("Hello")}
+		children="Say Hi"
+		// Storybook's Controls
+		style={Button.styles[props.style]}
+		size={Button.sizes[props.size]}
+		fill={props.fill}
+		highlight={props.highlight}
+		selected={props.selected}
+		busy={props.busy}
+		iconRight={props.iconRight}
+		disabled={props.disabled}
+	/>
+);
 
 _Story.fixPrimary(Primary);
 
-export const ButtonWithIcon = (): JSX.Element => {
-	return (
-		<>
-			<Button
-				iconLabel="Settings"
-				icon={md.MdBuild}
-				children="Settings"
-			/>
-			<DivPx size={8} />
-			<Button
-				highlight
-				iconLabel="Call us"
-				icon={md.MdCall}
-				children="Call us"
-				reverse
-			/>
-		</>
-	);
-};
+export const Icon = (): JSX.Element => (
+	<div style={{ display: "flex" }}>
+		<Button icon={GoPlus} children="Add" />
+		<DivPx size={8} />
 
-_Story.desc(ButtonWithIcon)(`
-You can add icon to the Button component using \`icon\`. Moai also support icons from popular libraries like react-icons and pass them into the button.
+		{/* Icon on the right side */}
+		<Button icon={GoPlus} children="Add" iconRight />
+		<DivPx size={8} />
 
-By default, the icon is on the left side, you can change the direction by add \`reverse\` to the button.
+		{/* Require "iconLabel" because there is no "children" */}
+		<Button icon={GoPlus} iconLabel="Add" />
+	</div>
+);
+
+_Story.desc(Icon)(`
+Button component can have an icon set via the \`icon\` prop. This supports
+*any* SVG-based icons. See the [Icon guide][1] to learn more. The icon is on
+the left side by default. Set the \`iconRight\` prop to move it to the right.
+
+~~~tsx
+import { GoPlus } from "react-icons/go";
+import { Button } from "@moai/core";
+
+<Button icon={GoPlus}>Add</Button>
+~~~
+
+It's [intentional][3] that [screen readers][2] would skip the icon and only
+announce the label of a button (i.e. the text inside "children" prop). If your
+button doesn't have a \`children\` defined (i.e. icon-only buttons), provide
+the \`iconLabel\` prop so screen readers can announce it.
+
+[1]: /docs/guides-icons--primary
+[2]: https://en.wikipedia.org/wiki/Screen_reader
+[3]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
+
 `);
 
-_Story.name(ButtonWithIcon, "Button with icon");
-
-export const GroupingButtons = (): JSX.Element => {
-	const input = <Input placeholder="Button with input" />;
-	const searchButtonIcon = <Button iconLabel="Search" icon={md.MdSearch} />;
-	const addButtonIcon = <Button iconLabel="Add" icon={md.MdAdd} />;
-	const saveButton = <Button children="Save" />;
+export const Group = (): JSX.Element => {
+	const input = <Input placeholder="Search" />;
+	const button = <Button icon={GoSearch} iconLabel="Search" />;
+	const select = <Select options={["Posts"].map(Select.toStringOption)} />;
 	return (
-		<>
-			<ButtonGroup
-				children={[
+		<div style={{ width: 320 }}>
+			<ButtonGroup>
+				{[
+					{ fill: false, element: select },
 					{ fill: true, element: input },
-					{ fill: false, element: searchButtonIcon },
+					{ fill: false, element: button },
 				]}
-			/>
-			<DivPx size={8} />
-			<ButtonGroup
-				children={[
-					{ fill: false, element: saveButton },
-					{ fill: false, element: addButtonIcon },
-				]}
-			/>
-		</>
+			</ButtonGroup>
+		</div>
 	);
 };
 
-_Story.desc(GroupingButtons)(`
-You can use \`ButtonGroup\` to group buttons.
-`);
-_Story.name(GroupingButtons, "Grouping Buttons");
-
-export const ButtonWithLoading = (): JSX.Element => {
-	const [busy, setBusy] = useState(false);
-
-	return (
-		<Button
-			children="Load data"
-			busy={busy}
-			onClick={() => {
-				setBusy(true);
-				window.setTimeout(() => {
-					setBusy(false);
-				}, 1000);
-			}}
-		/>
-	);
-};
-
-_Story.desc(ButtonWithLoading)(`
-Pass the \`busy\` prop to show its loading state. By default, the button will show a spinner and leave the button's width unchanged.
-`);
-_Story.name(ButtonWithLoading, "Button with loading");
-
-export const ButtonWithToggle = (): JSX.Element => {
-	const [selected, setSelected] = useState(false);
-
-	return (
-		<Button
-			children="Toggle"
-			selected={selected}
-			onClick={() => setSelected(!selected)}
-		/>
-	);
-};
-
-_Story.desc(ButtonWithToggle)(`
-You can pass \`selected\` prop to use Moai's button as a toggle button.
+_Story.desc(Group)(`
+Use \`ButtonGroup\` to group buttons with each other or with other input
+components.
 `);
 
-_Story.name(ButtonWithToggle, "Button with toggle");
+export const Link = (): JSX.Element => (
+	<Button
+		highlight
+		href="https://moaijs.com"
+		target="_blank"
+		children="Home"
+	/>
+);
 
-export const ButtonWithLink = (): JSX.Element => {
-	return (
-		<Button
-			target="_blank"
-			href="https://moaijs.com/"
-			children="Go to home page"
-		/>
-	);
-};
+_Story.desc(Link)(`
+The Button component can render itself as either an [\`a\`][1] or a
+[\`button\`][2] tag, depend on whether you provide the \`href\` prop or not.
+This helps you have elements that look like buttons (e.g. attract attention)
+but work like links (e.g. you can right-click and open it in new tab). This is
+actually quite [common and expected][3].
 
-_Story.desc(ButtonWithLink)(`
-Moai's button also support \`href\`, which is used to link from one page to another.
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+[2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+[3]: https://www.nngroup.com/articles/command-links
+
 `);
-
-_Story.name(ButtonWithLink, "Button with link");
