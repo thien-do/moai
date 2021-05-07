@@ -18,7 +18,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/thien-do/moai.git"
+		"url": "git+https://github.com/moaijs/moai.git"
 	},
 	"keywords": [
 		"moai",
@@ -30,7 +30,7 @@
 	"author": "Thien <hello@thien.do>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/thien-do/moai/issues"
+		"url": "https://github.com/moaijs/moai/issues"
 	},
 	"homepage": "https://moaijs.com",
 	"peerDependencies": {
@@ -46,20 +46,20 @@
 		"react-popper": "2.2.5"
 	},
 	"devDependencies": {
-		"@storybook/addon-docs": "6.2.9",
-		"@storybook/react": "6.2.9",
-		"@storybook/theming": "6.2.9",
-		"@types/react": "17.0.4",
+		"@storybook/addon-docs": "6.3.0-alpha.19",
+		"@storybook/react": "6.3.0-alpha.19",
+		"@storybook/theming": "6.3.0-alpha.19",
+		"@types/react": "17.0.5",
 		"@types/react-dom": "17.0.3",
 		"@types/rollup-plugin-postcss": "2.0.1",
 		"autoprefixer": "10.2.5",
 		"babel-loader": "8.2.2",
 		"formik": "2.2.6",
-		"postcss": "8.2.13",
+		"postcss": "8.2.14",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
-		"react-hook-form": "7.3.6",
-		"rollup": "2.46.0",
+		"react-hook-form": "7.4.1",
+		"rollup": "2.47.0",
 		"rollup-plugin-copy": "3.4.0",
 		"rollup-plugin-delete": "2.0.0",
 		"rollup-plugin-postcss": "4.0.0",

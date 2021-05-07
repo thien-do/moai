@@ -1,15 +1,28 @@
 import { ArgType } from "@storybook/addons";
+import * as D from "@storybook/addon-docs/blocks";
+import { background } from "./background/background";
 
-const arg = (target: Record<string, unknown> | null | string): ArgType => {
+type ArgTarget = Record<string, unknown> | null | string;
+
+const argControl = (target: ArgTarget) => {
 	if (target === null) {
-		return { control: { type: null } };
+		return { type: null };
 	} else if (Array.isArray(target)) {
-		return { control: { type: "radio", options: target } };
+		const type = target.length > 4 ? "select" : "radio";
+		return { type, options: target };
 	} else if (typeof target === "object") {
-		return { control: { type: "radio", options: Object.keys(target) } };
+		const options = Object.keys(target);
+		const type = options.length > 4 ? "select" : "radio";
+		return { type, options };
 	} else {
-		return { control: { type: target } };
+		return { type: target };
 	}
+};
+
+const arg = (target: ArgTarget, category?: string): ArgType => {
+	const table = category ? { category } : undefined;
+	const control = argControl(target);
+	return { control, table };
 };
 
 // eslint-disable-next-line
@@ -18,6 +31,14 @@ const desc = (story: any) => (text: string): void => {
 	story.parameters.docs ??= {};
 	story.parameters.docs.description ??= {};
 	story.parameters.docs.description.story = text;
+};
+
+// eslint-disable-next-line
+const expanded = (story: any): void => {
+	story.parameters ??= {};
+	story.parameters.docs ??= {};
+	story.parameters.docs.source ??= {};
+	story.parameters.docs.source.isExpanded = true;
 };
 
 // eslint-disable-next-line
@@ -32,6 +53,21 @@ const fixPrimary = (story: any): void => {
 const name = (story: any, text: string): void => {
 	story.storyName = text;
 };
+
+const StickyPage = (): JSX.Element => (
+	<div>
+		<D.Title />
+		<D.Subtitle />
+		<D.Description />
+		<div className="moai-hero">
+			<div className={["moai-primary", background.strong].join(" ")}>
+				<D.Primary />
+			</div>
+			<D.ArgsTable story={D.PRIMARY_STORY} />
+		</div>
+		<D.Stories />
+	</div>
+);
 
 /**
  * Utilities to work with Storybook
@@ -59,7 +95,15 @@ export const _Story = {
 	 */
 	fixPrimary,
 	/**
+	 * Show code by default
+	 */
+	expanded,
+	/**
 	 * Override the story's name
 	 */
 	name,
+	/**
+	 * Make the Primary story sticky for the ArgsTable
+	 */
+	StickyPage,
 };
