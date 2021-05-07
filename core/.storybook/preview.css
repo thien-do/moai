@@ -56,6 +56,12 @@ html {
 	width: 20%;
 }
 
+/* Category header */
+.docblock-argstable:not(.x) tbody td[colspan="1"],
+.docblock-argstable:not(.x) tbody td[colspan="3"] {
+	background-color: var(--gray-1) !important;
+}
+
 /* Moai specific components */
 
 .moai-primary {
