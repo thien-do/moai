@@ -37,85 +37,102 @@ const getClass = (props: ButtonProps) => {
 	if (props.selected) classes.push(style.selected);
 	if (props.highlight) classes.push(style.highlight);
 	if (props.busy) classes.push(style.busy.className);
-	if (props.icon && props.reverse) classes.push(s.reverse);
+	if (props.icon && props.iconRight) classes.push(s.iconRight);
 	return classes.join(" ");
 };
 
 export interface ButtonProps {
 	forwardedRef?: React.ForwardedRef<HTMLButtonElement | HTMLAnchorElement>;
-	// target - button
+
+	// Props in case of "button" tag
 	/**
-	 * Type of the button. Choose one from "submit", "button", "reset"
+	 * The [type][1] of the button in HTML
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type
 	 */
 	type?: "submit" | "button" | "reset";
-
 	disabled?: boolean;
 	onClick?: React.MouseEventHandler;
 	onFocus?: React.FocusEventHandler;
 	onBlur?: React.FocusEventHandler;
 	autoFocus?: boolean;
+	/**
+	 * Manually set a tab index for the button. This is dangerous because:
+	 *
+	 * > Avoid using tabindex values greater than 0. Doing so makes it difficult
+	 * > for people who rely on assistive technology to navigate and operate page
+	 * > content. Instead, write the document with the elements in a logical sequence.
+	 * > - Quoted from [MDN][1]
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
+	 */
 	dangerouslySetTabIndex?: number;
 
-	// target - link
-	target?: string;
-	href?: string;
-	// visual
-
+	// Props in case of "a" tag
 	/**
+	 * The [URL][1] to link the button to. Setting this means an "a" tag will
+	 * be used instead of a "button".
 	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href
+	 */
+	href?: string;
+	/**
+	 * The [target][1] of the button in case of using the "a" tag
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
+	 */
+	target?: string;
+
+	// Visual props for both cases
+	/**
+	 * Make the button looks like pressed, e.g. with a darker background
 	 */
 	selected?: boolean;
-
 	/**
-	 * Whether the selected option is "highlighted" with a primary color. If not set, the selected option is dimmed, which is the default behaviour.
+	 * Highlight the button, e.g. with a primary color
 	 */
 	highlight?: boolean;
-
 	/**
-	 * Whether the button should fill its container's space (similar to width: 100%)
+	 * Let the button fills its container's space (i.e. width: 100%)
 	 */
 	fill?: boolean;
-
 	/**
-	 * Style of the button. Choose one from Button.styles.
+	 * Style of the button. Choose one from Button.styles. "outset" buttons
+	 * stand out from others, while "flat" ones do not.
 	 */
 	style?: ButtonStyle;
-
 	/**
-	 * Style of the button. Choose one from Button.size.
+	 * Size of the button. Choose one from Button.size. The ones with "icon"
+	 * suffix makes icon-only buttons squares.
 	 */
 	size?: ButtonSize;
-
 	/**
 	 * Too short buttons look ugly when placed next to long ones, especially in
 	 * dialog (e.g. try "Cancel" and "Ok" pair). This prop ensures a min-width
 	 * for buttons so they are not too short.
 	 */
 	minWidth?: boolean;
-
-	// Children
 	/**
-	 * The content to render inside the button. Note that out of the box there is no padding or any styles at all.
+	 * The content to render inside the button
 	 */
 	children?: React.ReactNode;
-
 	/**
-	 * Icon of the button.
+	 * Icon of the button. See the [Icons guide][1] to learn more.
+	 *
+	 * [1]: /docs/guides-icons--primary
 	 */
 	icon?: IconType;
-
 	/**
-	 * Reverse an icon from left side to right side.
+	 * Place the icon on the right side of the button
 	 */
-	reverse?: boolean;
-
+	iconRight?: boolean;
 	/**
-	 * Label of an icon. Button must have either "icon" or "children" defined so users can see it
+	 * The accessible label of the icon. This is required when there is no
+	 * "children" (i.e. icon-only buttons) to help screen readers read the
+	 * button correctly.
 	 */
 	iconLabel?: string;
-
 	/**
-	 * Whether the selected option is "busy",	the button will show its spinner icon.
+	 * Render a loading icon on top of the button
 	 */
 	busy?: boolean;
 }
@@ -176,7 +193,12 @@ const validateButton = (props: ButtonProps): void => {
 };
 
 /**
- * The Button component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+ * Buttons trigger an action or event, such as submitting a form, opening a
+ * dialog or canceling an operation.
+ *
+ * Moai's Button component covers both real button (render a "button" tag) and
+ * link button (render an "a" tag) use cases, depend on whether you provide
+ * "onClick" or "href".
  */
 export const Button = (props: ButtonProps): JSX.Element => {
 	validateButton(props);
