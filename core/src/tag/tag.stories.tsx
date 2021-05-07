@@ -1,9 +1,14 @@
-import { storiesOf } from "@storybook/react";
-import React from "react";
+import { Meta } from "@storybook/react";
+import { Fragment } from "react";
 import { DivPx } from "../div/div";
 import { Tag } from "./tag";
 
-storiesOf("Tag", module).add("Main", () => {
+export default {
+	title: "Draft/Tag",
+	component: Tag,
+} as Meta;
+
+export const Primary = (): JSX.Element => {
 	const colors: string[] = [
 		"red",
 		"yellow",
@@ -19,10 +24,10 @@ storiesOf("Tag", module).add("Main", () => {
 		<div>
 			<div style={{ display: "flex" }}>
 				{colors.map((color) => (
-					<React.Fragment key={color}>
+					<Fragment key={color}>
 						<Tag color={Tag.colors[color]}>{color}</Tag>
 						<DivPx size={8} />
-					</React.Fragment>
+					</Fragment>
 				))}
 			</div>
 			<DivPx size={16} />
@@ -33,4 +38,4 @@ storiesOf("Tag", module).add("Main", () => {
 			</div>
 		</div>
 	);
-});
+};

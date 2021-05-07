@@ -1,9 +1,14 @@
-import { storiesOf } from "@storybook/react"; //eslint-disable-line
+import { Meta } from "@storybook/react";
 import React from "react";
 import { DivPx } from "../div/div";
 import { Pane } from "./pane";
 
-storiesOf("Pane", module).add("Default", () => (
+export default {
+	title: "Draft/Pane",
+	component: Pane,
+} as Meta;
+
+export const Primary = (): JSX.Element => (
 	<div>
 		<Pane>Content</Pane>
 		<DivPx size={16} />
@@ -13,4 +18,4 @@ storiesOf("Pane", module).add("Default", () => (
 			<Pane fullHeight>Content</Pane>
 		</div>
 	</div>
-));
+);

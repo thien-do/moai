@@ -3,11 +3,11 @@ import { Checkbox } from "./checkbox";
 import { DivPx } from "../div/div";
 
 export default {
-	title: "Checkbox",
+	title: "Draft/Checkbox",
 	component: Checkbox,
 } as Meta;
 
-export const Main = (): JSX.Element => (
+export const Primary = (): JSX.Element => (
 	<div>
 		<Checkbox indeterminate>Checkbox</Checkbox>
 		<DivPx size={8} />

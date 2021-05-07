@@ -1,7 +1,12 @@
-import { storiesOf } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import { Steps } from "./step";
 
-storiesOf("Steps", module).add("Main", () => (
+export default {
+	title: "Draft/Steps",
+	component: Steps,
+} as Meta;
+
+export const Primary = (): JSX.Element => (
 	<Steps
 		steps={[
 			{ title: "First" },
@@ -10,4 +15,4 @@ storiesOf("Steps", module).add("Main", () => (
 		]}
 		current={1}
 	/>
-));
+);

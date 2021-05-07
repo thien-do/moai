@@ -25,7 +25,12 @@ export const parameters = {
 	options: {
 		storySort: {
 			method: "alphabetical",
-			order: ["Quick Start", "Proper Start", "Widget Gallery"],
+			order: [
+				"Guides",
+				["Quick Start", "Proper Start"],
+				"Components",
+				["Component Gallery"],
+			],
 		},
 	},
 };
