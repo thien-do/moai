@@ -2,6 +2,10 @@ html {
 	tab-size: 4;
 }
 
+.sbdocs-p {
+	max-width: 640px;
+}
+
 /* Hide the "Stories" heading */
 .sbdocs-h2#stories {
 	display: none;
