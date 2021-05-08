@@ -28,6 +28,7 @@ export const parameters = {
 			order: [
 				"Guides",
 				["Quick Start", "Proper Start"],
+				"Patterns",
 				"Components",
 				["Component Gallery"],
 			],
