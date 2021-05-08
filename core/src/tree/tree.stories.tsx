@@ -1,15 +1,20 @@
-import { storiesOf } from "@storybook/react";
-import { Tree } from "./tree";
 import React from "react";
+import { Meta } from "@storybook/react";
+import { Tree } from "./tree";
 
-storiesOf("Tree", module).add("Basic Tree", () => {
+export default {
+	title: "Draft/Tree",
+	component: Tree,
+} as Meta;
+
+export const Primary = (): JSX.Element => {
 	const [selectedNodes, setSelectedNodes] = React.useState<Set<string>>(
 		new Set(["root"])
 	);
 	const [expandedNodes, setExpandedNodes] = React.useState<Set<string>>(
 		new Set(["root"])
 	);
-	const TreeData = {
+	const Root = {
 		id: "root",
 		label: "root",
 		children: [
@@ -36,11 +41,11 @@ storiesOf("Tree", module).add("Basic Tree", () => {
 
 	return (
 		<Tree
-			root={TreeData}
+			root={Root}
 			selectedNodes={selectedNodes}
 			expandedNodes={expandedNodes}
 			setSelected={setSelectedNodes}
 			setExpanded={setExpandedNodes}
 		/>
 	);
-});
+};

@@ -94,6 +94,9 @@ const NestedNodeTemplate = (
 };
 
 export interface TreeProps extends TreeBase {
+	/**
+	 * The root node of tree which always have nested level = 0.
+	 */
 	root: NestedNode;
 }
 
