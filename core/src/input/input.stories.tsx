@@ -1,12 +1,12 @@
+import { useState } from "react";
+import { Button } from "../button/button";
+import { Dialog } from "../dialog/dialog";
+import { DivPx } from "../div/div";
 import { _Story } from "../_story";
 import { Input } from "./input";
-import { Button } from "../button/button";
-import { DivPx } from "../div/div";
-import { useState } from "react";
-import { Dialog } from "../dialog/dialog";
 
 export default {
-	title: "Components/Input",
+	title: "Draft/Input",
 	component: Input,
 	argTypes: {
 		type: _Story.arg([
