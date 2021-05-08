@@ -3,36 +3,51 @@ import { Button } from "../../button/button";
 import { coreIcons } from "../../icons/icons";
 import s from "./item.module.css";
 
-export interface TreeNodeBase {
-	id?: string;
+export interface TreeNode {
+	id: string;
 
 	label: string;
 
 	children?: React.ReactNode;
 
+	/**
+	 * Nested level which is used to render the left padding of nested nodes.
+	 * @default 0
+	 */
+	level?: number;
+
+	/**
+	 * Whether node is expanded.
+	 */
 	expanded?: boolean;
 
+	/**
+	 * Whether node is selected.
+	 */
 	selected?: boolean;
 
 	/**
-	 * Whether collapse icon of a tree item should be show.
+	 * Whether collapse icon should be showed.
+	 * @default true
 	 */
 	showCollapseIcon?: boolean;
 
+	/**
+	 * Handler for when item is clicked on.
+	 */
 	onItemClick?: () => void;
 
+	/**
+	 * Handler for when collapse icon is clicked.
+	 */
 	onCollapseIconClick?: () => void;
 }
 
-interface TreeNodeProps extends TreeNodeBase {
-	level: number;
-}
-
-const Tab = () => (
+const Tab = (): JSX.Element => (
 	<div className={[Button.sizes.smallIcon.main, s.tab].join(" ")} />
 );
 
-export const TreeItem = (props: TreeNodeProps): JSX.Element => {
+export const TreeItem = (props: TreeNode): JSX.Element => {
 	const {
 		expanded,
 		selected,
@@ -96,3 +111,7 @@ export const TreeItem = (props: TreeNodeProps): JSX.Element => {
 		</div>
 	);
 };
+
+TreeItem.defaultProps ={
+	showCollapseIcon: true
+}

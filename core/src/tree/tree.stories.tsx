@@ -1,12 +1,12 @@
 import { storiesOf } from "@storybook/react";
-import { RecursiveTree } from "./tree";
+import { Tree } from "./tree";
 import React from "react";
 
 storiesOf("Tree", module).add("Basic Tree", () => {
-	const [selected, setSelected] = React.useState<Set<string>>(
+	const [selectedNodes, setSelectedNodes] = React.useState<Set<string>>(
 		new Set(["root"])
 	);
-	const [expanded, setExpanded] = React.useState<Set<string>>(
+	const [expandedNodes, setExpandedNodes] = React.useState<Set<string>>(
 		new Set(["root"])
 	);
 	const TreeData = {
@@ -14,29 +14,33 @@ storiesOf("Tree", module).add("Basic Tree", () => {
 		label: "root",
 		children: [
 			{
-				id: "child1",
-				label: "child1",
+				id: "child-1",
+				label: "child-1",
 				children: [
 					{
-						id: "child1-1",
-						label: "child1-1",
+						id: "child-1.1",
+						label: "child-1.1",
+					},
+					{
+						id: "child-1.2",
+						label: "child-1.2",
 					},
 				],
 			},
 			{
-				id: "child2",
-				label: "child2",
+				id: "child-2",
+				label: "child-2",
 			},
 		],
 	};
 
 	return (
-		<RecursiveTree
+		<Tree
 			root={TreeData}
-			setSelected={setSelected}
-			selected={selected}
-			expanded={expanded}
-			setExpanded={setExpanded}
+			selectedNodes={selectedNodes}
+			expandedNodes={expandedNodes}
+			setSelected={setSelectedNodes}
+			setExpanded={setExpandedNodes}
 		/>
 	);
 });

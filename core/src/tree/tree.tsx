@@ -1,5 +1,5 @@
 import React from "react";
-import { TreeItem, TreeNodeBase } from "./item/item";
+import { TreeItem, TreeNode } from "./item/item";
 
 export interface TreeContainerProps {
 	children?: React.ReactNode;
@@ -9,64 +9,59 @@ export const TreeContainer = (props: TreeContainerProps): JSX.Element => {
 	return <div>{props.children}</div>;
 };
 
-export interface TreeProps {
-	children?: React.ReactNode;
-}
-
-export const Tree = (props: TreeProps): JSX.Element => {
-	return <TreeContainer>{props.children}</TreeContainer>;
-};
-
-interface RecursiveTreeAction {
+export interface TreeBase {
 	/**
-	 * Selected nodes in controlled mode
+ 	 * Selected nodes.
+   */
+	selectedNodes?: Set<string>;
+
+	/**
+	 * Expanded nodes.
 	 */
-	selected?: Set<string>;
-
+	expandedNodes?: Set<string>;
 	/**
-	 * Expanded nodes in controlled mode
-	 */
-	expanded?: Set<string>;
-
-	/**
-	 * Handler to set selected nodes in controlled mode
+	 * Handler to set selected nodes.
 	 */
 	setSelected?: (set: Set<string>) => void;
 
 	/**
-	 * Handler to set expanded nodes in controlled mode
+	 * Handler to set expanded nodes.
 	 */
 	setExpanded?: (set: Set<string>) => void;
 }
 
-interface RecursiveTreeNode extends TreeNodeBase {
-	children?: RecursiveTreeNode[];
+interface NestedNode extends TreeNode {
+	children?: NestedNode[];
 }
 
-interface RecursiveTreeTemplateProps extends RecursiveTreeAction {
-	node: RecursiveTreeNode;
+interface NestedNodeTemplateProps extends TreeBase {
+	node: NestedNode;
+
+	/**
+	 * Nested level which is used to render the left padding of nested nodes.
+	 */
 	level: number;
 }
 
-const RecursiveTreeTemplate = (
-	props: RecursiveTreeTemplateProps
-): React.ReactElement<RecursiveTreeTemplateProps> => {
-	const { node, level, setSelected, setExpanded, ...rest } = props;
-	const shouldExpand = props.expanded?.has(node.id);
-	const selected = props.selected?.has(node.id);
+const NestedNodeTemplate = (
+	props: NestedNodeTemplateProps
+): React.ReactElement<NestedNodeTemplateProps> => {
+	const { node, level, expandedNodes, selectedNodes, setSelected, setExpanded } = props;
 
-	const onTreeItemClick = React.useCallback(() => {
-		props.setSelected?.(new Set([node.id]));
+	const shouldExpand = expandedNodes?.has(node.id);
+
+	const onItemClick = React.useCallback(() => {
+		setSelected?.(new Set([node.id]));
 	}, [setSelected]);
 
-	const onIconClick = React.useCallback(() => {
-		const expanded = props.expanded;
-		if (expanded.has(node.id)) {
-			expanded.delete(node.id);
+	const onCollapseIconClick = React.useCallback(() => {
+		if (!expandedNodes) return;
+		if (expandedNodes.has(node.id)) {
+			expandedNodes.delete(node.id);
 		} else {
-			expanded.add(node.id);
+			expandedNodes.add(node.id);
 		}
-		props.setExpanded?.(new Set(expanded));
+		setExpanded?.(new Set(expandedNodes));
 	}, [setExpanded]);
 
 	return (
@@ -75,21 +70,22 @@ const RecursiveTreeTemplate = (
 			label={node.label}
 			level={level}
 			expanded={shouldExpand}
-			selected={selected}
-			onItemClick={onTreeItemClick}
+			selected={selectedNodes?.has(node.id)}
+			onItemClick={onItemClick}
 			showCollapseIcon={!!node.children?.length}
-			onCollapseIconClick={onIconClick}
+			onCollapseIconClick={onCollapseIconClick}
 		>
 			{shouldExpand &&
 				node.children?.map((childNode, index) => {
 					return (
-						<RecursiveTreeTemplate
+						<NestedNodeTemplate
 							node={childNode}
-							level={props.level + 1}
+							level={level + 1}
 							key={index}
 							setSelected={setSelected}
 							setExpanded={setExpanded}
-							{...rest}
+							expandedNodes={expandedNodes}
+							selectedNodes={selectedNodes}
 						/>
 					);
 				})}
@@ -97,14 +93,14 @@ const RecursiveTreeTemplate = (
 	);
 };
 
-export interface RecursiveTreeProps extends RecursiveTreeAction {
-	root: RecursiveTreeNode;
+export interface TreeProps extends TreeBase {
+	root: NestedNode;
 }
 
-export const RecursiveTree = (props: RecursiveTreeProps): JSX.Element => {
+export const Tree = (props: TreeProps): JSX.Element => {
 	return (
 		<TreeContainer>
-			<RecursiveTreeTemplate node={props.root} level={0} {...props} />
+			<NestedNodeTemplate node={props.root} level={0} {...props} />
 		</TreeContainer>
 	);
 };
