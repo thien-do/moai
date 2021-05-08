@@ -70,7 +70,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
 				ref={props.forwardedRef}
 			/>
 			<span className={[shared.icon, style.icon, self.icon].join(" ")}>
-				<Icon display="block" path={coreIcons.dot} />
+				<Icon display="block" component={coreIcons.dot} />
 			</span>
 			<span className={[shared.label, style.label].join(" ")}>
 				{props.children}

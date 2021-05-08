@@ -1,16 +1,15 @@
 import { ReactNode } from "react";
-import { IconType } from "react-icons";
 import { border, Border } from "../../border/border";
 import { Button } from "../../button/button";
 import { DivPx } from "../../div/div";
-import { Icon } from "../../icon/icon";
+import { Icon, IconComponent } from "../../icon/icon";
 import { coreIcons } from "../../icons/icons";
 import { shadow } from "../../shadow/shadow";
 import { Paragraph, text } from "../../text/text";
 import s from "./pane.module.css";
 
 export interface ToastPaneType {
-	iconPath: IconType;
+	iconComponent: IconComponent;
 	iconCls: string;
 }
 
@@ -46,7 +45,7 @@ export const ToastPane = (props: Props): JSX.Element => (
 			className={[s.container, shadow.boxStrong, border.radius].join(" ")}
 		>
 			<div className={[s.icon, props.type.iconCls].join(" ")}>
-				<Icon display="block" path={props.type.iconPath} />
+				<Icon display="block" component={props.type.iconComponent} />
 			</div>
 			<DivPx size={12} />
 			<div className={s.children}>
@@ -60,11 +59,11 @@ export const ToastPane = (props: Props): JSX.Element => (
 
 ToastPane.types = {
 	success: {
-		iconPath: coreIcons.success,
+		iconComponent: coreIcons.success,
 		iconCls: text.successStrong,
 	} as ToastPaneType,
 	failure: {
-		iconPath: coreIcons.error,
+		iconComponent: coreIcons.error,
 		iconCls: text.failureStrong,
 	} as ToastPaneType,
 };

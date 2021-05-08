@@ -152,7 +152,7 @@ export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
 			/>
 			<span className={cls.icon}>
 				{/* The "size" is also set in CSS */}
-				<Icon size={12} display="block" path={coreIcons.caret} />
+				<Icon size={12} display="block" component={coreIcons.caret} />
 			</span>
 		</div>
 	);

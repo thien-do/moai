@@ -1,7 +1,6 @@
 import React from "react";
-import { IconType } from "react-icons";
 import { border } from "../border/border";
-import { Icon, IconSize } from "../icon/icon";
+import { IconComponent, Icon, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
 import sFlat from "./flat.module.css";
@@ -73,13 +72,11 @@ export interface InputProps {
 	list?: { id: string; values: string[] } | string;
 
 	// Style
-	icon?: IconType;
-
+	icon?: IconComponent;
 	/**
 	 * Style of the text box. Choose one from `Input.styles`
 	 */
 	style?: InputStyle;
-
 	/**
 	 * Size of the text box. Choose one from `Input.sizes`
 	 */
@@ -180,7 +177,7 @@ export const Input = (props: InputProps): JSX.Element => {
 				<div className={[s.icon, text.muted, size.icon].join(" ")}>
 					<Icon
 						display="block"
-						path={props.icon}
+						component={props.icon}
 						size={size.iconSize}
 					/>
 				</div>
