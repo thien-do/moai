@@ -82,7 +82,9 @@ export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 			const selected = option.value === props.value;
 			return (
 				<Button
-					key={option.label || option.key}
+					// We're sure either "label" or "iconLabel" is defined as
+					// it's checked in the Button component
+					key={option.key || option.label || option.iconLabel}
 					icon={option.icon}
 					iconLabel={option.iconLabel}
 					children={option.label}

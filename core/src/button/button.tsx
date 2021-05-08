@@ -130,26 +130,22 @@ type ButtonElement = HTMLButtonElement | HTMLAnchorElement;
 // Button component so that we can attach "Button.sizes" and "Button.styles"
 type ButtonPropsWithRef = ButtonProps & React.RefAttributes<ButtonElement>;
 
-interface ButtonSizes {
-	large: ButtonSize;
-	largeIcon: ButtonSize;
-	medium: ButtonSize;
-	mediumIcon: ButtonSize;
-	small: ButtonSize;
-	smallIcon: ButtonSize;
-}
-
-interface ButtonStyles {
-	outset: ButtonStyle;
-	flat: ButtonStyle;
-}
-
 // Re-type the Button component since React's forwardRef returned type cannot
 // be extended with property like "Button.sizes"
 interface ButtonComponent
 	extends React.ForwardRefExoticComponent<ButtonPropsWithRef> {
-	sizes: ButtonSizes;
-	styles: ButtonStyles;
+	sizes: {
+		large: ButtonSize;
+		largeIcon: ButtonSize;
+		medium: ButtonSize;
+		mediumIcon: ButtonSize;
+		small: ButtonSize;
+		smallIcon: ButtonSize;
+	};
+	styles: {
+		outset: ButtonStyle;
+		flat: ButtonStyle;
+	};
 }
 
 const getClass = (props: ButtonProps) => {
@@ -295,7 +291,7 @@ Button.styles = {
 	},
 };
 
-Button.sizes = ((): ButtonSizes => {
+Button.sizes = (() => {
 	const largeIcon = { iconSize: 20, iconMargin: 12 };
 	const mediumIcon = { iconSize: 16, iconMargin: 8 };
 	const smallIcon = { iconSize: 12, iconMargin: 4 };

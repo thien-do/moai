@@ -1,6 +1,6 @@
 import React from "react";
 import { border } from "../border/border";
-import { IconComponent, Icon, IconSize } from "../icon/icon";
+import { Icon, IconComponent } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
 import sFlat from "./flat.module.css";
@@ -15,22 +15,9 @@ export interface InputSize {
 	main: string;
 	mainWithIcon: string;
 	icon: string;
-	iconSize: IconSize;
+	iconSize: number;
 	mainColor: string;
 }
-
-const getClass = (props: InputProps): string => {
-	const style = props.style ?? Input.styles.outset;
-	const styles = [s.input, outline.normal, style.main];
-	const size = props.size ?? Input.sizes.medium;
-
-	if (props.type === "color") {
-		styles.push(size.mainColor);
-	} else {
-		styles.push(props.icon ? size.mainWithIcon : size.main);
-	}
-	return styles.join(" ");
-};
 
 export interface InputProps {
 	/**
@@ -50,7 +37,6 @@ export interface InputProps {
 	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 
-	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
 	// Controlled
 
 	/**
@@ -113,6 +99,38 @@ export interface InputProps {
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
+// This is actually ReturnType<typeof forwardRef>, but we don't know how to
+// provide the type parameter to forwardRef. This is required to re-type the
+// Button component so that we can attach "Input.sizes" and "Input.styles"
+type ButtonPropsWithRef = InputProps & React.RefAttributes<HTMLInputElement>;
+
+// Re-type the Input component since React's forwardRef returned type cannot
+// be extended with property like "Button.sizes"
+interface InputComponent
+	extends React.ForwardRefExoticComponent<ButtonPropsWithRef> {
+	sizes: {
+		large: InputSize;
+		medium: InputSize;
+		small: InputSize;
+	};
+	styles: {
+		outset: InputStyle;
+		flat: InputStyle;
+	};
+}
+
+const getClass = (props: InputProps): string => {
+	const style = props.style ?? Input.styles.outset;
+	const styles = [s.input, outline.normal, style.main];
+	const size = props.size ?? Input.sizes.medium;
+	if (props.type === "color") {
+		styles.push(size.mainColor);
+	} else {
+		styles.push(props.icon ? size.mainWithIcon : size.main);
+	}
+	return styles.join(" ");
+};
+
 const ERRORS = {
 	onChangeSetValue: `"onChange" and "setValue" must not be defined at the same time`,
 };
@@ -123,20 +141,12 @@ const validate = (props: InputProps): void => {
 	}
 };
 
-export const Input = (props: InputProps): JSX.Element => {
+const inputRender = (
+	props: InputProps,
+	ref: React.ForwardedRef<HTMLInputElement>
+): JSX.Element => {
 	validate(props);
-
-	const ref = React.useRef<HTMLInputElement>(null);
-
-	React.useEffect(() => {
-		if (!props.autoSelect) return;
-		const element = ref.current;
-		if (element === null) throw Error("ref is null");
-		element.select();
-	}, []);
-
 	const size = props.size ?? Input.sizes.medium;
-
 	return (
 		<div className={s.container}>
 			<input
@@ -193,9 +203,11 @@ export const Input = (props: InputProps): JSX.Element => {
 	);
 };
 
+export const Input = React.forwardRef(inputRender) as InputComponent;
+
 Input.styles = {
-	outset: { main: [sOutset.main, border.radius].join(" ") } as InputStyle,
-	flat: { main: [sFlat.main].join(" ") } as InputStyle,
+	outset: { main: [sOutset.main, border.radius].join(" ") },
+	flat: { main: [sFlat.main].join(" ") },
 };
 
 Input.sizes = {
@@ -205,23 +217,19 @@ Input.sizes = {
 		icon: s.largeIcon,
 		iconSize: 16,
 		mainColor: s.largeColor,
-	} as InputSize,
+	},
 	medium: {
 		main: s.mediumMain,
 		mainWithIcon: s.mediumMainWithIcon,
 		icon: s.mediumIcon,
 		iconSize: 16,
 		mainColor: s.mediumColor,
-	} as InputSize,
+	},
 	small: {
 		main: s.smallMain,
 		mainWithIcon: s.smallMainWithIcon,
 		icon: s.smallIcon,
 		iconSize: 12,
 		mainColor: s.smallColor,
-	} as InputSize,
+	},
 };
-
-Input.Forwarded = React.forwardRef<HTMLInputElement, InputProps>(
-	(props, ref) => <Input forwardedRef={ref} {...props} />
-);

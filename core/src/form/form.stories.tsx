@@ -141,7 +141,7 @@ export const ReactHookForm = (): JSX.Element => {
 				name="email"
 				control={control}
 				render={({ field }) => (
-					<Input.Forwarded {...field} id="rhf-email" type="email" />
+					<Input {...field} id="rhf-email" type="email" />
 				)}
 				rules={{ required: "Email is required" }}
 				defaultValue=""
@@ -157,7 +157,7 @@ export const ReactHookForm = (): JSX.Element => {
 				name="pass"
 				control={control}
 				render={({ field }) => (
-					<Input.Forwarded {...field} id="rhf-pass" type="password" />
+					<Input {...field} id="rhf-pass" type="password" />
 				)}
 				rules={{ required: "Password is required" }}
 				defaultValue=""
@@ -185,9 +185,7 @@ export const ReactHookForm = (): JSX.Element => {
 
 _Story.desc(ReactHookForm)(`
 To use Moai's input components with React Hook Form, [render][2] them in the
-"render" prop of RHF's [Controller][1] component. Not that because RHF uses
-uncontrolled mode by default, you should use the "Forwarded" version of Moai's
-components so the "ref" is attached correctly:
+"render" prop of RHF's [Controller][1] component:
 
 ~~~tsx
 import { Controller } from "react-hook-form";
@@ -198,7 +196,7 @@ import { Input } from "@moai/core";
 	name="email"
 	control={control}
 	render={({ field }) => (
-		<Input.Forwarded {...field} id="email" type="email" />
+		<Input {...field} id="email" type="email" />
 	)}
 	rules={{ required: "Email is required" }}
 />
