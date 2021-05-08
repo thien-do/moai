@@ -1,8 +1,7 @@
 import { forwardRef } from "react";
-import { IconType } from "react-icons";
 import { border } from "../border/border";
 import { DivPx, DivSize } from "../div/div";
-import { Icon, IconSize } from "../icon/icon";
+import { IconComponent, Icon, IconSize } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { ProgressCircle, ProgressCircleColor } from "../progress/circle";
 import s from "./button.module.css";
@@ -120,7 +119,7 @@ export interface ButtonProps {
 	 *
 	 * [1]: /docs/guides-icons--primary
 	 */
-	icon?: IconType;
+	icon?: IconComponent;
 	/**
 	 * Place the icon on the right side of the button
 	 */
@@ -159,7 +158,7 @@ export const ButtonChildren = (props: ButtonProps): JSX.Element => {
 				<span className={s.icon}>
 					<Icon
 						size={size.iconSize}
-						path={props.icon}
+						component={props.icon}
 						display="block"
 					/>
 				</span>
