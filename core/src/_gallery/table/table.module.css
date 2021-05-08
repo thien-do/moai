@@ -5,6 +5,12 @@
 	white-space: nowrap;
 }
 
+/* Reset Tailwind's max-width img prop.
+See: https://github.com/tailwindlabs/tailwindcss/issues/4211 */
+.container img {
+	max-width: none;
+}
+
 /* Quick fix to un-bold the inputs in header */
 .container th input,
 .container th select {
