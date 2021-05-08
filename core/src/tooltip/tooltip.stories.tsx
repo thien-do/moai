@@ -88,7 +88,7 @@ export const Positioning = (): JSX.Element => {
 				placement={placement}
 				content={"Current position: " + placement}
 			>
-				<Button.Forwarded
+				<Button
 					children="Change placement"
 					onClick={() => {
 						setPosition((position + 1) % placements.length);

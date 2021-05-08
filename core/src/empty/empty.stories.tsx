@@ -1,9 +1,15 @@
-import { storiesOf } from "@storybook/react";
-import { EmptyState } from "../empty/empty";
+import { Meta } from "@storybook/react";
+import React from "react";
 import { Button } from "../button/button";
 import { Dialog } from "../dialog/dialog";
+import { EmptyState } from "../empty/empty";
 
-storiesOf("Empty", module).add("Main", () => (
+export default {
+	title: "Draft/Empty",
+	component: EmptyState,
+} as Meta;
+
+export const Primary = (): JSX.Element => (
 	<div>
 		<EmptyState message="Error connection, please wait." />
 		<br />
@@ -21,4 +27,4 @@ storiesOf("Empty", module).add("Main", () => (
 			}
 		/>
 	</div>
-));
+);

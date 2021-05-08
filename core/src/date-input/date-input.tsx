@@ -134,7 +134,7 @@ export const DateInput = (props: Props): JSX.Element => {
 					disabled: props.disabled,
 					icon: props.icon,
 				}}
-				component={Input.Forwarded}
+				component={Input}
 				clickUnselectsDay
 				overlayComponent={(dayPicker: DayPickerOverlayProps) => (
 					<Overlay target={target} {...dayPicker} />

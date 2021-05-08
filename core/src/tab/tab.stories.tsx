@@ -1,18 +1,23 @@
-import { storiesOf } from "@storybook/react"; //eslint-disable-line
-import React from "react";
+import { Meta } from "@storybook/react";
+import { useEffect, useState } from "react";
 import { DivPx } from "../div/div";
 import { Switcher } from "../switcher/switcher";
 import { Tab, Tabs } from "./tab";
+
+export default {
+	title: "Draft/Tabs",
+	component: Tabs,
+} as Meta;
 
 const tabs: Tab[] = [
 	{ id: "first", title: "First", pane: () => <p>1st</p> },
 	{ id: "second", title: "Second", pane: () => <p>2nd</p> },
 ];
 
-storiesOf("Tab", module).add("Primary", () => {
-	const [tab, setTab] = React.useState("first");
+export const Primary = (): JSX.Element => {
+	const [tab, setTab] = useState("first");
 
-	React.useEffect(() => {
+	useEffect(() => {
 		console.log(`active tab is changed: ${tab}`);
 	}, [tab]);
 
@@ -49,4 +54,4 @@ storiesOf("Tab", module).add("Primary", () => {
 			</div>
 		</div>
 	);
-});
+};

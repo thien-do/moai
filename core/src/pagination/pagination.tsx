@@ -69,7 +69,7 @@ export const Pagination = (props: PaginationProps): JSX.Element => {
 						<Button
 							busy={busy}
 							icon={coreIcons.kebab}
-							reverse
+							iconRight
 							selected={popover.opened}
 							onClick={popover.toggle}
 						>

@@ -1,4 +1,4 @@
 .input:checked ~ .check,
-.input:indeterminate ~ .indeterminate {
+.input[type="checkbox"]:indeterminate ~ .indeterminate {
 	opacity: 1;
 }
