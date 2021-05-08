@@ -11,8 +11,8 @@ export const TreeContainer = (props: TreeContainerProps): JSX.Element => {
 
 export interface TreeBase {
 	/**
- 	 * Selected nodes.
-   */
+	 * Selected nodes.
+	 */
 	selectedNodes?: Set<string>;
 
 	/**
@@ -46,7 +46,14 @@ interface NestedNodeTemplateProps extends TreeBase {
 const NestedNodeTemplate = (
 	props: NestedNodeTemplateProps
 ): React.ReactElement<NestedNodeTemplateProps> => {
-	const { node, level, expandedNodes, selectedNodes, setSelected, setExpanded } = props;
+	const {
+		node,
+		level,
+		expandedNodes,
+		selectedNodes,
+		setSelected,
+		setExpanded,
+	} = props;
 
 	const shouldExpand = expandedNodes?.has(node.id);
 

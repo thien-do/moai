@@ -112,6 +112,6 @@ export const TreeItem = (props: TreeNode): JSX.Element => {
 	);
 };
 
-TreeItem.defaultProps ={
-	showCollapseIcon: true
-}
+TreeItem.defaultProps = {
+	showCollapseIcon: true,
+};
