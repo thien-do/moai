@@ -1,8 +1,14 @@
-import { storiesOf } from "@storybook/react";
+import { Meta } from "@storybook/react";
+import React from "react";
 import { DivPx } from "../div/div";
 import { ProgressCircle } from "./circle";
 
-storiesOf("Progress", module).add("Circle", () => (
+export default {
+	title: "Draft/Progress Circle",
+	component: ProgressCircle,
+} as Meta;
+
+export const Primary = (): JSX.Element => (
 	<div>
 		<div>
 			<ProgressCircle size={16} value="indeterminate" />
@@ -24,4 +30,4 @@ storiesOf("Progress", module).add("Circle", () => (
 			/>
 		</div>
 	</div>
-));
+);

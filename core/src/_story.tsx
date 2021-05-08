@@ -54,8 +54,16 @@ const name = (story: any, text: string): void => {
 	story.storyName = text;
 };
 
-const StickyPage = (): JSX.Element => (
-	<div>
+const PageNoPrimary = (): JSX.Element => (
+	<>
+		<D.Title />
+		<D.Description />
+		<D.Stories />
+	</>
+);
+
+const PageStickyPrimary = (): JSX.Element => (
+	<>
 		<D.Title />
 		<D.Subtitle />
 		<D.Description />
@@ -66,7 +74,7 @@ const StickyPage = (): JSX.Element => (
 			<D.ArgsTable story={D.PRIMARY_STORY} />
 		</div>
 		<D.Stories />
-	</div>
+	</>
 );
 
 /**
@@ -102,8 +110,16 @@ export const _Story = {
 	 * Override the story's name
 	 */
 	name,
-	/**
-	 * Make the Primary story sticky for the ArgsTable
-	 */
-	StickyPage,
+	page: {
+		/**
+		 * Make the Primary story sticky so the user can see effects of
+		 * controls in the ArgsTable
+		 */
+		stickyPrimary: PageStickyPrimary,
+		/**
+		 * Skip the rendering of Primary (and its ArgsTable). Useful for
+		 * Pattern pages
+		 */
+		noPrimary: PageNoPrimary,
+	},
 };

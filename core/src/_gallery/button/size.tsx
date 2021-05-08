@@ -40,7 +40,7 @@ export const GalleryButtonSize = (): JSX.Element => (
 			<div className={s.flex}>
 				<Button children="Previous" icon={go.GoChevronLeft} />
 				<DivPx size={8} />
-				<Button children="Next" icon={go.GoChevronRight} reverse />
+				<Button children="Next" icon={go.GoChevronRight} iconRight />
 			</div>
 			<DivPx size={8} />
 			<IconRow disabled={false} />

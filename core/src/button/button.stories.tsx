@@ -37,7 +37,7 @@ export default {
 		target: _Story.arg(null, "Link"),
 		href: _Story.arg(null, "Link"),
 	},
-	parameters: { docs: { page: _Story.StickyPage } },
+	parameters: { docs: { page: _Story.page.stickyPrimary } },
 } as Meta;
 
 interface Props {
