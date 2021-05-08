@@ -1,4 +1,3 @@
-import { Description, Stories, Title } from "@storybook/addon-docs/blocks";
 import { Meta } from "@storybook/react/types-6-0";
 import { useForm, Controller } from "react-hook-form";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
@@ -10,16 +9,10 @@ import { _Story } from "../_story";
 import { FormError } from "./form";
 
 export default {
-	title: "Guides/Form",
+	title: "Patterns/Form",
 	parameters: {
 		docs: {
-			page: () => (
-				<>
-					<Title />
-					<Description />
-					<Stories />
-				</>
-			),
+			page: _Story.page.noPrimary,
 			description: {
 				component: `
 Moai doesn't come with a built-in form solution. Instead, our input components
