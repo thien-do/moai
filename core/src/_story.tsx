@@ -2,9 +2,7 @@ import { ArgType } from "@storybook/addons";
 import * as D from "@storybook/addon-docs/blocks";
 import { background } from "./background/background";
 
-type ArgTarget = Record<string, unknown> | null | string;
-
-const argControl = (target: ArgTarget) => {
+const argControl = (target: unknown) => {
 	if (target === null) {
 		return { type: null };
 	} else if (Array.isArray(target)) {
@@ -19,7 +17,7 @@ const argControl = (target: ArgTarget) => {
 	}
 };
 
-const arg = (target: ArgTarget, category?: string): ArgType => {
+const arg = (target: unknown, category?: string): ArgType => {
 	const table = category ? { category } : undefined;
 	const control = argControl(target);
 	return { control, table };
