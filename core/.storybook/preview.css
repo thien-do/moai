@@ -6,6 +6,15 @@ html {
 	max-width: 640px;
 }
 
+.sbdocs-blockquote:not(.x) {
+	border-color: var(--gray-2);
+}
+
+.sbdocs-blockquote .sbdocs-p {
+	font-style: italic;
+	color: var(--gray-4);
+}
+
 /* Hide the "Stories" heading */
 .sbdocs-h2#stories {
 	display: none;
