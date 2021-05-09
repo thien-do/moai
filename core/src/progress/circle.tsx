@@ -1,4 +1,3 @@
-import { IconSize } from "../icon/icon";
 import s from "./circle.module.css";
 
 export interface ProgressCircleColor {
@@ -8,7 +7,7 @@ export interface ProgressCircleColor {
 }
 
 interface Props {
-	size: IconSize | 24 | 32;
+	size: number;
 	value: number | "indeterminate";
 	color?: ProgressCircleColor;
 }

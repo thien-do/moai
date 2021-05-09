@@ -15,7 +15,7 @@ export const Hero = (): JSX.Element => (
 			<Button
 				size={Button.sizes.large}
 				icon={GoChevronRight}
-				reverse
+				iconRight
 				highlight
 				children="Docs"
 				href="https://docs.moaijs.com"

@@ -8,10 +8,10 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@moai/core": "1.0.0-rc6",
-		"@types/node": "14.14.41",
-		"@types/react": "17.0.3",
-		"next": "10.1.3",
+		"@moai/core": "1.0.0-rc7",
+		"@types/node": "15.0.2",
+		"@types/react": "17.0.5",
+		"next": "10.2.0",
 		"next-themes": "0.0.14",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
