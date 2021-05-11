@@ -69,7 +69,9 @@ const PageStickyPrimary = (): JSX.Element => (
 			<div className={["moai-primary", background.strong].join(" ")}>
 				<D.Primary />
 			</div>
-			<D.ArgsTable story={D.PRIMARY_STORY} />
+			<div className="moai-table">
+				<D.ArgsTable story={D.PRIMARY_STORY} />
+			</div>
 		</div>
 		<D.Stories />
 	</>
