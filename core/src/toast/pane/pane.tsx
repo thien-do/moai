@@ -41,7 +41,8 @@ const Close = (props: Props): JSX.Element | null => {
 };
 
 export const ToastPane = (props: Props): JSX.Element => (
-	<div>
+	// Manually "trigger" the dark mode so text (and icon) color is correct
+	<div className="dark">
 		<div
 			className={[
 				s.container,
