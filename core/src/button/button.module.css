@@ -16,7 +16,8 @@
 	flex-direction: row-reverse;
 }
 
-.fill {
+/* Add ".button" so ".fill" wins over the width defined in sizes */
+.button.fill {
 	width: 100%;
 }
 
