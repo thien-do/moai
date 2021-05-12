@@ -11,6 +11,7 @@ import s from "./pane.module.css";
 export interface ToastPaneType {
 	iconComponent: IconComponent;
 	iconCls: string;
+	className: string;
 }
 
 interface Props {
@@ -42,7 +43,11 @@ const Close = (props: Props): JSX.Element | null => {
 export const ToastPane = (props: Props): JSX.Element => (
 	<div className="dark">
 		<div
-			className={[s.container, shadow.boxStrong, border.radius].join(" ")}
+			className={[
+				s.container,
+				ToastPane.styles.outset,
+				props.type.className,
+			].join(" ")}
 		>
 			<div className={[s.icon, props.type.iconCls].join(" ")}>
 				<Icon display="block" component={props.type.iconComponent} />
@@ -61,9 +66,15 @@ ToastPane.types = {
 	success: {
 		iconComponent: coreIcons.success,
 		iconCls: text.successStrong,
+		className: s.dark,
 	} as ToastPaneType,
 	failure: {
 		iconComponent: coreIcons.error,
 		iconCls: text.failureStrong,
+		className: s.dark,
 	} as ToastPaneType,
+};
+
+ToastPane.styles = {
+	outset: [s.outset, shadow.boxStrong, border.radius].join(" "),
 };

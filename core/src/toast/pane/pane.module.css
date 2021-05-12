@@ -2,14 +2,18 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-
 	width: max-content;
 	max-width: 288px;
-	padding: 8px 12px;
+}
 
+.outset {
+	padding: 8px 12px;
+	color: var(--white);
+}
+
+.dark {
 	/* Avoid gray-7 and 8 since they are dark's backgrounds */
 	background-color: var(--gray-6);
-	color: var(--white);
 }
 
 .icon {
