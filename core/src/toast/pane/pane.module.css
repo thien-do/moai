@@ -2,11 +2,17 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-
 	width: max-content;
 	max-width: 288px;
-	padding: 8px 12px;
+}
 
+/* This is split to allow extension */
+.size {
+	padding: 8px 12px;
+}
+
+/* Toast always uses a dark background, for all types and themes */
+.dark {
 	/* Avoid gray-7 and 8 since they are dark's backgrounds */
 	background-color: var(--gray-6);
 	color: var(--white);
