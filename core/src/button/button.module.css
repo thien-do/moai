@@ -5,9 +5,6 @@
 	align-items: center;
 	text-decoration: none;
 	position: relative;
-
-	/* Enforce width in case of link */
-	width: fit-content;
 }
 
 .button:disabled {
@@ -19,7 +16,8 @@
 	flex-direction: row-reverse;
 }
 
-.fill {
+/* Add ".button" so ".fill" wins over the width defined in sizes */
+.button.fill {
 	width: 100%;
 }
 
@@ -59,6 +57,9 @@
 	height: 40px;
 	padding: 0 16px;
 	font-size: 16px;
+	/* Enforce width in case of link. Note that we must define
+	width here because icon-sized also define them. */
+	width: fit-content;
 }
 
 .largeIcon {
@@ -69,6 +70,7 @@
 .medium {
 	height: 32px;
 	padding: 0 12px;
+	width: fit-content;
 }
 
 .mediumIcon {
@@ -79,6 +81,7 @@
 .small {
 	height: 24px;
 	padding: 0 8px;
+	width: fit-content;
 }
 
 .smallIcon {
