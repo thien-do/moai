@@ -41,8 +41,7 @@ const Close = (props: Props): JSX.Element | null => {
 };
 
 export const ToastPane = (props: Props): JSX.Element => (
-	// Manually "trigger" the dark mode so text (and icon) color is correct
-	<div className="dark">
+	<div>
 		<div
 			className={[
 				s.container,
@@ -66,12 +65,12 @@ export const ToastPane = (props: Props): JSX.Element => (
 ToastPane.types = {
 	success: {
 		iconComponent: coreIcons.success,
-		iconCls: text.successStrong,
+		iconCls: text.successWeak,
 		className: s.dark,
 	} as ToastPaneType,
 	failure: {
 		iconComponent: coreIcons.error,
-		iconCls: text.failureStrong,
+		iconCls: text.failureWeak,
 		className: s.dark,
 	} as ToastPaneType,
 };
