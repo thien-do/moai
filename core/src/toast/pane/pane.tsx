@@ -41,11 +41,11 @@ const Close = (props: Props): JSX.Element | null => {
 };
 
 export const ToastPane = (props: Props): JSX.Element => (
-	<div className="dark">
+	<div>
 		<div
 			className={[
 				s.container,
-				ToastPane.styles.outset,
+				ToastPane.styles.main,
 				props.type.className,
 			].join(" ")}
 		>
@@ -76,5 +76,5 @@ ToastPane.types = {
 };
 
 ToastPane.styles = {
-	outset: [s.outset, shadow.boxStrong, border.radius].join(" "),
+	main: [s.size, shadow.boxStrong, border.radius].join(" "),
 };
