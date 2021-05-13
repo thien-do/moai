@@ -15,7 +15,7 @@ const ERRORS = {
 
 export interface Tab {
 	id: string;
-	title: string;
+	title: string | React.ReactNode;
 	pane: () => JSX.Element;
 }
 
