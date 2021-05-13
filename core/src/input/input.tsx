@@ -21,21 +21,17 @@ export interface InputSize {
 
 export interface InputProps {
 	/**
-	 * Type of input. For example: email, password, number, etc...
+	 * Type of input. For example: email, password, number, etc... See [MDN reference][1]
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeftype
 	 */
 	type?: string;
+
 	// Uncontrolled
 
 	/**
 	 * Initial value of the input in uncontrolled mode
 	 */
 	defaultValue?: string | number;
-
-	/**
-	 * [Reference][1] to the `Input` element. Usually useful in uncontrolled mode.
-	 *
-	 * [1]: https://reactjs.org/docs/forwarding-refs.html
-	 */
 
 	// Controlled
 
@@ -50,14 +46,19 @@ export interface InputProps {
 	setValue?: (value: string) => void;
 
 	/**
-	 * Id of a [datalist][1] element to be used. Can pass an object with values for
-	 * the Input component to create the [datalist][1].
+	 * Id of a [datalist][3] element to be used. Can pass an object with values for
+	 * the Input component to create the [datalist][3].
 	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+	 * [3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
 	list?: { id: string; values: string[] } | string;
 
 	// Style
+
+	/**
+	 * Icon appear in an input. See the [Icons guide][4] to learn more.
+	 * [4]: /docs/guides-icons--primary
+	 */
 	icon?: IconComponent;
 	/**
 	 * Style of the text box. Choose one from `Input.styles`
@@ -69,29 +70,80 @@ export interface InputProps {
 	size?: InputSize;
 
 	// Attributes
+
+	/**
+	 * The element's identifier. See [MDN reference][5]
+	 * [5]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
+	 */
 	id?: string;
+	/**
+	 * The name of the input, used when submitting HTML form. See [MDN reference][6]
+	 * [6]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
+	 */
 	name?: string;
+	/**
+	 * Define whether the input is disabled or not.
+	 */
 	disabled?: boolean;
+	/**
+	 * Define whether the input can be selected but not changed by the user.
+	 */
 	readOnly?: boolean;
+	/**
+	 * Placeholder text to display in the input whenever it is empty.
+	 */
 	placeholder?: string;
+	/**
+	 * Define the element should receive focus on render or not.
+	 */
 	autoFocus?: boolean;
 	autoSelect?: boolean;
+	/**
+	 * A string value that labels the current element.
+	 */
 	"aria-label"?: string;
+	/**
+	 * Identifies the element that labels the current element.
+	 */
 	"aria-labelledby"?: string;
+	/**
+	 * The maximum number of characters of value
+	 */
 	maxLength?: number;
 	/**
-	 * The "required" attribute in HTML
+	 * A value is required or must be check before form submission
 	 */
 	required?: boolean;
 
 	// Events
+
+	/**
+	 * Handler that called when the element outfocus
+	 */
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
+	/**
+	 * Handler that called when the element got focused
+	 */
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
+	/**
+	 * Handler that called when the user presses a key (on the keyboard)
+	 */
 	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
+	/**
+	 * Handler that is called when a key is released
+	 */
 	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
+	/**
+	 * Handler that is called when a key is pressed
+	 */
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+	/**
+	 * Handler that is called when click to an input
+	 */
 	onClick?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
+	 * Handler that is called when the value changes.
+	 *
 	 * You should not need to use onChange! This exists only for compatibility
 	 * with 3rd-party libraries (those that passing props to a custom rendered
 	 * component)
@@ -203,6 +255,9 @@ const inputRender = (
 	);
 };
 
+/**
+ * Input (or text field) is text input that allow users to write or edit text entries.
+ */
 export const Input = React.forwardRef(inputRender) as InputComponent;
 
 Input.styles = {
