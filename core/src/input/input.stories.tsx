@@ -5,6 +5,7 @@ import { DivPx } from "../div/div";
 import { FormField } from "../form/field";
 import { _Story } from "../_story";
 import { Input } from "./input";
+import { HiPhone } from "react-icons/hi";
 
 export default {
 	title: "Components/Input",
@@ -99,6 +100,23 @@ be provided by the \`defaultValue\` prop. Similar, controlled value can be
 provided using the \`value\` prop.
 `);
 
+export const Icon = (): JSX.Element => {
+	return (
+		<label>
+			Phone number
+			<DivPx size={4} />
+			<Input icon={HiPhone} placeholder="(888) 000-9999" />
+		</label>
+	);
+};
+
+_Story.desc(Icon)(`
+You can using Input with icon via the \`icon\` prop. Moai supports *any* 
+SVG-based icons. See the [Icon guide][icon-guide] to learn more.
+
+[icon-guide]: /docs/guides-icons--primary
+`);
+
 export const Form = (): JSX.Element => {
 	const [text, setText] = useState("");
 	return (
@@ -128,7 +146,7 @@ export const Form = (): JSX.Element => {
 };
 
 _Story.desc(Form)(`
-Simply example when using Input with form. For advenced, see [Form][form] section.
+Simply example when using Input with form. For advanced, see [Form][form] section.
 
 [form]: /docs/patterns-form--primary
 `);
