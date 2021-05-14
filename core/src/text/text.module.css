@@ -15,14 +15,14 @@
 }
 
 :global(.light) .failureWeak {
-	color: var(--failure-6);
+	color: var(--failure-5);
 }
 :global(.dark) .failureWeak {
 	color: var(--failure-5);
 }
 
 :global(.light) .failureStrong {
-	color: var(--failure-7);
+	color: var(--failure-6);
 }
 :global(.dark) .failureStrong {
 	color: var(--failure-4);
@@ -32,7 +32,7 @@
 	color: var(--success-6);
 }
 :global(.dark) .successWeak {
-	color: var(--success-5);
+	color: var(--success-6);
 }
 
 :global(.light) .successStrong {
@@ -46,7 +46,7 @@
 	color: var(--highlight-6);
 }
 :global(.dark) .highlightWeak {
-	color: var(--highlight-5);
+	color: var(--highlight-6);
 }
 
 :global(.light) .highlightStrong {
@@ -54,6 +54,13 @@
 }
 :global(.dark) .highlightStrong {
 	color: var(--highlight-5);
+}
+
+:global(.light) .normal {
+	color: var(--gray-8);
+}
+:global(.dark) .normal {
+	color: var(--gray-1);
 }
 
 :global(.light) .muted {

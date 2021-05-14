@@ -30,6 +30,7 @@ export const parameters = {
 			order: [
 				"Guides",
 				["Quick Start", "Proper Start"],
+				"Foundation",
 				"Patterns",
 				"Components",
 				["Component Gallery"],
