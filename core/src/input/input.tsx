@@ -46,18 +46,18 @@ export interface InputProps {
 	setValue?: (value: string) => void;
 
 	/**
-	 * Id of a [datalist][3] element to be used. Can pass an object with values for
-	 * the Input component to create the [datalist][3].
+	 * Id of a [datalist][1] element to be used. Can pass an object with values for
+	 * the Input component to create the [datalist][1].
 	 *
-	 * [3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
 	list?: { id: string; values: string[] } | string;
 
 	// Style
 
 	/**
-	 * Icon appear in an input. See the [Icons guide][4] to learn more.
-	 * [4]: /docs/guides-icons--primary
+	 * Icon appear in an input. See the [Icons guide][1] to learn more.
+	 * [1]: /docs/guides-icons--primary
 	 */
 	icon?: IconComponent;
 	/**
@@ -72,13 +72,13 @@ export interface InputProps {
 	// Attributes
 
 	/**
-	 * The element's identifier. See [MDN reference][5]
-	 * [5]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
+	 * The element's identifier. See [MDN reference][1]
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
 	 */
 	id?: string;
 	/**
-	 * The name of the input, used when submitting HTML form. See [MDN reference][6]
-	 * [6]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
+	 * The name of the input, used when submitting HTML form. See [MDN reference][1]
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
 	 */
 	name?: string;
 	/**
@@ -97,7 +97,6 @@ export interface InputProps {
 	 * Define the element should receive focus on render or not.
 	 */
 	autoFocus?: boolean;
-	autoSelect?: boolean;
 	/**
 	 * A string value that labels the current element.
 	 */
@@ -111,7 +110,7 @@ export interface InputProps {
 	 */
 	maxLength?: number;
 	/**
-	 * A value is required or must be check before form submission
+	 * A value is required before form submission
 	 */
 	required?: boolean;
 
