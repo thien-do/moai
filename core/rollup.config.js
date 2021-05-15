@@ -4,7 +4,10 @@ import cssPrefix from "autoprefixer";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
 import postcss from "rollup-plugin-postcss";
-import typescript from "rollup-plugin-typescript2";
+// Reason for not using the official TS plugin:
+// - https://github.com/rollup/plugins/issues/862
+import typescript2 from "rollup-plugin-typescript2";
+// import typescript from "@rollup/plugin-typescript";
 
 /** @type {import("rollup-plugin-postcss").PostCSSPluginConf } */
 const postcssOptions = {
@@ -13,7 +16,7 @@ const postcssOptions = {
 	// Extracting is important because we should not force the consumers to
 	// use a specific way to handle our CSS imports.
 	// See: https://github.com/vercel/next.js/blob/master/errors/css-npm.md
-	// Note that this is related to the bundled JS files
+	// Note that the path here is related to the bundled JS files
 	extract: "bundle.css",
 };
 
@@ -41,47 +44,10 @@ const bundleMain = {
 	],
 	plugins: [
 		del({ targets: ["dist"] }),
-		copy({
-			targets: [
-				{ src: "font", dest: "dist" },
-				// This package.json is necessary for "gallery" to import
-				// "core"
-				{ src: "src/package.json", dest: "dist" },
-			],
-		}),
+		copy({ targets: [{ src: "font", dest: "dist" }] }),
 		postcss(postcssOptions),
-		typescript({ useTsconfigDeclarationDir: true }),
+		typescript2({ useTsconfigDeclarationDir: true }),
 	],
 };
 
-/**
- * Gallery bundling process
- * @type {import("rollup").RollupOptions}
- */
-const bundleGallery = {
-	input: "src/_gallery/gallery.tsx",
-	output: [
-		{ file: "dist/_gallery/cjs.js", format: "cjs" },
-		{ file: "dist/_gallery/esm.js", format: "esm" },
-	],
-	external: [
-		"react-dom",
-		"react-icons/go",
-		"react",
-		"react/jsx-runtime",
-		// References to "root" folder is considered as external so that
-		// they will not be bundled inside the "gallery" module
-		"..",
-	],
-	plugins: [
-		postcss(postcssOptions),
-		copy({
-			targets: [
-				{ src: "src/_gallery/package.json", dest: "dist/_gallery" },
-			],
-		}),
-		typescript({}),
-	],
-};
-
-export default [bundleMain, bundleGallery];
+export default [bundleMain];

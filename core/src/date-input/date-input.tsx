@@ -1,6 +1,6 @@
-import { ReactNode, RefObject, useState } from "react";
-import DayPickerInput from "react-day-picker/DayPickerInput";
+import { ReactNode, useState } from "react";
 import { CaptionElementProps, Modifier } from "react-day-picker";
+import DayPickerInput from "react-day-picker/DayPickerInput";
 import { Input, InputProps } from "../input/input";
 import { PopoverPane } from "../popover/pane/pane";
 import "./date-input.css";
@@ -59,12 +59,6 @@ interface Props {
 	 * The icon of the text box. See "Icon" page.
 	 */
 	icon?: InputProps["icon"];
-
-	/**
-	 * Reference to the underlying [DayPickerInput](https://react-day-picker.js.org/api/DayPickerInput/)
-	 * instance. Usually useful in uncontrolled mode.
-	 */
-	forwardedRef?: RefObject<DayPickerInput>;
 }
 
 interface DayPickerOverlayProps {
@@ -127,7 +121,6 @@ export const DateInput = (props: Props): JSX.Element => {
 	return (
 		<div ref={setTarget}>
 			<DayPickerInput
-				ref={props.forwardedRef}
 				inputProps={{
 					style: props.style,
 					size: props.size,
