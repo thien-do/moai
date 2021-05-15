@@ -3,3 +3,4 @@
 public
 # output of rollup (main lib)
 dist
+.rollup.cache

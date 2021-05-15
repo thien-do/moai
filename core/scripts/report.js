@@ -1,14 +1,7 @@
 /* eslint-disable */
 const cp = require("child_process");
 
-const files = [
-	"esm.js",
-	"cjs.js",
-	"bundle.css",
-	"_gallery/esm.js",
-	"_gallery/cjs.js",
-	"_gallery/bundle.css",
-];
+const files = ["esm.js", "cjs.js", "bundle.css"];
 
 files.forEach((file) => {
 	const command = `gzip -c dist/${file} | wc -c`;

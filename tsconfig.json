@@ -2,18 +2,14 @@
 packages (core, icon, etc.). */
 {
 	"compilerOptions": {
-		"strict": true,
-		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": true,
-		"declaration": true,
-		"resolveJsonModule": true,
+		"isolatedModules": true, // https://github.com/microsoft/TypeScript/wiki/Performance#isolated-file-emit
+		"jsx": "react-jsx",
 		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"skipLibCheck": true, // https://github.com/microsoft/TypeScript/wiki/Performance#skipping-dts-checking
+		"strict": true,
 		"target": "ES2016",
-		// https://github.com/microsoft/TypeScript/wiki/Performance#isolated-file-emit
-		"isolatedModules": true,
-		// https://github.com/microsoft/TypeScript/wiki/Performance#skipping-dts-checking
-		"skipLibCheck": true,
-		// https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
-		"types": []
+		"types": [] // https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
 	}
 }

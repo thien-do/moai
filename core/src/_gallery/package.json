@@ -1,5 +1,0 @@
-{
-	"types": "_gallery/gallery.d.ts",
-	"main": "cjs.js",
-	"module": "esm.js"
-}

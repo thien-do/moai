@@ -4,6 +4,9 @@ import { shadow } from "../shadow/shadow";
 import { Paragraph } from "../text/text";
 import s from "./tooltip.module.css";
 
+type Children = TippyProps["children"];
+type Placement = TippyProps["placement"];
+
 export interface TooltipProps {
 	/**
 	 * The content inside of the tooltip
@@ -12,13 +15,13 @@ export interface TooltipProps {
 	/**
 	 * The element that hover on will show the Tooltip
 	 */
-	children: TippyProps["children"];
+	children: Children;
 	/**
 	 * The *preferred* placement where the Tooltip should appear relative to its `children`.
 	 *
 	 * [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement
 	 */
-	placement?: TippyProps["placement"];
+	placement?: Placement;
 }
 
 interface PaneProps {
