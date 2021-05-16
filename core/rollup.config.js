@@ -27,8 +27,8 @@ const postcssOptions = {
 const bundleMain = {
 	input: "src/index.ts",
 	output: [
-		{ file: "dist/cjs.js", format: "cjs" },
-		{ file: "dist/esm.js", format: "esm" },
+		{ dir: "dist/cjs", format: "cjs", preserveModules: true },
+		{ dir: "dist/esm", format: "esm", preserveModules: true },
 	],
 	external: [
 		"@tippyjs/react/headless",
