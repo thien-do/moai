@@ -11,7 +11,10 @@ import typescript2 from "rollup-plugin-typescript2";
  */
 const config = {
 	input: "src/index.tsx",
-	output: { file: "dist/index.js", format: "esm" },
+	output: [
+		{ file: "dist/esm.js", format: "esm" },
+		{ file: "dist/cjs.js", format: "cjs" },
+	],
 	external: ["@moai/core", "react-icons/go", "react", "react/jsx-runtime"],
 	plugins: [
 		del({

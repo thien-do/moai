@@ -2,7 +2,6 @@ import "@moai/core/dist/font/local.css";
 import "@moai/core/dist/bundle.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { scrollbar } from "@moai/core";
 import { ThemeProvider } from "next-themes";
 
 const favIcon: string = [
@@ -22,7 +21,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 			/>
 		</Head>
 		<ThemeProvider enableSystem attribute="class">
-			<div className={scrollbar.custom}>
+			<div>
 				<Component {...pageProps} />
 			</div>
 		</ThemeProvider>

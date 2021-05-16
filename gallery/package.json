@@ -1,9 +1,9 @@
 {
 	"name": "@moai/gallery",
-	"version": "1.0.0",
+	"version": "1.0.0-rc11",
 	"description": "Widget Gallery of Moai 🗿",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
+	"main": "dist/cjs.js",
+	"module": "dist/esm.js",
 	"types": "dist/gallery/src/index.d.ts",
 	"sideEffects": false,
 	"files": [
