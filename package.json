@@ -3,7 +3,10 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
-		"lint-fix": "eslint --fix . && prettier --write ."
+		"lint-fix": "eslint --fix . && prettier --write .",
+		"install-all": "yarn && cd ../gallery && yarn && cd ../core && yarn && cd ../docs",
+		"start": "yarn && start-storybook --no-manager-cache -p 6006",
+		"build": "yarn && build-storybook -c .storybook -o public"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "4.22.0",
@@ -12,6 +15,18 @@
 		"eslint-config-prettier": "8.2.0",
 		"eslint-plugin-react": "7.23.2",
 		"prettier": "2.2.1",
-		"typescript": "4.2.4"
+		"typescript": "4.2.4",
+		"react-icons": "4.2.0",
+		"@storybook/addon-docs": "6.2.9",
+		"@storybook/react": "6.2.9",
+		"@storybook/theming": "6.2.9",
+		"formik": "2.2.6",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"react-hook-form": "7.6.0",
+		"storybook-css-modules-preset": "1.1.1"
+	},
+	"resolutions": {
+		"@babel/preset-env": "7.13"
 	}
 }

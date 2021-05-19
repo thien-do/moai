@@ -1,4 +1,6 @@
-node_modules
-dist
+/node_modules
+# Storybook's built
+/public
+# Others
 .DS_Store
 .idea

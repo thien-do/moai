@@ -1,6 +1,2 @@
-.vercel
-# output of storybook (docs site)
-public
-# output of rollup (main lib)
-dist
-.rollup.cache
+/node_modules
+/dist
