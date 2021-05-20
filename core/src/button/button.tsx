@@ -259,12 +259,11 @@ const buttonRender = (
 };
 
 /**
- * Buttons trigger an action or event, such as submitting a form, opening a
- * dialog or canceling an operation.
+ * Buttons trigger actions or events, such as submitting forms, opening
+ * dialogs or canceling operations. Moai's Buttons can also be used as
+ * [links][1] (e.g. to navigate pages).
  *
- * Moai's Button component covers both real button (render a "button" tag) and
- * link button (render an "a" tag) use cases, depend on whether you provide
- * "onClick" or "href".
+ * [1]: #link
  */
 export const Button = forwardRef(buttonRender) as ButtonComponent;
 

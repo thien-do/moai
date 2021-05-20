@@ -1,0 +1,5 @@
+.container {
+	/* 320: smallest mobile device width
+	   32:  16px padding each side */
+	width: calc(320px - 32px);
+}

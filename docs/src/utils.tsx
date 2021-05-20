@@ -1,6 +1,8 @@
-import { ArgType } from "@storybook/addons";
 import * as D from "@storybook/addon-docs/blocks";
+import { ArgType } from "@storybook/addons";
+import { Meta } from "@storybook/react";
 import { background } from "../../core/src";
+import { ComponentPage, ComponentPageProps } from "./utils/component";
 
 const argControl = (target: unknown) => {
 	if (target === null) {
@@ -40,6 +42,8 @@ const expanded = (story: any): void => {
 	story.parameters ??= {};
 	story.parameters.docs ??= {};
 	story.parameters.docs.source ??= {};
+	story.parameters.docs.source.state = "open";
+	story.parameters.docs.source.withSource = "open";
 	story.parameters.docs.source.isExpanded = true;
 };
 
@@ -80,6 +84,12 @@ const PageStickyPrimary = (): JSX.Element => (
 		<D.Stories />
 	</>
 );
+
+const useComponentPage = (meta: Meta, props: ComponentPageProps): void => {
+	meta.parameters ??= {};
+	meta.parameters.docs ??= {};
+	meta.parameters.docs.page = () => <ComponentPage {...props} />;
+};
 
 /**
  * Utilities to work with Storybook
@@ -125,5 +135,9 @@ export const Utils = {
 		 * Pattern pages
 		 */
 		noPrimary: PageNoPrimary,
+		/**
+		 * Page layout for component doc
+		 */
+		component: useComponentPage,
 	},
 };
