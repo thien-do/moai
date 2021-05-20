@@ -1,16 +1,11 @@
-import { Meta } from "@storybook/react/types-6-0";
-import { GoPlus, GoSearch } from "react-icons/go";
-import {
-	Button,
-	ButtonGroup,
-	Dialog,
-	DivPx,
-	Input,
-	Select,
-} from "../../core/src";
+import { Meta } from "@storybook/react";
+import { GoPlus } from "react-icons/go";
+import { Button, Dialog } from "../../core/src";
+import { ButtonShot1 } from "../../gallery/src/button/shot-1";
+import { ButtonShot2 } from "../../gallery/src/button/shot-2";
 import { Utils } from "./utils";
 
-export default {
+const meta: Meta = {
 	title: "Components/Button",
 	component: Button,
 	argTypes: {
@@ -39,8 +34,14 @@ export default {
 		target: Utils.arg(null, "Link"),
 		href: Utils.arg(null, "Link"),
 	},
-	parameters: { docs: { page: Utils.page.stickyPrimary } },
-} as Meta;
+};
+
+Utils.page.component(meta, {
+	sticky: true,
+	shots: [<ButtonShot1 key="1" />, <ButtonShot2 key="2" />],
+});
+
+export default meta;
 
 interface Props {
 	style?: string;
@@ -71,65 +72,46 @@ export const Primary = (props: Props): JSX.Element => (
 	/>
 );
 
-Utils.fixPrimary(Primary);
+// Utils.fixPrimary(Primary);
+
+export const Basic = (): JSX.Element => (
+	<Button onClick={() => alert("Hi")}>Say Hi</Button>
+);
+
+Utils.desc(Basic)(`
+Buttons closely follow the interface and behaviour of the [HTML \`button\`][1]
+element. To get started, you only need to provide a label via \`children\` and
+a handler via \`onClick\`:
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+`);
 
 export const Icon = (): JSX.Element => (
-	<div style={{ display: "flex" }}>
-		<Button icon={GoPlus} children="Add" />
-		<DivPx size={8} />
+	// import { GoPlus } from "react-icons/go";
 
+	<div style={{ display: "flex", gap: 8 }}>
+		{/* Basic usage with icon */}
+		<Button icon={GoPlus} children="Add" />
 		{/* Icon on the right side */}
 		<Button icon={GoPlus} children="Add" iconRight />
-		<DivPx size={8} />
-
 		{/* Require "iconLabel" because there is no "children" */}
 		<Button icon={GoPlus} iconLabel="Add" />
 	</div>
 );
 
 Utils.desc(Icon)(`
-Button component can have an icon set via the \`icon\` prop. This supports
-*any* SVG-based icons. See the [Icon guide][1] to learn more. The icon is on
-the left side by default. Set the \`iconRight\` prop to move it to the right.
-
-~~~tsx
-import { GoPlus } from "react-icons/go";
-import { Button } from "@moai/core";
-
-<Button icon={GoPlus}>Add</Button>
-~~~
+Icons can be used in buttons via the \`icon\` prop. This follows our [Icon
+standard][1], which supports any SVG icons. The icon is on the left side by
+default, with the \`iconRight\` prop to move it to the right.
 
 It's [intentional][3] that [screen readers][2] would skip the icon and only
-announce the label of a button (i.e. the text inside "children" prop). If your
-button doesn't have a \`children\` defined (i.e. icon-only buttons), provide
-the \`iconLabel\` prop so screen readers can announce it.
+announce the label of a button (i.e. the text inside the \`children\` prop).
+If your button doesn't have a \`children\` defined (i.e. icon-only buttons),
+provide the \`iconLabel\` prop so screen readers can announce it.
 
 [1]: /docs/guides-icons--primary
 [2]: https://en.wikipedia.org/wiki/Screen_reader
 [3]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
-
-`);
-
-export const Group = (): JSX.Element => {
-	const input = <Input placeholder="Search" />;
-	const button = <Button icon={GoSearch} iconLabel="Search" />;
-	const select = <Select options={["Posts"].map(Select.toStringOption)} />;
-	return (
-		<div style={{ width: 320 }}>
-			<ButtonGroup>
-				{[
-					{ fill: false, element: select },
-					{ fill: true, element: input },
-					{ fill: false, element: button },
-				]}
-			</ButtonGroup>
-		</div>
-	);
-};
-
-Utils.desc(Group)(`
-Use \`ButtonGroup\` to group buttons with each other or with other input
-components.
 `);
 
 export const Link = (): JSX.Element => (
@@ -137,16 +119,18 @@ export const Link = (): JSX.Element => (
 		highlight
 		href="https://moaijs.com"
 		target="_blank"
-		children="Home"
+		children="Go to Moaijs.com"
 	/>
 );
 
 Utils.desc(Link)(`
-The Button component can render itself as either an [\`a\`][1] or a
-[\`button\`][2] tag, depend on whether you provide the \`href\` prop or not.
-This helps you have elements that look like buttons (e.g. attract attention)
-but work like links (e.g. you can right-click and open it in new tab). This is
-actually quite [common and expected][3].
+Buttons with \`href\` prop are rendered as [HTML \`a\`][1] elements instead of
+the usual \`button\`. This helps you have links that look like buttons (e.g.
+with strong appearance to attract attention) but still preserve all [built-in
+behaviours][3] of links.
+
+For example, you can right click the below button to copy the URL or open it
+in a new tab:
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
