@@ -21,8 +21,12 @@
 	border-top: solid 2px var(--gray-1);
 }
 
+/* We should have this alone */
+.prismjs:not(#x) code,
+/* But Storybook set this so we also need to override it */
 .token:not(#x) {
 	font-family: "Source Code Pro", monospace;
+	font-weight: 400;
 }
 
 .token:not(#x).selector,

@@ -19,10 +19,14 @@ export const ComponentPage = (props: ComponentPageProps): JSX.Element => (
 	<div className={props.sticky ? s.sticky : ""}>
 		<Title />
 		<Description />
-		<h3 id="props" className="sbdocs sbdocs-h3">
-			Gallery
-		</h3>
-		<div className={s.shots}>{props.shots}</div>
+		{props.shots.length > 0 && (
+			<>
+				<h3 id="props" className="sbdocs sbdocs-h3">
+					Gallery
+				</h3>
+				<div className={s.shots}>{props.shots}</div>
+			</>
+		)}
 		<Stories />
 		<div>
 			<h3 id="props" className="sbdocs sbdocs-h3">

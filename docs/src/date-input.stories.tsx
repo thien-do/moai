@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { useState } from "react";
-import { Button, DateInput, DivPx } from "../../core/src";
+import { DateInput } from "../../core/src";
 import { Utils } from "./utils";
 
-export default {
+const meta: Meta = {
 	title: "Components/DateInput",
 	component: DateInput,
 	argTypes: {
@@ -20,7 +20,11 @@ export default {
 		icon: Utils.arg(null),
 	},
 	parameters: { stickyPrimary: true },
-} as Meta;
+};
+
+Utils.page.component(meta, { sticky: true, shots: [] });
+
+export default meta;
 
 interface Props {
 	style?: string;
@@ -32,11 +36,10 @@ interface Props {
 export const Primary = (props: Props): JSX.Element => {
 	const [date, setDate] = useState<null | Date>(() => new Date());
 	return (
-		<div style={{ width: 240 }}>
+		<div style={{ width: 200 }}>
 			<DateInput
 				value={date}
 				setValue={setDate}
-				// Storybook's controls
 				// eslint-disable-next-line
 				size={(DateInput.sizes as any)[props.size!]}
 				// eslint-disable-next-line
@@ -49,74 +52,54 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
+export const Basic = (): JSX.Element => {
+	const [date, setDate] = useState<null | Date>(() => new Date());
+	return (
+		<div style={{ width: 200 }}>
+			<DateInput value={date} setValue={setDate} />
+		</div>
+	);
+};
+
+Utils.desc(Basic)(`
+The Date Input component should be used like [controlled][1] components: you
+have the date as a [state][4] and give the control to a Date Input via the
+\`value\` and \`setValue\` props.
+
+Moai's Date Input follows the [standard behaviour][2] of the HTML \`<input>\`
+element, so the type of your state should be \`null | Date\`. The \`null\`
+value happens when the current date is invalid, like when the user is still
+typing (e.g. "13/") or they entered an invalid date (e.g. "30/2/2021").
+
+Similar to the [Input][3] component, the width of Date Inputs is 100% of their
+containers' width.
+
+[1]: https://reactjs.org/docs/uncontrolled-components.html
+[2]: https://html.spec.whatwg.org/multipage/input.html#dom-input-valueasdate
+[3]: /docs/components-input--width
+[4]: https://reactjs.org/docs/hooks-state.html
+`);
 
 export const MinMax = (): JSX.Element => {
 	const today = new Date();
 	const lastWeek = new Date();
 	lastWeek.setDate(lastWeek.getDate() - 7);
 	return (
-		<div style={{ width: 240 }}>
+		<div style={{ width: 200 }}>
 			<DateInput minDate={lastWeek} maxDate={today} />
 		</div>
 	);
 };
 
-Utils.desc(MinMax)(
-	`If set, users can only select dates between minDate and maxDate
-	(inclusive). You can set one or both options. These options only disable
-	dates on the pop-up calendar, and do not have any limitation if the user
-	inputs via keyboard.`
-);
+Utils.desc(MinMax)(`
+The \`minDate\` and \`maxDate\` props can be used to prevent the users from
+**selecting** dates outside of a range. They are inclusive, and both are
+optional (e.g. you can accept all dates after today).
 
-export const Controlled = (): JSX.Element => {
-	const yesterday = new Date();
-	yesterday.setDate(yesterday.getDate() - 1);
+Note that these props are for convenient reason, as they only disable dates
+in the pop-up calendar. In other words, users can still type any date directly
+into the text box. This is intentional. If you need strict validation, see the
+[Form][1] guide.
 
-	const [date, setDate] = useState<null | Date>(() => new Date());
-
-	return (
-		<div style={{ display: "flex", alignItems: "center" }}>
-			<div style={{ width: 240 }}>
-				<DateInput value={date} setValue={setDate} />
-			</div>
-			<DivPx size={8} />
-			<Button
-				onClick={() => void setDate(yesterday)}
-				children="Set to yesterday"
-			/>
-			<DivPx size={8} />
-			<div>Value: {JSON.stringify(date)}</div>
-		</div>
-	);
-};
-
-Utils.desc(Controlled)(
-	`The state (selected date) is maintained by the user's component. For
-	example, it can be set from outside the DateInput.`
-);
-
-// export const Uncontrolled = (): JSX.Element => {
-// 	const ref = useRef<DayPickerInput>(null);
-// 	return (
-// 		<div style={{ display: "flex", alignItems: "center" }}>
-// 			<div style={{ width: 240 }}>
-// 				<DateInput defaultValue={new Date()} forwardedRef={ref} />
-// 			</div>
-// 			<DivPx size={8} />
-// 			<Button
-// 				onClick={() => {
-// 					const value = ref.current?.state.value ?? null;
-// 					window.alert(JSON.stringify(value));
-// 				}}
-// 				children="Get value from ref"
-// 			/>
-// 		</div>
-// 	);
-// };
-
-// Utils.desc(Uncontrolled)(
-// 	`The state (selected date) is maintained by the DateInput itself. In
-// 	general, it cannot be set from outside. The user can still get the selected
-// 	date by querying directly from a reference to the ReactDayPicker instance.`
-// );
+[1]: /docs/patterns-form--primary
+`);

@@ -113,6 +113,21 @@ const getDisabledDays = (props: Props): Modifier => {
 	return days;
 };
 
+/**
+ * Date Inputs let users enter a date, by typing it or choosing from a pop-up
+ * calendar.
+ * 
+ * The DateInput component is based on [React Day Picker][3], as an alternative
+ * to the built-in `<Input type="date" />`. It works on [unsupported
+ * browsers][2] and can display custom date format (e.g. "dmy" or "mdy"). If
+ * you don't need these features, use [Input][1] to have better accessibility
+ * support.
+ 
+ * [1]: /docs/components-input--primary#date
+ * [2]: https://caniuse.com/input-datetime
+ * [3]: https://react-day-picker.js.org
+ *
+ */
 export const DateInput = (props: Props): JSX.Element => {
 	const [target, setTarget] = useState<HTMLDivElement | null>(null);
 	const [month, setMonth] = useState<Date>(() => new Date());
