@@ -1,5 +1,6 @@
 import * as M from "../../core/src";
 import { Shot } from "./shot/shot";
+import s from "./styles.module.css";
 
 const Pane = () => (
 	<M.Dialog.Pane width="content">
@@ -29,7 +30,7 @@ const prompt = async () => {
 
 export const GalleryDialog = (): JSX.Element => (
 	<Shot>
-		<div style={{ display: "flex", gap: 8 }}>
+		<div className={s.cols}>
 			<M.Button fill onClick={alert} children="Alert" />
 			<M.Button fill onClick={confirm} children="Confirm" />
 			<M.Button fill onClick={prompt} children="Prompt" />

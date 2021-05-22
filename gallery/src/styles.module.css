@@ -17,3 +17,18 @@
 .p4 {
 	padding: 4px;
 }
+
+.cols {
+	display: flex;
+	gap: 8px;
+}
+
+.rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.col {
+	flex: 1 1 0px;
+}
