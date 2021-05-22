@@ -42,7 +42,6 @@ export const PromptDialog = (props: Props): JSX.Element => {
 					<Button minWidth onClick={props.onCancel}>
 						Cancel
 					</Button>
-					<DivPx size={16} />
 					<Button minWidth type="submit" highlight>
 						OK
 					</Button>

@@ -1,15 +1,25 @@
-import { DialogPane, DialogMain, DialogProps } from "./main/main";
-import { DialogBody, DialogHeader, DialogFooter, DialogTitle } from "./sub/sub";
+import { DialogMain, DialogPane, DialogProps } from "./main/main";
 import { dialogAlert } from "./native/alert";
 import { dialogConfirm } from "./native/confirm";
 import { dialogPrompt } from "./native/prompt";
+import { DialogBody, DialogFooter, DialogHeader, DialogTitle } from "./sub/sub";
 
 /**
- * The component that many incorrectly call "Modal".
+ * Dialogs render content on a layer on top of the app. They are [modal][2] by
+ * design. For non-modal alternatives, consider the [Popover][3] component.
  *
- * Usage notes:
+ * At the moment, Dialog does not use the [HTML `dialog`][1] element due to
+ * its poor browser support. It is just generic content rendered via
+ * [React's Portal][4].
  *
- * - https://www.nngroup.com/articles/modal-nonmodal-dialog/
+ * There are also [utility methods][5] such as `Dialog.alert` and
+ * `Dialog.confirm` for common imperative use cases.
+ *
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+ * [2]: https://www.nngroup.com/articles/modal-nonmodal-dialog/
+ * [3]: /docs/components-popover--primary
+ * [4]: https://reactjs.org/docs/portals.html
+ * [5]: #utilities
  */
 export const Dialog = (props: DialogProps): JSX.Element => (
 	// DialogMain is extracted to its own folder to avoid circular dependencies

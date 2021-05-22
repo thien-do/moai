@@ -1,5 +1,4 @@
 import { Button } from "../../button/button";
-import { DivPx } from "../../div/div";
 import { DialogMain, DialogProps } from "../main/main";
 import { DialogBody, DialogFooter } from "../sub/sub";
 import { renderDialog } from "./native";
@@ -16,7 +15,6 @@ export const ConfirmDialog = (props: Props): JSX.Element => (
 		<DialogBody children={props.children} />
 		<DialogFooter>
 			<Button minWidth onClick={props.onCancel} children="Cancel" />
-			<DivPx size={16} />
 			<Button
 				minWidth
 				autoFocus

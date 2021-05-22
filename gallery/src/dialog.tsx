@@ -1,5 +1,5 @@
-import * as M from "../../../core/src";
-import s from "../styles.module.css";
+import * as M from "../../core/src";
+import { Shot } from "./shot/shot";
 
 const Pane = () => (
 	<M.Dialog.Pane width="content">
@@ -10,13 +10,8 @@ const Pane = () => (
 			</M.Paragraph>
 		</M.Dialog.Body>
 		<M.Dialog.Footer>
-			<div className={s.flex}>
-				<M.Button minWidth>Cancel</M.Button>
-				<M.DivPx size={8} />
-				<M.Button minWidth highlight>
-					Publish
-				</M.Button>
-			</div>
+			<M.Button minWidth children="Cancel" />
+			<M.Button minWidth highlight children="Publish" />
 		</M.Dialog.Footer>
 	</M.Dialog.Pane>
 );
@@ -32,16 +27,14 @@ const prompt = async () => {
 	M.Dialog.alert(`Post "${title}" is published!`);
 };
 
-export const GalleryContainerDialog = (): JSX.Element => (
-	<div>
-		<div className={s.flex}>
+export const GalleryDialog = (): JSX.Element => (
+	<Shot>
+		<div style={{ display: "flex", gap: 8 }}>
 			<M.Button fill onClick={alert} children="Alert" />
-			<M.DivPx size={8} />
 			<M.Button fill onClick={confirm} children="Confirm" />
-			<M.DivPx size={8} />
 			<M.Button fill onClick={prompt} children="Prompt" />
 		</div>
 		<M.DivPx size={8} />
 		<Pane />
-	</div>
+	</Shot>
 );

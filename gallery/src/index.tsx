@@ -1,8 +1,8 @@
 import { DivPx, scrollbar } from "../../core/src";
-import { ButtonShot1 } from "./button/shot-1";
-import { ButtonShot2 } from "./button/shot-2";
-import { GalleryContainerDialog } from "./container/dialog";
+import { GalleryButton1 } from "./button-1";
+import { GalleryButton2 } from "./button-2";
 import { GalleryContainerPane } from "./container/pane";
+import { GalleryDialog } from "./dialog";
 import { GalleryFeedbackProgress } from "./feedback/progress";
 import { GalleryFeedbackTag } from "./feedback/tag";
 import { GalleryFeedbackToast } from "./feedback/toast";
@@ -24,8 +24,8 @@ export { GallerySection };
 export const Gallery = (): JSX.Element => (
 	<div className={scrollbar.custom}>
 		<GallerySection title="Buttons">
-			<ButtonShot1 />
-			<ButtonShot2 />
+			<GalleryButton1 />
+			<GalleryButton2 />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Text fields">
@@ -58,7 +58,7 @@ export const Gallery = (): JSX.Element => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Container">
-			<GalleryContainerDialog />
+			<GalleryDialog />
 			<GalleryContainerPane />
 		</GallerySection>
 		<DivPx size={32} />

@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { GoPlus } from "react-icons/go";
 import { Button, Dialog } from "../../core/src";
-import { ButtonShot1 } from "../../gallery/src/button/shot-1";
-import { ButtonShot2 } from "../../gallery/src/button/shot-2";
+import { GalleryButton1 } from "../../gallery/src/button-1";
+import { GalleryButton2 } from "../../gallery/src/button-2";
 import { Utils } from "./utils";
 
 const meta: Meta = {
@@ -38,7 +38,7 @@ const meta: Meta = {
 
 Utils.page.component(meta, {
 	sticky: true,
-	shots: [<ButtonShot1 key="1" />, <ButtonShot2 key="2" />],
+	shots: [<GalleryButton1 key="1" />, <GalleryButton2 key="2" />],
 });
 
 export default meta;

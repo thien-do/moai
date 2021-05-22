@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Go from "react-icons/go";
-import { Button, ButtonProps } from "../../../core/src";
-import { Shot } from "../shot/shot";
+import { Button, ButtonProps } from "../../core/src";
+import { Shot } from "./shot/shot";
 
 const ss = Button.sizes;
 const icon = Button.sizes.mediumIcon;
@@ -57,7 +57,7 @@ const Row2 = (): JSX.Element => (
 	</div>
 );
 
-export const ButtonShot2 = (): JSX.Element => (
+export const GalleryButton2 = (): JSX.Element => (
 	<Shot>
 		<div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
 			<Row1 />
