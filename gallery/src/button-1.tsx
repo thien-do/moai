@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from "../../../core/src";
-import { Shot } from "../shot/shot";
+import { Button, ButtonProps } from "../../core/src";
+import { Shot } from "./shot/shot";
 
 const base: ButtonProps = {
 	children: "Text",
@@ -19,7 +19,7 @@ const Row = (props: ButtonProps): JSX.Element => (
 	</>
 );
 
-export const ButtonShot1 = (): JSX.Element => (
+export const GalleryButton1 = (): JSX.Element => (
 	<Shot>
 		<div
 			style={{
