@@ -11,7 +11,7 @@ const Pane = () => (
 		</M.Dialog.Body>
 		<M.Dialog.Footer>
 			<M.Button minWidth children="Cancel" />
-			<M.Button minWidth highlight children="Publish"/>
+			<M.Button minWidth highlight children="Publish" />
 		</M.Dialog.Footer>
 	</M.Dialog.Pane>
 );

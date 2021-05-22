@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Button, Dialog, DivGrow, DivPx, Paragraph } from "../../core/src";
+import { Button, Dialog, DivGrow, Paragraph } from "../../core/src";
 import { GalleryDialog } from "../../gallery/src/dialog";
 import { Utils } from "./utils";
 
