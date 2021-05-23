@@ -1,0 +1,11 @@
+{
+	"private": true,
+	"workspaces": [
+		"docs",
+		"core",
+		"gallery"
+	],
+	"scripts": {
+		"postinstall": "cd .. && yarn"
+	}
+}
