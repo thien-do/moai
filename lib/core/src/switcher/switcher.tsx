@@ -19,7 +19,8 @@ export interface SwitcherOption<T> {
 	 */
 	iconLabel?: ButtonProps["iconLabel"];
 	/**
-	 * The React's key for the option
+	 * The React's key for the option. It's recommend to explicitly define
+	 * this. If not, it will fallback to either `label` or `iconLabel`.
 	 */
 	key?: string;
 	/**
@@ -70,11 +71,20 @@ interface Props<T> {
 }
 
 /**
- * The Switcher component displays several options as grouped buttons for the
- * users to select. It should be used when there are less than 5 options.
+ * Switchers display several options as grouped buttons for users to select.
+ * They are compact alternatives to [Radios][4]. When there are only 2 options,
+ * they work like [Toggles][5].
  *
- * Switchers only supports 1 selected option. To let the users select several
- * options, use Checkboxes or ButtonGroup.
+ * Like Radios, Switchers should be used to select a single option out of a
+ * small list (less than 5) of options. When there are many options, consider
+ * [Selects][3]. When multiple options can be selected, consider
+ * [Checkboxes][1], or use [ButtonGroups][2] directly.
+ *
+ * [1]: /docs/components-checkbox--primary
+ * [2]: /docs/components-button-group--primary
+ * [3]: /docs/components-select--primary
+ * [4]: /docs/components-radio--primary
+ * [5]: https://www.nngroup.com/articles/toggle-switch-guidelines/
  */
 export const Switcher = <T,>(props: Props<T>): JSX.Element => (
 	<ButtonGroup fill={props.fill}>

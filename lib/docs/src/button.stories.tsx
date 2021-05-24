@@ -58,7 +58,6 @@ export const Primary = (props: Props): JSX.Element => (
 	<Button
 		onClick={() => Dialog.alert("Hello")}
 		children="Say Hi"
-		// Storybook's Controls
 		// eslint-disable-next-line
 		style={(Button.styles as any)[props.style!]}
 		// eslint-disable-next-line
@@ -71,8 +70,6 @@ export const Primary = (props: Props): JSX.Element => (
 		disabled={props.disabled}
 	/>
 );
-
-// Utils.fixPrimary(Primary);
 
 export const Basic = (): JSX.Element => (
 	<Button onClick={() => alert("Hi")}>Say Hi</Button>
@@ -87,15 +84,21 @@ a handler via \`onClick\`:
 `);
 
 export const Icon = (): JSX.Element => (
+	// Icons are imported from external libraries, like:
 	// import { GoPlus } from "react-icons/go";
 
 	<div style={{ display: "flex", gap: 8 }}>
 		{/* Basic usage with icon */}
 		<Button icon={GoPlus} children="Add" />
+
 		{/* Icon on the right side */}
 		<Button icon={GoPlus} children="Add" iconRight />
+
 		{/* Require "iconLabel" because there is no "children" */}
 		<Button icon={GoPlus} iconLabel="Add" />
+
+		{/* Square icon button */}
+		<Button icon={GoPlus} iconLabel="Add" size={Button.sizes.mediumIcon} />
 	</div>
 );
 
@@ -108,6 +111,10 @@ It's [intentional][3] that [screen readers][2] would skip the icon and only
 announce the label of a button (i.e. the text inside the \`children\` prop).
 If your button doesn't have a \`children\` defined (i.e. icon-only buttons),
 provide the \`iconLabel\` prop so screen readers can announce it.
+
+Out of the box, icon-only buttons look like rectangles due to the unequal
+paddings. To make them squares, set the \`size\` prop to one with an \`Icon\`
+suffix, like \`Button.sizes.mediumIcon\`.
 
 [1]: /docs/guides-icons--primary
 [2]: https://en.wikipedia.org/wiki/Screen_reader
