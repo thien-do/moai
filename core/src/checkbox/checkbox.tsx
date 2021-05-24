@@ -15,16 +15,41 @@ interface CheckboxStyle {
 
 export interface CheckboxProps {
 	// Controlled
+	/**
+	 * Control the current checkbox is selected or not
+	 */
 	checked?: boolean;
+	/**
+	 * Callback to set the checked value in controlled mode
+	 */
 	setChecked?: (checked: boolean) => void;
+	/**
+	 * Define whether the checkbox is indeterminate or not 
+	 */
 	indeterminate?: boolean;
 	// Uncontrolled
+	/**
+	 * The default checked value of checkbox
+	 */
 	defaultChecked?: boolean;
+	/**
+	 * Reference to the button element. Usually useful in uncontrolled mode.
+	 */
 	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
 	// Body
+	/**
+	 * The label value for the checkbox
+	 */
 	children: React.ReactNode;
+	/**
+	 * Define whether the checkbox is disabled or not
+	 */
 	disabled?: boolean;
 }
+
+/**
+ * Checkboxes allow to select multiple options from an options list.
+ */
 
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
 	// Note that there is no intermediate state here, as we'd like to support
