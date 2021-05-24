@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+/* Standalone source code */
+.docblock-source:not(.x),
+/* Source code inside a description */
+.sbdocs-pre:not(.x) > div {
+	background-color: var(--gray-0);
+	border: solid 2px var(--gray-1);
+	box-shadow: none;
+}
+
+.prismjs:not(#x) {
+	font-size: 15px;
+	line-height: 21px;
+	color: var(--gray-8);
+}
+
+/* Source code of a story */
+.docs-story + div:last-child {
+	background-color: var(--gray-0);
+	border-top: solid 2px var(--gray-1);
+}
+
+/* We should have this alone */
+.prismjs:not(#x) code,
+/* But Storybook set this so we also need to override it */
+.token:not(#x) {
+	font-family: "Source Code Pro", monospace;
+	font-weight: 400;
+}
+
+.token:not(#x).selector,
+.token:not(#x).tag {
+	color: #22863a;
+}
+.token:not(#x).attr-value,
+.token:not(#x).string {
+	color: #032f62;
+}
+.token:not(#x).rule,
+.token:not(#x).keyword {
+	color: #d73a49;
+}
+.token:not(#x).class-name,
+.token:not(#x).type-definition,
+.token:not(#x).maybe-class-name,
+.token:not(#x).function {
+	color: #6f42c1;
+}
+.token:not(#x).doctype,
+.token:not(#x).doctype-tag,
+.token:not(#x).attr-name,
+.token:not(#x).property,
+.token:not(#x).number,
+.token:not(#x).constant,
+.token:not(#x).operator,
+.token:not(#x).property-access,
+.token:not(#x).boolean {
+	color: #005cc5;
+}
+.token:not(#x).punctuation,
+.token:not(#x).comment {
+	color: #6a737d;
+}
