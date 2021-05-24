@@ -74,12 +74,12 @@ interface Props<T> {
  * Switchers display several options as grouped buttons for users to select.
  * They are compact alternatives to [Radios][4]. When there are only 2 options,
  * they work like [Toggles][5].
- * 
+ *
  * Like Radios, Switchers should be used to select a single option out of a
  * small list (less than 5) of options. When there are many options, consider
  * [Selects][3]. When multiple options can be selected, consider
  * [Checkboxes][1], or use [ButtonGroups][2] directly.
- * 
+ *
  * [1]: /docs/components-checkbox--primary
  * [2]: /docs/components-button-group--primary
  * [3]: /docs/components-select--primary

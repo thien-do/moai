@@ -88,7 +88,6 @@ export const Icon = (): JSX.Element => (
 	// import { GoPlus } from "react-icons/go";
 
 	<div style={{ display: "flex", gap: 8 }}>
-
 		{/* Basic usage with icon */}
 		<Button icon={GoPlus} children="Add" />
 
