@@ -1,24 +1,42 @@
 import { Meta } from "@storybook/react";
 import { Fragment } from "react";
-import { DivPx, Tag } from "../../core/src";
+import { Button, DivPx, Tag } from "../../core/src";
+import { Utils } from "./utils";
+
+const colors: string[] = [
+	"red",
+	"yellow",
+	"green",
+	"blue",
+	"indigo",
+	"purple",
+	"pink",
+	"gray",
+];
 
 export default {
-	title: "Draft/Tag",
+	title: "Components/Tag",
 	component: Tag,
+	argTypes: {
+		children: Utils.arg("text"),
+		color: Utils.arg(colors),
+	},
 } as Meta;
 
-export const Primary = (): JSX.Element => {
-	const colors: string[] = [
-		"red",
-		"yellow",
-		"green",
-		"blue",
-		"indigo",
-		"purple",
-		"pink",
-		"gray",
-	];
+interface Props {
+	children?: string;
+	color?: string;
+}
 
+export const Primary = (props: Props): JSX.Element => {
+	return (
+		<Tag color={(Tag.colors as any)[props.color ? props.color : "gray"]}>
+			{props.children ? props.children : "Default"}
+		</Tag>
+	);
+};
+
+export const Gallery = (): JSX.Element => {
 	return (
 		<div>
 			<div style={{ display: "flex" }}>
@@ -30,12 +48,28 @@ export const Primary = (): JSX.Element => {
 					</Fragment>
 				))}
 			</div>
-			<DivPx size={16} />
-			<div>
-				<span>
-					<Tag color={Tag.colors.gray}>Test height</Tag>
-				</span>
+			<DivPx size={20} />
+			<div
+				style={{
+					display: "flex",
+				}}
+			>
+				{colors.map((color) => (
+					<Fragment key={color}>
+						<Button>
+							<div style={{ padding: "5px 0", margin: "0" }}>
+								<span>Button</span>
+								<Tag color={(Tag.colors as any)[color]}>3</Tag>
+							</div>
+						</Button>
+						<DivPx size={8} />
+					</Fragment>
+				))}
 			</div>
 		</div>
 	);
 };
+
+Utils.desc(Gallery)(
+	`Tag can be used alone, next to another component or inside the component.`
+);
