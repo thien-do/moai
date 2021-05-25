@@ -24,7 +24,7 @@ export interface CheckboxProps {
 	 */
 	setChecked?: (checked: boolean) => void;
 	/**
-	 * Define whether the checkbox is indeterminate or not 
+	 * Define whether the checkbox is indeterminate or not
 	 */
 	indeterminate?: boolean;
 	// Uncontrolled
@@ -33,12 +33,12 @@ export interface CheckboxProps {
 	 */
 	defaultChecked?: boolean;
 	/**
-	 * Reference to the button element. Usually useful in uncontrolled mode.
+	 * [Reference](https://reactjs.org/docs/forwarding-refs.html) to the button element. Usually useful in uncontrolled mode.
 	 */
 	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
 	// Body
 	/**
-	 * The label value for the checkbox
+	 * The label of checkbox, shows which option that checkbox is for.
 	 */
 	children: React.ReactNode;
 	/**
@@ -48,9 +48,8 @@ export interface CheckboxProps {
 }
 
 /**
- * Checkboxes allow to select multiple options from an options list.
+ * Users use a Checkbox to select ("check") or deselect an option. Functional-wise, this is similar to [Toggles](https://docs.moaijs.com/?path=/docs/components-switcher--toggle). Meanwhile, a list of Checkboxes are used to select multiple options. This is different from a list of [Radios](https://docs.moaijs.com/?path=/docs/components-radio--group) where only a single option can be selected at the same time.
  */
-
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
 	// Note that there is no intermediate state here, as we'd like to support
 	// the uncontrolled mode properly, with ref support
