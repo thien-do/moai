@@ -1,41 +1,42 @@
 import { Meta } from "@storybook/react";
-import { Fragment } from "react";
-import { DivPx, Tag } from "../../core/src";
+import { Tag } from "../../core/src";
+import { Utils } from "./utils";
+import { GalleryFeedbackTag } from "../../gallery/src/feedback/tag";
 
-export default {
-	title: "Draft/Tag",
+const meta: Meta = {
+	title: "Components/Tag",
 	component: Tag,
-} as Meta;
+	argTypes: {
+		children: Utils.arg("text"),
+		color: Utils.arg(Object.keys(Tag.colors)),
+	},
+};
 
-export const Primary = (): JSX.Element => {
-	const colors: string[] = [
-		"red",
-		"yellow",
-		"green",
-		"blue",
-		"indigo",
-		"purple",
-		"pink",
-		"gray",
-	];
+Utils.page.component(meta, {
+	sticky: true,
+	shots: [<GalleryFeedbackTag key="1" />],
+});
 
+export default meta;
+
+interface Props {
+	children: string;
+	color?: string;
+}
+
+export const Primary = (props: Props): JSX.Element => {
 	return (
-		<div>
-			<div style={{ display: "flex" }}>
-				{colors.map((color) => (
-					<Fragment key={color}>
-						{/* eslint-disable-next-line */}
-						<Tag color={(Tag.colors as any)[color]}>{color}</Tag>
-						<DivPx size={8} />
-					</Fragment>
-				))}
-			</div>
-			<DivPx size={16} />
-			<div>
-				<span>
-					<Tag color={Tag.colors.gray}>Test height</Tag>
-				</span>
-			</div>
-		</div>
+		// eslint-disable-next-line
+		<Tag color={(Tag.colors as any)[props.color ?? "gray"]}>
+			{props.children ?? "Default"}
+		</Tag>
 	);
 };
+
+export const Basic = (): JSX.Element => {
+	return <Tag color={Tag.colors.green}>Foo</Tag>;
+};
+
+Utils.desc(Basic)(`
+To begin, you need to provide a color from Tag.colors and a label via children.
+`);
