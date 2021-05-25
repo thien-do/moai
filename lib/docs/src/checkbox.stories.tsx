@@ -1,20 +1,25 @@
 import { useState } from "react";
 import { DivPx, Checkbox } from "../../core/src";
 import { Utils } from "./utils";
+import { Meta } from "@storybook/react";
 
-export default {
+const meta: Meta = {
 	title: "Components/Checkbox",
 	component: Checkbox,
 	argTypes: {
-		children: Utils.arg(null),
-		checked: Utils.arg("boolean"),
-		indeterminate: Utils.arg("boolean"),
-		disabled: Utils.arg("boolean"),
-		setChecked: Utils.arg(null),
-		defaultChecked: Utils.arg(null),
-		forwardedRef: Utils.arg(null),
+		checked: Utils.arg("boolean", "Visual"),
+		indeterminate: Utils.arg("boolean", "Visual"),
+		disabled: Utils.arg("boolean", "Visual"),
+		children: Utils.arg(null, "Controlled"),
+		setChecked: Utils.arg(null, "Controlled"),
+		defaultChecked: Utils.arg(null, "Uncontrolled"),
+		forwardedRef: Utils.arg(null, "Uncontrolled"),
 	},
 };
+
+Utils.page.component(meta, { sticky: true, shots: [] });
+
+export default meta;
 
 interface Props {
 	indeterminate: boolean;
@@ -38,13 +43,19 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
+export const Basic = (): JSX.Element => {
+	return <Checkbox>Checkbox</Checkbox>;
+};
 
-type Book = {
+Utils.desc(Basic)(`
+Checkbox is shown as a square box that is ticked when activated. To get start, you only need to provide a label via children:
+`);
+
+interface Book {
 	id: string;
 	name: string;
 	author: string;
-};
+}
 
 export const Group = (): JSX.Element => {
 	const books: Book[] = [
@@ -69,24 +80,22 @@ export const Group = (): JSX.Element => {
 	function toggleSelect(id: string) {
 		const newArray = selected.slice();
 		const isSelected = selected.includes(id);
-		if (!isSelected) {
-			newArray.push(id);
+		if (isSelected) {
+			setSelected(newArray.filter((value) => value != id));
 		} else {
-			newArray.splice(newArray.indexOf(id), 1);
+			setSelected([...newArray, id]);
 		}
-		setSelected(newArray);
 	}
 
 	return (
 		<>
 			<div style={{ fontWeight: "bold" }}>Select books to buy:</div>
 			{books.map((book) => (
-				<div
-					key={book.id}
-					style={{ margin: "4px 0" }}
-					onClick={() => toggleSelect(book.id)}
-				>
-					<Checkbox checked={selected.includes(book.id)}>
+				<div key={book.id} style={{ margin: "4px 0" }}>
+					<Checkbox
+						checked={selected.includes(book.id)}
+						setChecked={() => toggleSelect(book.id)}
+					>
 						{book.name} by {book.author}
 					</Checkbox>
 				</div>
@@ -101,6 +110,6 @@ export const Group = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Group)(
-	`Checkboxes allow users to select multiple options from a list of options. All possible options are exposed up front for users to compare.`
-);
+Utils.desc(Group)(`
+A group of checkboxes allow users to select multiple options from a list of options. All possible options are exposed up front for users to compare.
+`);
