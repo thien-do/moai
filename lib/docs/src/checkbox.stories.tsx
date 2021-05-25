@@ -31,8 +31,7 @@ export const Primary = (props: Props): JSX.Element => {
 	return (
 		<>
 			<Checkbox
-				defaultChecked
-				checked={props.checked}
+				checked={props.checked ?? true}
 				disabled={props.disabled}
 				indeterminate={props.indeterminate}
 			>
@@ -44,11 +43,11 @@ export const Primary = (props: Props): JSX.Element => {
 };
 
 export const Basic = (): JSX.Element => {
-	return <Checkbox>Checkbox</Checkbox>;
+	return <Checkbox>Default</Checkbox>;
 };
 
 Utils.desc(Basic)(`
-Checkbox is shown as a square box that is ticked when activated. To get start, you only need to provide a label via children:
+Checkbox is shown as a square box that is checked when activated. To get start, you only need to provide a label via children:
 `);
 
 interface Book {
