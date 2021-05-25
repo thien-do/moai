@@ -1,61 +1,56 @@
 import { Meta } from "@storybook/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Button, DivPx, Tag } from "../../core/src";
 import { Utils } from "./utils";
-
-const colors: string[] = [
-	"red",
-	"yellow",
-	"green",
-	"blue",
-	"indigo",
-	"purple",
-	"pink",
-	"gray",
-];
+import { GalleryFeedbackTag } from "../../gallery/src/feedback/tag";
 
 const meta: Meta = {
 	title: "Components/Tag",
 	component: Tag,
 	argTypes: {
 		children: Utils.arg("text"),
-		color: Utils.arg(colors),
+		color: Utils.arg(Object.keys(Tag.colors)),
 	},
 };
 
-Utils.page.component(meta, { sticky: true, shots: [] });
+Utils.page.component(meta, { sticky: true, shots: [<GalleryFeedbackTag />] });
 
 export default meta;
 
 interface Props {
-	children?: string;
-	color?: string;
+	children: string;
+	color: string;
 }
 
 export const Primary = (props: Props): JSX.Element => {
+	const color = Object.entries(Tag.colors).filter(
+		(value) => value[0] == props.color
+	);
+	console.log(color);
 	return (
-		<Tag color={(Tag.colors as any)[props.color ? props.color : "gray"]}>
+		<Tag color={(color && color[0] && color[0][1]) ?? Tag.colors.gray}>
 			{props.children ?? "Default"}
 		</Tag>
 	);
 };
 
 export const Basic = (): JSX.Element => {
-	return <Tag color={Tag.colors.green}>Tag</Tag>;
+	return <Tag color={Tag.colors.green}>Foo</Tag>;
 };
 
 Utils.desc(Basic)(`
-Tags are used to provide additional information about something. To begin, you need to provide a color from Tag.color and some information as string via children.
+To begin, you need to provide a color from Tag.colors and a label via children.
 `);
 
 export const Usage = (): JSX.Element => {
+	const colors = Object.entries(Tag.colors);
 	return (
 		<div>
 			<div style={{ display: "flex" }}>
 				{colors.map((color) => (
-					<Fragment key={color}>
+					<Fragment key={color[0]}>
 						{/* eslint-disable-next-line */}
-						<Tag color={(Tag.colors as any)[color]}>{color}</Tag>
+						<Tag color={color[1]}>{color[0]}</Tag>
 						<DivPx size={8} />
 					</Fragment>
 				))}
@@ -67,11 +62,11 @@ export const Usage = (): JSX.Element => {
 				}}
 			>
 				{colors.map((color) => (
-					<Fragment key={color}>
+					<Fragment key={color[0]}>
 						<Button>
 							<div style={{ padding: "5px 0", margin: "0" }}>
 								<span>Button</span>
-								<Tag color={(Tag.colors as any)[color]}>3</Tag>
+								<Tag color={color[1]}>3</Tag>
 							</div>
 						</Button>
 						<DivPx size={8} />
