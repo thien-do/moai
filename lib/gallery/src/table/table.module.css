@@ -1,3 +1,8 @@
+/* Force the "Pane" to be full width */
+.wrapper {
+	width: 100%;
+}
+
 .container {
 	height: 400px;
 	width: 100%;

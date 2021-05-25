@@ -147,15 +147,17 @@ const getColumns = (): M.TableColumn<Robot>[] => [
 ];
 
 export const GalleryTable = (): JSX.Element => (
-	<M.Pane noPadding>
-		<div className={s.container}>
-			<M.Table
-				rows={ROBOTS}
-				columns={getColumns()}
-				rowKey={(robot) => robot.id}
-				expandRowRender={(robot) => <Note robot={robot} />}
-				fixed={{ header: true, firstColumn: true }}
-			/>
-		</div>
-	</M.Pane>
+	<div className={s.wrapper}>
+		<M.Pane noPadding>
+			<div className={s.container}>
+				<M.Table
+					rows={ROBOTS}
+					columns={getColumns()}
+					rowKey={(robot) => robot.id}
+					expandRowRender={(robot) => <Note robot={robot} />}
+					fixed={{ header: true, firstColumn: true }}
+				/>
+			</div>
+		</M.Pane>
+	</div>
 );
