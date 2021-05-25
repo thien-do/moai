@@ -1,6 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Fragment, useState } from "react";
-import { Button, DivPx, Tag } from "../../core/src";
+import { Tag } from "../../core/src";
 import { Utils } from "./utils";
 import { GalleryFeedbackTag } from "../../gallery/src/feedback/tag";
 
@@ -26,12 +25,9 @@ interface Props {
 }
 
 export const Primary = (props: Props): JSX.Element => {
-	const color = Object.entries(Tag.colors).filter(
-		(value) => value[0] == props.color
-	);
-	console.log(color);
 	return (
-		<Tag color={(color && color[0] && color[0][1]) ?? Tag.colors.gray}>
+		// eslint-disable-next-line
+		<Tag color={(Tag.colors as any)[props.color ?? "gray"]}>
 			{props.children ?? "Default"}
 		</Tag>
 	);
