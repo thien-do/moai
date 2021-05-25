@@ -41,6 +41,7 @@
 .token:not(#x).keyword {
 	color: #d73a49;
 }
+.token:not(#x).variable,
 .token:not(#x).class-name,
 .token:not(#x).type-definition,
 .token:not(#x).maybe-class-name,

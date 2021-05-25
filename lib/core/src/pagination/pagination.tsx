@@ -9,19 +9,24 @@ import s from "./pagination.module.css";
 
 export interface PaginationProps {
 	/**
-	 * The page to be selected
+	 * The current page
 	 */
 	value: number;
 	/**
-	 * Callback fired when the page is changed
+	 * Callback when the current page is changed. This supports both sync and
+	 * async callbacks. The component will show a loading state while the async
+	 * callback is running.
 	 */
 	setValue: (num: number) => void | Promise<void>;
 	/**
-	 * The smallest page to be displayed in the pagination. This is usually "0" or "1", depends on your counting
+	 * The smallest page to be displayed in the pagination. This is usually
+	 * "0" or "1", depends on your counting. Pagination shows pages between
+	 * "min" and "max" props (inclusive).
 	 */
 	min: number;
 	/**
-	 * The largest page to be displayed in the pagination. In other words, this is the total of pages
+	 * The largest page to be displayed in the pagination. This is the total of
+	 * pages. Pagination shows pages between "min" and "max" props (inclusive).
 	 */
 	max: number;
 }
@@ -29,6 +34,9 @@ export interface PaginationProps {
 const rangeMsg = (min: number, max: number): string =>
 	`Please enter a number between ${min} and ${max}`;
 
+/**
+ * Paginations let users navigate between pages, especially jump to one.
+ */
 export const Pagination = (props: PaginationProps): JSX.Element => {
 	const { setValue: setValueOrg, min, max } = props;
 	const [busy, setBusy] = useState(false);
