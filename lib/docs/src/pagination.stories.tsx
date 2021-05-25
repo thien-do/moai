@@ -47,3 +47,26 @@ have the Pagination displays a loading state while waiting for data.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 `);
+
+export const OneOff = (): JSX.Element => {
+	// Zero-based API
+	const TOTAL_PAGES = 9;
+	const [page, setPage] = useState(0);
+
+	// One-based UI
+	return (
+		<Pagination
+			value={page + 1}
+			setValue={(page) => setPage(page - 1)}
+			max={TOTAL_PAGES + 1}
+			min={1}
+		/>
+	);
+};
+
+Utils.desc(OneOff)(`
+In most cases, Paginations should start at "1" to mimic real-life counting.
+However, your pagination back end may start at "0". In these cases, it's
+recommended to use zero-based counting for your state and most logic, and only
+transfer to one-based in the Pagination's props.
+`);
