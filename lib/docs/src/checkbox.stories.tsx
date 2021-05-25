@@ -45,8 +45,8 @@ export const Primary = (props: Props): JSX.Element => {
 export const Basic = (): JSX.Element => {
 	const [checked, setChecked] = useState(false);
 	return (
-		<Checkbox checked={checked} setChecked={() => setChecked(!checked)}>
-			Default
+		<Checkbox checked={checked} setChecked={(c) => setChecked(c)}>
+			Foo
 		</Checkbox>
 	);
 };
