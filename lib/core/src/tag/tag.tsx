@@ -12,7 +12,7 @@ interface Props {
 	 */
 	children: string;
 	/**
-	 * Color of the tag (import from Tag.colors)
+	 * Color of the tag (use one from Tag.colors)
 	 */
 	color: CategoryColor;
 }

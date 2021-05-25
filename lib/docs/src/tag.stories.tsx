@@ -13,13 +13,16 @@ const meta: Meta = {
 	},
 };
 
-Utils.page.component(meta, { sticky: true, shots: [<GalleryFeedbackTag />] });
+Utils.page.component(meta, {
+	sticky: true,
+	shots: [<GalleryFeedbackTag key="1" />],
+});
 
 export default meta;
 
 interface Props {
 	children: string;
-	color: string;
+	color?: string;
 }
 
 export const Primary = (props: Props): JSX.Element => {
