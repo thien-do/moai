@@ -7,6 +7,7 @@ interface Props {
 	children: React.ReactNode;
 	noPadding?: boolean;
 	fullHeight?: boolean;
+	contentWidth?: boolean;
 }
 
 export const Pane = (props: Props): JSX.Element => (
@@ -14,6 +15,7 @@ export const Pane = (props: Props): JSX.Element => (
 		className={[
 			Pane.styles.outset,
 			props.noPadding ? "" : s.padding,
+			props.contentWidth ? s.contentWidth : "",
 			props.fullHeight ? s.fullHeight : "",
 		].join(" ")}
 		children={props.children}
