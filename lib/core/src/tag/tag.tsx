@@ -8,17 +8,17 @@ export interface TagType {
 
 interface Props {
 	/**
-	 * Value that tag holds
+	 * The information that tag holds.
 	 */
 	children: string;
 	/**
-	 * Color and background color of tag
+	 * The color and background color of tag.
 	 */
 	color: CategoryColor;
 }
 
 /**
- * Tag is used to provide additional information about something.
+ * Users use a tag to provide additional information about something. That is why tags are used with another component. Thus, tags are supported with different style of tag base on the color that user provide.
  */
 export const Tag = ({ children, color }: Props): JSX.Element => (
 	<span

@@ -14,14 +14,18 @@ const colors: string[] = [
 	"gray",
 ];
 
-export default {
+const meta: Meta = {
 	title: "Components/Tag",
 	component: Tag,
 	argTypes: {
 		children: Utils.arg("text"),
 		color: Utils.arg(colors),
 	},
-} as Meta;
+};
+
+Utils.page.component(meta, { sticky: true, shots: [] });
+
+export default meta;
 
 interface Props {
 	children?: string;
@@ -31,12 +35,20 @@ interface Props {
 export const Primary = (props: Props): JSX.Element => {
 	return (
 		<Tag color={(Tag.colors as any)[props.color ? props.color : "gray"]}>
-			{props.children ? props.children : "Default"}
+			{props.children ?? "Default"}
 		</Tag>
 	);
 };
 
-export const Gallery = (): JSX.Element => {
+export const Basic = (): JSX.Element => {
+	return <Tag color={Tag.colors.green}>Tag</Tag>;
+};
+
+Utils.desc(Basic)(`
+Tags are used to provide additional information about something. To begin, you need to provide a color from Tag.color and some information as string via children.
+`);
+
+export const Usage = (): JSX.Element => {
 	return (
 		<div>
 			<div style={{ display: "flex" }}>
@@ -70,6 +82,6 @@ export const Gallery = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Gallery)(
-	`Tag can be used alone, next to another component or inside the component.`
-);
+Utils.desc(Usage)(`
+As mention earlier, the color of any tag come from Tag.colors. The options are: red, yellow, green, blue, indigo, purple, pink, and gray. Futhermore, users usually use tag next to another component or inside the component whose additional information needed.
+`);
