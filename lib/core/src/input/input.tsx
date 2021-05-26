@@ -23,7 +23,7 @@ export interface InputProps {
 	/**
 	 * The [HTML type][1] of the Input, such as "email", "password" or
 	 * "date".
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
 	 */
 	type?: string;
@@ -60,7 +60,7 @@ export interface InputProps {
 
 	/**
 	 * Icon in the Input. See the [Icons guide][1] to learn more.
-	 * 
+	 *
 	 * [1]: /docs/guides-icons--primary
 	 */
 	icon?: IconComponent;
@@ -77,13 +77,13 @@ export interface InputProps {
 
 	/**
 	 * The [HTML `id`] attribute of the Input
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
 	 */
 	id?: string;
 	/**
 	 * The [HTML `name`] attribute of the Input, usually used in forms
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
 	 */
 	name?: string;
@@ -268,10 +268,10 @@ const inputRender = (
  * Inputs render interactive controls that users use to enter data. They are
  * usually [text boxes][1], where the data is just plain text. However, there
  * are many more types of data, each with their own kind of controls.
- * 
+ *
  * Inputs are always rendered as [HTML `input`][2] elements. They support both
  * [controlled][3] and [uncontrolled][4] usages.
- * 
+ *
  * [1]: https://en.wikipedia.org/wiki/Text_box
  * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
  * [3]: https://reactjs.org/docs/forms.html#controlled-components
