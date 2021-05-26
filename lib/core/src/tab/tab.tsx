@@ -28,14 +28,36 @@ interface TabStyle {
 }
 
 interface Props {
+	/**
+	 * Title and Body of each tab.
+	 */
 	children: Tab[];
+	/**
+	 * Define if tabs padding is removed.
+	 */
 	noPadding?: boolean;
+	/**
+	 * Declare the style of tabs. By default, style is Tabs.style.outset but
+	 * you can change it to Tabs.styles.flat.
+	 */
 	style?: TabStyle;
+	/**
+	 * Define if tabs height is inherited from parents component.
+	 */
 	fullHeight?: boolean;
 	// Uncontrolled
+	/**
+	 * Declare which tab is the initial tab.
+	 */
 	initialTab?: string;
 	// Controlled
+	/**
+	 * Declare which tab is currently active.
+	 */
 	activeTab?: string;
+	/**
+	 * Set which tab is activated.
+	 */
 	setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -83,6 +105,10 @@ const useTabState = (props: Props): State => {
 	}
 };
 
+/**
+ * Tabs are use when we have multiple groups of content. Tabs make it easier to
+ * view and switch between each group.
+ */
 export const Tabs = (props: Props): JSX.Element => {
 	const { children } = props;
 	const style = props.style ?? Tabs.styles.outset;
