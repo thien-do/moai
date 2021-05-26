@@ -74,7 +74,7 @@ typing (e.g. "13/") or they entered an invalid date (e.g. "30/2/2021").
 Similar to the [Input][3] component, the width of Date Inputs is 100% of their
 containers' width.
 
-[1]: https://reactjs.org/docs/uncontrolled-components.html
+[1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://html.spec.whatwg.org/multipage/input.html#dom-input-valueasdate
 [3]: /docs/components-input--width
 [4]: https://reactjs.org/docs/hooks-state.html
