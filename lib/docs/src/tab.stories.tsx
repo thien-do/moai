@@ -33,8 +33,6 @@ Utils.page.component(meta, {
 
 export default meta;
 
-type TabStyle = typeof Tabs.styles.flat;
-
 interface Props {
 	style?: string;
 	noPadding?: boolean;
