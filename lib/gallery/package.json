@@ -1,0 +1,46 @@
+{
+	"name": "@moai/gallery",
+	"version": "1.0.0-rc11",
+	"description": "Widget Gallery of Moai 🗿",
+	"main": "dist/cjs.js",
+	"module": "dist/esm.js",
+	"types": "dist/gallery/src/index.d.ts",
+	"sideEffects": false,
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "yarn && rollup --config",
+		"prepublishOnly": "yarn build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/moaijs/moai.git"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/moaijs/moai/issues"
+	},
+	"homepage": "https://moaijs.com",
+	"peerDependencies": {
+		"@moai/core": ">=0",
+		"react": ">=16",
+		"react-icons": ">=4"
+	},
+	"devDependencies": {
+		"@moai/core": "^1.0.0-rc9",
+		"@rollup/plugin-alias": "^3.1.2",
+		"@types/react": "^17.0.6",
+		"postcss": "^8.2.15",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-icons": "^4.2.0",
+		"rollup": "^2.48.0",
+		"rollup-plugin-copy": "^3.4.0",
+		"rollup-plugin-delete": "^2.0.0",
+		"rollup-plugin-postcss": "^4.0.0",
+		"rollup-plugin-typescript2": "^0.30.0",
+		"tslib": "^2.2.0",
+		"typescript": "^4.2.4"
+	}
+}
