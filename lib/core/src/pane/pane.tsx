@@ -4,11 +4,25 @@ import { shadow } from "../shadow/shadow";
 import s from "./pane.module.css";
 
 interface Props {
+	/**
+	 * The content inside pane.
+	 */
 	children: React.ReactNode;
+	/**
+	 * Define if pane padding is removed.
+	 */
 	noPadding?: boolean;
+	/**
+	 * Define if pane height is inherited from parents component.
+	 */
 	fullHeight?: boolean;
 }
 
+/**
+ * Pane is a container that holds other component. Pane is perfect for
+ * displaying notes, dropdown menu, pop up notifications and other information
+ * that need to be emphasized.
+ */
 export const Pane = (props: Props): JSX.Element => (
 	<div
 		className={[
