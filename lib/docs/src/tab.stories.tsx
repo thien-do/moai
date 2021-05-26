@@ -47,17 +47,13 @@ const tabs: Tab[] = [
 ];
 
 export const Primary = (props: Props): JSX.Element => {
-	function getStyle(style: string): TabStyle {
-		if (style === "flat") return Tabs.styles.flat;
-		return Tabs.styles.outset;
-	}
-
 	return (
 		<div>
 			<div style={{ height: "200px" }}>
 				<Tabs
 					children={tabs}
-					style={props.style ? getStyle(props.style) : undefined}
+					// eslint-disable-next-line
+					style={(Tabs.styles as any)[props.style!]}
 					noPadding={props.noPadding}
 					fullHeight={props.fullHeight}
 				/>
