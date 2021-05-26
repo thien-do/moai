@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DivPx, Switcher, Tab, Tabs } from "../../core/src";
 import { Utils } from "./utils";
 import {
@@ -80,4 +80,28 @@ export const Basic = (): JSX.Element => {
 Utils.desc(Basic)(`
 To begin, you need to provide an array of object with props: id, title and pane
 via children:
+`);
+
+export const With_Switcher = (): JSX.Element => {
+	const [tab, setTab] = useState("first");
+	return (
+		<div>
+			<Switcher<string>
+				value={tab}
+				setValue={setTab}
+				options={tabs.map((tab) => ({
+					value: tab.id,
+					label: tab.id,
+				}))}
+			/>
+			<DivPx size={16} />
+			<Tabs children={tabs} setActiveTab={setTab} activeTab={tab} />
+		</div>
+	);
+};
+
+Utils.desc(With_Switcher)(`
+Tabs can also be use with
+[Switcher](https://docs.moaijs.com/?path=/docs/components-switcher--primary)
+to control tabs via buttons.
 `);
