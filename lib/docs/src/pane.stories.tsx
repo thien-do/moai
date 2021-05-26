@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { DivPx, Pane } from "../../core/src";
+import { Pane } from "../../core/src";
 import { Utils } from "./utils";
 import { GalleryContainerPane } from "../../gallery/src/container/pane";
 
