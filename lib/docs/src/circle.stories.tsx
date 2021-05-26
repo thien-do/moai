@@ -30,6 +30,7 @@ export const Primary = (props: Props): JSX.Element => (
 	<ProgressCircle
 		size={props.size ?? 20}
 		value={props.value ?? "indeterminate"}
+		// eslint-disable-next-line
 		color={(ProgressCircle.colors as any)[props.color!]}
 	/>
 );
