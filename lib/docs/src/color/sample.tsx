@@ -1,8 +1,6 @@
 import Color from "color";
 import { useEffect, useRef, useState } from "react";
-import { CategoryColor, categoryColors } from "../../src/category/category";
-import { DivEm } from "../../src/div/div";
-import { Tag } from "../../src/tag/tag";
+import { categoryColors, CategoryColor, DivEm, Tag } from "../../../core/src";
 
 interface Props {
 	fore: string;
@@ -42,9 +40,9 @@ export const ColorSample = (props: Props): JSX.Element => {
 				width: 100,
 			}}
 		>
-			<Tag color={getColor(contrast)} children={contrast.toFixed(1)} />
-			<DivEm />
 			{props.text}
+			<DivEm />
+			<Tag color={getColor(contrast)} children={contrast.toFixed(1)} />
 		</div>
 	);
 };

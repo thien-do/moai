@@ -1,14 +1,13 @@
 import { Meta } from "@storybook/react";
-import { background } from "../../src/background/background";
-import { text } from "../../src/text/text";
-import { _Story } from "../../src/_story";
+import { background, text } from "../../../core/src";
+import { Utils } from "../utils";
 import { ColorSample } from "./sample";
 
 export default {
 	title: "Foundation/Color",
 	parameters: {
 		docs: {
-			page: _Story.page.noPrimary,
+			page: Utils.page.noPrimary,
 			description: {
 				component: `
 yo
