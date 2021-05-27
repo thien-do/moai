@@ -76,13 +76,13 @@ export interface InputProps {
 	// Attributes
 
 	/**
-	 * The [HTML `id`] attribute of the Input
+	 * The [HTML `id`][1] attribute of the Input
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
 	 */
 	id?: string;
 	/**
-	 * The [HTML `name`] attribute of the Input, usually used in forms
+	 * The [HTML `name`][1] attribute of the Input, usually used in forms
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
 	 */
