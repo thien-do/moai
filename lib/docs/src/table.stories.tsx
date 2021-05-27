@@ -76,8 +76,8 @@ export const Primary = (props: Props): JSX.Element => (
 
 export const Basic = (): JSX.Element => {
 	// The definition of interface here is only for explanation purpose. In
-	// practice the interface/type/model should be defined outside of your
-	// component.
+	// practice, the interface of your models should be defined outside of
+	// your component.
 	interface Book {
 		isbn: number;
 		title: string;
