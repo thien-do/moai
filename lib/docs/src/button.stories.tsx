@@ -33,6 +33,7 @@ const meta: Meta = {
 
 		target: Utils.arg(null, "Link"),
 		href: Utils.arg(null, "Link"),
+		download: Utils.arg(null, "Link"),
 	},
 };
 
