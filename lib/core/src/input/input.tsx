@@ -21,15 +21,17 @@ export interface InputSize {
 
 export interface InputProps {
 	/**
-	 * Type of input. For example: email, password, number, etc... See [MDN reference][1]
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdeftype
+	 * The [HTML type][1] of the Input, such as "email", "password" or
+	 * "date".
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
 	 */
 	type?: string;
 
 	// Uncontrolled
 
 	/**
-	 * Initial value of the input in uncontrolled mode
+	 * Initial value of the Input in uncontrolled mode
 	 */
 	defaultValue?: string | number;
 
@@ -46,8 +48,9 @@ export interface InputProps {
 	setValue?: (value: string) => void;
 
 	/**
-	 * Id of a [datalist][1] element to be used. Can pass an object with values for
-	 * the Input component to create the [datalist][1].
+	 * Id of a [HTML `datalist`][1] element to be used with the Input. Can also
+	 * pass an object to let the Input component create the `datalist` element
+	 * for you.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
@@ -56,61 +59,68 @@ export interface InputProps {
 	// Style
 
 	/**
-	 * Icon appear in an input. See the [Icons guide][1] to learn more.
+	 * Icon in the Input. See the [Icons guide][1] to learn more.
+	 *
 	 * [1]: /docs/guides-icons--primary
 	 */
 	icon?: IconComponent;
 	/**
-	 * Style of the text box. Choose one from `Input.styles`
+	 * Style of the text box. Choose one from `Input.styles`.
 	 */
 	style?: InputStyle;
 	/**
-	 * Size of the text box. Choose one from `Input.sizes`
+	 * Size of the text box. Choose one from `Input.sizes`.
 	 */
 	size?: InputSize;
 
 	// Attributes
 
 	/**
-	 * The element's identifier. See [MDN reference][1]
+	 * The [HTML `id`][1] attribute of the Input
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
 	 */
 	id?: string;
 	/**
-	 * The name of the input, used when submitting HTML form. See [MDN reference][1]
+	 * The [HTML `name`][1] attribute of the Input, usually used in forms
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
 	 */
 	name?: string;
 	/**
-	 * Define whether the input is disabled or not.
+	 * If true, users cannot select or change the text. See "readOnly" also.
 	 */
 	disabled?: boolean;
 	/**
-	 * Define whether the input can be selected but not changed by the user.
+	 * If true, users can select text inside the Input but cannot change it.
+	 * This is only for Inputs that are rendered as Text Boxes.
 	 */
 	readOnly?: boolean;
 	/**
-	 * Placeholder text to display in the input whenever it is empty.
+	 * Placeholder text to display in the Input when it is empty
 	 */
 	placeholder?: string;
 	/**
-	 * Define the element should receive focus on render or not.
+	 * If set to true, the Input will have focus on initial render
 	 */
 	autoFocus?: boolean;
 	/**
-	 * A string value that labels the current element.
+	 * A text to label the Input. Should use when there is no linked HTML
+	 * `label` element.
 	 */
 	"aria-label"?: string;
 	/**
-	 * Identifies the element that labels the current element.
+	 * Id of the element that labels the Input. Useful when the labels don't
+	 * use the HTML `label` element.
 	 */
 	"aria-labelledby"?: string;
 	/**
-	 * The maximum number of characters of value
+	 * The maximum number of characters of the text
 	 */
 	maxLength?: number;
 	/**
-	 * A value is required before form submission
+	 * A value is required before form submission. This is based on HTML5's
+	 * validation.
 	 */
 	required?: boolean;
 
@@ -255,7 +265,17 @@ const inputRender = (
 };
 
 /**
- * Input (or text field) is text input that allow users to write or edit text entries.
+ * Inputs render interactive controls that users use to enter data. They are
+ * usually [text boxes][1], where the data is just plain text. However, there
+ * are many more types of data, each with their own kind of controls.
+ *
+ * Inputs are always rendered as [HTML `input`][2] elements. They support both
+ * [controlled][3] and [uncontrolled][4] usages.
+ *
+ * [1]: https://en.wikipedia.org/wiki/Text_box
+ * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+ * [3]: https://reactjs.org/docs/forms.html#controlled-components
+ * [4]: https://reactjs.org/docs/uncontrolled-components.html
  */
 export const Input = React.forwardRef(inputRender) as InputComponent;
 

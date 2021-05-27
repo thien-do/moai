@@ -2,12 +2,13 @@ import { useState } from "react";
 import * as Go from "react-icons/go";
 import { Button, ButtonProps } from "../../core/src";
 import { Shot } from "./shot/shot";
+import s from "./styles.module.css";
 
 const ss = Button.sizes;
 const icon = Button.sizes.mediumIcon;
 
 const Row1 = (props: ButtonProps): JSX.Element => (
-	<div style={{ display: "flex", gap: 8 }}>
+	<div className={s.cols}>
 		<Button {...props} highlight icon={Go.GoChevronLeft} children="Back" />
 		<Button {...props} icon={Go.GoChevronRight} children="Next" />
 		<Button {...props} icon={Go.GoSearch} iconLabel="Search" />
@@ -38,13 +39,13 @@ const Toggle = (): JSX.Element => {
 };
 
 const Row2 = (): JSX.Element => (
-	<div style={{ display: "flex", gap: 8 }}>
-		<div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+	<div className={s.cols}>
+		<div className={[s.rows, s.flex1].join(" ")}>
 			<Button icon={Go.GoPlus} size={ss.large} children="Large" />
 			<Button icon={Go.GoPlus} size={ss.medium} children="Medium" />
 			<Button icon={Go.GoPlus} size={ss.small} children="Small" />
 		</div>
-		<div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+		<div className={[s.rows, s.flex1].join(" ")}>
 			<Toggle />
 			<Busy />
 			<Button
@@ -59,7 +60,7 @@ const Row2 = (): JSX.Element => (
 
 export const GalleryButton2 = (): JSX.Element => (
 	<Shot>
-		<div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+		<div className={s.rows}>
 			<Row1 />
 			<Row1 disabled />
 			<Row2 />
