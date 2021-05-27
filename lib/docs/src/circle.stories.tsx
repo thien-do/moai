@@ -1,31 +1,51 @@
 import { Meta } from "@storybook/react";
 import { DivPx, ProgressCircle } from "../../core/src";
+import { GalleryFeedbackProgress } from "../../gallery/src/feedback/progress";
+import { Utils } from "./utils";
 
-export default {
-	title: "Draft/Progress Circle",
+const meta: Meta = {
+	title: "Components/Progress Circle",
 	component: ProgressCircle,
-} as Meta;
+	argTypes: {
+		size: Utils.arg("number"),
+		value: Utils.arg("number"),
+		color: Utils.arg(ProgressCircle.colors),
+	},
+};
 
-export const Primary = (): JSX.Element => (
-	<div>
-		<div>
-			<ProgressCircle size={16} value="indeterminate" />
-		</div>
-		<DivPx size={16} />
-		<div>
-			<ProgressCircle
-				size={16}
-				value="indeterminate"
-				color={ProgressCircle.colors.highlight}
-			/>
-		</div>
-		<DivPx size={16} />
-		<div style={{ background: "var(--highlight-5)", padding: 8 }}>
-			<ProgressCircle
-				size={16}
-				value="indeterminate"
-				color={ProgressCircle.colors.inverse}
-			/>
-		</div>
-	</div>
+Utils.page.component(meta, {
+	sticky: true,
+	shots: [<GalleryFeedbackProgress key="1" />],
+});
+
+export default meta;
+
+interface Props {
+	size: number;
+	value: number | "indeterminate";
+	color?: string;
+}
+
+export const Primary = (props: Props): JSX.Element => (
+	<ProgressCircle
+		size={props.size ?? 20}
+		value={props.value ?? "indeterminate"}
+		// eslint-disable-next-line
+		color={(ProgressCircle.colors as any)[props.color!]}
+	/>
 );
+
+export const Basic = (): JSX.Element => {
+	return (
+		<div style={{ display: "flex", flexDirection: "row" }}>
+			<ProgressCircle size={20} value={"indeterminate"} />
+			<DivPx size={16} />
+			<ProgressCircle size={20} value={0.5} />
+		</div>
+	);
+};
+
+Utils.desc(Basic)(`
+To begin, you need to provide the size of the circle and its value. Notice that
+value can vary from 0 to 1 or indeterminate.
+`);
