@@ -15,7 +15,7 @@ const meta: Meta = {
 		noPadding: Utils.arg("boolean", "Visual"),
 		fullHeight: Utils.arg("boolean", "Visual"),
 		style: Utils.arg(Object.keys(Tabs.styles), "Visual"),
-		children: Utils.arg(null, "Controlled"),
+		children: Utils.arg(null, "Visual"),
 		activeTab: Utils.arg(null, "Controlled"),
 		setActiveTab: Utils.arg(null, "Controlled"),
 		initialTab: Utils.arg(null, "Uncontrolled"),
@@ -46,16 +46,14 @@ const tabs: Tab[] = [
 
 export const Primary = (props: Props): JSX.Element => {
 	return (
-		<div>
-			<div style={{ height: "200px" }}>
-				<Tabs
-					children={tabs}
-					// eslint-disable-next-line
-					style={(Tabs.styles as any)[props.style!]}
-					noPadding={props.noPadding}
-					fullHeight={props.fullHeight}
-				/>
-			</div>
+		<div style={{ height: "200px" }}>
+			<Tabs
+				children={tabs}
+				// eslint-disable-next-line
+				style={(Tabs.styles as any)[props.style!]}
+				noPadding={props.noPadding}
+				fullHeight={props.fullHeight}
+			/>
 		</div>
 	);
 };

@@ -33,7 +33,8 @@ interface Props {
 	 */
 	children: Tab[];
 	/**
-	 * Define if tabs padding is removed.
+	 * Tab's panels have padding out of the box. Use this prop to remove the
+	 * padding.
 	 */
 	noPadding?: boolean;
 	/**
@@ -42,21 +43,21 @@ interface Props {
 	 */
 	style?: TabStyle;
 	/**
-	 * Define if tabs height is inherited from parents component.
+	 * This prop makes the tabs 100% height of their parent/container.
 	 */
 	fullHeight?: boolean;
 	// Uncontrolled
 	/**
-	 * Declare which tab is the initial tab.
+	 * Declare which tab is the initial tab in uncontrolled mode.
 	 */
 	initialTab?: string;
 	// Controlled
 	/**
-	 * Declare which tab is currently active.
+	 * Declare which tab is currently active in controlled mode.
 	 */
 	activeTab?: string;
 	/**
-	 * Set which tab is activated.
+	 * A handler to set the activated tab.
 	 */
 	setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
