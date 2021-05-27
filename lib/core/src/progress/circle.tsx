@@ -8,15 +8,17 @@ export interface ProgressCircleColor {
 
 interface Props {
 	/**
-	 * Size of circle.
+	 * Size of the circle
 	 */
 	size: number;
 	/**
-	 * Value of circle, range from 0 to 1.
+	 * This prop shows the current process of the operation. Value is range from
+	 * 0 (no process yet) to 1 (all's done). There is also a special value:
+	 * "indeterminate" to use when we don't know how long the processwould go.
 	 */
 	value: number | "indeterminate";
 	/**
-	 * Color of circle, use one from ProgressCircleColor.
+	 * Color of circle, use one from ProgressCircle.colors.
 	 */
 	color?: ProgressCircleColor;
 }
@@ -50,7 +52,7 @@ const getStroke = (props: Props) => {
 
 /**
  * Progress circle gives users a clear vision about the progress of an
- * operation.
+ * operation in the form of a circle.
  */
 export const ProgressCircle = (props: Props): JSX.Element => {
 	const stroke = getStroke(props);
