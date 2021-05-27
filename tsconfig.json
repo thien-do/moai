@@ -1,5 +1,10 @@
-/* This is the shared config for all tools (editor, Rollup, TSC) and all
-packages (core, icon, etc.). */
+/*
+This is the shared config for all tools (editor, Rollup, TSC) and all
+packages (core, gallery, docs, etc.).
+
+Note that this file should be at root for the linting to work (eslint uses
+this file for the parsing)
+*/
 {
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,

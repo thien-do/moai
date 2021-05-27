@@ -1,0 +1,34 @@
+.flex {
+	display: flex;
+}
+
+.colFull {
+	grid-column: 1/-1;
+}
+
+.flex1 {
+	flex: 1 1 0px;
+}
+
+.flexWrap {
+	flex-wrap: wrap;
+}
+
+.p4 {
+	padding: 4px;
+}
+
+.cols {
+	display: flex;
+	gap: 8px;
+}
+
+.rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.col {
+	flex: 1 1 0px;
+}
