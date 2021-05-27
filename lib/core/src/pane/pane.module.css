@@ -3,6 +3,10 @@
 	border-style: solid;
 }
 
+.contentWidth {
+	width: fit-content;
+}
+
 .padding {
 	padding: 16px;
 }

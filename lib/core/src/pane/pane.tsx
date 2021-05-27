@@ -16,6 +16,7 @@ interface Props {
 	 * Define if pane height is inherited from parents component.
 	 */
 	fullHeight?: boolean;
+	contentWidth?: boolean;
 }
 
 /**
@@ -28,6 +29,7 @@ export const Pane = (props: Props): JSX.Element => (
 		className={[
 			Pane.styles.outset,
 			props.noPadding ? "" : s.padding,
+			props.contentWidth ? s.contentWidth : "",
 			props.fullHeight ? s.fullHeight : "",
 		].join(" ")}
 		children={props.children}

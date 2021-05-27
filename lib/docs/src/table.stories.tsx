@@ -1,28 +1,82 @@
 import { Meta } from "@storybook/react";
-import { useState } from "react";
-import { DivPx, Select, SelectOption, Table, TableSize } from "../../core/src";
+import { Pane, Table, TableColumn } from "../../core/src";
 import { Robot, ROBOTS } from "../../gallery/src/table/robots";
 import { GalleryTable } from "../../gallery/src/table/table";
 import { TableColumnComponent } from "./table-fake";
 import { Utils } from "./utils";
 
-export default {
+const meta: Meta = {
 	title: "Components/Table",
 	component: Table,
 	subcomponents: { TableColumn: TableColumnComponent },
-} as Meta;
+	argTypes: {
+		fill: Utils.arg("boolean"),
+		size: Utils.arg(Table.sizes),
+		rows: Utils.arg(null),
+		rowKey: Utils.arg(null),
+		columns: Utils.arg(null),
+		expandRowRender: Utils.arg(null),
+		fixed: Utils.arg(null),
+	},
+};
 
-export const Primary = (): JSX.Element => (
-	// This table is quite complicated. Please see the "Basic" section for
-	// simpler code to get started with Table.
-	<GalleryTable />
+Utils.page.component(meta, {
+	sticky: false,
+	shots: [<GalleryTable key="1" />],
+});
+
+export default meta;
+
+interface ExampleBook {
+	isbn: number;
+	title: string;
+	author: string;
+}
+
+const exampleBookKey = (book: ExampleBook): string => book.isbn.toString();
+
+const exampleBooks: ExampleBook[] = [
+	{
+		isbn: 9780679783268,
+		title: "Pride and Prejudic",
+		author: "Jane Austen",
+	},
+	{
+		isbn: 9780743273565,
+		title: "The Great Gatsby",
+		author: "Francis Scott Fitzgerald",
+	},
+	{
+		isbn: 9780684830490,
+		title: "The Old Man and the Sea",
+		author: "Ernest Hemingway",
+	},
+];
+
+const exampleBookColumns: TableColumn<ExampleBook>[] = [
+	{ title: "Title", render: "title" },
+	{ title: "Author", render: "author" },
+];
+
+interface Props {
+	size?: string;
+	fill?: boolean;
+}
+
+export const Primary = (props: Props): JSX.Element => (
+	<Table<ExampleBook>
+		rows={exampleBooks}
+		rowKey={exampleBookKey}
+		columns={exampleBookColumns}
+		fill={props.fill}
+		// eslint-disable-next-line
+		size={(Table.sizes as any)[props.size!]}
+	/>
 );
-
-Utils.fixPrimary(Primary);
 
 export const Basic = (): JSX.Element => {
 	// The definition of interface here is only for explanation purpose. In
-	// practice the interface/type/model should already be defined outside of
+	// practice, the interface of your models should be defined outside of
 	// your component.
 	interface Book {
 		isbn: number;
@@ -59,132 +113,155 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.desc(Basic)(`
-Every table requires 3 props: \`rows\`, \`columns\` and \`rowKey\`. See the
-argument table above for the detail of these props.
+The Table component is based on data. This means you don't build Tables by
+manually assembling different parts (\`td\`, \`th\`) like in HTML. Instead, you
+provide the data (rows) and describe how to render them (columns).
+Specifically, a Table requires 3 props:
 
-The CSS of Moai's Table is kept [as little as possible][1] to preserve the
-native behaviour of the \`table\` tag. For example, the size of a table depends
-on its content, while text breaks ["normally"][2]. It also doesn't have any
-outer border or shadow. For that, use the \`Pane\` component.
+- \`rows\`: an array of items to be rendered as rows (e.g. \`Book[]\`)
+- \`rowKey\`: a function that returns the [key][2] for a given row (e.g. the
+\`isbn\` of a \`Book\`)
+- \`columns\`: an array of \`TableColumn\` to describe how to render your
+\`rows\`. Each \`TableColumn\` requires:
+	- \`title\`: the title of the column
+	- \`render\`: what to render for each row. Usually it's the name of a property
+	(e.g. the \`title\` of a \`Book\`).
+
+Note that Table is a [generic][1] component. The type of \`rows\`, \`rowKey\`
+and \`TableColumn.render\` should match each other.
+
+[1]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+[2]: https://reactjs.org/docs/lists-and-keys.html
+`);
+
+export const Style = (): JSX.Element => (
+	<Pane noPadding contentWidth>
+		<Table<ExampleBook>
+			rows={exampleBooks}
+			rowKey={exampleBookKey}
+			columns={exampleBookColumns}
+		/>
+	</Pane>
+);
+
+Utils.desc(Style)(`
+The CSS of Moai's Table is intentionally [minimal][1] to preserve the behaviour
+of the [HTML \`table\`][2] element. For example, the size of Tables depend on
+their content, with their text breaks ["normally"][3]. They also doesn't have
+any outer border or shadow, which can be provided by the [Pane][4] component:
 
 [1]: https://github.com/moaijs/moai/blob/main/core/src/table/table.module.css
-[2]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+[2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+[3]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
+[4]: /docs/components-pane--primary
 `);
 
-export const Fill = (): JSX.Element => {
-	return (
-		<Table<Robot>
-			rows={ROBOTS.slice(0, 3)}
-			rowKey={(robot) => robot.id.toString()}
-			columns={[
-				{ title: "Bot", render: "MAC" },
-				{ title: "Id", render: "id" },
-			]}
-			fill
-		/>
-	);
-};
+export const Fill = (): JSX.Element => (
+	<Table<ExampleBook>
+		fill
+		rows={exampleBooks}
+		rowKey={exampleBookKey}
+		columns={exampleBookColumns}
+	/>
+);
 
 Utils.desc(Fill)(`
-If the \`fill\` prop is set to \`true\`, the table's width will full \`100%\` and depend on it's container.
+Similar to the HTML \`table\` element, the widths of Moai's Tables depend on
+their content. To make them fill their container (i.e. like \`width: 100%\`),
+set the \`fill\` prop to \`true\`. This is also how you should control the
+width of Tables (via the width of their containers).
 `);
 
-export const Fixed = (): JSX.Element => (
-	<div>
-		{/* In practice these CSS are usually defined via better methods, 
-		such as CSS Modules, Tailwind or just external files. */}
-		<style
-			dangerouslySetInnerHTML={{
-				__html: `
+export const Fixed = (): JSX.Element => {
+	// These CSS are defined inline here for demo purpose. In practice, they
+	// are defined via many better methods, such as CSS Modules, Tailwind or
+	// just using external files.
+	const css = `
 .fixed-table {
 	height: 200px; /* limit the height of the table */
 	overflow: auto; /* show scrollbar(s) */
 	white-space: nowrap;
-}
-				`,
-			}}
-		/>
-		<div className="fixed-table">
-			<Table<Robot>
-				rows={ROBOTS}
-				rowKey={(robot) => robot.id.toString()}
-				columns={[
-					{ title: "Bot", render: "MAC" },
-					{ title: "Id", render: "id" },
-					{ title: "Seen", render: "lastSeen" },
-					{ title: "Email", render: "email" },
-					{ title: "Avatar", render: "avatar" },
-				]}
-				fixed={{ firstColumn: true, lastColumn: true }}
-			/>
-		</div>
-	</div>
-);
-
-Utils.desc(Fixed)(`
-The \`fixed\` prop is an object, which indicates if the table's header
-and/or first column and/or last column would stay fixed while the user
-scrolls the rest of the table. Note that the fixed position here is
-relative to the table's nearets scrolling ancestor. In practice,
-this means the container of the table should have:
-
-- "auto" or "scroll" overflow, and
-- a defined height, either fixed (e.g. "400px") or relative (e.g. "100%")
-
-Since Moai's Table doesn't alter the line breaking CSS, you may also need
-\`white-space: nowrap\` or defining width for your columns to avoid the default
-line break behaviour.
-`);
-
-export const Expandable = (): JSX.Element => (
-	<Table<Robot>
-		rows={ROBOTS.slice(0, 3)}
-		rowKey={(robot) => robot.id.toString()}
-		columns={[
-			{ title: "Bot", className: "name", render: "MAC" },
-			{ title: "Id", render: "id" },
-		]}
-		expandRowRender={(robot) => robot.email}
-	/>
-);
-
-Utils.desc(Expandable)(`
-The users can expand a table's rows if the \`expandRowRender\` is prop provided.
-It should be a function that returns what to be rendered when the user expands
-a row. The returned result is rendered below the row, spanning all columns
-(i.e. a \`td\` with \`colSpan={columns.length}\`).
-`);
-
-export const Size = (): JSX.Element => {
-	const [size, setSize] = useState<TableSize>(Table.sizes.small);
-	const options: SelectOption<TableSize>[] = [
-		{ id: "small", label: "Small", value: Table.sizes.small },
-		{ id: "medium", label: "Medium", value: Table.sizes.medium },
-		{ id: "large", label: "Large", value: Table.sizes.large },
-	];
+}`;
 	return (
 		<div>
-			<Select<TableSize>
-				value={size}
-				setValue={setSize}
-				options={options}
-			/>
-			<DivPx size={16} />
-			<Table<Robot>
-				rows={ROBOTS.slice(0, 3)}
-				rowKey={(robot) => robot.id.toString()}
-				columns={[
-					{ title: "Bot", className: "name", render: "MAC" },
-					{ title: "Id", render: "id" },
-				]}
-				size={size}
-			/>
+			<style dangerouslySetInnerHTML={{ __html: css }} />
+			<div className="fixed-table">
+				<Table<Robot>
+					fixed={{ firstColumn: true, header: true }}
+					rows={ROBOTS}
+					rowKey={(robot) => robot.id.toString()}
+					columns={[
+						{ title: "Bot", render: "MAC" },
+						{ title: "Id", render: "id" },
+						{ title: "Seen", render: "lastSeen" },
+						{ title: "Email", render: "email" },
+						{ title: "Avatar", render: "avatar" },
+					]}
+				/>
+			</div>
 		</div>
 	);
 };
 
+Utils.desc(Fixed)(`
+The header, first column, and last column of a Table can be set to stay fixed
+while users scroll the rest of the Table. This [provides the context][1] for
+users to know what they are looking at. It's especially useful in mobile
+devices, where the Tables are usually much bigger than the users' screens.
+
+The \`fixed\` prop expects an object that indicates which parts to be fixed:
+
+~~~ts
+interface TableFixed {
+	firstColumn?: boolean;
+	lastColumn?: boolean;
+	header?: boolean;
+}
+~~~
+
+Note that the "fixed" positioning is relative to a Table's nearest scrollable
+ancestor. In other words, this means the container of a Table should have:
+
+- \`auto\` or \`scroll\` [overflow][2], and
+- an [extrinsic][3] height, either fixed (e.g. "400px") or relative (e.g. "100%")
+
+Since Moai's Tables don't have any line-breaking CSS, you may also need
+\`white-space: nowrap\` or defining widths for your columns to avoid the
+[default line-break behaviour][4].
+
+[1]: https://www.nngroup.com/articles/mobile-tables/
+[2]: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
+[3]: https://www.w3.org/TR/css-sizing-3/#extrinsic
+[4]: https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
+`);
+
+export const Expandable = (): JSX.Element => (
+	<Table<ExampleBook>
+		rows={exampleBooks}
+		rowKey={exampleBookKey}
+		columns={exampleBookColumns}
+		expandRowRender={(row) => row.isbn}
+	/>
+);
+
+Utils.desc(Expandable)(`
+Users can expand a Table's rows if the \`expandRowRender\` prop is provided.
+It expects a function that returns what to be rendered in the expanded area of
+a row. The expanded area is below a row, spanning all columns (i.e. similar to
+a \`td\` with \`colSpan={columns.length}\`).
+`);
+
+export const Size = (): JSX.Element => (
+	<Table<ExampleBook>
+		size={Table.sizes.large}
+		rows={exampleBooks}
+		rowKey={exampleBookKey}
+		columns={exampleBookColumns}
+	/>
+);
+
 Utils.desc(Size)(`
-To make a table looks more compact or loose, use the \`size\` prop. It controls
-the vertical padding of a table's cells. Choose a value from the \`Table.sizes\`
-list.
+To make Tables look more compact or loose, use the \`size\` prop. It controls
+the vertical padding of a Table's cells. There are defined at \`Table.sizes\`.
+You can try different sizes using the "All Props" table at the end of this page.
 `);

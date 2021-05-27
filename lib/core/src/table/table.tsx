@@ -98,6 +98,15 @@ export interface TableState {
 	setExpanded: (key: string, value: boolean) => void;
 }
 
+/**
+ * Tables represent data in [rows and columns][1]. They are always rendered as
+ * [HTML `table`][2] elements to ensure good accessibility. Moai's Tables are
+ * [responsive][3] and can be used on mobile devices.
+ *
+ * [1]: https://en.wikipedia.org/wiki/Table_(information)
+ * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+ * [3]: #fixed
+ */
 export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 	const [expanded, _setExpanded] = useState(() => new Set<string>());
 	const setExpanded: TableState["setExpanded"] = (key, value) => {
