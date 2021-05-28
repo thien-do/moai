@@ -84,6 +84,8 @@ a handler via \`onClick\`:
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 `);
 
+Utils.expanded(Basic);
+
 export const Icon = (): JSX.Element => (
 	// Icons are imported from external libraries, like:
 	// import { GoPlus } from "react-icons/go";
