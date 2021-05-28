@@ -43,8 +43,6 @@ const expanded = (story: any): void => {
 	story.parameters.docs ??= {};
 	story.parameters.docs.source ??= {};
 	story.parameters.docs.source.state = "open";
-	story.parameters.docs.source.withSource = "open";
-	story.parameters.docs.source.isExpanded = true;
 };
 
 // eslint-disable-next-line
