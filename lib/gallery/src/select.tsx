@@ -1,6 +1,6 @@
-import * as M from "../../../core/src";
-import s from "../styles.module.css";
-import { MATERIALS } from "../table/robots";
+import * as M from "../../core/src";
+import s from "./styles.module.css";
+import { MATERIALS } from "./table/robots";
 import { GoSearch } from "react-icons/go";
 
 const materialOptions: M.SelectOption<string>[] = MATERIALS.map((material) => {
@@ -64,7 +64,7 @@ const Group = (): JSX.Element => {
 	return <M.ButtonGroup fill children={children} />;
 };
 
-export const GallerySelectionSelect = (): JSX.Element => (
+export const GallerySelect = (): JSX.Element => (
 	<div>
 		<div className={s.flex}>
 			<Column style={M.Select.styles.outset} />

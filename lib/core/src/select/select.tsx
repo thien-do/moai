@@ -44,7 +44,7 @@ export interface SelectOption<T> {
 	 */
 	label: string;
 	/**
-	 * Whether the option is disabled.
+	 * If true, the option is disabled.
 	 */
 	disabled?: boolean;
 }
@@ -59,17 +59,18 @@ export interface SelectProps<T> {
 	 */
 	defaultValue?: T;
 	/**
-	 * [Reference][1] to the `select` element. Usually useful in uncontrolled mode.
+	 * [Reference][1] to the `select` element. Usually useful in uncontrolled
+	 * mode.
 	 *
 	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 	forwardedRef?: ForwardedRef<HTMLSelectElement>;
 	/**
-	 * Value of the selected option in controlled mode
+	 * The selected value in controlled mode
 	 */
 	value?: T;
 	/**
-	 * Callback to set the value in controlled mode
+	 * Callback to set the selected value in controlled mode
 	 */
 	setValue?: (value: T) => void;
 	/**
@@ -90,15 +91,22 @@ export interface SelectProps<T> {
 	 */
 	fill?: boolean;
 	/**
-	 * Whether the select is disabled
+	 * The [HTML `disabled`][1] attribute. If true, the select is disabled. See
+	 * the "SelectOption" tab if you only want to disable some options.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-disabled
 	 */
 	disabled?: boolean;
 	/**
-	 * The "id" attribute in HTML
+	 * The [HTML `id`][1] attribute of the select.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id
 	 */
 	id?: string;
 	/**
-	 * The "required" attribute in HTML
+	 * The [HTML `required`][1] attribute of the select.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-required
 	 */
 	required?: boolean;
 }
@@ -131,6 +139,14 @@ const onChange = <T,>(
 	props.setValue(option.value);
 };
 
+/**
+ * Users use selects to choose an option out of a list. When activated, a
+ * select displays (drops down) a list of options. When inactive, it only shows
+ * the selected option, thus is a space-effective alternative to [radio
+ * groups][1].
+ * 
+ * [1]: /docs/components-radio-group--primary
+ */
 export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
 	const cls = getClassNames(props);
 	const value = findId(props, props.value);

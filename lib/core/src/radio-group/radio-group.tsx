@@ -61,9 +61,11 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
 /**
  * RadioGroup is the recommended way to have radio buttons. They are a wrapper
  * of the [Radio][1] component that has a simpler, common interface (e.g. with
- * the `value` and `setValue` pair).
+ * the `value` and `setValue` pair). It's similar to [selects][2] but displays
+ * all options upfront.
  *
  * [1]: /docs/components-radio--primary
+ * [2]: /docs/components-select--primary
  */
 export const RadioGroup = <T,>(props: Props<T>): JSX.Element => (
 	<div

@@ -12,7 +12,7 @@ import { GalleryInput2 } from "./input-2";
 import { GallerySection } from "./section/section";
 import { GallerySelectionCheckbox } from "./selection/checkbox";
 import { GallerySelectionPagination } from "./selection/pagination";
-import { GallerySelectionSelect } from "./selection/select";
+import { GallerySelect } from "./select";
 import s from "./styles.module.css";
 import { GalleryTabDefault, GalleryTabFlat } from "./tab/tab";
 import { GalleryTable } from "./table/table";
@@ -33,7 +33,7 @@ export const Gallery = (): JSX.Element => (
 		<DivPx size={32} />
 		<GallerySection title="Selection controls">
 			<div>
-				<GallerySelectionSelect />
+				<GallerySelect />
 				<DivPx size={8} />
 				<GallerySelectionPagination />
 			</div>
