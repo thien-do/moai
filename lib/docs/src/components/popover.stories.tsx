@@ -1,168 +1,147 @@
-import { Placement } from "@popperjs/core";
-import { useState } from "react";
-import { Button, coreIcons, DivPx, Icon, Popover, Radio } from "../../../core/src";
+import { Meta } from "@storybook/react";
+import { Button, Popover, PopoverPlacement } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
-export default {
+const placements: PopoverPlacement[] = [
+	"top",
+	"top-start",
+	"top-end",
+	"right",
+	"right-start",
+	"right-end",
+	"bottom",
+	"bottom-start",
+	"bottom-end",
+	"left",
+	"left-start",
+	"left-end",
+	"auto",
+	"auto-start",
+	"auto-end",
+];
+
+const meta: Meta = {
 	title: "Components/Popover",
 	component: Popover,
+	argTypes: {
+		placement: Utils.arg(placements),
+		target: Utils.arg(null),
+		content: Utils.arg(null),
+		TargetWrapper: Utils.arg(null),
+	},
 };
 
-export const Primary = (): JSX.Element => {
-	return (
-		<div style={{ width: "fit-content" }}>
-			<Popover
-				content={() => <div style={{ padding: 16 }}>Content</div>}
-				target={(popover) => (
-					<Button
-						onClick={() => popover.toggle()}
-						selected={popover.opened}
-						children="Toggle"
-					/>
-				)}
+Utils.page.component(meta, { primary: "sticky", shots: [] });
+
+export default meta;
+
+interface Props {
+	placement?: PopoverPlacement;
+}
+
+export const Primary = (props: Props): JSX.Element => (
+	<Popover
+		placement={props.placement}
+		target={(popover) => (
+			<Button onClick={popover.toggle} children="Show popover" />
+		)}
+		content={() => <div style={{ padding: 8 }} children="Hello" />}
+	/>
+);
+
+export const Basic = (): JSX.Element => (
+	<Popover
+		target={(popover) => (
+			<Button
+				onClick={() => popover.toggle()}
+				selected={popover.opened}
+				children="Show popover"
 			/>
-		</div>
-	);
-};
+		)}
+		content={() => "Hello"}
+	/>
+);
 
-Utils.fixPrimary(Primary);
+Utils.story(Basic, {
+	expanded: true,
+	desc: `
+A popover consists of 2 parts: a "content" and a "target". They are both
+[render props][1].
 
-export const Positioning = (): JSX.Element => {
-	const [placement, setPlacement] = useState<Placement>("bottom");
-	const placements: Placement[] = [
-		"top",
-		"top-start",
-		"top-end",
+The \`content\` prop expects a function that returns what to be rendered inside
+the pop-up container. This is a function to avoid unnecessary renders (e.g.
+when the popover is not activated).
 
-		"right",
-		"right-start",
-		"right-end",
+The \`target\` prop expects a function that returns an element. This element
+is always rendered, and should use the \`popover\` param to activate the
+popover on users' action. The \`popover\` param has the following interface:
 
-		"bottom",
-		"bottom-start",
-		"bottom-end",
+~~~ts
+interface PopoverTarget {
+	// Open or close the popover
+	toggle: () => void;
+	// "true" if the popover is opened
+	opened: boolean;
+}
+~~~
 
-		"left",
-		"left-start",
-		"left-end",
+This means Popover is similar to an [uncontrolled][2] component. You cannot
+control whether a popover is opened via a prop, but instead can only "trigger"
+it, imperatively, via the callback you received.
 
-		"auto",
-		"auto-start",
-		"auto-end",
-	];
+[1]: https://reactjs.org/docs/render-props.html
+[2]: https://reactjs.org/docs/uncontrolled-components.html
+`,
+});
 
-	return (
-		<div>
-			<div
-				style={{
-					height: 120,
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					justifyContent: "center",
-				}}
-			>
-				<div style={{ width: "fit-content" }}>
-					<Popover
-						placement={placement}
-						content={() => {
-							return (
-								<div style={{ padding: 16 }}>
-									Position: {placement}
-								</div>
-							);
-						}}
-						target={(popover) => (
-							<Button
-								onClick={() => popover.toggle()}
-								selected={popover.opened}
-								children="Click me!"
-							/>
-						)}
-					/>
-				</div>
-				<DivPx size={8} />
-				<div children={"Current position: " + placement} />
-			</div>
-			Change Placement:
-			<DivPx size={8} />
-			<div style={{ display: "flex", flexWrap: "wrap" }}>
-				{placements.map((item, index) => (
-					<div style={{ padding: 4, width: "33%" }} key={index}>
-						<Radio
-							defaultChecked={item === placement}
-							setValue={(value) =>
-								setPlacement(value as Placement)
-							}
-							name="popover-placement"
-							children={item}
-							value={item}
-						/>
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+export const TargetWrapper = (): JSX.Element => (
+	<Popover
+		content={() => "Hello"}
+		target={(popover) => <span onClick={popover.toggle}>Click me!</span>}
+		TargetWrapper={Popover.targetWrappers.inline}
+	/>
+);
 
-Utils.story(Positioning, { desc: `
-A Popover is positioned in relation to its target. It can appear at the \`top\`, \`right\`, \`bottom\` or \`left\` of the trigger with an addtional two more positions avaiable for each location: \`start\` and \`end\`.
+Utils.story(TargetWrapper, {
+	expanded: true,
+	desc: `
+In order to position the content relative to the target, Popover needs to wrap
+the target inside a wrapper. By default, this wrapper is an HTML \`div\`
+element with a \`width: fit-content\`. This should work for most cases, but
+there are also other wrappers at \`Popover.targetWrappers\` for other cases:
 
-The \`auto\` placements places the Popover on the side with the most avaiable space.
+- \`inline\` should be used when your \`target\` is an [inline][1] element,
+such as a \`<span />\`.
+- \`block\` should be used when you don't want the \`fit-content\` width, e.g.
+for full-width buttons.
 
-[Reference](https://popper.js.org/docs/v2/constructors/#options) to the Popper's Placement type.
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
+`,
+});
 
-Default value: \`bottom\`
-`});
+export const PlacementExample = (): JSX.Element => (
+	<Popover
+		placement="right"
+		target={(popover) => (
+			<Button onClick={popover.toggle} children="Show popover" />
+		)}
+		content={() => <div style={{ padding: 8 }} children="Hello" />}
+	/>
+);
 
-export const Customization = (): JSX.Element => {
-	const StatBlock = () => {
-		return (
-			<div style={{ padding: 16 }}>
-				<Icon path={coreIcons.search} display="inline" />
-				<strong style={{ marginLeft: 8 }} children="moai/moaijs" />
-				<DivPx size={8} />
-				<div
-					style={{ opacity: 0.8 }}
-					children="A React component library, where buttons look like buttons 🗿"
-				/>
-				<DivPx size={8} />
-				<div style={{ display: "flex", alignItems: "center" }}>
-					<div
-						style={{
-							marginRight: 8,
-							width: 8,
-							height: 8,
-							backgroundColor: "#2b7489",
-							borderRadius: 4,
-						}}
-					/>
-					TypeScript
-					<DivPx size={16} />
-					moaijs.com
-				</div>
-			</div>
-		);
-	};
+Utils.story(PlacementExample, {
+	name: "Placement",
+	desc: `
+By default, Popover positions its content on top of its target. This can be
+changed by the \`placement\` prop, which expects a string of [Popper.js'
+\`placement\`][1] option. You can see (and try!) all available placements at
+the [props table][2] below.
 
-	return (
-		<div style={{ width: "fit-content" }}>
-			<Popover
-				placement="top-start"
-				content={() => <StatBlock />}
-				target={(popover) => (
-					<Button
-						onClick={() => {
-							popover.toggle();
-						}}
-						children="moaijs/moai"
-					/>
-				)}
-			/>
-		</div>
-	);
-};
+Note that this is more like a suggestion. If there is no space in the selected
+placement, Popover will choose another placement, usually the opposite
+one, to keep the content in the viewport.
 
-Utils.story(Customization, { desc: `
-You can customize how the content inside Popover rendering. The Menu component also customize from Popover.
-`});
+[1]: https://popper.js.org/docs/v2/constructors/#options
+[2]: #props
+`,
+});
