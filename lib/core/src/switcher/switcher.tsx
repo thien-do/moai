@@ -3,11 +3,11 @@ import { Button, ButtonProps, ButtonSize, ButtonStyle } from "../button/button";
 
 export interface SwitcherOption<T> {
 	/**
-	 * The value of the option
+	 * The value of the option.
 	 */
 	value: T;
 	/**
-	 * The label of the option
+	 * The label of the option.
 	 */
 	label?: string;
 	/**
@@ -24,19 +24,19 @@ export interface SwitcherOption<T> {
 	 */
 	key?: string;
 	/**
-	 * Whether this option is disabled
+	 * If true, users cannot select the option.
 	 */
 	disabled?: boolean;
 }
 
 interface Props<T> {
 	/**
-	 * The selected value of the Switcher. This is required because Switcher
+	 * The selected value of the switcher. This is required because switcher
 	 * does not support uncontrolled use case.
 	 */
 	value: T;
 	/**
-	 * Callback to set the selected value
+	 * Callback to set the selected value.
 	 */
 	setValue: (value: T) => void;
 	/**
@@ -44,13 +44,13 @@ interface Props<T> {
 	 */
 	options: SwitcherOption<T>[];
 	/**
-	 * Whether the switcher (i.e. its buttons) should fill its container's
-	 * space (similar to width: 100%)
+	 * If true, the width of the switcher is 100% of its container's width.
 	 */
 	fill?: boolean;
 	/**
-	 * Whether the selected option is "highlighted" with a primary color. If
-	 * not set, the selected option is dimmed, which is the default behaviour.
+	 * If true, the selected option is "highlighted" with a primary color.
+	 * Otherwise, the selected option is dimmed, which is the default
+	 * behaviour.
 	 */
 	highlight?: boolean;
 	/**
@@ -64,26 +64,27 @@ interface Props<T> {
 	 */
 	style?: ButtonStyle;
 	/**
-	 * Whether to disable the Switcher. This disables all buttons. To disable
-	 * some option, use SwitcherOption.disabled attribute.
+	 * If true, prevent users from interacting with the switcher. This disables
+	 * all buttons. To disable only some options, use the
+	 * `SwitcherOption.disabled` attribute.
 	 */
 	disabled?: boolean;
 }
 
 /**
  * Switchers display several options as grouped buttons for users to select.
- * They are compact alternatives to [Radios][4]. When there are only 2 options,
- * they work like [Toggles][5].
+ * They are compact alternatives to [radio groups][4]. When there are only 2
+ * options, they work like [toggles][5].
  *
- * Like Radios, Switchers should be used to select a single option out of a
- * small list (less than 5) of options. When there are many options, consider
- * [Selects][3]. When multiple options can be selected, consider
- * [Checkboxes][1], or use [ButtonGroups][2] directly.
+ * Like radio groups, switchers should be used to select a single option from
+ * a small list (less than 5). When there are many options, consider
+ * [selects][3]. When multiple options can be selected, consider [checkbox
+ * groups][1], or use the [button groups][2] directly.
  *
- * [1]: /docs/components-checkbox--primary
+ * [1]: /docs/components-checkbox--group
  * [2]: /docs/components-button-group--primary
  * [3]: /docs/components-select--primary
- * [4]: /docs/components-radio--primary
+ * [4]: /docs/components-radio-group--primary
  * [5]: https://www.nngroup.com/articles/toggle-switch-guidelines/
  */
 export const Switcher = <T,>(props: Props<T>): JSX.Element => (

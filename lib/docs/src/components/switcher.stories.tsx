@@ -67,17 +67,18 @@ export const Basic = (): JSX.Element => {
 
 Utils.story(Basic, {
 	desc: `
-Switchers are [controlled][1] components. You should maintain a [state][2] for
-the current value, and pass the control to a Switcher. The type of your state
-can be anything since Switcher is a [generic][3] component.
+Switcher is a [controlled][1], [generic][3] component. You should have a
+[state][2] of any type for the selected value, and pass the control to a
+switcher via the \`value\` and \`setValue\` props.
 
 The options for a Switcher are defined via its \`options\` prop. They require
-the \`value\` and \`label\` attributes. See the "SwitcherOption" table below
+the \`value\` and \`label\` attributes. See the [SwitcherOption table][4] below
 for the complete interface of an option.
 
 [1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://reactjs.org/docs/hooks-state.html
 [3]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+[4]: #props
 `,
 });
 
@@ -93,8 +94,8 @@ export const Toggle = (): JSX.Element => {
 Utils.story(Toggle, {
 	desc: `
 Switchers can be used for \`boolean\` values. In these cases, they work like
-[Toggles][1], letting users flip between on-off states. The \`highlight\` prop is often
-used in such cases to make the selected option more prominent.
+[toggles][1], letting users flip between on-off states. The \`highlight\` prop
+is often used together to make the selected option more prominent.
 
 [1]: https://www.nngroup.com/articles/toggle-switch-guidelines/
 `,
@@ -112,7 +113,7 @@ export const Icon = (): JSX.Element => {
 
 Utils.story(Icon, {
 	desc: `
-Switchers' options are just [Buttons][1], so they also support having
+Switchers' options are just [buttons][1], so they also support having
 [icons][2] via the \`icon\` attribute. You can also have icon-only options by
 omitting the \`label\` attribute, in which cases \`iconLabel\` must instead be
 provided to ensure they are [accessible][3].
