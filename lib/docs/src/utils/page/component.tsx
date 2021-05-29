@@ -6,16 +6,17 @@ import {
 	Stories,
 	Title,
 } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/react";
 import React from "react";
-import { background } from "../../../core/src";
+import { background } from "../../../../core/src";
 import s from "./component.module.css";
 
-export interface ComponentPageProps {
+interface Props {
 	shots: React.ReactNode[];
 	sticky: boolean;
 }
 
-export const ComponentPage = (props: ComponentPageProps): JSX.Element => (
+const ComponentPage = (props: Props): JSX.Element => (
 	<div className={props.sticky ? s.sticky : ""}>
 		<Title />
 		<Description />
@@ -41,3 +42,9 @@ export const ComponentPage = (props: ComponentPageProps): JSX.Element => (
 		</div>
 	</div>
 );
+
+export const utilsPageComponent = (meta: Meta, props: Props): void => {
+	meta.parameters ??= {};
+	meta.parameters.docs ??= {};
+	meta.parameters.docs.page = () => <ComponentPage {...props} />;
+};
