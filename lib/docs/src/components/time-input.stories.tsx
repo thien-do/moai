@@ -46,8 +46,6 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
-
 export const Intervals = (): JSX.Element => {
 	const [value, setValue] = useState<Date>(() => {
 		const date = new Date();

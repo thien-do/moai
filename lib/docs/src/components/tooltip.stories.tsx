@@ -36,8 +36,6 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
-
 export const Pane = (): JSX.Element => {
 	return (
 		<>
@@ -48,9 +46,11 @@ export const Pane = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Pane)(
-	`TooltipPane is a way to render Tooltip as a single inline element (non-floating).`
-);
+Utils.story(Pane, {
+	desc: `
+TooltipPane is a way to render Tooltip as a single inline element (non-floating).
+`,
+});
 
 export const Positioning = (): JSX.Element => {
 	const [position, setPosition] = useState(0);
@@ -104,14 +104,16 @@ export const Positioning = (): JSX.Element => {
 	);
 };
 
-Utils.story(Positioning, { desc: `
+Utils.story(Positioning, {
+	desc: `
 A tooltip is positioned in relation to its target. Tooltips have five primary standard positions: \`top\`, \`right\`, \`bottom\`, \`left\` and \`auto\`.
 Each of primary position above have two more placements are: \`start\` and \`end\` could be written by connecting string with hyphen symbol (dash \`-\`}).
 
 [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement. 
 
 Default value: \`top\`
-`});
+`,
+});
 
 export const Customization = (): JSX.Element => {
 	return (

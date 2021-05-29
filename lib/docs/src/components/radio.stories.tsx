@@ -1,104 +1,78 @@
+import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { DivPx, Radio } from "../../../core/src";
+import { Radio, RadioGroup, RadioOption } from "../../../core/src";
+import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 
-export default {
+const meta: Meta = {
 	title: "Components/Radio",
 	component: Radio,
+	subcomponents: { RadioGroup },
 	argTypes: {
-		value: Utils.arg("text"),
-		children: Utils.arg(null),
-		name: Utils.arg(null),
 		disabled: Utils.arg("boolean"),
 		checked: Utils.arg("boolean"),
+		value: Utils.arg(null),
+		children: Utils.arg(null),
+		name: Utils.arg(null),
 		setValue: Utils.arg(null),
 		defaultChecked: Utils.arg(null),
 		forwardedRef: Utils.arg(null),
 	},
 };
 
+Utils.page.component(meta, {
+	primary: "sticky",
+	shots: [],
+});
+
+export default meta;
+
 interface Props {
-	value: string;
-	disabled: boolean;
-	checked: boolean;
+	disabled?: boolean;
+	checked?: boolean;
 }
 
-export const Primary = (props: Props): JSX.Element => {
-	if (props.value === undefined) {
-		props.value = "1";
-	}
+export const Primary = (props: Props): JSX.Element => (
+	<Radio
+		checked={props.checked ?? true}
+		disabled={props.disabled}
+		name="radio"
+		value="1"
+		children="Radio"
+	/>
+);
 
-	return (
-		<>
+export const Basic = (): JSX.Element => {
+	const [selected, setSelected] = useState(someBooks[1].isbn.toString());
+
+	const toRadio = (book: Book): JSX.Element => (
+		<li key={book.isbn}>
 			<Radio
-				defaultChecked
-				checked={props.checked}
-				disabled={props.disabled}
-				name="radio"
-				value={props.value}
-			>
-				Radio Button
-			</Radio>
-			<DivPx size={8} />
-			Current value: {props.value}
-		</>
+				name="basic-radios"
+				checked={selected === book.isbn.toString()}
+				value={book.isbn.toString()}
+				setValue={setSelected}
+				children={book.title}
+			/>
+		</li>
 	);
-};
 
-Utils.fixPrimary(Primary);
-
-type Character = {
-	id: string;
-	name: string;
-	class: string;
+	return <ul>{someBooks.map(toRadio)}</ul>;
 };
 
 export const Group = (): JSX.Element => {
-	const chars: Character[] = [
-		{
-			id: "kiljaeden",
-			name: "Kil'jaeden",
-			class: "Warlock",
-		},
-		{
-			id: "nerzhul",
-			name: "Ner'zhul",
-			class: "Shaman",
-		},
-		{
-			id: "arthas",
-			name: "Arthas",
-			class: "Paladin",
-		},
-	];
-	const [selected, setSelected] = useState<Character>(chars[0]);
-
+	const [selected, setSelected] = useState(someBooks[1].isbn);
+	const toRadioOption = (book: Book): RadioOption<number> => ({
+		id: book.isbn.toString(),
+		label: book.title,
+		value: book.isbn,
+	});
 	return (
-		<>
-			<span>Favorite character</span>
-			{chars.map((char) => (
-				<div key={char.id} style={{ margin: "4px 0" }}>
-					<Radio
-						setValue={(value) =>
-							setSelected(
-								chars.filter((char) => char.id === value)[0]
-							)
-						}
-						checked={char.id === selected?.id}
-						name="character"
-						children={char.name}
-						value={char.id}
-					/>
-				</div>
-			))}
-			<br />
-			Your select:{" "}
-			{selected ? `${selected.name} - ${selected.class}` : "null"}
-		</>
+		<RadioGroup<number>
+			value={selected}
+			setValue={setSelected}
+			name="group-radios"
+			options={someBooks.map(toRadioOption)}
+		/>
 	);
 };
-
-Utils.desc(Group)(
-	`Radio buttons allow users to select a single option from a list of options.
-All possible options are exposed up front for users to compare.`
-);

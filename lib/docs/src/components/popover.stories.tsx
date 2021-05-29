@@ -131,6 +131,7 @@ export const PlacementExample = (): JSX.Element => (
 
 Utils.story(PlacementExample, {
 	name: "Placement",
+	expanded: true,
 	desc: `
 By default, Popover positions its content on top of its target. This can be
 changed by the \`placement\` prop, which expects a string of [Popper.js'

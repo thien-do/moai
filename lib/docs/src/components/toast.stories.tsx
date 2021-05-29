@@ -30,8 +30,6 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
-
 export const Usage = (): JSX.Element => {
 	return (
 		<Button

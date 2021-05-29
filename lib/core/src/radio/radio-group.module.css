@@ -1,8 +1,12 @@
-.container {
+.hor.container {
 	display: flex;
 	align-items: flex-start;
 }
 
-.item + .item {
+.hor .item + .item {
 	margin-left: 24px;
+}
+
+.ver .item + .ver .item {
+	margin-top: 8px;
 }

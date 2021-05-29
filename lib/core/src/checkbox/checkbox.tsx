@@ -66,8 +66,8 @@ export interface CheckboxProps {
  * is used to make a choice between two options. This is similar to
  * [toggles][1].
  *
- * A list of checkboxes is used to select multiple options. This is different
- * from a list of [radios][2] where only a single option can be selected at
+ * A group of checkboxes is used to select multiple options. This is different
+ * from a group of [radios][2] where only a single option can be selected at
  * the same time.
  *
  * [1]: /docs/components-switcher--toggle

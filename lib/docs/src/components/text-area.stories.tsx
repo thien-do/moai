@@ -45,5 +45,3 @@ export const Primary = (props: Props): JSX.Element => (
 		readOnly={props.readOnly}
 	/>
 );
-
-Utils.fixPrimary(Primary);

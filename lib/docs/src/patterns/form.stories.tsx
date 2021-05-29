@@ -9,7 +9,6 @@ export default {
 	title: "Patterns/Form",
 	parameters: {
 		docs: {
-			page: Utils.page.noPrimary,
 			description: {
 				component: `
 Moai doesn't come with a built-in form solution. Instead, our input components

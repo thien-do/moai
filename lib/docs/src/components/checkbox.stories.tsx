@@ -107,7 +107,7 @@ below for a full example.
 `,
 });
 
-export const List = (): JSX.Element => {
+export const Group = (): JSX.Element => {
 	const [books, setBooks] = useState<Book["isbn"][]>([someBooks[0].isbn]);
 
 	const toggle = (isbn: Book["isbn"]): void => {
@@ -145,9 +145,9 @@ export const List = (): JSX.Element => {
 	);
 };
 
-Utils.story(List, {
+Utils.story(Group, {
 	desc: `
-To have a list of checkboxes, render them with \`map\` and \`key\` [as
+To have a group of checkboxes, render them with \`map\` and \`key\` [as
 usual][1]. The type of your state is up to you: a \`Map\` of boolean values, a
 \`Set\` of ids, or just an array:
 

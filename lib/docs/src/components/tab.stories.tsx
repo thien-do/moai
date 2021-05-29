@@ -58,7 +58,7 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-Utils.fixPrimary(Primary);
+Utils.story(Primary, { fixPrimary: true });
 
 export const Basic = (): JSX.Element => {
 	const tabs: Tab[] = [
@@ -69,10 +69,12 @@ export const Basic = (): JSX.Element => {
 	return <Tabs children={tabs} />;
 };
 
-Utils.story(Basic, { desc: `
+Utils.story(Basic, {
+	desc: `
 To begin, you need to provide an array of object with props: id, title and pane
 via children:
-`});
+`,
+});
 
 export const With_Switcher = (): JSX.Element => {
 	const [tab, setTab] = useState("first");
@@ -92,8 +94,10 @@ export const With_Switcher = (): JSX.Element => {
 	);
 };
 
-Utils.story(With_Switcher, { desc: `
+Utils.story(With_Switcher, {
+	desc: `
 Tabs can also be use with
 [Switcher](https://docs.moaijs.com/?path=/docs/components-switcher--primary)
 to control tabs via buttons.
-`});
+`,
+});

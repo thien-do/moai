@@ -8,45 +8,60 @@ import { Checkbox } from "../checkbox/checkbox";
 
 export interface RadioProps {
 	/**
-	 * The name of radio button, must be unique to the radio group. See [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons)
+	 * The [HTML `name`][1] attribute of the radio. Only one radio button in a
+	 * same-named group of radio buttons can be checked at a time.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons
 	 */
 	name: string;
 	/**
-	 * The value of radio button, used when submitting a from. See [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value)
+	 * The [HTML `value`][1] attribute of the radio. It is used to identify
+	 * which radio in a group is selected. It is also returned in the
+	 * `setValue` callback.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value
 	 */
 	value: string;
 	/**
-	 * The label value for the radio button
+	 * The label for the radio.
 	 */
 	children: ReactNode;
-	// Controlled
 	/**
-	 * Define whether the radio button is disabled or not
+	 * The [HTML `disabled`][1] attribute. If true, it prevents users from
+	 * interacting with the radio button.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
 	 */
 	disabled?: boolean;
 	/**
-	 * Callback to set the value in controlled mode
+	 * Callback to set the value in controlled mode. The param is the `value`
+	 * prop of the radio. This should effectively set the `checked` prop.
 	 */
 	setValue?: (value: string) => void;
 	/**
-	 * Control the current radio button is checked or not
+	 * The checked state of the radio in controlled mode.
 	 */
 	checked?: boolean;
-	// Uncontrolled
 	/**
-	 * The default checked value of radio button
+	 * The default checked value of the radio in uncontrolled mode.
 	 */
 	defaultChecked?: boolean;
 	/**
-	 * [Reference](https://reactjs.org/docs/forwarding-refs.html) to the `button` element. Usually useful in uncontrolled mode.
+	 * A [reference][1] to the underlying `input` element. Usually useful in
+	 * uncontrolled mode.
+	 * 
+	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 	forwardedRef?: ForwardedRef<HTMLInputElement>;
 }
 
 /**
- * Radio buttons allow to select a single option from an options list.
+ * Radios are rendered as circles that are filled when activated. They are used
+ * to select a single option from a set. Functional-wise, a radio group is
+ * similar to a [select][1] but displays all options upfront.
+ * 
+ * [1]: /docs/components-select--primary
  */
-
 export const Radio = (props: RadioProps): JSX.Element => {
 	const style = Checkbox.styles.outset;
 	return (
