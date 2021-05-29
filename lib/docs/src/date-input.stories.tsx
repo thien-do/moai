@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { useState } from "react";
 import { DateInput } from "../../core/src";
-import { Utils } from "./utils";
+import { Utils } from "./utils/utils";
 
 const meta: Meta = {
 	title: "Components/DateInput",
@@ -16,7 +16,6 @@ const meta: Meta = {
 		value: Utils.arg(null),
 		setValue: Utils.arg(null),
 		defaultValue: Utils.arg(null),
-		forwardedRef: Utils.arg(null),
 		icon: Utils.arg(null),
 	},
 	parameters: { stickyPrimary: true },
@@ -61,24 +60,28 @@ export const Basic = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Basic)(`
-The Date Input component should be used like [controlled][1] components: you
-have the date as a [state][4] and give the control to a Date Input via the
-\`value\` and \`setValue\` props.
+Utils.story(Basic, {
+	expanded: true,
+	desc: `
+Date Input is a [controlled][1] component: you should have a [\`Date\`][5]
+[state][4] and give its control to a date input via the \`value\` and
+\`setValue\` props.
 
 Moai's Date Input follows the [standard behaviour][2] of the HTML \`<input>\`
 element, so the type of your state should be \`null | Date\`. The \`null\`
-value happens when the current date is invalid, like when the user is still
+value happens when the current date is invalid, e.g. when the user is still
 typing (e.g. "13/") or they entered an invalid date (e.g. "30/2/2021").
 
-Similar to the [Input][3] component, the width of Date Inputs is 100% of their
-containers' width.
+Similar to the [Input][3] component, the width of a date input is 100% of their
+container's width.
 
 [1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://html.spec.whatwg.org/multipage/input.html#dom-input-valueasdate
 [3]: /docs/components-input--width
 [4]: https://reactjs.org/docs/hooks-state.html
-`);
+[5]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+`,
+});
 
 export const MinMax = (): JSX.Element => {
 	const today = new Date();
@@ -91,15 +94,16 @@ export const MinMax = (): JSX.Element => {
 	);
 };
 
-Utils.desc(MinMax)(`
-The \`minDate\` and \`maxDate\` props can be used to prevent the users from
-**selecting** dates outside of a range. They are inclusive, and both are
-optional (e.g. you can accept all dates after today).
+Utils.story(MinMax, {
+	desc: `
+The \`minDate\` and \`maxDate\` props are used to prevent users from selecting
+dates outside of a range **in the pop-up calendar**. They are inclusive, and
+both are optional (e.g. you can accept all dates after today).
 
-Note that these props are for convenient reason, as they only disable dates
-in the pop-up calendar. In other words, users can still type any date directly
-into the text box. This is intentional. If you need strict validation, see the
-[Form][1] guide.
+Note that these props are for convenient reason only, as users can still type
+any date directly into the text box. This is intentional. If you need strict
+validation, see the [Form][1] guide.
 
 [1]: /docs/patterns-form--primary
-`);
+`,
+});
