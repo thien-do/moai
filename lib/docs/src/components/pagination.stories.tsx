@@ -8,7 +8,7 @@ const meta: Meta = {
 	component: Pagination,
 };
 
-Utils.page.component(meta, { primary: "sticky", shots: [] });
+Utils.page.component(meta, { primary: "none", shots: [] });
 
 export default meta;
 
@@ -19,15 +19,18 @@ export const Primary = (): JSX.Element => {
 
 export const Basic = Primary;
 
-Utils.story(Basic, { desc: `
-Paginations are [controlled][1] components. You should maintain a [state][2]
-for the current page, and pass the control to a Pagination via its \`value\`
-and \`setValue\` props. A Pagination helps users go to any page between its
-\`min\` and \`max\` props, inclusive.
+Utils.story(Basic, {
+	expanded: true,
+	desc: `
+Pagination is a [controlled][1] component. You should maintain a number
+[state][2] for the current page, and pass the control to a pagination via its
+\`value\` and \`setValue\` props. It also requires the \`min\` and \`max\`
+props (inclusive) to define the range of pages users can go to.
 
 [1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://reactjs.org/docs/hooks-state.html
-`});
+`,
+});
 
 export const Async = (): JSX.Element => {
 	const [page, setPage] = useState(1);
@@ -40,15 +43,18 @@ export const Async = (): JSX.Element => {
 	return <Pagination value={page} setValue={setPageAsync} max={10} min={1} />;
 };
 
-Utils.story(Async, { desc: `
-Commonly, you may need to fetch some data when users navigate to a new
-page. In these cases, return a [\`Promise\`][1] in the \`setValue\` callback to
-have the Pagination displays a loading state while waiting for data.
+Utils.story(Async, {
+	expanded: true,
+	desc: `
+You may need to fetch some new data when users navigate to a new page. In these
+cases, return a [\`Promise\`][1] in the \`setValue\` callback to have the
+pagination displays a loading state while waiting for data.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-`});
+`,
+});
 
-export const OneOff = (): JSX.Element => {
+export const Counting = (): JSX.Element => {
 	// Zero-based API
 	const TOTAL_PAGES = 9;
 	const [page, setPage] = useState(0);
@@ -64,9 +70,12 @@ export const OneOff = (): JSX.Element => {
 	);
 };
 
-Utils.story(OneOff, { desc: `
-In most cases, Paginations should start at "1" to mimic real-life counting.
+Utils.story(Counting, {
+	expanded: true,
+	desc: `
+In most cases, paginations should start at "1" to mimic real-life counting.
 However, your pagination back end may start at "0". In these cases, it's
 recommended to use zero-based counting for your state and most logic, and only
-transfer to one-based in the Pagination's props.
-`});
+translate to one-based in the pagination's props.
+`,
+});
