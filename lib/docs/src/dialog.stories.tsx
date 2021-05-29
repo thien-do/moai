@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import { useState } from "react";
 import { Button, Dialog, DivGrow, Paragraph } from "../../core/src";
 import { GalleryDialog } from "../../gallery/src/dialog";
-import { Utils } from "./utils";
+import { Utils } from "./utils/utils";
 
 const meta: Meta = {
 	title: "Components/Dialog",
@@ -10,13 +10,15 @@ const meta: Meta = {
 } as Meta;
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "none",
 	shots: [<GalleryDialog key="1" />],
 });
 
 export default meta;
 
-export const Primary = (): JSX.Element => {
+export const Primary = (): JSX.Element => <div>None</div>;
+
+export const Basic = (): JSX.Element => {
 	const [visible, setVisible] = useState(false);
 	return (
 		<>
@@ -28,20 +30,22 @@ export const Primary = (): JSX.Element => {
 	);
 };
 
-export const Basic = Primary;
+Utils.story(Basic, {
+	expanded: true,
+	desc: `
+Dialog is a [controlled][1], [declarative][3] component: you should have a
+boolean [state][2] for whether the dialog should be visible or not, and
+conditionally render a dialog based on that state.
 
-Utils.desc(Basic)(`
-A Dialog should be used like a [controlled][1] component: you have a [state][2]
-for whether the dialog should be visible or not, and conditionally render the
-Dialog component based on that state.
-
-The Dialog component will call its \`onEsc\` function when the user press the
-"Esc" key or click on the backdrop. You'll usually want to set your state to
-\`false\` here to "close" the dialog.
+A dialog will call its \`onEsc\` function when the user press the "Esc" key or
+click on the backdrop. It's common to set your state to \`false\` here to
+"close" the dialog.
 
 [1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://reactjs.org/docs/hooks-state.html
-`);
+[3]: https://reactjs.org/docs/refs-and-the-dom.html#when-to-use-refs
+`,
+});
 
 export const Layout = (): JSX.Element => {
 	const [visible, setVisible] = useState(false);
@@ -66,15 +70,17 @@ export const Layout = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Layout)(`
-Out of the box, Dialogs render their children as-is, without even a padding,
-to allow maximum customization. Therefore, Dialog comes with supporting
+Utils.story(Layout, {
+	desc: `
+Out of the box, dialogs render their children as-is, without even a padding,
+to allow maximum customization. Therefore, the Dialog component has supporting
 components to give you common dialog layout:
 
 - \`Dialog.Body\` wraps its children inside a padding.
 - \`Dialog.Footer\` places its children horizontally, with gaps, aligned to end.
 - \`Dialog.Title\` makes its children bold and larger, like a title.
-`);
+`,
+});
 
 export const Utilities = (): JSX.Element => (
 	<Button
@@ -87,7 +93,9 @@ export const Utilities = (): JSX.Element => (
 	/>
 );
 
-Utils.desc(Utilities)(`
+Utils.story(Utilities, {
+	expanded: true,
+	desc: `
 The Dialog component has some utility methods as alternatives to the browser's
 built-in dialogs:
 
@@ -102,4 +110,5 @@ Moai's components.
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Window/alert
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
 [3]: https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
-`);
+`,
+});

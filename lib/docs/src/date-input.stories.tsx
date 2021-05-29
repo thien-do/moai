@@ -21,7 +21,7 @@ const meta: Meta = {
 	parameters: { stickyPrimary: true },
 };
 
-Utils.page.component(meta, { sticky: true, shots: [] });
+Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 

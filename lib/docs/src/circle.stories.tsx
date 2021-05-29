@@ -17,7 +17,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [],
 });
 

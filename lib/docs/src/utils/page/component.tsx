@@ -13,11 +13,11 @@ import s from "./component.module.css";
 
 interface Props {
 	shots: React.ReactNode[];
-	sticky: boolean;
+	primary: "sticky" | "none" | "default";
 }
 
 const ComponentPage = (props: Props): JSX.Element => (
-	<div className={props.sticky ? s.sticky : ""}>
+	<div className={props.primary === "sticky" ? s.sticky : ""}>
 		<Title />
 		<Description />
 		{props.shots.length > 0 && (
@@ -33,9 +33,11 @@ const ComponentPage = (props: Props): JSX.Element => (
 			<h3 id="props" className="sbdocs sbdocs-h3">
 				All Props
 			</h3>
-			<div className={[s.primary, background.strong].join(" ")}>
-				<Primary />
-			</div>
+			{props.primary !== "none" && (
+				<div className={[s.primary, background.strong].join(" ")}>
+					<Primary />
+				</div>
+			)}
 			<div className={s.table}>
 				<ArgsTable story={PRIMARY_STORY} />
 			</div>

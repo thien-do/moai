@@ -38,7 +38,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [<GalleryButton1 key="1" />, <GalleryButton2 key="2" />],
 });
 
