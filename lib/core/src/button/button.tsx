@@ -145,19 +145,19 @@ export interface ButtonProps {
 
 	// Event handlers
 	/**
-	 * The [HTML `onclick`] event handler.
+	 * The [HTML `onclick`][1] event handler.
 	 * 
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
 	 */
 	onClick?: React.MouseEventHandler;
 	/**
-	 * The [HTML `onfocus`] event handler.
+	 * The [HTML `onfocus`][1] event handler.
 	 * 
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
 	 */
 	onFocus?: React.FocusEventHandler;
 	/**
-	 * The [HTML `onblur`] event handler.
+	 * The [HTML `onblur`][1] event handler.
 	 * 
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
 	 */
@@ -303,7 +303,7 @@ const buttonRender = (
 
 /**
  * Buttons trigger actions or events, such as submitting forms, opening
- * dialogs or canceling operations. Moai's Buttons can also be used as
+ * dialogs or canceling operations. Moai's buttons can also be used as
  * [links][1] (e.g. to navigate pages).
  *
  * [1]: #link

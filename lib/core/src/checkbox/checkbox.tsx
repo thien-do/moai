@@ -15,40 +15,63 @@ interface CheckboxStyle {
 
 export interface CheckboxProps {
 	// Controlled
+
 	/**
-	 * Control the current checkbox is selected or not
+	 * Whether the checkbox is checked in controlled mode.
 	 */
 	checked?: boolean;
 	/**
-	 * Callback to set the checked value in controlled mode
+	 * Callback to set the checked state in controlled mode.
 	 */
 	setChecked?: (checked: boolean) => void;
 	/**
-	 * Define whether the checkbox is indeterminate or not
+	 * Define the [indeterminate][1] state of the checkbox. Can only be used
+	 * in controlled mode.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#attr-indeterminate
 	 */
 	indeterminate?: boolean;
+
 	// Uncontrolled
+
 	/**
-	 * The default checked value of checkbox
+	 * The default checked state of checkbox in uncontrolled mode.
 	 */
 	defaultChecked?: boolean;
 	/**
-	 * [Reference](https://reactjs.org/docs/forwarding-refs.html) to the button element. Usually useful in uncontrolled mode.
+	 * [Reference][1] to the HTML `input` element. This is useful in
+	 * uncontrolled mode.
+	 *
+	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 	forwardedRef?: React.ForwardedRef<HTMLInputElement>;
+
 	// Body
+
 	/**
-	 * The label of checkbox, shows which option that checkbox is for.
+	 * The label of the checkbox.
 	 */
 	children: React.ReactNode;
 	/**
-	 * Define whether the checkbox is disabled or not
+	 * The [HTML `disabled`][1] attribute of the underlying input element. If
+	 * set to `true`, this prevents users from interacting with the checkbox.
+	 * 
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
 	 */
 	disabled?: boolean;
 }
 
 /**
- * Users use a Checkbox to select ("check") or deselect an option. Functional-wise, this is similar to [Toggles](https://docs.moaijs.com/?path=/docs/components-switcher--toggle). Meanwhile, a list of Checkboxes are used to select multiple options. This is different from a list of [Radios](https://docs.moaijs.com/?path=/docs/components-radio--group) where only a single option can be selected at the same time.
+ * A checkbox is rendered as a square box that is checked when activated. It
+ * is used to make a choice between two options. This is similar to
+ * [toggles][1].
+ *
+ * A list of checkboxes is used to select multiple options. This is different
+ * from a list of [radios][2] where only a single option can be selected at
+ * the same time.
+ *
+ * [1]: /docs/components-switcher--toggle
+ * [2]: /docs/components-radio--group
  */
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
 	// Note that there is no intermediate state here, as we'd like to support
@@ -61,9 +84,16 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 	useEffect(() => {
 		if (ref.current === null) throw Error("Ref is null");
 		if (!fRef) return;
-		if (typeof fRef === "function") fRef(ref.current);
-		if (typeof fRef === "object") fRef.current = ref.current;
-		throw Error(`Unknown props.forwardedRef type: ${typeof fRef}`);
+		switch (typeof fRef) {
+			case "function":
+				fRef(ref.current);
+				break;
+			case "object":
+				fRef.current = ref.current;
+				break;
+			default:
+				throw Error(`Unknown props.forwardedRef type: ${typeof fRef}`);
+		}
 	}, [fRef]);
 
 	// Indeterminate can only be set by script
