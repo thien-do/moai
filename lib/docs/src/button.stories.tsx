@@ -3,7 +3,7 @@ import { GoPlus } from "react-icons/go";
 import { Button, Dialog } from "../../core/src";
 import { GalleryButton1 } from "../../gallery/src/button-1";
 import { GalleryButton2 } from "../../gallery/src/button-2";
-import { Utils } from "./utils";
+import { Utils } from "./utils/utils";
 
 const meta: Meta = {
 	title: "Components/Button",
@@ -75,16 +75,16 @@ export const Primary = (props: Props): JSX.Element => (
 export const Basic = (): JSX.Element => (
 	<Button onClick={() => alert("Hi")}>Say Hi</Button>
 );
-
-Utils.desc(Basic)(`
-Buttons closely follow the interface and behaviour of the [HTML \`button\`][1]
-element. To get started, you only need to provide a label via \`children\` and
-a handler via \`onClick\`:
+Utils.story(Basic, {
+	expanded: true,
+	desc: `
+Moai buttons closely follow the interface and behaviour of the [HTML
+\`button\`][1] element. To get started, you only need to provide a label via
+\`children\` and a handler via \`onClick\`:
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
-`);
-
-Utils.expanded(Basic);
+`,
+});
 
 export const Icon = (): JSX.Element => (
 	// Icons are imported from external libraries, like:
@@ -105,7 +105,9 @@ export const Icon = (): JSX.Element => (
 	</div>
 );
 
-Utils.desc(Icon)(`
+Utils.story(Icon, {
+	expanded: true,
+	desc: `
 Icons can be used in buttons via the \`icon\` prop. This follows our [Icon
 standard][1], which supports any SVG icons. The icon is on the left side by
 default, with the \`iconRight\` prop to move it to the right.
@@ -122,7 +124,8 @@ suffix, like \`Button.sizes.mediumIcon\`.
 [1]: /docs/guides-icons--primary
 [2]: https://en.wikipedia.org/wiki/Screen_reader
 [3]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
-`);
+`,
+});
 
 export const Link = (): JSX.Element => (
 	<Button
@@ -133,7 +136,9 @@ export const Link = (): JSX.Element => (
 	/>
 );
 
-Utils.desc(Link)(`
+Utils.story(Link, {
+	expanded: true,
+	desc: `
 Buttons with \`href\` prop are rendered as [HTML \`a\`][1] elements instead of
 the usual \`button\`. This helps you have links that look like buttons (e.g.
 with strong appearance to attract attention) but still preserve all [built-in
@@ -145,5 +150,5 @@ in a new tab:
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
 [3]: https://www.nngroup.com/articles/command-links
-
-`);
+`,
+});
