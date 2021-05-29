@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DivPx, Radio } from "../../../core/src";
-import { Utils } from ".../utils/utils";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/Radio",
