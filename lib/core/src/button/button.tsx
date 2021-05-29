@@ -302,8 +302,8 @@ const buttonRender = (
 };
 
 /**
- * Buttons trigger actions or events, such as submitting forms, opening
- * dialogs or canceling operations. Moai's buttons can also be used as
+ * A button triggers an action or event, such as submitting a form, opening
+ * a dialog or canceling an operation. Moai's buttons can also be used as
  * [links][1] (e.g. to navigate pages).
  *
  * [1]: #link
