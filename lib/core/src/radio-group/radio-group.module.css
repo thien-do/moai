@@ -3,10 +3,10 @@
 	align-items: flex-start;
 }
 
-.hor .item + .item {
+.hor > .item + .item {
 	margin-left: 24px;
 }
 
-.ver .item + .ver .item {
+.ver > .item + .item {
 	margin-top: 8px;
 }

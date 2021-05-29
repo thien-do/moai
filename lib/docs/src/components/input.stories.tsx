@@ -91,10 +91,10 @@ export const Basic = (): JSX.Element => {
 Utils.story(Basic, {
 	expanded: true,
 	desc: `
-Input is a [controlled][1] component. You should have a [state][2] to store
-the text value, and give its control to an Input via its \`value\` and
-\`setValue\` props. At the moment, these props work with \`string\` values
-only.
+Input should be used as a [controlled][1] component. You should have a
+[state][2] to store the text value, and give its control to an Input via its
+\`value\` and \`setValue\` props. At the moment, these props work with
+\`string\` values only.
 
 To have good accessibility, ensure that your inputs have their matching labels.
 You can do it in many ways: wrap the input inside a \`label\`, or explicitly

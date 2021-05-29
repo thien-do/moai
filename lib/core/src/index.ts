@@ -21,7 +21,7 @@ export * from "./pagination/pagination";
 export * from "./pane/pane";
 export * from "./popover/popover";
 export * from "./progress/circle";
-export * from "./radio/radio-group";
+export * from "./radio-group/radio-group";
 export * from "./radio/radio";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";

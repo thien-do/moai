@@ -56,11 +56,10 @@ export interface RadioProps {
 }
 
 /**
- * Radios are rendered as circles that are filled when activated. They are used
- * to select a single option from a set. Functional-wise, a radio group is
- * similar to a [select][1] but displays all options upfront.
+ * A radio is rendered as a circle that are filled when activated. They are
+ * generally used as groups. See [Radio Group][1] for more practical usages.
  * 
- * [1]: /docs/components-select--primary
+ * [1]: /docs/components-radio-group--primary
  */
 export const Radio = (props: RadioProps): JSX.Element => {
 	const style = Checkbox.styles.outset;
