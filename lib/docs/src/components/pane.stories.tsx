@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { Pane } from "../../core/src";
-import { Utils } from "./utils";
-import { GalleryContainerPane } from "../../gallery/src/container/pane";
+import { Pane } from "../../../core/src";
+import { Utils } from "../utils/utils";
+import { GalleryContainerPane } from "../../../gallery/src/container/pane";
 
 const meta: Meta = {
 	title: "Components/Pane",
@@ -14,7 +14,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [<GalleryContainerPane key="1" />],
 });
 
@@ -51,6 +51,6 @@ export const Basic = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Basic)(`
+Utils.story(Basic, { desc: `
 To begin, you only need to provide the content inside pane via children.
-`);
+`});

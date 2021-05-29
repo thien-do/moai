@@ -1,4 +1,4 @@
-import { TableColumn } from "../../core/src";
+import { TableColumn } from "../../../core/src";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

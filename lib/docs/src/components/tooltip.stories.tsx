@@ -5,8 +5,8 @@ import {
 	Tooltip,
 	TooltipPane,
 	TooltipProps,
-} from "../../core/src";
-import { Utils } from "./utils";
+} from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/Tooltip",
@@ -104,14 +104,14 @@ export const Positioning = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Positioning)(`
+Utils.story(Positioning, { desc: `
 A tooltip is positioned in relation to its target. Tooltips have five primary standard positions: \`top\`, \`right\`, \`bottom\`, \`left\` and \`auto\`.
-Each of primary position above have two more placements are: \`start\` and \`end\` could be written by connecting string with hyphen symbol (dash \`-\`).
+Each of primary position above have two more placements are: \`start\` and \`end\` could be written by connecting string with hyphen symbol (dash \`-\`}).
 
 [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement. 
 
 Default value: \`top\`
-`);
+`});
 
 export const Customization = (): JSX.Element => {
 	return (

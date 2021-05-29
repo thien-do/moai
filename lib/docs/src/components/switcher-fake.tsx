@@ -1,4 +1,4 @@
-import { SwitcherOption } from "../../core/src";
+import { SwitcherOption } from "../../../core/src";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { Tag } from "../../core/src";
-import { Utils } from "./utils";
-import { GalleryFeedbackTag } from "../../gallery/src/feedback/tag";
+import { Tag } from "../../../core/src";
+import { Utils } from "../utils/utils";
+import { GalleryFeedbackTag } from "../../../gallery/src/feedback/tag";
 
 const meta: Meta = {
 	title: "Components/Tag",
@@ -13,7 +13,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [<GalleryFeedbackTag key="1" />],
 });
 
@@ -37,6 +37,6 @@ export const Basic = (): JSX.Element => {
 	return <Tag color={Tag.colors.green}>Foo</Tag>;
 };
 
-Utils.desc(Basic)(`
+Utils.story(Basic, { desc: `
 To begin, you need to provide a color from Tag.colors and a label via children.
-`);
+`});

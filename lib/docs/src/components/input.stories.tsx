@@ -2,10 +2,10 @@ import { Meta } from "@storybook/react";
 import * as Fm from "formik";
 import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
-import { Button, Dialog, DivPx, Input } from "../../core/src";
-import { GalleryInput1 } from "../../gallery/src/input-1";
-import { GalleryInput2 } from "../../gallery/src/input-2";
-import { Utils } from "./utils";
+import { Button, Dialog, DivPx, Input } from "../../../core/src";
+import { GalleryInput1 } from "../../../gallery/src/input-1";
+import { GalleryInput2 } from "../../../gallery/src/input-2";
+import { Utils } from ".../utils/utils";
 
 const meta: Meta = {
 	title: "Components/Input",
@@ -48,7 +48,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [<GalleryInput1 key="1" />, <GalleryInput2 key="2" />],
 });
 
@@ -89,7 +89,7 @@ export const Basic = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Basic)(`
+Utils.story(Basic, { desc: `
 Input is a [controlled][1] component. You should have a [state][2] to store
 the text value, and give its control to an Input via its \`value\` and
 \`setValue\` props. At the moment, these props work with \`string\` values
@@ -108,7 +108,7 @@ the width of an Input via its container.
 [2]: https://reactjs.org/docs/hooks-state.html
 [3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for
 [4]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-size
-`);
+`});
 
 export const Suggestion = (): JSX.Element => (
 	<div style={{ width: 200 }}>
@@ -119,7 +119,7 @@ export const Suggestion = (): JSX.Element => (
 	</div>
 );
 
-Utils.desc(Suggestion)(`
+Utils.story(Suggestion, { desc: `
 Inputs follow the [standard approach][1] to support suggestion. You should
 define your suggestion as a \`datalist\` element, then give its \`id\` to an
 Input via the \`list\` prop.
@@ -128,7 +128,7 @@ As a convenient shortcut, you can also define your suggestion directly via the
 \`list\` prop. You'll still need an explicit \`id\` for the list:
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
-`);
+`});
 
 export const Form = (): JSX.Element => (
 	// "Fm" is the Formik's namespace
@@ -145,7 +145,7 @@ export const Form = (): JSX.Element => (
 	</Fm.Formik>
 );
 
-Utils.desc(Form)(`
+Utils.story(Form, { desc: `
 Inputs support both [controlled][1] and [uncontrolled][2] usages, making it
 easy to use them with form builders like [Formik][3] and [React Hook Form][4],
 right out of the box. See our [Form guide][5] to learn more.
@@ -155,7 +155,7 @@ right out of the box. See our [Form guide][5] to learn more.
 [3]: https://formik.org
 [4]: https://react-hook-form.com
 [5]: /docs/guides-icons--primary
-`);
+`});
 
 export const Icon = (): JSX.Element => (
 	// The icon is imported from the "react-icons" external library, like
@@ -169,10 +169,10 @@ export const Icon = (): JSX.Element => (
 	</div>
 );
 
-Utils.desc(Icon)(`
+Utils.story(Icon, { desc: `
 Inputs can have icons defined via the \`icon\` prop. This follows our [Icon
 standard][1], which supports all SVG icons. See the [Icon guide][1] to learn
 more.
 
 [1]: /docs/guides-icons--primary
-`);
+`});

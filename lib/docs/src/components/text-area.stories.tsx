@@ -1,5 +1,5 @@
-import { TextArea } from "../../core/src";
-import { Utils } from "./utils";
+import { TextArea } from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/TextArea",

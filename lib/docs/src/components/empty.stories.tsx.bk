@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Button, Dialog, EmptyState } from "../../core/src";
+import { Button, Dialog, EmptyState } from "../../../core/src";
 
 
 export default {

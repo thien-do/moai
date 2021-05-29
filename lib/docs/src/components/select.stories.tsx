@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Select } from "../../core/src";
+import { Select } from "../../../core/src";
 import { SelectOptionComponent } from "./select-fake";
-import { Utils } from "./utils";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/Select",
@@ -61,7 +61,7 @@ export const Basic = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Basic)(`
+Utils.story(Basic, { desc: `
 To use the Select component, define its options as an array via the \`options\`
 prop. See the "Select Option" tab at the argument table for the shape of these
 options.
@@ -70,7 +70,7 @@ Moai's Select is a generic component, so the type of your option's value can be
 anything. This helps you use Select directly with values of arbitrary type
 instead of just string. In the example below, the type of value is \`number\`,
 but in practice you can use more complex types such as objects or symbols.
-`);
+`});
 
 export const StringOptionUtility = (): JSX.Element => (
 	<Select<string>
@@ -78,14 +78,14 @@ export const StringOptionUtility = (): JSX.Element => (
 	/>
 );
 
-Utils.desc(StringOptionUtility)(`
+Utils.story(StringOptionUtility, { desc: `
 Technically, your options must have "id", "label" and "value" fields defined.
 However, if these 3 fields are the same (usually in case of \`string\`-based
 options), you can use \`Select.toStringOption\` to simplify the definition.
 
 Similarly, there is also a \`Select.toNumberOption\` for \`number\`-based
 options, which calls \`toString\` to provide "id" and "label" fields.
-`);
+`});
 
 Utils.name(StringOptionUtility, "toStringOption Utility");
 
@@ -113,7 +113,7 @@ export const Placeholder = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Placeholder)(`
+Utils.story(Placeholder, { desc: `
 A select can not have value outside of its options. To have a blank/empty state
 for your select, explicitly define it as a disabled option. We recommend using
 \`null\` to represent this option's value. The type of your Select (and your
@@ -123,4 +123,4 @@ This actually follows the [common practice][1] as when using the native
 \`select\` tag in HTML.
 
 [1]: https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box
-`);
+`});

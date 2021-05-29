@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
 import { GoPlus } from "react-icons/go";
-import { Button, Dialog } from "../../core/src";
-import { GalleryButton1 } from "../../gallery/src/button-1";
-import { GalleryButton2 } from "../../gallery/src/button-2";
-import { Utils } from "./utils/utils";
+import { Button, Dialog } from "../../../core/src";
+import { GalleryButton1 } from "../../../gallery/src/button-1";
+import { GalleryButton2 } from "../../../gallery/src/button-2";
+import { Utils } from "../utils/utils";
 
 const meta: Meta = {
 	title: "Components/Button",

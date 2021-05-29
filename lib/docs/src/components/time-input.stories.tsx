@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Utils } from "./utils";
-import { TimeInput } from "../../core/src";
+import { Utils } from "../utils/utils";
+import { TimeInput } from "../../../core/src";
 
 export default {
 	title: "Components/TimeInput",
@@ -64,7 +64,7 @@ export const Intervals = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Intervals)(`
+Utils.story(Intervals, { desc: `
 To specify the interval between 2 time options, use the "interval" prop. It
 should receive a value from the "TimeInput.intervals" list. There are 2
 important notes:
@@ -76,4 +76,4 @@ method to ensure this (see the code of the example below).
 will easily invalidating your "value" prop.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes
-`);
+`});

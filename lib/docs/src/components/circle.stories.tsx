@@ -1,10 +1,6 @@
 import { Meta } from "@storybook/react";
-import {
-	background,
-	ProgressCircle,
-	ProgressCircleProps,
-} from "../../core/src";
-import { Utils } from "./utils/utils";
+import { ProgressCircle, ProgressCircleProps } from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 const meta: Meta = {
 	title: "Components/Progress Circle",

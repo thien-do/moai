@@ -2,8 +2,8 @@ import { Meta } from "@storybook/react/types-6-0";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Button, DivPx, FormError, Input } from "../../core/src";
-import { Utils } from "./utils";
+import { Button, DivPx, FormError, Input } from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Patterns/Form",
@@ -93,7 +93,9 @@ export const FormikExample = (): JSX.Element => {
 	);
 };
 
-Utils.desc(FormikExample)(`
+Utils.story(FormikExample, {
+	name: "Formik",
+	desc: `
 To use Moai's input components with Formik, pass them to the "as" prop of
 Formik's [Field][1] component:
 
@@ -120,9 +122,8 @@ import { FormError } from "@moai/core";
 [2]: https://formik.org/docs/api/errormessage
 
 Full example:
-`);
-
-Utils.name(FormikExample, "Formik");
+`,
+});
 
 export const ReactHookForm = (): JSX.Element => {
 	/* import { Input, Button, FormError } from "@moai/core" */
@@ -180,7 +181,8 @@ export const ReactHookForm = (): JSX.Element => {
 	);
 };
 
-Utils.desc(ReactHookForm)(`
+Utils.story(ReactHookForm, {
+	desc: `
 To use Moai's input components with React Hook Form, [render][2] them in the
 "render" prop of RHF's [Controller][1] component:
 
@@ -214,4 +216,5 @@ import { FormError } from "@moai/core";
 [3]: https://react-hook-form.com/advanced-usage#ErrorMessages
 
 Full example:
-`);
+`,
+});

@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Gallery } from "../../gallery/src";
+import { Gallery } from "../../../gallery/src";
 
 export default {
 	title: "Components/Component Gallery",

@@ -1,7 +1,7 @@
 import { Placement } from "@popperjs/core";
 import { useState } from "react";
-import { Button, coreIcons, DivPx, Icon, Popover, Radio } from "../../core/src";
-import { Utils } from "./utils";
+import { Button, coreIcons, DivPx, Icon, Popover, Radio } from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/Popover",
@@ -105,7 +105,7 @@ export const Positioning = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Positioning)(`
+Utils.story(Positioning, { desc: `
 A Popover is positioned in relation to its target. It can appear at the \`top\`, \`right\`, \`bottom\` or \`left\` of the trigger with an addtional two more positions avaiable for each location: \`start\` and \`end\`.
 
 The \`auto\` placements places the Popover on the side with the most avaiable space.
@@ -113,7 +113,7 @@ The \`auto\` placements places the Popover on the side with the most avaiable sp
 [Reference](https://popper.js.org/docs/v2/constructors/#options) to the Popper's Placement type.
 
 Default value: \`bottom\`
-`);
+`});
 
 export const Customization = (): JSX.Element => {
 	const StatBlock = () => {
@@ -163,6 +163,6 @@ export const Customization = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Customization)(`
+Utils.story(Customization, { desc: `
 You can customize how the content inside Popover rendering. The Menu component also customize from Popover.
-`);
+`});

@@ -1,5 +1,5 @@
-import { Button, toast } from "../../core/src";
-import { Utils } from "./utils";
+import { Button, toast } from "../../../core/src";
+import { Utils } from "../utils/utils";
 
 export default {
 	title: "Components/Toast",
@@ -44,7 +44,7 @@ export const Usage = (): JSX.Element => {
 	);
 };
 
-Utils.desc(Usage)(`
+Utils.story(Usage, { desc: `
 Using toast very easy, you just need declare toast with button and provide \`type: ToastType\` and \`message: string\`.
 
 For example:
@@ -54,4 +54,4 @@ For example:
 	Success toast
 </Button>
 \`\`\`
-`);
+`});

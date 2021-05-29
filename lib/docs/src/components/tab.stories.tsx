@@ -1,12 +1,12 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { DivPx, Switcher, Tab, Tabs } from "../../core/src";
-import { Utils } from "./utils";
+import { DivPx, Switcher, Tab, Tabs } from "../../../core/src";
+import { Utils } from "../utils/utils";
 import {
 	GalleryTabDefault,
 	GalleryTabFlat,
 	GalleryTabHeight,
-} from "../../gallery/src/tab/tab";
+} from "../../../gallery/src/tab/tab";
 
 const meta: Meta = {
 	title: "Components/Tabs",
@@ -23,7 +23,7 @@ const meta: Meta = {
 };
 
 Utils.page.component(meta, {
-	sticky: true,
+	primary: "sticky",
 	shots: [
 		<GalleryTabDefault key="1" />,
 		<GalleryTabFlat key="2" />,
@@ -69,10 +69,10 @@ export const Basic = (): JSX.Element => {
 	return <Tabs children={tabs} />;
 };
 
-Utils.desc(Basic)(`
+Utils.story(Basic, { desc: `
 To begin, you need to provide an array of object with props: id, title and pane
 via children:
-`);
+`});
 
 export const With_Switcher = (): JSX.Element => {
 	const [tab, setTab] = useState("first");
@@ -92,8 +92,8 @@ export const With_Switcher = (): JSX.Element => {
 	);
 };
 
-Utils.desc(With_Switcher)(`
+Utils.story(With_Switcher, { desc: `
 Tabs can also be use with
 [Switcher](https://docs.moaijs.com/?path=/docs/components-switcher--primary)
 to control tabs via buttons.
-`);
+`});
