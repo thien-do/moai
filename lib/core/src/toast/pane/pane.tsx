@@ -15,8 +15,19 @@ export interface ToastPaneType {
 }
 
 interface Props {
+	/**
+	 * The type of the toast. This controls the toast's color and icon. Choose
+	 * one from `ToastPane.types`.
+	 */
 	type: ToastPaneType;
+	/**
+	 * The message to render inside the toast.
+	 */
 	children: ReactNode;
+	/**
+	 * If defined, the toast will have a close button that triggers this
+	 * callback when clicked.
+	 */
 	close?: () => void;
 }
 
@@ -40,6 +51,17 @@ const Close = (props: Props): JSX.Element | null => {
 	);
 };
 
+/**
+ * Toasts are pop-up notification that tell users about events briefly, without
+ * forcing them to react. Users can dismiss them, or they will also
+ * automatically go away after a few seconds.
+ * 
+ * Moai's Toast support both [imperative][1] (i.e. call them in a function)
+ * and [declarative][2] (i.e. render them in-place) usages.
+ * 
+ * [1]: #basic
+ * [2]: #pane
+ */
 export const ToastPane = (props: Props): JSX.Element => (
 	<div>
 		<div

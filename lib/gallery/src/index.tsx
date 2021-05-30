@@ -5,7 +5,7 @@ import { GalleryContainerPane } from "./container/pane";
 import { GalleryDialog } from "./dialog";
 import { GalleryFeedbackProgress } from "./feedback/progress";
 import { GalleryTag } from "./tag";
-import { GalleryFeedbackToast } from "./feedback/toast";
+import { GalleryToast } from "./toast";
 import { GalleryFeedbackTooltip } from "./feedback/tooltip";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
@@ -41,7 +41,7 @@ export const Gallery = (): JSX.Element => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Feedback">
-			<GalleryFeedbackToast />
+			<GalleryToast />
 			<GalleryFeedbackTooltip />
 			<div>
 				<GalleryTag />

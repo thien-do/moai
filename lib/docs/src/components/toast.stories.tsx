@@ -1,55 +1,81 @@
-import { Button, toast } from "../../../core/src";
+import { Meta } from "@storybook/react";
+import { useState } from "react";
+import { Button, toast, ToastPane } from "../../../core/src";
+import { GalleryToast } from "../../../gallery/src/toast";
 import { Utils } from "../utils/utils";
+import { ToastFunction } from "./toast-fake";
 
-export default {
+const meta: Meta = {
 	title: "Components/Toast",
-	component: toast,
+	component: ToastPane,
+	subcomponents: { 'toast function': ToastFunction },
 	argTypes: {
 		type: Utils.arg(toast.types),
 	},
 };
 
-interface Props {
-	type?: string | undefined;
-}
+Utils.page.component(meta, {
+	primary: "none",
+	shots: [<GalleryToast key="1" />],
+});
 
-export const Primary = (props: Props): JSX.Element => {
-	if (props.type === undefined) props.type = "success";
+export default meta;
 
+export const Primary = (): JSX.Element => <div />;
+
+export const Basic = (): JSX.Element => (
+	<Button
+		onClick={() => toast(toast.types.success, "Post published")}
+		children="Make a toast"
+	/>
+);
+
+Utils.story(Basic, {
+	desc: `
+The \`toast\` function let you create a toast imperatively. You can call it
+from anywhere in your app. The created toast will be rendered on top of your
+app, and go away after a few seconds. The \`toast\` function expects 2
+parameters:
+
+- The type of the toast, which controls the icon and color of the toast. It
+should come from \`toast.types\`.
+- The message inside the toast.
+
+This makes it easy to show a toast after an event, like a successful \`fetch\`
+call. You don't need to maintain any state or render any thing for the toast.
+`,
+});
+
+export const Pane = (): JSX.Element => {
+	const [visible, setVisible] = useState(false);
 	return (
 		<div>
 			<Button
-				onClick={() =>
-					// eslint-disable-next-line
-					toast((toast.types as any)[props.type!], "Message")
-				}
-			>
-				Click to show toast
-			</Button>
+				onClick={() => setVisible(!visible)}
+				children="Toggle toast"
+			/>
+			<div style={{ height: 8 }} />
+			{visible && (
+				<ToastPane
+					type={ToastPane.types.success}
+					children="Post published"
+					close={() => setVisible(false)}
+				/>
+			)}
 		</div>
 	);
 };
 
-export const Usage = (): JSX.Element => {
-	return (
-		<Button
-			onClick={() =>
-				toast(toast.types.success, "Will render success pane")
-			}
-		>
-			Success toast
-		</Button>
-	);
-};
+Utils.story(Pane, {
+	desc: `
+The Toast Pane component let you have a toast rendered in-place, declaratively.
+This is useful when you want a permanent toast somewhere in your app. A common
+usage is to render a toast conditionally based on a state and optionally reset
+that state via the \`close\` prop to let users close it.
 
-Utils.story(Usage, { desc: `
-Using toast very easy, you just need declare toast with button and provide \`type: ToastType\` and \`message: string\`.
-
-For example:
-
-\`\`\`typescript
-<Button onClick={() => toast(toastTypes.success, "Will render success pane" >
-	Success toast
-</Button>
-\`\`\`
-`});
+Similar to the \`toast\` function, Toast Pane requires its type to be defined
+via the \`type\` prop and its message via the \`children\` prop. If the
+\`close\` callback is defined, the toast will also have a close button which
+triggers that callback.
+`,
+});
