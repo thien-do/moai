@@ -1,15 +1,15 @@
 import { Meta } from "@storybook/react";
 import { Tooltip, TooltipProps } from "../../../core/src";
+import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
-import { PLACEMENTS } from "./popover.stories";
 
 const meta: Meta = {
 	title: "Components/Tooltip",
 	component: Tooltip,
 	argTypes: {
+		placement: Utils.arg(PLACEMENTS),
 		content: Utils.arg(null),
 		children: Utils.arg(null),
-		placement: Utils.arg(PLACEMENTS),
 	},
 };
 

@@ -1,24 +1,7 @@
 import { Meta } from "@storybook/react";
 import { Button, Popover, PopoverPlacement } from "../../../core/src";
+import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
-
-export const PLACEMENTS: PopoverPlacement[] = [
-	"top",
-	"top-start",
-	"top-end",
-	"right",
-	"right-start",
-	"right-end",
-	"bottom",
-	"bottom-start",
-	"bottom-end",
-	"left",
-	"left-start",
-	"left-end",
-	"auto",
-	"auto-start",
-	"auto-end",
-];
 
 const meta: Meta = {
 	title: "Components/Popover",
