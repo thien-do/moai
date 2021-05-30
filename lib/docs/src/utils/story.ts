@@ -24,13 +24,13 @@ interface StoryOptions {
 	 */
 	fixPrimary?: boolean;
 	/**
-	 * Show source code by default
+	 * Avoid showing source code by default
 	 */
-	expanded?: boolean;
+	noExpanded?: boolean;
 }
 
 export const utilsStory = (story: Story, options: StoryOptions): void => {
-	const { desc, expanded, name, fixPrimary } = options;
+	const { desc, noExpanded, name, fixPrimary } = options;
 	story.parameters ??= {};
 	story.parameters.docs ??= {};
 
@@ -41,7 +41,7 @@ export const utilsStory = (story: Story, options: StoryOptions): void => {
 		story.parameters.docs.description ??= {};
 		story.parameters.docs.description.story = desc;
 	}
-	if (expanded === true) {
+	if (noExpanded !== true && fixPrimary !== true) {
 		story.parameters.docs.source ??= {};
 		story.parameters.docs.source.state = "open";
 	}

@@ -1,4 +1,5 @@
-import { Paragraph, Tab, Tabs } from "../../../core/src";
+import { Paragraph, Tab, Tabs } from "../../core/src";
+import { Shot } from "./shot/shot";
 
 const Second = () => (
 	<Paragraph>
@@ -27,14 +28,14 @@ const tabs: Tab[] = [
 	{ id: "3", title: "Third", pane: Third },
 ];
 
-export const GalleryTabDefault = (): JSX.Element => <Tabs children={tabs} />;
-
-export const GalleryTabFlat = (): JSX.Element => (
-	<Tabs children={tabs} style={Tabs.styles.flat} />
+export const GalleryTab1 = (): JSX.Element => (
+	<Shot>
+		<Tabs children={tabs} />
+	</Shot>
 );
 
-export const GalleryTabHeight = (): JSX.Element => (
-	<div style={{ height: 240 }}>
-		<Tabs children={tabs} fullHeight />
-	</div>
+export const GalleryTab2 = (): JSX.Element => (
+	<Shot>
+		<Tabs children={tabs} style={Tabs.styles.flat} />
+	</Shot>
 );

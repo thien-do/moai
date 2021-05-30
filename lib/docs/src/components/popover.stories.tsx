@@ -63,7 +63,7 @@ export const Basic = (): JSX.Element => (
 );
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 A popover consists of 2 parts: a "content" and a "target". They are both
 [render props][1].
@@ -103,7 +103,7 @@ export const TargetWrapper = (): JSX.Element => (
 );
 
 Utils.story(TargetWrapper, {
-	expanded: true,
+	
 	desc: `
 In order to position the content relative to the target, Popover needs to wrap
 the target inside a wrapper. By default, this wrapper is an HTML \`div\`
@@ -131,7 +131,7 @@ export const PlacementExample = (): JSX.Element => (
 
 Utils.story(PlacementExample, {
 	name: "Placement",
-	expanded: true,
+	
 	desc: `
 By default, Popover positions its content on top of its target. This can be
 changed by the \`placement\` prop, which expects a string of [Popper.js'

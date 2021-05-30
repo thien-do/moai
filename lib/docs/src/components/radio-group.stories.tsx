@@ -69,7 +69,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 RadioGroup is a [controlled][1], [generic][2] component. You should have a
 [state][3] of any type for your value, and give its control to a radio group

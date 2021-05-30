@@ -76,7 +76,7 @@ export const Basic = (): JSX.Element => (
 	<Button onClick={() => alert("Hi")}>Say Hi</Button>
 );
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 Moai buttons closely follow the interface and behaviour of the [HTML
 \`button\`][1] element. To get started, you only need to provide a label via
@@ -106,7 +106,7 @@ export const Icon = (): JSX.Element => (
 );
 
 Utils.story(Icon, {
-	expanded: true,
+	
 	desc: `
 Icons can be used in buttons via the \`icon\` prop. This follows our [Icon
 standard][1], which supports any SVG icons. The icon is on the left side by
@@ -137,7 +137,7 @@ export const Link = (): JSX.Element => (
 );
 
 Utils.story(Link, {
-	expanded: true,
+	
 	desc: `
 Buttons with \`href\` prop are rendered as [HTML \`a\`][1] elements instead of
 the usual \`button\`. This helps you have links that look like buttons (e.g.

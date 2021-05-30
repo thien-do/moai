@@ -89,7 +89,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 Input should be used as a [controlled][1] component. You should have a
 [state][2] to store the text value, and give its control to an Input via its
@@ -122,7 +122,7 @@ export const Suggestion = (): JSX.Element => (
 );
 
 Utils.story(Suggestion, {
-	expanded: true,
+	
 	desc: `
 Input follows the [standard approach][1] to support suggestion. You should
 define your suggestion as a \`datalist\` element, then give its \`id\` to an
@@ -152,6 +152,7 @@ export const Form = (): JSX.Element => (
 );
 
 Utils.story(Form, {
+	
 	desc: `
 Input supports both [controlled][1] and [uncontrolled][2] usages, making it
 easy to use them with form builders like [Formik][3] and [React Hook Form][4],
@@ -178,7 +179,7 @@ export const Icon = (): JSX.Element => (
 );
 
 Utils.story(Icon, {
-	expanded: true,
+	
 	desc: `
 An input can have an icon defined via the \`icon\` prop. This follows our [Icon
 standard][1], which supports all SVG icons. See the [Icon guide][1] to learn

@@ -31,7 +31,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 Dialog is a [controlled][1], [declarative][3] component: you should have a
 boolean [state][2] for whether the dialog should be visible or not, and
@@ -71,6 +71,7 @@ export const Layout = (): JSX.Element => {
 };
 
 Utils.story(Layout, {
+	
 	desc: `
 Out of the box, dialogs render their children as-is, without even a padding,
 to allow maximum customization. Therefore, the Dialog component has supporting
@@ -94,7 +95,7 @@ export const Utilities = (): JSX.Element => (
 );
 
 Utils.story(Utilities, {
-	expanded: true,
+	
 	desc: `
 The Dialog component has some utility methods as alternatives to the browser's
 built-in dialogs:

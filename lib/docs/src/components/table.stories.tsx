@@ -92,7 +92,7 @@ export const Basic = (): JSX.Element => {
 Utils.story(Basic, {
 	desc: `
 The Table component is based on data. This means you don't build tables by
-manually assembling different parts (\`td\`, \`th\`}) like in HTML. Instead, you
+manually assembling different parts (\`td\`, \`th\`) like in HTML. Instead, you
 provide the data (rows) and describe how to render them (columns).
 Specifically, a table requires 3 props:
 
@@ -230,7 +230,7 @@ export const Expandable = (): JSX.Element => (
 );
 
 Utils.story(Expandable, {
-	expanded: true,
+	
 	desc: `
 Users can expand a table's rows if the \`expandRowRender\` prop is provided.
 It expects a function that returns what to be rendered in the expanded area of
@@ -249,7 +249,7 @@ export const Size = (): JSX.Element => (
 );
 
 Utils.story(Size, {
-	expanded: true,
+	
 	desc: `
 To make Tables look more compact or loose, use the \`size\` prop. It controls
 the vertical padding of a Table's cells. There are defined at \`Table.sizes\`.

@@ -42,7 +42,6 @@ export const Basic = (): JSX.Element => (
 );
 
 Utils.story(Basic, {
-	expanded: true,
 	desc: `
 A progress circle requires its \`size\` and \`value\` props to be defined. The
 value should be a number from 0 (no progress yet) to 1 (all's done), or the

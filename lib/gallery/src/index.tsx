@@ -14,7 +14,7 @@ import { GallerySelectionCheckbox } from "./selection/checkbox";
 import { GallerySelectionPagination } from "./selection/pagination";
 import { GallerySelect } from "./select";
 import s from "./styles.module.css";
-import { GalleryTabDefault, GalleryTabFlat } from "./tab/tab";
+import { GalleryTab1, GalleryTab2 } from "./tab";
 import { GalleryTable } from "./table/table";
 
 export { GallerySection };
@@ -56,8 +56,8 @@ export const Gallery = (): JSX.Element => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Tabs">
-			<GalleryTabDefault />
-			<GalleryTabFlat />
+			<GalleryTab1 />
+			<GalleryTab2 />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Table">

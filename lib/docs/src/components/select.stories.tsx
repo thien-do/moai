@@ -70,7 +70,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 Select is a [controlled][1], [generic][2] component. You should have a
 [state][3] of any type for your value, and give its control to a select via
@@ -100,7 +100,7 @@ export const StringOptionUtility = (): JSX.Element => {
 
 Utils.story(StringOptionUtility, {
 	name: "toStringOption Utility",
-	expanded: true,
+	
 	desc: `
 All options must have the \`id\`, \`label\` and \`value\` attributes defined.
 If these 3 attributes can be the same (usually in case of string-based

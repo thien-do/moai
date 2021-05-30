@@ -14,8 +14,19 @@ const ERRORS = {
 };
 
 export interface Tab {
+	/**
+	 * Unique id of the tab.
+	 */
 	id: string;
+	/**
+	 * Title of the tab. It supports `ReactNode` so you can have custom
+	 * content.
+	 */
 	title: React.ReactNode;
+	/**
+	 * The content to render inside the tab. It's a function to avoid
+	 * unnecessary renders.
+	 */
 	pane: () => JSX.Element;
 }
 
@@ -29,35 +40,31 @@ interface TabStyle {
 
 interface Props {
 	/**
-	 * Title and Body of each tab.
+	 * The list of tabs to render. See the "Tab" page for more detail.
 	 */
 	children: Tab[];
 	/**
-	 * Tab's panels have padding out of the box. Use this prop to remove the
-	 * padding.
+	 * If true, remove the default padding around tab content.
 	 */
 	noPadding?: boolean;
 	/**
-	 * Declare the style of tabs. By default, style is Tabs.style.outset but
-	 * you can change it to Tabs.styles.flat.
+	 * The style of tabs. Choose one from `Tabs.styles`.
 	 */
 	style?: TabStyle;
 	/**
-	 * This prop makes the tabs 100% height of their parent/container.
+	 * If true, the tabs' height is 100% of their containers.
 	 */
 	fullHeight?: boolean;
-	// Uncontrolled
 	/**
-	 * Declare which tab is the initial tab in uncontrolled mode.
+	 * The activated tab when first render, in uncontrolled mode.
 	 */
 	initialTab?: string;
-	// Controlled
 	/**
-	 * Declare which tab is currently active in controlled mode.
+	 * The active tab in controlled mode.
 	 */
 	activeTab?: string;
 	/**
-	 * A handler to set the activated tab.
+	 * A callback to set the active tab in controlled mode.
 	 */
 	setActiveTab?: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -108,7 +115,11 @@ const useTabState = (props: Props): State => {
 
 /**
  * Tabs are use when we have multiple groups of content. Tabs make it easier to
- * view and switch between each group.
+ * view and switch between each group. Moai's Tabs support both
+ * [uncontrolled][1] and [controlled][2] usages.
+ * 
+ * [1]: https://reactjs.org/docs/uncontrolled-components.html
+ * [2]: https://reactjs.org/docs/forms.html#controlled-components
  */
 export const Tabs = (props: Props): JSX.Element => {
 	const { children } = props;

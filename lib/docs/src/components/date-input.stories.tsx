@@ -61,7 +61,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 Date Input is a [controlled][1] component: you should have a [\`Date\`][5]
 [state][4] and give its control to a date input via the \`value\` and
@@ -95,6 +95,7 @@ export const MinMax = (): JSX.Element => {
 };
 
 Utils.story(MinMax, {
+	
 	desc: `
 The \`minDate\` and \`maxDate\` props are used to prevent users from selecting
 dates outside of a range **in the pop-up calendar**. They are inclusive, and

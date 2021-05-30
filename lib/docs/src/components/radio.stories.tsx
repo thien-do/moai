@@ -60,7 +60,7 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	expanded: true,
+	
 	desc: `
 It's recommended to use the [Radio Group][1] component. However, when you need
 complex layout customization, you can still use the Radio component manually.
