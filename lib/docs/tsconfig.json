@@ -1,5 +1,5 @@
 {
 	"extends": "../../tsconfig.json",
-	"references": [{ "path": "../core" }, { "path": "../gallery" }],
+	"references": [{ "path": "../core" }],
 	"include": ["src/**/*"]
 }
