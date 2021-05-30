@@ -9,17 +9,18 @@ import s from "./table.module.css";
 
 export interface TableColumn<R> {
 	/**
-	 * Title of the column. Note that this is not just "string" but "ReactNode".
+	 * Title of the column. Note that this is not just `string` but
+	 * `ReactNode`.
 	 */
 	title: ReactNode;
 	/**
-	 * Classes to add to this column's "td" and "th". Use this to control the
+	 * Classes to add to this column's `td` and `th`. Use this to control the
 	 * style, especially the width, of your columns.
 	 */
 	className?: string;
 	/**
-	 * The render of this column's cells ("td"). This can be a function that
-	 * returns a ReactNode to display for a Row (a.k.a [render prop][1]), or
+	 * The render of this column's cells (`td`). This can be a function that
+	 * returns a `ReactNode` to display for a Row (a.k.a [render prop][1]), or
 	 * the key of a property of the Row model to display (a.k.a [accessor][2]).
 	 *
 	 * [1]: https://reactjs.org/docs/render-props.html
@@ -70,13 +71,13 @@ export interface TableProps<R> {
 	 */
 	expandRowRender?: (row: R) => ReactNode;
 	/**
-	 * Whether to fix the table's header and/or first column and/or last column
+	 * If true, the table's header, first column and last column can be fixed
 	 * while the rest is scrolled. These positions are relative to the table's
 	 * nearest scrolling ancestor (i.e. one with "auto" or "scroll" overflow).
 	 */
 	fixed?: TableFixed;
 	/**
-	 * To make the table takes 100 of its container's width
+	 * If true, the table's width is 100% of its container's width
 	 */
 	fill?: boolean;
 	/**
@@ -100,7 +101,7 @@ export interface TableState {
 
 /**
  * Tables represent data in [rows and columns][1]. They are always rendered as
- * [HTML `table`][2] elements to ensure good accessibility. Moai's Tables are
+ * [HTML `table`][2] elements to ensure good accessibility. Moai's tables are
  * [responsive][3] and can be used on mobile devices.
  *
  * [1]: https://en.wikipedia.org/wiki/Table_(information)

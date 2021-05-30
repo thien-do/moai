@@ -1,8 +1,0 @@
-.container {
-	display: flex;
-	align-items: flex-start;
-}
-
-.item + .item {
-	margin-left: 24px;
-}

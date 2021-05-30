@@ -5,24 +5,30 @@ import s from "./pane.module.css";
 
 interface Props {
 	/**
-	 * The content inside pane.
+	 * The content inside the pane.
 	 */
 	children: React.ReactNode;
 	/**
-	 * Define if pane padding is removed.
+	 * If true, the default padding is removed.
 	 */
 	noPadding?: boolean;
 	/**
-	 * Define if pane height is inherited from parents component.
+	 * If true, the pane's height is 100% of its container's height.
 	 */
 	fullHeight?: boolean;
+	/**
+	 * If true, the pane's width is [intrinsic][1], which means it depends
+	 * on the pane's content.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content
+	 */
 	contentWidth?: boolean;
 }
 
 /**
- * Pane is a container that holds other component. Pane is perfect for
- * displaying notes, dropdown menu, pop up notifications and other information
- * that need to be emphasized.
+ * A pane is a container that holds other elements. Panes are perfect for
+ * displaying notes, dropdown menus, pop-up notifications, and other
+ * information that need to be emphasized.
  */
 export const Pane = (props: Props): JSX.Element => (
 	<div

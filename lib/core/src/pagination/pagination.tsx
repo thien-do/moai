@@ -13,9 +13,9 @@ export interface PaginationProps {
 	 */
 	value: number;
 	/**
-	 * Callback when the current page is changed. This supports both sync and
-	 * async callbacks. The component will show a loading state while the async
-	 * callback is running.
+	 * Callback to set the current page. This supports both sync and async
+	 * usages. The component will show a loading state while the async callback
+	 * is running.
 	 */
 	setValue: (num: number) => void | Promise<void>;
 	/**
@@ -35,7 +35,7 @@ const rangeMsg = (min: number, max: number): string =>
 	`Please enter a number between ${min} and ${max}`;
 
 /**
- * Paginations let users navigate between pages, especially jump to one.
+ * A pagination is used to navigate between pages, and quickly jump to one.
  */
 export const Pagination = (props: PaginationProps): JSX.Element => {
 	const { setValue: setValueOrg, min, max } = props;

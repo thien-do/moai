@@ -29,97 +29,139 @@ export interface ButtonSize {
 }
 
 export interface ButtonProps {
-	// Props in case of "button" tag
+	// Props for the "button" tag
+
 	/**
-	 * The [type][1] of the button in HTML
+	 * The [HTML `type`][1] attribute. This set the behaviour of the button.
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type
 	 */
 	type?: "submit" | "button" | "reset";
+	/**
+	 * The [HTML `disabled`][1] attribute. If set to `true`, this prevents
+	 * users from interacting with the button.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
+	 */
 	disabled?: boolean;
-	onClick?: React.MouseEventHandler;
-	onFocus?: React.FocusEventHandler;
-	onBlur?: React.FocusEventHandler;
+	/**
+	 * The [HTML `autoFocus`][1] attribute. If set to `true`, the button is
+	 * focused when it is first rendered.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-autofocus
+	 */
 	autoFocus?: boolean;
 	/**
-	 * Manually set a tab index for the button. This is dangerous because:
+	 * The [HTML `tabIndex`][1] attribute. It's not recommended to set this
+	 * value manually:
 	 *
 	 * > Avoid using tabindex values greater than 0. Doing so makes it difficult
 	 * > for people who rely on assistive technology to navigate and operate page
 	 * > content. Instead, write the document with the elements in a logical sequence.
-	 * > - Quoted from [MDN][1]
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
 	 */
 	dangerouslySetTabIndex?: number;
 
-	// Props in case of "a" tag
+	// Props for the "a" tag
+
 	/**
-	 * The [URL][1] to link the button to. Setting this means an "a" tag will
-	 * be used instead of a "button".
+	 * The [HTML `href`][1] attribute. This set the URL that the (link) button
+	 * links to. The Button will then be rendered as an HTML `a` element.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href
 	 */
 	href?: string;
 	/**
-	 * The [target][1] of the button in case of using the "a" tag
+	 * The [HTML `target`][1] attribute. Require the `href` attribute.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
 	 */
 	target?: string;
-
-	// Visual props for both cases
 	/**
-	 * Make the button looks like pressed, e.g. with a darker background
+	 * The [HTML `download`][1] attribute. Require the `href` attribute.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download
+	 */
+	download?: string;
+
+	// Visual props for both "button" and "a"
+
+	/**
+	 * If set to `true`, the button looks like it is pressed, e.g. with
+	 * a darker background.
 	 */
 	selected?: boolean;
 	/**
-	 * Highlight the button, e.g. with a primary color
+	 * If set to `true`, the button is highlighted, e.g. with a highlight
+	 * background color.
 	 */
 	highlight?: boolean;
 	/**
-	 * Let the button fills its container's space (i.e. width: 100%)
+	 * If set to `true`, the button's width is 100% of its container.
 	 */
 	fill?: boolean;
 	/**
-	 * Style of the button. Choose one from Button.styles. "outset" buttons
-	 * stand out from others, while "flat" ones do not.
+	 * The style of the button, e.g. border and background color. Choose one
+	 * from `Button.styles`.
 	 */
 	style?: ButtonStyle;
 	/**
-	 * Size of the button. Choose one from Button.size. The ones with "icon"
-	 * suffix makes icon-only buttons squares.
+	 * The size of the button. This controls the padding and font size. Choose
+	 * one from Button.size. The ones with "Icon" suffix makes icon-only
+	 * buttons squares.
 	 */
 	size?: ButtonSize;
 	/**
-	 * Too short buttons look ugly when placed next to long ones, especially in
-	 * dialog (e.g. try "Cancel" and "Ok" pair). This prop ensures a min-width
-	 * for buttons so they are not too short.
+	 * If set to `true`, the button will have a min-width so they are not too
+	 * short. Too short buttons look ugly when placed next to long ones, e.g.
+	 * the "Cancel" and "Ok" pair in a dialog.
 	 */
 	minWidth?: boolean;
 	/**
-	 * The content to render inside the button
+	 * The content to render inside the button.
 	 */
 	children?: React.ReactNode;
 	/**
-	 * Icon of the button. See the [Icons guide][1] to learn more.
+	 * The icon in the button. See the [Icons guide][1] to learn more.
 	 *
 	 * [1]: /docs/guides-icons--primary
 	 */
 	icon?: IconType;
 	/**
-	 * Place the icon on the right side of the button
+	 * If set to `true`, place the icon on the right side of the button.
 	 */
 	iconRight?: boolean;
 	/**
 	 * The accessible label of the icon. This is required when there is no
-	 * "children" (i.e. icon-only buttons) to help screen readers read the
+	 * "children" (i.e. icon-only buttons) to help screen readers announce the
 	 * button correctly.
 	 */
 	iconLabel?: string;
 	/**
-	 * Render a loading icon on top of the button
+	 * Render a loading icon on top of the button.
 	 */
 	busy?: boolean;
+
+	// Event handlers
+	/**
+	 * The [HTML `onclick`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
+	 */
+	onClick?: React.MouseEventHandler;
+	/**
+	 * The [HTML `onfocus`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
+	 */
+	onFocus?: React.FocusEventHandler;
+	/**
+	 * The [HTML `onblur`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
+	 */
+	onBlur?: React.FocusEventHandler;
 }
 
 // Button can renders both "button" and "a"
@@ -242,6 +284,7 @@ const buttonRender = (
 			{...common}
 			href={props.href}
 			target={props.target}
+			download={props.download}
 			rel="noopener noreferrer"
 		/>
 	) : (
@@ -259,8 +302,8 @@ const buttonRender = (
 };
 
 /**
- * Buttons trigger actions or events, such as submitting forms, opening
- * dialogs or canceling operations. Moai's Buttons can also be used as
+ * A button triggers an action or event, such as submitting a form, opening
+ * a dialog or canceling an operation. Moai's buttons can also be used as
  * [links][1] (e.g. to navigate pages).
  *
  * [1]: #link

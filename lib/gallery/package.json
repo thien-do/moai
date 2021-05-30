@@ -1,6 +1,6 @@
 {
 	"name": "@moai/gallery",
-	"version": "1.0.0-rc11",
+	"version": "1.0.0-rc12",
 	"description": "Widget Gallery of Moai 🗿",
 	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
@@ -30,17 +30,17 @@
 	"devDependencies": {
 		"@moai/core": "^1.0.0-rc9",
 		"@rollup/plugin-alias": "^3.1.2",
-		"@types/react": "^17.0.6",
+		"@types/react": "^17.0.8",
 		"postcss": "^8.2.15",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.2.0",
-		"rollup": "^2.48.0",
+		"rollup": "^2.50.3",
 		"rollup-plugin-copy": "^3.4.0",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-postcss": "^4.0.0",
 		"rollup-plugin-typescript2": "^0.30.0",
 		"tslib": "^2.2.0",
-		"typescript": "^4.2.4"
+		"typescript": "~4.2.4"
 	}
 }

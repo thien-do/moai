@@ -10,6 +10,10 @@ html {
 	color: inherit;
 }
 
+.docblock-argstable-body a code {
+	color: inherit;
+}
+
 .sbdocs-blockquote:not(.x) {
 	border-color: var(--gray-2);
 }

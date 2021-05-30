@@ -21,7 +21,7 @@ export const PopoverPane = (props: Props): JSX.Element => {
 	const style = PopoverPane.styles.outset;
 
 	const { styles, attributes, update } = usePopper(props.target, content, {
-		placement: props.placement ?? "bottom",
+		placement: props.placement ?? "top",
 		modifiers: [
 			{ name: "offset", options: { offset: [0, 8] } },
 			{ name: "arrow", options: { element: arrow } },
