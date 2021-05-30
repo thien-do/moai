@@ -1,21 +1,19 @@
 import { Meta } from "@storybook/react";
 import { background, text } from "../../../core/src";
-import { Utils } from "../utils";
+import { Utils } from "../utils/utils";
 import { ColorSample } from "./sample";
 
-export default {
-	title: "Foundation/Color",
-	parameters: {
-		docs: {
-			page: Utils.page.noPrimary,
-			description: {
-				component: `
+const meta: Meta = {
+	title: "Patterns/Color",
+};
+
+Utils.page.pattern(meta, {
+	desc: `
 yo
 `,
-			},
-		},
-	},
-} as Meta;
+});
+
+export default meta;
 
 export const Primary = (): JSX.Element => <div>Skipped</div>;
 

@@ -5,7 +5,7 @@ import {
 	PRIMARY_STORY,
 	Stories,
 	Title,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import { Meta } from "@storybook/react";
 import React from "react";
 import { background } from "../../../../core/src";

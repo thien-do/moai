@@ -1,0 +1,10 @@
+.container {
+	padding: 12px;
+	width: 120px;
+	font-variant-numeric: "tabular-nums";
+	border-radius: 4px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}

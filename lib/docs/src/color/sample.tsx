@@ -1,11 +1,19 @@
 import Color from "color";
 import { useEffect, useRef, useState } from "react";
-import { categoryColors, CategoryColor, DivEm, Tag } from "../../../core/src";
+import {
+	CategoryColor,
+	categoryColors,
+	DivEm,
+	Icon,
+	Tag,
+} from "../../../core/src";
+import { HiCheckCircle } from "react-icons/hi";
+import s from "./sample.module.css";
 
-interface Props {
+export interface ColorSampleProps {
 	fore: string;
 	back: string;
-	text: string;
+	content: "text" | "icon" | "both";
 }
 
 const getColor = (contrast: number): CategoryColor => {
@@ -15,32 +23,37 @@ const getColor = (contrast: number): CategoryColor => {
 	return categoryColors.red;
 };
 
-export const ColorSample = (props: Props): JSX.Element => {
-	const ref = useRef<HTMLDivElement>(null);
+export const ColorSample = (props: ColorSampleProps): JSX.Element => {
+	const backRef = useRef<HTMLDivElement>(null);
+	const foreRef = useRef<HTMLDivElement>(null);
 	const [contrast, setContrast] = useState(0);
 
 	useEffect(() => {
 		window.setTimeout(() => {
-			const element = ref.current;
-			if (element === null) throw Error("Ref is not attached");
-			const style = window.getComputedStyle(element);
-			const back = Color(style.backgroundColor);
-			const fore = Color(style.color);
-			setContrast(back.contrast(fore));
+			const [backElm, foreElm] = [backRef.current, foreRef.current];
+			if (backElm === null) throw Error("backElm is null");
+			if (foreElm === null) throw Error("foreElm is null");
+			const back = window.getComputedStyle(backElm).backgroundColor;
+			const fore = window.getComputedStyle(foreElm).color;
+			setContrast(Color(back).contrast(Color(fore)));
 		}, 0); // The delay is required for correct color
 	}, [setContrast]);
 
 	return (
-		<div
-			ref={ref}
-			className={[props.back, props.fore].join(" ")}
-			style={{
-				padding: 8,
-				fontVariantNumeric: "tabular-nums",
-				width: 100,
-			}}
-		>
-			{props.text}
+		<div ref={backRef} className={[props.back, s.container].join(" ")}>
+			{/* "background" also set color so the "fore" must be in another
+			element of the "back" */}
+			<span ref={foreRef} className={props.fore}>
+				{props.content !== "icon" && <span>Aa</span>}
+				{props.content === "both" && <span> </span>}
+				{props.content !== "text" && (
+					<Icon
+						component={HiCheckCircle}
+						size={16}
+						display="inline"
+					/>
+				)}
+			</span>
 			<DivEm />
 			<Tag color={getColor(contrast)} children={contrast.toFixed(1)} />
 		</div>
