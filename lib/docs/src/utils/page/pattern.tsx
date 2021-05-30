@@ -9,8 +9,14 @@ const PatternPage = (): JSX.Element => (
 	</div>
 );
 
-export const utilsPagePattern = (meta: Meta): void => {
+interface Props {
+	desc: string;
+}
+
+export const utilsPagePattern = (meta: Meta, props: Props): void => {
 	meta.parameters ??= {};
 	meta.parameters.docs ??= {};
 	meta.parameters.docs.page = () => <PatternPage />;
+	meta.parameters.docs.description ??= {};
+	meta.parameters.docs.description.component = props.desc;
 };

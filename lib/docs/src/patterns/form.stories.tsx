@@ -5,12 +5,12 @@ import { Controller, useForm } from "react-hook-form";
 import { Button, DivPx, FormError, Input } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
-export default {
+const meta: Meta = {
 	title: "Patterns/Form",
-	parameters: {
-		docs: {
-			description: {
-				component: `
+};
+
+Utils.page.pattern(meta, {
+	desc: `
 Moai doesn't come with a built-in form solution. Instead, our input components
 (like [Input][3] and [TextArea][4]) are designed to work with popular form
 builders (such as [Formik][1] and [React Hook Form][2]) out of the box.
@@ -20,10 +20,9 @@ builders (such as [Formik][1] and [React Hook Form][2]) out of the box.
 [3]: /docs/components-input--primary
 [4]: /docs/components-textarea--primary
 `,
-			},
-		},
-	},
-} as Meta;
+});
+
+export default meta;
 
 interface FormValues {
 	email: string;

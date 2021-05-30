@@ -9,9 +9,6 @@ const meta: Meta = {
 	title: "Components/Toast",
 	component: ToastPane,
 	subcomponents: { 'toast function': ToastFunction },
-	argTypes: {
-		type: Utils.arg(toast.types),
-	},
 };
 
 Utils.page.component(meta, {

@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import { Button, Popover, PopoverPlacement } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
-const placements: PopoverPlacement[] = [
+export const PLACEMENTS: PopoverPlacement[] = [
 	"top",
 	"top-start",
 	"top-end",
@@ -24,7 +24,7 @@ const meta: Meta = {
 	title: "Components/Popover",
 	component: Popover,
 	argTypes: {
-		placement: Utils.arg(placements),
+		placement: Utils.arg(PLACEMENTS),
 		target: Utils.arg(null),
 		content: Utils.arg(null),
 		TargetWrapper: Utils.arg(null),
@@ -63,7 +63,6 @@ export const Basic = (): JSX.Element => (
 );
 
 Utils.story(Basic, {
-	
 	desc: `
 A popover consists of 2 parts: a "content" and a "target". They are both
 [render props][1].
@@ -103,7 +102,6 @@ export const TargetWrapper = (): JSX.Element => (
 );
 
 Utils.story(TargetWrapper, {
-	
 	desc: `
 In order to position the content relative to the target, Popover needs to wrap
 the target inside a wrapper. By default, this wrapper is an HTML \`div\`
@@ -131,7 +129,6 @@ export const PlacementExample = (): JSX.Element => (
 
 Utils.story(PlacementExample, {
 	name: "Placement",
-	
 	desc: `
 By default, Popover positions its content on top of its target. This can be
 changed by the \`placement\` prop, which expects a string of [Popper.js'
