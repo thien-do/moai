@@ -93,19 +93,19 @@ export interface SelectProps<T> {
 	/**
 	 * The [HTML `disabled`][1] attribute. If true, the select is disabled. See
 	 * the "SelectOption" tab if you only want to disable some options.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-disabled
 	 */
 	disabled?: boolean;
 	/**
 	 * The [HTML `id`][1] attribute of the select.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id
 	 */
 	id?: string;
 	/**
 	 * The [HTML `required`][1] attribute of the select.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attr-required
 	 */
 	required?: boolean;
@@ -144,7 +144,7 @@ const onChange = <T,>(
  * select displays (drops down) a list of options. When inactive, it only shows
  * the selected option, thus is a space-effective alternative to [radio
  * groups][1].
- * 
+ *
  * [1]: /docs/components-radio-group--primary
  */
 export const Select = <T,>(props: SelectProps<T>): JSX.Element => {

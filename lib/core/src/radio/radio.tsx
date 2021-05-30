@@ -10,7 +10,7 @@ export interface RadioProps {
 	/**
 	 * The [HTML `name`][1] attribute of the radio. Only one radio button in a
 	 * same-named group of radio buttons can be checked at a time.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons
 	 */
 	name: string;
@@ -18,7 +18,7 @@ export interface RadioProps {
 	 * The [HTML `value`][1] attribute of the radio. It is used to identify
 	 * which radio in a group is selected. It is also returned in the
 	 * `setValue` callback.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value
 	 */
 	value: string;
@@ -29,7 +29,7 @@ export interface RadioProps {
 	/**
 	 * The [HTML `disabled`][1] attribute. If true, it prevents users from
 	 * interacting with the radio button.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
 	 */
 	disabled?: boolean;
@@ -49,7 +49,7 @@ export interface RadioProps {
 	/**
 	 * A [reference][1] to the underlying `input` element. Usually useful in
 	 * uncontrolled mode.
-	 * 
+	 *
 	 * [1]: https://reactjs.org/docs/forwarding-refs.html
 	 */
 	forwardedRef?: ForwardedRef<HTMLInputElement>;
@@ -58,7 +58,7 @@ export interface RadioProps {
 /**
  * A radio is rendered as a circle that are filled when activated. They are
  * generally used as groups. See [Radio Group][1] for more practical usages.
- * 
+ *
  * [1]: /docs/components-radio-group--primary
  */
 export const Radio = (props: RadioProps): JSX.Element => {

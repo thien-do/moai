@@ -8,7 +8,7 @@ import { ToastFunction } from "./toast-fake";
 const meta: Meta = {
 	title: "Components/Toast",
 	component: ToastPane,
-	subcomponents: { 'toast function': ToastFunction },
+	subcomponents: { "toast function": ToastFunction },
 };
 
 Utils.page.component(meta, {

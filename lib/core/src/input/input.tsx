@@ -104,14 +104,14 @@ export interface InputProps {
 	/**
 	 * The [HTML `placeholder`][1] attribute. A string to display inside the
 	 * text box when it is empty.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-placeholder
 	 */
 	placeholder?: string;
 	/**
 	 * The [HTML `autoFocus`][1] attribute. If true, the input will have focus
 	 * on its initial render.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus
 	 */
 	autoFocus?: boolean;
@@ -132,7 +132,7 @@ export interface InputProps {
 	/**
 	 * The [HTML `required`][1] attribute. If true, a value is required before
 	 * form submission. This is based on HTML5's validation.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-required
 	 */
 	required?: boolean;
@@ -141,37 +141,37 @@ export interface InputProps {
 
 	/**
 	 * The [HTML `onblur`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
 	 */
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	/**
 	 * The [HTML `onfocus`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
 	 */
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 	/**
 	 * The [HTML `onkeypress`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeypress
 	 */
 	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
 	 * The [HTML `onkeyup`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeyup
 	 */
 	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
 	 * The [HTML `onkeydown`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
 	 */
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
 	 * The [HTML `onclick`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
 	 */
 	onClick?: React.KeyboardEventHandler<HTMLInputElement>;
@@ -181,7 +181,7 @@ export interface InputProps {
 	 * Note that you should not need to use onChange! This exists only for
 	 * compatibility with 3rd-party libraries (those that passing props to a
 	 * custom rendered component). You should use `setValue` most of the time.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange
 	 */
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;

@@ -55,7 +55,7 @@ export interface CheckboxProps {
 	/**
 	 * The [HTML `disabled`][1] attribute of the underlying input element. If
 	 * set to `true`, this prevents users from interacting with the checkbox.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
 	 */
 	disabled?: boolean;

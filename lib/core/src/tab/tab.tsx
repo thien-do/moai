@@ -117,7 +117,7 @@ const useTabState = (props: Props): State => {
  * Tabs are use when we have multiple groups of content. Tabs make it easier to
  * view and switch between each group. Moai's Tabs support both
  * [uncontrolled][1] and [controlled][2] usages.
- * 
+ *
  * [1]: https://reactjs.org/docs/uncontrolled-components.html
  * [2]: https://reactjs.org/docs/forms.html#controlled-components
  */

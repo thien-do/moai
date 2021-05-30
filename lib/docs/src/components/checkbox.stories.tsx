@@ -49,7 +49,6 @@ export const Basic = (): JSX.Element => {
 };
 
 Utils.story(Basic, {
-	
 	desc: `
 Checkbox is a [controlled][1] component. You should have a boolean [state][2]
 for the checked state, and give its control to a checkbox via the \`checked\`
@@ -78,7 +77,7 @@ export const IndeterminateImperative = (): JSX.Element => {
 
 Utils.story(IndeterminateImperative, {
 	name: "Indeterminate (Imperative)",
-	
+
 	desc: `
 Moai checkboxes support the [indeterminate][1] state. It's recommended to set
 this state in JavaScript, like when using the HTML \`checkbox\`. This is done
@@ -95,7 +94,7 @@ export const IndeterminateDeclarative = (): JSX.Element => (
 
 Utils.story(IndeterminateDeclarative, {
 	name: "Indeterminate (Declarative)",
-	
+
 	desc: `
 Moai also supports having the indeterminate state delacratively, via the
 \`indeterminate\` prop, where it does [the imperative work][1] for you.

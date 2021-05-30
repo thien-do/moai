@@ -55,10 +55,10 @@ const Close = (props: Props): JSX.Element | null => {
  * Toasts are pop-up notification that tell users about events briefly, without
  * forcing them to react. Users can dismiss them, or they will also
  * automatically go away after a few seconds.
- * 
+ *
  * Moai's Toast support both [imperative][1] (i.e. call them in a function)
  * and [declarative][2] (i.e. render them in-place) usages.
- * 
+ *
  * [1]: #basic
  * [2]: #pane
  */

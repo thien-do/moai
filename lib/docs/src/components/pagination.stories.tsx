@@ -20,7 +20,6 @@ export const Primary = (): JSX.Element => {
 export const Basic = Primary;
 
 Utils.story(Basic, {
-	
 	desc: `
 Pagination is a [controlled][1] component. You should maintain a number
 [state][2] for the current page, and pass the control to a pagination via its
@@ -44,7 +43,6 @@ export const Async = (): JSX.Element => {
 };
 
 Utils.story(Async, {
-	
 	desc: `
 You may need to fetch some new data when users navigate to a new page. In these
 cases, return a [\`Promise\`][1] in the \`setValue\` callback to have the
@@ -71,7 +69,6 @@ export const Counting = (): JSX.Element => {
 };
 
 Utils.story(Counting, {
-	
 	desc: `
 In most cases, paginations should start at "1" to mimic real-life counting.
 However, your pagination back end may start at "0". In these cases, it's

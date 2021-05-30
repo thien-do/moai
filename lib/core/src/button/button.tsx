@@ -73,13 +73,13 @@ export interface ButtonProps {
 	 */
 	href?: string;
 	/**
-	 * The [HTML `target`][1] attribute. Require the `href` attribute. 
+	 * The [HTML `target`][1] attribute. Require the `href` attribute.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
 	 */
 	target?: string;
 	/**
-	 * The [HTML `download`][1] attribute. Require the `href` attribute. 
+	 * The [HTML `download`][1] attribute. Require the `href` attribute.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download
 	 */
@@ -146,19 +146,19 @@ export interface ButtonProps {
 	// Event handlers
 	/**
 	 * The [HTML `onclick`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
 	 */
 	onClick?: React.MouseEventHandler;
 	/**
 	 * The [HTML `onfocus`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
 	 */
 	onFocus?: React.FocusEventHandler;
 	/**
 	 * The [HTML `onblur`][1] event handler.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
 	 */
 	onBlur?: React.FocusEventHandler;

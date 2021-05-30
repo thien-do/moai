@@ -19,7 +19,7 @@ interface Props {
 	/**
 	 * If true, the pane's width is [intrinsic][1], which means it depends
 	 * on the pane's content.
-	 * 
+	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content
 	 */
 	contentWidth?: boolean;

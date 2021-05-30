@@ -115,11 +115,7 @@ and \`TableColumn.render\` should match each other.
 
 export const Style = (): JSX.Element => (
 	<Pane noPadding contentWidth>
-		<Table<Book>
-			rows={someBooks}
-			rowKey={bookKey}
-			columns={bookColumns}
-		/>
+		<Table<Book> rows={someBooks} rowKey={bookKey} columns={bookColumns} />
 	</Pane>
 );
 
@@ -138,12 +134,7 @@ any outer border or shadow, which can be provided by the [Pane][4] component:
 });
 
 export const Fill = (): JSX.Element => (
-	<Table<Book>
-		fill
-		rows={someBooks}
-		rowKey={bookKey}
-		columns={bookColumns}
-	/>
+	<Table<Book> fill rows={someBooks} rowKey={bookKey} columns={bookColumns} />
 );
 
 Utils.story(Fill, {
@@ -230,7 +221,6 @@ export const Expandable = (): JSX.Element => (
 );
 
 Utils.story(Expandable, {
-	
 	desc: `
 Users can expand a table's rows if the \`expandRowRender\` prop is provided.
 It expects a function that returns what to be rendered in the expanded area of
@@ -249,7 +239,6 @@ export const Size = (): JSX.Element => (
 );
 
 Utils.story(Size, {
-	
 	desc: `
 To make Tables look more compact or loose, use the \`size\` prop. It controls
 the vertical padding of a Table's cells. There are defined at \`Table.sizes\`.

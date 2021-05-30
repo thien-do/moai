@@ -62,7 +62,6 @@ export const Basic = (): JSX.Element => (
 );
 
 Utils.story(Basic, {
-	
 	desc: `
 Tabs can be used as both controlled or uncontrolled. If you don't need to
 control the active tab state, it's best to use Tabs as an uncontrolled
