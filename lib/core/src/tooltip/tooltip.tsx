@@ -9,17 +9,18 @@ type Placement = TippyProps["placement"];
 
 export interface TooltipProps {
 	/**
-	 * The content inside of the tooltip
+	 * The content inside the tooltip.
 	 */
 	content: React.ReactNode;
 	/**
-	 * The element that hover on will show the Tooltip
+	 * The element that shows tooltip on hover
 	 */
 	children: Children;
 	/**
-	 * The *preferred* placement where the Tooltip should appear relative to its `children`.
+	 * The preferred placement of the tooltip content, relative to the
+	 * `children` element. This is [Tippy.js' `placement`][1] option.
 	 *
-	 * [Reference](https://atomiks.github.io/tippyjs/v6/all-props/#placement) to the tippy's placement
+	 * [1]: https://atomiks.github.io/tippyjs/v6/all-props/#placement
 	 */
 	placement?: Placement;
 }
@@ -46,6 +47,14 @@ export const TooltipPane = (props: PaneProps): JSX.Element => (
 	</div>
 );
 
+/**
+ * A tooltip displays additional information about an element, such as the
+ * full text of an abbreviation or the meaning of an icon. It is shown when
+ * users hover on the element or focus on it via keyboard. Moai's Tooltip is
+ * built on top of [Tippy.js][1].
+ *
+ * [1]: https://atomiks.github.io/tippyjs/
+ */
 export const Tooltip = (props: TooltipProps): JSX.Element => (
 	<Tippy
 		children={props.children}

@@ -21,8 +21,7 @@ export interface InputSize {
 
 export interface InputProps {
 	/**
-	 * The [HTML type][1] of the Input, such as "email", "password" or
-	 * "date".
+	 * The [HTML `type`][1] attribute, such as "email", "password" or "date".
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
 	 */
@@ -31,26 +30,26 @@ export interface InputProps {
 	// Uncontrolled
 
 	/**
-	 * Initial value of the Input in uncontrolled mode
+	 * Initial value of the input in uncontrolled mode.
 	 */
 	defaultValue?: string | number;
 
 	// Controlled
 
 	/**
-	 * Value of the Input in controlled mode
+	 * Value of the input in controlled mode.
 	 */
 	value?: string;
 
 	/**
-	 * Callback to set the value in controlled mode
+	 * Callback to set the value in controlled mode.
 	 */
 	setValue?: (value: string) => void;
 
 	/**
-	 * Id of a [HTML `datalist`][1] element to be used with the Input. Can also
-	 * pass an object to let the Input component create the `datalist` element
-	 * for you.
+	 * Id of an [HTML `datalist`][1] element to be used with the Input. Can
+	 * also pass an object to let the Input component create the `datalist`
+	 * element for you.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
@@ -59,7 +58,7 @@ export interface InputProps {
 	// Style
 
 	/**
-	 * Icon in the Input. See the [Icons guide][1] to learn more.
+	 * Icon in the input. See the [Icons guide][1] to learn more.
 	 *
 	 * [1]: /docs/guides-icons--primary
 	 */
@@ -88,74 +87,102 @@ export interface InputProps {
 	 */
 	name?: string;
 	/**
-	 * If true, users cannot select or change the text. See "readOnly" also.
+	 * The [HTML `disabled`][1] attribute. If true, users cannot select or
+	 * change the text. See also: "readOnly".
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
 	 */
 	disabled?: boolean;
 	/**
-	 * If true, users can select text inside the Input but cannot change it.
-	 * This is only for Inputs that are rendered as Text Boxes.
+	 * The [HTML `disabled`][1] attribute. If true, users can select text
+	 * inside the text box but cannot change it. This is only for inputs that
+	 * are rendered as text boxes.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-readonly
 	 */
 	readOnly?: boolean;
 	/**
-	 * Placeholder text to display in the Input when it is empty
+	 * The [HTML `placeholder`][1] attribute. A string to display inside the
+	 * text box when it is empty.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-placeholder
 	 */
 	placeholder?: string;
 	/**
-	 * If set to true, the Input will have focus on initial render
+	 * The [HTML `autoFocus`][1] attribute. If true, the input will have focus
+	 * on its initial render.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus
 	 */
 	autoFocus?: boolean;
 	/**
-	 * A text to label the Input. Should use when there is no linked HTML
+	 * A text to label the input. Should use when there is no linked HTML
 	 * `label` element.
 	 */
 	"aria-label"?: string;
 	/**
-	 * Id of the element that labels the Input. Useful when the labels don't
+	 * Id of the element that labels the input. Useful when the labels don't
 	 * use the HTML `label` element.
 	 */
 	"aria-labelledby"?: string;
 	/**
-	 * The maximum number of characters of the text
+	 * The maximum number of characters of the text.
 	 */
 	maxLength?: number;
 	/**
-	 * A value is required before form submission. This is based on HTML5's
-	 * validation.
+	 * The [HTML `required`][1] attribute. If true, a value is required before
+	 * form submission. This is based on HTML5's validation.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-required
 	 */
 	required?: boolean;
 
 	// Events
 
 	/**
-	 * Handler that called when the element outfocus
+	 * The [HTML `onblur`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
 	 */
 	onBlur?: React.FocusEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that called when the element got focused
+	 * The [HTML `onfocus`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
 	 */
 	onFocus?: React.FocusEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that called when the user presses a key (on the keyboard)
+	 * The [HTML `onkeypress`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeypress
 	 */
 	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that is called when a key is released
+	 * The [HTML `onkeyup`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeyup
 	 */
 	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that is called when a key is pressed
+	 * The [HTML `onkeydown`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
 	 */
 	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that is called when click to an input
+	 * The [HTML `onclick`][1] event handler.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
 	 */
 	onClick?: React.KeyboardEventHandler<HTMLInputElement>;
 	/**
-	 * Handler that is called when the value changes.
+	 * The [HTML `onchange`][1] event handler.
 	 *
-	 * You should not need to use onChange! This exists only for compatibility
-	 * with 3rd-party libraries (those that passing props to a custom rendered
-	 * component)
+	 * Note that you should not need to use onChange! This exists only for
+	 * compatibility with 3rd-party libraries (those that passing props to a
+	 * custom rendered component). You should use `setValue` most of the time.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange
 	 */
 	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
@@ -265,12 +292,12 @@ const inputRender = (
 };
 
 /**
- * Inputs render interactive controls that users use to enter data. They are
- * usually [text boxes][1], where the data is just plain text. However, there
- * are many more types of data, each with their own kind of controls.
+ * An input is an interactive control for users to enter data. They are usually
+ * [text boxes][1], where the data is just plain text. However, there are many
+ * more types of data, each with their own kind of controls.
  *
- * Inputs are always rendered as [HTML `input`][2] elements. They support both
- * [controlled][3] and [uncontrolled][4] usages.
+ * An input is always rendered as an [HTML `input`][2] element. They support
+ * both [controlled][3] and [uncontrolled][4] usages.
  *
  * [1]: https://en.wikipedia.org/wiki/Text_box
  * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input

@@ -4,17 +4,17 @@ import { GalleryButton2 } from "./button-2";
 import { GalleryContainerPane } from "./container/pane";
 import { GalleryDialog } from "./dialog";
 import { GalleryFeedbackProgress } from "./feedback/progress";
-import { GalleryFeedbackTag } from "./feedback/tag";
-import { GalleryFeedbackToast } from "./feedback/toast";
+import { GalleryTag } from "./tag";
+import { GalleryToast } from "./toast";
 import { GalleryFeedbackTooltip } from "./feedback/tooltip";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
 import { GallerySection } from "./section/section";
 import { GallerySelectionCheckbox } from "./selection/checkbox";
 import { GallerySelectionPagination } from "./selection/pagination";
-import { GallerySelectionSelect } from "./selection/select";
+import { GallerySelect } from "./select";
 import s from "./styles.module.css";
-import { GalleryTabDefault, GalleryTabFlat } from "./tab/tab";
+import { GalleryTab1, GalleryTab2 } from "./tab";
 import { GalleryTable } from "./table/table";
 
 export { GallerySection };
@@ -33,7 +33,7 @@ export const Gallery = (): JSX.Element => (
 		<DivPx size={32} />
 		<GallerySection title="Selection controls">
 			<div>
-				<GallerySelectionSelect />
+				<GallerySelect />
 				<DivPx size={8} />
 				<GallerySelectionPagination />
 			</div>
@@ -41,10 +41,10 @@ export const Gallery = (): JSX.Element => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Feedback">
-			<GalleryFeedbackToast />
+			<GalleryToast />
 			<GalleryFeedbackTooltip />
 			<div>
-				<GalleryFeedbackTag />
+				<GalleryTag />
 				<DivPx size={16} />
 				<GalleryFeedbackProgress />
 			</div>
@@ -56,8 +56,8 @@ export const Gallery = (): JSX.Element => (
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Tabs">
-			<GalleryTabDefault />
-			<GalleryTabFlat />
+			<GalleryTab1 />
+			<GalleryTab2 />
 		</GallerySection>
 		<DivPx size={32} />
 		<GallerySection title="Table">

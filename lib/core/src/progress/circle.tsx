@@ -6,19 +6,18 @@ export interface ProgressCircleColor {
 	track: string;
 }
 
-interface Props {
+export interface ProgressCircleProps {
 	/**
-	 * Size of the circle
+	 * Size of the progress circle
 	 */
 	size: number;
 	/**
-	 * This prop shows the current process of the operation. Value is range from
-	 * 0 (no process yet) to 1 (all's done). There is also a special value:
-	 * "indeterminate" to use when we don't know how long the processwould go.
+	 * The current progress, as a number from 0 (no process yet) to 1 (all is
+	 * done). Set this to "indeterminate" to show a spinning circle.
 	 */
 	value: number | "indeterminate";
 	/**
-	 * Color of circle, use one from ProgressCircle.colors.
+	 * Color of the progress circle, use one from ProgressCircle.colors.
 	 */
 	color?: ProgressCircleColor;
 }
@@ -40,7 +39,7 @@ const getViewBox = (strokeWidth: number) => {
 
 // This follows blueprint's spinner. Please see the magic here:
 // https://github.com/palantir/blueprint/blob/develop/packages/core/src/components/spinner/spinner.tsx
-const getStroke = (props: Props) => {
+const getStroke = (props: ProgressCircleProps) => {
 	const width = Math.min(
 		MIN_STROKE_WIDTH,
 		(STROKE_WIDTH * SIZE_LARGE) / props.size
@@ -51,10 +50,15 @@ const getStroke = (props: Props) => {
 };
 
 /**
- * Progress circle gives users a clear vision about the progress of an
- * operation in the form of a circle.
+ * A progress circle informs users that an operation is in progress, and often
+ * how far it has been progressed. It is also known as [throbber][1], and is
+ * a type of [progress indicator][2] (along with [progress bar][3]).
+ *
+ * [1]: https://en.wikipedia.org/wiki/Throbber
+ * [2]: https://en.wikipedia.org/wiki/Progress_indicator
+ * [3]: /docs/components-progress-bar--primary
  */
-export const ProgressCircle = (props: Props): JSX.Element => {
+export const ProgressCircle = (props: ProgressCircleProps): JSX.Element => {
 	const stroke = getStroke(props);
 	const color = props.color ?? ProgressCircle.colors.neutral;
 	return (

@@ -8,17 +8,20 @@ export interface TagType {
 
 interface Props {
 	/**
-	 * Label of the tag
+	 * Label of the tag.
 	 */
 	children: string;
 	/**
-	 * Color of the tag (use one from Tag.colors)
+	 * Color of the tag. Use one from `Tag.colors`.
 	 */
 	color: CategoryColor;
 }
 
 /**
- * Users use tags to provide additional information. You can also use it for category contents by using Tag.colors.
+ * Tags displays small amount of color-categorized data, such as statuses and
+ * types. They are always rendered as [inline][1] `<span>` elements.
+ *
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
  */
 export const Tag = ({ children, color }: Props): JSX.Element => (
 	<span

@@ -3,12 +3,15 @@
 .sbdocs-title:not(.x),
 .sbdocs-h1:not(#x),
 .sbdocs-h2:not(#x),
-.sbdocs-h3:not(#x),
 .docblock-source:not(#x),
 .sbdocs-ul:not(#x),
 .sbdocs-ol:not(#x),
 .sbdocs-preview:not(#x) {
 	margin: 24px 0;
+}
+
+.sbdocs-h3:not(#x) {
+	margin: 48px 0 24px;
 }
 
 /* Body text */
