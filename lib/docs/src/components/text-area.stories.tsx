@@ -2,7 +2,7 @@ import { TextArea } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 export default {
-	title: "Components/TextArea",
+	title: "Draft/TextArea",
 	component: TextArea,
 	argTypes: {
 		style: Utils.arg(TextArea.styles),
