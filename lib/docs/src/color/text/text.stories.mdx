@@ -1,31 +1,25 @@
 import { Meta, Canvas, Story } from "@storybook/addon-docs";
-import { HiCheckCircle } from "react-icons/hi";
-import { ColorText } from "./text/text";
-import { text, Icon, Pane } from "../../../core/src";
-import { ColorBackground } from "./background/background";
-import { ColorBorder } from "./border/border";
+import { ColorText } from "./text";
+import { text, Icon, Pane } from "../../../../core/src";
 
-<Meta title="Patterns/Color" />
+<Meta title="Patterns/Color/Text" />
 
-# Color
+# Text Color
+
+The `text` utility contains classes that set [text color][1]. These colors are
+dynamic: they are automatically changed based on the current theme. 
+clear and accessible in both light and dark themes.
 
 ```ts
 import { text } from "@moai/core";
+
+<span className={text.muted}>Text</span>
 ```
 
-The `text` object from Moai's "core" package contains utility classes to set
-the [CSS `color`][1] property, which works for both texts and icons.
+### Gray colors
 
-<Canvas withSource="open">
-	<Story name="Text color">
-		<span className={text.muted}>Text</span>
-	</Story>
-</Canvas>
-
-### Gray text
-
-There are 2 gray options in the `text` object. They can be used for both texts
-and icons.
+There are 2 gray text colors. They can be used for both texts and icons due to
+their high contrast ratio.
 
 <ColorText
 	rows={[
@@ -42,15 +36,10 @@ The `muted` value dims the color. It is usually used for secondary texts, like
 labels and descriptive texts. Their contrast ratios are always above 4.5 to
 [ensure legibility][3] in both light and dark themes.
 
-### Semantic text
+### Semantic colors
 
-The `text` object also have semantic color option to convey some meaning via
-the text color
-
--   `Strong` should be used for texts
--   `Weak` should be used for icons
-
-There are 3 semantic options, each is named according to
+There are 3 semantic colors in the `text` object. Each has a `Strong` version
+for text (contrast 4.5+) and a `Weak` version for icon (contrast 3+):
 
 <ColorText
 	rows={[
@@ -63,14 +52,15 @@ There are 3 semantic options, each is named according to
 	]}
 />
 
-## Background
+Note that colors should never be used alone for communication. When using a
+semantic color, always ensure users can still understand the context [without
+it][4], via helper texts or icons.
 
-<ColorBackground rows={[{ key: "strong" }, { key: "weak" }]} />
-
-## Border
-
-<ColorBorder rows={[{ key: "strong" }, { key: "weak" }]} />
+For example, communicate the status by using different color for the same icon
+is bad because users with [color blindness][1] won't be able to differentiate
+them.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
 [2]: #background
 [3]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
+[4]: https://en.wikipedia.org/wiki/Color_blindness

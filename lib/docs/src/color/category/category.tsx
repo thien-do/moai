@@ -1,21 +1,10 @@
-import { background, border, Table, text } from "../../../../core/src";
-import { ColorSample, ColorSampleUsage } from "../sample/sample";
-import s from "./text.module.css";
-
-type TextKey = keyof typeof text;
+import { background, border, CategoryColor, categoryColors, Table } from "../../../../core/src";
+import { ColorSample } from "../sample/sample";
+import s from "./border.module.css";
 
 interface Row {
-	key: TextKey;
-	usage: ColorSampleUsage;
+	category: CategoryColor;
 }
-
-// const usageTexts: Record<ColorSampleUsage, string> = {
-// 	both: "Icon and text",
-// 	icon: "Icon only",
-// 	text: "Text only",
-// };
-
-// const Usage = (row: Row): JSX.Element => <span>{usageTexts[row.usage]}</span>;
 
 const MakeColumn = (theme: "light" | "dark", back: string) => (
 	row: Row
@@ -23,7 +12,7 @@ const MakeColumn = (theme: "light" | "dark", back: string) => (
 	<div className={theme}>
 		<ColorSample
 			background={back}
-			foreground={{ type: "text", cls: text[row.key], usage: row.usage }}
+			foreground={{ type: "border", cls: border[row.key] }}
 		/>
 	</div>
 );
@@ -37,8 +26,8 @@ interface Props {
 	rows: Row[];
 }
 
-export const ColorText = (props: Props): JSX.Element => (
-	<div className={[s.container, border.weak].join(" ")}>
+export const ColorBorder = (props: Props): JSX.Element => (
+	<div className={s.container}>
 		<Table<Row>
 			size={Table.sizes.small}
 			fixed={{ firstColumn: true }}
@@ -47,7 +36,6 @@ export const ColorText = (props: Props): JSX.Element => (
 			rowKey={(row) => row.key}
 			columns={[
 				{ title: "Name", className: s.name, render: "key" },
-				// { title: "Usage", className: s.usage, render: Usage },
 				{ title: "Light", render: LightStrong },
 				{ title: "Light (alt bg)", render: LightWeak },
 				{ title: "Dark", render: DarkStrong },
