@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
 import { ColorText } from "./text/text";
 import { ColorBackground } from "./background/background";
+import { ColorBorder } from "./border/border";
 
 <Meta title="Patterns/Color" />
 
@@ -10,22 +11,26 @@ import { ColorBackground } from "./background/background";
 
 <ColorText
 	rows={[
-		{ key: "normal", content: "both" },
-		{ key: "muted", content: "both" },
+		{ key: "normal", usage: "both" },
+		{ key: "muted", usage: "both" },
 	]}
 />
 
 <ColorText
 	rows={[
-		{ key: "highlightStrong", content: "text" },
-		{ key: "highlightWeak", content: "icon" },
-		{ key: "successStrong", content: "text" },
-		{ key: "successWeak", content: "icon" },
-		{ key: "failureStrong", content: "text" },
-		{ key: "failureWeak", content: "icon" },
+		{ key: "highlightStrong", usage: "text" },
+		{ key: "highlightWeak", usage: "icon" },
+		{ key: "successStrong", usage: "text" },
+		{ key: "successWeak", usage: "icon" },
+		{ key: "failureStrong", usage: "text" },
+		{ key: "failureWeak", usage: "icon" },
 	]}
 />
 
 ## Background
 
 <ColorBackground rows={[{ key: "strong" }, { key: "weak" }]} />
+
+## Border
+
+<ColorBorder rows={[{ key: "strong" }, { key: "weak" }]} />

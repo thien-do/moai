@@ -8,14 +8,13 @@ interface Row {
 	key: BackgroundKey;
 }
 
-const MakeColumn = (theme: "light" | "dark", foreground: string) => (
+const MakeColumn = (theme: "light" | "dark", text: string) => (
 	row: Row
 ): JSX.Element => (
 	<div className={theme}>
 		<ColorSample
-			back={background[row.key]}
-			fore={foreground}
-			content="both"
+			background={background[row.key]}
+			foreground={{ type: "text", cls: text, usage: "both" }}
 		/>
 	</div>
 );

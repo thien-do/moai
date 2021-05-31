@@ -6,5 +6,12 @@
 
 	display: flex;
 	justify-content: space-between;
-	align-items: baseline;
+	align-items: center;
+}
+
+.border {
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	border-width: 1px;
 }
