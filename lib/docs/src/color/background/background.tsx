@@ -1,0 +1,49 @@
+import { background, Table, text } from "../../../../core/src";
+import { ColorSample } from "../sample/sample";
+import s from "./background.module.css";
+
+type BackgroundKey = keyof typeof background;
+
+interface Row {
+	key: BackgroundKey;
+}
+
+const MakeColumn = (theme: "light" | "dark", foreground: string) => (
+	row: Row
+): JSX.Element => (
+	<div className={theme}>
+		<ColorSample
+			back={background[row.key]}
+			fore={foreground}
+			content="both"
+		/>
+	</div>
+);
+
+const LightStrong = MakeColumn("light", text.normal);
+const LightWeak = MakeColumn("light", text.muted);
+const DarkStrong = MakeColumn("dark", text.normal);
+const DarkWeak = MakeColumn("dark", text.muted);
+
+interface Props {
+	rows: Row[];
+}
+
+export const ColorBackground = (props: Props): JSX.Element => (
+	<div className={s.container}>
+		<Table<Row>
+			size={Table.sizes.small}
+			fixed={{ firstColumn: true }}
+			fill
+			rows={props.rows}
+			rowKey={(row) => row.key}
+			columns={[
+				{ title: "Name", className: s.name, render: "key" },
+				{ title: "Light", render: LightStrong },
+				{ title: "Light (muted)", render: LightWeak },
+				{ title: "Dark", render: DarkStrong },
+				{ title: "Dark (muted)", render: DarkWeak },
+			]}
+		/>
+	</div>
+);

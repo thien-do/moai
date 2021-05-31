@@ -6,7 +6,7 @@ import {
 	DivEm,
 	Icon,
 	Tag,
-} from "../../../core/src";
+} from "../../../../core/src";
 import { HiCheckCircle } from "react-icons/hi";
 import s from "./sample.module.css";
 
