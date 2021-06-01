@@ -24,13 +24,10 @@ export const ColorStaticSample = (props: Props): JSX.Element => {
 		<div className={s.container}>
 			<div
 				ref={ref}
-				className={s.box}
+				className={s.circle}
 				style={{ backgroundColor: `var(--${props.name})` }}
 			/>
-			<div className={s.info}>
-				<div className={s.name}>{props.name}</div>
-				<div className={text.muted}>{hex}</div>
-			</div>
+			<div className={text.muted}>{hex}</div>
 		</div>
 	);
 };

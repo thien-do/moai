@@ -5,10 +5,51 @@ import { ColorStaticGrid } from "./grid";
 
 # Static Colors
 
-<ColorStaticGrid name="gray" />
+Static colors are persistent across themes. They are the low-level palette
+that Moai is built on top of. They ensure consistency across all parts of the
+interface.
 
-<ColorStaticGrid name="highlight" />
+In practice, however, you usually don't need to use static colors directly.
+Instead, use high-level utilities like [`text`][1], [`background`][2], and
+[`border`][3] which provide dynamic colors that are changed based on the
+current theme and [always accessible][4].
 
-<ColorStaticGrid name="success" />
+## Usage
 
-<ColorStaticGrid name="failure" />
+Static colors are defined as [CSS variables][5] at [`root`][6]. They are
+available everywhere in the app:
+
+```css
+.heading {
+    color: var(--highlight-5);
+}
+```
+
+Since static colors are persistent across themes, you usually want to provide
+the value for each theme manually:
+
+```css
+html.light .heading {
+    color: var(--highlight-6);
+}
+html.dark .heading {
+    color: var(--highlight-4);
+}
+```
+
+In fact, the [implementations][7] of `text`, `background`, and `border`
+utilities are good examples of handling colors in both light and dark themes.
+
+## Colors
+
+The below tables list all static colors in Moai and their variable names.
+
+<ColorStaticGrid />
+
+[1]: /docs/patterns-color-text--page
+[2]: /docs/patterns-color-background--page
+[3]: /docs/patterns-color-border--page
+[4]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
+[5]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+[6]: https://developer.mozilla.org/en-US/docs/Web/CSS/:root
+[7]: https://github.com/moaijs/moai/blob/739a87de82bd061bb41f38c5a51a410b59944a3d/lib/core/src/text/text.module.css

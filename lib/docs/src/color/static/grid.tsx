@@ -1,14 +1,11 @@
 import s from "./grid.module.css";
-import { ColorStaticSample } from "./sample";
+import { ColorStaticTable } from "./table";
 
-interface Props {
-	name: string;
-}
-
-export const ColorStaticGrid = (props: Props): JSX.Element => (
+export const ColorStaticGrid = (): JSX.Element => (
 	<div className={s.container}>
-		{[...Array(10).keys()].map((value) => (
-			<ColorStaticSample key={value} name={`${props.name}-${value}`} />
-		))}
+		<ColorStaticTable name="gray" />
+		<ColorStaticTable name="highlight" />
+		<ColorStaticTable name="success" />
+		<ColorStaticTable name="failure" />
 	</div>
 );
