@@ -6,9 +6,10 @@ import { text, Icon, Pane } from "../../../../core/src";
 
 # Text Color
 
-The `text` utility contains classes that set [text color][1]. These colors are
-dynamic: they are automatically changed based on the current theme. 
-clear and accessible in both light and dark themes.
+The `text` utility contains classes that set the [CSS `color`][1] property.
+This is the recommended way to set color for texts and icons since they are
+automatically changed based on the current theme and always conform to the
+[WCAG of contrast ratios][3] at AA level.
 
 ```ts
 import { text } from "@moai/core";
@@ -16,10 +17,10 @@ import { text } from "@moai/core";
 <span className={text.muted}>Text</span>
 ```
 
-### Gray colors
+## Gray colors
 
-There are 2 gray text colors. They can be used for both texts and icons due to
-their high contrast ratio.
+There are 2 gray colors in the `text` utility. They can be used for both texts
+and icons due to their high contrast ratios:
 
 <ColorText
 	rows={[
@@ -36,10 +37,10 @@ The `muted` value dims the color. It is usually used for secondary texts, like
 labels and descriptive texts. Their contrast ratios are always above 4.5 to
 [ensure legibility][3] in both light and dark themes.
 
-### Semantic colors
+## Semantic colors
 
-There are 3 semantic colors in the `text` object. Each has a `Strong` version
-for text (contrast 4.5+) and a `Weak` version for icon (contrast 3+):
+There are 3 semantic colors in the `text` utility. Each has a `Strong` version
+for texts (contrast 4.5+) and a `Weak` version for icons (contrast 3+):
 
 <ColorText
 	rows={[
@@ -53,14 +54,15 @@ for text (contrast 4.5+) and a `Weak` version for icon (contrast 3+):
 />
 
 Note that colors should never be used alone for communication. When using a
-semantic color, always ensure users can still understand the context [without
-it][4], via helper texts or icons.
+semantic color to represent an intention, always ensure users can still get it
+without the color, using other elements like a helper text or icon.
 
-For example, communicate the status by using different color for the same icon
-is bad because users with [color blindness][1] won't be able to differentiate
-them.
+For example, communicating the status of an element by using different color on
+the same icon is not accessible because users with [color blindness][1] won't
+be able to differentiate them.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
 [2]: #background
 [3]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
 [4]: https://en.wikipedia.org/wiki/Color_blindness
+[5]: https://www.w3.org/TR/WCAG21/

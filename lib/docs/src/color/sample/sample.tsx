@@ -69,7 +69,12 @@ export const ColorSample = (props: Props): JSX.Element => {
 					className={[s.border, props.foreground.cls].join(" ")}
 				/>
 			)}
-			<Tag color={getColor(contrast)} children={contrast.toFixed(1)} />
+			<span title="Color contrast" aria-label="Color contrast">
+				<Tag
+					color={getColor(contrast)}
+					children={contrast.toFixed(1)}
+				/>
+			</span>
 		</div>
 	);
 };
