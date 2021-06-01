@@ -1,20 +1,19 @@
 import { Meta, Canvas, Story } from "@storybook/addon-docs";
 import { ColorText } from "./text";
-import { text, Icon, Pane } from "../../../../core/src";
 
 <Meta title="Patterns/Color/Text" />
 
 # Text Color
 
 The `text` utility contains classes that set the [CSS `color`][1] property.
-This is the recommended way to set color for texts and icons since they are
-automatically changed based on the current theme and always conform to the
+This is the recommended way to set color for texts and icons since they
+automatically change based on the current theme and always conform to the
 [WCAG of contrast ratios][3] at AA level.
 
 ```ts
 import { text } from "@moai/core";
 
-<span className={text.muted}>Text</span>
+<span className={text.muted}>Text</span>;
 ```
 
 ## Gray colors
@@ -53,16 +52,26 @@ for texts (contrast 4.5+) and a `Weak` version for icons (contrast 3+):
 	]}
 />
 
-Note that colors should never be used alone for communication. When using a
-semantic color to represent an intention, always ensure users can still get it
-without the color, using other elements like a helper text or icon.
+Semantic colors are used to communicate meaning and intention to users.
+However, they should not be the only method as some users [may not recognize][4]
+them. Other methods, such as helper texts or icons, should be used together to
+ensure good accessibility.
 
-For example, communicating the status of an element by using different color on
-the same icon is not accessible because users with [color blindness][1] won't
-be able to differentiate them.
+Moai uses green for positive intentions and red for negative ones. This may
+not work for some users whose culture perceives red as a positive color. In
+these cases, you may want to [customize][6] the `text` utility to follow your
+users.
+
+## See also
+
+- For static colors that don't change based on the current theme, see
+[Static Colors][7].
+- For a wide range of colors that don't have semantic meaning, see
+[Category Colors][8].
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
-[2]: #background
 [3]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
 [4]: https://en.wikipedia.org/wiki/Color_blindness
-[5]: https://www.w3.org/TR/WCAG21/
+[6]: /docs/intro-extension
+[7]: /docs/patterns-color-static
+[8]: /docs/patterns-color-category

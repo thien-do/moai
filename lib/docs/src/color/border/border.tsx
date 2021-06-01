@@ -1,4 +1,4 @@
-import { background, border, Pane, Table } from "../../../../core/src";
+import { background, border, Table } from "../../../../core/src";
 import { ColorSample } from "../sample/sample";
 import s from "./border.module.css";
 

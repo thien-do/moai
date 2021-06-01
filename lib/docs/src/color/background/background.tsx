@@ -1,4 +1,4 @@
-import { Pane, background, Table, text } from "../../../../core/src";
+import { border, background, Table, text } from "../../../../core/src";
 import { ColorSample } from "../sample/sample";
 import s from "./background.module.css";
 
@@ -29,22 +29,20 @@ interface Props {
 }
 
 export const ColorBackground = (props: Props): JSX.Element => (
-	<Pane noPadding>
-		<div className={s.container}>
-			<Table<Row>
-				size={Table.sizes.small}
-				fixed={{ firstColumn: true }}
-				fill
-				rows={props.rows}
-				rowKey={(row) => row.key}
-				columns={[
-					{ title: "Name", className: s.name, render: "key" },
-					{ title: "Light", render: LightStrong },
-					{ title: "Light (muted)", render: LightWeak },
-					{ title: "Dark", render: DarkStrong },
-					{ title: "Dark (muted)", render: DarkWeak },
-				]}
-			/>
-		</div>
-	</Pane>
+	<div className={[s.container, border.weak].join(" ")}>
+		<Table<Row>
+			size={Table.sizes.small}
+			fixed={{ firstColumn: true }}
+			fill
+			rows={props.rows}
+			rowKey={(row) => row.key}
+			columns={[
+				{ title: "Name", className: s.name, render: "key" },
+				{ title: "Light", render: LightStrong },
+				{ title: "Light (muted)", render: LightWeak },
+				{ title: "Dark", render: DarkStrong },
+				{ title: "Dark (muted)", render: DarkWeak },
+			]}
+		/>
+	</div>
 );

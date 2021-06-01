@@ -7,4 +7,5 @@
 .container {
 	overflow: auto;
 	white-space: nowrap;
+	border-width: 2px;
 }

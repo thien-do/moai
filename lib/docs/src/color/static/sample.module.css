@@ -1,0 +1,20 @@
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.info {
+	display: flex;
+	font-size: 12px;
+	justify-content: space-between;
+}
+
+.name {
+	font-weight: 500;
+}
+
+.box {
+	width: 100%;
+	height: 40px;
+    border-radius: 4px;
+}
