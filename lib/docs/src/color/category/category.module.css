@@ -1,9 +1,3 @@
-.name {
-	font-family: "Source Code Pro", monospace;
-	width: 160px;
-}
-
 .container {
-	overflow: auto;
-	white-space: nowrap;
+	border-width: 2px;
 }

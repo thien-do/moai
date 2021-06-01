@@ -1,46 +1,37 @@
-import { background, border, CategoryColor, categoryColors, Table } from "../../../../core/src";
-import { ColorSample } from "../sample/sample";
-import s from "./border.module.css";
+import React from "react";
+import { border, Table } from "../../../../core/src";
+import { GalleryTag } from "../../../../gallery/src/tag";
+import s from "./category.module.css";
 
 interface Row {
-	category: CategoryColor;
+	name: string;
+	link: string;
+	example: React.ReactNode;
 }
 
-const MakeColumn = (theme: "light" | "dark", back: string) => (
-	row: Row
-): JSX.Element => (
-	<div className={theme}>
-		<ColorSample
-			background={back}
-			foreground={{ type: "border", cls: border[row.key] }}
-		/>
-	</div>
+const Name = (row: Row): JSX.Element => (
+	<a href={row.link} children={row.name} />
 );
 
-const LightStrong = MakeColumn("light", background.strong);
-const LightWeak = MakeColumn("light", background.weak);
-const DarkStrong = MakeColumn("dark", background.strong);
-const DarkWeak = MakeColumn("dark", background.weak);
+const Example = (row: Row): JSX.Element => <div children={row.example} />;
 
-interface Props {
-	rows: Row[];
-}
-
-export const ColorBorder = (props: Props): JSX.Element => (
-	<div className={s.container}>
+export const ColorCategoryTable = (): JSX.Element => (
+	<div className={[s.container, border.weak].join(" ")}>
 		<Table<Row>
-			size={Table.sizes.small}
-			fixed={{ firstColumn: true }}
-			fill
-			rows={props.rows}
-			rowKey={(row) => row.key}
-			columns={[
-				{ title: "Name", className: s.name, render: "key" },
-				{ title: "Light", render: LightStrong },
-				{ title: "Light (alt bg)", render: LightWeak },
-				{ title: "Dark", render: DarkStrong },
-				{ title: "Dark (alt bg)", render: DarkWeak },
+			rows={[
+				{
+					name: "Tag",
+					link: "/docs/components-tag",
+					example: <GalleryTag />,
+				},
 			]}
+			rowKey={(row) => row.name}
+			columns={[
+				{ title: "Component", render: Name },
+				{ title: "Example", render: Example },
+			]}
+			fill
+			fixed={{ firstColumn: true }}
 		/>
 	</div>
 );
