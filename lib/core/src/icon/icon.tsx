@@ -9,7 +9,7 @@ export interface IconProps {
 	 */
 	display: "block" | "inline";
 	/**
-	 * Which icon will be display (choose one from coreIcons)
+	 * Which icon will be display (recommend choose one from coreIcons)
 	 */
 	component: IconComponent;
 	/**
@@ -19,10 +19,15 @@ export interface IconProps {
 }
 
 /**
- * Icons are a great tool to visualize and emphasize the content that you want
- * user's attention. The icon component is used to generate icons that are
- * defined in coreIcons component or you can define your own icon set with
+ * Icons are a great tool for visualize and emphasize to the content where you
+ * want user's attention. The Icon component is used to generate icons that have
+ * IconType. You can use the ones that are defined in our coreIcons component or
+ * you can define your own icons set by using
  * [react-icons](https://react-icons.github.io/react-icons).
+ *
+ * Moreover, you can also display an icon inside a component by using the icon
+ * prop. See [here](https://docs.moaijs.com/?path=/docs/patterns-icon--primary)
+ * for more information.
  */
 export const Icon = (props: IconProps): JSX.Element => {
 	const size = props.size ?? 16;
