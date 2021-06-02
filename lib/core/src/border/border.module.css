@@ -10,7 +10,7 @@
 }
 
 :global(.dark) .weak {
-	border-color: var(--gray-6);
+	border-color: var(--gray-5);
 }
 
 :global(.light) .strong {
@@ -18,21 +18,7 @@
 }
 
 :global(.dark) .strong {
-	border-color: var(--gray-5);
-}
-
-:global(.light) .highlightWeak {
-	border-color: var(--highlight-6);
-}
-:global(.dark) .highlightWeak {
-	border-color: var(--highlight-5);
-}
-
-:global(.light) .highlightStrong {
-	border-color: var(--highlight-5);
-}
-:global(.dark) .highlightStrong {
-	border-color: var(--highlight-5);
+	border-color: var(--gray-4);
 }
 
 .borderFull {
