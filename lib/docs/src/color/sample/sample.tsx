@@ -28,7 +28,9 @@ const getContrast = (
 	const back = window.getComputedStyle(backElement).backgroundColor;
 	const foreStyle = window.getComputedStyle(foreElement);
 	const isText = props.foreground.type === "text";
-	const fore = foreStyle[isText ? "color" : "borderColor"];
+	// Only use long hand name.
+	// See: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle#notes
+	const fore = foreStyle[isText ? "color" : "borderLeftColor"];
 	return Color(back).contrast(Color(fore));
 };
 
