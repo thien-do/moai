@@ -32,7 +32,7 @@
 	color: var(--success-6);
 }
 :global(.dark) .successWeak {
-	color: var(--success-6);
+	color: var(--success-5);
 }
 
 :global(.light) .successStrong {
@@ -46,7 +46,7 @@
 	color: var(--highlight-6);
 }
 :global(.dark) .highlightWeak {
-	color: var(--highlight-6);
+	color: var(--highlight-5);
 }
 
 :global(.light) .highlightStrong {
