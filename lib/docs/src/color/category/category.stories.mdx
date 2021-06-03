@@ -1,0 +1,23 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ColorCategoryTable } from "./category";
+
+<Meta title="Patterns/Color/Category" />
+
+# Category Colors
+
+Category colors have no semantic meaning attached. Instead, they are used to
+show relationships between elements (e.g. categorization, labelling in data
+visualizations). They still conform to the AA level of [WCAG of contrast
+ratios][1].
+
+## Usage
+
+[At the moment][2], Moai does not support using category colors directly.
+Instead, category colors are used via several components that support them:
+
+<ColorCategoryTable />
+
+(The list is quite short at the moment. We are adding more to it!)
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast
+[2]: https://github.com/moaijs/moai/issues/210

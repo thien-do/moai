@@ -2,14 +2,13 @@ html {
 	tab-size: 4;
 }
 
-.sbdocs-p {
+.sbdocs-p,
+.sbdocs-ul {
 	max-width: 640px;
 }
 
-.sbdocs-a .sbdocs-code {
-	color: inherit;
-}
-
+.sbdocs-a .sbdocs-code,
+.sbdocs-a code:not(.a),
 .docblock-argstable-body a code {
 	color: inherit;
 }
