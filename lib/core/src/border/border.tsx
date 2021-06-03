@@ -8,9 +8,6 @@ export const border = {
 	// Grayscale
 	strong: s.strong,
 	weak: s.weak,
-	// Colored
-	highlightStrong: s.highlightStrong,
-	highlightWeak: s.highlightWeak,
 };
 
 interface Props {

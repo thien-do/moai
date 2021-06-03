@@ -1,4 +1,4 @@
-import { Description, Stories, Title } from "@storybook/addon-docs/blocks";
+import { Description, Stories, Title } from "@storybook/addon-docs";
 import { Meta } from "@storybook/react";
 
 const PatternPage = (): JSX.Element => (

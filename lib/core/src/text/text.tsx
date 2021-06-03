@@ -7,12 +7,13 @@ interface Props {
 }
 
 export const text = {
-	muted: s.muted as string,
 	strong: s.strong as string,
 	p: s.p as string,
 	break: s.break as string,
 	big: s.big as string,
 	// ===
+	normal: s.normal as string,
+	muted: s.muted as string,
 	highlightStrong: s.highlightStrong as string,
 	highlightWeak: s.highlightWeak as string,
 	successStrong: s.successStrong as string,
