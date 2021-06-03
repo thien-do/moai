@@ -22,12 +22,13 @@ export interface IconProps {
  * Icons are a great tool for visualize and emphasize to the content where you
  * want user's attention. The Icon component is used to generate icons that have
  * IconType. You can use the ones that are defined in our coreIcons component or
- * you can define your own icons set by using
- * [react-icons](https://react-icons.github.io/react-icons).
+ * you can define your own icons set by using [react-icons][1].
  *
  * Moreover, you can also display an icon inside a component by using the icon
- * prop. See [here](https://docs.moaijs.com/?path=/docs/patterns-icon--primary)
- * for more information.
+ * prop. See [here][2] for more information.
+ *
+ * [1]: https://react-icons.github.io/react-icons
+ * [2]: https://docs.moaijs.com/?path=/docs/patterns-icon--primary
  */
 export const Icon = (props: IconProps): JSX.Element => {
 	const size = props.size ?? 16;
