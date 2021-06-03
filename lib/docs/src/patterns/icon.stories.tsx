@@ -35,8 +35,8 @@ export const Basic = (): JSX.Element => (
 Utils.story(Basic, {
 	desc: `
 Moai components that support icons usually have an \`icon\` prop. The
-recommended way to set this prop is to use an icon from the [react-icons][1]
-package. It provide icons from many popular sets that can be used directly in
+recommended way to set this prop is using an icon from the [react-icons][1]
+package. It provides icons from many popular sets that can be used directly in
 Moai:
 
 ~~~ts
