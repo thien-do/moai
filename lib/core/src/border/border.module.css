@@ -5,20 +5,24 @@
 
 /* Color */
 
-:global(.light) .weak {
-	border-color: var(--gray-1);
+:global(.light) {
+	--border-weak: var(--gray-1);
+}
+:global(.dark) {
+	--border-weak: var(--gray-5);
+}
+.weak {
+	border-color: var(--border-weak);
 }
 
-:global(.dark) .weak {
-	border-color: var(--gray-5);
+:global(.light) {
+	--border-strong: var(--gray-2);
 }
-
-:global(.light) .strong {
-	border-color: var(--gray-2);
+:global(.dark) {
+	--border-strong: var(--gray-4);
 }
-
-:global(.dark) .strong {
-	border-color: var(--gray-4);
+.strong {
+	border-color: var(--border-strong);
 }
 
 .borderFull {
