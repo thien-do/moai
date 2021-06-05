@@ -12,14 +12,16 @@ Utils.page.pattern(meta, {
 	desc: `
 Moai doesn't have a built-in icon set. Instead, Moai's components work with any
 SVG icons. This means you can use Moai with popular icon sets, like
-[FontAwesome][1] and [Material Icons][2], or even with your own icons.
+[FontAwesome][1] and [Material Icons][2], or even with [your own icons][4].
 
-This guide covers the usage of icons with Moai's components. To display an icon
-alone, see the [Icon][3] component.
+This guide covers the usage of icons inside Moai's components (like in buttons
+and inputs). To display an icon on its own, with the control of its size and
+color, see the [Icon component][3].
 
 [1]: https://fontawesome.com
 [2]: https://fonts.google.com/icons
 [3]: /docs/components-icon--primary
+[4]: #advanced
 `,
 });
 

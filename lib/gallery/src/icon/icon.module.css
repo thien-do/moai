@@ -1,0 +1,26 @@
+.container {
+	width: 100%;
+}
+
+.grid {
+	width: 100%;
+	/* Avoid too different row's length */
+	max-width: calc(72px * 8 + 16px * 7);
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 72px);
+	gap: 16px;
+	margin-top: 16px;
+}
+
+.icon {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+	text-align: center;
+}
+
+.text {
+	/* To match the GallerySection's title */
+	line-height: 32px;
+}

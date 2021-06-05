@@ -16,6 +16,7 @@ import { GallerySelect } from "./select";
 import s from "./styles.module.css";
 import { GalleryTab1, GalleryTab2 } from "./tab";
 import { GalleryTable } from "./table/table";
+import { GalleryIcon } from "./icon/icon";
 
 export { GallerySection };
 
@@ -63,6 +64,12 @@ export const Gallery = (): JSX.Element => (
 		<GallerySection title="Table">
 			<div className={s.colFull}>
 				<GalleryTable />
+			</div>
+		</GallerySection>
+		<DivPx size={32} />
+		<GallerySection title="Icon">
+			<div className={s.colFull}>
+				<GalleryIcon />
 			</div>
 		</GallerySection>
 	</div>
