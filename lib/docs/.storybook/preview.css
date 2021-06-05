@@ -7,19 +7,18 @@ html {
 	max-width: 640px;
 }
 
-.sbdocs-a .sbdocs-code,
-.sbdocs-a code:not(.a),
-.docblock-argstable-body a code {
+code:not(#x),
+.sbdocs-code:not(#x) {
 	color: inherit;
 }
 
 .sbdocs-blockquote:not(.x) {
-	border-color: var(--gray-2);
+	border-color: var(--border-strong);
 }
 
 .sbdocs-blockquote .sbdocs-p {
 	font-style: italic;
-	color: var(--gray-4);
+	color: var(--text-muted);
 }
 
 /* Hide the "Stories" heading */
@@ -29,13 +28,13 @@ html {
 
 .sbdocs-wrapper:not(.x) {
 	padding: 24px;
-	background-color: var(--white);
+	background-color: var(--background-strong);
 }
 
 .sbdocs-preview:not(.x) {
-	background-color: var(--white);
+	background-color: var(--background-strong);
 	box-shadow: none;
-	border: solid 2px var(--gray-1);
+	border: solid 2px var(--border-weak);
 }
 
 .sbdocs-code:not(.x) {
@@ -50,7 +49,7 @@ html {
 
 .docblock-argstable-body:not(#x) {
 	box-shadow: none;
-	border: solid 2px var(--gray-1);
+	border: solid 2px var(--border-weak);
 }
 
 /* "name" column */
@@ -77,5 +76,5 @@ html {
 /* Category header */
 .docblock-argstable:not(.x) tbody td[colspan="1"],
 .docblock-argstable:not(.x) tbody td[colspan="3"] {
-	background-color: var(--gray-1) !important;
+	background-color: var(--border-weak) !important;
 }
