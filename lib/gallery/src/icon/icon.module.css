@@ -4,7 +4,7 @@
 
 .grid {
 	width: 100%;
-    /* Avoid too different row's length */
+	/* Avoid too different row's length */
 	max-width: calc(72px * 8 + 16px * 7);
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 72px);
