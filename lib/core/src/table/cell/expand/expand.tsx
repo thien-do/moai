@@ -16,11 +16,12 @@ export const TableCellExpand = (props: Props): JSX.Element => {
 	const { state, rowKey, children } = props;
 	const expanded = state.expandable.expanded.has(rowKey);
 	const icon = expanded ? coreIcons.chevronUp : coreIcons.chevronDown;
+	const toggle = () => state.expandable.setExpanded(rowKey, !expanded);
 	return (
 		<div className={s.container}>
 			<div className={s.child}>
 				<Button
-					onClick={() => state.expandable.setExpanded(rowKey, !expanded)}
+					onClick={toggle}
 					icon={icon}
 					iconLabel="Expand/collapse row"
 					size={Button.sizes.smallIcon}

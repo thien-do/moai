@@ -28,7 +28,9 @@ export const TableCell = <R,>(props: Props<R>): JSX.Element => {
 	})();
 	const className = [
 		border.weak,
-		state.expandable.expanded.has(rowKey) ? background.weak : background.strong,
+		state.expandable.expanded.has(rowKey)
+			? background.weak
+			: background.strong,
 		column.className,
 	].join(" ");
 	return <td className={className} children={children} />;
