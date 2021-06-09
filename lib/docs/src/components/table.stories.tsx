@@ -2,22 +2,25 @@ import { Meta } from "@storybook/react";
 import { Pane, Table, TableColumn } from "../../../core/src";
 import { Robot, ROBOTS } from "../../../gallery/src/table/robots";
 import { GalleryTable } from "../../../gallery/src/table/table";
-import { TableColumnComponent } from "./table-fake";
+import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
 import { Utils } from "../utils/utils";
 import { Book, someBooks } from "../utils/example";
 
 const meta: Meta = {
 	title: "Components/Table",
 	component: Table,
-	subcomponents: { TableColumn: TableColumnComponent },
+	subcomponents: {
+		TableColumn: TableColumnComponent,
+		TableExpandable: TableExpandableComponent,
+	},
 	argTypes: {
 		fill: Utils.arg("boolean"),
 		size: Utils.arg(Table.sizes),
+		fixed: Utils.arg(null),
 		rows: Utils.arg(null),
 		rowKey: Utils.arg(null),
 		columns: Utils.arg(null),
-		expandRowRender: Utils.arg(null),
-		fixed: Utils.arg(null),
+		expandable: Utils.arg(null),
 	},
 };
 
@@ -216,16 +219,33 @@ export const Expandable = (): JSX.Element => (
 		rows={someBooks}
 		rowKey={bookKey}
 		columns={bookColumns}
-		expandRowRender={(row) => row.isbn}
+		expandable={{ render: (row) => row.isbn }}
 	/>
 );
 
 Utils.story(Expandable, {
 	desc: `
-Users can expand a table's rows if the \`expandRowRender\` prop is provided.
-It expects a function that returns what to be rendered in the expanded area of
-a row. The expanded area is below a row, spanning all columns (i.e. similar to
-a \`td\` with \`colSpan\` set to the number of columns).
+If the \`expandable\` prop is defined, each row will have a button for users to
+expand it. It only requires a \`render\` function that returns what to be
+rendered when the given row is expanded.
+
+~~~ts
+interface TableExpandable {
+	render: (row: R) => ReactNode;
+	initialExpanded?: Set<string>;
+	expanded?: Set<string>;
+	setExpanded?: (set: Set<string>) => void;
+}
+~~~
+
+Other properties are optional and help you set the initial expanded rows, or
+even control the state yourself. They all work on a [Set][1] of [row keys][2].
+See the [TableExpandable][3] table at the end of the page for detail of each
+prop.
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+[2]: #basic
+[3]: #props
 `,
 });
 

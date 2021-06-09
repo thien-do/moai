@@ -154,7 +154,7 @@ export const GalleryTable = (): JSX.Element => (
 					rows={ROBOTS}
 					columns={getColumns()}
 					rowKey={(robot) => robot.id}
-					expandRowRender={(robot) => <Note robot={robot} />}
+					expandable={{ render: (robot) => <Note robot={robot} /> }}
 					fixed={{ header: true, firstColumn: true }}
 				/>
 			</div>

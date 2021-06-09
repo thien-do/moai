@@ -1,4 +1,5 @@
 import { TableColumn } from "../../../core/src";
+import { TableExpandableProps } from "../../../core/src/table/expandable";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's
@@ -7,3 +8,7 @@ import { TableColumn } from "../../../core/src";
 export const TableColumnComponent = <R,>(
 	props: TableColumn<R>
 ): JSX.Element => <div>{props.title}</div>;
+
+export const TableExpandableComponent = <R,>(
+	props: TableExpandableProps<R>
+): JSX.Element => <div>{props.render.length}</div>;

@@ -23,12 +23,12 @@ export const TableCell = <R,>(props: Props<R>): JSX.Element => {
 			: row[column.render]; // Accessor
 	const children = (() => {
 		if (index !== 0) return body;
-		if (table.expandRowRender === undefined) return body;
+		if (table.expandable === undefined) return body;
 		return <TableCellExpand {...{ state, rowKey }} children={body} />;
 	})();
 	const className = [
 		border.weak,
-		state.expanded.has(rowKey) ? background.weak : background.strong,
+		state.expandable.expanded.has(rowKey) ? background.weak : background.strong,
 		column.className,
 	].join(" ");
 	return <td className={className} children={children} />;

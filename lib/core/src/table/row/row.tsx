@@ -4,7 +4,7 @@ import { TableCell } from "../cell/cell";
 import { TableColumn, TableProps, TableState } from "../table";
 
 const ERRORS = {
-	EXPAND_RENDER: "Row is expanded but expandRowRender is not defined.",
+	EXPAND_RENDER: "Row is expanded but expanded.render is not defined.",
 };
 
 interface Props<R> {
@@ -28,7 +28,7 @@ const renderTd = <R,>(
 
 const FullCell = <R,>(props: Props<R>): JSX.Element => {
 	const { table, row } = props;
-	const render = table.expandRowRender;
+	const render = table.expandable?.render;
 	if (render === undefined) throw Error(ERRORS.EXPAND_RENDER);
 	return (
 		<td
@@ -45,7 +45,7 @@ export const getTableRow = <R,>(props: Props<R>): JSX.Element[] => {
 
 	const cells = table.columns.map(renderTd(table, state, row, index));
 	const mainTr = <tr key={key} children={cells} />;
-	if (state.expanded.has(key) === false) return [mainTr];
+	if (state.expandable.expanded.has(key) === false) return [mainTr];
 
 	// Expanded
 	const cell = <FullCell {...props} />;

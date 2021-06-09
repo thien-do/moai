@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { background } from "../background/background";
 import { border } from "../border/border";
 import { text } from "../text/text";
@@ -6,6 +6,11 @@ import sFixed from "./fixed.module.css";
 import sSizes from "./sizes.module.css";
 import { getTableRow } from "./row/row";
 import s from "./table.module.css";
+import {
+	TableExpandableProps,
+	TableExpandableState,
+	useTableExpandable,
+} from "./expandable";
 
 export interface TableColumn<R> {
 	/**
@@ -63,13 +68,10 @@ export interface TableProps<R> {
 	 */
 	columns: TableColumn<R>[];
 	/**
-	 * A [render prop][1] that, when set, allows users to expand or collapse
-	 * the table's rows. This should return the React element to be rendered
-	 * when a row is expanded.
-	 *
-	 * [1]: https://reactjs.org/docs/render-props.html
+	 * If defined, each row has a button for users to expand the row. See the
+	 * "TableExpandedProps" interface for detail.
 	 */
-	expandRowRender?: (row: R) => ReactNode;
+	expandable?: TableExpandableProps<R>;
 	/**
 	 * If true, the table's header, first column and last column can be fixed
 	 * while the rest is scrolled. These positions are relative to the table's
@@ -95,8 +97,7 @@ const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
 );
 
 export interface TableState {
-	expanded: Set<string>;
-	setExpanded: (key: string, value: boolean) => void;
+	expandable: TableExpandableState;
 }
 
 /**
@@ -109,15 +110,8 @@ export interface TableState {
  * [3]: #fixed
  */
 export const Table = <R,>(props: TableProps<R>): JSX.Element => {
-	const [expanded, _setExpanded] = useState(() => new Set<string>());
-	const setExpanded: TableState["setExpanded"] = (key, value) => {
-		_setExpanded((prev) => {
-			const next = new Set(prev);
-			value ? next.add(key) : next.delete(key);
-			return next;
-		});
-	};
-	const state = { expanded, setExpanded };
+	const expandable = useTableExpandable(props.expandable);
+	const state: TableState = { expandable };
 
 	const body: JSX.Element[] = [];
 	props.rows.forEach((row, index) => {
