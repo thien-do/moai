@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 const portalContainer: { current: null | HTMLElement } = { current: null };
 
 export const getPortalContainer = (): HTMLElement => {
@@ -8,3 +10,5 @@ export const getPortalContainer = (): HTMLElement => {
 	}
 	return portalContainer.current;
 };
+
+export type SetState<T> = Dispatch<SetStateAction<T>>;

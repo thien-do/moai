@@ -1,8 +1,5 @@
 .container {
 	display: flex;
 	align-items: center;
-}
-
-.child {
-	flex: none;
+	gap: 16px;
 }

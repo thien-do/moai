@@ -1,16 +1,23 @@
+// Disable the prop-types lint because Table clones new "props"
+/* eslint-disable react/prop-types */
+
 import { ReactNode } from "react";
 import { background } from "../background/background";
-import { border } from "../border/border";
-import { text } from "../text/text";
-import sFixed from "./fixed.module.css";
-import sSizes from "./sizes.module.css";
-import { getTableRow } from "./row/row";
-import s from "./table.module.css";
+import { getTableActionsColumn, isTableActionsExist } from "./actions/actions";
 import {
 	TableExpandableProps,
 	TableExpandableState,
 	useTableExpandable,
-} from "./expandable";
+} from "./actions/expandable/state";
+import {
+	TableSelectableProps,
+	TableSelected,
+} from "./actions/selectable/state";
+import { TableBody } from "./body/body";
+import { getTableColumnMetaMap, TableColumnMetaMap } from "./column/column";
+import { TableHead } from "./head/head";
+import sSizes from "./sizes.module.css";
+import s from "./table.module.css";
 
 export interface TableColumn<R> {
 	/**
@@ -33,7 +40,7 @@ export interface TableColumn<R> {
 	 */
 	render:
 		| keyof R // Accessor
-		| ((row: R, index: number) => ReactNode); // Render function;
+		| ((row: R, index: number, key: string) => ReactNode); // Render function;
 }
 
 export interface TableSize {
@@ -62,6 +69,10 @@ export interface TableProps<R> {
 	 */
 	rowKey: (row: R, index: number) => string;
 	/**
+	 * A function to return a custom class name for the given row.
+	 */
+	rowClassName?: (row: R, index: number) => string;
+	/**
 	 * An array of `TableColumn`s which describe how to render the table's
 	 * `rows` (e.g. a book's title, author). See the "TableColumn" tab for
 	 * detail.
@@ -72,6 +83,11 @@ export interface TableProps<R> {
 	 * "TableExpandedProps" interface for detail.
 	 */
 	expandable?: TableExpandableProps<R>;
+	/**
+	 * If defined, each row has a checkbox or radio button for users to select
+	 * it. See the "TableSelectableProps" interface for detail.
+	 */
+	selectable?: TableSelectableProps<TableSelected>;
 	/**
 	 * If true, the table's header, first column and last column can be fixed
 	 * while the rest is scrolled. These positions are relative to the table's
@@ -88,16 +104,9 @@ export interface TableProps<R> {
 	size?: TableSize;
 }
 
-const thCls = [border.weak, background.weak, text.strong].join(" ");
-
-const renderTh = <R,>(column: TableColumn<R>, index: number): JSX.Element => (
-	<th key={index} className={[thCls, column.className].join(" ")}>
-		{column.title}
-	</th>
-);
-
 export interface TableState {
 	expandable: TableExpandableState;
+	columnMetaMap: TableColumnMetaMap;
 }
 
 /**
@@ -109,24 +118,20 @@ export interface TableState {
  * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
  * [3]: #fixed
  */
-export const Table = <R,>(props: TableProps<R>): JSX.Element => {
-	const expandable = useTableExpandable(props.expandable);
-	const state: TableState = { expandable };
+export const Table = <R,>(_props: TableProps<R>): JSX.Element => {
+	const props: TableProps<R> = { ..._props };
 
-	const body: JSX.Element[] = [];
-	props.rows.forEach((row, index) => {
-		const elements = getTableRow({ row, index, state, table: props });
-		body.push(...elements);
-	});
+	// Prepare Table's internal state
+	const state: TableState = {
+		expandable: useTableExpandable(props.expandable),
+		columnMetaMap: getTableColumnMetaMap(props),
+	};
 
-	const fixedTableClass = props.fixed
-		? [
-				sFixed.container,
-				props.fixed.header && sFixed.header,
-				props.fixed.firstColumn && sFixed.firstColumn,
-				props.fixed.lastColumn && sFixed.lastColumn,
-		  ].filter((e) => typeof e === "string")
-		: [];
+	// Normalize Table's props
+	if (isTableActionsExist(props)) {
+		const actions = getTableActionsColumn(props, state);
+		props.columns = [actions, ...props.columns];
+	}
 
 	return (
 		<table
@@ -135,13 +140,10 @@ export const Table = <R,>(props: TableProps<R>): JSX.Element => {
 				props.fill ? s.containerFill : "",
 				background.strong,
 				props.size?.cell ?? Table.sizes.medium.cell,
-				...fixedTableClass,
 			].join(" ")}
 		>
-			<thead>
-				<tr>{props.columns.map(renderTh)}</tr>
-			</thead>
-			<tbody children={body} />
+			<TableHead tableProps={props} tableState={state} />
+			<TableBody tableProps={props} tableState={state} />
 		</table>
 	);
 };
