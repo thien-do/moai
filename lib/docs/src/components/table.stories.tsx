@@ -1,11 +1,11 @@
 import { Meta } from "@storybook/react";
-import { background, Pane, Table, TableColumn } from "../../../core/src";
+import { useState } from "react";
+import { Pane, Table, TableColumn } from "../../../core/src";
 import { Robot, ROBOTS } from "../../../gallery/src/table/robots";
 import { GalleryTable } from "../../../gallery/src/table/table";
-import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
-import { Utils } from "../utils/utils";
 import { Book, someBooks } from "../utils/example";
-import { useState } from "react";
+import { Utils } from "../utils/utils";
+import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
 
 const meta: Meta = {
 	title: "Components/Table",
