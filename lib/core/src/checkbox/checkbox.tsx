@@ -134,10 +134,12 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				)}
 				children={<Icon display="block" component={coreIcons.dash} />}
 			/>
-			<span
-				className={[shared.label, style.label].join(" ")}
-				children={props.children}
-			/>
+			{props.children !== null && (
+				<span
+					className={[shared.label, style.label].join(" ")}
+					children={props.children}
+				/>
+			)}
 		</label>
 	);
 };
