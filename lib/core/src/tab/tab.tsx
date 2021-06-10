@@ -162,7 +162,7 @@ const outsetStyle: TabStyle = {
 const flatStyle: TabStyle = {
 	content: [s.flatContent, border.weak].join(" "),
 	title: s.flatTitle,
-	active: border.highlightStrong,
+	active: s.flatActive,
 	inactive: s.flatInactive,
 	renderContent: (children, props) => (
 		<div
