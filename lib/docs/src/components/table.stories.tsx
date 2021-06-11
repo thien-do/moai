@@ -1,23 +1,27 @@
 import { Meta } from "@storybook/react";
+import { useState } from "react";
 import { Pane, Table, TableColumn } from "../../../core/src";
 import { Robot, ROBOTS } from "../../../gallery/src/table/robots";
 import { GalleryTable } from "../../../gallery/src/table/table";
-import { TableColumnComponent } from "./table-fake";
-import { Utils } from "../utils/utils";
 import { Book, someBooks } from "../utils/example";
+import { Utils } from "../utils/utils";
+import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
 
 const meta: Meta = {
 	title: "Components/Table",
 	component: Table,
-	subcomponents: { TableColumn: TableColumnComponent },
+	subcomponents: {
+		TableColumn: TableColumnComponent,
+		TableExpandable: TableExpandableComponent,
+	},
 	argTypes: {
 		fill: Utils.arg("boolean"),
 		size: Utils.arg(Table.sizes),
+		fixed: Utils.arg(null),
 		rows: Utils.arg(null),
 		rowKey: Utils.arg(null),
 		columns: Utils.arg(null),
-		expandRowRender: Utils.arg(null),
-		fixed: Utils.arg(null),
+		expandable: Utils.arg(null),
 	},
 };
 
@@ -152,7 +156,7 @@ export const Fixed = (): JSX.Element => {
 	// just using external files.
 	const css = `
 .fixed-table {
-	height: 200px; /* limit the height of the table */
+	height: 300px; /* limit the height of the table */
 	overflow: auto; /* show scrollbar(s) */
 	white-space: nowrap;
 }`;
@@ -161,7 +165,11 @@ export const Fixed = (): JSX.Element => {
 			<style dangerouslySetInnerHTML={{ __html: css }} />
 			<div className="fixed-table">
 				<Table<Robot>
-					fixed={{ firstColumn: true, header: true }}
+					fixed={{
+						firstColumn: true,
+						header: true,
+						lastColumn: true,
+					}}
 					rows={ROBOTS}
 					rowKey={(robot) => robot.id.toString()}
 					columns={[
@@ -170,6 +178,7 @@ export const Fixed = (): JSX.Element => {
 						{ title: "Seen", render: "lastSeen" },
 						{ title: "Email", render: "email" },
 						{ title: "Avatar", render: "avatar" },
+						{ title: "Bot", render: "MAC" },
 					]}
 				/>
 			</div>
@@ -216,18 +225,60 @@ export const Expandable = (): JSX.Element => (
 		rows={someBooks}
 		rowKey={bookKey}
 		columns={bookColumns}
-		expandRowRender={(row) => row.isbn}
+		expandable={{ render: (row) => row.isbn }}
 	/>
 );
 
 Utils.story(Expandable, {
 	desc: `
-Users can expand a table's rows if the \`expandRowRender\` prop is provided.
-It expects a function that returns what to be rendered in the expanded area of
-a row. The expanded area is below a row, spanning all columns (i.e. similar to
-a \`td\` with \`colSpan\` set to the number of columns).
+If the \`expandable\` prop is defined, each row will have a button for users to
+expand it. It only requires a \`render\` function that returns what to be
+rendered when the given row is expanded.
+
+~~~ts
+interface TableExpandable {
+	render: (row: R) => ReactNode;
+	initialExpanded?: Set<string>;
+	expanded?: Set<string>;
+	setExpanded?: (set: Set<string>) => void;
+}
+~~~
+
+Other properties are optional and help you set the initial expanded rows, or
+even control the state yourself. They all work on a [Set][1] of [row keys][2].
+See the [TableExpandable][3] table at the end of the page for detail of each
+prop.
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+[2]: #basic
+[3]: #props
 `,
 });
+
+export const SelectableMultiple = (): JSX.Element => {
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	return (
+		<Table<Book>
+			rows={someBooks}
+			rowKey={bookKey}
+			columns={bookColumns}
+			selectable={{ selected, setSelected }}
+		/>
+	);
+};
+
+export const SelectableSingle = (): JSX.Element => {
+	const [selected, setSelected] = useState<string>("");
+	const radioGroupName = "single-selectable-demo";
+	return (
+		<Table<Book>
+			rows={someBooks}
+			rowKey={bookKey}
+			columns={bookColumns}
+			selectable={{ selected, setSelected, radioGroupName }}
+		/>
+	);
+};
 
 export const Size = (): JSX.Element => (
 	<Table<Book>
@@ -247,3 +298,47 @@ You can try different sizes using the [All Props table][1] below.
 [1]: #props
 `,
 });
+
+export const RowClassName = (): JSX.Element => {
+	const css = `
+/* Moai applies background color on "td", not "tr" */
+.red-row td,
+/* Optionally override the hover color */
+.red-row:not(#x):hover td {
+	background: red;
+}`;
+	return (
+		<div>
+			<style dangerouslySetInnerHTML={{ __html: css }} />
+			<Table<Book>
+				rows={someBooks}
+				rowKey={bookKey}
+				columns={bookColumns}
+				rowClassName={(_row, index) => (index === 1 ? "red-row" : "")}
+			/>
+		</div>
+	);
+};
+
+export const AllInOne = (): JSX.Element => {
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	return (
+		<div className="fixed-table">
+			<Table<Robot>
+				fixed={{ firstColumn: true, header: true, lastColumn: true }}
+				expandable={{ render: (row) => row.note }}
+				selectable={{ selected, setSelected }}
+				rows={ROBOTS}
+				rowKey={(robot) => robot.id.toString()}
+				columns={[
+					{ title: "Bot", render: "MAC" },
+					{ title: "Id", render: "id" },
+					{ title: "Seen", render: "lastSeen" },
+					{ title: "Email", render: "email" },
+					{ title: "Avatar", render: "avatar" },
+					{ title: "Bot", render: "MAC" },
+				]}
+			/>
+		</div>
+	);
+};

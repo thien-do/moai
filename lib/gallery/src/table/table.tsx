@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import * as M from "../../../core/src";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";
@@ -146,18 +146,23 @@ const getColumns = (): M.TableColumn<Robot>[] => [
 	},
 ];
 
-export const GalleryTable = (): JSX.Element => (
-	<div className={s.wrapper}>
-		<M.Pane noPadding>
-			<div className={s.container}>
-				<M.Table
-					rows={ROBOTS}
-					columns={getColumns()}
-					rowKey={(robot) => robot.id}
-					expandRowRender={(robot) => <Note robot={robot} />}
-					fixed={{ header: true, firstColumn: true }}
-				/>
-			</div>
-		</M.Pane>
-	</div>
-);
+export const GalleryTable = (): JSX.Element => {
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	const table = (
+		<M.Table
+			rows={ROBOTS}
+			columns={getColumns()}
+			rowKey={(robot) => robot.id}
+			expandable={{ render: (robot) => <Note robot={robot} /> }}
+			selectable={{ selected, setSelected }}
+			fixed={{ header: true, firstColumn: true }}
+		/>
+	);
+	return (
+		<div className={s.wrapper}>
+			<M.Pane noPadding>
+				<div className={s.container} children={table} />
+			</M.Pane>
+		</div>
+	);
+};

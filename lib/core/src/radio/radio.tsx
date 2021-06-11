@@ -86,9 +86,12 @@ export const Radio = (props: RadioProps): JSX.Element => {
 			<span className={[shared.icon, style.icon, self.icon].join(" ")}>
 				<Icon display="block" component={coreIcons.dot} />
 			</span>
-			<span className={[shared.label, style.label].join(" ")}>
-				{props.children}
-			</span>
+			{props.children !== null && (
+				<span
+					className={[shared.label, style.label].join(" ")}
+					children={props.children}
+				/>
+			)}
 		</label>
 	);
 };
