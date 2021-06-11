@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import s from "./utils.module.css";
 
 const portalContainer: { current: null | HTMLElement } = { current: null };
 
@@ -12,3 +13,7 @@ export const getPortalContainer = (): HTMLElement => {
 };
 
 export type SetState<T> = Dispatch<SetStateAction<T>>;
+
+export const utilStyles = {
+	srOnly: s.srOnly,
+};

@@ -1,10 +1,11 @@
-import { ForwardedRef, ReactNode } from "react";
-import { Icon } from "../icon/icon";
-import { outline } from "../outline/outline";
-import self from "./radio.module.css";
-import shared from "../checkbox/shared.module.css";
-import { coreIcons } from "../icons/icons";
+import { ForwardedRef } from "react";
 import { Checkbox } from "../checkbox/checkbox";
+import shared from "../checkbox/shared.module.css";
+import { Icon } from "../icon/icon";
+import { coreIcons } from "../icons/icons";
+import { outline } from "../outline/outline";
+import { utilStyles } from "../utils/utils";
+import self from "./radio.module.css";
 
 export interface RadioProps {
 	/**
@@ -23,9 +24,25 @@ export interface RadioProps {
 	 */
 	value: string;
 	/**
-	 * The label for the radio.
+	 * The label of the checkbox. This accepts ReactNode so you can have custom
+	 * markup.
+	 *
+	 * We intentionally exclude the falsy values here (e.g. "null", "false").
+	 * To ensure good accessibility, always define a label for your checkbox,
+	 * even if you don't want to display it (see the "hideLabel" prop).
 	 */
-	children: ReactNode;
+	children: Exclude<React.ReactNode, null | false | undefined>;
+	/**
+	 * Hide the label visually, but still leaving it accessible for screen
+	 * readers. For sighted users, this displays just the box. For unsighted,
+	 * it works like a normal checkbox.
+	 *
+	 * See the [`selectable`][1] prop of the Table component for a real-life
+	 * example.
+	 *
+	 * [1]: /docs/components-table--selectable-multiple
+	 */
+	hideLabel?: boolean;
 	/**
 	 * The [HTML `disabled`][1] attribute. If true, it prevents users from
 	 * interacting with the radio button.
@@ -86,12 +103,14 @@ export const Radio = (props: RadioProps): JSX.Element => {
 			<span className={[shared.icon, style.icon, self.icon].join(" ")}>
 				<Icon display="block" component={coreIcons.dot} />
 			</span>
-			{props.children !== null && (
-				<span
-					className={[shared.label, style.label].join(" ")}
-					children={props.children}
-				/>
-			)}
+			<span
+				className={[
+					shared.label,
+					style.label,
+					props.hideLabel ? utilStyles.srOnly : "",
+				].join(" ")}
+				children={props.children}
+			/>
 		</label>
 	);
 };
