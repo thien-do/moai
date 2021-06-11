@@ -1,0 +1,97 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "array",
+	"minItems": 20,
+	"maxItems": 20,
+	"items": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"faker": "random.uuid",
+				"maxLength": 8
+			},
+			"title": {
+				"type": "string",
+				"chance": {
+					"pickone": [
+						[
+							"To Kill a Mockingbird",
+							"Pride and Prejudice",
+							"The Diary of Anne Frank",
+							"1984",
+							"Harry Potter and the Sorcerer's Stone",
+							"The Lord of the Rings",
+							"The Great Gatsby",
+							"Charlotte's Web",
+							"The Hobbit",
+							"Little Women",
+							"Fahrenheit 451",
+							"Jane Eyre",
+							"Animal Farm",
+							"Gone with the Wind",
+							"The Catcher in the Rye",
+							"The Book Thief",
+							"The Adventures of Huckleberry Finn",
+							"The Hunger Games",
+							"The Help",
+							"The Lion, the Witch, and the Wadrobe"
+						]
+					]
+				},
+				"uniqueItems": true
+			},
+			"cover": {
+				"type": "string",
+				"faker": "image.city"
+			},
+			"authorID": {
+				"type": "string",
+				"faker": "random.uuid",
+				"maxLength": 8
+			},
+			"authorName": {
+				"type": "object",
+				"properties": {
+					"firstName": {
+						"type": "string",
+						"faker": "name.firstName"
+					},
+					"lastName": {
+						"type": "string",
+						"faker": "name.lastName"
+					}
+				},
+				"required": ["firstName", "lastName"]
+			},
+			"authorPhoto": {
+				"type": "string",
+				"faker": "image.people"
+			},
+			"numberOfPages": {
+				"type": "integer",
+				"minimum": 200,
+				"maximum": 1000
+			},
+			"price": {
+				"type": "string",
+				"faker": {
+					"finance.amount": [5, 1000, 2, "$"]
+				}
+			},
+			"rating": {
+				"type": "string",
+				"faker": {
+					"finance.amount": [0, 5, 1, ""]
+				}
+			},
+			"note": {
+				"type": "string",
+				"faker": "lorem.paragraph",
+				"maxLength": 100
+			}
+		},
+		"additionalProperties": false,
+		"minProperties": 10
+	}
+}
