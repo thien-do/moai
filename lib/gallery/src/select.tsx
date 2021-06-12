@@ -2,6 +2,7 @@ import * as M from "../../core/src";
 import s from "./styles.module.css";
 import { MATERIALS } from "./table/robots";
 import { GoSearch } from "react-icons/go";
+import { Shot } from "./shot/shot";
 
 const materialOptions: M.SelectOption<string>[] = MATERIALS.map((material) => {
 	const option = M.Select.toStringOption(material);
@@ -29,9 +30,8 @@ const base: M.SelectProps<string> = {
 };
 
 const Column = ({ style }: ColumnProps): JSX.Element => (
-	<div className={s.flex1}>
+	<div className={[s.col, s.rows].join(" ")}>
 		<M.Select {...base} style={style} />
-		<M.DivPx size={8} />
 		<M.Select {...base} style={style} disabled />
 	</div>
 );
@@ -65,15 +65,14 @@ const Group = (): JSX.Element => {
 };
 
 export const GallerySelect = (): JSX.Element => (
-	<div>
-		<div className={s.flex}>
-			<Column style={M.Select.styles.outset} />
-			<M.DivPx size={8} />
-			<Column style={M.Select.styles.flat} />
+	<Shot>
+		<div className={s.rows}>
+			<div className={s.cols}>
+				<Column style={M.Select.styles.outset} />
+				<Column style={M.Select.styles.flat} />
+			</div>
+			<Group />
+			<Full />
 		</div>
-		<M.DivPx size={8} />
-		<Group />
-		<M.DivPx size={8} />
-		<Full />
-	</div>
+	</Shot>
 );

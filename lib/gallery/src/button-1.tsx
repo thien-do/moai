@@ -1,5 +1,6 @@
 import { Button, ButtonProps } from "../../core/src";
 import { Shot } from "./shot/shot";
+import s from "./styles.module.css";
 
 const base: ButtonProps = {
 	children: "Text",
@@ -32,7 +33,7 @@ export const GalleryButton1 = (): JSX.Element => (
 			<Row busy />
 			<Row selected />
 			<Row disabled />
-			<div style={{ gridColumn: "1 / -1" }}>
+			<div className={s.colFull}>
 				<Button fill children="Full width" />
 			</div>
 		</div>

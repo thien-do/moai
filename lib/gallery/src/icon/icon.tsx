@@ -23,7 +23,6 @@ const icons: [IconComponent, string][] = [
 	[FcHome, "Flat Color"],
 	[FaHome, "Font Awesome"],
 	[GoHome, "GitHub Octicons"],
-	[GrHome, "Grommet"],
 	[HiOutlineHome, "Heroicons"],
 	[ImHome, "IcoMoon"],
 	[IoHomeOutline, "Ionicons"],

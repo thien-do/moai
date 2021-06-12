@@ -8,6 +8,7 @@ export const GalleryToast = (): JSX.Element => {
 	const success = (
 		<div className={s.rows}>
 			<Button
+				fill
 				onClick={() => toast(toast.types.success, "Post published")}
 				children="Toast Success"
 			/>
@@ -21,6 +22,7 @@ export const GalleryToast = (): JSX.Element => {
 	const failure = (
 		<div className={s.rows}>
 			<Button
+				fill
 				onClick={() => toast(toast.types.failure, "Cannot publish")}
 				children="Toast Failure"
 			/>
@@ -42,8 +44,8 @@ export const GalleryToast = (): JSX.Element => {
 		<Shot>
 			<div className={s.rows}>
 				<div className={s.cols}>
-					{success}
-					{failure}
+					<div className={s.col} children={success} />
+					<div className={s.col} children={failure} />
 				</div>
 				{multiline}
 			</div>
