@@ -1,6 +1,6 @@
 {
 	"name": "@moai/gallery",
-	"version": "1.0.0-rc15",
+	"version": "1.0.1",
 	"description": "Widget Gallery of Moai 🗿",
 	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
