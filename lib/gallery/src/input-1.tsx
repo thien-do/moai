@@ -3,7 +3,7 @@ import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 
 const Column = ({ style }: { style: InputStyle }): JSX.Element => (
-	<div className={[s.rows, s.col].join(" ")}>
+	<div className={[s.col, s.rows].join(" ")}>
 		<Input style={style} defaultValue="Text box" />
 		<Input style={style} defaultValue="" placeholder="Placeholder" />
 		<Input style={style} defaultValue="Read-only" readOnly />

@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/react";
 import { ProgressCircle, ProgressCircleProps } from "../../../core/src";
+import { GalleryProgress } from "../../../gallery/src/progress";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -14,7 +15,7 @@ const meta: Meta = {
 
 Utils.page.component(meta, {
 	primary: "sticky",
-	shots: [],
+	shots: [<GalleryProgress key="1" />],
 });
 
 export default meta;
