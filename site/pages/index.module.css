@@ -3,6 +3,13 @@
 	margin: auto;
 }
 
-.gallery {
+.body {
 	padding: 0 16px 64px;
+}
+
+.toolbar {
+	margin-bottom: 32px;
+	position: sticky;
+	top: 0;
+	z-index: var(--z-overlay-base);
 }
