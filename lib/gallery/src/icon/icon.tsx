@@ -5,7 +5,6 @@ import { FiHome } from "react-icons/fi";
 import { FcHome } from "react-icons/fc";
 import { FaHome } from "react-icons/fa";
 import { GoHome } from "react-icons/go";
-import { GrHome } from "react-icons/gr";
 import { HiOutlineHome } from "react-icons/hi";
 import { ImHome } from "react-icons/im";
 import { IoHomeOutline } from "react-icons/io5";
