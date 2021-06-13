@@ -1,4 +1,4 @@
-import "./style/style";
+import "./global/global.css";
 
 export * from "./background/background";
 export * from "./border/border";
