@@ -23,7 +23,8 @@ const SelectableCheckbox = (props: PropsMultiple): JSX.Element => {
 		<Checkbox
 			checked={selected.has(rowKey)}
 			setChecked={setChecked}
-			children={null}
+			children={`Select ${rowKey}`}
+			hideLabel
 		/>
 	);
 };
@@ -39,7 +40,8 @@ const SelectableRadio = (props: PropsSingle): JSX.Element => {
 			checked={selected === rowKey}
 			value={rowKey}
 			setValue={setSelected}
-			children={null}
+			children={`Select ${rowKey}`}
+			hideLabel
 		/>
 	);
 };

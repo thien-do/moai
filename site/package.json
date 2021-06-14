@@ -9,10 +9,10 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@moai/core": "1.0.0-rc12",
-		"@moai/gallery": "1.0.0-rc12",
-		"@types/node": "15.6.1",
-		"@types/react": "17.0.8",
+		"@moai/core": "1.0.0-rc16",
+		"@moai/gallery": "1.0.0-rc15",
+		"@types/node": "15.12.2",
+		"@types/react": "17.0.11",
 		"next": "10.2.3",
 		"next-themes": "0.0.14",
 		"react": "17.0.2",

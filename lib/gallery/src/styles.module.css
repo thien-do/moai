@@ -2,25 +2,12 @@
 	display: flex;
 }
 
-.colFull {
-	grid-column: 1/-1;
-}
-
-.flex1 {
-	flex: 1 1 0px;
-}
-
-.flexWrap {
+.wrap {
 	flex-wrap: wrap;
-}
-
-.p4 {
-	padding: 4px;
 }
 
 .cols {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 8px;
 }
 
@@ -32,4 +19,8 @@
 
 .col {
 	flex: 1 1 0px;
+}
+
+.colFull {
+	grid-column: 1/-1;
 }

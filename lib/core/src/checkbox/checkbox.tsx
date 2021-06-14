@@ -6,6 +6,7 @@ import self from "./checkbox.module.css";
 import shared from "./shared.module.css";
 import outset from "./outset.module.css";
 import { border } from "../border/border";
+import { utilStyles } from "../utils/utils";
 
 interface CheckboxStyle {
 	input: string;
@@ -49,9 +50,25 @@ export interface CheckboxProps {
 	// Body
 
 	/**
-	 * The label of the checkbox.
+	 * The label of the checkbox. This accepts ReactNode so you can have custom
+	 * markup.
+	 *
+	 * We intentionally exclude the falsy values here (e.g. "null", "false").
+	 * To ensure good accessibility, always define a label for your checkbox,
+	 * even if you don't want to display it (see the "hideLabel" prop).
 	 */
-	children: React.ReactNode;
+	children: Exclude<React.ReactNode, null | false | undefined>;
+	/**
+	 * Hide the label visually, but still leaving it accessible for screen
+	 * readers. For sighted users, this displays just the box. For unsighted,
+	 * it works like a normal checkbox.
+	 *
+	 * See the [`selectable`][1] prop of the Table component for a real-life
+	 * example.
+	 *
+	 * [1]: /docs/components-table--selectable-multiple
+	 */
+	hideLabel?: boolean;
 	/**
 	 * The [HTML `disabled`][1] attribute of the underlying input element. If
 	 * set to `true`, this prevents users from interacting with the checkbox.
@@ -134,12 +151,14 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 				)}
 				children={<Icon display="block" component={coreIcons.dash} />}
 			/>
-			{props.children !== null && (
-				<span
-					className={[shared.label, style.label].join(" ")}
-					children={props.children}
-				/>
-			)}
+			<span
+				className={[
+					shared.label,
+					style.label,
+					props.hideLabel ? utilStyles.srOnly : "",
+				].join(" ")}
+				children={props.children}
+			/>
 		</label>
 	);
 };

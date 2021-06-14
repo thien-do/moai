@@ -15,7 +15,7 @@ export interface RadioOption<T> {
 	/**
 	 * The label of the option.
 	 */
-	label: React.ReactNode;
+	label: Exclude<React.ReactNode, null | false | undefined>;
 }
 
 interface Props<T> {

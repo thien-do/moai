@@ -59,10 +59,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
 
-"@moai/core@1.0.0-rc12":
-  version "1.0.0-rc12"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-1.0.0-rc12.tgz#c30242a96d7c67c1ad58a014249410f3ed65cd10"
-  integrity sha512-Zo0RklXj/muLMVB4QDTBTwZyDJEw6H0b2gfmasIGp4dwA/vcUp7pUj3F2DRZjemPWSXSO/orbRDqiaM2q+NuMA==
+"@moai/core@1.0.0-rc16":
+  version "1.0.0-rc16"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-1.0.0-rc16.tgz#fc9425f75d7fcf45e0f5028525e63e96eae6be16"
+  integrity sha512-gJOW7fNes55PjUiMUIuiAWyE0MNfxD9qWYHxy8nnAXbb7iegIfASK2UZNqvqyS8lmSP5LOCGlDeeIJ0+rxCMlQ==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@tippyjs/react" "^4.2.5"
@@ -71,10 +71,10 @@
     react-icons "^4.2.0"
     react-popper "^2.2.5"
 
-"@moai/gallery@1.0.0-rc12":
-  version "1.0.0-rc12"
-  resolved "https://registry.yarnpkg.com/@moai/gallery/-/gallery-1.0.0-rc12.tgz#d4ba6e31b5b9d3d3d0d4b912929fec01fcdcf64e"
-  integrity sha512-k2PU87rNq0DygI0ucjQtTAcC90DniSioaipCxHVKhjGFRZzbKxb5AK31yEtNwM3w8X9YkPutJPPMi4SPYG2HaQ==
+"@moai/gallery@1.0.0-rc15":
+  version "1.0.0-rc15"
+  resolved "https://registry.yarnpkg.com/@moai/gallery/-/gallery-1.0.0-rc15.tgz#5158bcb2f3e64dc34e4063f129a9a93009f6751d"
+  integrity sha512-CAPcRqU3q93sc7/Z0xIWAsWcCR1qPlgbSOyA+BMmjKSxVHGwW7fbjjEW28ajWyYdLevaiboiIuSSa+xJdMaSTQ==
 
 "@next/env@10.2.3":
   version "10.2.3"
@@ -142,20 +142,20 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"
   integrity sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
 
-"@types/node@15.6.1":
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
-  integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
+"@types/node@15.12.2":
+  version "15.12.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
+  integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
 
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/react@17.0.8":
-  version "17.0.8"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.8.tgz#fe76e3ba0fbb5602704110fd1e3035cf394778e3"
-  integrity sha512-3sx4c0PbXujrYAKwXxNONXUtRp9C+hE2di0IuxFyf5BELD+B+AXL8G7QrmSKhVwKZDbv0igiAjQAMhXj8Yg3aw==
+"@types/react@17.0.11":
+  version "17.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.11.tgz#67fcd0ddbf5a0b083a0f94e926c7d63f3b836451"
+  integrity sha512-yFRQbD+whVonItSk7ZzP/L+gPTJVBkL/7shLEF+i9GC/1cV3JmUxEQz6+9ylhUpWSDuqo1N9qEvqS6vTj4USUA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

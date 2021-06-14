@@ -40,12 +40,12 @@ const Toggle = (): JSX.Element => {
 
 const Row2 = (): JSX.Element => (
 	<div className={s.cols}>
-		<div className={[s.rows, s.flex1].join(" ")}>
+		<div className={[s.col, s.rows].join(" ")}>
 			<Button icon={Go.GoPlus} size={ss.large} children="Large" />
 			<Button icon={Go.GoPlus} size={ss.medium} children="Medium" />
 			<Button icon={Go.GoPlus} size={ss.small} children="Small" />
 		</div>
-		<div className={[s.rows, s.flex1].join(" ")}>
+		<div className={[s.col, s.rows].join(" ")}>
 			<Toggle />
 			<Busy />
 			<Button

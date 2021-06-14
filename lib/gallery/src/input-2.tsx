@@ -21,7 +21,7 @@ const Group = ({ disabled }: { disabled: boolean }): JSX.Element => {
 export const GalleryInput2 = (): JSX.Element => (
 	<Shot>
 		<div className={s.cols}>
-			<div className={[s.rows, s.col].join(" ")}>
+			<div className={[s.col, s.rows].join(" ")}>
 				<Input
 					placeholder="Autocomplete"
 					list={{ id: "materials", values: MATERIALS }}
@@ -30,7 +30,7 @@ export const GalleryInput2 = (): JSX.Element => (
 				<Input size={ss.medium} placeholder="Medium" />
 				<Input size={ss.small} placeholder="Small" />
 			</div>
-			<div className={[s.rows, s.col].join(" ")}>
+			<div className={[s.col, s.rows].join(" ")}>
 				<Input type="date" />
 				<Input icon={GoSearch} placeholder="With icon" />
 				<Group disabled={false} />

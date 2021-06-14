@@ -7,9 +7,9 @@ const getColor = (color: string): string => {
 };
 
 export const GalleryTag = (): JSX.Element => (
-	<div className={[s.flex, s.flexWrap].join(" ")} style={{ margin: "-4" }}>
+	<div className={[s.cols, s.wrap].join(" ")}>
 		{Object.keys(Tag.colors).map((color) => (
-			<div key={color} className={s.p4}>
+			<div key={color}>
 				<Tag color={getColor(color)} children={color} />
 			</div>
 		))}

@@ -1,7 +1,7 @@
 import { Pagination } from "../../../core/src";
 import { useCallback, useState } from "react";
 
-export const GallerySelectionPagination = (): JSX.Element => {
+export const GallerPagination = (): JSX.Element => {
 	const [page, setPage_] = useState(5);
 	const setPage = useCallback((page): Promise<void> => {
 		return new Promise((resolve) => {

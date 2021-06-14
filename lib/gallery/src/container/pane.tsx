@@ -15,7 +15,7 @@ const items2: M.MenuItemProps[] = [
 ];
 
 const PopoverColumn = () => (
-	<div className={s.flex1}>
+	<div className={s.col}>
 		<M.Popover
 			content={() => <div>Hello!</div>}
 			target={(popover) => (
@@ -37,7 +37,7 @@ const PopoverColumn = () => (
 );
 
 const MenuColumn = () => (
-	<div className={s.flex1}>
+	<div className={s.col}>
 		<M.ButtonMenu
 			items={items2}
 			button={{ fill: true, children: "Open menu" }}
@@ -49,9 +49,8 @@ const MenuColumn = () => (
 );
 
 export const GalleryContainerPane = (): JSX.Element => (
-	<div className={s.flex}>
+	<div className={s.cols}>
 		<PopoverColumn />
-		<M.DivPx size={16} />
 		<MenuColumn />
 	</div>
 );

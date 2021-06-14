@@ -1,17 +1,17 @@
-import { DivPx, scrollbar } from "../../core/src";
+import { scrollbar } from "../../core/src";
 import { GalleryButton1 } from "./button-1";
 import { GalleryButton2 } from "./button-2";
 import { GalleryContainerPane } from "./container/pane";
 import { GalleryDialog } from "./dialog";
-import { GalleryFeedbackProgress } from "./feedback/progress";
+import { GalleryProgress } from "./progress";
 import { GalleryTag } from "./tag";
 import { GalleryToast } from "./toast";
-import { GalleryFeedbackTooltip } from "./feedback/tooltip";
+import { GalleryTooltip } from "./tooltip";
 import { GalleryInput1 } from "./input-1";
 import { GalleryInput2 } from "./input-2";
 import { GallerySection } from "./section/section";
-import { GallerySelectionCheckbox } from "./selection/checkbox";
-import { GallerySelectionPagination } from "./selection/pagination";
+import { GalleryCheckbox } from "./checkbox";
+import { GallerPagination } from "./selection/pagination";
 import { GallerySelect } from "./select";
 import s from "./styles.module.css";
 import { GalleryTab1, GalleryTab2 } from "./tab";
@@ -21,55 +21,48 @@ import { GalleryIcon } from "./icon/icon";
 export { GallerySection };
 
 export const Gallery = (): JSX.Element => (
-	<div className={scrollbar.custom}>
+	<div className={[scrollbar.custom, s.rows].join(" ")} style={{ gap: 32 }}>
+		<GallerySection title="Icons">
+			<div className={s.colFull}>
+				<GalleryIcon />
+			</div>
+		</GallerySection>
 		<GallerySection title="Buttons">
 			<GalleryButton1 />
 			<GalleryButton2 />
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Text fields">
 			<GalleryInput1 />
 			<GalleryInput2 />
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Selection controls">
-			<div>
+			<div className={s.rows}>
 				<GallerySelect />
-				<DivPx size={8} />
-				<GallerySelectionPagination />
+				<GallerPagination />
 			</div>
-			<GallerySelectionCheckbox />
+			<GalleryCheckbox />
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Feedback">
-			<GalleryToast />
-			<GalleryFeedbackTooltip />
-			<div>
+			<div className={s.rows} style={{ gap: 16 }}>
+				<GalleryToast />
 				<GalleryTag />
-				<DivPx size={16} />
-				<GalleryFeedbackProgress />
+			</div>
+			<div className={s.rows} style={{ gap: 16 }}>
+				<GalleryTooltip />
+				<GalleryProgress />
 			</div>
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Container">
 			<GalleryDialog />
 			<GalleryContainerPane />
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Tabs">
 			<GalleryTab1 />
 			<GalleryTab2 />
 		</GallerySection>
-		<DivPx size={32} />
 		<GallerySection title="Table">
 			<div className={s.colFull}>
 				<GalleryTable />
-			</div>
-		</GallerySection>
-		<DivPx size={32} />
-		<GallerySection title="Icon">
-			<div className={s.colFull}>
-				<GalleryIcon />
 			</div>
 		</GallerySection>
 	</div>
