@@ -255,30 +255,6 @@ prop.
 `,
 });
 
-export const SelectableMultiple = (): JSX.Element => {
-	const [selected, setSelected] = useState<Set<string>>(new Set());
-	return (
-		<Table<Book>
-			rows={someBooks}
-			rowKey={bookKey}
-			columns={bookColumns}
-			selectable={{ selected, setSelected }}
-		/>
-	);
-};
-
-Utils.story(SelectableMultiple, {
-	desc: `
-To choose multiple rows from the table, user can use the \`selectable\` prop.
-If it is defined, a [checkbox][1] will be displayed on each row. This prop requires an object 
-that contain the key of selected rows and a callback to set selected rows. 
-These requirement can be achieved via [the State Hook][2].
-
-[1]: https://docs.moaijs.com/?path=/docs/components-checkbox--primary
-[2]: https://reactjs.org/docs/hooks-state.html
-`,
-});
-
 export const SelectableSingle = (): JSX.Element => {
 	const [selected, setSelected] = useState<string>("");
 	const radioGroupName = "single-selectable-demo";
@@ -294,11 +270,38 @@ export const SelectableSingle = (): JSX.Element => {
 
 Utils.story(SelectableSingle, {
 	desc: `
-Moai also provides user with single choice option. By adding the keyword
-\`radioGroupName\` to the object, checkboxes will be replaced by [radio buttons][1],
-assure that user can only choose one row from table's rows.
+To let users select only one row from the table, provide the \`selectable\` prop.
+This prop requires a key of selected rows and a callback to set selected rows.
+These requirement can be achieved via [the State Hook][1]. If the key is a
+string, a [radio button][2] will be display on each row. Then, a name for radio
+group must be define via \`radioGroupName\` to assure that user can only choose
+one row at a time.
 
-[1]: https://docs.moaijs.com/?path=/docs/components-radio--primary
+[1]: https://reactjs.org/docs/hooks-state.html
+[2]: https://docs.moaijs.com/?path=/docs/components-radio--primary
+`,
+});
+
+export const SelectableMultiple = (): JSX.Element => {
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	return (
+		<Table<Book>
+			rows={someBooks}
+			rowKey={bookKey}
+			columns={bookColumns}
+			selectable={{ selected, setSelected }}
+		/>
+	);
+};
+
+Utils.story(SelectableMultiple, {
+	desc: `
+Moai also provides you with multiple choice option by using \`selectable\`
+prop but this time, \`radioGroupName\` is not nescessary. For the key of this
+prop, provide it with a Set of string will make a [checkbox][1] displayed
+on each row.
+
+[1]: https://docs.moaijs.com/?path=/docs/components-checkbox--primary
 `,
 });
 
@@ -344,9 +347,9 @@ export const RowClassName = (): JSX.Element => {
 
 Utils.story(RowClassName, {
 	desc: `
-Moai table provides user with \`RowClassName\` prop. This prop receives a
-function with parameters \`row\` and \`index\` then it returns the custom
-classname for given rows.
+You can set a class name for a table's rows via the \`rowClassName\` prop. This
+prop receives a function with parameters \`row\` and \`index\` then it returns
+the custom classname for given rows.
 `,
 });
 
