@@ -26,16 +26,19 @@ See: https://github.com/tailwindlabs/tailwindcss/issues/4211 */
 	display: flex;
 }
 
-.materials {
-	display: flex;
+.subjects {
+	width: 300px;
+	white-space: pre-wrap;
 }
 
 .overview {
 	display: flex;
 	align-items: center;
+	width: 200px;
+	white-space: pre-wrap;
 }
 
-.mac {
+.author {
 	display: flex;
 	align-items: center;
 }
