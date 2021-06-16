@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import * as M from "../../../core/src";
 import { Book, BOOKS } from "../example/normalizedBooks";
 import s from "./table.module.css";
-import { GoSearch, GoMail } from "react-icons/go";
+import { GoSearch } from "react-icons/go";
 
 interface RowProps {
 	book: Book;
