@@ -255,18 +255,6 @@ prop.
 `,
 });
 
-export const SelectableMultiple = (): JSX.Element => {
-	const [selected, setSelected] = useState<Set<string>>(new Set());
-	return (
-		<Table<Book>
-			rows={someBooks}
-			rowKey={bookKey}
-			columns={bookColumns}
-			selectable={{ selected, setSelected }}
-		/>
-	);
-};
-
 export const SelectableSingle = (): JSX.Element => {
 	const [selected, setSelected] = useState<string>("");
 	const radioGroupName = "single-selectable-demo";
@@ -279,6 +267,43 @@ export const SelectableSingle = (): JSX.Element => {
 		/>
 	);
 };
+
+Utils.story(SelectableSingle, {
+	desc: `
+To let users select only one row from the table, provide the \`selectable\` prop.
+This prop requires a key of selected rows and a callback to set selected rows.
+These requirement can be achieved via [the State Hook][1]. If the key is a
+string, a [radio button][2] will be display on each row. Then, a name for radio
+group must be define via \`radioGroupName\` to assure that user can only choose
+one row at a time.
+
+[1]: https://reactjs.org/docs/hooks-state.html
+[2]: https://docs.moaijs.com/?path=/docs/components-radio--primary
+`,
+});
+
+export const SelectableMultiple = (): JSX.Element => {
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	return (
+		<Table<Book>
+			rows={someBooks}
+			rowKey={bookKey}
+			columns={bookColumns}
+			selectable={{ selected, setSelected }}
+		/>
+	);
+};
+
+Utils.story(SelectableMultiple, {
+	desc: `
+Moai also provides you with multiple choice option by using \`selectable\`
+prop but this time, \`radioGroupName\` is not nescessary. For the key of this
+prop, provide it with a Set of string will make a [checkbox][1] displayed
+on each row.
+
+[1]: https://docs.moaijs.com/?path=/docs/components-checkbox--primary
+`,
+});
 
 export const Size = (): JSX.Element => (
 	<Table<Book>
@@ -319,6 +344,14 @@ export const RowClassName = (): JSX.Element => {
 		</div>
 	);
 };
+
+Utils.story(RowClassName, {
+	desc: `
+You can set a class name for a table's rows via the \`rowClassName\` prop. This
+prop receives a function with parameters \`row\` and \`index\` then it returns
+the custom classname for given rows.
+`,
+});
 
 export const AllInOne = (): JSX.Element => {
 	const [selected, setSelected] = useState<Set<string>>(new Set());
