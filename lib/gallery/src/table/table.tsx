@@ -32,14 +32,6 @@ const Overview: Column = ({ book }: RowProps) => (
 	</div>
 );
 
-const PublishDateHeader = (): JSX.Element => (
-	<div>
-		<div>Publish</div>
-		<M.DivPx size={8} />
-		<M.Input type="date" placeholder="Search" />
-	</div>
-);
-
 const Subjects: Column = ({ book }: RowProps) => (
 	<div className={s.subjects}>
 		{book.subjects.map((subject) => (
