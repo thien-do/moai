@@ -13,6 +13,7 @@
 	},
 	"license": "MIT",
 	"homepage": "https://moaijs.com",
+	"email": "hi@moaijs.com",
 	"dependencies": {
 		"@babel/core": "^7.14.3",
 		"@storybook/addon-docs": "^6.3.0-beta.4",
