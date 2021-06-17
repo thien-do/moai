@@ -1,33 +1,37 @@
 import * as M from "../../core/src";
 import s from "./styles.module.css";
-import { MATERIALS } from "./table/robots";
+import { BOOKS } from "./example/normalizedBooks";
 import { GoSearch } from "react-icons/go";
 import { Shot } from "./shot/shot";
 
-const materialOptions: M.SelectOption<string>[] = MATERIALS.map((material) => {
-	const option = M.Select.toStringOption(material);
-	// Trying to be random here but still keep the same result between server
-	// and client render (thus no "Math.random")
-	option.disabled = material.length % 2 === 1;
-	return option;
-});
+const bookOptions: M.SelectOption<string>[] = [];
 
-materialOptions.unshift({
-	...M.Select.toStringOption("Select"),
-	disabled: true,
+function getBookList(array: M.SelectOption<string>[]) {
+	BOOKS.forEach((book) => {
+		if (book.title.length < 15) {
+			const option = M.Select.toStringOption(book.title);
+			option.disabled = option.label === "";
+			array.push(option);
+		}
+	});
+}
+
 getBookList(bookOptions);
 
 bookOptions.unshift({
+	...M.Select.toStringOption("Select"),
+	disabled: true,
+});
 
 const modelOptions: M.SelectOption<string>[] = (() => {
-	const arr = ["Posts", "Users", "Tags", "All"];
+	const arr = ["Title", "Author", "Publisher", "All"];
 	return arr.map(M.Select.toStringOption);
 })();
 
 type ColumnProps = Pick<M.SelectProps<unknown>, "style">;
 
 const base: M.SelectProps<string> = {
-	options: materialOptions,
+	options: bookOptions,
 	defaultValue: "Select",
 };
 
@@ -47,7 +51,7 @@ const Full = (): JSX.Element => (
 				value: "full",
 				disabled: true,
 			},
-			...materialOptions,
+			...bookOptions,
 		]}
 		defaultValue="full"
 		fill
