@@ -22,6 +22,7 @@
 		"url": "https://github.com/moaijs/moai/issues"
 	},
 	"homepage": "https://moaijs.com",
+	"email": "hi@moaijs.com",
 	"peerDependencies": {
 		"@moai/core": ">=0",
 		"react": ">=16",
