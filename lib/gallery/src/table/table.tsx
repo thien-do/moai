@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import * as M from "../../../core/src";
 import { Book, BOOKS } from "../example/normalizedBooks";
 import s from "./table.module.css";
-import { GoSearch, GoMail } from "react-icons/go";
+import { GoSearch } from "react-icons/go";
 
 interface RowProps {
 	book: Book;
@@ -32,18 +32,10 @@ const Overview: Column = ({ book }: RowProps) => (
 	</div>
 );
 
-const PublishDateHeader = (): JSX.Element => (
-	<div>
-		<div>Publish</div>
-		<M.DivPx size={8} />
-		<M.Input type="date" placeholder="Search" />
-	</div>
-);
-
 const Subjects: Column = ({ book }: RowProps) => (
 	<div className={s.subjects}>
 		{book.subjects.map((subject) => (
-			<Fragment key={subject}>{subject},</Fragment>
+			<Fragment key={subject}>{subject}, </Fragment>
 		))}
 	</div>
 );
@@ -68,7 +60,7 @@ const getColumns = (): M.TableColumn<Book>[] => [
 		render: (book) => <Overview book={book} />,
 	},
 	{
-		title: <PublishDateHeader />,
+		title: <SearchHeader children="Publish Date" />,
 		render: (book) => <PublishDate book={book} />,
 	},
 	{
@@ -76,12 +68,12 @@ const getColumns = (): M.TableColumn<Book>[] => [
 		render: (book) => <Author book={book} />,
 	},
 	{
-		title: <SearchHeader children="Publishers" />,
-		render: "publishers",
-	},
-	{
 		title: <SearchHeader children="Subject" />,
 		render: (book) => <Subjects book={book} />,
+	},
+	{
+		title: <SearchHeader children="Publishers" />,
+		render: "publishers",
 	},
 ];
 
