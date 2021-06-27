@@ -8,6 +8,8 @@ This guide is mainly for contributing code to Moai. For other types of contribut
 
 This is a guide to develop Moai itself. For guides to use Moai, e.g. to create your web apps with it, see [docs.moaijs.com](https://docs.moaijs.com).
 
+To understand the principles that drive the design and development of Moai, see the [Principles](https://docs.moaijs.com/?path=/docs/intro-principles--page) guide.
+
 ## Codebase overview
 
 |Path        |Project             |Framework    |

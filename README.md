@@ -1,133 +1,29 @@
-<h1 align="center">Moai UI Kit 🗿</h1>
+# Moai UI Kit 🗿
 
-A React component library, where buttons look like buttons.
+A React Component Library, Where Buttons Look Like Buttons.
 
--   Website: [moaijs.com](https://moaijs.com)
--   Document: [docs.moaijs.com](https://docs.moaijs.com)
+![Moai preview](https://user-images.githubusercontent.com/5953369/123528873-5b3de480-d715-11eb-8c02-50a04f2d83f9.png)
 
-![Moai](https://user-images.githubusercontent.com/30283022/117471857-7a748d00-af82-11eb-9fa1-cdb22db1ec16.png)
+- Website: [moaijs.com](https://moaijs.com)
+- Documentation: [docs.moaijs.com](https://docs.moaijs.com)
+- NPM: [@moai/core](http://npmjs.com/package/@moai/core)
+- License: [MIT](./LICENSE)
+	
+### Contributing
 
-# Install
+- [Contributing Overview](./.github/CONTRIBUTING.md): Report bugs, request features, write code and improve documentation.
+- [Design Principles](https://docs.moaijs.com/?path=/docs/intro-principles--page): The unique traits that lead Moai's design and development.
+- [Development](./.github/DEVELOP.md): Codebase overview and local development setup.
+- [Code of Conduct](./.github/CODE_OF_CONDUCT.md): How we treat each other.
 
-The [@moai/core] package is the basis of the Moai kit. It provides all basic
-components, from buttons to dialogs and tables, along with necessary CSS.
-Install it with your package manager:
+### Get in touch
 
-```
-yarn add @moai/core
-```
-
--   It has [react] and [react-dom] as peer dependencies, so make sure they are
-    installed. (Which is usually the case if you use a framework like [Next.js] or
-    [CRA].)
--   Moai is written entirely in TypeScript (strict mode!) so all typings are
-    bundled in the packages.
-
-[typing]: https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
-[react]: https://www.npmjs.com/package/react
-[react-dom]: https://www.npmjs.com/package/react-dom
-[@moai/core]: https://www.npmjs.com/package/@moai/core
-[next.js]: https://nextjs.org/
-[cra]: https://create-react-app.dev/
-
-# Setup
-
-There are a few things you need to do **once** before using Moai's components:
-
-## Styling
-
-Import Moai's CSS bundle at your app root. This contains CSS for all components
-in the "core" package.
-
-```tsx
-import "@moai/core/dist/bundle.css";
-```
-
--   In Next.js, use the [custom App]. In CRA, use `src/index`.
--   The bundled CSS contains a [simple reset], so it's best to not include
-    another one.
--   All CSS for components use [CSS Modules]. This means all class names are
-    scoped so you can use other class-based libraries like [Tailwind CSS] or
-    [Tachyons] without worrying about naming conflict.
-
-[simple reset]: https://github.com/moaijs/moai/blob/main/core/src/global.css
-[css modules]: https://github.com/css-modules/css-modules
-[tailwind css]: https://tailwindcss.com
-[tachyons]: https://tachyons.io/
-[custom app]: https://nextjs.org/docs/advanced-features/custom-app
-
-## Theme
-
-Moai comes with both light and dark themes out of the box. However, there is no
-default, so you must explicitly set a class on your `html` tag to specify the
-theme: either `light` or `dark`.
-
--   To avoid a [FOUC], ensure that your `html` tag has the class in the initial
-    render. This is usually done via a "template" file. In CRA, for example, set it
-    in [`public/index.html`].
--   In Next.js, we recommend the [`next-themes`] package. It allows your users
-    to change the theme, including a "system" option, without any flashing in
-    initial render.
-
-[custom document]: https://nextjs.org/docs/advanced-features/custom-document
-[`public/index.html`]: https://create-react-app.dev/docs/using-the-public-folder/#changing-the-html
-[fouc]: https://en.wikipedia.org/wiki/Flash_of_unstyled_content
-[`next-themes`]: https://github.com/pacocoursey/next-themes
-
-## Font (Optional)
-
-Out of the box, Moai uses [system fonts]. For example, on a modern Mac OS, you
-would see the [San Francisco] typeface. This requires no additional setup
-and is the best solution performance-wise.
-
-However, the for best visual result, we highly recommend the [Inter] typeface.
-To use it, just import the following CSS at your app's root, and Moai will use
-Inter instead:
-
-```tsx
-import "@moai/core/dist/font/remote.css";
-```
-
--   Moai uses the [variable] version of Inter. Check browser compatibility if you
-    need to support old browsers.
--   If your app cannot make network requests, replace "remote" with "local" in the
-    path above to use a bundled version of Inter. This may require a [special
-    setup].
--   It is NOT recommended to use the version on Google Fonts since it lost many
-    [OpenType features].
-
-[system fonts]: https://github.com/moaijs/moai/blob/d3c7c957016b0a8de7838c35fe309384154f9f40/core/src/global.css#L54-L55
-[san francisco]: https://en.wikipedia.org/wiki/San_Francisco_(sans-serif_typeface)
-[inter]: https://rsms.me/inter/
-[variable]: https://en.wikipedia.org/wiki/Variable_font
-[instruction]: https://rsms.me/inter/#usage
-[opentype features]: https://en.wikipedia.org/wiki/List_of_typographic_features
-[special setup]: https://webpack.js.org/guides/asset-management/#loading-fonts
-
-# Use the components
-
-After the setup, just import the components from the package to use. All
-components are exported at the top level:
-
-```tsx
-import { Button } from "@moai/core";
-
-export const Foo = (): JSX.Element => <Button>Hello</Button>;
-```
-
--   Moai is distributed with an [ES6 module] version. If you are using an
-    ES6-aware bundler (such as [Rollup] or [Webpack 2+]), your app won't contain
-    the whole Moai library but only the components that you used, which may
-    significantly reduce your app size.
-
-[es6 module]: https://github.com/rollup/rollup/wiki/pkg.module
-[rollup]: https://rollupjs.org/guide/en/
-[webpack 2+]: https://webpack.js.org/guides/tree-shaking/
-
-# Contributing
-
-(Updating...)
-
-# License
-
-This project is made available under the MIT License
+- Email: [hi@moaijs.com](mailto:hi@moaijs.com)
+	- For 1-1 support, security reports, business, etc.
+- Chat: [we-build-vn.slack.com](https://chat.webuild.community/)
+	- For community support, QAs, discussions, etc.
+	- Look for "webuild-oss" channel
+	- We speak English and Vietnamese
+- Repository: [moaijs/moai](https://github.com/moaijs/moai/issues)
+	- For bug reports, feature requests, code contribution, etc.
+	- See also: [Contributing Overview](./.github/CONTRIBUTING.md)

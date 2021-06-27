@@ -9,6 +9,8 @@ Thank you for your interest in contributing to Moai! There are many ways to cont
 
 ## Before you start
 
+To understand the principles that drive the design and development of Moai, see the [Principles](https://docs.moaijs.com/?path=/docs/intro-principles--page) guide.
+
 To get in touch with us, see the [Get in touch](../README.md#get-in-touch) section in the README. Whether you are stuck, or unsure about something, or just want to ask questions, we're more than happy to hear and help you.
 
 If you are just getting started with contributing open source (Thank you!), we recommend GitHub's [Open Source Guides](https://opensource.guide/how-to-contribute/) and Kent C. Dodds's [makeapullrequest.com]( https://makeapullrequest.com) to make yourself comfortable.
