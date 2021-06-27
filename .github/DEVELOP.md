@@ -12,12 +12,12 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Codebase overview
 
-|Path        |Project             |Framework    |
-|------------|--------------------|--------------|
-|lib/core    | [@moai/core]      | [Rollup]     |
-|lib/gallery | [@moai/gallery]   | [Rollup]     |
-|lib/docs    | [docs.moaijs.com] | [Storybook]  |
-|site        | [moaijs.com]      | [Next.js]    |
+| Path        | Project           | Framework   |
+| ----------- | ----------------- | ----------- |
+| lib/core    | [@moai/core]      | [Rollup]    |
+| lib/gallery | [@moai/gallery]   | [Rollup]    |
+| lib/docs    | [docs.moaijs.com] | [Storybook] |
+| site        | [moaijs.com]      | [Next.js]   |
 
 ## Local Development
 
@@ -49,6 +49,6 @@ This means you won't see changes you made in "lib/core" when working on the "sit
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
 [docs.moaijs.com]: https://docs.moaijs.com
 [moaijs.com]: https://moaijs.com
-[Storybook]: https://storybook.js.org
-[Next.js]: https://nextjs.org
-[Rollup]: https://rollupjs.org/guide/en/
+[storybook]: https://storybook.js.org
+[next.js]: https://nextjs.org
+[rollup]: https://rollupjs.org/guide/en/

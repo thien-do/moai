@@ -2,10 +2,10 @@
 
 Thank you for your interest in contributing to Moai! There are many ways to contribute, and we appreciate all of them:
 
-- [Bug Reports](#bug-reports)
-- [Feature Requests](#feature-requests)
-- [Pull Requests](#pull-requests)
-- [Documentation](#documentation)
+-   [Bug Reports](#bug-reports)
+-   [Feature Requests](#feature-requests)
+-   [Pull Requests](#pull-requests)
+-   [Documentation](#documentation)
 
 ## Before you start
 
@@ -13,11 +13,11 @@ To understand the principles that drive the design and development of Moai, see 
 
 To get in touch with us, see the [Get in touch](../README.md#get-in-touch) section in the README. Whether you are stuck, or unsure about something, or just want to ask questions, we're more than happy to hear and help you.
 
-If you are just getting started with contributing open source (Thank you!), we recommend GitHub's [Open Source Guides](https://opensource.guide/how-to-contribute/) and Kent C. Dodds's [makeapullrequest.com]( https://makeapullrequest.com) to make yourself comfortable.
+If you are just getting started with contributing open source (Thank you!), we recommend GitHub's [Open Source Guides](https://opensource.guide/how-to-contribute/) and Kent C. Dodds's [makeapullrequest.com](https://makeapullrequest.com) to make yourself comfortable.
 
 ## Bug Reports
 
-The recommended way to report bugs is to [create an issue](https://github.com/moaijs/moai/issues/new/choose) at Moai repo. You can also report bugs at [other communication channels](#). 
+The recommended way to report bugs is to [create an issue](https://github.com/moaijs/moai/issues/new/choose) at Moai repo. You can also report bugs at [other communication channels](#).
 
 Please report bugs liberally. If you're not sure if something is a bug or not, feel free to file a bug anyway. We're more than happy to clarify them for you.
 
@@ -37,11 +37,11 @@ To test your changes, you will need to setup Moai's local development. To get st
 
 After submitted, all pull requests are reviewed by Moai's maintainers and contributors. In fact, as a way to contribute, you are welcome to review others' PRs!
 
-In addition to human's reviews, your PRs also run through several [automated checks](https://docs.github.com/en/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks). These including checks for code style and some super useful [preview deployments]( https://vercel.com/docs/platform/deployments#preview).
+In addition to human's reviews, your PRs also run through several [automated checks](https://docs.github.com/en/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks). These including checks for code style and some super useful [preview deployments](https://vercel.com/docs/platform/deployments#preview).
 
 ## Documentation
 
-Documentation improvements are very welcome. We appreciate everything: a quick example, a link to clarify a term, or even typo fixes. 
+Documentation improvements are very welcome. We appreciate everything: a quick example, a link to clarify a term, or even typo fixes.
 
 Moai's documentation are just code in this repository. Documentation pull requests therefore follow the same process as other pull requests.
 
