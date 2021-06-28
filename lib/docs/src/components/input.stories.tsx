@@ -33,6 +33,7 @@ const meta: Meta = {
 		required: Utils.arg("boolean", "Attributes"),
 		readOnly: Utils.arg("boolean", "Attributes"),
 		autoFocus: Utils.arg(null, "Attributes"),
+		autoComplete: Utils.arg("string", "Attributes"),
 		"aria-label": Utils.arg(null, "Attributes"),
 		"aria-labelledby": Utils.arg(null, "Attributes"),
 

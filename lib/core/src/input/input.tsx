@@ -19,6 +19,8 @@ export interface InputSize {
 	mainColor: string;
 }
 
+type HTMLInput = React.InputHTMLAttributes<HTMLInputElement>;
+
 export interface InputProps {
 	/**
 	 * The [HTML `type`][1] attribute, such as "email", "password" or "date".
@@ -115,6 +117,13 @@ export interface InputProps {
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus
 	 */
 	autoFocus?: boolean;
+	/**
+	 * The [HTML `autoComplete`][1] attribute. If true, the input will have focus
+	 * on its initial render.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+	 */
+	autoComplete?: HTMLInput["autoComplete"];
 	/**
 	 * A text to label the input. Should use when there is no linked HTML
 	 * `label` element.
@@ -266,6 +275,7 @@ const inputRender = (
 				disabled={props.disabled}
 				placeholder={props.placeholder}
 				autoFocus={props.autoFocus}
+				autoComplete={props.autoComplete}
 				aria-label={props["aria-label"]}
 				aria-labelledby={props["aria-labelledby"]}
 				maxLength={props.maxLength}
