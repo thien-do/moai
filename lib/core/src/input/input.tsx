@@ -30,7 +30,7 @@ export interface InputProps
 	/**
 	 * The HTML type attribute, such as "email", "password" or "date".
 	 */
-	type?: HTMLInputProps["type"],
+	type?: HTMLInputProps["type"];
 	/**
 	 * Initial value of the input in uncontrolled mode.
 	 */
