@@ -3,6 +3,7 @@ import { border } from "../border/border";
 import { Icon, IconComponent } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { text } from "../text/text";
+import { omit } from "../utils/omit";
 import sFlat from "./flat.module.css";
 import s from "./input.module.css";
 import sOutset from "./outset.module.css";
@@ -19,35 +20,29 @@ export interface InputSize {
 	mainColor: string;
 }
 
-type HTMLInput = React.InputHTMLAttributes<HTMLInputElement>;
+type HTMLInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export interface InputProps {
+export interface InputProps
+	extends Omit<HTMLInputProps, "size" | "list" | "style"> {
+	// We intentionally re-define some props here even though they exist in
+	// HTMLInputProps so that we can have documentation for them
+
 	/**
-	 * The [HTML `type`][1] attribute, such as "email", "password" or "date".
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types
+	 * The HTML type attribute, such as "email", "password" or "date".
 	 */
-	type?: string;
-
-	// Uncontrolled
-
+	type?: HTMLInputProps["type"],
 	/**
 	 * Initial value of the input in uncontrolled mode.
 	 */
-	defaultValue?: string | number;
-
-	// Controlled
-
+	defaultValue?: HTMLInputProps["defaultValue"];
 	/**
 	 * Value of the input in controlled mode.
 	 */
 	value?: string;
-
 	/**
 	 * Callback to set the value in controlled mode.
 	 */
 	setValue?: (value: string) => void;
-
 	/**
 	 * Id of an [HTML `datalist`][1] element to be used with the Input. Can
 	 * also pass an object to let the Input component create the `datalist`
@@ -56,9 +51,6 @@ export interface InputProps {
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 	 */
 	list?: { id: string; values: string[] } | string;
-
-	// Style
-
 	/**
 	 * Icon in the input. See the [Icons guide][1] to learn more.
 	 *
@@ -73,127 +65,14 @@ export interface InputProps {
 	 * Size of the text box. Choose one from `Input.sizes`.
 	 */
 	size?: InputSize;
-
-	// Attributes
-
 	/**
-	 * The [HTML `id`][1] attribute of the Input
+	 * DO NOT USE THIS.
 	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
+	 * onChange is the raw prop, exists only for compatibility with 3rd-party
+	 * libraries (those that passing props to a custom component). For direct
+	 * usage, use `setValue`.
 	 */
-	id?: string;
-	/**
-	 * The [HTML `name`][1] attribute of the Input, usually used in forms
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname
-	 */
-	name?: string;
-	/**
-	 * The [HTML `disabled`][1] attribute. If true, users cannot select or
-	 * change the text. See also: "readOnly".
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-disabled
-	 */
-	disabled?: boolean;
-	/**
-	 * The [HTML `disabled`][1] attribute. If true, users can select text
-	 * inside the text box but cannot change it. This is only for inputs that
-	 * are rendered as text boxes.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-readonly
-	 */
-	readOnly?: boolean;
-	/**
-	 * The [HTML `placeholder`][1] attribute. A string to display inside the
-	 * text box when it is empty.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-placeholder
-	 */
-	placeholder?: string;
-	/**
-	 * The [HTML `autoFocus`][1] attribute. If true, the input will have focus
-	 * on its initial render.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus
-	 */
-	autoFocus?: boolean;
-	/**
-	 * The [HTML `autoComplete`][1] attribute. If true, the input will have focus
-	 * on its initial render.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
-	 */
-	autoComplete?: HTMLInput["autoComplete"];
-	/**
-	 * A text to label the input. Should use when there is no linked HTML
-	 * `label` element.
-	 */
-	"aria-label"?: string;
-	/**
-	 * Id of the element that labels the input. Useful when the labels don't
-	 * use the HTML `label` element.
-	 */
-	"aria-labelledby"?: string;
-	/**
-	 * The maximum number of characters of the text.
-	 */
-	maxLength?: number;
-	/**
-	 * The [HTML `required`][1] attribute. If true, a value is required before
-	 * form submission. This is based on HTML5's validation.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-required
-	 */
-	required?: boolean;
-
-	// Events
-
-	/**
-	 * The [HTML `onblur`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onblur
-	 */
-	onBlur?: React.FocusEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onfocus`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onfocus
-	 */
-	onFocus?: React.FocusEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onkeypress`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeypress
-	 */
-	onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onkeyup`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeyup
-	 */
-	onKeyUp?: React.KeyboardEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onkeydown`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
-	 */
-	onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onclick`][1] event handler.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
-	 */
-	onClick?: React.KeyboardEventHandler<HTMLInputElement>;
-	/**
-	 * The [HTML `onchange`][1] event handler.
-	 *
-	 * Note that you should not need to use onChange! This exists only for
-	 * compatibility with 3rd-party libraries (those that passing props to a
-	 * custom rendered component). You should use `setValue` most of the time.
-	 *
-	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange
-	 */
-	onChange?: React.ChangeEventHandler<HTMLInputElement>;
+	onChange?: HTMLInputProps["onChange"];
 }
 
 // This is actually ReturnType<typeof forwardRef>, but we don't know how to
@@ -244,42 +123,24 @@ const inputRender = (
 ): JSX.Element => {
 	validate(props);
 	const size = props.size ?? Input.sizes.medium;
+	const rawProps = omit(props, ["size", "style"]);
+
 	return (
 		<div className={s.container}>
 			<input
+				{...rawProps}
 				ref={ref}
-				// Value
-				type={props.type}
-				defaultValue={props.defaultValue}
 				value={props.value}
 				onChange={(event) => {
 					props.onChange?.(event);
 					props.setValue?.(event.currentTarget.value);
 				}}
-				// Event handlers
-				onBlur={props.onBlur}
-				onFocus={props.onFocus}
-				onKeyDown={props.onKeyDown}
-				onKeyPress={props.onKeyPress}
-				onKeyUp={props.onKeyUp}
-				// Properties
-				id={props.id}
-				name={props.name}
 				className={getClass(props)}
 				list={
 					typeof props.list === "string"
 						? props.list
 						: props.list?.id ?? undefined
 				}
-				readOnly={props.readOnly}
-				disabled={props.disabled}
-				placeholder={props.placeholder}
-				autoFocus={props.autoFocus}
-				autoComplete={props.autoComplete}
-				aria-label={props["aria-label"]}
-				aria-labelledby={props["aria-labelledby"]}
-				maxLength={props.maxLength}
-				required={props.required}
 			/>
 			{props.icon && (
 				<div className={[s.icon, text.muted, size.icon].join(" ")}>
