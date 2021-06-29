@@ -144,7 +144,7 @@ export const Fill = (): JSX.Element => (
 Utils.story(Fill, {
 	desc: `
 Similar to the HTML \`table\` element, the widths of Moai's tables depend on
-their content. To make them fill their container (i.e. like \`width: 100%\`}),
+their content. To make them fill their container (i.e. like \`width: 100%\`),
 set the \`fill\` prop to \`true\`. This is also how you should control the
 width of tables (via the width of their containers).
 `,
@@ -255,6 +255,32 @@ prop.
 `,
 });
 
+export const SelectableMultiple = (): JSX.Element => {
+	// Multiple selection
+	const [selected, setSelected] = useState<Set<string>>(new Set());
+	return (
+		<Table<Book>
+			rows={someBooks}
+			rowKey={bookKey}
+			columns={bookColumns}
+			selectable={{ selected, setSelected }}
+		/>
+	);
+};
+
+Utils.story(SelectableMultiple, {
+	name: "Selectable (Multiple)",
+	desc: `
+The \`selectable\` prop lets users select rows in a table. It expects an object
+that control the selection (a \`selected\` state and a \`setSelected\` callback
+to set the state). It supports both single and multiple selection, based on the
+type of the \`selected\` state:
+
+- \`selected: string\` if the users can only select one row
+- \`selected: Set<key>\` if the users can select several rows
+`,
+});
+
 export const SelectableSingle = (): JSX.Element => {
 	const [selected, setSelected] = useState<string>("");
 	const radioGroupName = "single-selectable-demo";
@@ -269,42 +295,13 @@ export const SelectableSingle = (): JSX.Element => {
 };
 
 Utils.story(SelectableSingle, {
+	name: "Selectable (Single)",
 	desc: `
-To let users select only one row from the table, provide the \`selectable\` prop.
-This prop requires a key of selected rows and a callback to set selected rows.
-These requirement can be achieved via [the State Hook][1]. If the key is a
-string, a [radio button][2] will be display on each row. Then, a name for radio
-group must be define via \`radioGroupName\` to assure that user can only choose
-one row at a time.
+As mentioned above, if the \`selected\` state is a string, then the users can only select a single row. In this case, Moai will render radio buttons instead of checkboxes, so the \`selectable\` prop also require a \`radioGroupName\` as the [name][1] for these radio buttons.
 
-[1]: https://reactjs.org/docs/hooks-state.html
-[2]: https://docs.moaijs.com/?path=/docs/components-radio--primary
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group
 `,
 });
-
-export const SelectableMultiple = (): JSX.Element => {
-	const [selected, setSelected] = useState<Set<string>>(new Set());
-	return (
-		<Table<Book>
-			rows={someBooks}
-			rowKey={bookKey}
-			columns={bookColumns}
-			selectable={{ selected, setSelected }}
-		/>
-	);
-};
-
-Utils.story(SelectableMultiple, {
-	desc: `
-Moai also provides you with multiple choice option by using \`selectable\`
-prop but this time, \`radioGroupName\` is not nescessary. For the key of this
-prop, provide it with a Set of string will make a [checkbox][1] displayed
-on each row.
-
-[1]: https://docs.moaijs.com/?path=/docs/components-checkbox--primary
-`,
-});
-
 export const Size = (): JSX.Element => (
 	<Table<Book>
 		size={Table.sizes.large}
@@ -347,10 +344,8 @@ export const RowClassName = (): JSX.Element => {
 
 Utils.story(RowClassName, {
 	desc: `
-You can set a class name for a table's rows via the \`rowClassName\` prop. This
-prop receives a function with parameters \`row\` and \`index\` then it returns
-the custom classname for given rows.
-`,
+The \`rowClassName\` lets you set a custom class for a table's rows. It expects
+a function that receives the current row and should return a class for it.`,
 });
 
 export const AllInOne = (): JSX.Element => {
