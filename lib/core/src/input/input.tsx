@@ -77,13 +77,13 @@ export interface InputProps
 
 // This is actually ReturnType<typeof forwardRef>, but we don't know how to
 // provide the type parameter to forwardRef. This is required to re-type the
-// Button component so that we can attach "Input.sizes" and "Input.styles"
-type ButtonPropsWithRef = InputProps & React.RefAttributes<HTMLInputElement>;
+// Input component so that we can attach "Input.sizes" and "Input.styles"
+type InputPropsWithRef = InputProps & React.RefAttributes<HTMLInputElement>;
 
 // Re-type the Input component since React's forwardRef returned type cannot
 // be extended with property like "Button.sizes"
 interface InputComponent
-	extends React.ForwardRefExoticComponent<ButtonPropsWithRef> {
+	extends React.ForwardRefExoticComponent<InputPropsWithRef> {
 	sizes: {
 		large: InputSize;
 		medium: InputSize;
