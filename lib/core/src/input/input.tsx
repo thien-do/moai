@@ -123,7 +123,15 @@ const inputRender = (
 ): JSX.Element => {
 	validate(props);
 	const size = props.size ?? Input.sizes.medium;
-	const rawProps = omit(props, ["size", "style"]);
+	const rawProps = omit(props, [
+		"size",
+		"style",
+		"setValue",
+		"icon",
+		"list",
+		"onChange",
+		"value",
+	]);
 
 	return (
 		<div className={s.container}>
