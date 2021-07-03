@@ -34,7 +34,7 @@ export interface InputProps
 	/**
 	 * Initial value of the input in uncontrolled mode.
 	 */
-	defaultValue?: HTMLInputProps["defaultValue"];
+	defaultValue?: string;
 	/**
 	 * Value of the input in controlled mode.
 	 */
@@ -123,14 +123,18 @@ const inputRender = (
 ): JSX.Element => {
 	validate(props);
 	const size = props.size ?? Input.sizes.medium;
+
+	// Omit custom props (and also props that we will handle ourselves)
 	const rawProps = omit(props, [
+		"list",
+		"className",
 		"size",
 		"style",
-		"setValue",
 		"icon",
-		"list",
-		"onChange",
+		"defaultValue",
 		"value",
+		"setValue",
+		"onChange",
 	]);
 
 	return (
@@ -138,6 +142,7 @@ const inputRender = (
 			<input
 				{...rawProps}
 				ref={ref}
+				defaultValue={props.defaultValue}
 				value={props.value}
 				onChange={(event) => {
 					props.onChange?.(event);
