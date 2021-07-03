@@ -1,6 +1,12 @@
 {
 	"name": "@moai/root",
+	"private": true,
 	"license": "MIT",
+	"workspaces": [
+		"docs",
+		"core",
+		"gallery"
+	],
 	"scripts": {
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
 		"lint-fix": "eslint --fix . && prettier --write ."
