@@ -3,7 +3,8 @@
 	"workspaces": [
 		"docs",
 		"core",
-		"gallery"
+		"gallery",
+		"tests"
 	],
 	"scripts": {
 		"postinstall": "cd .. && yarn"
