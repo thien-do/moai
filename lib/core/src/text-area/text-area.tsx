@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React from "react";
 import { Input, InputStyle } from "../input/input";
 import { outline } from "../outline/outline";
 import { omit } from "../utils/omit";
@@ -65,7 +65,7 @@ interface TextAreaComponent
 
 const renderTextArea = (
 	props: TextAreaProps,
-	ref: ForwardedRef<HTMLTextAreaElement>
+	ref: React.ForwardedRef<HTMLTextAreaElement>
 ): JSX.Element => {
 	const rawProps = omit(props, [
 		"className",
@@ -92,7 +92,7 @@ const renderTextArea = (
 	);
 };
 
-export const TextArea = forwardRef(renderTextArea) as TextAreaComponent;
+export const TextArea = React.forwardRef(renderTextArea) as TextAreaComponent;
 
 TextArea.styles = {
 	outset: Input.styles.outset,
