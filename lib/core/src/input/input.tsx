@@ -34,7 +34,7 @@ export interface InputProps
 	/**
 	 * Initial value of the input in uncontrolled mode.
 	 */
-	defaultValue?: HTMLInputProps["defaultValue"];
+	defaultValue?: string;
 	/**
 	 * Value of the input in controlled mode.
 	 */
@@ -131,6 +131,8 @@ const inputRender = (
 		"size",
 		"style",
 		"icon",
+		"defaultValue",
+		"value",
 		"setValue",
 		"onChange",
 	]);
@@ -140,6 +142,8 @@ const inputRender = (
 			<input
 				{...rawProps}
 				ref={ref}
+				defaultValue={props.defaultValue}
+				value={props.value}
 				onChange={(event) => {
 					props.onChange?.(event);
 					props.setValue?.(event.currentTarget.value);
