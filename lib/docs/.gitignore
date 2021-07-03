@@ -1,3 +1,2 @@
-.node_modules
-# Storybook's built
-public
+/node_modules
+/public
