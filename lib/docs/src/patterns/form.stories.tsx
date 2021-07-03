@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Button, DivPx, FormError, Input } from "../../../core/src";
+import { Button, FormError, Input, TextArea } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -25,9 +25,25 @@ builders (such as [Formik][1] and [React Hook Form][2]) out of the box.
 export default meta;
 
 interface FormValues {
-	email: string;
-	pass: string;
+	title: string;
+	message: string;
 }
+
+const ERRORS = {
+	titleRequired: "Title is required",
+	messageRequired: "Message is required",
+	messageLength: "Message must be longer than 5 characters",
+};
+
+const formStyles: CSSProperties = {
+	display: "flex",
+	flexDirection: "column",
+	gap: 16,
+};
+
+const SubmitButton = ({ busy }: { busy: boolean }): JSX.Element => (
+	<Button type="submit" highlight busy={busy} children="Submit" />
+);
 
 const postToServer = async (values: FormValues): Promise<void> => {
 	return new Promise((resolve) => {
@@ -44,47 +60,43 @@ export const Primary = (): JSX.Element => <div>Skipped</div>;
 export const FormikExample = (): JSX.Element => {
 	/* import { Input, Button, FormError } from "@moai/core" */
 
-	const email = (
-		<>
-			<label htmlFor="fm-email">Email</label>
-			<Field id="fm-email" type="email" name="email" as={Input} />
-			<ErrorMessage name="email" component={FormError} />
-		</>
+	const title = (
+		<div>
+			<label htmlFor="fm-title">Title</label>
+			<Field id="fm-title" type="text" name="title" as={Input} />
+			<ErrorMessage name="title" component={FormError} />
+		</div>
 	);
 
-	const password = (
-		<>
-			<label htmlFor="fm-pass">Password</label>
-			<Field id="fm-pass" type="password" name="pass" as={Input} />
-			<ErrorMessage name="pass" component={FormError} />
-		</>
+	const message = (
+		<div>
+			<label htmlFor="fm-message">Message</label>
+			<Field id="fm-message" name="message" as={TextArea} />
+			<ErrorMessage name="message" component={FormError} />
+		</div>
 	);
+
+	const validate = (values: FormValues): FormikErrors<FormValues> => {
+		const errors: FormikErrors<FormValues> = {};
+		if (!values.title) errors.title = ERRORS.titleRequired;
+		if (!values.message) errors.message = ERRORS.messageRequired;
+		if (values.message.length < 5) errors.message = ERRORS.messageLength;
+		return errors;
+	};
 
 	return (
 		<Formik<FormValues>
-			initialValues={{ email: "", pass: "" }}
-			validate={(values) => {
-				const errors: FormikErrors<FormValues> = {};
-				if (!values.email) errors.email = "Email is required";
-				if (!values.pass) errors.pass = "Password is required";
-				return errors;
-			}}
+			initialValues={{ title: "", message: "" }}
+			validate={validate}
 			onSubmit={async (values, { setSubmitting }) => {
 				await postToServer(values);
 				setSubmitting(false);
 			}}
 			children={({ isSubmitting: busy }) => (
-				<Form>
-					{email}
-					<DivPx size={16} />
-					{password}
-					<DivPx size={16} />
-					<Button
-						type="submit"
-						highlight
-						busy={busy}
-						children="Submit"
-					/>
+				<Form style={formStyles}>
+					{title}
+					{message}
+					<SubmitButton busy={busy} />
 				</Form>
 			)}
 		/>
@@ -130,36 +142,37 @@ export const ReactHookForm = (): JSX.Element => {
 	const { errors } = formState;
 	const [busy, setBusy] = useState(false);
 
-	const email = (
-		<>
-			<label htmlFor="rhf-email">Email</label>
+	const title = (
+		<div>
+			<label htmlFor="rhf-title">Title</label>
 			<Controller
-				name="email"
+				name="title"
 				control={control}
 				render={({ field }) => (
-					<Input {...field} id="rhf-email" type="email" />
+					<Input {...field} id="rhf-title" type="text" />
 				)}
-				rules={{ required: "Email is required" }}
+				rules={{ required: ERRORS.titleRequired }}
 				defaultValue=""
 			/>
-			<FormError children={errors.email?.message} />
-		</>
+			<FormError children={errors.title?.message} />
+		</div>
 	);
 
-	const password = (
-		<>
-			<label htmlFor="rhf-pass">Password</label>
+	const message = (
+		<div>
+			<label htmlFor="rhf-message">Message</label>
 			<Controller
-				name="pass"
+				name="message"
 				control={control}
-				render={({ field }) => (
-					<Input {...field} id="rhf-pass" type="password" />
-				)}
-				rules={{ required: "Password is required" }}
+				render={({ field }) => <TextArea {...field} id="rhf-message" />}
+				rules={{
+					required: { value: true, message: ERRORS.messageRequired },
+					minLength: { value: 5, message: ERRORS.messageLength },
+				}}
 				defaultValue=""
 			/>
-			<FormError children={errors.pass?.message} />
-		</>
+			<FormError children={errors.message?.message} />
+		</div>
 	);
 
 	return (
@@ -169,12 +182,11 @@ export const ReactHookForm = (): JSX.Element => {
 				await postToServer(data);
 				setBusy(false);
 			})}
+			style={formStyles}
 		>
-			{email}
-			<DivPx size={16} />
-			{password}
-			<DivPx size={16} />
-			<Button type="submit" highlight busy={busy} children="Submit" />
+			{title}
+			{message}
+			<SubmitButton busy={busy} />
 		</form>
 	);
 };

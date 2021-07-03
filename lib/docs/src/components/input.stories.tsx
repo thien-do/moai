@@ -11,38 +11,15 @@ const meta: Meta = {
 	title: "Components/Input",
 	component: Input,
 	argTypes: {
-		type: Utils.arg(
-			["text", "number", "email", "password", "url", "color"],
-			"Visual"
-		),
+		type: Utils.arg("string", "Visual"),
 		style: Utils.arg(Input.styles, "Visual"),
 		size: Utils.arg(Input.sizes, "Visual"),
-		placeholder: Utils.arg("string", "Visual"),
 		icon: Utils.arg(null, "Visual"),
-
-		defaultValue: Utils.arg(null, "Uncontrolled"),
-
-		value: Utils.arg(null, "Controlled"),
-		setValue: Utils.arg(null, "Controlled"),
-
-		id: Utils.arg(null, "Attributes"),
-		name: Utils.arg("string", "Attributes"),
-		list: Utils.arg(null, "Attributes"),
-		maxLength: Utils.arg("number", "Attributes"),
-		disabled: Utils.arg("boolean", "Attributes"),
-		required: Utils.arg("boolean", "Attributes"),
-		readOnly: Utils.arg("boolean", "Attributes"),
-		autoFocus: Utils.arg(null, "Attributes"),
-		"aria-label": Utils.arg(null, "Attributes"),
-		"aria-labelledby": Utils.arg(null, "Attributes"),
-
-		onBlur: Utils.arg(null, "Events"),
-		onFocus: Utils.arg(null, "Events"),
-		onKeyPress: Utils.arg(null, "Events"),
-		onKeyUp: Utils.arg(null, "Events"),
-		onKeyDown: Utils.arg(null, "Events"),
-		onClick: Utils.arg(null, "Events"),
-		onChange: Utils.arg(null, "Events"),
+		list: Utils.arg(null, "Visual"),
+		defaultValue: Utils.arg(null, "State"),
+		value: Utils.arg(null, "State"),
+		setValue: Utils.arg(null, "State"),
+		onChange: Utils.arg(null, "State"),
 	},
 };
 

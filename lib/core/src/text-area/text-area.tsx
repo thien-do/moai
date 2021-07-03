@@ -1,6 +1,7 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import { Input, InputStyle } from "../input/input";
 import { outline } from "../outline/outline";
+import { omit } from "../utils/omit";
 import s from "./text-area.module.css";
 
 export interface TextAreaSize {
@@ -13,116 +14,85 @@ const getClass = (props: TextAreaProps) => {
 	return [s.container, outline.normal, style.main, size.main].join(" ");
 };
 
-type ChangeEvent = React.ChangeEvent<HTMLTextAreaElement>;
+type HTMLTextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const onChange = (props: TextAreaProps) => (e: ChangeEvent) => {
-	if (props.setValue === undefined || props.value === undefined) return;
-	props.setValue(e.currentTarget.value);
-};
-
-export interface TextAreaProps {
-	// Uncontrolled
+export interface TextAreaProps extends Omit<HTMLTextAreaProps, "style"> {
 	/**
-	 * Initial value of the input
+	 * Initial value of the input in uncontrolled mode.
 	 */
 	defaultValue?: string;
-
-	/**
-	 * Usually useful in uncontrolled mode.
-	 * Read [Forwarding Refs](https://reactjs.org/docs/forwarding-refs.html) for details.
-	 */
-	forwardedRef?: ForwardedRef<HTMLTextAreaElement>;
-
-	// Controlled
-
 	/**
 	 * Value of the input in controllerd mode
 	 */
 	value?: string;
-
 	/**
 	 * Handler to set the value in controlled mode
 	 */
 	setValue?: (value: string) => void;
-
 	/**
 	 * Style of the text box. Choose one from `TextArea.styles` for example: `TextArea.styles.flat`. Same default as the "Input" component.
 	 */
 	style?: InputStyle;
-
 	/**
 	 * Size of the text box. Choose one from `TextArea.sizes` for example: `TextArea.size.medium`. Same default as the "Input" component.
 	 */
 	size?: TextAreaSize;
-
-	// Attributes
 	/**
-	 * Number of row you will see in text area.
+	 * The [HTML `onchange`][1] event handler.
+	 *
+	 * Note that you should not need to use onChange! This exists only for
+	 * compatibility with 3rd-party libraries (those that passing props to a
+	 * custom rendered component). You should use `setValue` most of the time.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange
 	 */
-	rows?: number;
-
-	id?: string;
-	name?: string;
-	disabled?: boolean;
-	readOnly?: boolean;
-	placeholder?: string;
-	autoFocus?: boolean;
-	autoSelect?: boolean;
-	/**
-	 * The "required" attribute in HTML
-	 */
-	required?: boolean;
-	// Events
-	onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
-	onFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
-	onKeyPress?: React.KeyboardEventHandler<HTMLTextAreaElement>;
-	onKeyUp?: React.KeyboardEventHandler<HTMLTextAreaElement>;
-	onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;
+	onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
-export const TextArea = (props: TextAreaProps): JSX.Element => {
-	const ref = React.useRef<HTMLTextAreaElement>(null);
+// This is actually ReturnType<typeof forwardRef>, but we don't know how to
+// provide the type parameter to forwardRef. This is required to re-type the
+// Input component so that we can attach "Input.sizes" and "Input.styles"
+type TextAreaPropsWithRef = TextAreaProps &
+	React.RefAttributes<HTMLTextAreaElement>;
 
-	React.useEffect(() => {
-		const fRef = props.forwardedRef;
-		if (!fRef) return;
-		if (typeof fRef === "function") return void fRef(ref.current);
-		fRef.current = ref.current;
-	}, [props.forwardedRef]);
+// Re-type the Input component since React's forwardRef returned type cannot
+// be extended with property like "Button.sizes"
+interface TextAreaComponent
+	extends React.ForwardRefExoticComponent<TextAreaPropsWithRef> {
+	sizes: { medium: TextAreaSize; small: TextAreaSize };
+	styles: { outset: InputStyle; flat: InputStyle };
+}
 
-	React.useEffect(() => {
-		if (!props.autoSelect) return;
-		const element = ref.current;
-		if (element === null) throw Error("ref is null");
-		element.select();
-	}, []);
+const renderTextArea = (
+	props: TextAreaProps,
+	ref: React.ForwardedRef<HTMLTextAreaElement>
+): JSX.Element => {
+	const rawProps = omit(props, [
+		"className",
+		"style",
+		"size",
+		"defaultValue",
+		"value",
+		"setValue",
+		"onChange",
+	]);
 
 	return (
 		<textarea
+			{...rawProps}
 			ref={ref}
-			// value
 			defaultValue={props.defaultValue}
 			value={props.value}
-			onChange={onChange(props)}
-			// event handlers
-			onBlur={props.onBlur}
-			onFocus={props.onFocus}
-			onKeyDown={props.onKeyDown}
-			onKeyPress={props.onKeyPress}
-			onKeyUp={props.onKeyUp}
-			// properties
-			id={props.id}
-			name={props.name}
+			onChange={(event) => {
+				props.onChange?.(event);
+				props.setValue?.(event.currentTarget.value);
+			}}
 			className={getClass(props)}
-			rows={props.rows}
-			readOnly={props.readOnly}
-			disabled={props.disabled}
-			placeholder={props.placeholder}
-			autoFocus={props.autoFocus}
-			required={props.required}
 		/>
 	);
 };
+
+export const TextArea = React.forwardRef(renderTextArea) as TextAreaComponent;
 
 TextArea.styles = {
 	outset: Input.styles.outset,
