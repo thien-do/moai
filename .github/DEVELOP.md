@@ -17,23 +17,23 @@ To understand the principles that drive the design and development of Moai, see 
 | core    | [@moai/core]      | [Rollup]    |
 | gallery | [@moai/gallery]   | [Rollup]    |
 | docs    | [docs.moaijs.com] | [Storybook] |
-
-## Local Development
-
-To have a local development environment, run `yarn start`:
-
-```
-yarn start
-```
-
-Note that you don't need to run `yarn` first. We intentionally prefixed `yarn start` with `yarn` to ensure you always work on the correct dependencies.
-
-This simply runs the docs site locally so you can review your changes. It imports components directly from "core" so changes you made there will be applied immediately.
+| test    | Test suits        | [Jest]      |
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
 [docs.moaijs.com]: https://docs.moaijs.com
-[moaijs.com]: https://moaijs.com
 [storybook]: https://storybook.js.org
+[jest]: https://jestjs.io
 [next.js]: https://nextjs.org
 [rollup]: https://rollupjs.org/guide/en/
+
+## Development scripts
+
+-   `yarn core`: watch and build @moai/core
+-   `yarn docs`: start docs.moaijs.com locally
+-   `yarn test`: run the test suites
+
+"docs" and "test" both rely on the output of "core"'s build, so in most cases you will need:
+
+-   a terminal to run `yarn core`, and
+-   a terminal to run `yarn docs` or `yarn test`

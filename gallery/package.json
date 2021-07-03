@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"example": "ts-node ./scripts/example/generate.ts",
-		"build": "yarn && rollup --config",
+		"build": "rollup --config",
 		"prepublishOnly": "yarn build"
 	},
 	"repository": {
