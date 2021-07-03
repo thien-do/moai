@@ -3,9 +3,10 @@
 	"private": true,
 	"license": "MIT",
 	"workspaces": [
-		"docs",
 		"core",
-		"gallery"
+		"docs",
+		"gallery",
+		"tests"
 	],
 	"scripts": {
 		"start": "cd docs && yarn start",

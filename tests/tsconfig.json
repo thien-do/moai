@@ -1,0 +1,10 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"module": "CommonJS",
+		"isolatedModules": false,
+		"types": ["jest"]
+	},
+	"references": [{ "path": "../core" }],
+	"include": ["src/**/*"]
+}

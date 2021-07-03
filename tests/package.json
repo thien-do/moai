@@ -1,0 +1,19 @@
+{
+	"name": "@moai/test",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"test": "yarn && tsc && jest"
+	},
+	"devDependencies": {
+		"@moai/core": "*",
+		"@testing-library/react": "^12.0.0",
+		"@types/jest": "^26.0.23",
+		"jest": "^27.0.6",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"typescript": "^4.3.5"
+	}
+}
