@@ -39,7 +39,6 @@
 	"devDependencies": {
 		"@types/react": "^17.0.11",
 		"@types/react-dom": "^17.0.8",
-		"@types/rollup-plugin-postcss": "^3.1.4",
 		"autoprefixer": "^10.2.6",
 		"modern-normalize": "^1.1.0",
 		"postcss": "^8.3.5",
@@ -52,6 +51,6 @@
 		"rollup-plugin-postcss": "^4.0.0",
 		"rollup-plugin-typescript2": "^0.30.0",
 		"tslib": "^2.3.0",
-		"typescript": "~4.3.4"
+		"typescript": "^4.3.4"
 	}
 }

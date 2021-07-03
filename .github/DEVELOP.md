@@ -12,38 +12,23 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Codebase overview
 
-| Path        | Project           | Framework   |
-| ----------- | ----------------- | ----------- |
-| lib/core    | [@moai/core]      | [Rollup]    |
-| lib/gallery | [@moai/gallery]   | [Rollup]    |
-| lib/docs    | [docs.moaijs.com] | [Storybook] |
-| site        | [moaijs.com]      | [Next.js]   |
+| Path    | Project           | Framework   |
+| ------- | ----------------- | ----------- |
+| core    | [@moai/core]      | [Rollup]    |
+| gallery | [@moai/gallery]   | [Rollup]    |
+| docs    | [docs.moaijs.com] | [Storybook] |
 
 ## Local Development
 
-To have a local development environment, go to the "lib/docs" folder and run `yarn start`:
+To have a local development environment, run `yarn start`:
 
 ```
-cd lib/docs
 yarn start
 ```
 
 Note that you don't need to run `yarn` first. We intentionally prefixed `yarn start` with `yarn` to ensure you always work on the correct dependencies.
 
-This simply runs the docs site locally so you can review your changes. It imports components directly from "lib/core" so changes you made there will be applied immediately.
-
-### Moai's Website
-
-The source code of Moai's website ([moaijs.com]) is under the "site" folder. To work on it, go to the folder and execute `yarn dev`. This installs all dependencies and start a development server at [localhost:3000](http://localhost:3000):
-
-```sh
-cd site
-yarn dev
-```
-
-Note that the "site" project **does not** import Moai's components from the "lib" folder of the codebase. Instead, it installs Moai's (published) packages as normal npm dependencies.
-
-This means you won't see changes you made in "lib/core" when working on the "site" project. Instead, you should publish your changes in "lib", then install the new version here in "site".
+This simply runs the docs site locally so you can review your changes. It imports components directly from "core" so changes you made there will be applied immediately.
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery

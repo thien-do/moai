@@ -8,16 +8,17 @@
 		"gallery"
 	],
 	"scripts": {
+		"start": "cd docs && yarn start",
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
 		"lint-fix": "eslint --fix . && prettier --write ."
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "4.22.0",
-		"@typescript-eslint/parser": "4.22.0",
-		"eslint": "7.24.0",
-		"eslint-config-prettier": "8.2.0",
-		"eslint-plugin-react": "7.23.2",
-		"prettier": "2.2.1",
-		"typescript": "4.2.4"
+		"@typescript-eslint/eslint-plugin": "^4.28.1",
+		"@typescript-eslint/parser": "^4.28.1",
+		"eslint": "^7.30.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-react": "^7.24.0",
+		"prettier": "^2.3.2",
+		"typescript": "^4.3.5"
 	}
 }
