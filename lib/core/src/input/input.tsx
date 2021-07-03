@@ -123,14 +123,16 @@ const inputRender = (
 ): JSX.Element => {
 	validate(props);
 	const size = props.size ?? Input.sizes.medium;
+
+	// Omit custom props (and also props that we will handle ourselves)
 	const rawProps = omit(props, [
+		"list",
+		"className",
 		"size",
 		"style",
-		"setValue",
 		"icon",
-		"list",
+		"setValue",
 		"onChange",
-		"value",
 	]);
 
 	return (
@@ -138,7 +140,6 @@ const inputRender = (
 			<input
 				{...rawProps}
 				ref={ref}
-				value={props.value}
 				onChange={(event) => {
 					props.onChange?.(event);
 					props.setValue?.(event.currentTarget.value);
