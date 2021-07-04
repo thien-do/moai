@@ -1,4 +1,4 @@
-import { RadioOption } from "../../../core/src";
+import { RadioOption } from "@moai/core";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

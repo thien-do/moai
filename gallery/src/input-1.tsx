@@ -1,4 +1,4 @@
-import { Input, InputStyle } from "../../core/src";
+import { Input, InputStyle } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

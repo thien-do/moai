@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Button, Dialog, DivGrow, Paragraph } from "../../../core/src";
-import { GalleryDialog } from "../../../gallery/src/dialog";
+import { Button, Dialog, DivGrow, Paragraph } from "@moai/core";
+import { GalleryDialog } from "@moai/gallery";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

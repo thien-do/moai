@@ -1,4 +1,4 @@
-import { ProgressCircle } from "../../core/src";
+import { ProgressCircle } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

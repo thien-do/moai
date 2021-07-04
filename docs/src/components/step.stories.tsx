@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Steps } from "../../../core/src";
+import { Steps } from "@moai/core";
 
 export default {
 	title: "Draft/Steps",

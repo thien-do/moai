@@ -1,4 +1,4 @@
-import { TextArea } from "../../../core/src";
+import { TextArea } from "@moai/core";
 import { Utils } from "../utils/utils";
 
 export default {

@@ -1,6 +1,5 @@
 /* eslint-env node */
 
-import alias from "@rollup/plugin-alias";
 import del from "rollup-plugin-delete";
 import postcss from "rollup-plugin-postcss";
 import typescript2 from "rollup-plugin-typescript2";
@@ -40,14 +39,6 @@ const config = {
 	plugins: [
 		del({
 			targets: ["dist"],
-		}),
-		// This is the "magic" bit. It means:
-		// - In local dev, "gallery" always use the src of "core", so e.g. in
-		//   storybook you always see the latest change of core inside gallery
-		// - However, when bundling, "gallery" will reference to "@moai/core",
-		//   the npm package inside the end user's node_modules!
-		alias({
-			entries: [{ find: /.*..\/core\/src/, replacement: "@moai/core" }],
 		}),
 		postcss({
 			minimize: false,

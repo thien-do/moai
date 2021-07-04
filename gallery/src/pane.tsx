@@ -1,5 +1,5 @@
-import * as M from "../../../core/src";
-import s from "../styles.module.css";
+import * as M from "@moai/core";
+import s from "./styles.module.css";
 
 const items: M.MenuItemProps[] = [
 	{ label: "Menu item 1" },

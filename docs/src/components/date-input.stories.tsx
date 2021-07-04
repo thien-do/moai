@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { useState } from "react";
-import { DateInput } from "../../../core/src";
+import { DateInput } from "@moai/core";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

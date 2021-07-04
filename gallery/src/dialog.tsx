@@ -1,4 +1,4 @@
-import * as M from "../../core/src";
+import * as M from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

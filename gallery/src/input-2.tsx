@@ -1,6 +1,6 @@
 import { ButtonGroupItemProps } from "@moai/core";
 import { GoSearch } from "react-icons/go";
-import { Button, ButtonGroup, Input } from "../../core/src";
+import { Button, ButtonGroup, Input } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 import { MATERIALS } from "./table/robots";

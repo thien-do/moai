@@ -9,10 +9,14 @@
 		"test"
 	],
 	"scripts": {
-		"lint": "eslint --max-warnings=0 . && prettier --check .",
+		"build-core": "cd core && yarn build",
+		"build-docs": "cd docs && yarn build",
+		"build-gallery": "cd core && yarn build",
 		"lint-fix": "eslint --fix . && prettier --write .",
-		"core": "cd core && yarn start",
-		"docs": "cd docs && yarn start",
+		"lint": "eslint --max-warnings=0 . && prettier --check .",
+		"start-core": "cd core && yarn start",
+		"start-docs": "cd docs && yarn start",
+		"start-gallery": "cd gallery && yarn start",
 		"test": "cd test && yarn test"
 	},
 	"devDependencies": {

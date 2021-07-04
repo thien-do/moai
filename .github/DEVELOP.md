@@ -12,12 +12,16 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Codebase overview
 
+Moai is a [monorepo](https://classic.yarnpkg.com/en/docs/workspaces/) powered by Yarn. There are several projects:
+
 | Path    | Project           | Framework   |
 | ------- | ----------------- | ----------- |
 | core    | [@moai/core]      | [Rollup]    |
 | gallery | [@moai/gallery]   | [Rollup]    |
 | docs    | [docs.moaijs.com] | [Storybook] |
 | test    | Test suits        | [Jest]      |
+
+The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to start or build "core" and "gallery" first.
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
@@ -29,11 +33,13 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Development scripts
 
--   `yarn core`: watch and build @moai/core
--   `yarn docs`: start docs.moaijs.com locally
+-   `yarn start-core`: watch and build @moai/core
+-   `yarn start-gallery`: watch and build @moai/gallery
+-   `yarn start-docs`: start docs.moaijs.com locally
 -   `yarn test`: run the test suites
 
-"docs" and "test" both rely on the output of "core"'s build, so in most cases you will need:
+The full workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, it may be simpler:
 
--   a terminal to run `yarn core`, and
--   a terminal to run `yarn docs` or `yarn test`
+If you'd like to work on tests or docs, you don't need to start the "core" and "gallery", but only need to build them once using `yarn build-core` and `yarn build-gallery`. Then, you can `yarn start-docs` or `yarn test`.
+
+If you'd like to work on the "core" project, which should be most of the time, then you don't need to start the "gallery" but only need to build them once using `yarn build-gallery`.

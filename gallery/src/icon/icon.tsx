@@ -1,4 +1,4 @@
-import { Icon, IconComponent } from "../../../core/src";
+import { Icon, IconComponent } from "@moai/core";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiHome } from "react-icons/bi";
 import { FiHome } from "react-icons/fi";

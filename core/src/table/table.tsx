@@ -19,6 +19,8 @@ import { TableHead } from "./head/head";
 import sSizes from "./sizes.module.css";
 import s from "./table.module.css";
 
+export type { TableExpandableProps, TableSelectableProps };
+
 export interface TableColumn<R> {
 	/**
 	 * Title of the column. Note that this is not just `string` but

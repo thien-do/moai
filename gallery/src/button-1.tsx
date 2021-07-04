@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "../../core/src";
+import { Button, ButtonProps } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

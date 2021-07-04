@@ -6,5 +6,5 @@
 		"declarationDir": "dist/types",
 		"rootDir": "src"
 	},
-	"include": ["**/*"]
+	"include": ["src/**/*"]
 }
