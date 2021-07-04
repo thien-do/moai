@@ -2,7 +2,7 @@
 	"root": true,
 	"parser": "@typescript-eslint/parser",
 	"plugins": ["@typescript-eslint"],
-	"ignorePatterns": ["node_modules", "dist", "public"],
+	"ignorePatterns": ["node_modules", "dist", "public", "test/coverage"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",

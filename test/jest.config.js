@@ -6,5 +6,5 @@ module.exports = {
 	coverageDirectory: "coverage",
 	coverageProvider: "v8",
 	testEnvironment: "jsdom",
-	testMatch: ["**/src/**/*.js?(x)"],
+	testMatch: ["**/dist/**/*.js?(x)"],
 };

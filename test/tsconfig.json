@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"module": "CommonJS",
 		"isolatedModules": false,
+		"outDir": "dist",
 		"types": ["jest"]
 	},
 	"references": [{ "path": "../core" }],
