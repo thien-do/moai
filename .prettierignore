@@ -3,3 +3,4 @@ dist
 public
 .next
 .vercel
+/test/coverage

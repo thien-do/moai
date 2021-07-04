@@ -10,7 +10,8 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "yarn && rollup --config",
+		"build": "rollup --config",
+		"start": "rollup --config --watch",
 		"report": "node ./scripts/report.js",
 		"prepublishOnly": "yarn build"
 	},

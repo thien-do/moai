@@ -3,14 +3,17 @@
 	"private": true,
 	"license": "MIT",
 	"workspaces": [
-		"docs",
 		"core",
-		"gallery"
+		"docs",
+		"gallery",
+		"test"
 	],
 	"scripts": {
-		"start": "cd docs && yarn start",
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
-		"lint-fix": "eslint --fix . && prettier --write ."
+		"lint-fix": "eslint --fix . && prettier --write .",
+		"core": "cd core && yarn start",
+		"docs": "cd docs && yarn start",
+		"test": "cd test && yarn test"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.28.1",
