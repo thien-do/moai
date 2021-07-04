@@ -8,16 +8,17 @@ interface Row {
 	key: BorderKey;
 }
 
-const MakeColumn = (theme: "light" | "dark", back: string) => (
-	row: Row
-): JSX.Element => (
-	<div className={theme}>
-		<ColorSample
-			background={back}
-			foreground={{ type: "border", cls: border[row.key] }}
-		/>
-	</div>
-);
+const MakeColumn =
+	(theme: "light" | "dark", back: string) =>
+	(row: Row): JSX.Element =>
+		(
+			<div className={theme}>
+				<ColorSample
+					background={back}
+					foreground={{ type: "border", cls: border[row.key] }}
+				/>
+			</div>
+		);
 
 const LightStrong = MakeColumn("light", background.strong);
 const LightWeak = MakeColumn("light", background.weak);

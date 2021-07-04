@@ -17,16 +17,21 @@ interface Row {
 
 // const Usage = (row: Row): JSX.Element => <span>{usageTexts[row.usage]}</span>;
 
-const MakeColumn = (theme: "light" | "dark", back: string) => (
-	row: Row
-): JSX.Element => (
-	<div className={theme}>
-		<ColorSample
-			background={back}
-			foreground={{ type: "text", cls: text[row.key], usage: row.usage }}
-		/>
-	</div>
-);
+const MakeColumn =
+	(theme: "light" | "dark", back: string) =>
+	(row: Row): JSX.Element =>
+		(
+			<div className={theme}>
+				<ColorSample
+					background={back}
+					foreground={{
+						type: "text",
+						cls: text[row.key],
+						usage: row.usage,
+					}}
+				/>
+			</div>
+		);
 
 const LightStrong = MakeColumn("light", background.strong);
 const LightWeak = MakeColumn("light", background.weak);

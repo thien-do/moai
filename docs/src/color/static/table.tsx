@@ -6,15 +6,21 @@ interface Props {
 	name: string;
 }
 
-const Color = (props: Props) => (row: number): JSX.Element => (
-	// eslint-disable-next-line react/prop-types
-	<ColorStaticSample name={`${props.name}-${row}`} />
-);
+const Color =
+	(props: Props) =>
+	(row: number): JSX.Element =>
+		(
+			// eslint-disable-next-line react/prop-types
+			<ColorStaticSample name={`${props.name}-${row}`} />
+		);
 
-const Name = (props: Props) => (row: number): JSX.Element => (
-	// eslint-disable-next-line react/prop-types
-	<span children={`${props.name}-${row}`} />
-);
+const Name =
+	(props: Props) =>
+	(row: number): JSX.Element =>
+		(
+			// eslint-disable-next-line react/prop-types
+			<span children={`${props.name}-${row}`} />
+		);
 
 export const ColorStaticTable = (props: Props): JSX.Element => (
 	<div className={[s.container, border.weak].join(" ")}>
