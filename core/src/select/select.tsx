@@ -128,16 +128,16 @@ const findId = <T,>(props: SelectProps<T>, value?: T): string | undefined => {
 	return props.options.find((o) => o.value === value)?.id;
 };
 
-const onChange = <T,>(
-	props: SelectProps<T>
-): ChangeEventHandler<HTMLSelectElement> => (event): void => {
-	if (props.setValue === undefined) return;
-	// Use option.value as the "id" to look for the actual, generic-type value
-	const id = event.target.value;
-	const option = props.options.find((o) => o.id === id);
-	if (!option) throw Error(`Option not found: "${id}"`);
-	props.setValue(option.value);
-};
+const onChange =
+	<T,>(props: SelectProps<T>): ChangeEventHandler<HTMLSelectElement> =>
+	(event): void => {
+		if (props.setValue === undefined) return;
+		// Use option.value as the "id" to look for the actual, generic-type value
+		const id = event.target.value;
+		const option = props.options.find((o) => o.id === id);
+		if (!option) throw Error(`Option not found: "${id}"`);
+		props.setValue(option.value);
+	};
 
 /**
  * Users use selects to choose an option out of a list. When activated, a

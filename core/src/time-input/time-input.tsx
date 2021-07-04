@@ -84,19 +84,23 @@ const OPTIONS_MAP: Record<TimeInterval, SelectOption<number>[]> = {
 	"60": [],
 };
 
-const setHour = (props: Props) => (hour: number): void => {
-	const value = new Date(props.value.getTime());
-	value.setHours(hour);
-	value.setSeconds(0); // See comment at props.value
-	props.setValue(value);
-};
+const setHour =
+	(props: Props) =>
+	(hour: number): void => {
+		const value = new Date(props.value.getTime());
+		value.setHours(hour);
+		value.setSeconds(0); // See comment at props.value
+		props.setValue(value);
+	};
 
-const setMinute = (props: Props) => (minute: number): void => {
-	const value = new Date(props.value.getTime());
-	value.setMinutes(minute);
-	value.setSeconds(0); // See comment at props.value
-	props.setValue(value);
-};
+const setMinute =
+	(props: Props) =>
+	(minute: number): void => {
+		const value = new Date(props.value.getTime());
+		value.setMinutes(minute);
+		value.setSeconds(0); // See comment at props.value
+		props.setValue(value);
+	};
 
 export const TimeInput = (props: Props): JSX.Element => {
 	// Avoid subtle time comparing bug by enforcing value Date has 0 second
