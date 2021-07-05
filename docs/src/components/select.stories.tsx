@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Select } from "@moai/core";
-import { GallerySelect } from "@moai/gallery";
+import { Select } from "../../../core/src";
+import { GallerySelect } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { SelectOptionComponent } from "./select-fake";
 

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Radio } from "@moai/core";
+import { Radio } from "../../../core/src";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 

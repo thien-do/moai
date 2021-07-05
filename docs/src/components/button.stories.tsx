@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { GoPlus } from "react-icons/go";
-import { Button, Dialog } from "@moai/core";
-import { GalleryButton1 } from "@moai/gallery";
-import { GalleryButton2 } from "@moai/gallery";
+import { Button, Dialog } from "../../../core/src";
+import { GalleryButton1 } from "../../../gallery/src";
+import { GalleryButton2 } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
-import { ProgressCircle, ProgressCircleProps } from "@moai/core";
-import { GalleryProgress } from "@moai/gallery";
+import { ProgressCircle, ProgressCircleProps } from "../../../core/src";
+import { GalleryProgress } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
