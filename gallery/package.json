@@ -4,7 +4,7 @@
 	"description": "Widget Gallery of Moai 🗿",
 	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
-	"types": "dist/gallery/src/index.d.ts",
+	"types": "dist/types/index.d.ts",
 	"sideEffects": false,
 	"files": [
 		"dist"
@@ -12,6 +12,7 @@
 	"scripts": {
 		"example": "ts-node ./scripts/example/generate.ts",
 		"build": "rollup --config",
+		"watch": "rollup --config --watch",
 		"prepublishOnly": "yarn build"
 	},
 	"repository": {
@@ -24,14 +25,14 @@
 	},
 	"homepage": "https://moaijs.com",
 	"email": "hi@moaijs.com",
+	"dependencies": {
+		"@moai/core": "*"
+	},
 	"peerDependencies": {
-		"@moai/core": ">=0",
 		"react": ">=16",
 		"react-icons": ">=4"
 	},
 	"devDependencies": {
-		"@moai/core": "^1.0.0-rc9",
-		"@rollup/plugin-alias": "^3.1.2",
 		"@types/react": "^17.0.11",
 		"node-fetch": "^2.6.1",
 		"postcss": "^8.3.5",

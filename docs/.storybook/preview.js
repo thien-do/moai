@@ -1,7 +1,8 @@
 import * as D from "@storybook/addon-docs/blocks";
 import { useDarkMode } from "storybook-dark-mode";
-import "../../core/font/remote.css";
-import "../../core/src/global/global.css";
+import "@moai/core/dist/bundle.css";
+import "@moai/core/dist/font/remote.css";
+import "@moai/gallery/dist/bundle.css";
 import "./preview.css";
 import "./syntax.css";
 import { darkTheme, lightTheme } from "./theme";

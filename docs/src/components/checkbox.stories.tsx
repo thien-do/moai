@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { useRef, useState } from "react";
-import { Button, Checkbox } from "../../../core/src";
+import { Button, Checkbox } from "@moai/core";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 

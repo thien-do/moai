@@ -1,4 +1,4 @@
-import * as M from "../../core/src";
+import * as M from "@moai/core";
 import s from "./styles.module.css";
 import { MATERIALS } from "./table/robots";
 import { GoSearch } from "react-icons/go";

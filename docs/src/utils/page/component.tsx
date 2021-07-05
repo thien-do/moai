@@ -8,7 +8,7 @@ import {
 } from "@storybook/addon-docs";
 import { Meta } from "@storybook/react";
 import React from "react";
-import { background } from "../../../../core/src";
+import { background } from "@moai/core";
 import s from "./component.module.css";
 
 interface Props {

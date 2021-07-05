@@ -9,10 +9,15 @@
 		"test"
 	],
 	"scripts": {
-		"lint": "eslint --max-warnings=0 . && prettier --check .",
+		"build-core": "cd core && yarn build",
+		"build-docs": "cd docs && yarn build",
+		"build-gallery": "cd gallery && yarn build",
+		"build": "yarn build-core && yarn build-gallery && yarn build-docs",
 		"lint-fix": "eslint --fix . && prettier --write .",
-		"core": "cd core && yarn start",
-		"docs": "cd docs && yarn start",
+		"lint": "eslint --max-warnings=0 . && prettier --check .",
+		"start-core": "cd core && yarn watch",
+		"start-docs": "cd docs && yarn start",
+		"start-gallery": "cd gallery && yarn watch",
 		"test": "cd test && yarn test"
 	},
 	"devDependencies": {

@@ -1,4 +1,4 @@
-import { Button, Dialog, toast, ToastPane } from "../../core/src";
+import { Button, Dialog, toast, ToastPane } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

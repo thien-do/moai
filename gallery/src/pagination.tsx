@@ -1,4 +1,4 @@
-import { Pagination } from "../../../core/src";
+import { Pagination } from "@moai/core";
 import { useCallback, useState } from "react";
 
 export const GallerPagination = (): JSX.Element => {

@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import * as M from "../../../core/src";
+import * as M from "@moai/core";
 import { Robot, ROBOTS } from "./robots";
 import s from "./table.module.css";
 import { GoSearch, GoMail } from "react-icons/go";

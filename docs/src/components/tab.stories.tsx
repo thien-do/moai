@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Button, DivPx, Switcher, Tab, Tabs } from "../../../core/src";
-import { GalleryTab1, GalleryTab2 } from "../../../gallery/src/tab";
+import { Button, DivPx, Switcher, Tab, Tabs } from "@moai/core";
+import { GalleryTab1, GalleryTab2 } from "@moai/gallery";
 import { Utils } from "../utils/utils";
 import { TabComponent } from "./tab-fake";
 

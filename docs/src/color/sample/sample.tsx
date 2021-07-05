@@ -1,7 +1,7 @@
 import Color from "color";
 import { useEffect, useRef, useState } from "react";
 import { HiCheckCircle } from "react-icons/hi";
-import { CategoryColor, categoryColors, Icon, Tag } from "../../../../core/src";
+import { CategoryColor, categoryColors, Icon, Tag } from "@moai/core";
 import s from "./sample.module.css";
 
 export type ColorSampleUsage = "text" | "icon" | "both";

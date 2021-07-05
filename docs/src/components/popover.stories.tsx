@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Button, Popover, PopoverPlacement } from "../../../core/src";
+import { Button, Popover, PopoverPlacement } from "@moai/core";
 import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
 

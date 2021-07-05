@@ -1,4 +1,4 @@
-import { SwitcherOption } from "../../../core/src";
+import { SwitcherOption } from "@moai/core";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

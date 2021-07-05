@@ -1,4 +1,4 @@
-import { background, border, Table, text } from "../../../../core/src";
+import { background, border, Table, text } from "@moai/core";
 import { ColorSample, ColorSampleUsage } from "../sample/sample";
 import s from "./text.module.css";
 

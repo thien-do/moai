@@ -1,4 +1,4 @@
-import { Tag } from "../../core/src";
+import { Tag } from "@moai/core";
 import s from "./styles.module.css";
 
 const getColor = (color: string): string => {

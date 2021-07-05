@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
 import { CSSProperties, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Button, FormError, Input, TextArea } from "../../../core/src";
+import { Button, FormError, Input, TextArea } from "@moai/core";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

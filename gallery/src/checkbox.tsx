@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxProps, Radio, RadioProps } from "../../core/src";
+import { Checkbox, CheckboxProps, Radio, RadioProps } from "@moai/core";
 import { Shot } from "./shot/shot";
 import s from "./styles.module.css";
 

@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { useState } from "react";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight } from "react-icons/fa";
-import { Switcher, SwitcherOption } from "../../../core/src";
+import { Switcher, SwitcherOption } from "@moai/core";
 import { SwitcherOptionComponent } from "./switcher-fake";
 import { Utils } from "../utils/utils";
 

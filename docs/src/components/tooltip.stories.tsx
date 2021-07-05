@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Tooltip, TooltipProps } from "../../../core/src";
+import { Tooltip, TooltipProps } from "@moai/core";
 import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
 

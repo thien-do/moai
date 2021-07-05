@@ -1,4 +1,4 @@
-import { DivPx, Button, Tooltip, TooltipPane } from "../../core/src";
+import { DivPx, Button, Tooltip, TooltipPane } from "@moai/core";
 import { Shot } from "./shot/shot";
 
 export const GalleryTooltip = (): JSX.Element => (

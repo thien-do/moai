@@ -1,4 +1,4 @@
-import { DivPx } from "../../../core/src";
+import { DivPx } from "@moai/core";
 import s from "./section.module.css";
 
 interface Props {

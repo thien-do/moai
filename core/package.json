@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"build": "rollup --config",
-		"start": "rollup --config --watch",
+		"watch": "rollup --config --watch",
 		"report": "node ./scripts/report.js",
 		"prepublishOnly": "yarn build"
 	},

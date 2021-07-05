@@ -12,12 +12,27 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Codebase overview
 
+Moai is a [monorepo](https://classic.yarnpkg.com/en/docs/workspaces/) powered by Yarn. There are several projects:
+
 | Path    | Project           | Framework   |
 | ------- | ----------------- | ----------- |
 | core    | [@moai/core]      | [Rollup]    |
 | gallery | [@moai/gallery]   | [Rollup]    |
 | docs    | [docs.moaijs.com] | [Storybook] |
 | test    | Test suits        | [Jest]      |
+
+The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to build "core" and "gallery" first. Also, the "gallery" depends on the "core" project:
+
+```
+├─ docs
+│    ├─ gallery
+│    └─ core
+├─ test
+│    └─ core
+├─ gallery
+│    └─ core
+└─ core
+```
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
@@ -29,11 +44,11 @@ To understand the principles that drive the design and development of Moai, see 
 
 ## Development scripts
 
--   `yarn core`: watch and build @moai/core
--   `yarn docs`: start docs.moaijs.com locally
+-   `yarn start-core`: watch and build @moai/core
+-   `yarn start-gallery`: watch and build @moai/gallery
+-   `yarn start-docs`: start docs.moaijs.com locally
 -   `yarn test`: run the test suites
 
-"docs" and "test" both rely on the output of "core"'s build, so in most cases you will need:
+The typical workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, you may not need to "watch" some projects, but only "build" them once.
 
--   a terminal to run `yarn core`, and
--   a terminal to run `yarn docs` or `yarn test`
+Note the dependency of these projects. In general, start "core" first, then "gallery", then "docs".
