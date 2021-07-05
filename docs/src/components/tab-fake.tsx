@@ -1,4 +1,4 @@
-import { Tab } from "@moai/core";
+import { Tab } from "../../../core/src";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { useCallback, useState } from "react";
-import { Pagination } from "@moai/core";
+import { Pagination } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

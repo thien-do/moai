@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TimeInput } from "@moai/core";
+import { TimeInput } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta = {

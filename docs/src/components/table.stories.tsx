@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Pane, Table, TableColumn } from "@moai/core";
-import { Robot, ROBOTS } from "@moai/gallery";
-import { GalleryTable } from "@moai/gallery";
+import { Pane, Table, TableColumn } from "../../../core/src";
+import { Robot, ROBOTS } from "../../../gallery/src";
+import { GalleryTable } from "../../../gallery/src";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 import { TableColumnComponent, TableExpandableComponent } from "./table-fake";

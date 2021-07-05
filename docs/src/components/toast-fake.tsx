@@ -1,4 +1,4 @@
-import { ToastType } from "@moai/core";
+import { ToastType } from "../../../core/src";
 
 interface Props {
 	/**

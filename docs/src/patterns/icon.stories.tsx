@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react/types-6-0";
 import { SVGAttributes } from "react";
 import { RiSearchLine } from "react-icons/ri";
-import { Button } from "@moai/core";
+import { Button } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

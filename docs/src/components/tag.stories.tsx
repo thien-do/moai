@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { Tag } from "@moai/core";
+import { Tag } from "../../../core/src";
 import { Utils } from "../utils/utils";
-import { GalleryTag } from "@moai/gallery";
+import { GalleryTag } from "../../../gallery/src";
 
 const meta: Meta = {
 	title: "Components/Tag",

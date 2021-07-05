@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { GoSearch } from "react-icons/go";
-import { Button, ButtonGroup, Input, Select } from "@moai/core";
+import { Button, ButtonGroup, Input, Select } from "../../../core/src";
 
 export default {
 	title: "Draft/Button Group",

@@ -2,9 +2,9 @@ import { Meta } from "@storybook/react";
 import * as Fm from "formik";
 import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
-import { Button, Dialog, DivPx, Input } from "@moai/core";
-import { GalleryInput1 } from "@moai/gallery";
-import { GalleryInput2 } from "@moai/gallery";
+import { Button, Dialog, DivPx, Input } from "../../../core/src";
+import { GalleryInput1 } from "../../../gallery/src";
+import { GalleryInput2 } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

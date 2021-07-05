@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Pane } from "@moai/core";
+import { Pane } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

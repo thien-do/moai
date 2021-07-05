@@ -1,4 +1,4 @@
-import { PopoverPlacement } from "@moai/core";
+import { PopoverPlacement } from "../../../core/src";
 
 export const PLACEMENTS: PopoverPlacement[] = [
 	"top",
