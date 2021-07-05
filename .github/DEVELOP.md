@@ -21,7 +21,18 @@ Moai is a [monorepo](https://classic.yarnpkg.com/en/docs/workspaces/) powered by
 | docs    | [docs.moaijs.com] | [Storybook] |
 | test    | Test suits        | [Jest]      |
 
-The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to start or build "core" and "gallery" first.
+The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to build "core" and "gallery" first. Also, the "gallery" depends on the "core" project:
+
+```
+├─ docs
+│    ├─ gallery
+│    └─ core
+├─ test
+│    └─ core
+├─ gallery
+│    └─ core
+└─ core
+```
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
@@ -33,13 +44,11 @@ The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This
 
 ## Development scripts
 
--   `yarn watch:core`: watch and build @moai/core
--   `yarn watch:gallery`: watch and build @moai/gallery
--   `yarn start:docs`: start docs.moaijs.com locally
+-   `yarn start-core`: watch and build @moai/core
+-   `yarn start-gallery`: watch and build @moai/gallery
+-   `yarn start-docs`: start docs.moaijs.com locally
 -   `yarn test`: run the test suites
 
-The full workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, it may be simpler:
+The typical workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, you may not need to "watch" some projects, but only "build" them once.
 
-If you'd like to work on tests or docs, you don't need to start the "core" and "gallery", but only need to build them once using `yarn build:npm`. Then, you can `yarn start:docs` or `yarn test`.
-
-If you'd like to work on the "core" project, which should be most of the time, then you don't need to start the "gallery" but only need to build them once using `yarn build:npm:gallery`.
+Note the dependency of these projects. In general, start "core" first, then "gallery", then "docs".
