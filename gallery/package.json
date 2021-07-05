@@ -12,7 +12,7 @@
 	"scripts": {
 		"example": "ts-node ./scripts/example/generate.ts",
 		"build": "rollup --config",
-		"start": "rollup --config --watch",
+		"watch": "rollup --config --watch",
 		"prepublishOnly": "yarn build"
 	},
 	"repository": {

@@ -33,13 +33,13 @@ The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This
 
 ## Development scripts
 
--   `yarn start-core`: watch and build @moai/core
--   `yarn start-gallery`: watch and build @moai/gallery
--   `yarn start-docs`: start docs.moaijs.com locally
+-   `yarn watch:core`: watch and build @moai/core
+-   `yarn watch:gallery`: watch and build @moai/gallery
+-   `yarn start:docs`: start docs.moaijs.com locally
 -   `yarn test`: run the test suites
 
 The full workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, it may be simpler:
 
-If you'd like to work on tests or docs, you don't need to start the "core" and "gallery", but only need to build them once using `yarn build-core` and `yarn build-gallery`. Then, you can `yarn start-docs` or `yarn test`.
+If you'd like to work on tests or docs, you don't need to start the "core" and "gallery", but only need to build them once using `yarn build:npm`. Then, you can `yarn start:docs` or `yarn test`.
 
-If you'd like to work on the "core" project, which should be most of the time, then you don't need to start the "gallery" but only need to build them once using `yarn build-gallery`.
+If you'd like to work on the "core" project, which should be most of the time, then you don't need to start the "gallery" but only need to build them once using `yarn build:npm:gallery`.
