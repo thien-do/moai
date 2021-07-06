@@ -13,6 +13,7 @@ const meta: Meta = {
 		disabled: Utils.arg("boolean", "Visual"),
 		fill: Utils.arg("boolean", "Visual"),
 		highlight: Utils.arg("boolean", "Visual"),
+		danger: Utils.arg("boolean", "Visual"),
 		minWidth: Utils.arg("boolean", "Visual"),
 		selected: Utils.arg("boolean", "Visual"),
 		size: Utils.arg(Button.sizes, "Visual"),
@@ -49,6 +50,7 @@ interface Props {
 	size?: string;
 	fill?: boolean;
 	highlight?: boolean;
+	danger?: boolean;
 	selected?: boolean;
 	busy?: boolean;
 	iconRight?: boolean;
@@ -65,6 +67,7 @@ export const Primary = (props: Props): JSX.Element => (
 		size={(Button.sizes as any)[props.size!]}
 		fill={props.fill}
 		highlight={props.highlight}
+		danger={props.danger}
 		selected={props.selected}
 		busy={props.busy}
 		iconRight={props.iconRight}
@@ -149,3 +152,5 @@ in a new tab:
 [3]: https://www.nngroup.com/articles/command-links
 `,
 });
+
+export const Danger = (): JSX.Element => <Button danger children="Danger" />;

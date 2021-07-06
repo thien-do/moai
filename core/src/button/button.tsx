@@ -13,12 +13,14 @@ interface ButtonBusyStyle {
 	className: string;
 	color: ProgressCircleColor;
 	highlightColor: ProgressCircleColor;
+	dangerColor: ProgressCircleColor;
 }
 
 export interface ButtonStyle {
 	main: string;
 	selected: string;
 	highlight: string;
+	danger: string;
 	busy: ButtonBusyStyle;
 }
 
@@ -97,6 +99,11 @@ export interface ButtonProps {
 	 * background color.
 	 */
 	highlight?: boolean;
+	/**
+	 * If set to `true`, the button is changed into danger button, e.g. with red
+	 *  background color in most case.
+	 */
+	danger?: boolean;
 	/**
 	 * If set to `true`, the button's width is 100% of its container.
 	 */
@@ -198,6 +205,7 @@ const getClass = (props: ButtonProps) => {
 	if (props.minWidth) classes.push(s.minWidth);
 	if (props.selected) classes.push(style.selected);
 	if (props.highlight) classes.push(style.highlight);
+	if (props.danger) classes.push(style.danger);
 	if (props.busy) classes.push(style.busy.className);
 	if (props.icon && props.iconRight) classes.push(s.iconRight);
 	return classes.join(" ");
@@ -315,20 +323,24 @@ Button.styles = {
 		main: [border.radius, outset.main].join(" "),
 		selected: outset.selected,
 		highlight: outset.highlight,
+		danger: outset.danger,
 		busy: {
 			className: outset.busy,
 			color: ProgressCircle.colors.neutral,
 			highlightColor: ProgressCircle.colors.inverse,
+			dangerColor: ProgressCircle.colors.inverse,
 		},
 	},
 	flat: {
 		main: [flat.main].join(" "),
 		selected: flat.selected,
 		highlight: flat.highlight,
+		danger: flat.danger,
 		busy: {
 			className: flat.busy,
 			color: ProgressCircle.colors.neutral,
 			highlightColor: ProgressCircle.colors.highlight,
+			dangerColor: ProgressCircle.colors.highlight,
 		},
 	},
 };
