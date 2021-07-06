@@ -23,15 +23,11 @@ interface ButtonColor {
 interface ButtonBusyStyle {
 	className: string;
 	color: ProgressCircleColor;
-	// highlightColor: ProgressCircleColor;
-	// dangerColor: ProgressCircleColor;
 }
 
 export interface ButtonStyle {
 	main: string;
 	selected: string;
-	// highlight: string;
-	// danger: string;
 	busy: ButtonBusyStyle;
 }
 
@@ -105,16 +101,6 @@ export interface ButtonProps {
 	 * a darker background.
 	 */
 	selected?: boolean;
-	/**
-	 * If set to `true`, the button is highlighted, e.g. with a highlight
-	 * background color.
-	 */
-	// highlight?: boolean;
-	/**
-	 * If set to `true`, the button is changed into danger button, e.g. with red
-	 *  background color in most case.
-	 */
-	// danger?: boolean;
 	color?: ButtonColor;
 	/**
 	 * If set to `true`, the button's width is 100% of its container.
