@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react/types-6-0";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
 import { CSSProperties, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Button, FormError, Input, TextArea } from "@moai/core";
+import { Button, FormError, Input, TextArea } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -58,7 +58,7 @@ const postToServer = async (values: FormValues): Promise<void> => {
 export const Primary = (): JSX.Element => <div>Skipped</div>;
 
 export const FormikExample = (): JSX.Element => {
-	/* import { Input, Button, FormError } from "@moai/core" */
+	/* import { Input, Button, FormError } from "../../../core/src" */
 
 	const title = (
 		<div>
@@ -113,7 +113,7 @@ Formik's [Field][1] component:
 
 ~~~tsx
 import { Field } from "formik";
-import { Input } from "@moai/core";
+import { Input } from "../../../core/src";
 
 <label htmlFor="email">Email</label>
 <Field id="email" type="email" name="email" as={Input} />
@@ -124,7 +124,7 @@ To show errors, pass FormError to the "component" prop of Formik's
 
 ~~~tsx
 import { ErrorMessage } from "formik";
-import { FormError } from "@moai/core";
+import { FormError } from "../../../core/src";
 
 <ErrorMessage name="email" component={FormError} />
 ~~~
@@ -136,7 +136,7 @@ Full example:
 });
 
 export const ReactHookForm = (): JSX.Element => {
-	/* import { Input, Button, FormError } from "@moai/core" */
+	/* import { Input, Button, FormError } from "../../../core/src" */
 
 	const { control, formState, handleSubmit } = useForm<FormValues>();
 	const { errors } = formState;
@@ -198,7 +198,7 @@ To use Moai's input components with React Hook Form, [render][2] them in the
 
 ~~~tsx
 import { Controller } from "react-hook-form";
-import { Input } from "@moai/core";
+import { Input } from "../../../core/src";
 
 <label htmlFor="email">Email</label>
 <Controller
@@ -218,7 +218,7 @@ To show errors, pass RHF's [error messages][3] as children of Moai's FormError
 component:
 
 ~~~tsx
-import { FormError } from "@moai/core";
+import { FormError } from "../../../core/src";
 
 <FormError children={errors.email?.message} />
 ~~~

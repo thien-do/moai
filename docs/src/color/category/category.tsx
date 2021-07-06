@@ -1,6 +1,6 @@
 import React from "react";
-import { border, Table } from "@moai/core";
-import { GalleryTag } from "@moai/gallery";
+import { border, Table } from "../../../../core/src";
+import { GalleryTag } from "../../../../gallery/src";
 import s from "./category.module.css";
 
 interface Row {

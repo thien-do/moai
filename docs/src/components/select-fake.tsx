@@ -1,4 +1,4 @@
-import { SelectOption } from "@moai/core";
+import { SelectOption } from "../../../core/src";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

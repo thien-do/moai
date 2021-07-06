@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Button, toast, ToastPane } from "@moai/core";
-import { GalleryToast } from "@moai/gallery";
+import { Button, toast, ToastPane } from "../../../core/src";
+import { GalleryToast } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { ToastFunction } from "./toast-fake";
 

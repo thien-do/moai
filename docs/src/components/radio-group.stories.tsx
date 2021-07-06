@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { RadioGroup, RadioOption } from "@moai/core";
+import { RadioGroup, RadioOption } from "../../../core/src";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 import { RadioOptionComponent } from "./radio-group-fake";

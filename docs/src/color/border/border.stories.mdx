@@ -14,7 +14,7 @@ width, e.g. using the "border" class from Tailwind. You don't need to set the
 border style since it's already default to "solid" in our [CSS reset][2].
 
 ```ts
-import { border } from "@moai/core";
+import { border } from "../../../../core/src";
 
 // The "border" class comes from Tailwind to set the border width
 <div className={[border.weak, "border"].join(" ")}>Text</div>;

@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { SVGAttributes } from "react";
 import { FaHome } from "react-icons/fa";
-import { Icon, text } from "@moai/core";
-import { GalleryIcon } from "@moai/gallery";
+import { Icon, text } from "../../../core/src";
+import { GalleryIcon } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {

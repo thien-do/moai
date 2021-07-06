@@ -1,6 +1,6 @@
 import Color from "color";
 import { useEffect, useRef, useState } from "react";
-import { text } from "@moai/core";
+import { text } from "../../../../core/src";
 import s from "./sample.module.css";
 
 interface Props {

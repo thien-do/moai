@@ -1,5 +1,5 @@
-import { TableColumn } from "@moai/core";
-import { TableExpandableProps } from "@moai/core";
+import { TableColumn } from "../../../core/src";
+import { TableExpandableProps } from "../../../core/src";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's

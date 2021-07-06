@@ -1,7 +1,7 @@
 import { addons } from "@storybook/addons";
 // Use the remote font since the manager is not set up to import local fonts
 // (i.e. woff2 files)
-import "@moai/core/dist/font/remote.css";
+import "../../core/font/remote.css";
 
 addons.setConfig({
 	initialActive: "addons",

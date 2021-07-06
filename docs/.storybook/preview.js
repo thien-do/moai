@@ -1,8 +1,10 @@
 import * as D from "@storybook/addon-docs/blocks";
 import { useDarkMode } from "storybook-dark-mode";
+import "../../core/font/remote.css";
+import "../../core/src/global/global.css";
+// This is kind of a temporary workaround.. it's necessary because @moai/gallery
+// does not use the src of core like the docs, but instead use the dist build
 import "@moai/core/dist/bundle.css";
-import "@moai/core/dist/font/remote.css";
-import "@moai/gallery/dist/bundle.css";
 import "./preview.css";
 import "./syntax.css";
 import { darkTheme, lightTheme } from "./theme";

@@ -1,4 +1,4 @@
-import { border, Table } from "@moai/core";
+import { border, Table } from "../../../../core/src";
 import { ColorStaticSample } from "./sample";
 import s from "./table.module.css";
 
