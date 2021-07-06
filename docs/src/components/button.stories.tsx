@@ -12,12 +12,11 @@ const meta: Meta = {
 		busy: Utils.arg("boolean", "Visual"),
 		disabled: Utils.arg("boolean", "Visual"),
 		fill: Utils.arg("boolean", "Visual"),
-		highlight: Utils.arg("boolean", "Visual"),
-		danger: Utils.arg("boolean", "Visual"),
 		minWidth: Utils.arg("boolean", "Visual"),
 		selected: Utils.arg("boolean", "Visual"),
 		size: Utils.arg(Button.sizes, "Visual"),
 		style: Utils.arg(Button.styles, "Visual"),
+		color: Utils.arg(Button.color, "Visual"),
 
 		children: Utils.arg(null, "Content"),
 		icon: Utils.arg(null, "Content"),
@@ -48,9 +47,8 @@ export default meta;
 interface Props {
 	style?: string;
 	size?: string;
+	color?: string;
 	fill?: boolean;
-	highlight?: boolean;
-	danger?: boolean;
 	selected?: boolean;
 	busy?: boolean;
 	iconRight?: boolean;
@@ -65,9 +63,9 @@ export const Primary = (props: Props): JSX.Element => (
 		style={(Button.styles as any)[props.style!]}
 		// eslint-disable-next-line
 		size={(Button.sizes as any)[props.size!]}
+		// eslint-disable-next-line
+		color={(Button.color as any)[props.color!]}
 		fill={props.fill}
-		highlight={props.highlight}
-		danger={props.danger}
 		selected={props.selected}
 		busy={props.busy}
 		iconRight={props.iconRight}
@@ -130,7 +128,7 @@ suffix, like \`Button.sizes.mediumIcon\`.
 
 export const Link = (): JSX.Element => (
 	<Button
-		highlight
+		color={Button.color.highlight}
 		href="https://moaijs.com"
 		target="_blank"
 		children="Go to Moaijs.com"
@@ -153,4 +151,6 @@ in a new tab:
 `,
 });
 
-export const Danger = (): JSX.Element => <Button danger children="Danger" />;
+export const Danger = (): JSX.Element => (
+	<Button color={Button.color.danger} children="Danger" />
+);
