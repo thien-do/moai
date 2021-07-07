@@ -101,6 +101,12 @@ export interface ButtonProps {
 	 * a darker background.
 	 */
 	selected?: boolean;
+	/**
+	 * If set to `true`, the button is highlighted, e.g. with
+	 * a highlight background.
+	 */
+	/** @deprecated */
+	highlight?: boolean;
 	color?: ButtonColor;
 	/**
 	 * If set to `true`, the button's width is 100% of its container.
@@ -199,12 +205,20 @@ interface ButtonComponent
 	};
 }
 
+const getColor = (props: ButtonProps) => {
+	if (props.highlight !== undefined && props.color !== undefined)
+		throw Error(
+			"highlight and color cannot be defined at the same time. Use color only"
+		);
+	let color = props.color;
+	if (props.highlight) color = Button.color.highlight;
+	return props.style ? color?.className.flat : color?.className.outset;
+};
+
 const getClass = (props: ButtonProps) => {
 	const size = props.size ?? Button.sizes.medium;
 	const style = props.style ?? Button.styles.outset;
-	const color = props.style
-		? props.color?.className.flat
-		: props.color?.className.outset;
+	const color = getColor(props);
 	const classes = [s.button, size.main, style.main, outline.normal, color];
 	if (props.fill) classes.push(s.fill);
 	if (props.minWidth) classes.push(s.minWidth);

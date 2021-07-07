@@ -12,6 +12,7 @@ const meta: Meta = {
 		busy: Utils.arg("boolean", "Visual"),
 		disabled: Utils.arg("boolean", "Visual"),
 		fill: Utils.arg("boolean", "Visual"),
+		highlight: Utils.arg("boolean", "Visual"),
 		minWidth: Utils.arg("boolean", "Visual"),
 		selected: Utils.arg("boolean", "Visual"),
 		size: Utils.arg(Button.sizes, "Visual"),
@@ -49,6 +50,7 @@ interface Props {
 	size?: string;
 	color?: string;
 	fill?: boolean;
+	highlight?: boolean;
 	selected?: boolean;
 	busy?: boolean;
 	iconRight?: boolean;
@@ -66,6 +68,7 @@ export const Primary = (props: Props): JSX.Element => (
 		// eslint-disable-next-line
 		color={(Button.color as any)[props.color!]}
 		fill={props.fill}
+		highlight={props.highlight}
 		selected={props.selected}
 		busy={props.busy}
 		iconRight={props.iconRight}
@@ -128,7 +131,7 @@ suffix, like \`Button.sizes.mediumIcon\`.
 
 export const Link = (): JSX.Element => (
 	<Button
-		color={Button.color.highlight}
+		highlight
 		href="https://moaijs.com"
 		target="_blank"
 		children="Go to Moaijs.com"
