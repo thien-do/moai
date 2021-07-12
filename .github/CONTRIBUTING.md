@@ -48,3 +48,7 @@ Moai's documentation are just code in this repository. Documentation pull reques
 The source of [docs.moaijs.com](https://docs.moaijs.com) is largely under the "lib/docs" folder. You can find all guides and examples (i.e. "Story") here. The API references (i.e. "All Props" tables) are automatically generated from the component's source code (e.g. [button.ts](https://github.com/moaijs/moai/blob/main/lib/core/src/button/button.tsx)).
 
 To test your documentation changes, you will need to setup Moai's local development. To get started, see the [DEVELOP](./DEVELOP.md) guide.
+
+## Contributor Requests
+
+Every contributions count, even an idea of design, documentation, or anything that is not in the source code. If you think you, or someone you know, has contributed to Moai but are not recognized yet, you can request for that contribution by asking [@all-contributors bot](https://allcontributors.org/). For more details, see the [Bot Usage](https://allcontributors.org/docs/en/bot/usage) guide.
