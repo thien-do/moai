@@ -15,7 +15,7 @@ const InputTesting = () => {
 	);
 };
 
-describe("Testing Input Component", () => {
+describe("Testing Input Controlled Props", () => {
 	test("div value should change after Input value change", async () => {
 		render(<InputTesting />);
 
@@ -36,7 +36,9 @@ describe("Testing Input Component", () => {
 		expect(screen.getByText("Goodbye")).toBeDefined();
 		expect(inputElement.value).toBe("Goodbye");
 	});
+});
 
+describe("Testing Input Uncontrolled Props", () => {
 	test("props.defaultValue should be displayed before Input's text change", async () => {
 		render(<Input defaultValue="Foo" aria-label="default-input" />);
 
@@ -55,6 +57,6 @@ describe("Testing Input Component", () => {
 		) as HTMLInputElement;
 
 		fireEvent.change(inputElement, { target: { value: "Hello" } });
-		expect(inputElement.value).not.toBe("Foo");
+		expect(inputElement.value).toBe("Hello");
 	});
 });
