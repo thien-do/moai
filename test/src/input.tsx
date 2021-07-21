@@ -83,7 +83,7 @@ describe("Testing Input Type Prop", () => {
 });
 
 describe("Testing Input Disable Prop", () => {
-	test("props.type 'number' doesn't allow characters", async () => {
+	test("Input's value shouldn't be change when disable", async () => {
 		const inputValue = "foo";
 		render(<Input disabled aria-label="input-test" />);
 		const inputElement = screen.getByLabelText(
