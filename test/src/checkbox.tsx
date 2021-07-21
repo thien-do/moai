@@ -25,24 +25,26 @@ describe("Testing Checkbox Disabled Prop", () => {
 	});
 });
 
-// describe("Testing Checkbox Controlled Prop", () => {
-// 	const TestingCheckbox = () => {
-// 		const [value, setValue] = useState<boolean>(false);
-// 		return (
-// 			<div>
-// 				<Checkbox setChecked={setValue}>foo</Checkbox>
-// 				<div aria-label="div">{value}</div>
-// 				<Button onClick={() => setValue(true)}>Change option</Button>
-// 			</div>
-// 		);
-// 	};
-// 	test("Checkbox should be checked when set DefaultChecked", () => {
-// 		render(<TestingCheckbox />);
+describe("Testing Checkbox Controlled Prop", () => {
+	const TestingCheckbox = () => {
+		const [value, setValue] = useState<boolean>(false);
+		return (
+			<div>
+				<Checkbox checked={value} setChecked={setValue}>
+					foo
+				</Checkbox>
+				<div aria-label="div">{value}</div>
+				<Button onClick={() => setValue(true)}>Change option</Button>
+			</div>
+		);
+	};
+	test("Checkbox should be checked when set DefaultChecked", () => {
+		render(<TestingCheckbox />);
 
-// 		const checkboxElement = screen.getByRole("checkbox");
-// 		const buttonElement = screen.getByRole("button");
+		const checkboxElement = screen.getByRole("checkbox");
+		const buttonElement = screen.getByRole("button");
 
-// 		fireEvent.click(buttonElement);
-// 		expect(checkboxElement).toBeChecked();
-// 	});
-// });
+		fireEvent.click(buttonElement);
+		expect(checkboxElement).toBeChecked();
+	});
+});
