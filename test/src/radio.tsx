@@ -2,26 +2,34 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { useState } from "react";
-import { Checkbox, Button } from "@moai/core";
+import { Radio, Button } from "@moai/core";
 
 describe("Testing Checkbox Uncontrolled Prop", () => {
 	test("Checkbox should be checked when set DefaultChecked", () => {
-		render(<Checkbox defaultChecked>foo</Checkbox>);
+		render(
+			<Radio defaultChecked name="radio" value="1">
+				foo
+			</Radio>
+		);
 
-		const checkboxElement = screen.getByRole("checkbox");
+		const radioElement = screen.getByRole("radio");
 
-		expect(checkboxElement).toBeChecked();
+		expect(radioElement).toBeChecked();
 	});
 });
 
 describe("Testing Checkbox Disabled Prop", () => {
 	test("Checkbox shouldn't change state when disabled", () => {
-		render(<Checkbox disabled>foo</Checkbox>);
+		render(
+			<Radio disabled name="radio" value="1">
+				foo
+			</Radio>
+		);
 
-		const checkboxElement = screen.getByRole("checkbox");
-		userEvent.click(checkboxElement);
+		const radioElement = screen.getByRole("radio");
+		userEvent.click(radioElement);
 
-		expect(checkboxElement).not.toBeChecked();
+		expect(radioElement).not.toBeChecked();
 	});
 });
 
@@ -30,20 +38,21 @@ describe("Testing Checkbox Controlled Prop", () => {
 		const [checked, setChecked] = useState<boolean>(false);
 		return (
 			<div>
-				<Checkbox checked={checked} setChecked={setChecked}>
+				<Radio checked={checked} name="radio" value="1">
 					foo
-				</Checkbox>
+				</Radio>
 				<Button onClick={() => setChecked(true)}>Change option</Button>
 			</div>
 		);
 	};
+
 	test("Checkbox should be checked when set DefaultChecked", () => {
 		render(<TestingCheckbox />);
 
-		const checkboxElement = screen.getByRole("checkbox");
+		const radioElement = screen.getByRole("radio");
 		const buttonElement = screen.getByRole("button");
 
 		fireEvent.click(buttonElement);
-		expect(checkboxElement).toBeChecked();
+		expect(radioElement).toBeChecked();
 	});
 });
