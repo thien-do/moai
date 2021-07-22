@@ -2,13 +2,14 @@
 
 // https://jestjs.io/docs/configuration
 module.exports = {
+	preset: "ts-jest",
 	collectCoverage: true,
 	coverageDirectory: "coverage",
 	coverageProvider: "v8",
 	testEnvironment: "jsdom",
-	testMatch: ["**/dist/**/*.js?(x)"],
-	testPathIgnorePatterns: ["<rootDir>/dist/config"],
-	setupFilesAfterEnv: ["<rootDir>/dist/config/jest-setup.js"],
+	testMatch: ["**/*.ts?(x)"],
+	testPathIgnorePatterns: ["/node_modules/", "<rootDir>/src/config/"],
+	setupFilesAfterEnv: ["<rootDir>/src/config/jest-setup.ts"],
 	resetMocks: true,
 	restoreMocks: true,
 };
