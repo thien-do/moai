@@ -56,11 +56,13 @@ export const DialogMain = (props: DialogProps): JSX.Element => (
 		onKeyDown={(event) => {
 			if (event.key === "Escape") props.onEsc?.();
 		}}
+		role="dialog"
 	>
 		{/* Separate so we can use opacity instead of alpha channel */}
 		<div
 			className={[background.weak, s.backdrop, s.fill].join(" ")}
 			onClick={props.onEsc}
+			data-testid="dialogBackdrop"
 		/>
 		<DialogPane {...props} />
 	</div>
