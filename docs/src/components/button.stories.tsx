@@ -17,7 +17,7 @@ const meta: Meta = {
 		selected: Utils.arg("boolean", "Visual"),
 		size: Utils.arg(Button.sizes, "Visual"),
 		style: Utils.arg(Button.styles, "Visual"),
-		color: Utils.arg(Button.color, "Visual"),
+		color: Utils.arg(Button.colors, "Visual"),
 
 		children: Utils.arg(null, "Content"),
 		icon: Utils.arg(null, "Content"),
@@ -66,7 +66,7 @@ export const Primary = (props: Props): JSX.Element => (
 		// eslint-disable-next-line
 		size={(Button.sizes as any)[props.size!]}
 		// eslint-disable-next-line
-		color={(Button.color as any)[props.color!]}
+		color={(Button.colors as any)[props.color!]}
 		fill={props.fill}
 		highlight={props.highlight}
 		selected={props.selected}
@@ -154,6 +154,6 @@ in a new tab:
 `,
 });
 
-export const Danger = (): JSX.Element => (
-	<Button color={Button.color.danger} children="Danger" />
+export const Failure = (): JSX.Element => (
+	<Button color={Button.colors.failure} children="Danger" />
 );

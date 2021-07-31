@@ -1,41 +1,15 @@
 import React, { forwardRef } from "react";
 import { IconType } from "react-icons";
-import { border } from "../border/border";
 import { DivPx } from "../div/div";
 import { Icon } from "../icon/icon";
 import { outline } from "../outline/outline";
 import { ProgressCircle, ProgressCircleColor } from "../progress/circle";
 import s from "./button.module.css";
-import flat from "./flat.module.css";
-import outset from "./outset.module.css";
+import { ButtonColor, buttonColors, getButtonColor } from "./color/color";
+import { ButtonStyle, buttonStyles, getButtonStyle } from "./style/style";
+import { ButtonSize, buttonSizes, getButtonSize } from "./size/size";
 
-interface ButtonColor {
-	className: {
-		outset: string;
-		flat: string;
-	};
-	busy: {
-		outset: ProgressCircleColor;
-		flat: ProgressCircleColor;
-	};
-}
-
-interface ButtonBusyStyle {
-	className: string;
-	color: ProgressCircleColor;
-}
-
-export interface ButtonStyle {
-	main: string;
-	selected: string;
-	busy: ButtonBusyStyle;
-}
-
-export interface ButtonSize {
-	main: string;
-	iconSize: number;
-	iconMargin: number;
-}
+export type { ButtonColor, ButtonStyle, ButtonSize };
 
 export interface ButtonProps {
 	// Props for the "button" tag
@@ -62,11 +36,8 @@ export interface ButtonProps {
 	autoFocus?: boolean;
 	/**
 	 * The [HTML `tabIndex`][1] attribute. It's not recommended to set this
-	 * value manually:
-	 *
-	 * > Avoid using tabindex values greater than 0. Doing so makes it difficult
-	 * > for people who rely on assistive technology to navigate and operate page
-	 * > content. Instead, write the document with the elements in a logical sequence.
+	 * value manually to avoid making it difficult for people who rely on
+	 * assistive technology to navigate.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
 	 */
@@ -102,11 +73,16 @@ export interface ButtonProps {
 	 */
 	selected?: boolean;
 	/**
+	 * @deprecated
+	 *
 	 * If set to `true`, the button is highlighted, e.g. with
 	 * a highlight background.
 	 */
-	/** @deprecated */
 	highlight?: boolean;
+	/**
+	 * The color of the button. Choose one from `Button.colors`, default to
+	 * neutral (gray).
+	 */
 	color?: ButtonColor;
 	/**
 	 * If set to `true`, the button's width is 100% of its container.
@@ -187,54 +163,34 @@ type ButtonPropsWithRef = ButtonProps & React.RefAttributes<ButtonElement>;
 // be extended with property like "Button.sizes"
 interface ButtonComponent
 	extends React.ForwardRefExoticComponent<ButtonPropsWithRef> {
-	sizes: {
-		large: ButtonSize;
-		largeIcon: ButtonSize;
-		medium: ButtonSize;
-		mediumIcon: ButtonSize;
-		small: ButtonSize;
-		smallIcon: ButtonSize;
-	};
-	styles: {
-		outset: ButtonStyle;
-		flat: ButtonStyle;
-	};
-	color: {
-		highlight: ButtonColor;
-		danger: ButtonColor;
-	};
+	sizes: typeof buttonSizes;
+	styles: typeof buttonStyles;
+	colors: typeof buttonColors;
 }
 
-const getColor = (props: ButtonProps) => {
-	if (props.highlight !== undefined && props.color !== undefined)
-		throw Error(
-			"highlight and color cannot be defined at the same time. Use color only"
-		);
-	let color = props.color;
-	if (props.highlight) color = Button.color.highlight;
-	return props.style ? color?.className.flat : color?.className.outset;
-};
-
 const getClass = (props: ButtonProps) => {
-	const size = props.size ?? Button.sizes.medium;
-	const style = props.style ?? Button.styles.outset;
-	const color = getColor(props);
-	const classes = [s.button, size.main, style.main, outline.normal, color];
+	const size = getButtonSize(props);
+	const style = getButtonStyle(props);
+	const color = style.color(getButtonColor(props));
+	const classes = [
+		s.button,
+		outline.normal,
+		size.mainClassName,
+		style.mainClassName,
+		color.mainClassName,
+	];
+	if (props.busy) classes.push(style.busyClassName);
 	if (props.fill) classes.push(s.fill);
 	if (props.minWidth) classes.push(s.minWidth);
-	if (props.selected) classes.push(style.selected);
-	if (props.busy) classes.push(style.busy.className);
+	if (props.selected) classes.push(color.selectedClassName);
 	if (props.icon && props.iconRight) classes.push(s.iconRight);
 	return classes.join(" ");
 };
 
 const getProgressColor = (props: ButtonProps): ProgressCircleColor => {
-	const style = props.style ?? Button.styles.outset;
-	return props.color
-		? props.style
-			? props.color.busy.flat
-			: props.color.busy.outset
-		: style.busy.color;
+	const style = getButtonStyle(props);
+	const color = style.color(getButtonColor(props));
+	return color.progressCircleColor;
 };
 
 export const ButtonChildren = (props: ButtonProps): JSX.Element => {
@@ -339,58 +295,6 @@ const buttonRender = (
  */
 export const Button = forwardRef(buttonRender) as ButtonComponent;
 
-Button.styles = {
-	outset: {
-		main: [border.radius, outset.main].join(" "),
-		selected: outset.selected,
-		busy: {
-			className: outset.busy,
-			color: ProgressCircle.colors.neutral,
-		},
-	},
-	flat: {
-		main: [flat.main].join(" "),
-		selected: flat.selected,
-		busy: {
-			className: flat.busy,
-			color: ProgressCircle.colors.neutral,
-		},
-	},
-};
-
-Button.color = {
-	highlight: {
-		className: {
-			outset: outset.highlight,
-			flat: flat.highlight,
-		},
-		busy: {
-			outset: ProgressCircle.colors.inverse,
-			flat: ProgressCircle.colors.highlight,
-		},
-	},
-	danger: {
-		className: {
-			outset: outset.danger,
-			flat: flat.danger,
-		},
-		busy: {
-			outset: ProgressCircle.colors.inverse,
-			flat: ProgressCircle.colors.highlight,
-		},
-	},
-};
-
-Button.sizes = (() => {
-	const largeIcon = { iconSize: 20, iconMargin: 12 };
-	const mediumIcon = { iconSize: 16, iconMargin: 8 };
-	const smallIcon = { iconSize: 12, iconMargin: 4 };
-	return {
-		large: { main: s.large, ...largeIcon },
-		largeIcon: { main: s.largeIcon, ...largeIcon },
-		medium: { main: s.medium, ...mediumIcon },
-		mediumIcon: { main: s.mediumIcon, ...mediumIcon },
-		small: { main: s.small, ...smallIcon },
-		smallIcon: { main: s.smallIcon, ...smallIcon },
-	};
-})();
+Button.styles = buttonStyles;
+Button.colors = buttonColors;
+Button.sizes = buttonSizes;

@@ -18,7 +18,7 @@ export const ConfirmDialog = (props: Props): JSX.Element => (
 			<Button
 				minWidth
 				autoFocus
-				color={Button.color.highlight}
+				highlight
 				onClick={props.onOk}
 				children="OK"
 			/>
