@@ -1,0 +1,61 @@
+/* Flat */
+
+:global(.light) .flat:hover {
+	background-color: var(--gray-1);
+}
+:global(.light) .flat:active {
+	background-color: var(--gray-2);
+}
+:global(.dark) .flat:hover {
+	background-color: var(--gray-6);
+}
+:global(.dark) .flat:active {
+	background-color: var(--gray-9);
+}
+
+:global(.light) .flat.selected {
+	background-color: var(--gray-1);
+}
+:global(.dark) .flat.selected {
+	background-color: var(--gray-9);
+}
+
+/* Outset */
+
+:global(.light) .outset {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
+	background-color: var(--gray-0);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--white);
+	border-color: var(--gray-2);
+}
+:global(.light) .outset:hover {
+	background-color: var(--white);
+}
+:global(.light) .outset:active {
+	background-color: var(--gray-1);
+	box-shadow: none;
+}
+
+:global(.dark) .outset {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.5);
+	background-color: var(--gray-6);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-5);
+	border-color: var(--black);
+}
+:global(.dark) .outset:hover {
+	background-color: var(--gray-5);
+}
+:global(.dark) .outset:active {
+	background-color: var(--gray-7);
+	box-shadow: none;
+}
+
+:global(.light) .outset.selected {
+	background-color: var(--gray-1);
+	box-shadow: none;
+}
+
+:global(.dark) .outset.selected {
+	background-color: var(--gray-9);
+	box-shadow: none;
+}

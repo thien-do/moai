@@ -1,0 +1,61 @@
+/* Flat */
+
+:global(.light) .flat {
+	color: var(--highlight-6);
+}
+:global(.dark) .flat {
+	color: var(--highlight-5);
+}
+:global(.light) .flat:hover {
+	background-color: var(--gray-1);
+}
+:global(.dark) .flat:hover {
+	background-color: var(--gray-6);
+}
+:global(.light) .flat:active {
+	background-color: var(--gray-2);
+}
+:global(.dark) .flat:active {
+	background-color: var(--gray-9);
+}
+:global(.light) .flat.selected {
+	background-color: var(--gray-1);
+}
+:global(.dark) .flat.selected {
+	background-color: var(--gray-9);
+}
+
+/* Outset */
+
+:global(.light) .outset,
+:global(.dark) .outset {
+	color: var(--white);
+	background-color: var(--highlight-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	font-weight: 500;
+}
+
+:global(.light) .outset {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
+	border-color: var(--highlight-7);
+}
+
+:global(.dark) .outset {
+	border-color: var(--black);
+}
+
+:global(.light) .outset:hover,
+:global(.dark) .outset:hover {
+	background-color: var(--highlight-4);
+}
+:global(.light) .outset:active,
+:global(.dark) .outset:active {
+	background-color: var(--highlight-6);
+	box-shadow: none;
+}
+
+:global(.light) .outset.selected,
+:global(.dark) .outset.selected {
+	background-color: var(--highlight-6);
+	box-shadow: none;
+}
