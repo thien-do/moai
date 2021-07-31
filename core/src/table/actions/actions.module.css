@@ -3,3 +3,9 @@
 	align-items: center;
 	gap: 16px;
 }
+
+.column {
+	/* Avoid whitespace in action column
+	https://github.com/moaijs/moai/issues/229 */
+	width: 0px;
+}
