@@ -153,7 +153,3 @@ in a new tab:
 [3]: https://www.nngroup.com/articles/command-links
 `,
 });
-
-export const Failure = (): JSX.Element => (
-	<Button color={Button.colors.failure} children="Danger" />
-);
