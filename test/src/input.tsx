@@ -48,26 +48,18 @@ describe("Input Uncontrolled", () => {
 	});
 });
 
-describe("Testing Input Type Prop", () => {
-	test("props.type 'number' doesn't allow characters", async () => {
-		const inputValue = "foo";
-		render(<Input type="number" aria-label="input-test" />);
-		const inputElement = screen.getByLabelText(
-			"input-test"
-		) as HTMLInputElement;
-		userEvent.type(inputElement, inputValue);
-		expect(inputElement).not.toHaveValue(inputValue);
+describe("Input Props", () => {
+	test("Should not allow letters when type is `number`", () => {
+		render(<Input type="number" defaultValue="123" />);
+		const input = screen.getByRole("spinbutton");
+		userEvent.type(input, "foo4");
+		expect(input).toHaveDisplayValue("1234");
 	});
-});
-
-describe("Testing Input Disable Prop", () => {
-	test("Input's value shouldn't be change when disable", async () => {
-		const inputValue = "foo";
-		render(<Input disabled aria-label="input-test" />);
-		const inputElement = screen.getByLabelText(
-			"input-test"
-		) as HTMLInputElement;
-		userEvent.type(inputElement, inputValue);
-		expect(inputElement).not.toHaveValue(inputValue);
+	test("Should not change when `disabled` is set", async () => {
+		render(<Input disabled defaultValue="foo" />);
+		const input = screen.getByRole("textbox");
+		userEvent.type(input, "bar");
+		expect(input).toBeDisabled();
+		expect(input).toHaveDisplayValue("foo");
 	});
 });
