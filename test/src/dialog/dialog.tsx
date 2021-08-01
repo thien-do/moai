@@ -23,10 +23,6 @@ const expectElementsTruthy = (): void => {
 };
 
 describe("Dialog", () => {
-	beforeEach(() => {
-		jest.spyOn(console, "error").mockImplementation(() => void 0);
-	});
-
 	describe("Dialog itself (unit)", () => {
 		it("render Dialog correctly", () => {
 			render(<Dialog onEsc={clickMock}>{LABELS.HELLO_WORLD}</Dialog>);
@@ -147,6 +143,9 @@ describe("Dialog", () => {
 	});
 
 	describe("Dialog utilities", () => {
+		beforeEach(() => {
+			jest.spyOn(console, "error").mockImplementation(() => void 0);
+		});
 		describe.each`
 			name                | buttons
 			${"Dialog.alert"}   | ${"OK"}

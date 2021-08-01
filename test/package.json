@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"test": "jest"
+		"test": "jest --collectCoverage false"
 	},
 	"devDependencies": {
 		"@moai/core": "*",
