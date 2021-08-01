@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Button, ButtonProps } from "@moai/core";
 import { useState } from "react";
 import userEvent from "@testing-library/user-event";
