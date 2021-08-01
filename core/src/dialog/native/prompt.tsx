@@ -23,7 +23,6 @@ export const PromptDialog = (props: Props): JSX.Element => {
 		value: text,
 		setValue: setText,
 		autoFocus: true,
-		autoselect: "true",
 	};
 	const rows = props.rows ?? 1;
 	return (
