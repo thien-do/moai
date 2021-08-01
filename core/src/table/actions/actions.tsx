@@ -30,6 +30,7 @@ export const getTableActionsColumn = <R,>(
 	props: TableProps<R>,
 	state: TableState
 ): TableColumn<R> => ({
+	className: s.column,
 	title: "",
 	render: renderActions(props, state),
 });

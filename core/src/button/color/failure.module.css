@@ -1,0 +1,38 @@
+/* Flat */
+
+:global(.light) .flat {
+	color: var(--failure-6);
+}
+
+:global(.dark) .flat {
+	color: var(--failure-5);
+}
+
+/* Outset */
+
+:global(.light) .outset,
+:global(.dark) .outset {
+	color: var(--white);
+	background-color: var(--failure-5);
+	box-shadow: var(--shadow), var(--inset-shadow) var(--failure-4);
+	font-weight: 500;
+}
+
+:global(.light) .outset {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
+	border-color: var(--failure-7);
+}
+
+:global(.dark) .outset {
+	border-color: var(--black);
+}
+
+:global(.light) .outset:hover,
+:global(.dark) .outset:hover {
+	background-color: var(--failure-4);
+}
+:global(.light) .outset:active,
+:global(.dark) .outset:active {
+	background-color: var(--failure-6);
+	box-shadow: none;
+}
