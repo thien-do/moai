@@ -47,3 +47,19 @@ describe("Input Uncontrolled", () => {
 		expect(input).toHaveDisplayValue("Mew");
 	});
 });
+
+describe("Input Props", () => {
+	test("Should not allow letters when type is `number`", () => {
+		render(<Input type="number" defaultValue="123" />);
+		const input = screen.getByRole("spinbutton");
+		userEvent.type(input, "foo4");
+		expect(input).toHaveDisplayValue("1234");
+	});
+	test("Should not change when `disabled` is set", async () => {
+		render(<Input disabled defaultValue="foo" />);
+		const input = screen.getByRole("textbox");
+		userEvent.type(input, "bar");
+		expect(input).toBeDisabled();
+		expect(input).toHaveDisplayValue("foo");
+	});
+});
