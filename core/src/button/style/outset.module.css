@@ -1,0 +1,29 @@
+.main {
+	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
+	border: solid 1px transparent;
+	--shadow-size: 0px 0.5px 2px;
+	--inset-shadow: inset 0px 1px 0px;
+}
+
+a.main {
+	color: inherit;
+}
+
+:global(.group-tail) .main {
+	border-left: none;
+}
+
+/* DISABLED */
+
+:global(.light) .main:not(.busy):disabled {
+	color: var(--gray-3);
+	box-shadow: none;
+	background-color: var(--gray-0);
+	border-color: var(--gray-1);
+}
+:global(.dark) .main:not(.busy):disabled {
+	color: var(--gray-4);
+	box-shadow: none;
+	background-color: var(--gray-6);
+	border-color: var(--black);
+}

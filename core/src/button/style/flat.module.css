@@ -1,0 +1,16 @@
+.main {
+	transition: background-color 0.1s, outline 0.2s ease-out;
+	border-radius: 0;
+	/* To have same layout with outset buttons */
+	border: solid 1px transparent;
+	background: none;
+}
+
+/* DISABLED */
+
+:global(.light) .main:disabled:not(.x) {
+	color: var(--gray-3);
+}
+:global(.dark) .main:disabled:not(.x) {
+	color: var(--gray-4);
+}
