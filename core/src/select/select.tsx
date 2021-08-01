@@ -1,7 +1,8 @@
 import { ChangeEventHandler, ForwardedRef } from "react";
 import { border } from "../border/border";
-import flat from "../button/flat.module.css";
-import outset from "../button/outset.module.css";
+import { buttonColors } from "../button/color/color";
+import flat from "../button/style/flat.module.css";
+import outset from "../button/style/outset.module.css";
 import { Icon } from "../icon/icon";
 import { coreIcons } from "../icons/icons";
 import { outline } from "../outline/outline";
@@ -176,10 +177,14 @@ export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
 
 Select.styles = {
 	outset: {
-		select: [border.radius, outset.main].join(" "),
+		select: [
+			border.radius,
+			buttonColors.none.outset.mainClassName,
+			outset.main,
+		].join(" "),
 	} as SelectStyle,
 	flat: {
-		select: [flat.main].join(" "),
+		select: [flat.main, buttonColors.none.flat.mainClassName].join(" "),
 	} as SelectStyle,
 };
 

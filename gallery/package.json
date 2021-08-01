@@ -33,18 +33,19 @@
 		"react-icons": ">=4"
 	},
 	"devDependencies": {
-		"@types/react": "^17.0.11",
+		"@types/node": "^16.4.8",
+		"@types/react": "^17.0.15",
 		"node-fetch": "^2.6.1",
-		"postcss": "^8.3.5",
+		"postcss": "^8.3.6",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.2.0",
-		"rollup": "^2.52.3",
+		"rollup": "^2.55.1",
 		"rollup-plugin-copy": "^3.4.0",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-postcss": "^4.0.0",
 		"rollup-plugin-typescript2": "^0.30.0",
-		"ts-node": "^10.0.0",
+		"ts-node": "^10.1.0",
 		"tslib": "^2.3.0",
 		"typescript": "^4.3.4"
 	}
