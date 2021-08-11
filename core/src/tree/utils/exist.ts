@@ -1,7 +1,7 @@
 import { TreeNode } from "../tree";
 import { isTreeLeaf } from "./leaf";
 
-interface Params {
+export interface TreeNodeExistParams {
 	/** Start from here */
 	node: TreeNode;
 	/** Id of the node to find */
@@ -15,7 +15,7 @@ interface Params {
  * check for "id". If your "id"s can represent the path, use the optimized
  * version which can skip branches O(logN).
  */
-export const isTreeNodeExist = (params: Params): boolean => {
+export const isTreeNodeExist = (params: TreeNodeExistParams): boolean => {
 	const { node, id } = params;
 	if (node.id === id) return true;
 	if (isTreeLeaf(node)) return false;

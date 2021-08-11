@@ -1,7 +1,7 @@
 import { TreeNode } from "../tree";
 import { isTreeLeaf } from "./leaf";
 
-interface Params {
+export interface AddTreeNodeParams {
 	/** Start from here */
 	node: TreeNode;
 	/** Id of the parent node to add to */
@@ -26,7 +26,8 @@ const compareNode = (a: TreeNode, b: TreeNode): number =>
  * check for "id". If your "id"s can represent the path, use the optimized
  * version which can skip branches O(logN).
  */
-export const addTreeNode = ({ node, id, addNode, sort }: Params): TreeNode => {
+export const addTreeNode = (params: AddTreeNodeParams): TreeNode => {
+	const { node, id, addNode, sort } = params;
 	if (node.id === id) {
 		if (isTreeLeaf(node)) throw Error("Cannot add node to a leaf");
 		if (node.children === undefined) return node; // Skip as not loaded

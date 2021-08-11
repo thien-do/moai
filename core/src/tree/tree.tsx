@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { MenuItemAction } from "../menu/menu";
 import { TreeRow } from "./row/row";
 
+export { TreeUtils } from "./utils/utils";
+
 export interface TreeNode {
 	id: string;
 	label: string;
