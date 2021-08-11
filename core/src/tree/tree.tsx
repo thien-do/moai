@@ -66,12 +66,12 @@ export interface TreeProps {
 	parentMode: "select" | "expand";
 }
 
-const renderChild = (props: TreeProps) => (child: TreeNode) =>
+const renderChild = (treeProps: TreeProps) => (child: TreeNode) =>
 	(
 		<Tree
-			{...props}
+			{...treeProps}
 			key={child.id}
-			level={(props.level ?? 0) + 1}
+			level={(treeProps.level ?? 0) + 1}
 			node={child}
 		/>
 	);

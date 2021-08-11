@@ -5,14 +5,12 @@ import { isTreeLeaf } from "../utils/leaf";
 import { TreeRowActions } from "./actions/actions";
 import s from "./row.module.css";
 
-interface Props extends TreeProps {}
-
 // For indentation, like in source code
 const Tab = () => (
 	<div className={[Button.sizes.smallIcon.mainClassName, s.tab].join(" ")} />
 );
 
-const toggle = async (props: Props): Promise<void> => {
+const toggle = async (props: TreeProps): Promise<void> => {
 	const expanded = new Set(props.expanded);
 	if (expanded.has(props.node.id)) {
 		expanded.delete(props.node.id);
@@ -22,7 +20,7 @@ const toggle = async (props: Props): Promise<void> => {
 	props.setExpanded(expanded);
 };
 
-export const TreeRow = (props: Props): JSX.Element => {
+export const TreeRow = (props: TreeProps): JSX.Element => {
 	const expanded = props.expanded.has(props.node.id);
 	const selected = props.selected.has(props.node.id);
 	const isLeaf = isTreeLeaf(props.node);

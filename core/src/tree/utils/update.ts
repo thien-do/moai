@@ -13,7 +13,7 @@ interface Params<T extends keyof TreeNode> {
 
 /**
  * Update a property of a node.
- * 
+ *
  * This is a naive implementation that simply traverses all nodes O(n) to
  * check for "id". If your "id"s can represent the path, use the optimized
  * version which can skip branches O(logN).
