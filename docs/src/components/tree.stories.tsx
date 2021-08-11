@@ -4,7 +4,7 @@ import { Tree, TreeProps } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
-	title: "Components/Tree",
+	title: "Draft/Tree",
 	component: Tree,
 	argTypes: {
 		parentMode: Utils.arg(["select", "expand"]),

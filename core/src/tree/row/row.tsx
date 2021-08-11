@@ -1,15 +1,18 @@
 import { Button } from "../../button/button";
-import { RiArrowDownSLine, RiArrowRightSLine } from "react-icons/ri";
+import { coreIcons } from "../../icons/icons";
 import { TreeProps } from "../tree";
 import { isTreeLeaf } from "../utils/leaf";
+import { TreeRowActions } from "./actions/actions";
 import s from "./row.module.css";
+
+interface Props extends TreeProps {}
 
 // For indentation, like in source code
 const Tab = () => (
-	<div className={[Button.sizes.smallIcon.main, s.tab].join(" ")} />
+	<div className={[Button.sizes.smallIcon.mainClassName, s.tab].join(" ")} />
 );
 
-const toggle = async (props: TreeProps): Promise<void> => {
+const toggle = async (props: Props): Promise<void> => {
 	const expanded = new Set(props.expanded);
 	if (expanded.has(props.node.id)) {
 		expanded.delete(props.node.id);
@@ -19,7 +22,7 @@ const toggle = async (props: TreeProps): Promise<void> => {
 	props.setExpanded(expanded);
 };
 
-export const TreeRow = (props: TreeProps): JSX.Element => {
+export const TreeRow = (props: Props): JSX.Element => {
 	const expanded = props.expanded.has(props.node.id);
 	const selected = props.selected.has(props.node.id);
 	const isLeaf = isTreeLeaf(props.node);
@@ -27,8 +30,8 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 		<div
 			className={[
 				s.container,
-				Button.styles.flat.main,
-				selected ? Button.styles.flat.selected : "",
+				Button.styles.flat.mainClassName,
+				selected ? Button.colors.none.flat.selectedClassName : "",
 			].join(" ")}
 			// @TODO: Handle a11y properly
 			onClick={() => {
@@ -45,7 +48,11 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 			<div className={s.toggle}>
 				{isLeaf === false ? (
 					<Button
-						icon={expanded ? RiArrowDownSLine : RiArrowRightSLine}
+						icon={
+							expanded
+								? coreIcons.chevronDown
+								: coreIcons.chevronRight
+						}
 						iconLabel={expanded ? "Collapse group" : "Expand group"}
 						onClick={() => toggle(props)}
 						style={Button.styles.flat}
@@ -56,6 +63,9 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 				)}
 			</div>
 			<div className={s.label}>{props.node.label}</div>
+			<div className={s.actions}>
+				<TreeRowActions {...props} />
+			</div>
 		</div>
 	);
 };

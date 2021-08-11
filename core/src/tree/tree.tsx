@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { MenuItemAction } from "../menu/menu";
 import { TreeRow } from "./row/row";
 
 export interface TreeNode {
@@ -38,6 +39,11 @@ export interface TreeProps {
 	 */
 	loadChildren?: (node: TreeNode) => Promise<void>;
 	/**
+	 * Actions to display for a given node/row. Return an empty array will
+	 * be the same as not define this prop.
+	 */
+	getRowActions?: (node: TreeNode) => MenuItemAction[];
+	/**
 	 * Selected nodes in controlled mode
 	 */
 	selected: Set<string>;
@@ -60,6 +66,16 @@ export interface TreeProps {
 	parentMode: "select" | "expand";
 }
 
+const renderChild = (props: TreeProps) => (child: TreeNode) =>
+	(
+		<Tree
+			{...props}
+			key={child.id}
+			level={(props.level ?? 0) + 1}
+			node={child}
+		/>
+	);
+
 export const Tree = (props: TreeProps): JSX.Element => {
 	const expanded = props.expanded.has(props.node.id);
 
@@ -72,16 +88,7 @@ export const Tree = (props: TreeProps): JSX.Element => {
 		<>
 			<TreeRow {...props} />
 			{props.node.children && expanded && (
-				<>
-					{props.node.children.map((node) => (
-						<Tree
-							{...props}
-							key={node.id}
-							level={(props.level ?? 0) + 1}
-							node={node}
-						/>
-					))}
-				</>
+				<>{props.node.children.map(renderChild(props))}</>
 			)}
 		</>
 	);
