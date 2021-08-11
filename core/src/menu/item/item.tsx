@@ -22,8 +22,8 @@ export const MenuItem = ({ item }: Props): JSX.Element =>
 			children={item.label}
 			className={[
 				s.action,
-				Button.styles.flat.main,
-				Button.sizes.medium.main,
+				Button.styles.flat.mainClassName,
+				Button.sizes.medium.mainClassName,
 			].join(" ")}
 		/>
 	);
