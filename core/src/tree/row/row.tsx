@@ -41,7 +41,7 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 				}
 			}}
 		>
-			{[...Array(props.level ?? 0)].map((_v, i) => (
+			{[...Array(props._level ?? 0)].map((_v, i) => (
 				<Tab key={i} />
 			))}
 			<div className={s.toggle}>
