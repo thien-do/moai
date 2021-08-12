@@ -61,7 +61,7 @@ describe("Testing Select Controlled Props", () => {
 		const selectElement = screen.getByLabelText("select");
 
 		userEvent.selectOptions(selectElement, "green");
-		expect(screen.getByText("green")).toBeDefined();
+		expect(screen.getByText("green")).toBeInTheDocument();
 	});
 });
 
