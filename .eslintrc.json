@@ -1,12 +1,13 @@
 {
 	"root": true,
 	"parser": "@typescript-eslint/parser",
-	"plugins": ["@typescript-eslint"],
+	"plugins": ["@typescript-eslint", "jest-dom"],
 	"ignorePatterns": ["node_modules", "dist", "public", "test/coverage"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
+		"plugin:jest-dom/recommended",
 		// Must be last: https://github.com/prettier/eslint-config-prettier
 		"prettier"
 	],
