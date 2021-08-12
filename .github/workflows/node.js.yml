@@ -4,7 +4,7 @@ on:
     pull_request:
         branches: [main]
 jobs:
-    setup:
+    lint:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -37,36 +37,5 @@ jobs:
             - name: Install dependencies
               if: steps.yarn-cache-node-modules.outputs.cache-hit != 'true'
               run: yarn install
-
-    lint:
-        needs: setup
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: 15.x
-
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-
-            - name: Restore cache from yarn.lock
-              uses: actions/cache@v2
-              id: yarn-cache
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
-
-            - name: Restore node_modules
-              uses: actions/cache@v2
-              id: yarn-cache-node-modules
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-${{ matrix.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-${{ matrix.node-version }}-node-modules-
 
             - run: yarn lint
