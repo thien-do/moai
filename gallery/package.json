@@ -10,10 +10,10 @@
 		"dist"
 	],
 	"scripts": {
+		"_build": "rollup --config",
+		"_start": "rollup --config --watch",
 		"example": "ts-node ./scripts/example/generate.ts",
-		"build": "rollup --config",
-		"watch": "rollup --config --watch",
-		"prepublishOnly": "yarn build"
+		"prepublishOnly": "yarn _build"
 	},
 	"repository": {
 		"type": "git",
