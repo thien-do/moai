@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"test": "tsc && jest"
+		"_test": "tsc && jest"
 	},
 	"devDependencies": {
 		"@moai/core": "*",

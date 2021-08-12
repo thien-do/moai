@@ -4,8 +4,8 @@
 	"version": "1.0.0",
 	"description": "Storybook Docs of Moai 🗿",
 	"scripts": {
-		"start": "start-storybook --no-manager-cache -p 6006",
-		"build": "build-storybook -c .storybook -o public"
+		"_start": "start-storybook --no-manager-cache -p 6006",
+		"_build": "build-storybook -c .storybook -o public"
 	},
 	"repository": {
 		"type": "git",

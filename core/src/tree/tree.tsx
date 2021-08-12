@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { MenuItemAction } from "../menu/menu";
 import { TreeRow } from "./row/row";
 
+export { TreeUtils } from "./utils/utils";
+
 export interface TreeNode {
 	id: string;
 	label: string;
@@ -24,17 +26,16 @@ export interface TreeProps {
 	 * nodes. The consumer usually should not set this since they are passing
 	 * the root node.
 	 */
-	level?: number;
+	_level?: number;
 	/**
-	 * A tree's shape is completely controlled. The Tree component cannot
-	 * change the tree shape (root) on its own.
+	 * The tree node itself. The Tree component simply renders this.
 	 */
 	node: TreeNode;
 	/**
 	 * Because Tree is a controlled component, it can only ask the host to
 	 * load children and update the root on their side.
 	 *
-	 * This returns "void" since it expects the "root" prop will be update and
+	 * This returns "void" since it expects the "node" prop will be update and
 	 * thus leads to a new render altogether.
 	 */
 	loadChildren?: (node: TreeNode) => Promise<void>;
@@ -45,18 +46,26 @@ export interface TreeProps {
 	getRowActions?: (node: TreeNode) => MenuItemAction[];
 	/**
 	 * Selected nodes in controlled mode
+	 *
+	 * @TODO Tree doesn't support uncontrolled selected yet
 	 */
 	selected: Set<string>;
 	/**
 	 * Handler to set selected nodes in controlled mode
+	 *
+	 * @TODO Tree doesn't support uncontrolled selected yet
 	 */
 	setSelected: (set: Set<string>) => void;
 	/**
-	 * Expanded nodes in controlled mode
+	 * Expanded nodes in controlled mode.
+	 *
+	 * @TODO Tree doesn't support uncontrolled expanded yet
 	 */
 	expanded: Set<string>;
 	/**
 	 * Handler to set expanded nodes in controlled mode
+	 *
+	 * @TODO Tree doesn't support uncontrolled expanded yet
 	 */
 	setExpanded: (set: Set<string>) => void;
 	/**
@@ -71,7 +80,7 @@ const renderChild = (treeProps: TreeProps) => (child: TreeNode) =>
 		<Tree
 			{...treeProps}
 			key={child.id}
-			level={(treeProps.level ?? 0) + 1}
+			_level={(treeProps._level ?? 0) + 1}
 			node={child}
 		/>
 	);
@@ -92,5 +101,5 @@ export const Tree = (props: TreeProps): JSX.Element => {
 			)}
 		</>
 	);
-	return props.level === 0 ? <div>{body}</div> : body;
+	return props._level === 0 ? <div>{body}</div> : body;
 };

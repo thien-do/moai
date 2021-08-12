@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Meta } from "@storybook/react";
-import { Tree, TreeProps } from "../../../core/src";
+import { Dialog, Tree, TreeProps } from "../../../core/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -47,13 +47,18 @@ export const Basic = (props: Props): JSX.Element => {
 	const [selected, setSelected] = useState<Set<string>>(new Set());
 
 	return (
-		<Tree
-			expanded={expanded}
-			setExpanded={setExpanded}
-			selected={selected}
-			setSelected={setSelected}
-			node={root}
-			parentMode={props.parentMode}
-		/>
+		<div style={{ width: 200 }}>
+			<Tree
+				expanded={expanded}
+				setExpanded={setExpanded}
+				selected={selected}
+				setSelected={setSelected}
+				node={root}
+				parentMode={props.parentMode}
+				getRowActions={(node) => [
+					{ label: "Say", fn: () => Dialog.alert(node.label) },
+				]}
+			/>
+		</div>
 	);
 };
