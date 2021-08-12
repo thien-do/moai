@@ -75,14 +75,15 @@ export interface TreeProps {
 	parentMode: "select" | "expand";
 }
 
-const renderChild = (treeProps: TreeProps) => (child: TreeNode) => (
-	<Tree
-		{...treeProps}
-		key={child.id}
-		_level={(treeProps._level ?? 0) + 1}
-		node={child}
-	/>
-);
+const renderChild = (treeProps: TreeProps) => (child: TreeNode) =>
+	(
+		<Tree
+			{...treeProps}
+			key={child.id}
+			_level={(treeProps._level ?? 0) + 1}
+			node={child}
+		/>
+	);
 
 export const Tree = (props: TreeProps): JSX.Element => {
 	const expanded = props.expanded.has(props.node.id);
