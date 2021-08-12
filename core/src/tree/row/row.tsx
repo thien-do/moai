@@ -29,6 +29,7 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 			className={[
 				s.container,
 				Button.styles.flat.mainClassName,
+				Button.colors.none.flat.mainClassName,
 				selected ? Button.colors.none.flat.selectedClassName : "",
 			].join(" ")}
 			// @TODO: Handle a11y properly
