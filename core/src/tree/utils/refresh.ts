@@ -1,12 +1,14 @@
 import { TreeNode } from "../tree";
 import { isTreeLeaf } from "./leaf";
 
-interface Params {
+export interface RefreshTreeParams {
 	node: TreeNode;
 	loadChildren: (node: TreeNode) => Promise<TreeNode[]>;
 }
 
-export const refreshTree = async (params: Params): Promise<TreeNode> => {
+export const refreshTree = async (
+	params: RefreshTreeParams
+): Promise<TreeNode> => {
 	const { loadChildren, node } = params;
 
 	if (isTreeLeaf(node)) return node;

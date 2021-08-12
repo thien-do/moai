@@ -1,7 +1,7 @@
 import { TreeNode } from "../tree";
 import { isTreeLeaf } from "./leaf";
 
-interface Params {
+export interface RemoveTreeNodeParams {
 	tree: TreeNode;
 	deleteId: string;
 }
@@ -13,7 +13,7 @@ interface Params {
  * check for "deleteId". If your "id"s can represent the path, use the
  * optimized version which can skip branches O(logN).
  */
-export const removeTreeNode = (params: Params): TreeNode => {
+export const removeTreeNode = (params: RemoveTreeNodeParams): TreeNode => {
 	const { tree, deleteId } = params;
 
 	if (isTreeLeaf(tree)) return tree;

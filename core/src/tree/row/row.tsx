@@ -29,6 +29,7 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 			className={[
 				s.container,
 				Button.styles.flat.mainClassName,
+				Button.colors.none.flat.mainClassName,
 				selected ? Button.colors.none.flat.selectedClassName : "",
 			].join(" ")}
 			// @TODO: Handle a11y properly
@@ -40,7 +41,7 @@ export const TreeRow = (props: TreeProps): JSX.Element => {
 				}
 			}}
 		>
-			{[...Array(props.level ?? 0)].map((_v, i) => (
+			{[...Array(props._level ?? 0)].map((_v, i) => (
 				<Tab key={i} />
 			))}
 			<div className={s.toggle}>
