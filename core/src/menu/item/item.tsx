@@ -19,11 +19,13 @@ export const MenuItem = ({ item }: Props): JSX.Element =>
 		<button
 			onClick={() => item.fn?.()}
 			disabled={item.disabled}
-			children={item.label}
 			className={[
 				s.action,
 				Button.styles.flat.mainClassName,
 				Button.sizes.medium.mainClassName,
+				Button.styles.flat.color(Button.colors.none).mainClassName,
 			].join(" ")}
-		/>
+		>
+			{item.label}
+		</button>
 	);
