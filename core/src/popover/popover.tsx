@@ -2,12 +2,12 @@ import { Placement } from "@popperjs/core";
 import { Fragment, useCallback, useState } from "react";
 import { PopoverPane } from "./pane/pane";
 
-interface TargetProps {
+export interface TargetProps {
 	toggle: () => void;
 	opened: boolean;
 }
 
-interface ContentProps {
+export interface ContentProps {
 	close: () => void;
 }
 
