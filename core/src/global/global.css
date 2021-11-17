@@ -129,6 +129,25 @@ th {
 	text-align: left;
 }
 
+legend {
+	display: table;
+	/* Correct `color` not being inherited in IE 8/9/10/11 */
+	color: inherit;
+	/* Remove padding so people aren't caught out if they zero out fieldsets */
+	padding: 0;
+}
+
+fieldset {
+	border: 0;
+	padding: 0.01em 0 0 0;
+	margin: 0;
+	min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+	display: table-cell;
+}
+
 body {
 	font-family: var(--font-sans);
 	font-size: 14px;
