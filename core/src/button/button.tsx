@@ -53,6 +53,13 @@ export interface ButtonProps {
 	 */
 	href?: string;
 	/**
+	 * The [HTML `rel`][1] attribute defines the relationship between a
+	 * linked resource and the current document. Require the `href` attribute.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-rel
+	 */
+	rel?: string;
+	/**
 	 * The [HTML `target`][1] attribute. Require the `href` attribute.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
@@ -267,10 +274,11 @@ const buttonRender = (
 	return props.href ? (
 		<a
 			{...common}
+			onClick={props.onClick}
 			href={props.href}
-			target={props.target}
 			download={props.download}
-			rel="noopener noreferrer"
+			target={props.target}
+			rel={props.rel || "noopener noreferrer"}
 		/>
 	) : (
 		<button
