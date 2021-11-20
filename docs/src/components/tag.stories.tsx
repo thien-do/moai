@@ -9,6 +9,8 @@ const meta: Meta = {
 	argTypes: {
 		children: Utils.arg(null),
 		color: Utils.arg(Tag.colors),
+		size: Utils.arg(Tag.sizes),
+		forwardedRef: Utils.arg(null),
 	},
 };
 

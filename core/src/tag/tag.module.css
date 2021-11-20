@@ -21,3 +21,13 @@
 	background-color: var(--category-8);
 	color: var(--category-1);
 }
+
+.smallTag {
+	height: 24px;
+	padding: 0 8px;
+}
+
+.mediumTag {
+	height: 32px;
+	padding: 0 12px;
+}
