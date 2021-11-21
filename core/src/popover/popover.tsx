@@ -2,12 +2,12 @@ import { Placement } from "@popperjs/core";
 import { Fragment, useCallback, useState } from "react";
 import { PopoverPane } from "./pane/pane";
 
-export interface TargetProps {
+export interface PopoverTargetProps {
 	toggle: () => void;
 	opened: boolean;
 }
 
-export interface ContentProps {
+export interface PopoverContentProps {
 	close: () => void;
 }
 
@@ -18,11 +18,11 @@ export interface PopoverProps {
 	 * The element that will receive a callback to display the popover's
 	 * content. The content is positioned relative to this element.
 	 */
-	target: (props: TargetProps) => React.ReactNode;
+	target: (props: PopoverTargetProps) => React.ReactNode;
 	/**
 	 * The elements to be displayed inside the pop-up container.
 	 */
-	content: (props: ContentProps) => React.ReactNode;
+	content: (props: PopoverContentProps) => React.ReactNode;
 	/**
 	 * The wrapper of the `target` element. Popover uses this wrapper to
 	 * position its content. Use one from "Popover.targetWrappers".
