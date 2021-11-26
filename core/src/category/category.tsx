@@ -12,3 +12,5 @@ export const categoryColors = {
 	pink: colors.pink,
 	gray: colors.gray,
 };
+
+export const categoryColorNames = Object.keys(categoryColors);
