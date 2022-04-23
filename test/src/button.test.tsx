@@ -33,6 +33,7 @@ describe("Button", () => {
 		const div = screen.getByText("Name is", { exact: false });
 		expect(div).toHaveTextContent("Name is Eevee");
 	});
+
 	test("Should not trigger `onClick` when `disabled` is set", () => {
 		render(<Test button={{ disabled: true }} />);
 		const button = screen.getByRole("button", { name: buttonLabel });
@@ -41,6 +42,7 @@ describe("Button", () => {
 		const div = screen.getByText("Name is", { exact: false });
 		expect(div).toHaveTextContent("Name is Pikachu");
 	});
+
 	test("Should be disabled when `busy` is set", () => {
 		render(<Test button={{ busy: true }} />);
 		const button = screen.getByRole("button", { name: buttonLabel });
@@ -80,5 +82,11 @@ describe("Button", () => {
 			userEvent.click(link);
 			expect(onClickMockFn).toHaveBeenCalledTimes(1);
 		});
+	});
+
+	test("Should contain id attribute", () => {
+		render(<Test button={{ id: "submit-button" }} />);
+		const button = screen.getByRole("button", { name: buttonLabel });
+		expect(button.id).toBe("submit-button");
 	});
 });
