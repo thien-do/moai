@@ -15,6 +15,14 @@ export interface ButtonProps {
 	// Props for the "button" tag
 
 	/**
+	 * The [HTML `id`][1] attribute. This set the value of element's id
+	 * content attribute.
+	 *
+	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
+	 */
+	id?: string;
+
+	/**
 	 * The [HTML `type`][1] attribute. This set the behaviour of the button.
 	 *
 	 * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type
@@ -263,6 +271,7 @@ const buttonRender = (
 ): JSX.Element => {
 	validateButton(props);
 	const common = {
+		id: props.id,
 		// We need "any" because we can't type check the parameter type of
 		// ref to yield error if an anchor ref is passed to a button :(
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
