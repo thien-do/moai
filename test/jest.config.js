@@ -6,8 +6,11 @@ module.exports = {
 	coverageDirectory: "coverage",
 	coverageProvider: "v8",
 	testEnvironment: "jsdom",
-	testMatch: ["**/dist/**/*.test.js?(x)"],
-	setupFilesAfterEnv: ["<rootDir>/dist/config/jest-setup.js"],
+	testMatch: ["<rootDir>/src/**/*.test.ts?(x)"],
+	setupFilesAfterEnv: ["<rootDir>/src/config/jest-setup.js"],
 	resetMocks: true,
 	restoreMocks: true,
+	transform: {
+		"^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
+	},
 };
