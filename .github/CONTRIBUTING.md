@@ -9,7 +9,7 @@ Thank you for your interest in contributing to Moai! There are many ways to cont
 
 ## Before you start
 
-To understand the principles that drive the design and development of Moai, see the [Principles](https://docs.moaijs.com/?path=/docs/intro-principles--page) guide.
+To understand the principles that drive the design and development of Moai, see the [Principles](https://moai.thien.do/?path=/docs/intro-principles--page) guide.
 
 To get in touch with us, see the [Get in touch](../README.md#get-in-touch) section in the README. Whether you are stuck, or unsure about something, or just want to ask questions, we're more than happy to hear and help you.
 
@@ -45,7 +45,7 @@ Documentation improvements are very welcome. We appreciate everything: a quick e
 
 Moai's documentation are just code in this repository. Documentation pull requests therefore follow the same process as other pull requests.
 
-The source of [docs.moaijs.com](https://docs.moaijs.com) is largely under the "lib/docs" folder. You can find all guides and examples (i.e. "Story") here. The API references (i.e. "All Props" tables) are automatically generated from the component's source code (e.g. [button.ts](https://github.com/moaijs/moai/blob/main/lib/core/src/button/button.tsx)).
+The source of [moai.thien.do](https://moai.thien.do) is largely under the "lib/docs" folder. You can find all guides and examples (i.e. "Story") here. The API references (i.e. "All Props" tables) are automatically generated from the component's source code (e.g. [button.ts](https://github.com/moaijs/moai/blob/main/lib/core/src/button/button.tsx)).
 
 To test your documentation changes, you will need to setup Moai's local development. To get started, see the [DEVELOP](./DEVELOP.md) guide.
 

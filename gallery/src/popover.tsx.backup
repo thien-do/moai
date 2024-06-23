@@ -23,7 +23,7 @@ export const Customization = (): JSX.Element => {
 					/>
 					TypeScript
 					<DivPx size={16} />
-					moaijs.com
+					moai.thien.do
 				</div>
 			</div>
 		);

@@ -56,7 +56,7 @@ describe("Button", () => {
 		test("Renders correctly", () => {
 			render(
 				<Test
-					button={{ href: "https://moaijs.com/", rel: "noopener" }}
+					button={{ href: "https://moai.thien.do/", rel: "noopener" }}
 				/>
 			);
 
@@ -72,7 +72,7 @@ describe("Button", () => {
 			render(
 				<Test
 					button={{
-						href: "https://moaijs.com/",
+						href: "https://moai.thien.do/",
 						rel: "noopener",
 						onClick: onClickMockFn,
 					}}

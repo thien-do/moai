@@ -12,8 +12,8 @@
 		"url": "git+https://github.com/moaijs/moai.git"
 	},
 	"license": "MIT",
-	"homepage": "https://moaijs.com",
-	"email": "hi@moaijs.com",
+	"homepage": "https://moai.thien.do",
+	"email": "moai@thien.do",
 	"dependencies": {
 		"@babel/core": "^7.14.8",
 		"@storybook/addon-docs": "^6.3.6",

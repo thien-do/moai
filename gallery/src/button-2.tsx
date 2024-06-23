@@ -50,7 +50,7 @@ const Row2 = (): JSX.Element => (
 			<Busy />
 			<Button
 				target="_blank"
-				href="https://moaijs.com"
+				href="https://moai.thien.do"
 				children="Link"
 				minWidth
 			/>

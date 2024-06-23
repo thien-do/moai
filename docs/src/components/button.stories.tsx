@@ -133,9 +133,9 @@ suffix, like \`Button.sizes.mediumIcon\`.
 export const Link = (): JSX.Element => (
 	<Button
 		highlight
-		href="https://moaijs.com"
+		href="https://moai.thien.do"
 		target="_blank"
-		children="Go to Moaijs.com"
+		children="Go to moai.thien.do"
 	/>
 );
 
