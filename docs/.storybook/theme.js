@@ -8,7 +8,7 @@ const common = {
 	fontBase: '"Inter var", sans-serif',
 	// Branding
 	brandTitle: "Moai UI kit",
-	brandUrl: "https://moaijs.com",
+	brandUrl: "https://moai.thien.do",
 };
 
 export const lightTheme = create({

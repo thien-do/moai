@@ -6,9 +6,9 @@ This guide describes how to setup a local development to work on Moai.
 
 This guide is mainly for contributing code to Moai. For other types of contribution, see the [CONTRIBUTING](./CONTRIBUTING.md) guide.
 
-This is a guide to develop Moai itself. For guides to use Moai, e.g. to create your web apps with it, see [docs.moaijs.com](https://docs.moaijs.com).
+This is a guide to develop Moai itself. For guides to use Moai, e.g. to create your web apps with it, see [moai.thien.do](https://moai.thien.do).
 
-To understand the principles that drive the design and development of Moai, see the [Principles](https://docs.moaijs.com/?path=/docs/intro-principles--page) guide.
+To understand the principles that drive the design and development of Moai, see the [Principles](https://moai.thien.do/?path=/docs/intro-principles--page) guide.
 
 ## Codebase overview
 
@@ -18,7 +18,7 @@ Moai is a [monorepo](https://classic.yarnpkg.com/en/docs/workspaces/) powered by
 | ------- | ----------------- | ----------- |
 | core    | [@moai/core]      | [Rollup]    |
 | gallery | [@moai/gallery]   | [Rollup]    |
-| docs    | [docs.moaijs.com] | [Storybook] |
+| docs    | [moai.thien.do]   | [Storybook] |
 | test    | Test suits        | [Jest]      |
 
 The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to build "core" and "gallery" first. Also, the "gallery" depends on the "core" project:
@@ -36,7 +36,7 @@ The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This
 
 [@moai/core]: https://www.npmjs.com/package/@moai/core
 [@moai/gallery]: https://www.npmjs.com/package/@moai/gallery
-[docs.moaijs.com]: https://docs.moaijs.com
+[moai.thien.do]: https://moai.thien.do
 [storybook]: https://storybook.js.org
 [jest]: https://jestjs.io
 [next.js]: https://nextjs.org
@@ -46,7 +46,7 @@ The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This
 
 -   `yarn start-core`: watch and build @moai/core
 -   `yarn start-gallery`: watch and build @moai/gallery
--   `yarn start-docs`: start docs.moaijs.com locally
+-   `yarn start-docs`: start moai.thien.do locally
 -   `yarn test`: run the test suites
 
 The typical workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, you may not need to "watch" some projects, but only "build" them once.
