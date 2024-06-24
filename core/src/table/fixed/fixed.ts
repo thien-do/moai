@@ -21,7 +21,7 @@ import { TableProps } from "../table";
 import s from "./fixed.module.css";
 
 export const getTableFixedMetaMap = <R>(
-	props: TableProps<R>
+	props: TableProps<R>,
 ): TableColumnMetaMap => {
 	const map: TableColumnMetaMap = new Map();
 	if (props.fixed === undefined) return map;

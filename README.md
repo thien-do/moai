@@ -1,9 +1,8 @@
 **Heads up!** This project is no longer in active development. It will be [archived](https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories) soon. Some suggestions:
 
-- Build your own UI kit with a good foundation like [Radix](https://www.radix-ui.com/) or [Headless UI](https://headlessui.com/). This is what I'm actually doing these days myself.
-- Fork this project. You have my sword, and bow, and axe, and only 22 unresolved bugs.
-- Refactor Moai to utilise Radix (which is what I wanted to do, if I don't need to pay the bills)
-
+-   Build your own UI kit with a good foundation like [Radix](https://www.radix-ui.com/) or [Headless UI](https://headlessui.com/). This is what I'm actually doing these days myself.
+-   Fork this project. You have my sword, and bow, and axe, and only 22 unresolved bugs.
+-   Refactor Moai to utilise Radix (which is what I wanted to do, if I don't need to pay the bills)
 
 <hr />
 

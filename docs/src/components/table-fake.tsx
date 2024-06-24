@@ -6,9 +6,9 @@ import { TableExpandableProps } from "../../../core/src";
  * ArgsTable to describe the TableColumn interface.
  */
 export const TableColumnComponent = <R,>(
-	props: TableColumn<R>
+	props: TableColumn<R>,
 ): JSX.Element => <div>{props.title}</div>;
 
 export const TableExpandableComponent = <R,>(
-	props: TableExpandableProps<R>
+	props: TableExpandableProps<R>,
 ): JSX.Element => <div>{props.render.length}</div>;

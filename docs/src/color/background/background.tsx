@@ -10,15 +10,14 @@ interface Row {
 
 const MakeColumn =
 	(theme: "light" | "dark", text: string) =>
-	(row: Row): JSX.Element =>
-		(
-			<div className={theme}>
-				<ColorSample
-					background={background[row.key]}
-					foreground={{ type: "text", cls: text, usage: "both" }}
-				/>
-			</div>
-		);
+	(row: Row): JSX.Element => (
+		<div className={theme}>
+			<ColorSample
+				background={background[row.key]}
+				foreground={{ type: "text", cls: text, usage: "both" }}
+			/>
+		</div>
+	);
 
 const LightStrong = MakeColumn("light", text.normal);
 const LightWeak = MakeColumn("light", text.muted);

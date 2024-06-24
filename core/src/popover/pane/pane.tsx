@@ -72,7 +72,7 @@ export const PopoverPane = (props: Props): JSX.Element => {
 		</div>
 	);
 
-	return createPortal(element, getPortalContainer());
+	return <>{createPortal(element, getPortalContainer())}</>;
 };
 
 PopoverPane.styles = {

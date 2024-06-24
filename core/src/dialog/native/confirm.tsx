@@ -34,7 +34,7 @@ export const dialogConfirm = (
 	message: React.ReactNode,
 	options?: {
 		width?: DialogProps["width"];
-	}
+	},
 ): Promise<boolean> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (

@@ -19,7 +19,7 @@ export interface UpdateTreeNodeParams<T extends keyof TreeNode> {
  * version which can skip branches O(logN).
  */
 export const updateTreeNode = <T extends keyof TreeNode>(
-	params: UpdateTreeNodeParams<T>
+	params: UpdateTreeNodeParams<T>,
 ): TreeNode => {
 	const { current, id, key, value } = params;
 	if (current.id === id) {

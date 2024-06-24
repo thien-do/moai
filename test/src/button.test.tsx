@@ -57,11 +57,11 @@ describe("Button", () => {
 			render(
 				<Test
 					button={{ href: "https://moai.thien.do/", rel: "noopener" }}
-				/>
+				/>,
 			);
 
 			expect(
-				screen.queryByRole("button", { name: buttonLabel })
+				screen.queryByRole("button", { name: buttonLabel }),
 			).not.toBeInTheDocument();
 			const link = screen.getByRole("link", { name: buttonLabel });
 			expect(link).toHaveAttribute("rel", "noopener");
@@ -76,7 +76,7 @@ describe("Button", () => {
 						rel: "noopener",
 						onClick: onClickMockFn,
 					}}
-				/>
+				/>,
 			);
 			const link = screen.getByRole("link", { name: buttonLabel });
 			userEvent.click(link);

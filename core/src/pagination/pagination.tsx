@@ -51,7 +51,7 @@ export const Pagination = (props: PaginationProps): JSX.Element => {
 			await setValueOrg(value);
 			setBusy(false);
 		},
-		[setValueOrg, max, min]
+		[setValueOrg, max, min],
 	);
 
 	return (

@@ -1,7 +1,7 @@
 import RHTToast from "react-hot-toast";
 import { ToastPane, ToastPaneType } from "../pane/pane";
 
-type ToastHandler = typeof RHTToast["success"];
+type ToastHandler = (typeof RHTToast)["success"];
 
 export interface ToastType {
 	handler: ToastHandler;

@@ -150,9 +150,7 @@ const outsetStyle: TabStyle = {
 	inactive: s.outsetInactive,
 	renderContent: (children, props) => (
 		<Pane
-			// eslint-disable-next-line react/prop-types
 			noPadding={props.noPadding}
-			// eslint-disable-next-line react/prop-types
 			fullHeight={props.fullHeight}
 			children={children}
 		/>
@@ -167,9 +165,7 @@ const flatStyle: TabStyle = {
 	renderContent: (children, props) => (
 		<div
 			className={[
-				// eslint-disable-next-line react/prop-types
 				props.noPadding ? "" : s.flatPadding,
-				// eslint-disable-next-line react/prop-types
 				props.fullHeight ? s.flatFullHeight : "",
 			].join(" ")}
 			children={children}

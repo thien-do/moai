@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 // https://jestjs.io/docs/configuration
+// eslint-disable-next-line
 module.exports = {
 	collectCoverage: true,
 	coverageDirectory: "coverage",

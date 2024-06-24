@@ -65,7 +65,7 @@ interface TextAreaComponent
 
 const renderTextArea = (
 	props: TextAreaProps,
-	ref: React.ForwardedRef<HTMLTextAreaElement>
+	ref: React.ForwardedRef<HTMLTextAreaElement>,
 ): JSX.Element => {
 	const rawProps = omit(props, [
 		"className",

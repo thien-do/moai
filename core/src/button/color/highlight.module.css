@@ -31,7 +31,9 @@
 :global(.dark) .outset {
 	color: var(--white);
 	background-color: var(--highlight-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--highlight-4);
 	font-weight: 500;
 }
 

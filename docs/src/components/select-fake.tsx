@@ -5,5 +5,5 @@ import { SelectOption } from "../../../core/src";
  * ArgsTable to describe the SelectOption interface.
  */
 export const SelectOptionComponent = <R,>(
-	props: SelectOption<R>
+	props: SelectOption<R>,
 ): JSX.Element => <div>{props.id}</div>;

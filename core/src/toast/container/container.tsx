@@ -1,9 +1,12 @@
-import toastController, { useToaster as useRHTToaster } from "react-hot-toast";
-import type * as RHT from "react-hot-toast/dist/core/types";
+import toastController, {
+	Toast,
+	ToastType,
+	useToaster as useRHTToaster,
+} from "react-hot-toast";
 import { ToastPane, ToastPaneType } from "../pane/pane";
 import s from "./container.module.css";
 
-const getType = (from: RHT.ToastType): ToastPaneType => {
+const getType = (from: ToastType): ToastPaneType => {
 	switch (from) {
 		case "success":
 			return ToastPane.types.success;
@@ -22,9 +25,9 @@ export const ToastContainer = (): JSX.Element => {
 	const { toasts, handlers } = useRHTToaster();
 	const { startPause, endPause, calculateOffset, updateHeight } = handlers;
 
-	const renderToast = (toast: RHT.Toast): JSX.Element => {
+	const renderToast = (toast: Toast): JSX.Element => {
 		const offsetOpts = { reverseOrder: false, margin: 8 };
-		const offset = calculateOffset(toast.id, offsetOpts);
+		const offset = calculateOffset(toast, offsetOpts);
 		const ref = (el: HTMLDivElement) => {
 			if (!el || toast.height) return;
 			const height = el.getBoundingClientRect().height;
@@ -43,7 +46,7 @@ export const ToastContainer = (): JSX.Element => {
 			>
 				<ToastPane
 					type={getType(toast.type)}
-					children={toast.message}
+					children={<>{toast.message}</>}
 					close={() => toastController.dismiss(toast.id)}
 				/>
 			</div>

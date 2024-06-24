@@ -16,7 +16,7 @@ export const coreIcons = {
 	chevronUp: go.GoChevronUp,
 	cross: go.GoX,
 	dash: go.GoDash,
-	dot: go.GoPrimitiveDot,
+	dot: go.GoDot,
 	kebab: go.GoKebabHorizontal,
 	error: ri.RiErrorWarningFill,
 	success: ri.RiCheckboxCircleFill,

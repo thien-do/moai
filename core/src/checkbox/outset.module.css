@@ -1,5 +1,8 @@
 .input {
-	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
+	transition:
+		background-color 0.1s,
+		box-shadow 0.1s,
+		outline 0.2s ease-out;
 	border: solid 1px transparent;
 	--shadow-size: 0px 0.5px 2px;
 	--inset-shadow: inset 0px 1px 0px;
@@ -10,7 +13,9 @@
 :global(.light) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
 	background-color: var(--gray-0);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--white);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--white);
 	border-color: var(--gray-2);
 }
 :global(.light) .input:hover {
@@ -24,7 +29,9 @@
 :global(.dark) .input {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.3);
 	background-color: var(--gray-6);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-5);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--gray-5);
 	border-color: var(--black);
 }
 :global(.dark) .input:hover {
@@ -42,7 +49,9 @@
 :global(.dark) .input:checked,
 :global(.dark) .input[type="checkbox"]:indeterminate {
 	background-color: var(--highlight-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--highlight-4);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--highlight-4);
 }
 
 :global(.light) .input:checked,

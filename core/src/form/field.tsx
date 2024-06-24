@@ -19,6 +19,6 @@ export const FormField = (props: Props): JSX.Element => {
 			{label}
 		</span>,
 		<DivPx size={8} />,
-		<span className={s.input}>{children}</span>
+		<span className={s.input}>{children}</span>,
 	);
 };

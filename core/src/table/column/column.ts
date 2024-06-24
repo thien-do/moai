@@ -16,7 +16,7 @@ export type TableColumnMetaMap = Map<number, TableColumnMeta>;
 // These meta info can be calculated in each cell, but we put it here so it
 // can be calculated once for each table
 export const getTableColumnMetaMap = <R>(
-	props: TableProps<R>
+	props: TableProps<R>,
 ): TableColumnMetaMap => {
 	// We only have fixed meta for now. If we have more in the future, we should
 	// merge them here

@@ -56,11 +56,11 @@ const main = async () => {
 	fs.mkdir(distPath);
 	fs.writeFile(
 		path.resolve(distPath, "pokemons.json"),
-		JSON.stringify(pokemons, null, 2)
+		JSON.stringify(pokemons, null, 2),
 	);
 	fs.writeFile(
 		path.resolve(distPath, "types.json"),
-		JSON.stringify(types, null, 2)
+		JSON.stringify(types, null, 2),
 	);
 	return pokemons;
 };
