@@ -1,0 +1,43 @@
+# Principles
+
+Some principles lead the design and development of Moai. They are the unique traits that set Moai apart from other UI kits. Reading them is the best way to know if Moai is "for" you.
+
+### Usable
+
+> "Two of the most important characteristics of good design are discoverability and understanding."
+>
+> — Donald A. Norman, The Design of Everyday Things
+
+Moai is not designed to look "impressive" or "trendy". Moai is designed to communicate [how things work][htw]. Buttons look raised because users can click on them. Text boxes look sunken because users can fill in them. Moai employs subtle-yet-meaningful visual [signifiers][snf] to help your users understand your products.
+
+[htw]: https://www.nngroup.com/articles/mental-models/
+[snf]: http://jnd.org/dn.mss/signifiers_not_affordances.html
+
+### Accessible
+
+> "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
+>
+> — Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+Moai is friendly not only to humans but also to the [machines][sr] that help humans. Components always strive for standard, [semantic][smt] HTML, from simple `label` to complex `table`. For non-standard use cases, like tooltips and icon-only buttons, [WAI-ARIA][aria] shines.
+
+[sr]: https://en.wikipedia.org/wiki/Screen_reader
+[smt]: https://en.wikipedia.org/wiki/Semantic_HTML
+[aria]: https://www.w3.org/WAI/standards-guidelines/aria/
+
+### Interoperable
+
+Moai leverages the ecosystems it lives in. All components are designed with [Web's standards][web] and [React's principles][react] in mind, so they usually work well with other technologies and tools in the ecos, from popular [icon sets][icon] to leading [form builders][form].
+
+[web]: https://html.spec.whatwg.org/
+[react]: https://reactjs.org/docs/design-principles.html
+[icon]: /docs/patterns-icon--primary
+[form]: /docs/patterns-form--primary
+
+### Extensible
+
+> "Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification"
+>
+> — Bertrand Meyer, Object-Oriented Software Construction
+
+Moai goes the extra mile to protect itself from common-but-unsafe modification, like "className" and "style" prop. Instead, Moai offers strictly typed interfaces for safe and maintainable customization, from buttons' background to inputs' paddings.

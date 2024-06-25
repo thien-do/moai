@@ -16,7 +16,7 @@ A React Component Library, Where Buttons Look Like Buttons.
 -   NPM: [@moai/core](http://npmjs.com/package/@moai/core)
 -   License: [MIT](./LICENSE)
 
-### Contributing
+## Contributing
 
 -   [Contributing Overview](./.github/CONTRIBUTING.md): Report bugs, request features, write code and improve documentation.
 -   [Design Principles](https://moai.thien.do/?path=/docs/intro-principles--page): The unique traits that lead Moai's design and development.

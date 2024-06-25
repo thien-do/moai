@@ -1,0 +1,20 @@
+{
+	"name": "new-docs",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"_start": "vocs dev",
+		"_build": "vocs build"
+	},
+	"dependencies": {
+		"@types/react": "latest",
+		"color": "^4.2.3",
+		"react": "latest",
+		"react-dom": "latest",
+		"typescript": "latest",
+		"vocs": "latest"
+	},
+	"devDependencies": {
+		"@types/color": "^3.0.6"
+	}
+}
