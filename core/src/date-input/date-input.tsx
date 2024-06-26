@@ -1,9 +1,8 @@
-// TODO: Rewrite date input using the new DayPicker component
 import { ReactElement } from "react";
-import { DayPicker } from "react-day-picker";
 
+// TODO: Rewrite date input using the new DayPicker component from react-day-picker
 export const DateInput = (): ReactElement => {
-	return <DayPicker />;
+	return <input type="date" />;
 };
 
 // import { ReactNode, useState } from "react";

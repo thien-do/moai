@@ -9,8 +9,10 @@
 	"dependencies": {
 		"@types/react": "latest",
 		"color": "^4.2.3",
+		"formik": "^2.4.6",
 		"react": "latest",
 		"react-dom": "latest",
+		"react-hook-form": "^7.52.0",
 		"typescript": "latest",
 		"vocs": "latest"
 	},

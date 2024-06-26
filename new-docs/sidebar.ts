@@ -17,7 +17,7 @@ function generateSidebar(dirPath: string, parentDir: string): SidebarItem[] {
 			const fileName = entry.name.replace(".stories.mdx", "");
 			if (fileName === "index") {
 				items.unshift({
-					text: capitalize(fileName.replace(/-/g, " ")),
+					text: "Primary",
 					link: parentDir,
 				});
 			} else {

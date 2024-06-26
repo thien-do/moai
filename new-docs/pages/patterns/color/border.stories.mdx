@@ -1,0 +1,25 @@
+import { ColorBorder } from "./border/border";
+
+# Border Color
+
+The `border` utility contains classes that set the [CSS `border-color`][1]
+property. This is the recommended way to set border color since they
+automatically change based on the current theme.
+
+Note that this only set the color. To have a border, you also need to set a
+width, e.g. using the "border" class from Tailwind. You don't need to set the
+border style since it's already default to "solid" in our [CSS reset][2].
+
+```ts
+import { border } from "@moai/core";
+
+// The "border" class comes from Tailwind to set the border width
+<div className={[border.weak, "border"].join(" ")}>Text</div>;
+```
+
+There are 2 colors in the `border` utility at the moment:
+
+<ColorBorder rows={[{ key: "weak" }, { key: "strong" }]} />
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/CSS/border-color
+[2]: https://github.com/moaijs/moai/blob/739a87de82bd061bb41f38c5a51a410b59944a3d/lib/core/src/style/reset.css#L404-L417

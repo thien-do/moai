@@ -1,0 +1,81 @@
+import { FormikExample } from "./formik";
+
+# Formik
+
+To use Moai's input components with Formik, pass them to the "as" prop of
+Formik's [Field][1] component:
+
+[1]: https://formik.org/docs/api/field
+
+```tsx
+import { Field } from "formik";
+import { Input } from "../../../core/src";
+
+<label htmlFor="email">Email</label>
+<Field id="email" type="email" name="email" as={Input} />
+```
+
+To show errors, pass FormError to the "component" prop of Formik's
+[ErrorMessage][2] component:
+
+```tsx
+import { ErrorMessage } from "formik";
+import { FormError } from "../../../core/src";
+
+<ErrorMessage name="email" component={FormError} />;
+```
+
+[2]: https://formik.org/docs/api/errormessage
+
+Full example:
+
+<FormikExample />
+
+```tsx
+(): JSX.Element => {
+	/* import { Input, Button, FormError } from "../../../core/src" */
+
+	const title = (
+		<div>
+			<label htmlFor="fm-title">Title</label>
+			<Field id="fm-title" type="text" name="title" as={Input} />
+			<ErrorMessage name="title" component={FormError} />
+		</div>
+	);
+
+	const message = (
+		<div>
+			<label htmlFor="fm-message">Message</label>
+			<Field id="fm-message" name="message" as={TextArea} />
+			<ErrorMessage name="message" component={FormError} />
+		</div>
+	);
+
+	const validate = (values: FormValues): FormikErrors<FormValues> => {
+		const errors: FormikErrors<FormValues> = {};
+		if (!values.title) errors.title = ERRORS.titleRequired;
+		if (!values.message) errors.message = ERRORS.messageRequired;
+		if (values.message.length < 5) errors.message = ERRORS.messageLength;
+		return errors;
+	};
+
+	return (
+		<Formik<FormValues>
+			initialValues={{ title: "", message: "" }}
+			validate={validate}
+			onSubmit={async (values, { setSubmitting }) => {
+				await postToServer(values);
+				setSubmitting(false);
+			}}
+		>
+			{({ isSubmitting: busy }) => (
+				<Form className={s.form}>
+					{title}
+					{message}
+					<SubmitButton busy={busy} />
+				</Form>
+			)}
+		</Formik>
+	);
+};
+```

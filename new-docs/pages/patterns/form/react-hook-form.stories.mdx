@@ -1,0 +1,97 @@
+import { ReactHookFormExample } from "./react-hook-form";
+
+# React Hook Form
+
+To use Moai's input components with React Hook Form, [render][2] them in the
+"render" prop of RHF's [Controller][1] component:
+
+```tsx
+import { Controller } from "react-hook-form";
+import { Input } from "../../../core/src";
+
+<label htmlFor="email">Email</label>
+<Controller
+	name="email"
+	control={control}
+	render={({ field }) => (
+		<Input {...field} id="email" type="email" />
+	)}
+	rules={{ required: "Email is required" }}
+/>
+```
+
+[1]: https://react-hook-form.com/api#Controller
+[2]: https://react-hook-form.com/get-started#IntegratingwithUIlibraries
+
+To show errors, pass RHF's [error messages][3] as children of Moai's FormError
+component:
+
+```tsx
+import { FormError } from "../../../core/src";
+
+<FormError children={errors.email?.message} />;
+```
+
+[3]: https://react-hook-form.com/advanced-usage#ErrorMessages
+
+Full example:
+
+<ReactHookFormExample />
+
+```tsx
+(): JSX.Element => {
+	/* import { Input, Button, FormError } from "../../../core/src" */
+
+	const { control, formState, handleSubmit } = useForm<FormValues>();
+	const { errors } = formState;
+	const [busy, setBusy] = useState(false);
+
+	const title = (
+		<div>
+			<label htmlFor="rhf-title">Title</label>
+			<Controller
+				name="title"
+				control={control}
+				render={({ field }) => (
+					<Input {...field} id="rhf-title" type="text" />
+				)}
+				rules={{ required: ERRORS.titleRequired }}
+				defaultValue=""
+			/>
+			<FormError children={errors.title?.message} />
+		</div>
+	);
+
+	const message = (
+		<div>
+			<label htmlFor="rhf-message">Message</label>
+			<Controller
+				name="message"
+				control={control}
+				render={({ field }) => <TextArea {...field} id="rhf-message" />}
+				rules={{
+					required: { value: true, message: ERRORS.messageRequired },
+					minLength: { value: 5, message: ERRORS.messageLength },
+				}}
+				defaultValue=""
+			/>
+			<FormError children={errors.message?.message} />
+		</div>
+	);
+
+	return (
+		<form
+			onSubmit={handleSubmit(async (data) => {
+				setBusy(true);
+				await postToServer(data);
+				setBusy(false);
+			})}
+			className={s.form}
+		>
+			{title}
+			{message}
+			<SubmitButton busy={busy} />
+		</form>
+	);
+};
+```

@@ -1,0 +1,16 @@
+.container {
+	border-width: 2px;
+}
+
+.container table {
+	table-layout: fixed;
+}
+
+.color {
+	width: 160px;
+}
+
+.name {
+	width: 120px;
+	font-variant-numeric: tabular-nums;
+}
