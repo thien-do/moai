@@ -39,7 +39,10 @@ function generateSidebar(dirPath: string, parentDir: string): SidebarItem[] {
 			if (subItems.length === 0) return;
 
 			const item = {
-				text: capitalize(entry.name),
+				text: entry.name
+					.split(/-/g)
+					.map((text) => capitalize(text))
+					.join(" "),
 				collapsed: false,
 				items: subItems,
 			};

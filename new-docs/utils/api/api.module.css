@@ -1,0 +1,22 @@
+.container {
+	border-width: 2px;
+}
+
+.prop {
+	width: 160px;
+	min-width: 160px;
+}
+
+.description {
+	text-wrap: wrap;
+	padding-bottom: 12px;
+}
+
+.type {
+	font-size: smaller;
+}
+
+.required {
+	color: red;
+	font-size: larger;
+}
