@@ -5,6 +5,7 @@ import s from "./form.module.css";
 import { FormSubmitButton } from "./submit";
 import { ERRORS, FormValues, postToServer } from "./utils";
 
+// [!region usage]
 export function FormikExample(): ReactElement {
 	const title = (
 		<div>
@@ -49,3 +50,4 @@ export function FormikExample(): ReactElement {
 		</Formik>
 	);
 }
+// [!endregion usage]

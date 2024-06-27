@@ -5,6 +5,7 @@ import s from "./form.module.css";
 import { FormSubmitButton } from "./submit";
 import { ERRORS, FormValues, postToServer } from "./utils";
 
+// [!region usage]
 export function ReactHookFormExample(): ReactElement {
 	const { control, formState, handleSubmit } = useForm<FormValues>();
 	const { errors } = formState;
@@ -58,3 +59,4 @@ export function ReactHookFormExample(): ReactElement {
 		</form>
 	);
 }
+// [!endregion usage]
