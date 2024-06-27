@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from "react";
-import { border, Table } from "@moai/core/src";
+import { Table, border } from "../../../core/src";
 import s from "./api.module.css";
 
 export interface APIData {

@@ -5,6 +5,7 @@
 	"workspaces": [
 		"core",
 		"docs",
+		"new-docs",
 		"gallery",
 		"test"
 	],
@@ -12,7 +13,7 @@
 		"build-core": "cd core && yarn _build",
 		"build-docs": "cd new-docs && yarn _build",
 		"build-gallery": "cd gallery && yarn _build",
-		"build": "yarn build-core && yarn build-gallery",
+		"build": "yarn build-core && yarn build-gallery && yarn build-docs",
 		"lint-fix": "eslint --fix . && prettier --write .",
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
 		"start-core": "cd core && yarn _start",
@@ -32,5 +33,8 @@
 		"eslint-plugin-react": "^7.34.3",
 		"prettier": "^3.3.2",
 		"typescript": "^5.5.2"
+	},
+	"resolutions": {
+		"**/*/yaml": "2.3.4"
 	}
 }

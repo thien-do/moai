@@ -1,7 +1,15 @@
 {
-	"name": "new-docs",
+	"name": "@moai/new-docs",
 	"version": "0.0.0",
 	"type": "module",
+	"description": "Storybook Docs of Moai 🗿",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/moaijs/moai.git"
+	},
+	"license": "MIT",
+	"homepage": "https://moai.thien.do",
+	"email": "moai@thien.do",
 	"scripts": {
 		"_start": "vocs dev",
 		"_build": "vocs build"
