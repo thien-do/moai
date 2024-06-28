@@ -44,7 +44,6 @@ const bundleMain = {
 	external: [
 		"@tippyjs/react/headless",
 		"focus-visible",
-		"react-day-picker/DayPickerInput",
 		"react-dom",
 		"react-hot-toast",
 		"react-icons/go",

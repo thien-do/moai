@@ -18,8 +18,8 @@ export const TableBodyCell = <R,>(props: Props<R>): JSX.Element => {
 	const { column, row } = props;
 	const children =
 		typeof column.render === "function"
-			? column.render(row, props.rowIndex, props.rowKey) // Render function
-			: row[column.render]; // Accessor
+			? <>{column.render(row, props.rowIndex, props.rowKey)}</> // Render function
+			: <>{row[column.render]}</>; // Accessor
 	const columnMeta = props.tableState.columnMetaMap.get(props.columnIndex);
 	return (
 		<td
