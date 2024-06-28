@@ -46,6 +46,7 @@ const bundleMain = {
 		"focus-visible",
 		"react-dom",
 		"react-hot-toast",
+		"react-icons",
 		"react-icons/go",
 		"react-icons/ri",
 		"react-popper",
