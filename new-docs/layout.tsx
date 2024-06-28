@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from "react";
+import "../core/font/remote.css";
 
 /**
  * Moai components require className "light" for styling so we create a custom
