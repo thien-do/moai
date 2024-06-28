@@ -2,4 +2,4 @@
 .DS_Store
 .idea
 .vercel
-.yarn
+.yarn/unplugged
