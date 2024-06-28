@@ -3,3 +3,5 @@
 .idea
 .vercel
 .yarn/unplugged
+.pnp.cjs
+.pnp.loader.mjs

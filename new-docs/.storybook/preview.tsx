@@ -1,11 +1,8 @@
-import "../../core/font/remote.css";
-import "../../core/src/global/global.css";
-// This is kind of a temporary workaround.. it's necessary because @moai/gallery
-// does not use the src of core like the docs, but instead use the dist build
-import "@moai/core/dist/bundle.css";
 import { DocsContainer } from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
 import React, { ReactElement } from "react";
+import "../../core/font/remote.css";
+import "../../core/src/global/global.css";
 import "./preview.css";
 import "./syntax.css";
 import "./typography.css";

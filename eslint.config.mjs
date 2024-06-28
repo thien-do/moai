@@ -24,6 +24,9 @@ export default [
 			"test/coverage",
 			"**/docs/.storybook",
 			"**/new-docs/.storybook",
+			"**/new-docs/storybook-static",
+			".pnp.cjs",
+			".pnp.loader.mjs",
 		],
 	},
 	...fixupConfigRules(

@@ -11,13 +11,13 @@
 	],
 	"scripts": {
 		"build-core": "cd core && yarn _build",
-		"build-docs": "cd docs && yarn _build",
+		"build-docs": "cd new-docs && yarn _build",
 		"build-gallery": "cd gallery && yarn _build",
 		"build": "yarn build-core && yarn build-gallery && yarn build-docs",
 		"lint-fix": "eslint --fix . && prettier --write .",
 		"lint": "eslint --max-warnings=0 . && prettier --check .",
 		"start-core": "cd core && yarn _start",
-		"start-docs": "cd docs && yarn _start",
+		"start-docs": "cd new-docs && yarn _start",
 		"start-gallery": "cd gallery && yarn _start",
 		"test": "cd test && yarn _test"
 	},
