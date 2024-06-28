@@ -5,6 +5,7 @@
 	"workspaces": [
 		"core",
 		"docs",
+		"new-docs",
 		"gallery",
 		"test"
 	],
@@ -33,7 +34,5 @@
 		"prettier": "^3.3.2",
 		"typescript": "^5.5.2"
 	},
-	"resolutions": {
-		"**/*/yaml": "2.3.4"
-	}
+	"packageManager": "yarn@4.3.1"
 }

@@ -1,0 +1,80 @@
+html {
+	tab-size: 4;
+}
+
+.sbdocs-p,
+.sbdocs-ul {
+	max-width: 640px;
+}
+
+code:not(#x),
+.sbdocs-code:not(#x) {
+	color: inherit;
+}
+
+.sbdocs-blockquote:not(.x) {
+	border-color: var(--border-strong);
+}
+
+.sbdocs-blockquote .sbdocs-p {
+	font-style: italic;
+	color: var(--text-muted);
+}
+
+/* Hide the "Stories" heading */
+.sbdocs-h2#stories {
+	display: none;
+}
+
+.sbdocs-wrapper:not(.x) {
+	padding: 24px;
+	background-color: var(--background-strong);
+}
+
+.sbdocs-preview:not(.x) {
+	background-color: var(--background-strong);
+	box-shadow: none;
+	border: solid 2px var(--border-weak);
+}
+
+.sbdocs-code:not(.x) {
+	display: inline;
+}
+
+.docblock-argstable:not(#x) {
+	table-layout: fixed;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.docblock-argstable-body:not(#x) {
+	box-shadow: none;
+	border: solid 2px var(--border-weak);
+}
+
+/* "name" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(1) {
+	width: 20%;
+}
+
+/* "description" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(2) {
+	width: 60%;
+}
+
+/* "default" column */
+.docblock-argstable-head:not(.x) th:nth-of-type(3),
+.docblock-argstable-body:not(.x) td:nth-of-type(3) {
+	display: none;
+}
+
+/* "controls" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(4) {
+	width: 20%;
+}
+
+/* Category header */
+.docblock-argstable:not(.x) tbody td[colspan="1"],
+.docblock-argstable:not(.x) tbody td[colspan="3"] {
+	background-color: var(--border-weak) !important;
+}

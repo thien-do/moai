@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Intro/Quick Start" />
+
+# Quick Start
+
+First, add the package:
+
+```
+yarn add @moai/core
+```
+
+Then, add the CSS at your app's root:
+
+```tsx
+import "@moai/core/dist/bundle.css";
+import "@moai/core/dist/font/remote.css";
+```
+
+Finally, add either `light` or `dark` class to your `html` tag:
+
+```html
+<html class="light"></html>
+```
+
+And you can use Moai's components:
+
+```tsx
+import { Button } from "@moai/core";
+
+export const Foo = (): JSX.Element => <Button>Hello</Button>;
+```
+
+Now go read the [Proper Start](/story/guides-proper-start--page).
