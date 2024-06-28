@@ -8,9 +8,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            - name: Enable Corepack before setting up Node
++             run: corepack enable
             - uses: actions/setup-node@v2
               with:
                   node-version: 18.x
-            - run: corepack enable
             - run: yarn install
             - run: yarn lint
