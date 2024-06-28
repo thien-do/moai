@@ -12,7 +12,8 @@
 	"email": "moai@thien.do",
 	"scripts": {
 		"_start": "vocs dev",
-		"_build": "vocs build"
+		"_build": "vocs build",
+		"_preview": "vocs preview"
 	},
 	"dependencies": {
 		"@types/react": "latest",
