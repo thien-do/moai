@@ -5,5 +5,5 @@ import { SwitcherOption } from "../../../core/src";
  * ArgsTable to describe the Option interface.
  */
 export const SwitcherOptionComponent = <R,>(
-	props: SwitcherOption<R>
+	props: SwitcherOption<R>,
 ): JSX.Element => <div>{props.key}</div>;

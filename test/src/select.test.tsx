@@ -20,7 +20,7 @@ describe("Testing Select Uncontrolled Props", () => {
 					defaultValue={"blue"}
 					id="select"
 				/>
-			</div>
+			</div>,
 		);
 		const selectElement = screen.getByLabelText("select");
 		expect(selectElement).toHaveValue("blue");
@@ -71,7 +71,7 @@ describe("Testing Select Disabled Props", () => {
 			<div>
 				<label htmlFor="select">select</label>
 				<Select options={SELECTIONS} disabled id="select" />
-			</div>
+			</div>,
 		);
 
 		const selectElement = screen.getByLabelText("select");
@@ -92,7 +92,7 @@ describe("Testing Select Disabled Props", () => {
 					]}
 					id="select"
 				/>
-			</div>
+			</div>,
 		);
 
 		const selectElement = screen.getByLabelText("select");

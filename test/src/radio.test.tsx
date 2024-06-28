@@ -9,7 +9,7 @@ describe("Testing Checkbox Uncontrolled Prop", () => {
 		render(
 			<Radio defaultChecked name="radio" value="1">
 				foo
-			</Radio>
+			</Radio>,
 		);
 
 		const radioElement = screen.getByRole("radio");
@@ -23,7 +23,7 @@ describe("Testing Checkbox Disabled Prop", () => {
 		render(
 			<Radio disabled name="radio" value="1">
 				foo
-			</Radio>
+			</Radio>,
 		);
 
 		const radioElement = screen.getByRole("radio");

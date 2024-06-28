@@ -25,7 +25,9 @@
 :global(.light) .outset {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.1);
 	background-color: var(--gray-0);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--white);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--white);
 	border-color: var(--gray-2);
 }
 :global(.light) .outset:hover {
@@ -39,7 +41,9 @@
 :global(.dark) .outset {
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.5);
 	background-color: var(--gray-6);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--gray-5);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--gray-5);
 	border-color: var(--black);
 }
 :global(.dark) .outset:hover {

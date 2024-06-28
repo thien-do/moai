@@ -23,7 +23,7 @@ const getColor = (contrast: number): CategoryColor => {
 const getContrast = (
 	props: Props,
 	backElement: HTMLDivElement,
-	foreElement: HTMLElement
+	foreElement: HTMLElement,
 ): number => {
 	const back = window.getComputedStyle(backElement).backgroundColor;
 	const foreStyle = window.getComputedStyle(foreElement);

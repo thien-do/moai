@@ -5,5 +5,5 @@ import { RadioOption } from "../../../core/src";
  * ArgsTable to describe the RadioOption interface.
  */
 export const RadioOptionComponent = <R,>(
-	props: RadioOption<R>
+	props: RadioOption<R>,
 ): JSX.Element => <div>{props.id}</div>;

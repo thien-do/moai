@@ -114,13 +114,13 @@
 // /**
 //  * A date input is a control for users to enter a date, either by typing it or
 //  * choosing from a pop-up calendar.
-//  * 
+//  *
 //  * The Date Input component is based on [React Day Picker][3], as an
 //  * alternative to the built-in `<Input type="date" />`. It works on
 //  * [unsupported browsers][2] and can display custom date format (e.g. "dmy" or
 //  * "mdy"). If you don't need these features, use [Input][1] to have better
 //  * accessibility support.
- 
+
 //  * [1]: /docs/components-input--primary#date
 //  * [2]: https://caniuse.com/input-datetime
 //  * [3]: https://react-day-picker.js.org

@@ -32,7 +32,7 @@ export const dialogAlert = (
 	message: React.ReactNode,
 	options?: {
 		width?: DialogProps["width"];
-	}
+	},
 ): Promise<void> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (

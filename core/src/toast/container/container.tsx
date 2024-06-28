@@ -1,4 +1,8 @@
-import toastController, { Toast as RHTToast, ToastType as RHTToastType, useToaster as useRHTToaster } from "react-hot-toast";
+import toastController, {
+	Toast as RHTToast,
+	ToastType as RHTToastType,
+	useToaster as useRHTToaster,
+} from "react-hot-toast";
 import { ToastPane, ToastPaneType } from "../pane/pane";
 import s from "./container.module.css";
 

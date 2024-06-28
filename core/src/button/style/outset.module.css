@@ -1,5 +1,8 @@
 .main {
-	transition: background-color 0.1s, box-shadow 0.1s, outline 0.2s ease-out;
+	transition:
+		background-color 0.1s,
+		box-shadow 0.1s,
+		outline 0.2s ease-out;
 	border: solid 1px transparent;
 	--shadow-size: 0px 0.5px 2px;
 	--inset-shadow: inset 0px 1px 0px;

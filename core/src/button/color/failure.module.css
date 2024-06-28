@@ -14,7 +14,9 @@
 :global(.dark) .outset {
 	color: var(--white);
 	background-color: var(--failure-5);
-	box-shadow: var(--shadow), var(--inset-shadow) var(--failure-4);
+	box-shadow:
+		var(--shadow),
+		var(--inset-shadow) var(--failure-4);
 	font-weight: 500;
 }
 

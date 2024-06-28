@@ -267,7 +267,7 @@ const validateButton = (props: ButtonProps): void => {
 // since it's missing the ref. See Button for the exported component.
 const buttonRender = (
 	props: ButtonProps,
-	ref: React.ForwardedRef<ButtonElement>
+	ref: React.ForwardedRef<ButtonElement>,
 ): JSX.Element => {
 	validateButton(props);
 	const common = {

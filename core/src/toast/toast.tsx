@@ -22,7 +22,7 @@ const init = async (resolve: (div: HTMLDivElement) => void): Promise<void> => {
 
 export const toast = async (
 	type: ToastType,
-	message: string
+	message: string,
 ): Promise<void> => {
 	if (inited.current === false) await new Promise(init);
 	type.handler(message);

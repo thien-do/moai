@@ -119,7 +119,7 @@ const validate = (props: InputProps): void => {
 
 const inputRender = (
 	props: InputProps,
-	ref: React.ForwardedRef<HTMLInputElement>
+	ref: React.ForwardedRef<HTMLInputElement>,
 ): JSX.Element => {
 	validate(props);
 	const size = props.size ?? Input.sizes.medium;

@@ -147,7 +147,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
 			/>
 			<span
 				className={[shared.icon, style.icon, self.indeterminate].join(
-					" "
+					" ",
 				)}
 				children={<Icon display="block" component={coreIcons.dash} />}
 			/>

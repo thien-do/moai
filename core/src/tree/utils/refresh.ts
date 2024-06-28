@@ -7,7 +7,7 @@ export interface RefreshTreeParams {
 }
 
 export const refreshTree = async (
-	params: RefreshTreeParams
+	params: RefreshTreeParams,
 ): Promise<TreeNode> => {
 	const { loadChildren, node } = params;
 

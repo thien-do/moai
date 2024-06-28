@@ -42,7 +42,7 @@ const getViewBox = (strokeWidth: number) => {
 const getStroke = (props: ProgressCircleProps) => {
 	const width = Math.min(
 		MIN_STROKE_WIDTH,
-		(STROKE_WIDTH * SIZE_LARGE) / props.size
+		(STROKE_WIDTH * SIZE_LARGE) / props.size,
 	);
 	const value = props.value === "indeterminate" ? 0.25 : props.value;
 	const offset = PATH_LENGTH - PATH_LENGTH * value;
