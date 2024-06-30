@@ -14,7 +14,7 @@ import { Button } from "../../../core/src";
  *
  * [1]: https://fontawesome.com
  * [2]: https://fonts.google.com/icons
- * [3]: /docs/components-icon--primary
+ * [3]: /docs/components-icon--docs
  * [4]: #advanced
  */
 const meta: Meta = {

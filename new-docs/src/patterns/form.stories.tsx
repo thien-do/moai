@@ -11,8 +11,8 @@ import { Button, FormError, Input, TextArea } from "../../../core/src";
  *
  * [1]: https://formik.org/
  * [2]: https://react-hook-form.com/
- * [3]: /docs/components-input--primary
- * [4]: /docs/components-textarea--primary
+ * [3]: /docs/components-input--docs
+ * [4]: /docs/components-textarea--docs
  */
 const meta: Meta = {
 	title: "Patterns/Form",
