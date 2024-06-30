@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { SVGAttributes } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { Button } from "../../../core/src";
@@ -22,6 +22,7 @@ const meta: Meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Button>;
 
 /**
  * Moai components that support icons usually have an \`icon\` prop. The
@@ -59,14 +60,17 @@ export const IconLabel = (): JSX.Element => (
  * controlled by the component itself. For example, in a large, highlight button,
  * the icon is white and enlarged:
  */
-export const ColorSize = (): JSX.Element => (
-	<Button
-		highlight
-		size={Button.sizes.large}
-		icon={RiSearchLine}
-		children="Search"
-	/>
-);
+export const ColorSize: Story = {
+	name: "Color & Size",
+	render: (): JSX.Element => (
+		<Button
+			color={Button.colors.highlight}
+			size={Button.sizes.large}
+			icon={RiSearchLine}
+			children="Search"
+		/>
+	),
+};
 
 /**
  * Technically, these \`icon\` props simply expect a [function component][1] that
