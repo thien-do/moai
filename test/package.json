@@ -9,7 +9,7 @@
 	},
 	"dependencies": {
 		"@moai/core": "*",
-		"@swc/core": "^1.6.5",
+		"@swc/core": "^1.6.6",
 		"@swc/jest": "^0.2.36",
 		"@testing-library/dom": "^10.2.0",
 		"@testing-library/jest-dom": "^6.4.6",
