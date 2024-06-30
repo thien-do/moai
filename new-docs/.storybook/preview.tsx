@@ -2,7 +2,14 @@
 // does not use the src of core like the docs, but instead use the dist build
 import "@moai/core/dist/bundle.css";
 
-import { DocsContainer } from "@storybook/blocks";
+import {
+	Controls,
+	Description,
+	DocsContainer,
+	Stories,
+	Subtitle,
+	Title,
+} from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
 import React, { ReactElement } from "react";
 import "../../core/font/remote.css";
@@ -39,6 +46,15 @@ const preview: Preview = {
 					</DocsContainer>
 				);
 			},
+			page: () => (
+				<>
+					<Title />
+					<Subtitle />
+					<Description />
+					<Stories />
+					<Controls />
+				</>
+			),
 		},
 	},
 	tags: ["autodocs"],
