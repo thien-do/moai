@@ -1,7 +1,6 @@
 import Tippy, { TippyProps } from "@tippyjs/react/headless";
 import { border } from "../border/border";
 import { shadow } from "../shadow/shadow";
-import { Paragraph } from "../text/text";
 import s from "./tooltip.module.css";
 
 type Children = TippyProps["children"];
@@ -42,7 +41,7 @@ export const TooltipPane = (props: PaneProps): JSX.Element => (
 					<div className={[s.arrow].join(" ")} />
 				</div>
 			)}
-			<Paragraph children={props.children} />
+			{props.children}
 		</div>
 	</div>
 );

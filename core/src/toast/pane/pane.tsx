@@ -5,7 +5,7 @@ import { DivPx } from "../../div/div";
 import { Icon, IconComponent } from "../../icon/icon";
 import { coreIcons } from "../../icons/icons";
 import { shadow } from "../../shadow/shadow";
-import { Paragraph, text } from "../../text/text";
+import { text } from "../../text/text";
 import s from "./pane.module.css";
 
 export interface ToastPaneType {
@@ -75,9 +75,7 @@ export const ToastPane = (props: Props): JSX.Element => (
 				<Icon display="block" component={props.type.iconComponent} />
 			</div>
 			<DivPx size={12} />
-			<div className={s.children}>
-				<Paragraph>{props.children}</Paragraph>
-			</div>
+			<div className={s.children}>{props.children}</div>
 			<DivPx size={12} />
 			<Close {...props} />
 		</div>
