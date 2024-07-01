@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { DayPicker, Matcher } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { Input, InputProps } from "../input/input";
@@ -57,18 +57,6 @@ interface Props {
 	icon?: InputProps["icon"];
 }
 
-interface DayPickerOverlayProps {
-	children: ReactNode;
-	selectedDay: Date;
-	month: Date;
-	input: null;
-	classNames: {
-		container: string; // input
-		overlay: string;
-		overlayWrapper: string;
-	};
-}
-
 const getValue = (props: Props): Date | undefined => {
 	console.log("get", props.value);
 
@@ -86,7 +74,7 @@ const getValue = (props: Props): Date | undefined => {
 
 const getDisabledDays = (props: Props): Matcher | Matcher[] => {
 	const { minDate: min, maxDate: max } = props;
-	let days: Matcher[] = [];
+	const days: Matcher[] = [];
 	if (max) days.push({ after: max });
 	if (min) days.push({ before: min });
 	return days;

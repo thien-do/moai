@@ -8,6 +8,7 @@ import { RadioOptionComponent } from "./radio-group-fake";
 const meta: Meta = {
 	title: "Components/Radio Group",
 	component: RadioGroup,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	subcomponents: { RadioOption: RadioOptionComponent as any },
 	argTypes: {
 		row: Utils.arg("boolean"),

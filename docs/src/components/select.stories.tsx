@@ -8,6 +8,7 @@ import { SelectOptionComponent } from "./select-fake";
 const meta: Meta = {
 	title: "Components/Select",
 	component: Select,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	subcomponents: { SelectOption: SelectOptionComponent as any },
 	argTypes: {
 		style: Utils.arg(Select.styles, "Visual"),

@@ -1,7 +1,7 @@
 import Color from "color";
 import { useEffect, useRef, useState } from "react";
 import { HiCheckCircle } from "react-icons/hi";
-import { CategoryColor, categoryColors, Icon, Tag } from "../../../../core/src";
+import { CategoryColor, Icon, Tag, categoryColors } from "../../../../core/src";
 import s from "./sample.module.css";
 
 export type ColorSampleUsage = "text" | "icon" | "both";
@@ -50,7 +50,7 @@ export const ColorSample = (props: Props): JSX.Element => {
 			if (fore === null) throw Error("foreElm is null");
 			setContrast(getContrast(props, back, fore));
 		}, 0); // Wait for all styles are applied
-	}, [setContrast]);
+	}, [setContrast, props]);
 
 	return (
 		<div

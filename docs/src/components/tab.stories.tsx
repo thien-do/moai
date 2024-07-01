@@ -8,6 +8,7 @@ import { TabComponent } from "./tab-fake";
 const meta: Meta = {
 	title: "Components/Tabs",
 	component: Tabs,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	subcomponents: { Tab: TabComponent as any },
 	argTypes: {
 		noPadding: Utils.arg("boolean", "Visual"),

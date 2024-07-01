@@ -9,6 +9,7 @@ const argOptions = (target: unknown): string[] | undefined => {
 	}
 
 	if (typeof target === "object") {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		return Object.keys(target as any);
 	}
 };
@@ -36,6 +37,7 @@ export const utilsArg = (
 	category?: string,
 ): Partial<ArgTypes<Args>> => {
 	const table = category ? { category } : undefined;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const control = argControl(target) as any;
 	const options = argOptions(target);
 	return { options, control, table };

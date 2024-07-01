@@ -8,6 +8,7 @@ import { SwitcherOptionComponent } from "./switcher-fake";
 const meta: Meta = {
 	title: "Components/Switcher",
 	component: Switcher,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	subcomponents: { SwitcherOption: SwitcherOptionComponent as any },
 	argTypes: {
 		style: Utils.arg(Switcher.styles),

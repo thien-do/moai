@@ -8,6 +8,7 @@ import { ToastFunction } from "./toast-fake";
 const meta: Meta = {
 	title: "Components/Toast",
 	component: ToastPane,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	subcomponents: { "toast function": ToastFunction as any },
 };
 

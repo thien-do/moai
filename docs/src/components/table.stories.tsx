@@ -10,7 +10,9 @@ const meta: Meta = {
 	title: "Components/Table",
 	component: Table,
 	subcomponents: {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		TableColumn: TableColumnComponent as any,
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		TableExpandable: TableExpandableComponent as any,
 	},
 	argTypes: {
