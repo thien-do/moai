@@ -7,7 +7,7 @@
 		"dist",
 		"public",
 		"test/coverage",
-		"new-docs/storybook-static"
+		"docs/storybook-static"
 	],
 	"extends": [
 		"eslint:recommended",

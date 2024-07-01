@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { Button, Popover, PopoverPlacement } from "../../../core/src";
 import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
@@ -17,6 +17,7 @@ const meta: Meta = {
 Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
+type Story = StoryObj<typeof Popover>;
 
 interface Props {
 	placement?: PopoverPlacement;
@@ -32,21 +33,7 @@ export const Primary = (props: Props): JSX.Element => (
 	/>
 );
 
-export const Basic = (): JSX.Element => (
-	<Popover
-		target={(popover) => (
-			<Button
-				onClick={() => popover.toggle()}
-				selected={popover.opened}
-				children="Show popover"
-			/>
-		)}
-		content={() => "Hello"}
-	/>
-);
-
-Utils.story(Basic, {
-	desc: `
+/**
 A popover consists of 2 parts: a "content" and a "target". They are both
 [render props][1].
 
@@ -73,19 +60,21 @@ it, imperatively, via the callback you received.
 
 [1]: https://reactjs.org/docs/render-props.html
 [2]: https://reactjs.org/docs/uncontrolled-components.html
-`,
-});
-
-export const TargetWrapper = (): JSX.Element => (
+ */
+export const Basic = (): JSX.Element => (
 	<Popover
+		target={(popover) => (
+			<Button
+				onClick={() => popover.toggle()}
+				selected={popover.opened}
+				children="Show popover"
+			/>
+		)}
 		content={() => "Hello"}
-		target={(popover) => <span onClick={popover.toggle}>Click me!</span>}
-		TargetWrapper={Popover.targetWrappers.inline}
 	/>
 );
 
-Utils.story(TargetWrapper, {
-	desc: `
+/**
 In order to position the content relative to the target, Popover needs to wrap
 the target inside a wrapper. By default, this wrapper is an HTML \`div\`
 element with a \`width: fit-content\`. This should work for most cases, but
@@ -97,22 +86,16 @@ such as a \`<span />\`.
 for full-width buttons.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
-`,
-});
-
-export const PlacementExample = (): JSX.Element => (
+ */
+export const TargetWrapper = (): JSX.Element => (
 	<Popover
-		placement="right"
-		target={(popover) => (
-			<Button onClick={popover.toggle} children="Show popover" />
-		)}
-		content={() => <div style={{ padding: 8 }} children="Hello" />}
+		content={() => "Hello"}
+		target={(popover) => <span onClick={popover.toggle}>Click me!</span>}
+		TargetWrapper={Popover.targetWrappers.inline}
 	/>
 );
 
-Utils.story(PlacementExample, {
-	name: "Placement",
-	desc: `
+/**
 By default, Popover positions its content on top of its target. This can be
 changed by the \`placement\` prop, which expects a string of [Popper.js'
 \`placement\`][1] option. You can see (and try!) all available placements at
@@ -124,5 +107,16 @@ one, to keep the content in the viewport.
 
 [1]: https://popper.js.org/docs/v2/constructors/#options
 [2]: #props
-`,
-});
+ */
+export const PlacementExample: Story = {
+	name: "Placement",
+	render: (): JSX.Element => (
+		<Popover
+			placement="right"
+			target={(popover) => (
+				<Button onClick={popover.toggle} children="Show popover" />
+			)}
+			content={() => <div style={{ padding: 8 }} children="Hello" />}
+		/>
+	),
+};

@@ -27,14 +27,7 @@ export const Primary = (props: Props): JSX.Element => (
 	</Tooltip>
 );
 
-export const Basic = (): JSX.Element => (
-	<Tooltip content="Hello Moai">
-		<span tabIndex={0}>Hover me</span>
-	</Tooltip>
-);
-
-Utils.story(Basic, {
-	desc: `
+/**
 To have a tooltip for an element, wrap the \`Tooltip\` component outside it,
 and define the information via the \`content\` prop. The tooltip is shown when
 users hover or focus on the element.
@@ -47,18 +40,14 @@ buttons and inputs.
 
 [1]: https://www.nngroup.com/articles/tooltip-guidelines/
 [2]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard#interactive_elements_must_be_focusable
-`,
-});
-
-export const PlacementExample = (): JSX.Element => (
-	<Tooltip content="Hello Moai" placement="right">
+ */
+export const Basic = (): JSX.Element => (
+	<Tooltip content="Hello Moai">
 		<span tabIndex={0}>Hover me</span>
 	</Tooltip>
 );
 
-Utils.story(PlacementExample, {
-	name: "Placement",
-	desc: `
+/**
 By default, Tooltip positions the \`content\` on top of the \`children\`. This
 can be changed via the \`placement\` prop, which expects a string of [Tippy.js'
 \`placement\`][1] option. You can see (and try!) all available placements at
@@ -70,5 +59,9 @@ one, to keep the content in the viewport.
 
 [1]: https://atomiks.github.io/tippyjs/v6/all-props/#placement
 [2]: #props
-`,
-});
+ */
+export const Placement = (): JSX.Element => (
+	<Tooltip content="Hello Moai" placement="right">
+		<span tabIndex={0}>Hover me</span>
+	</Tooltip>
+);

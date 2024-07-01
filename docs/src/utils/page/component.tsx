@@ -1,11 +1,10 @@
 import {
-	ArgsTable,
+	Controls,
 	Description,
 	Primary,
-	PRIMARY_STORY,
 	Stories,
 	Title,
-} from "@storybook/addon-docs";
+} from "@storybook/blocks";
 import { Meta } from "@storybook/react";
 import React from "react";
 import { background } from "../../../../core/src";
@@ -28,7 +27,7 @@ const ComponentPage = (props: Props): JSX.Element => (
 				<div className={s.shots}>{props.shots}</div>
 			</>
 		)}
-		<Stories />
+		<Stories includePrimary={false} />
 		<div>
 			<h3 id="props" className="sbdocs sbdocs-h3">
 				All Props
@@ -39,7 +38,7 @@ const ComponentPage = (props: Props): JSX.Element => (
 				</div>
 			)}
 			<div className={s.table}>
-				<ArgsTable story={PRIMARY_STORY} />
+				<Controls />
 			</div>
 		</div>
 	</div>

@@ -34,6 +34,12 @@ export const Primary = (props: Props): JSX.Element => (
 	</div>
 );
 
+/**
+ * A pane only require its \`children\` to be defined. See the [props table][1]
+ * below for props to control its padding, width and height.
+ *
+ * [1]: #props
+ */
 export const Basic = (): JSX.Element => (
 	<Pane>
 		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus
@@ -42,12 +48,3 @@ export const Basic = (): JSX.Element => (
 		nulla? Maiores?
 	</Pane>
 );
-
-Utils.story(Basic, {
-	desc: `
-A pane only require its \`children\` to be defined. See the [props table][1]
-below for props to control its padding, width and height.
-
-[1]: #props
-`,
-});

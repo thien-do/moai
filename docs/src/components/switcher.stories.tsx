@@ -2,13 +2,13 @@ import { Meta } from "@storybook/react/types-6-0";
 import { useState } from "react";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight } from "react-icons/fa";
 import { Switcher, SwitcherOption } from "../../../core/src";
-import { SwitcherOptionComponent } from "./switcher-fake";
 import { Utils } from "../utils/utils";
+import { SwitcherOptionComponent } from "./switcher-fake";
 
 const meta: Meta = {
 	title: "Components/Switcher",
 	component: Switcher,
-	subcomponents: { SwitcherOption: SwitcherOptionComponent },
+	subcomponents: { SwitcherOption: SwitcherOptionComponent as any },
 	argTypes: {
 		style: Utils.arg(Switcher.styles),
 		size: Utils.arg(Switcher.sizes),
@@ -55,18 +55,7 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-export const Basic = (): JSX.Element => {
-	const [value, setValue] = useState<number>(0);
-	const options: SwitcherOption<number>[] = [
-		{ value: 0, label: "Left" },
-		{ value: 1, label: "Center" },
-		{ value: 2, label: "Right" },
-	];
-	return <Switcher value={value} setValue={setValue} options={options} />;
-};
-
-Utils.story(Basic, {
-	desc: `
+/**
 Switcher is a [controlled][1], [generic][3] component. You should have a
 [state][2] of any type for the selected value, and pass the control to a
 switcher via the \`value\` and \`setValue\` props.
@@ -79,9 +68,24 @@ for the complete interface of an option.
 [2]: https://reactjs.org/docs/hooks-state.html
 [3]: https://www.typescriptlang.org/docs/handbook/2/generics.html
 [4]: #props
-`,
-});
+ */
+export const Basic = (): JSX.Element => {
+	const [value, setValue] = useState<number>(0);
+	const options: SwitcherOption<number>[] = [
+		{ value: 0, label: "Left" },
+		{ value: 1, label: "Center" },
+		{ value: 2, label: "Right" },
+	];
+	return <Switcher value={value} setValue={setValue} options={options} />;
+};
 
+/**
+Switchers can be used for \`boolean\` values. In these cases, they work like
+[toggles][1], letting users flip between on-off states. The \`highlight\` prop
+is often used together to make the selected option more prominent.
+
+[1]: https://www.nngroup.com/articles/toggle-switch-guidelines/
+ */
 export const Toggle = (): JSX.Element => {
 	const [on, setOn] = useState<boolean>(true);
 	const options: SwitcherOption<boolean>[] = [
@@ -91,16 +95,16 @@ export const Toggle = (): JSX.Element => {
 	return <Switcher highlight value={on} setValue={setOn} options={options} />;
 };
 
-Utils.story(Toggle, {
-	desc: `
-Switchers can be used for \`boolean\` values. In these cases, they work like
-[toggles][1], letting users flip between on-off states. The \`highlight\` prop
-is often used together to make the selected option more prominent.
+/**
+Switchers' options are just [buttons][1], so they also support having
+[icons][2] via the \`icon\` attribute. You can also have icon-only options by
+omitting the \`label\` attribute, in which cases \`iconLabel\` must instead be
+provided to ensure they are [accessible][3].
 
-[1]: https://www.nngroup.com/articles/toggle-switch-guidelines/
-`,
-});
-
+[1]: /docs/components-button--primary
+[2]: /docs/guides-icons--primary
+[3]: /docs/components-button--primary#icon
+ */
 export const Icon = (): JSX.Element => {
 	const [value, setValue] = useState<number>(0);
 	const options: SwitcherOption<number>[] = [
@@ -110,16 +114,3 @@ export const Icon = (): JSX.Element => {
 	];
 	return <Switcher value={value} setValue={setValue} options={options} />;
 };
-
-Utils.story(Icon, {
-	desc: `
-Switchers' options are just [buttons][1], so they also support having
-[icons][2] via the \`icon\` attribute. You can also have icon-only options by
-omitting the \`label\` attribute, in which cases \`iconLabel\` must instead be
-provided to ensure they are [accessible][3].
-
-[1]: /docs/components-button--primary
-[2]: /docs/guides-icons--primary
-[3]: /docs/components-button--primary#icon
-`,
-});
