@@ -52,6 +52,7 @@ const bundleMain = {
 		"react-popper",
 		"react",
 		"react/jsx-runtime",
+		"react-day-picker",
 	],
 	plugins: [
 		del({ targets: ["dist"] }),
