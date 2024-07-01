@@ -60,7 +60,7 @@ export const Steps = (props: Props): JSX.Element => {
 				index={index}
 				current={props.current}
 			/>,
-			<Divider key={`${index}-divider`} />
+			<Divider key={`${index}-divider`} />,
 		);
 	});
 	children.pop();

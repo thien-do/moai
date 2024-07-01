@@ -22,7 +22,7 @@ export interface TableSelectableProps<T extends TableSelected> {
 
 export const isTableRowSelected = (
 	selected: TableSelected | undefined,
-	rowKey: string
+	rowKey: string,
 ): boolean => {
 	if (selected === undefined) return false;
 	if (typeof selected === "string") return selected === rowKey;

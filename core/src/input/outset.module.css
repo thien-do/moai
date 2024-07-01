@@ -1,5 +1,7 @@
 .main {
-	transition: background-color 0.1s, outline 0.2s ease-out;
+	transition:
+		background-color 0.1s,
+		outline 0.2s ease-out;
 
 	border-width: 1px;
 	border-style: solid;

@@ -35,6 +35,11 @@ export const Primary = (props: Props): JSX.Element => (
 	/>
 );
 
+/**
+A progress circle requires its \`size\` and \`value\` props to be defined. The
+value should be a number from 0 (no progress yet) to 1 (all's done), or the
+"indeterminate" string to show a spinning circle.
+ */
 export const Basic = (): JSX.Element => (
 	<div style={{ display: "flex", gap: 8 }}>
 		<ProgressCircle size={16} value={0.4} />
@@ -42,14 +47,14 @@ export const Basic = (): JSX.Element => (
 	</div>
 );
 
-Utils.story(Basic, {
-	desc: `
-A progress circle requires its \`size\` and \`value\` props to be defined. The
-value should be a number from 0 (no progress yet) to 1 (all's done), or the
-"indeterminate" string to show a spinning circle.
-`,
-});
+/**
+The color of a progress circle is set via its \`color\` prop. Colors are
+defined at \`ProgressCircle.colors\`:
 
+- \`neutral\` shows a gray circle. This is the default value.
+- \`highlight\` highlight the circle.
+- \`inverse\` is for displaying the circle on top of a colored background.
+ */
 export const Color = (): JSX.Element => {
 	const base: ProgressCircleProps = { size: 16, value: "indeterminate" };
 	const { neutral, highlight, inverse } = ProgressCircle.colors;
@@ -63,14 +68,3 @@ export const Color = (): JSX.Element => {
 		</div>
 	);
 };
-
-Utils.story(Color, {
-	desc: `
-The color of a progress circle is set via its \`color\` prop. Colors are
-defined at \`ProgressCircle.colors\`:
-
-- \`neutral\` shows a gray circle. This is the default value.
-- \`highlight\` highlight the circle.
-- \`inverse\` is for displaying the circle on top of a colored background.
-`,
-});

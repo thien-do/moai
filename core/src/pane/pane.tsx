@@ -44,6 +44,6 @@ export const Pane = (props: Props): JSX.Element => (
 
 Pane.styles = {
 	outset: [border.px1, background.strong, border.strong, shadow.boxWeak].join(
-		" "
+		" ",
 	),
 };

@@ -60,7 +60,7 @@ export const dialogPrompt = (
 	options?: {
 		width?: Props["width"];
 		rows?: Props["rows"];
-	}
+	},
 ): Promise<string | null> => {
 	return new Promise((resolve) => {
 		renderDialog((unmount) => (

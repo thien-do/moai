@@ -1,9 +1,7 @@
-import { DayPickerInputProps } from "react-day-picker/types/Props";
-
 export interface DateInputFormat {
 	placeholder: string;
-	parse: DayPickerInputProps["parseDate"];
-	format: DayPickerInputProps["formatDate"];
+	parse: (str: string) => Date | undefined;
+	format: (date: Date) => string;
 }
 
 /** Split arr to year month day respectively */

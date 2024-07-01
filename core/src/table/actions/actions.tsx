@@ -8,27 +8,26 @@ import s from "./actions.module.css";
 
 const renderActions =
 	<R,>(props: TableProps<R>, state: TableState) =>
-	(_row: R, _index: number, rowKey: string): JSX.Element =>
-		(
-			<div className={s.container}>
-				{props.selectable !== undefined && (
-					<TableSelectableControl
-						rowKey={rowKey}
-						selectable={props.selectable}
-					/>
-				)}
-				{props.expandable !== undefined && (
-					<TableExpandableControl
-						rowKey={rowKey}
-						expandable={state.expandable}
-					/>
-				)}
-			</div>
-		);
+	(_row: R, _index: number, rowKey: string): JSX.Element => (
+		<div className={s.container}>
+			{props.selectable !== undefined && (
+				<TableSelectableControl
+					rowKey={rowKey}
+					selectable={props.selectable}
+				/>
+			)}
+			{props.expandable !== undefined && (
+				<TableExpandableControl
+					rowKey={rowKey}
+					expandable={state.expandable}
+				/>
+			)}
+		</div>
+	);
 
 export const getTableActionsColumn = <R,>(
 	props: TableProps<R>,
-	state: TableState
+	state: TableState,
 ): TableColumn<R> => ({
 	className: s.column,
 	title: "",

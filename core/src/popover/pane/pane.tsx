@@ -1,10 +1,10 @@
 import { Placement } from "@popperjs/core";
-import { background } from "../../background/background";
-import { border } from "../../border/border";
-import { shadow } from "../../shadow/shadow";
 import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
+import { background } from "../../background/background";
+import { border } from "../../border/border";
+import { shadow } from "../../shadow/shadow";
 import { getPortalContainer } from "../../utils/utils";
 import s from "./pane.module.css";
 
@@ -72,7 +72,7 @@ export const PopoverPane = (props: Props): JSX.Element => {
 		</div>
 	);
 
-	return createPortal(element, getPortalContainer());
+	return <>{createPortal(element, getPortalContainer())}</>;
 };
 
 PopoverPane.styles = {

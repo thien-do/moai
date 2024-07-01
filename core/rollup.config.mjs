@@ -44,14 +44,15 @@ const bundleMain = {
 	external: [
 		"@tippyjs/react/headless",
 		"focus-visible",
-		"react-day-picker/DayPickerInput",
 		"react-dom",
 		"react-hot-toast",
+		"react-icons",
 		"react-icons/go",
 		"react-icons/ri",
 		"react-popper",
 		"react",
 		"react/jsx-runtime",
+		"react-day-picker",
 	],
 	plugins: [
 		del({ targets: ["dist"] }),

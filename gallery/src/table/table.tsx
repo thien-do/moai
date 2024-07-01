@@ -78,7 +78,7 @@ const MaterialsHeader = (): JSX.Element => (
 		<M.DivPx size={8} />
 		<M.Select
 			options={[...Object.keys(MATERIAL_TAGS), "Filter: All"].map(
-				M.Select.toStringOption
+				M.Select.toStringOption,
 			)}
 			defaultValue="Filter: All"
 		/>

@@ -2,7 +2,6 @@ import "./global/global.css";
 
 export * from "./background/background";
 export * from "./border/border";
-export * from "./shadow/shadow";
 export * from "./button-group/button-group";
 export * from "./button-menu/button-menu";
 export * from "./button/button";
@@ -25,6 +24,7 @@ export * from "./radio-group/radio-group";
 export * from "./radio/radio";
 export * from "./scrollbar/scrollbar";
 export * from "./select/select";
+export * from "./shadow/shadow";
 export * from "./step/step";
 export * from "./switcher/switcher";
 export * from "./tab/tab";

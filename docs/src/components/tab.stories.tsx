@@ -8,7 +8,8 @@ import { TabComponent } from "./tab-fake";
 const meta: Meta = {
 	title: "Components/Tabs",
 	component: Tabs,
-	subcomponents: { Tab: TabComponent },
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	subcomponents: { Tab: TabComponent as any },
 	argTypes: {
 		noPadding: Utils.arg("boolean", "Visual"),
 		fullHeight: Utils.arg("boolean", "Visual"),
@@ -50,19 +51,7 @@ export const Primary = (props: Props): JSX.Element => (
 	</div>
 );
 
-Utils.story(Primary, { fixPrimary: true });
-
-export const Basic = (): JSX.Element => (
-	<Tabs>
-		{[
-			{ id: "first", title: "First", pane: () => <p>1st</p> },
-			{ id: "second", title: "Second", pane: () => <p>2nd</p> },
-		]}
-	</Tabs>
-);
-
-Utils.story(Basic, {
-	desc: `
+/**
 Tabs can be used as both controlled or uncontrolled. If you don't need to
 control the active tab state, it's best to use Tabs as an uncontrolled
 component. You only need to provide the list of tabs via the \`tabs\` prop.
@@ -79,9 +68,27 @@ interface Tab {
 The height of tabs depend on the content of the current tab. Use the
 \`fullHeight\` prop to control the element's height. The default padding can
 be removed via the \`noPadding\` prop.
-`,
-});
+ */
+export const Basic = (): JSX.Element => (
+	<Tabs>
+		{[
+			{ id: "first", title: "First", pane: () => <p>1st</p> },
+			{ id: "second", title: "Second", pane: () => <p>2nd</p> },
+		]}
+	</Tabs>
+);
 
+/**
+[In most cases][1], Tabs should be used as an uncontrolled component. However,
+you can also have a state for the active tab yourself, and give it to the Tabs
+via the \`activeTab\` and \`setActiveTab\` props, and use it as a controlled
+component.
+
+You can control the active tab, from both outside and inside the tabs by
+setting your state:
+
+[1]: #basic
+ */
 export const Controlled = (): JSX.Element => {
 	const [tab, setTab] = useState("first");
 	const FirstPane = (): JSX.Element => (
@@ -107,17 +114,3 @@ export const Controlled = (): JSX.Element => {
 		</div>
 	);
 };
-
-Utils.story(Controlled, {
-	desc: `
-[In most cases][1], Tabs should be used as an uncontrolled component. However,
-you can also have a state for the active tab yourself, and give it to the Tabs
-via the \`activeTab\` and \`setActiveTab\` props, and use it as a controlled
-component.
-
-You can control the active tab, from both outside and inside the tabs by
-setting your state:
-
-[1]: #basic
-`,
-});

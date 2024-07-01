@@ -1,8 +1,7 @@
 import { Meta } from "@storybook/react";
 import { GoPlus } from "react-icons/go";
 import { Button, Dialog } from "../../../core/src";
-import { GalleryButton1 } from "../../../gallery/src";
-import { GalleryButton2 } from "../../../gallery/src";
+import { GalleryButton1, GalleryButton2 } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -77,19 +76,35 @@ export const Primary = (props: Props): JSX.Element => (
 	/>
 );
 
+/**
+ * Moai buttons closely follow the interface and behaviour of the [HTML
+ *\`button\`][1] element. To get started, you only need to provide a label via
+ * \`children\` and a handler via \`onClick\`:
+ *
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+ */
 export const Basic = (): JSX.Element => (
 	<Button onClick={() => alert("Hi")}>Say Hi</Button>
 );
-Utils.story(Basic, {
-	desc: `
-Moai buttons closely follow the interface and behaviour of the [HTML
-\`button\`][1] element. To get started, you only need to provide a label via
-\`children\` and a handler via \`onClick\`:
 
-[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
-`,
-});
-
+/**
+ * Icons can be used in buttons via the \`icon\` prop. This follows our [Icon
+ * standard][1], which supports any SVG icons. The icon is on the left side by
+ * default, with the \`iconRight\` prop to move it to the right.
+ *
+ * It's [intentional][3] that [screen readers][2] would skip the icon and only
+ * announce the label of a button (i.e. the text inside the \`children\` prop).
+ * If your button doesn't have a \`children\` defined (i.e. icon-only buttons),
+ * provide the \`iconLabel\` prop so screen readers can announce it.
+ *
+ * Out of the box, icon-only buttons look like rectangles due to the unequal
+ * paddings. To make them squares, set the \`size\` prop to one with an \`Icon\`
+ * suffix, like \`Button.sizes.mediumIcon\`.
+ *
+ * [1]: /docs/guides-icons--docs
+ * [2]: https://en.wikipedia.org/wiki/Screen_reader
+ * [3]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
+ */
 export const Icon = (): JSX.Element => (
 	// Icons are imported from external libraries, like:
 	// import { GoPlus } from "react-icons/go";
@@ -109,27 +124,19 @@ export const Icon = (): JSX.Element => (
 	</div>
 );
 
-Utils.story(Icon, {
-	desc: `
-Icons can be used in buttons via the \`icon\` prop. This follows our [Icon
-standard][1], which supports any SVG icons. The icon is on the left side by
-default, with the \`iconRight\` prop to move it to the right.
-
-It's [intentional][3] that [screen readers][2] would skip the icon and only
-announce the label of a button (i.e. the text inside the \`children\` prop).
-If your button doesn't have a \`children\` defined (i.e. icon-only buttons),
-provide the \`iconLabel\` prop so screen readers can announce it.
-
-Out of the box, icon-only buttons look like rectangles due to the unequal
-paddings. To make them squares, set the \`size\` prop to one with an \`Icon\`
-suffix, like \`Button.sizes.mediumIcon\`.
-
-[1]: /docs/guides-icons--primary
-[2]: https://en.wikipedia.org/wiki/Screen_reader
-[3]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
-`,
-});
-
+/**
+ * Buttons with \`href\` prop are rendered as [HTML \`a\`][1] elements instead of
+ * the usual \`button\`. This helps you have links that look like buttons (e.g.
+ * with strong appearance to attract attention) but still preserve all [built-in
+ * behaviours][3] of links.
+ *
+ * For example, you can right click the below button to copy the URL or open it
+ * in a new tab:
+ *
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+ * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+ * [3]: https://www.nngroup.com/articles/command-links
+ */
 export const Link = (): JSX.Element => (
 	<Button
 		highlight
@@ -138,19 +145,3 @@ export const Link = (): JSX.Element => (
 		children="Go to moai.thien.do"
 	/>
 );
-
-Utils.story(Link, {
-	desc: `
-Buttons with \`href\` prop are rendered as [HTML \`a\`][1] elements instead of
-the usual \`button\`. This helps you have links that look like buttons (e.g.
-with strong appearance to attract attention) but still preserve all [built-in
-behaviours][3] of links.
-
-For example, you can right click the below button to copy the URL or open it
-in a new tab:
-
-[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
-[2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
-[3]: https://www.nngroup.com/articles/command-links
-`,
-});

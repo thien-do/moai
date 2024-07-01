@@ -2,7 +2,13 @@
 	"root": true,
 	"parser": "@typescript-eslint/parser",
 	"plugins": ["@typescript-eslint", "jest-dom"],
-	"ignorePatterns": ["node_modules", "dist", "public", "test/coverage"],
+	"ignorePatterns": [
+		"node_modules",
+		"dist",
+		"public",
+		"test/coverage",
+		"docs/storybook-static"
+	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",

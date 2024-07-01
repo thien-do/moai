@@ -51,24 +51,7 @@ export const Primary = (props: Props): JSX.Element => {
 	);
 };
 
-export const Basic = (): JSX.Element => {
-	const [value, setValue] = useState<Date>(() => {
-		const date = new Date();
-		date.setSeconds(0); // Ensure second is zero
-		date.setMinutes(15); // Ensure value follows interval
-		return date;
-	});
-	return (
-		<TimeInput
-			interval={TimeInput.intervals.quarter}
-			value={value}
-			setValue={setValue}
-		/>
-	);
-};
-
-Utils.story(Basic, {
-	desc: `
+/**
 Time Input is a [controlled][1] component. You should have a [Date][2] state
 to store the time, and give its control to a time input via the \`value\` and
 \`setValue\` prop.
@@ -90,5 +73,19 @@ runtime, because it easily invalidates your current \`value\`.
 [1]: https://reactjs.org/docs/forms.html#controlled-components
 [2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 [3]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes
-`,
-});
+ */
+export const Basic = (): JSX.Element => {
+	const [value, setValue] = useState<Date>(() => {
+		const date = new Date();
+		date.setSeconds(0); // Ensure second is zero
+		date.setMinutes(15); // Ensure value follows interval
+		return date;
+	});
+	return (
+		<TimeInput
+			interval={TimeInput.intervals.quarter}
+			value={value}
+			setValue={setValue}
+		/>
+	);
+};

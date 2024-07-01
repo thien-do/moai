@@ -1,12 +1,10 @@
-import { ReactNode, useState } from "react";
-import { CaptionElementProps, Modifier } from "react-day-picker";
-import DayPickerInput from "react-day-picker/DayPickerInput";
+import { useState } from "react";
+import { DayPicker, Matcher } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 import { Input, InputProps } from "../input/input";
-import { PopoverPane } from "../popover/pane/pane";
+import { Popover } from "../popover/popover";
 import "./date-input.css";
 import { DateInputFormat, dateInputFormats } from "./format";
-import { DateInputMonth } from "./month/month";
-import { DateInputNavbar } from "./navbar/navbar";
 
 interface Props {
 	/**
@@ -59,36 +57,9 @@ interface Props {
 	icon?: InputProps["icon"];
 }
 
-interface DayPickerOverlayProps {
-	children: ReactNode;
-	selectedDay: Date;
-	month: Date;
-	input: null;
-	classNames: {
-		container: string; // input
-		overlay: string;
-		overlayWrapper: string;
-	};
-}
-
-interface OverlayProps extends DayPickerOverlayProps {
-	target: HTMLDivElement | null;
-}
-
-const Overlay = (props: OverlayProps): JSX.Element | null => {
-	// We don't need these props, but we need to remove them from the "rest" so
-	// that "rest" can be applied to the div element
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const { target, children, selectedDay, classNames, month, input, ...rest } = props; // prettier-ignore
-	if (target === null) return null;
-	return (
-		<div {...rest}>
-			<PopoverPane target={target} children={children} />
-		</div>
-	);
-};
-
 const getValue = (props: Props): Date | undefined => {
+	console.log("get", props.value);
+
 	// Controlled
 	if (props.value !== undefined) {
 		return props.value ?? undefined;
@@ -101,70 +72,94 @@ const getValue = (props: Props): Date | undefined => {
 	return undefined;
 };
 
-const getDisabledDays = (props: Props): Modifier => {
-	// This is quite complicated because we need to avoid mutating the "days"
-	// variable as well as the strictness of Modifier
+const getDisabledDays = (props: Props): Matcher | Matcher[] => {
 	const { minDate: min, maxDate: max } = props;
-	let days: Modifier = undefined;
-	if (max) days = { after: max };
-	if (min) days = { ...days, before: min };
+	const days: Matcher[] = [];
+	if (max) days.push({ after: max });
+	if (min) days.push({ before: min });
 	return days;
 };
 
 /**
  * A date input is a control for users to enter a date, either by typing it or
  * choosing from a pop-up calendar.
- * 
+ *
  * The Date Input component is based on [React Day Picker][3], as an
  * alternative to the built-in `<Input type="date" />`. It works on
  * [unsupported browsers][2] and can display custom date format (e.g. "dmy" or
  * "mdy"). If you don't need these features, use [Input][1] to have better
  * accessibility support.
- 
+
  * [1]: /docs/components-input--primary#date
  * [2]: https://caniuse.com/input-datetime
  * [3]: https://react-day-picker.js.org
  *
  */
 export const DateInput = (props: Props): JSX.Element => {
-	const [target, setTarget] = useState<HTMLDivElement | null>(null);
-	const [month, setMonth] = useState<Date>(() => new Date());
 	const format = props.format ?? DateInput.formats.dmy;
+	console.log(format);
+
+	const [month, setMonth] = useState<Date>(() => new Date());
+	const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+		getValue(props),
+	);
+	const [inputValue, setInputValue] = useState("");
+
+	const handleDayPickerSelect = (date: Date | undefined) => {
+		if (!date) {
+			setInputValue("");
+			setSelectedDate(undefined);
+		} else {
+			setSelectedDate(date);
+			setMonth(date);
+			setInputValue(format.format(date));
+		}
+	};
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setInputValue(e.target.value); // keep the input value in sync
+
+		const parsedDate = format.parse(e.target.value);
+
+		if (!parsedDate) {
+			setSelectedDate(undefined);
+		} else {
+			setSelectedDate(parsedDate);
+			setMonth(parsedDate);
+		}
+	};
 
 	return (
-		<div ref={setTarget}>
-			<DayPickerInput
-				inputProps={{
-					style: props.style,
-					size: props.size,
-					disabled: props.disabled,
-					icon: props.icon,
-				}}
-				component={Input}
-				clickUnselectsDay
-				overlayComponent={(dayPicker: DayPickerOverlayProps) => (
-					<Overlay target={target} {...dayPicker} />
-				)}
-				dayPickerProps={{
-					month: month,
-					navbarElement: DateInputNavbar,
-					captionElement: ({ date }: CaptionElementProps) => (
-						<DateInputMonth value={date} setValue={setMonth} />
-					),
-					disabledDays: getDisabledDays(props),
-				}}
-				value={getValue(props)}
-				// The lib's type is missing "undefined" case
-				onDayChange={(day: Date | undefined) => {
-					if (props.setValue === undefined) return;
-					props.setValue(day ?? null);
-				}}
-				// Format
-				placeholder={format.placeholder}
-				formatDate={format.format}
-				parseDate={format.parse}
-			/>
-		</div>
+		<Popover
+			target={(popover) => {
+				return (
+					<Input
+						style={props.style}
+						size={props.size}
+						disabled={props.disabled}
+						icon={props.icon}
+						onClick={() => popover.toggle()}
+						placeholder={format.placeholder}
+						value={inputValue}
+						onChange={handleInputChange}
+					/>
+				);
+			}}
+			content={() => {
+				return (
+					<div style={{ backgroundColor: "white" }}>
+						<DayPicker
+							mode="single"
+							month={month}
+							onMonthChange={setMonth}
+							selected={selectedDate}
+							onSelect={handleDayPickerSelect}
+							disabled={getDisabledDays(props)}
+						/>
+					</div>
+				);
+			}}
+		/>
 	);
 };
 
