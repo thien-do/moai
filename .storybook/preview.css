@@ -1,0 +1,34 @@
+html {
+	tab-size: 4;
+}
+
+.light {
+	--background-strong: var(--white);
+	--border-strong: var(--gray-2);
+	--text-muted: var(--gray-4);
+}
+
+.dark {
+	--background-strong: var(--gray-7);
+	--border-strong: var(--gray-4);
+	--text-muted: var(--gray-3);
+}
+
+.sbdocs p,
+.sbdocs ul {
+	max-width: 640px;
+}
+
+.sbdocs blockquote:not(.x) {
+	border-color: var(--border-strong);
+}
+
+.sbdocs blockquote p {
+	font-style: italic;
+	color: var(--text-muted);
+}
+
+.sbdocs-wrapper:not(.x) {
+	padding: 24px;
+	background-color: var(--background-strong);
+}

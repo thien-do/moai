@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+/* Standalone source code */
+.docblock-source:not(.x),
+/* Source code inside a description */
+.sbdocs-pre:not(.x) > div {
+	background-color: var(--background-weak);
+	border: solid 2px var(--border-weak);
+	box-shadow: none;
+}
+
+.prismjs:not(#x) {
+	font-size: 15px;
+	line-height: 21px;
+	color: var(--text-normal);
+}
+
+/* Source code of a story */
+.docs-story + div:last-child {
+	background-color: var(--background-weak);
+	border-top: solid 2px var(--border-weak);
+}
+
+/* We should have this alone */
+.prismjs:not(#x) code,
+/* But Storybook set this so we also need to override it */
+.token:not(#x) {
+	font-family: "Source Code Pro", monospace;
+	font-weight: 400;
+}
+
+.light .token:not(#x).selector,
+.light .token:not(#x).tag {
+	color: #22863a;
+}
+.light .token:not(#x).attr-value,
+.light .token:not(#x).string {
+	color: #032f62;
+}
+.light .token:not(#x).rule,
+.light .token:not(#x).keyword {
+	color: #d73a49;
+}
+.light .token:not(#x).variable,
+.light .token:not(#x).class-name,
+.light .token:not(#x).type-definition,
+.light .token:not(#x).maybe-class-name,
+.light .token:not(#x).function {
+	color: #6f42c1;
+}
+.light .token:not(#x).doctype,
+.light .token:not(#x).doctype-tag,
+.light .token:not(#x).attr-name,
+.light .token:not(#x).property,
+.light .token:not(#x).number,
+.light .token:not(#x).constant,
+.light .token:not(#x).operator,
+.light .token:not(#x).property-access,
+.light .token:not(#x).boolean {
+	color: #005cc5;
+}
+.light .token:not(#x).punctuation,
+.light .token:not(#x).comment {
+	color: #6a737d;
+}
+
+.dark .token:not(#x).selector,
+.dark .token:not(#x).tag {
+	color: #7ec699;
+}
+.dark .token:not(#x).attr-value,
+.dark .token:not(#x).string {
+	color: #67cdcc;
+}
+.dark .token:not(#x).rule,
+.dark .token:not(#x).keyword {
+	color: #e2777a;
+}
+.dark .token:not(#x).variable,
+.dark .token:not(#x).class-name,
+.dark .token:not(#x).type-definition,
+.dark .token:not(#x).maybe-class-name,
+.dark .token:not(#x).function {
+	color: #cc99cd;
+}
+.dark .token:not(#x).doctype,
+.dark .token:not(#x).doctype-tag,
+.dark .token:not(#x).attr-name,
+.dark .token:not(#x).property,
+.dark .token:not(#x).number,
+.dark .token:not(#x).constant,
+.dark .token:not(#x).operator,
+.dark .token:not(#x).property-access,
+.dark .token:not(#x).boolean {
+	color: #6196cc;
+}
+.dark .token:not(#x).punctuation,
+.dark .token:not(#x).comment {
+	color: #999;
+}

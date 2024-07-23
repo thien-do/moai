@@ -1,33 +1,43 @@
 {
-	"name": "@moai/root",
-	"private": true,
-	"license": "MIT",
-	"workspaces": [
-		"core",
-		"docs",
-		"gallery",
-		"test"
-	],
-	"scripts": {
-		"build-core": "cd core && yarn _build",
-		"build-docs": "cd docs && yarn _build",
-		"build-gallery": "cd gallery && yarn _build",
-		"build": "yarn build-core && yarn build-gallery && yarn build-docs",
-		"lint-fix": "eslint --fix . && prettier --write .",
-		"lint": "eslint --max-warnings=0 . && prettier --check .",
-		"start-core": "cd core && yarn _start",
-		"start-docs": "cd docs && yarn _start",
-		"start-gallery": "cd gallery && yarn _start",
-		"test": "cd test && yarn _test"
-	},
-	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^4.28.5",
-		"@typescript-eslint/parser": "^4.28.5",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-jest-dom": "^3.9.0",
-		"eslint-plugin-react": "^7.24.0",
-		"prettier": "^2.3.2",
-		"typescript": "^4.3.5"
-	}
+  "name": "moai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "dev": "storybook dev -p 6006 --no-open",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "@storybook/addon-docs": "^8.2.2",
+    "@storybook/blocks": "^8.2.2",
+    "@storybook/react": "^8.2.2",
+    "@storybook/react-vite": "^8.2.2",
+    "@storybook/theming": "^8.2.2",
+    "@tippyjs/react": "^4.2.6",
+    "@tsconfig/vite-react": "^3.0.2",
+    "@types/color": "^3.0.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "color": "^4.2.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "eslint-plugin-storybook": "^0.8.0",
+    "headless": "link:@tippyjs/react/headless",
+    "react": "^18.3.1",
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.2.1",
+    "react-popper": "^2.3.0",
+    "storybook": "^8.2.2",
+    "storybook-dark-mode": "4.0.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3"
+  },
+  "packageManager": "pnpm@9.4.0"
 }
