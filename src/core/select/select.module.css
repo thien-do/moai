@@ -1,0 +1,58 @@
+.container {
+  position: relative;
+  width: max-content;
+}
+
+.container.fill {
+  width: 100%;
+}
+
+.select {
+  /* This does not really set the size of Select, but just follow its parent,
+	which is where we actually control the size of the component */
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  /* Reset sanitize css form */
+  appearance: none;
+}
+
+.select:disabled {
+  cursor: auto;
+  pointer-events: none;
+}
+
+select.select:not([multiple]):not([size]) {
+  background-image: none;
+}
+
+.icon {
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  /* Also set in JSX */
+  height: 12px;
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+.mediumSelect {
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 32px;
+}
+
+.mediumIcon {
+  right: 8px;
+}
+
+.smallSelect {
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 24px;
+}
+
+.smallIcon {
+  right: 4px;
+}

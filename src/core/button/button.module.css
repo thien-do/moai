@@ -1,0 +1,54 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.button:disabled {
+  pointer-events: none;
+  cursor: auto;
+}
+
+.iconRight {
+  flex-direction: row-reverse;
+}
+
+/* Add ".button" so ".fill" wins over the width defined in sizes */
+.button.fill {
+  width: 100%;
+}
+
+.text {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.icon {
+  flex: 0 0 auto;
+}
+
+.busy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.busy ~ .icon,
+.busy ~ .text {
+  opacity: 0;
+}
+
+/* SIZE */
+
+.minWidth {
+  min-width: 80px;
+}

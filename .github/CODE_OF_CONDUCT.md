@@ -2,8 +2,8 @@
 
 Moai uses [Contributor Covenant v2.0](https://contributor-covenant.org/version/2/0/code_of_conduct) as their code of conduct. The full text is included [below](#contributor-covenant-code-of-conduct) in English, and translations are available from the Contributor Covenant organisation:
 
--   [contributor-covenant.org/translations](https://www.contributor-covenant.org/translations)
--   [github.com/ContributorCovenant](https://github.com/ContributorCovenant/contributor_covenant/tree/release/content/version/2/0)
+- [contributor-covenant.org/translations](https://www.contributor-covenant.org/translations)
+- [github.com/ContributorCovenant](https://github.com/ContributorCovenant/contributor_covenant/tree/release/content/version/2/0)
 
 ## Contributor Covenant Code of Conduct
 
@@ -24,24 +24,24 @@ diverse, inclusive, and healthy community.
 Examples of behavior that contributes to a positive environment for our
 community include:
 
--   Demonstrating empathy and kindness toward other people
--   Being respectful of differing opinions, viewpoints, and experiences
--   Giving and gracefully accepting constructive feedback
--   Accepting responsibility and apologizing to those affected by our mistakes,
-    and learning from the experience
--   Focusing on what is best not just for us as individuals, but for the
-    overall community
+- Demonstrating empathy and kindness toward other people
+- Being respectful of differing opinions, viewpoints, and experiences
+- Giving and gracefully accepting constructive feedback
+- Accepting responsibility and apologizing to those affected by our mistakes,
+  and learning from the experience
+- Focusing on what is best not just for us as individuals, but for the
+  overall community
 
 Examples of unacceptable behavior include:
 
--   The use of sexualized language or imagery, and sexual attention or
-    advances of any kind
--   Trolling, insulting or derogatory comments, and personal or political attacks
--   Public or private harassment
--   Publishing others' private information, such as a physical or email
-    address, without their explicit permission
--   Other conduct which could reasonably be considered inappropriate in a
-    professional setting
+- The use of sexualized language or imagery, and sexual attention or
+  advances of any kind
+- Trolling, insulting or derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or email
+  address, without their explicit permission
+- Other conduct which could reasonably be considered inappropriate in a
+  professional setting
 
 ## Enforcement Responsibilities
 

@@ -1,0 +1,15 @@
+.boxWeak {
+  box-shadow: var(--shadow-1);
+}
+
+.boxStrong {
+  box-shadow: var(--shadow-2);
+}
+
+.dropWeak {
+  filter: drop-shadow(var(--shadow-1));
+}
+
+.dropStrong {
+  filter: drop-shadow(var(--shadow-2));
+}

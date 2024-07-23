@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+}
+
+.previous,
+.next {
+  position: absolute;
+  top: 0;
+}
+
+.previous {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}

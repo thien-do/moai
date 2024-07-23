@@ -2,10 +2,10 @@
 
 Thank you for your interest in contributing to Moai! There are many ways to contribute, and we appreciate all of them:
 
--   [Bug Reports](#bug-reports)
--   [Feature Requests](#feature-requests)
--   [Pull Requests](#pull-requests)
--   [Documentation](#documentation)
+- [Bug Reports](#bug-reports)
+- [Feature Requests](#feature-requests)
+- [Pull Requests](#pull-requests)
+- [Documentation](#documentation)
 
 ## Before you start
 

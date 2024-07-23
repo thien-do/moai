@@ -1,0 +1,65 @@
+.wrapper {
+  display: block;
+}
+
+.container {
+  display: block;
+}
+
+.track {
+  fill: none;
+}
+
+.head {
+  fill: none;
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate {
+  animation: spin 0.5s linear infinite;
+}
+
+/* COLOR */
+
+:global(.light) .neutral .head {
+  stroke: var(--gray-4);
+}
+:global(.dark) .neutral .head {
+  stroke: var(--gray-3);
+}
+:global(.light) .neutral .track {
+  stroke: var(--gray-1);
+}
+:global(.dark) .neutral .track {
+  stroke: var(--gray-6);
+}
+
+:global(.light) .highlight .head,
+:global(.dark) .highlight .head {
+  stroke: var(--highlight-5);
+}
+:global(.light) .highlight .track {
+  stroke: var(--highlight-1);
+}
+:global(.dark) .highlight .track {
+  stroke: var(--highlight-8);
+}
+
+:global(.light) .inverse .head,
+:global(.dark) .inverse .head {
+  stroke: var(--white);
+}
+:global(.light) .inverse .track,
+:global(.dark) .inverse .track {
+  stroke: var(--highlight-6);
+}

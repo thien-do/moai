@@ -1,0 +1,17 @@
+.container {
+  padding: 12px;
+  width: 120px;
+  font-variant-numeric: "tabular-nums";
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.border {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  border-width: 1px;
+}

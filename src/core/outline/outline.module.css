@@ -1,0 +1,31 @@
+/* Preparation styles to have the zoom-in effect */
+.normal,
+.always {
+  transition: outline 0.2s ease-out;
+  outline: solid 8px transparent;
+  /* outline-offset should be the same size with outline-width so overflow
+	   won't cut it (i.e. outline stays inside the component) */
+  outline-offset: -2px;
+}
+
+/* For old browsers that don't understand :focus-visible at all */
+.normal:focus,
+/* To always have outline intentionally (e.g. selectable panels) */
+.always:focus {
+  /* Fully define to reset the "auto" style set by Tailwind's preflight */
+  outline: solid 2px var(--highlight-5);
+}
+
+/* For new browsers that understand :focus-visible
+ - Don't group this with ":focus" even though they have the same body. This is
+   because some browsers don't understand ":focus-visible" yet and the whole
+   CSS definition will not be used if a selector is invalid. */
+.normal:focus:focus-visible {
+  outline: solid 2px var(--highlight-5);
+}
+
+/* Reset the fallback style in new browsers */
+.normal:focus:not(:focus-visible) {
+  /* Use the initial state instead of "none" to avoid falsy transition */
+  outline: solid 8px transparent;
+}

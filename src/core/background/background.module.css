@@ -1,0 +1,9 @@
+.strong {
+  background-color: var(--background-strong);
+  color: var(--text-normal);
+}
+
+.weak {
+  background-color: var(--background-weak);
+  color: var(--text-normal);
+}

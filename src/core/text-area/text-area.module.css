@@ -1,0 +1,16 @@
+.container {
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  display: block;
+}
+
+/* Follow Button.sizes.medium */
+.medium {
+  padding: 6px 12px;
+}
+
+/* Follow Button.sizes.small */
+.small {
+  padding: 2px 8px;
+}

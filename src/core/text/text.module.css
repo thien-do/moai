@@ -1,0 +1,47 @@
+.p {
+  line-height: 1.5;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.big {
+  font-size: 18px;
+}
+
+.failureWeak {
+  color: var(--text-failure-weak);
+}
+
+.failureStrong {
+  color: var(--text-failure-strong);
+}
+
+.successWeak {
+  color: var(--text-success-weak);
+}
+
+.successStrong {
+  color: var(--text-success-strong);
+}
+
+.highlightWeak {
+  color: var(--text-highlight-weak);
+}
+
+.highlightStrong {
+  color: var(--text-highlight-strong);
+}
+
+.normal {
+  color: var(--text-normal);
+}
+
+.muted {
+  color: var(--text-muted);
+}

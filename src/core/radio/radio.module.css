@@ -1,0 +1,7 @@
+.input {
+  border-radius: 20px;
+}
+
+.input:checked ~ .icon {
+  opacity: 1;
+}

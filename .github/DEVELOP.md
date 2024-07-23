@@ -14,12 +14,12 @@ To understand the principles that drive the design and development of Moai, see 
 
 Moai is a [monorepo](https://classic.yarnpkg.com/en/docs/workspaces/) powered by Yarn. There are several projects:
 
-| Path    | Project           | Framework   |
-| ------- | ----------------- | ----------- |
-| core    | [@moai/core]      | [Rollup]    |
-| gallery | [@moai/gallery]   | [Rollup]    |
-| docs    | [moai.thien.do]   | [Storybook] |
-| test    | Test suits        | [Jest]      |
+| Path    | Project         | Framework   |
+| ------- | --------------- | ----------- |
+| core    | [@moai/core]    | [Rollup]    |
+| gallery | [@moai/gallery] | [Rollup]    |
+| docs    | [moai.thien.do] | [Storybook] |
+| test    | Test suits      | [Jest]      |
 
 The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This means to run tests or start the docs site locally, you will need to build "core" and "gallery" first. Also, the "gallery" depends on the "core" project:
 
@@ -44,10 +44,10 @@ The "test" and "docs" projects depend on "core" and "gallery" via symlinks. This
 
 ## Development scripts
 
--   `yarn start-core`: watch and build @moai/core
--   `yarn start-gallery`: watch and build @moai/gallery
--   `yarn start-docs`: start moai.thien.do locally
--   `yarn test`: run the test suites
+- `yarn start-core`: watch and build @moai/core
+- `yarn start-gallery`: watch and build @moai/gallery
+- `yarn start-docs`: start moai.thien.do locally
+- `yarn test`: run the test suites
 
 The typical workflow is to have 4 terminal tabs, one for each command above. However, depend on your use cases, you may not need to "watch" some projects, but only "build" them once.
 

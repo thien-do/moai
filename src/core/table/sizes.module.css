@@ -1,0 +1,44 @@
+.small th,
+.small td {
+  padding: 8px 8px;
+}
+
+.small td:first-child,
+.small th:first-child {
+  padding-left: 16px;
+}
+
+.small td:last-child,
+.small th:last-child {
+  padding-right: 16px;
+}
+
+.medium th,
+.medium td {
+  padding: 12px 8px;
+}
+
+.medium td:first-child,
+.medium th:first-child {
+  padding-left: 16px;
+}
+
+.medium td:last-child,
+.medium th:last-child {
+  padding-right: 16px;
+}
+
+.large th,
+.large td {
+  padding: 16px 8px;
+}
+
+.large td:first-child,
+.large th:first-child {
+  padding-left: 16px;
+}
+
+.large td:last-child,
+.large th:last-child {
+  padding-right: 16px;
+}
