@@ -2,23 +2,29 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useRef, useState } from "react";
 import { Button, Checkbox } from "../core";
 import { Book, someBooks } from "../old-docs/utils/example";
-import { Utils } from "../old-docs/utils/utils";
+import { docsMetaParameters } from "./utils/parameter";
+import { docsMetaArgTypes } from "./utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Checkbox",
   component: Checkbox,
-  argTypes: {
-    checked: Utils.arg("boolean", "Visual"),
-    indeterminate: Utils.arg("boolean", "Visual"),
-    disabled: Utils.arg("boolean", "Visual"),
-    children: Utils.arg(null, "Controlled"),
-    setChecked: Utils.arg(null, "Controlled"),
-    defaultChecked: Utils.arg(null, "Uncontrolled"),
-    forwardedRef: Utils.arg(null, "Uncontrolled"),
-  },
+  parameters: docsMetaParameters({}),
+  argTypes: docsMetaArgTypes({
+    Visual: {
+      checked: "boolean",
+      indeterminate: "boolean",
+      disabled: "boolean",
+    },
+    Controlled: {
+      children: false,
+      setChecked: false,
+    },
+    Uncontrolled: {
+      defaultChecked: false,
+      forwardedRef: false,
+    },
+  }),
 };
-
-Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
