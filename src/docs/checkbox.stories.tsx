@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useRef, useState } from "react";
 import { Button, Checkbox } from "../core";
 import { Book, someBooks } from "../old-docs/utils/example";
@@ -22,30 +22,21 @@ Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
-interface Props {
-  indeterminate?: boolean;
-  disabled?: boolean;
-  checked?: boolean;
-}
+export const Primary: StoryObj<typeof Checkbox> = {
+  render: (props) => <Checkbox {...props} children="Checkbox" />,
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <Checkbox
-    checked={props.checked ?? true}
-    disabled={props.disabled}
-    indeterminate={props.indeterminate}
-    children="Checkbox"
-  />
-);
-
-export const Basic = (): JSX.Element => {
-  const [checked, setChecked] = useState(false);
-  return (
-    <Checkbox
-      checked={checked}
-      setChecked={setChecked}
-      children="Subscribe to newsletter"
-    />
-  );
+export const Basic = {
+  render: () => {
+    const [checked, setChecked] = useState(false);
+    return (
+      <Checkbox
+        checked={checked}
+        setChecked={setChecked}
+        children="Subscribe to newsletter"
+      />
+    );
+  },
 };
 
 Utils.story(Basic, {
@@ -57,20 +48,22 @@ Checkbox is a [controlled][1] component. You should have a boolean [state][2] fo
 `,
 });
 
-export const IndeterminateImperative = (): JSX.Element => {
-  const ref = useRef<HTMLInputElement>(null);
-  const toggle = () => {
-    const input = ref.current;
-    if (input === null) throw Error("Input is null");
-    input.indeterminate = !input.indeterminate;
-  };
-  return (
-    <div>
-      <Button onClick={toggle} children="Toggle indeterminate" />
-      <div style={{ height: 8 }} />
-      <Checkbox forwardedRef={ref} children="Select all" />
-    </div>
-  );
+export const IndeterminateImperative = {
+  render: () => {
+    const ref = useRef<HTMLInputElement>(null);
+    const toggle = () => {
+      const input = ref.current;
+      if (input === null) throw Error("Input is null");
+      input.indeterminate = !input.indeterminate;
+    };
+    return (
+      <div>
+        <Button onClick={toggle} children="Toggle indeterminate" />
+        <div style={{ height: 8 }} />
+        <Checkbox forwardedRef={ref} children="Select all" />
+      </div>
+    );
+  },
 };
 
 Utils.story(IndeterminateImperative, {
@@ -83,9 +76,9 @@ Moai checkboxes support the [indeterminate][1] state. It's recommended to set th
 `,
 });
 
-export const IndeterminateDeclarative = (): JSX.Element => (
-  <Checkbox indeterminate={true} children="Select all" />
-);
+export const IndeterminateDeclarative = {
+  render: () => <Checkbox indeterminate={true} children="Select all" />,
+};
 
 Utils.story(IndeterminateDeclarative, {
   name: "Indeterminate (Declarative)",
@@ -97,40 +90,42 @@ Moai also supports having the indeterminate state delacratively, via the \`indet
 `,
 });
 
-export const Group = (): JSX.Element => {
-  const [books, setBooks] = useState<Book["isbn"][]>([someBooks[0].isbn]);
+export const Group = {
+  render: () => {
+    const [books, setBooks] = useState<Book["isbn"][]>([someBooks[0].isbn]);
 
-  const toggle = (isbn: Book["isbn"]): void => {
-    const selected = books.includes(isbn);
-    const next = selected
-      ? books.filter((i) => i !== isbn)
-      : books.concat(isbn);
-    setBooks(next);
-  };
+    const toggle = (isbn: Book["isbn"]): void => {
+      const selected = books.includes(isbn);
+      const next = selected
+        ? books.filter((i) => i !== isbn)
+        : books.concat(isbn);
+      setBooks(next);
+    };
 
-  const renderBook = (book: Book): JSX.Element => (
-    <li key={book.isbn} style={{ marginLeft: 8 }}>
-      <Checkbox
-        checked={books.includes(book.isbn)}
-        setChecked={() => toggle(book.isbn)}
-        children={book.title}
-      />
-    </li>
-  );
+    const renderBook = (book: Book): JSX.Element => (
+      <li key={book.isbn} style={{ marginLeft: 8 }}>
+        <Checkbox
+          checked={books.includes(book.isbn)}
+          setChecked={() => toggle(book.isbn)}
+          children={book.title}
+        />
+      </li>
+    );
 
-  return (
-    <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <Checkbox
-        checked={books.length === someBooks.length}
-        setChecked={(checked) => {
-          setBooks(checked ? someBooks.map((b) => b.isbn) : []);
-        }}
-        indeterminate={books.length > 0 && books.length !== someBooks.length}
-        children="Select all"
-      />
-      {someBooks.map(renderBook)}
-    </ul>
-  );
+    return (
+      <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        <Checkbox
+          checked={books.length === someBooks.length}
+          setChecked={(checked) => {
+            setBooks(checked ? someBooks.map((b) => b.isbn) : []);
+          }}
+          indeterminate={books.length > 0 && books.length !== someBooks.length}
+          children="Select all"
+        />
+        {someBooks.map(renderBook)}
+      </ul>
+    );
+  },
 };
 
 Utils.story(Group, {
@@ -141,9 +136,9 @@ To have a group of checkboxes, render them with \`map\` and \`key\` [as usual][1
 `,
 });
 
-export const WithoutLabel = (): JSX.Element => (
-  <Checkbox hideLabel>Sample checkbox</Checkbox>
-);
+export const WithoutLabel = {
+  render: () => <Checkbox hideLabel>Sample checkbox</Checkbox>,
+};
 
 Utils.story(WithoutLabel, {
   desc: `
