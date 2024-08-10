@@ -1,0 +1,28 @@
+/* Firefox */
+:global(.light) .custom {
+  scrollbar-color: var(--gray-2) var(--gray-0);
+}
+:global(.dark) .custom {
+  scrollbar-color: var(--gray-5) var(--gray-8);
+}
+
+/* Everything but Firefox */
+:global(.light) .custom ::-webkit-scrollbar-thumb {
+  background-color: var(--gray-2);
+}
+:global(.light) .custom ::-webkit-scrollbar-track,
+:global(.light) .custom ::-webkit-scrollbar-corner {
+  background-color: var(--gray-0);
+}
+:global(.dark) .custom ::-webkit-scrollbar-thumb {
+  background-color: var(--gray-5);
+}
+:global(.dark) .custom ::-webkit-scrollbar-track,
+:global(.dark) .custom ::-webkit-scrollbar-corner {
+  background-color: var(--gray-8);
+}
+
+.custom ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}

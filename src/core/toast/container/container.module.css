@@ -1,0 +1,13 @@
+.container {
+  position: fixed;
+  top: 8px;
+  left: 0px;
+  right: 0px;
+  z-index: var(--z-overlay-top);
+}
+
+.item {
+  position: absolute;
+  transition: all 0.5s ease-out;
+  left: 50%;
+}

@@ -1,0 +1,37 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { ColorBackground } from "./background";
+
+<Meta title="Patterns/Color/Background" />
+
+# Background Color
+
+The `background` utility contains classes that set the
+[CSS `background-color`][1] property. This is the recommended way to set
+background color since they automatically change based on the current theme.
+
+```tsx
+import { background } from "@moai/core";
+
+<div className={background.weak}>Text</div>;
+```
+
+There are only 2 colors in the `background` utility at the moment:
+
+<ColorBackground rows={[{ key: "weak" }, { key: "strong" }]} />
+
+The `weak` value sets a light gray background on light theme and a daker
+background on dark theme. It should be used for underlying backgrounds, like
+the background of your app. It can also be used to separate an area, such as
+the header of a table.
+
+The `strong` value sets a white background on light theme and a lighter
+background on dark theme. It should be used for elevated containers, such as
+panes, toolbars or popovers.
+
+## See also
+
+- The [Pane][2] component uses `strong` background along with border and shadow
+  to better elevate contents.
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
+[2]: /?path=/docs/components-pane

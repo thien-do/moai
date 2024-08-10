@@ -1,0 +1,17 @@
+.header {
+  padding: 24px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.body {
+  padding: 24px;
+}
+
+.footer {
+  padding: 0 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}

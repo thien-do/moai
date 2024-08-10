@@ -1,0 +1,44 @@
+.arrowShape {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+/* Disable box shadow in arrow since we do the rotate trick */
+:global(.light) .arrowShape:not(.x),
+:global(.dark) .arrowShape:not(.x) {
+  box-shadow: none;
+}
+
+.container {
+  z-index: var(--z-overlay-base);
+}
+
+.container[data-popper-placement^="top"] .arrow {
+  bottom: -5px;
+}
+.container[data-popper-placement^="top"] .arrowShape {
+  border-style: none solid solid none;
+}
+
+.container[data-popper-placement^="right"] .arrow {
+  left: -5px;
+}
+.container[data-popper-placement^="right"] .arrowShape {
+  border-style: none none solid solid;
+}
+
+.container[data-popper-placement^="bottom"] .arrow {
+  top: -5px;
+}
+.container[data-popper-placement^="bottom"] .arrowShape {
+  border-style: solid none none solid;
+}
+
+.container[data-popper-placement^="left"] .arrow {
+  right: -5px;
+}
+.container[data-popper-placement^="left"] .arrowShape {
+  border-style: solid solid none none;
+}

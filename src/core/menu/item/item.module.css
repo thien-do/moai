@@ -1,0 +1,11 @@
+.action {
+  display: block;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  border-radius: 0;
+}
+
+.action:not(.weak) {
+  transition: outline 0.2s ease-out;
+}

@@ -1,0 +1,187 @@
+/**
+This will be inlined into our bundled CSS, thank to the "postcss-inline" plugin. See the rollup config. This is to avoid the normalize being a npm
+dependency (which is bad, see below).
+
+See: https://github.com/vercel/next.js/blob/master/errors/css-npm.md
+*/
+@import "modern-normalize/modern-normalize.css";
+
+/**
+Moai's global styling, such as our theming and typography
+*/
+:root {
+  --highlight-0: hsl(204, 100%, 97%);
+  --highlight-1: hsl(203, 94%, 94%);
+  --highlight-2: hsl(201, 94%, 86%);
+  --highlight-3: hsl(199, 95%, 74%);
+  --highlight-4: hsl(198, 93%, 55%);
+  --highlight-5: hsl(199, 89%, 48%);
+  --highlight-6: hsl(200, 98%, 39%);
+  --highlight-7: hsl(201, 96%, 32%);
+  --highlight-8: hsl(201, 90%, 27%);
+  --highlight-9: hsl(202, 80%, 24%);
+
+  --success-0: #ecfdf5;
+  --success-1: #d1fae5;
+  --success-2: #a7f3d0;
+  --success-3: #6ee7b7;
+  --success-4: #34d399;
+  --success-5: #10b981;
+  --success-6: #059669;
+  --success-7: #047857;
+  --success-8: #065f46;
+  --success-9: #064e3b;
+
+  --failure-0: #fff1f2;
+  --failure-1: #ffe4e6;
+  --failure-2: #fecdd3;
+  --failure-3: #fda4af;
+  --failure-4: #fb7185;
+  --failure-5: #f43f5e;
+  --failure-6: #e11d48;
+  --failure-7: #be123c;
+  --failure-8: #9f1239;
+  --failure-9: #881337;
+
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  --gray-0: hsl(235, 18%, 98%);
+  /* light app bg */
+  --gray-1: hsl(220, 13%, 90%);
+  --gray-2: hsl(216, 12%, 77%);
+  --gray-3: hsl(218, 11%, 65%);
+  --gray-4: hsl(220, 09%, 46%);
+  --gray-5: hsl(221, 13%, 32%);
+  --gray-6: hsl(222, 13%, 26%);
+  --gray-7: hsl(220, 13%, 18%);
+  --gray-8: hsl(216, 13%, 15%);
+  /* dark app bg */
+  --gray-9: hsl(216, 13%, 10%);
+
+  /* Avoid Ubuntu Mono as it's significantly smaller than others at the same
+	font size */
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* We prefer Inter variable but also support system font */
+  --font-sans: "Inter var", system-ui, -apple-system, sans-serif;
+
+  /* Border Radius */
+  --radius-1: 2px;
+
+  /* Shadow */
+  --shadow-1: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.1);
+
+  /* Z-indexes */
+
+  /* Smallest index, see "outline" for explanation */
+  --z-outline: 1;
+
+  /* Index of supporting components, such as icon of an input */
+  --z-base: 2;
+
+  /* Sticky/fixed components such as table headers */
+  --z-sticky-1: 3;
+  /* e.g. th or td:first-child */
+  --z-sticky-2: 4;
+  /* e.g. th:first-child */
+
+  /* Shared overlay components, such as Dialog and Popover. These should
+	share the same z-index so that the render order decides which is on top of
+	which.
+	   Test this case with the scenario: an item on a popover menu opens a
+	dialog. The dialog has another popover menu in it. */
+  --z-overlay-base: 5;
+  /* Higher overlay components, such as Toast, which should be on top of
+	any and all shared overlay components. */
+  --z-overlay-top: 6;
+}
+
+/* Same styling for all semantic typography tag */
+hr,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+/**
+modern-normalize only set inherit for font-family and size. We need other properties, such as weight and variants.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+a {
+  color: var(--highlight-6);
+}
+
+th {
+  text-align: left;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  /*
+	This must be larger than the original line-height at 14px (defined by the
+	font itself) which is 17px to avoid Firefox to reset it. Also it must be
+	large enough to not cut the character (test with "g" and "ấ")
+	*/
+  line-height: 20px;
+}
+
+.light {
+  color: var(--gray-8);
+
+  --background-strong: var(--white);
+  --background-weak: var(--gray-0);
+  --border-strong: var(--gray-2);
+  --border-weak: var(--gray-1);
+  --text-failure-strong: var(--failure-6);
+  --text-failure-weak: var(--failure-5);
+  --text-highlight-strong: var(--highlight-7);
+  --text-highlight-weak: var(--highlight-6);
+  --text-muted: var(--gray-4);
+  --text-normal: var(--gray-8);
+  --text-success-strong: var(--success-7);
+  --text-success-weak: var(--success-6);
+}
+
+.dark {
+  color: var(--gray-1);
+
+  --background-strong: var(--gray-7);
+  --background-weak: var(--gray-8);
+  --border-strong: var(--gray-4);
+  --border-weak: var(--gray-5);
+  --text-failure-strong: var(--failure-4);
+  --text-failure-weak: var(--failure-5);
+  --text-highlight-strong: var(--highlight-5);
+  --text-highlight-weak: var(--highlight-5);
+  --text-muted: var(--gray-3);
+  --text-normal: var(--gray-1);
+  --text-success-strong: var(--success-5);
+  --text-success-weak: var(--success-5);
+}
+
+.light body {
+  background-color: var(--gray-0);
+}
+
+.dark body {
+  background-color: var(--gray-8);
+}

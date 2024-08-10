@@ -1,0 +1,45 @@
+.docblock-argstable:not(#x) {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.docblock-argstable-body:not(#x) {
+  filter: none;
+  border: solid 2px var(--border-weak);
+}
+
+/* Reset vertical rhythm */
+.docblock-argstable-body:not(#x):not(#x) p {
+  margin: 0;
+}
+
+.docblock-argstable-head:not(#x) th {
+  color: var(--text-muted);
+}
+
+/* "name" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(1) {
+  width: 20%;
+}
+
+/* "description" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(2) {
+  width: 60%;
+}
+
+/* "default" column */
+.docblock-argstable-head:not(.x) th:nth-of-type(3),
+.docblock-argstable-body:not(.x) td:nth-of-type(3) {
+  display: none;
+}
+
+/* "controls" column */
+.docblock-argstable-head:not(#x) th:nth-of-type(4) {
+  width: 20%;
+}
+
+/* Category header */
+.docblock-argstable:not(.x) tbody td[colspan="1"],
+.docblock-argstable:not(.x) tbody td[colspan="3"] {
+  background-color: var(--border-weak) !important;
+}

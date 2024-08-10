@@ -1,20 +1,4 @@
-/*
-This is the shared config for all tools (editor, Rollup, TSC) and all
-packages (core, gallery, docs, etc.).
-
-Note that this file should be at root for the linting to work (eslint uses
-this file for the parsing)
-*/
 {
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"isolatedModules": true, // https://github.com/microsoft/TypeScript/wiki/Performance#isolated-file-emit
-		"jsx": "react-jsx",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"skipLibCheck": true, // https://github.com/microsoft/TypeScript/wiki/Performance#skipping-dts-checking
-		"strict": true,
-		"target": "ES2016",
-		"types": [] // https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion
-	}
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "include": ["src/**/*", ".storybook/**/*"]
 }

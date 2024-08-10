@@ -1,0 +1,96 @@
+html {
+  tab-size: 4;
+}
+
+.sbdocs p,
+.sbdocs ul {
+  max-width: 640px;
+}
+
+.sbdocs code:not(#x) {
+  color: inherit;
+  display: inline;
+  background-color: var(--background-weak);
+  border-color: var(--border-weak);
+}
+
+.sbdocs blockquote:not(.x) {
+  border-left: solid 4px var(--border-strong);
+  padding-left: 24px;
+}
+
+.sbdocs blockquote p {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Hide the "Stories" heading */
+.sbdocs h2#stories {
+  display: none;
+}
+
+.sbdocs-wrapper:not(.x) {
+  padding: 24px;
+  background-color: var(--background-strong);
+}
+
+.sbdocs-preview:not(.x) {
+  background-color: var(--backgrund-strong);
+  box-shadow: none;
+  border: solid 2px var(--border-weak);
+}
+
+/* Vertical rhythm */
+.sbdocs p:not(#x),
+.sbdocs title:not(.x),
+.sbdocs blockquote:not(.x),
+.sbdocs h1:not(#x),
+.sbdocs h2:not(#x),
+/*
+The "pre" tag actually has no margin,
+which makes sense because Storybook often nests it.
+The actual top-level code block is "docblock-source".
+*/
+.docblock-source:not(#x),
+.sbdocs ul:not(#x),
+.sbdocs ol:not(#x),
+.sbdocs-preview:not(#x) {
+  margin: 24px 0;
+}
+
+.sbdocs h3:not(#x) {
+  margin: 48px 0 24px;
+}
+
+/* Body text */
+.sbdocs code:not(.x),
+.sbdocs p:not(.x),
+.sbdocs li:not(.x),
+.docblock-argstable:not(#x) {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+/* 1st heading */
+.sbdocs title:not(.x),
+.sbdocs h1:not(.x) {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* 2nd heading */
+.sbdocs h2:not(.x) {
+  padding: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  border: none;
+}
+
+/* 3rd heading */
+.sbdocs h3:not(.x) {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+}
