@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { ProgressCircle, ProgressCircleProps } from "../../../core/src";
-import { GalleryProgress } from "../../../gallery/src";
-import { Utils } from "../utils/utils";
+import { ProgressCircle, ProgressCircleProps } from "../../core";
+import { GalleryProgress } from "../../gallery";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Progress Circle",

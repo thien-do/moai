@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
-import { Pane } from "../../../core/src";
-import { Utils } from "../utils/utils";
+import { Pane } from "../../core";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Pane",

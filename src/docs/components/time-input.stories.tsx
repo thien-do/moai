@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TimeInput } from "../../../core/src";
-import { Utils } from "../utils/utils";
+import { TimeInput } from "../../core";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta = {
   title: "Components/TimeInput",

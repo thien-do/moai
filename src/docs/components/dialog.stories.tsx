@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { useState } from "react";
-import { Button, Dialog, DivGrow, Paragraph } from "../../../core/src";
-import { GalleryDialog } from "../../../gallery/src";
-import { Utils } from "../utils/utils";
+import { Button, Dialog, DivGrow, Paragraph } from "../../core";
+import { GalleryDialog } from "../../gallery";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Dialog",

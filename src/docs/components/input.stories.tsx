@@ -2,10 +2,9 @@ import { Meta } from "@storybook/react";
 import * as Fm from "formik";
 import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
-import { Button, Dialog, DivPx, Input } from "../../../core/src";
-import { GalleryInput1 } from "../../../gallery/src";
-import { GalleryInput2 } from "../../../gallery/src";
-import { Utils } from "../utils/utils";
+import { Button, Dialog, DivPx, Input } from "../../core";
+import { GalleryInput1, GalleryInput2 } from "../../gallery";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Input",

@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
 import { SVGAttributes } from "react";
 import { FaHome } from "react-icons/fa";
-import { Icon, text } from "../../../core/src";
-import { GalleryIcon } from "../../../gallery/src";
-import { Utils } from "../utils/utils";
+import { Icon, text } from "../../core";
+import { GalleryIcon } from "../../gallery";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Icon",

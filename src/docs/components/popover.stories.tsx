@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { Button, Popover, PopoverPlacement } from "../../../core/src";
-import { PLACEMENTS } from "../utils/placement";
-import { Utils } from "../utils/utils";
+import { Button, Popover, PopoverPlacement } from "../../core";
+import { PLACEMENTS } from "../../old-docs/utils/placement";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Popover",

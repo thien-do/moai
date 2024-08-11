@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
-import { Tag } from "../../../core/src";
-import { Utils } from "../utils/utils";
-import { GalleryTag } from "../../../gallery/src";
+import { Tag } from "../../core";
+import { Utils } from "../../old-docs/utils/utils";
+import { GalleryTag } from "../../gallery";
 
 const meta: Meta = {
   title: "Components/Tag",

@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import { useCallback, useState } from "react";
-import { Pagination } from "../../../core/src";
-import { Utils } from "../utils/utils";
+import { Pagination } from "../../core";
+import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Pagination",
