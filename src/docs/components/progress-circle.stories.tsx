@@ -30,6 +30,11 @@ export const Primary: StoryObj<typeof ProgressCircle> = {
   ),
 };
 
+/**
+ * A progress circle requires its `size` and `value` props to be defined.
+ * The value should be a number from 0 (no progress yet) to 1 (all's done),
+ * or the "indeterminate" string to show a spinning circle.
+ */
 export const Basic: StoryObj = {
   render: () => (
     <div style={{ display: "flex", gap: 8 }}>
@@ -39,14 +44,14 @@ export const Basic: StoryObj = {
   ),
 };
 
-Utils.story(Basic, {
-  desc: `
-A progress circle requires its \`size\` and \`value\` props to be defined. The
-value should be a number from 0 (no progress yet) to 1 (all's done), or the
-"indeterminate" string to show a spinning circle.
-`,
-});
-
+/**
+ * The color of a progress circle is set via its `color` prop.
+ * Colors are defined at `ProgressCircle.colors`:
+ *
+ * - `neutral` shows a gray circle. This is the default value.
+ * - `highlight` highlight the circle.
+ * - `inverse` is for displaying the circle on top of a colored background.
+ */
 export const Color: StoryObj = {
   render: () => {
     const base: ProgressCircleProps = { size: 16, value: "indeterminate" };
@@ -62,14 +67,3 @@ export const Color: StoryObj = {
     );
   },
 };
-
-Utils.story(Color, {
-  desc: `
-The color of a progress circle is set via its \`color\` prop. Colors are
-defined at \`ProgressCircle.colors\`:
-
-- \`neutral\` shows a gray circle. This is the default value.
-- \`highlight\` highlight the circle.
-- \`inverse\` is for displaying the circle on top of a colored background.
-`,
-});

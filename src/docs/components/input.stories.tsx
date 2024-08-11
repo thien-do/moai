@@ -37,6 +37,26 @@ export const Primary: StoryObj<typeof Input> = {
   ),
 };
 
+/**
+ * Input should be used as a [controlled][1] component.
+ * You should have a [state][2] to store the text value,
+ * and give its control to an Input via its `value` and `setValue` props.
+ * At the moment, these props work with `string` values only.
+ *
+ * To have good accessibility, ensure that your inputs have their matching labels.
+ * You can do it in many ways: wrap the input inside a `label`,
+ * or explicitly [link][3] it to one (like in the example below),
+ * or via the `aria-label` and `aria-labelledby` props.
+ *
+ * Note that Moai's inputs don't have the [confusing][4] default width.
+ * Instead, inputs always fill 100% of their container width.
+ * This means you should control the width of an input via its container.
+ *
+ * [1]: https://reactjs.org/docs/forms.html#controlled-components
+ * [2]: https://reactjs.org/docs/hooks-state.html
+ * [3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for
+ * [4]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-size
+ */
 export const Basic: StoryObj = {
   render: () => {
     const [text, setText] = useState<string>("Hello");
@@ -49,29 +69,17 @@ export const Basic: StoryObj = {
   },
 };
 
-Utils.story(Basic, {
-  desc: `
-Input should be used as a [controlled][1] component. You should have a
-[state][2] to store the text value, and give its control to an Input via its
-\`value\` and \`setValue\` props. At the moment, these props work with
-\`string\` values only.
-
-To have good accessibility, ensure that your inputs have their matching labels.
-You can do it in many ways: wrap the input inside a \`label\`, or explicitly
-[link][3] it to one (like in the example below), or via the \`aria-label\` and
-\`aria-labelledby\` props.
-
-Note that Moai's inputs don't have the [confusing][4] default width. Instead,
-inputs always fill 100% of their container width. This means you should control
-the width of an input via its container.
-
-[1]: https://reactjs.org/docs/forms.html#controlled-components
-[2]: https://reactjs.org/docs/hooks-state.html
-[3]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for
-[4]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-size
-`,
-});
-
+/**
+ * Input follows the [standard approach][1] to support suggestion.
+ * You should define your suggestion as a `datalist` element,
+ * then give its `id` to an input via the `list` prop.
+ *
+ * As a convenient shortcut, you can also define your suggestion directly via the `list` prop
+ * and Input will create the `datalist` element for you.
+ * You'll still need an explicit `id` for the list:
+ *
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+ */
 export const Suggestion: StoryObj = {
   render: () => (
     <div style={{ width: 200 }}>
@@ -83,20 +91,17 @@ export const Suggestion: StoryObj = {
   ),
 };
 
-Utils.story(Suggestion, {
-  desc: `
-Input follows the [standard approach][1] to support suggestion. You should
-define your suggestion as a \`datalist\` element, then give its \`id\` to an
-input via the \`list\` prop.
-
-As a convenient shortcut, you can also define your suggestion directly via the
-\`list\` prop and Input will create the \`datalist\` element for you. You'll
-still need an explicit \`id\` for the list:
-
-[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
-`,
-});
-
+/**
+ * Input supports both [controlled][1] and [uncontrolled][2] usages,
+ * making it easy to use them with form builders like [Formik][3] and [React Hook Form][4], right out of the box.
+ * See our [Form guide][5] to learn more.
+ *
+ * [1]: https://reactjs.org/docs/forms.html#controlled-components
+ * [2]: https://reactjs.org/docs/uncontrolled-components.html
+ * [3]: https://formik.org
+ * [4]: https://react-hook-form.com
+ * [5]: /docs/guides-icons--primary
+ */
 export const Form: StoryObj = {
   render: () => (
     // "Fm" is the Formik's namespace
@@ -114,20 +119,13 @@ export const Form: StoryObj = {
   ),
 };
 
-Utils.story(Form, {
-  desc: `
-Input supports both [controlled][1] and [uncontrolled][2] usages, making it
-easy to use them with form builders like [Formik][3] and [React Hook Form][4],
-right out of the box. See our [Form guide][5] to learn more.
-
-[1]: https://reactjs.org/docs/forms.html#controlled-components
-[2]: https://reactjs.org/docs/uncontrolled-components.html
-[3]: https://formik.org
-[4]: https://react-hook-form.com
-[5]: /docs/guides-icons--primary
-`,
-});
-
+/**
+ * An input can have an icon defined via the `icon` prop.
+ * This follows our [Icon standard][1], which supports all SVG icons.
+ * See the [Icon guide][1] to learn more.
+ *
+ * [1]: /docs/guides-icons--primary
+ */
 export const Icon: StoryObj = {
   render: () => (
     // The icon is imported from the "react-icons" external library, like
@@ -141,13 +139,3 @@ export const Icon: StoryObj = {
     </div>
   ),
 };
-
-Utils.story(Icon, {
-  desc: `
-An input can have an icon defined via the \`icon\` prop. This follows our [Icon
-standard][1], which supports all SVG icons. See the [Icon guide][1] to learn
-more.
-
-[1]: /docs/guides-icons--primary
-`,
-});
