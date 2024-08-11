@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/react";
-import { Tooltip, TooltipProps } from "../../core";
+import { Meta, StoryObj } from "@storybook/react";
+import { Tooltip } from "../../core";
 import { PLACEMENTS } from "../../old-docs/utils/placement";
 import { Utils } from "../../old-docs/utils/utils";
 
@@ -17,21 +17,21 @@ Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
-interface Props {
-  placement?: TooltipProps["placement"];
-}
+export const Primary: StoryObj<typeof Tooltip> = {
+  render: (props) => (
+    <Tooltip content="Hello Moai" placement={props.placement}>
+      <span tabIndex={0}>Hover me</span>
+    </Tooltip>
+  ),
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <Tooltip content="Hello Moai" placement={props.placement}>
-    <span tabIndex={0}>Hover me</span>
-  </Tooltip>
-);
-
-export const Basic = (): JSX.Element => (
-  <Tooltip content="Hello Moai">
-    <span tabIndex={0}>Hover me</span>
-  </Tooltip>
-);
+export const Basic: StoryObj = {
+  render: () => (
+    <Tooltip content="Hello Moai">
+      <span tabIndex={0}>Hover me</span>
+    </Tooltip>
+  ),
+};
 
 Utils.story(Basic, {
   desc: `
@@ -50,11 +50,13 @@ buttons and inputs.
 `,
 });
 
-export const PlacementExample = (): JSX.Element => (
-  <Tooltip content="Hello Moai" placement="right">
-    <span tabIndex={0}>Hover me</span>
-  </Tooltip>
-);
+export const PlacementExample: StoryObj = {
+  render: () => (
+    <Tooltip content="Hello Moai" placement="right">
+      <span tabIndex={0}>Hover me</span>
+    </Tooltip>
+  ),
+};
 
 Utils.story(PlacementExample, {
   name: "Placement",

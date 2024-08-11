@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button, Dialog, DivGrow, Paragraph } from "../../core";
 import { GalleryDialog } from "../../gallery";
@@ -16,16 +16,22 @@ Utils.page.component(meta, {
 
 export default meta;
 
-export const Primary = (): JSX.Element => <div>None</div>;
+export const Primary: StoryObj<typeof Dialog> = {
+  render: () => <div>None</div>,
+};
 
-export const Basic = (): JSX.Element => {
-  const [visible, setVisible] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setVisible(true)} children="Show" />
-      {visible && <Dialog onEsc={() => setVisible(false)}>Hello world!</Dialog>}
-    </>
-  );
+export const Basic: StoryObj = {
+  render: () => {
+    const [visible, setVisible] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setVisible(true)} children="Show" />
+        {visible && (
+          <Dialog onEsc={() => setVisible(false)}>Hello world!</Dialog>
+        )}
+      </>
+    );
+  },
 };
 
 Utils.story(Basic, {
@@ -44,27 +50,29 @@ click on the backdrop. It's common to set your state to \`false\` here to
 `,
 });
 
-export const Layout = (): JSX.Element => {
-  const [visible, setVisible] = useState(false);
-  return (
-    <>
-      <Button onClick={() => setVisible(true)} children="Show" />
-      {visible && (
-        <Dialog onEsc={() => setVisible(false)}>
-          <Dialog.Body>
-            <Dialog.Title>Title</Dialog.Title>
-            <Paragraph>Body</Paragraph>
-          </Dialog.Body>
-          <Dialog.Footer>
-            <Button>First</Button>
-            <DivGrow />
-            <Button>Second</Button>
-            <Button highlight>Third</Button>
-          </Dialog.Footer>
-        </Dialog>
-      )}
-    </>
-  );
+export const Layout: StoryObj = {
+  render: () => {
+    const [visible, setVisible] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setVisible(true)} children="Show" />
+        {visible && (
+          <Dialog onEsc={() => setVisible(false)}>
+            <Dialog.Body>
+              <Dialog.Title>Title</Dialog.Title>
+              <Paragraph>Body</Paragraph>
+            </Dialog.Body>
+            <Dialog.Footer>
+              <Button>First</Button>
+              <DivGrow />
+              <Button>Second</Button>
+              <Button highlight>Third</Button>
+            </Dialog.Footer>
+          </Dialog>
+        )}
+      </>
+    );
+  },
 };
 
 Utils.story(Layout, {
@@ -79,16 +87,18 @@ components to give you common dialog layout:
 `,
 });
 
-export const Utilities = (): JSX.Element => (
-  <Button
-    onClick={async () => {
-      const name = await Dialog.prompt("What's your name?");
-      const yes = await Dialog.confirm(`Is your name: "${name}"?`);
-      Dialog.alert(yes ? `Hello ${name}!` : "But you said so!");
-    }}
-    children="Ask name"
-  />
-);
+export const Utilities: StoryObj = {
+  render: () => (
+    <Button
+      onClick={async () => {
+        const name = await Dialog.prompt("What's your name?");
+        const yes = await Dialog.confirm(`Is your name: "${name}"?`);
+        Dialog.alert(yes ? `Hello ${name}!` : "But you said so!");
+      }}
+      children="Ask name"
+    />
+  ),
+};
 
 Utils.story(Utilities, {
   desc: `

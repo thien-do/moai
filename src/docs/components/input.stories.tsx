@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import * as Fm from "formik";
 import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
@@ -29,39 +29,24 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  type?: string;
-  style?: string;
-  size?: string;
-  maxLength?: number;
-  disabled?: boolean;
-  readOnly?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => (
-  <div style={{ width: 200 }}>
-    <Input
-      type={props.type}
-      // eslint-disable-next-line
-      style={(Input.styles as any)[props.style!]}
-      // eslint-disable-next-line
-      size={(Input.sizes as any)[props.size!]}
-      maxLength={props.maxLength}
-      disabled={props.disabled}
-      readOnly={props.readOnly}
-      aria-label="Default input"
-    />
-  </div>
-);
-
-export const Basic = (): JSX.Element => {
-  const [text, setText] = useState<string>("Hello");
-  return (
+export const Primary: StoryObj<typeof Input> = {
+  render: (props) => (
     <div style={{ width: 200 }}>
-      <label htmlFor="basic-input">Basic example</label>
-      <Input id="basic-input" value={text} setValue={setText} />
+      <Input {...props} aria-label="Default input" />
     </div>
-  );
+  ),
+};
+
+export const Basic: StoryObj = {
+  render: () => {
+    const [text, setText] = useState<string>("Hello");
+    return (
+      <div style={{ width: 200 }}>
+        <label htmlFor="basic-input">Basic example</label>
+        <Input id="basic-input" value={text} setValue={setText} />
+      </div>
+    );
+  },
 };
 
 Utils.story(Basic, {
@@ -87,14 +72,16 @@ the width of an input via its container.
 `,
 });
 
-export const Suggestion = (): JSX.Element => (
-  <div style={{ width: 200 }}>
-    <Input
-      aria-label="suggestion-input"
-      list={{ id: "suggestion-list", values: ["red", "green", "blue"] }}
-    />
-  </div>
-);
+export const Suggestion: StoryObj = {
+  render: () => (
+    <div style={{ width: 200 }}>
+      <Input
+        aria-label="suggestion-input"
+        list={{ id: "suggestion-list", values: ["red", "green", "blue"] }}
+      />
+    </div>
+  ),
+};
 
 Utils.story(Suggestion, {
   desc: `
@@ -110,20 +97,22 @@ still need an explicit \`id\` for the list:
 `,
 });
 
-export const Form = (): JSX.Element => (
-  // "Fm" is the Formik's namespace
-  <Fm.Formik
-    initialValues={{ email: "" }}
-    onSubmit={(values) => Dialog.alert(values.email)}
-  >
-    <Fm.Form style={{ width: 200 }}>
-      <label htmlFor="form-email">Email</label>
-      <Fm.Field id="form-email" type="email" name="email" as={Input} />
-      <DivPx size={8} />
-      <Button type="submit" highlight children="Submit" />
-    </Fm.Form>
-  </Fm.Formik>
-);
+export const Form: StoryObj = {
+  render: () => (
+    // "Fm" is the Formik's namespace
+    <Fm.Formik
+      initialValues={{ email: "" }}
+      onSubmit={(values) => Dialog.alert(values.email)}
+    >
+      <Fm.Form style={{ width: 200 }}>
+        <label htmlFor="form-email">Email</label>
+        <Fm.Field id="form-email" type="email" name="email" as={Input} />
+        <DivPx size={8} />
+        <Button type="submit" highlight children="Submit" />
+      </Fm.Form>
+    </Fm.Formik>
+  ),
+};
 
 Utils.story(Form, {
   desc: `
@@ -139,17 +128,19 @@ right out of the box. See our [Form guide][5] to learn more.
 `,
 });
 
-export const Icon = (): JSX.Element => (
-  // The icon is imported from the "react-icons" external library, like
-  // import { HiPhone } from "react-icons/hi";
-  <div style={{ width: 200 }}>
-    <Input
-      icon={HiPhone}
-      placeholder="(888) 000-9999"
-      aria-label="Enter phone"
-    />
-  </div>
-);
+export const Icon: StoryObj = {
+  render: () => (
+    // The icon is imported from the "react-icons" external library, like
+    // import { HiPhone } from "react-icons/hi";
+    <div style={{ width: 200 }}>
+      <Input
+        icon={HiPhone}
+        placeholder="(888) 000-9999"
+        aria-label="Enter phone"
+      />
+    </div>
+  ),
+};
 
 Utils.story(Icon, {
   desc: `
