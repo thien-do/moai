@@ -1,33 +1,30 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Tag } from "../../core";
-import { Utils } from "../../old-docs/utils/utils";
 import { GalleryTag } from "../../gallery";
+import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Tag",
   component: Tag,
-  argTypes: {
-    children: Utils.arg(null),
-    color: Utils.arg(Tag.colors),
-    size: Utils.arg(Tag.sizes),
-    forwardedRef: Utils.arg(null),
-  },
+  parameters: docsMetaParameters({
+    gallery: <GalleryTag key="1" />,
+  }),
+  argTypes: docsMetaArgTypes({
+    "": {
+      children: false,
+      color: Tag.colors,
+      size: Tag.sizes,
+      forwardedRef: false,
+    },
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryTag key="1" />],
-});
 
 export default meta;
 
 export const Primary: StoryObj<typeof Tag> = {
   render: (props) => (
-    <Tag
-      // eslint-disable-next-line
-      color={props.color ?? Tag.colors.gray}
-      children="Foo"
-    />
+    <Tag {...props} color={props.color ?? Tag.colors.gray} children="Foo" />
   ),
 };
 

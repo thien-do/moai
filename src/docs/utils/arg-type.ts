@@ -1,7 +1,7 @@
 import { ArgTypes } from "@storybook/react";
 import { ComponentProps, ComponentType } from "react";
 
-type DocsValue = false | "boolean" | object;
+type DocsValue = false | "boolean" | object | "number";
 
 type DocsGroup<CT extends ComponentType> = Partial<
   Record<keyof ComponentProps<CT>, DocsValue>
@@ -29,11 +29,13 @@ const transformValue = (value: DocsValue): RawValue => {
       return { control: false };
     case "boolean":
       return { control: "boolean" };
+    case "number":
+      return { control: "number" };
     default:
       return {
         control: "select",
         mapping: value,
-        options: Object.keys(value),
+        options: Array.isArray(value) ? value : Object.keys(value),
       };
   }
 };

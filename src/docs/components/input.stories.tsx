@@ -4,28 +4,36 @@ import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
 import { Button, Dialog, DivPx, Input } from "../../core";
 import { GalleryInput1, GalleryInput2 } from "../../gallery";
-import { Utils } from "../../old-docs/utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Input",
   component: Input,
-  argTypes: {
-    type: Utils.arg("string", "Visual"),
-    style: Utils.arg(Input.styles, "Visual"),
-    size: Utils.arg(Input.sizes, "Visual"),
-    icon: Utils.arg(null, "Visual"),
-    list: Utils.arg(null, "Visual"),
-    defaultValue: Utils.arg(null, "State"),
-    value: Utils.arg(null, "State"),
-    setValue: Utils.arg(null, "State"),
-    onChange: Utils.arg(null, "State"),
-  },
+  parameters: docsMetaParameters({
+    gallery: (
+      <>
+        <GalleryInput1 key="1" />
+        <GalleryInput2 key="2" />
+      </>
+    ),
+  }),
+  argTypes: docsMetaArgTypes({
+    Visual: {
+      type: false,
+      style: Input.styles,
+      size: Input.sizes,
+      icon: false,
+      list: false,
+    },
+    State: {
+      defaultValue: false,
+      value: false,
+      setValue: false,
+      onChange: false,
+    },
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryInput1 key="1" />, <GalleryInput2 key="2" />],
-});
 
 export default meta;
 

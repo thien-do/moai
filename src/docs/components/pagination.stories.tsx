@@ -1,14 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useCallback, useState } from "react";
 import { Pagination } from "../../core";
-import { Utils } from "../../old-docs/utils/utils";
 
 const meta: Meta = {
   title: "Components/Pagination",
   component: Pagination,
 };
-
-Utils.page.component(meta, { primary: "none", shots: [] });
 
 export default meta;
 

@@ -3,22 +3,23 @@ import { SVGAttributes } from "react";
 import { FaHome } from "react-icons/fa";
 import { Icon, text } from "../../core";
 import { GalleryIcon } from "../../gallery";
-import { Utils } from "../../old-docs/utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Icon",
   component: Icon,
-  argTypes: {
-    display: Utils.arg(["block", "inline"]),
-    component: Utils.arg(null),
-    size: Utils.arg("number"),
-  },
+  parameters: docsMetaParameters({
+    gallery: <GalleryIcon key="1" />,
+  }),
+  argTypes: docsMetaArgTypes({
+    "": {
+      display: ["block", "inline"],
+      component: false,
+      size: "number",
+    },
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryIcon key="1" />],
-});
 
 export default meta;
 

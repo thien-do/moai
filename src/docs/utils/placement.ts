@@ -1,4 +1,4 @@
-import { PopoverPlacement } from "../../../core/src";
+import { PopoverPlacement } from "../../core";
 
 export const PLACEMENTS: PopoverPlacement[] = [
   "top",

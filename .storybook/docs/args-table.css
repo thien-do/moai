@@ -43,3 +43,8 @@
 .docblock-argstable:not(.x) tbody td[colspan="3"] {
   background-color: var(--border-weak) !important;
 }
+
+/* "controls" column inputs */
+.docblock-argstable-body:not(.x) tr td label input {
+  width: 100%;
+}

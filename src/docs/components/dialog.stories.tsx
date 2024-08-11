@@ -2,17 +2,15 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button, Dialog, DivGrow, Paragraph } from "../../core";
 import { GalleryDialog } from "../../gallery";
-import { Utils } from "../../old-docs/utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Dialog",
   component: Dialog,
+  parameters: docsMetaParameters({
+    gallery: <GalleryDialog key="1" />,
+  }),
 } as Meta;
-
-Utils.page.component(meta, {
-  primary: "none",
-  shots: [<GalleryDialog key="1" />],
-});
 
 export default meta;
 

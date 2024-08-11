@@ -1,26 +1,24 @@
 import { useState } from "react";
 import { TimeInput } from "../../core";
-import { Utils } from "../../old-docs/utils/utils";
 import { StoryObj } from "@storybook/react";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta = {
   title: "Components/TimeInput",
   component: TimeInput,
-  argTypes: {
-    style: Utils.arg(TimeInput.styles),
-    size: Utils.arg(TimeInput.sizes),
-    fill: Utils.arg("boolean"),
-    disabled: Utils.arg("boolean"),
-    value: Utils.arg(null),
-    setValue: Utils.arg(null),
-    id: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      interval: Object.values(TimeInput.intervals),
+      style: TimeInput.styles,
+      size: TimeInput.sizes,
+      fill: "boolean",
+      disabled: "boolean",
+      value: false,
+      setValue: false,
+      id: false,
+    },
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [],
-});
 
 export default meta;
 
@@ -36,7 +34,7 @@ export const Primary: StoryObj<typeof TimeInput> = {
         {...props}
         value={value}
         setValue={setValue}
-        interval={TimeInput.intervals.minute}
+        interval={props.interval ?? TimeInput.intervals.minute}
       />
     );
   },
