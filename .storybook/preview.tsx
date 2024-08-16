@@ -28,6 +28,17 @@ const preview: Preview = {
       classTarget: "html",
       stylePreview: true,
     },
+    options: {
+      storySort: {
+        order: [
+          "Intro",
+          ["Quick Start", "Proper Start", "Gallery", "Principles"],
+          "Patterns",
+          "Components",
+          "Draft",
+        ],
+      },
+    },
   },
   tags: ["autodocs"],
 };
