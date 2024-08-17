@@ -57,7 +57,11 @@ export const Layout: StoryObj = {
   render: () => {
     const [visible, setVisible] = useState(false);
     return (
-      <>
+      <div
+        style={{
+          height: "200px", // Increase canvas height to show the whole dialog
+        }}
+      >
         <Button onClick={() => setVisible(true)} children="Show" />
         {visible && (
           <Dialog onEsc={() => setVisible(false)}>
@@ -73,7 +77,7 @@ export const Layout: StoryObj = {
             </Dialog.Footer>
           </Dialog>
         )}
-      </>
+      </div>
     );
   },
 };
