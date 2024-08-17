@@ -3,12 +3,20 @@ import { useState } from "react";
 import { Button, Dialog, DivGrow, Paragraph } from "../../core";
 import { GalleryDialog } from "../../gallery";
 import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Dialog",
   component: Dialog,
   parameters: docsMetaParameters({
     gallery: <GalleryDialog key="1" />,
+  }),
+  argTypes: docsMetaArgTypes({
+    "": {
+      onEsc: false,
+      width: false,
+      children: false,
+    },
   }),
 } as Meta;
 
