@@ -1,7 +1,7 @@
 import { ArgTypes } from "@storybook/react";
 import { ComponentProps, ComponentType } from "react";
 
-type DocsValue = false | "boolean" | object;
+type DocsValue = false | "boolean" | object | "number";
 
 type DocsGroup<CT extends ComponentType> = Partial<
   Record<keyof ComponentProps<CT>, DocsValue>
@@ -29,13 +29,23 @@ const transformValue = (value: DocsValue): RawValue => {
       return { control: false };
     case "boolean":
       return { control: "boolean" };
-    default:
-      return {
-        control: "select",
-        mapping: value,
-        options: Object.keys(value),
-      };
+    case "number":
+      return { control: "number" };
   }
+
+  if (Array.isArray(value)) {
+    return {
+      control: value.length < 5 ? "radio" : "select",
+      options: value,
+    };
+  }
+
+  const options = Object.keys(value);
+  return {
+    control: options.length < 5 ? "radio" : "select",
+    mapping: value,
+    options,
+  };
 };
 
 export const docsMetaArgTypes = <CT extends ComponentType>(

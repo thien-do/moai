@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useRef, useState } from "react";
-import { Button, Checkbox } from "../core";
-import { Book, someBooks } from "../old-docs/utils/example";
-import { docsMetaParameters } from "./utils/parameter";
-import { docsMetaArgTypes } from "./utils/arg-type";
+import { Button, Checkbox } from "../../core";
+import { Book, someBooks } from "../../old-docs/utils/example";
+import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Checkbox",

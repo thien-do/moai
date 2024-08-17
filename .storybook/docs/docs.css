@@ -2,7 +2,7 @@ html {
   tab-size: 4;
 }
 
-.sbdocs p,
+.sbdocs p:not(#gallery p),
 .sbdocs ul {
   max-width: 640px;
 }
@@ -41,7 +41,7 @@ html {
 }
 
 /* Vertical rhythm */
-.sbdocs p:not(#x),
+.sbdocs p:not(#gallery p),
 .sbdocs title:not(.x),
 .sbdocs blockquote:not(.x),
 .sbdocs h1:not(#x),
@@ -64,7 +64,7 @@ The actual top-level code block is "docblock-source".
 
 /* Body text */
 .sbdocs code:not(.x),
-.sbdocs p:not(.x),
+.sbdocs p:not(#gallery p),
 .sbdocs li:not(.x),
 .docblock-argstable:not(#x) {
   font-size: 16px;
