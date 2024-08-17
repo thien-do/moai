@@ -63,7 +63,11 @@ export const Basic: StoryObj = {
  */
 export const Display: StoryObj = {
   render: () => (
-    <p>
+    <p
+      style={{
+        lineHeight: "unset", // Override default styling
+      }}
+    >
       <span>Some text </span>
       <Icon display="inline" component={FaHome} />
       <span> another text</span>
