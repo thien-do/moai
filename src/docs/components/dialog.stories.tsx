@@ -10,6 +10,7 @@ const meta: Meta = {
   component: Dialog,
   parameters: docsMetaParameters({
     gallery: <GalleryDialog key="1" />,
+    primary: "none",
   }),
   argTypes: docsMetaArgTypes({
     "": {
@@ -23,7 +24,17 @@ const meta: Meta = {
 export default meta;
 
 export const Primary: StoryObj<typeof Dialog> = {
-  render: () => <div>None</div>,
+  render: () => {
+    const [visible, setVisible] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setVisible(true)} children="Show" />
+        {visible && (
+          <Dialog onEsc={() => setVisible(false)}>Hello world!</Dialog>
+        )}
+      </>
+    );
+  },
 };
 
 /**
@@ -38,19 +49,7 @@ export const Primary: StoryObj<typeof Dialog> = {
  * [2]: https://reactjs.org/docs/hooks-state.html
  * [3]: https://reactjs.org/docs/refs-and-the-dom.html#when-to-use-refs
  */
-export const Basic: StoryObj = {
-  render: () => {
-    const [visible, setVisible] = useState(false);
-    return (
-      <>
-        <Button onClick={() => setVisible(true)} children="Show" />
-        {visible && (
-          <Dialog onEsc={() => setVisible(false)}>Hello world!</Dialog>
-        )}
-      </>
-    );
-  },
-};
+export const Basic = Primary;
 
 /**
  * Out of the box, dialogs render their children as-is, without even a padding,

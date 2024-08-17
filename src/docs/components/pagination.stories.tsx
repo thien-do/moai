@@ -2,10 +2,14 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useCallback, useState } from "react";
 import { Pagination } from "../../core";
 import { docsMetaArgTypes } from "../utils/arg-type";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Pagination",
   component: Pagination,
+  parameters: docsMetaParameters({
+    primary: "none",
+  }),
   argTypes: docsMetaArgTypes({
     "": {
       value: false,
