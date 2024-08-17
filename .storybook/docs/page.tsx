@@ -30,7 +30,9 @@ export const StorybookPage = (): ReactElement => {
       {gallery !== undefined && (
         <>
           <h3 id="props">Gallery</h3>
-          <div className={s.gallery}>{gallery}</div>
+          <div id="gallery" className={s.gallery}>
+            {gallery}
+          </div>
         </>
       )}
       <Stories includePrimary={false} />
