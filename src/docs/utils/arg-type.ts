@@ -31,13 +31,21 @@ const transformValue = (value: DocsValue): RawValue => {
       return { control: "boolean" };
     case "number":
       return { control: "number" };
-    default:
-      return {
-        control: "select",
-        mapping: value,
-        options: Array.isArray(value) ? value : Object.keys(value),
-      };
   }
+
+  if (Array.isArray(value)) {
+    return {
+      control: value.length < 5 ? "radio" : "select",
+      options: value,
+    };
+  }
+
+  const options = Object.keys(value);
+  return {
+    control: options.length < 5 ? "radio" : "select",
+    mapping: value,
+    options,
+  };
 };
 
 export const docsMetaArgTypes = <CT extends ComponentType>(

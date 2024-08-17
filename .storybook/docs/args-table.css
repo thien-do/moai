@@ -45,6 +45,6 @@
 }
 
 /* "controls" column inputs */
-.docblock-argstable-body:not(.x) tr td label input {
+.docblock-argstable-body:not(.x) tr td label input:not([type="radio"]) {
   width: 100%;
 }
