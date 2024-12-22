@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ReactElement } from "react";
 import { GoPlus } from "react-icons/go";
-import { Button, Dialog } from "../core";
-import { GalleryButton1, GalleryButton2 } from "../gallery";
-import { docsMetaArgTypes } from "./utils/arg-type";
-import { docsMetaParameters } from "./utils/parameter";
+import { Button, Dialog } from "../../core";
+import { GalleryButton1, GalleryButton2 } from "../../gallery";
+import { docsMetaArgTypes } from "../utils/arg-type";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
