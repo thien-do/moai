@@ -9,7 +9,7 @@ const meta: Meta = {
   title: "Components/Dialog",
   component: Dialog,
   parameters: docsMetaParameters({
-    gallery: <GalleryDialog key="1" />,
+    gallery: <GalleryDialog />,
     primary: "none",
   }),
   argTypes: docsMetaArgTypes({
@@ -19,7 +19,7 @@ const meta: Meta = {
       children: false,
     },
   }),
-} as Meta;
+};
 
 export default meta;
 
