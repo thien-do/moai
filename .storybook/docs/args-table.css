@@ -8,11 +8,6 @@
   border: solid 2px var(--border-weak);
 }
 
-/* Reset vertical rhythm */
-.docblock-argstable-body:not(#x):not(#x) p {
-  margin: 0;
-}
-
 .docblock-argstable-head:not(#x) th {
   color: var(--text-muted);
 }

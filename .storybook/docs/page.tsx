@@ -9,7 +9,7 @@ import {
 } from "@storybook/addon-docs";
 import { ReactElement } from "react";
 import { background } from "../../src/core";
-import { DocsParameters } from "../../src/docs/utils/meta";
+import { DocsMetaParameter } from "../../src/docs/utils/parameter";
 import s from "./page.module.css";
 
 export const StorybookPage = (): ReactElement => {
@@ -17,7 +17,7 @@ export const StorybookPage = (): ReactElement => {
 
   const parameters =
     meta.type === "meta"
-      ? (meta.csfFile.meta.parameters as DocsParameters)
+      ? (meta.csfFile.meta.parameters as DocsMetaParameter)
       : {};
   const { gallery } = parameters;
   const primary = parameters.primary ?? "sticky";
@@ -30,7 +30,9 @@ export const StorybookPage = (): ReactElement => {
       {gallery !== undefined && (
         <>
           <h3 id="props">Gallery</h3>
-          <div className={s.gallery}>{gallery}</div>
+          <div id="gallery" className={s.gallery}>
+            {gallery}
+          </div>
         </>
       )}
       <Stories includePrimary={false} />
