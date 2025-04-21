@@ -63,27 +63,30 @@ export const Basic = Primary;
 export const Layout: StoryObj = {
   render: () => {
     const [visible, setVisible] = useState(false);
+
+    const dialog = visible && (
+      <Dialog onEsc={() => setVisible(false)}>
+        <Dialog.Body>
+          <Dialog.Title>Title</Dialog.Title>
+          <Paragraph>Body</Paragraph>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Button>First</Button>
+          <DivGrow />
+          <Button>Second</Button>
+          <Button highlight>Third</Button>
+        </Dialog.Footer>
+      </Dialog>
+    )
+
     return (
-      <div
-        style={{
-          height: "200px", // Increase canvas height to show the whole dialog
-        }}
-      >
+      // Increase canvas height to show the whole dialog
+      <div style={{ height: "300px", }} >
         <Button onClick={() => setVisible(true)} children="Show" />
-        {visible && (
-          <Dialog onEsc={() => setVisible(false)}>
-            <Dialog.Body>
-              <Dialog.Title>Title</Dialog.Title>
-              <Paragraph>Body</Paragraph>
-            </Dialog.Body>
-            <Dialog.Footer>
-              <Button>First</Button>
-              <DivGrow />
-              <Button>Second</Button>
-              <Button highlight>Third</Button>
-            </Dialog.Footer>
-          </Dialog>
-        )}
+        <p style={{ marginTop: "10px" }}>
+          (Intentional empty space for the dialog)
+        </p>
+        {dialog}
       </div>
     );
   },

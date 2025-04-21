@@ -2,24 +2,23 @@ html {
   tab-size: 4;
 }
 
-.sbdocs p:not(#gallery p),
-.sbdocs ul {
+.sbdocs :is(p, ul):where(:not(#gallery *, .sbdocs-preview *)) {
   max-width: 640px;
 }
 
-.sbdocs code:not(#x) {
+.sbdocs code:where(:not(#gallery *, .sbdocs-preview *)) {
   color: inherit;
   display: inline;
   background-color: var(--background-weak);
   border-color: var(--border-weak);
 }
 
-.sbdocs blockquote:not(.x) {
+.sbdocs blockquote:where(:not(#gallery *, .sbdocs-preview *)) {
   border-left: solid 4px var(--border-strong);
   padding-left: 24px;
 }
 
-.sbdocs blockquote p {
+.sbdocs blockquote p:where(:not(#gallery *, .sbdocs-preview *)) {
   font-style: italic;
   color: var(--text-muted);
 }
@@ -34,53 +33,46 @@ html {
   background-color: var(--background-strong);
 }
 
-.sbdocs-preview:not(.x) {
+.sbdocs-preview {
   background-color: var(--backgrund-strong);
   box-shadow: none;
   border: solid 2px var(--border-weak);
 }
 
-/* Vertical rhythm */
-.sbdocs p:not(#gallery p),
-.sbdocs title:not(.x),
-.sbdocs blockquote:not(.x),
-.sbdocs h1:not(#x),
-.sbdocs h2:not(#x),
 /*
+Vertical rhythm
+
 The "pre" tag actually has no margin,
 which makes sense because Storybook often nests it.
 The actual top-level code block is "docblock-source".
 */
-.docblock-source:not(#x),
-.sbdocs ul:not(#x),
-.sbdocs ol:not(#x),
-.sbdocs-preview:not(#x) {
+.sbdocs :is(p, title, blockquote, h1, h2, h3, ul, ol
+):where(:not(#gallery *, .sbdocs-preview *)),
+.docblock-source,
+.sbdocs-preview {
   margin: 24px 0;
 }
 
-.sbdocs h3:not(#x) {
+.sbdocs h3:where(:not(#gallery *, .sbdocs-preview *)) {
   margin: 48px 0 24px;
 }
 
 /* Body text */
-.sbdocs code:not(.x),
-.sbdocs p:not(#gallery p),
-.sbdocs li:not(.x),
-.docblock-argstable:not(#x) {
+.sbdocs :is(code, p, li):where(:not(#gallery *, .sbdocs-preview *)),
+.docblock-argstable {
   font-size: 16px;
   line-height: 28px;
 }
 
 /* 1st heading */
-.sbdocs title:not(.x),
-.sbdocs h1:not(.x) {
+.sbdocs :is(title, h1):where(:not(#gallery *, .sbdocs-preview *)) {
   font-weight: 700;
   font-size: 30px;
   line-height: 30px;
 }
 
 /* 2nd heading */
-.sbdocs h2:not(.x) {
+.sbdocs h2:where(:not(#gallery *, .sbdocs-preview *)) {
   padding: 0;
   font-weight: 600;
   font-size: 24px;
@@ -89,7 +81,7 @@ The actual top-level code block is "docblock-source".
 }
 
 /* 3rd heading */
-.sbdocs h3:not(.x) {
+.sbdocs h3:where(:not(#gallery *, .sbdocs-preview *)) {
   font-weight: 600;
   font-size: 20px;
   line-height: 20px;
