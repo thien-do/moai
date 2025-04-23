@@ -34,7 +34,7 @@ export const Basic = Primary
 /**
  * You may need to fetch some new data when users navigate to a new page.
  * In these cases,
- * return a `Promise` in the `setValue` callback to have the pagination displays a loading state while waiting for data.
+ * return a [`Promise`][1] in the `setValue` callback to have the pagination displays a loading state while waiting for data.
  *
  * [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
  */
