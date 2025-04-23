@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Utils } from "../utils/utils";
 import { Tag } from "../../core";
 import { docsMetaParameters } from "../utils/parameter";
 import { GalleryTag } from "../../gallery";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Tag",
@@ -10,12 +10,14 @@ const meta: Meta = {
   parameters: docsMetaParameters({
     gallery: <GalleryTag />
   }),
-  argTypes: {
-    children: Utils.arg(null),
-    color: Utils.arg(Tag.colors),
-    size: Utils.arg(Tag.sizes),
-    forwardedRef: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      children: false,
+      color: Tag.colors,
+      size: Tag.sizes,
+      forwardedRef: false,
+    }
+  })
 };
 
 export default meta;

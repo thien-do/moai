@@ -1,16 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { PLACEMENTS } from "../utils/placement";
-import { Utils } from "../utils/utils";
 import { Tooltip } from "../../core";
+import { docsMetaArgTypes } from "../utils/arg-type";
+import { PLACEMENTS } from "../utils/placement";
 
 const meta: Meta = {
   title: "Components/Tooltip",
   component: Tooltip,
-  argTypes: {
-    placement: Utils.arg(PLACEMENTS),
-    content: Utils.arg(null),
-    children: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      placement: PLACEMENTS,
+      content: false,
+      children: false,
+    }
+  })
 };
 
 export default meta;

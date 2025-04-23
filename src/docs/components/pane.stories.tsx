@@ -1,16 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Utils } from "../utils/utils";
 import { Pane } from "../../core";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Pane",
   component: Pane,
-  argTypes: {
-    children: Utils.arg("React.ReactNode"),
-    noPadding: Utils.arg("boolean"),
-    fullHeight: Utils.arg("boolean"),
-    contentWidth: Utils.arg("boolean"),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      children: false,
+      noPadding: "boolean",
+      fullHeight: "boolean",
+      contentWidth: "boolean",
+    }
+  })
 };
 
 export default meta;

@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Utils } from "../utils/utils";
 import { ProgressCircle, ProgressCircleProps } from "../../core";
 import { docsMetaParameters } from "../utils/parameter";
 import { GalleryProgress } from "../../gallery";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Progress Circle",
@@ -10,11 +10,13 @@ const meta: Meta = {
   parameters: docsMetaParameters({
     gallery: <GalleryProgress />
   }),
-  argTypes: {
-    size: Utils.arg("number"),
-    value: Utils.arg("number"),
-    color: Utils.arg(ProgressCircle.colors),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      size: "number",
+      value: "number",
+      color: ProgressCircle.colors,
+    }
+  })
 };
 
 export default meta;
