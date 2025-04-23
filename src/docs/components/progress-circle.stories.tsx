@@ -1,22 +1,21 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { GalleryProgress } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { ProgressCircle, ProgressCircleProps } from "../../core";
+import { docsMetaParameters } from "../utils/parameter";
+import { GalleryProgress } from "../../gallery";
 
 const meta: Meta = {
   title: "Components/Progress Circle",
   component: ProgressCircle,
+  parameters: docsMetaParameters({
+    gallery: <GalleryProgress />
+  }),
   argTypes: {
     size: Utils.arg("number"),
     value: Utils.arg("number"),
     color: Utils.arg(ProgressCircle.colors),
   },
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryProgress key="1" />],
-});
 
 export default meta;
 

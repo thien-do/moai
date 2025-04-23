@@ -1,11 +1,15 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Utils } from "../utils/utils";
-import { GalleryTag } from "../../../gallery/src";
 import { Tag } from "../../core";
+import { docsMetaParameters } from "../utils/parameter";
+import { GalleryTag } from "../../gallery";
 
 const meta: Meta = {
   title: "Components/Tag",
   component: Tag,
+  parameters: docsMetaParameters({
+    gallery: <GalleryTag />
+  }),
   argTypes: {
     children: Utils.arg(null),
     color: Utils.arg(Tag.colors),
@@ -13,11 +17,6 @@ const meta: Meta = {
     forwardedRef: Utils.arg(null),
   },
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryTag key="1" />],
-});
 
 export default meta;
 
