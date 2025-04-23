@@ -31,9 +31,9 @@ export const Primary: StoryObj<typeof ProgressCircle> = {
 };
 
 /**
- * A progress circle requires its `size` and `value` props to be defined. The
- * value should be a number from 0 (no progress yet) to 1 (all's done), or the
- * "indeterminate" string to show a spinning circle.
+ * A progress circle requires its `size` and `value` props to be defined.
+ * The value should be a number from 0 (no progress yet) to 1 (all's done),
+ * or the "indeterminate" string to show a spinning circle.
  */
 export const Basic: StoryObj = {
   render: () => (
@@ -45,8 +45,8 @@ export const Basic: StoryObj = {
 };
 
 /**
- * The color of a progress circle is set via its `color` prop. Colors are
- * defined at `ProgressCircle.colors`:
+ * The color of a progress circle is set via its `color` prop.
+ * Colors are defined at `ProgressCircle.colors`:
  *
  * - `neutral` shows a gray circle. This is the default value.
  * - `highlight` highlight the circle.

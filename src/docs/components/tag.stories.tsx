@@ -31,9 +31,9 @@ export const Primary: StoryObj<typeof Tag> = {
 };
 
 /**
- * A tag requires a label, defined as a string via the `children` prop, and a
- * color, defined via the same name prop, and should come from the `Tag.colors`
- * list. You can try all available colors in the [All Props][1] table below.
+ * A tag requires a label, defined as a string via the `children` prop,
+ * and a color, defined via the same name prop, and should come from the `Tag.colors` list.
+ * You can try all available colors in the [All Props][1] table below.
  *
  * [1]: #props
  */
