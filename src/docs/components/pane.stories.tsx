@@ -30,6 +30,12 @@ export const Primary: StoryObj<typeof Pane> = {
   )
 };
 
+/**
+ * A pane only require its `children` to be defined. See the [props table][1]
+ * below for props to control its padding, width and height.
+ *
+ * [1]: #props
+ */
 export const Basic: StoryObj = {
   render: () => (
     <Pane>
@@ -39,12 +45,3 @@ export const Basic: StoryObj = {
     </Pane>
   )
 };
-
-Utils.story(Basic, {
-  desc: `
-A pane only require its \`children\` to be defined. See the [props table][1]
-below for props to control its padding, width and height.
-
-[1]: #props
-`,
-});
