@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
-import { Tag } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
 import { Utils } from "../utils/utils";
 import { GalleryTag } from "../../../gallery/src";
+import { Tag } from "../../core";
 
 const meta: Meta = {
   title: "Components/Tag",
@@ -21,19 +21,18 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  color?: string;
-}
+export const Primary: StoryObj<typeof Tag> = {
+  render: (props) => (
+    <Tag
+      color={props.color ?? Tag.colors.gray}
+      children="Foo"
+    />
+  )
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <Tag
-    // eslint-disable-next-line
-    color={(Tag.colors as any)[props.color ?? "gray"]}
-    children="Foo"
-  />
-);
-
-export const Basic = (): JSX.Element => <Tag color={Tag.colors.green}>Foo</Tag>;
+export const Basic: StoryObj = {
+  render: () => <Tag color={Tag.colors.green}>Foo</Tag>
+};
 
 Utils.story(Basic, {
   desc: `

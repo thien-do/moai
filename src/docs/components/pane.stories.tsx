@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
-import { Pane } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
 import { Utils } from "../utils/utils";
+import { Pane } from "../../core";
 
 const meta: Meta = {
   title: "Components/Pane",
@@ -20,27 +20,25 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  noPadding?: boolean;
-  fullHeight?: boolean;
-  contentWidth?: boolean;
-}
+export const Primary: StoryObj<typeof Pane> = {
+  render: (props) => (
+    <div style={{ height: 100 }}>
+      <Pane {...props}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      </Pane>
+    </div>
+  )
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <div style={{ height: 100 }}>
-    <Pane {...props}>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+export const Basic: StoryObj = {
+  render: () => (
+    <Pane>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+      sapiente vero ad eius fuga atque repellendus? Repellat sint veniam adipisci
+      accusamus, nihil explicabo odio, id neque ducimus voluptate nulla? Maiores?
     </Pane>
-  </div>
-);
-
-export const Basic = (): JSX.Element => (
-  <Pane>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-    sapiente vero ad eius fuga atque repellendus? Repellat sint veniam adipisci
-    accusamus, nihil explicabo odio, id neque ducimus voluptate nulla? Maiores?
-  </Pane>
-);
+  )
+};
 
 Utils.story(Basic, {
   desc: `

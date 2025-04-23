@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useCallback, useState } from "react";
-import { Pagination } from "../../../core/src";
 import { Utils } from "../utils/utils";
+import { Pagination } from "../../core";
 
 const meta: Meta = {
   title: "Components/Pagination",
@@ -12,9 +12,11 @@ Utils.page.component(meta, { primary: "none", shots: [] });
 
 export default meta;
 
-export const Primary = (): JSX.Element => {
-  const [page, setPage] = useState(1);
-  return <Pagination value={page} setValue={setPage} max={10} min={1} />;
+export const Primary: StoryObj<typeof Pagination> = {
+  render: () => {
+    const [page, setPage] = useState(1);
+    return <Pagination value={page} setValue={setPage} max={10} min={1} />;
+  }
 };
 
 export const Basic = Primary;
@@ -31,15 +33,17 @@ props (inclusive) to define the range of pages users can go to.
 `,
 });
 
-export const Async = (): JSX.Element => {
-  const [page, setPage] = useState(1);
-  const setPageAsync = useCallback((page): Promise<void> => {
-    return new Promise((resolve) => {
-      setPage(page);
-      window.setTimeout(() => resolve(), 1000);
-    });
-  }, []);
-  return <Pagination value={page} setValue={setPageAsync} max={10} min={1} />;
+export const Async: StoryObj = {
+  render: () => {
+    const [page, setPage] = useState(1);
+    const setPageAsync = useCallback((page: number): Promise<void> => {
+      return new Promise((resolve) => {
+        setPage(page);
+        window.setTimeout(() => resolve(), 1000);
+      });
+    }, []);
+    return <Pagination value={page} setValue={setPageAsync} max={10} min={1} />;
+  }
 };
 
 Utils.story(Async, {
@@ -52,20 +56,22 @@ pagination displays a loading state while waiting for data.
 `,
 });
 
-export const Counting = (): JSX.Element => {
-  // Zero-based API
-  const TOTAL_PAGES = 9;
-  const [page, setPage] = useState(0);
+export const Counting: StoryObj = {
+  render: () => {
+    // Zero-based API
+    const TOTAL_PAGES = 9;
+    const [page, setPage] = useState(0);
 
-  // One-based UI
-  return (
-    <Pagination
-      value={page + 1}
-      setValue={(page) => setPage(page - 1)}
-      max={TOTAL_PAGES + 1}
-      min={1}
-    />
-  );
+    // One-based UI
+    return (
+      <Pagination
+        value={page + 1}
+        setValue={(page) => setPage(page - 1)}
+        max={TOTAL_PAGES + 1}
+        min={1}
+      />
+    );
+  }
 };
 
 Utils.story(Counting, {

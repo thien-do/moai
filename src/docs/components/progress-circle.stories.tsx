@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
-import { ProgressCircle, ProgressCircleProps } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
 import { GalleryProgress } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
+import { ProgressCircle, ProgressCircleProps } from "../../core";
 
 const meta: Meta = {
   title: "Components/Progress Circle",
@@ -20,27 +20,24 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  size: number;
-  value: number;
-  color?: string;
-}
+export const Primary: StoryObj<typeof ProgressCircle> = {
+  render: (props) => (
+    <ProgressCircle
+      size={props.size ?? 16}
+      value={props.value ?? 0.4}
+      color={props.color}
+    />
+  )
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <ProgressCircle
-    size={props.size ?? 16}
-    value={props.value ?? 0.4}
-    // eslint-disable-next-line
-    color={(ProgressCircle.colors as any)[props.color!]}
-  />
-);
-
-export const Basic = (): JSX.Element => (
-  <div style={{ display: "flex", gap: 8 }}>
-    <ProgressCircle size={16} value={0.4} />
-    <ProgressCircle size={16} value="indeterminate" />
-  </div>
-);
+export const Basic: StoryObj = {
+  render: () => (
+    <div style={{ display: "flex", gap: 8 }}>
+      <ProgressCircle size={16} value={0.4} />
+      <ProgressCircle size={16} value="indeterminate" />
+    </div>
+  )
+};
 
 Utils.story(Basic, {
   desc: `
@@ -50,18 +47,20 @@ value should be a number from 0 (no progress yet) to 1 (all's done), or the
 `,
 });
 
-export const Color = (): JSX.Element => {
-  const base: ProgressCircleProps = { size: 16, value: "indeterminate" };
-  const { neutral, highlight, inverse } = ProgressCircle.colors;
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <ProgressCircle {...base} color={neutral} />
-      <ProgressCircle {...base} color={highlight} />
-      <div style={{ background: "var(--highlight-5)", padding: 8 }}>
-        <ProgressCircle {...base} color={inverse} />
+export const Color: StoryObj = {
+  render: () => {
+    const base: ProgressCircleProps = { size: 16, value: "indeterminate" };
+    const { neutral, highlight, inverse } = ProgressCircle.colors;
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <ProgressCircle {...base} color={neutral} />
+        <ProgressCircle {...base} color={highlight} />
+        <div style={{ background: "var(--highlight-5)", padding: 8 }}>
+          <ProgressCircle {...base} color={inverse} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 Utils.story(Color, {
