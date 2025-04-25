@@ -52,11 +52,10 @@ const getStroke = (props: ProgressCircleProps) => {
 /**
  * A progress circle informs users that an operation is in progress, and often
  * how far it has been progressed. It is also known as [throbber][1], and is
- * a type of [progress indicator][2] (along with [progress bar][3]).
+ * a type of [progress indicator][2] (along with progress bar).
  *
  * [1]: https://en.wikipedia.org/wiki/Throbber
  * [2]: https://en.wikipedia.org/wiki/Progress_indicator
- * [3]: /docs/components-progress-bar--primary
  */
 export const ProgressCircle = (props: ProgressCircleProps): JSX.Element => {
   const stroke = getStroke(props);
