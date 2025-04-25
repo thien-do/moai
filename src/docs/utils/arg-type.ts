@@ -24,19 +24,21 @@ type RawGroup<CT extends ComponentType> = Partial<
 >;
 
 const transformValue = (value: DocsValue): RawValue => {
-  switch (value) {
-    case false:
+  switch (true) {
+    case value === false:
       return { control: false };
-    case "boolean":
+    case value === "boolean":
       return { control: "boolean" };
-    case "number":
+    case value === "number":
       return { control: "number" };
+    case Array.isArray(value):
+      return { control: "select", options: value, };
+    case typeof value === "object": {
+      const options = Object.keys(value);
+      return { control: "select", mapping: value, options, };
+    }
     default:
-      return {
-        control: "select",
-        mapping: value,
-        options: Object.keys(value),
-      };
+      throw new Error(`Invalid value: ${value}`);
   }
 };
 
