@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Dialog, Tree } from "../../core";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Draft/Tree",
   component: Tree,
-  argTypes: {
-    parentMode: Utils.arg(["select", "expand"]),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      parentMode: ["select", "expand"],
+    },
+  }),
 };
 
 export default meta;

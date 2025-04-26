@@ -1,16 +1,18 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TextArea } from "../../core";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Draft/TextArea",
   component: TextArea,
-  argTypes: {
-    style: Utils.arg(TextArea.styles),
-    size: Utils.arg(TextArea.sizes),
-    disabled: Utils.arg("boolean"),
-    readOnly: Utils.arg("boolean"),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      style: TextArea.styles,
+      size: TextArea.sizes,
+      disabled: "boolean",
+      readOnly: "boolean",
+    }
+  }),
 };
 
 export default meta;
