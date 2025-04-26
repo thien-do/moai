@@ -36,25 +36,29 @@ export const Primary: StoryObj<typeof Icon> = {
   ),
 };
 
+/**
+ * The recommended way to use the Icon component 
+ * is to import an icon from the [react-icons][1] package and pass it to the `icon` prop.
+ * All icons in the package can be used with Moai out of the box.
+ * 
+ * ```ts
+ * import { FaHome } from "react-icons/fa";
+ * ```
+ * 
+ * [1]: https://react-icons.github.io/react-icons/
+ */
 export const Basic: StoryObj = {
   render: () => <Icon component={FaHome} />,
 };
 
-Utils.story(Basic, {
-  desc: `
-The recommended way to use the Icon component is to import an icon from the
-[react-icons][1] package and pass it to the \`icon\` prop. All icons in the
-package can be used with Moai out of the box.
-
-~~~ts
-
-import { FaHome } from "react-icons/fa";
-~~~
-
-[1]: https://react-icons.github.io/react-icons/
-`,
-});
-
+/**
+ * To make layout more predictable, icons are rendered as [block elements][1] by default.
+ * However, for icons that are parts of texts, they should be rendered as [inline elements][2].
+ * This is done by setting the `display` prop to `inline`.
+ * 
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
+ * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
+ */
 export const Display: StoryObj = {
   render: () => (
     <p>
@@ -65,18 +69,16 @@ export const Display: StoryObj = {
   ),
 };
 
-Utils.story(Display, {
-  desc: `
-To make layout more predictable, icons are rendered as [block elements][1] by
-default. However, for icons that are parts of texts, they should be rendered as
-[inline elements][2]. This is done by setting the \`display\` prop to
-\`inline\`.
-
-[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
-[2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
-`,
-});
-
+/**
+ * SVG icons usually use the [`currentcolor`][1] keyword for their colors.
+ * This means to set the color of an icon, 
+ * you should set the [text color][2] of its container.
+ * Moai has a [`text`][3] utility that provides predefined, accessible colors for icons.
+ * 
+ * [1]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword
+ * [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
+ * [3]: /docs/patterns-color-text--page
+ */
 export const Color: StoryObj = {
   render: () => (
     <div className={text.highlightWeak}>
@@ -85,19 +87,16 @@ export const Color: StoryObj = {
   ),
 };
 
-Utils.story(Color, {
-  desc: `
-SVG icons usually use the [\`currentcolor\`][1] keyword for their colors. This
-means to set the color of an icon, you should set the [text color][2] of its
-container. Moai has a [\`text\`][3] utility that provides predefined,
-accessible colors for icons.
-
-[1]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword
-[2]: https://developer.mozilla.org/en-US/docs/Web/CSS/color
-[3]: /docs/patterns-color-text--page
-`,
-});
-
+/**
+ * Technically, the `component` prop expects a [function component][1] that returns an SVG element.
+ * You can use it to display your own custom icons (e.g. logos, product icons).
+ * With tools like [React SVGR][3], you can even create your own icon sets to use with Moai.
+ * See the [Advanced section][2] in the Icon Pattern guide for detail.
+ * 
+ * [1]: https://reactjs.org/docs/components-and-props.html#function-and-class-components
+ * [2]: /docs/patterns-icon--advanced
+ * [3]: https://react-svgr.com
+ */
 export const Advanced: StoryObj = {
   render: () => {
     // In practice, this should be defined outside of your component, or even
@@ -111,17 +110,3 @@ export const Advanced: StoryObj = {
     return <Icon component={Line} />;
   },
 };
-
-Utils.story(Advanced, {
-  desc: `
-Technically, the \`component\` prop expects a [function component][1] that
-returns an SVG element. You can use it to display your own custom icons (e.g.
-logos, product icons). With tools like [React SVGR][3], you can even create
-your own icon sets to use with Moai. See the [Advanced section][2] in the Icon
-Pattern guide for detail.
-
-[1]: https://reactjs.org/docs/components-and-props.html#function-and-class-components
-[2]: /docs/patterns-icon--advanced
-[3]: https://react-svgr.com
-`,
-});
