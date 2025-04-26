@@ -1,7 +1,8 @@
-import { TextArea } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
+import { TextArea } from "../../core";
 import { Utils } from "../utils/utils";
 
-export default {
+const meta: Meta = {
   title: "Draft/TextArea",
   component: TextArea,
   argTypes: {
@@ -12,20 +13,8 @@ export default {
   },
 };
 
-interface Props {
-  style?: string;
-  size?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-}
+export default meta;
 
-export const Primary = (props: Props): JSX.Element => (
-  <TextArea
-    // eslint-disable-next-line
-    style={(TextArea.styles as any)[props.style!]}
-    // eslint-disable-next-line
-    size={(TextArea.sizes as any)[props.size!]}
-    disabled={props.disabled}
-    readOnly={props.readOnly}
-  />
-);
+export const Primary: StoryObj<typeof TextArea> = {
+  render: (props) => <TextArea {...props} />
+};

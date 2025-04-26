@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Meta } from "@storybook/react";
-import { Dialog, Tree, TreeProps } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
+import { Dialog, Tree } from "../../core";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -38,27 +38,25 @@ const root = {
   ],
 };
 
-interface Props {
-  parentMode: TreeProps["parentMode"];
-}
+export const Primary: StoryObj<typeof Tree> = {
+  render: (props) => {
+    const [expanded, setExpanded] = useState<Set<string>>(new Set());
+    const [selected, setSelected] = useState<Set<string>>(new Set());
 
-export const Basic = (props: Props): JSX.Element => {
-  const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [selected, setSelected] = useState<Set<string>>(new Set());
-
-  return (
-    <div style={{ width: 200 }}>
-      <Tree
-        expanded={expanded}
-        setExpanded={setExpanded}
-        selected={selected}
-        setSelected={setSelected}
-        node={root}
-        parentMode={props.parentMode}
-        getRowActions={(node) => [
-          { label: "Say", fn: () => Dialog.alert(node.label) },
-        ]}
-      />
-    </div>
-  );
+    return (
+      <div style={{ width: 200 }}>
+        <Tree
+          expanded={expanded}
+          setExpanded={setExpanded}
+          selected={selected}
+          setSelected={setSelected}
+          node={root}
+          parentMode={props.parentMode}
+          getRowActions={(node) => [
+            { label: "Say", fn: () => Dialog.alert(node.label) },
+          ]}
+        />
+      </div>
+    );
+  }
 };

@@ -1,18 +1,22 @@
-import { Meta } from "@storybook/react";
-import { Steps } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
+import { Steps } from "../../core";
 
-export default {
+const meta: Meta = {
   title: "Draft/Steps",
   component: Steps,
-} as Meta;
+};
 
-export const Primary = (): JSX.Element => (
-  <Steps
-    steps={[
-      { title: "First" },
-      { title: "Second" },
-      { title: "Third and long long" },
-    ]}
-    current={1}
-  />
-);
+export default meta;
+
+export const Primary: StoryObj<typeof Steps> = {
+  render: () => (
+    <Steps
+      steps={[
+        { title: "First" },
+        { title: "Second" },
+        { title: "Third and long long" },
+      ]}
+      current={1}
+    />
+  )
+};
