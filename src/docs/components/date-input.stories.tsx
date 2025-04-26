@@ -58,7 +58,7 @@ export const Primary: StoryObj<typeof DateInput> = {
  * 
  * [1]: https://reactjs.org/docs/forms.html#controlled-components
  * [2]: https://html.spec.whatwg.org/multipage/input.html#dom-input-valueasdate
- * [3]: /docs/components-input--width
+ * [3]: /docs/components-input--docs
  * [4]: https://reactjs.org/docs/hooks-state.html
  * [5]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
  */
