@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/react";
-import { Button, Popover, PopoverPlacement } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
+import { Button, Popover } from "../../core";
 import { PLACEMENTS } from "../utils/placement";
 import { Utils } from "../utils/utils";
 
@@ -18,32 +18,32 @@ Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
-interface Props {
-  placement?: PopoverPlacement;
-}
+export const Primary: StoryObj<typeof Popover> = {
+  render: (props) => (
+    <Popover
+      placement={props.placement}
+      target={(popover) => (
+        <Button onClick={popover.toggle} children="Show popover" />
+      )}
+      content={() => <div style={{ padding: 8 }} children="Hello" />}
+    />
+  ),
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <Popover
-    placement={props.placement}
-    target={(popover) => (
-      <Button onClick={popover.toggle} children="Show popover" />
-    )}
-    content={() => <div style={{ padding: 8 }} children="Hello" />}
-  />
-);
-
-export const Basic = (): JSX.Element => (
-  <Popover
-    target={(popover) => (
-      <Button
-        onClick={() => popover.toggle()}
-        selected={popover.opened}
-        children="Show popover"
-      />
-    )}
-    content={() => "Hello"}
-  />
-);
+export const Basic: StoryObj = {
+  render: () => (
+    <Popover
+      target={(popover) => (
+        <Button
+          onClick={() => popover.toggle()}
+          selected={popover.opened}
+          children="Show popover"
+        />
+      )}
+      content={() => "Hello"}
+    />
+  ),
+};
 
 Utils.story(Basic, {
   desc: `
@@ -76,13 +76,15 @@ it, imperatively, via the callback you received.
 `,
 });
 
-export const TargetWrapper = (): JSX.Element => (
-  <Popover
-    content={() => "Hello"}
-    target={(popover) => <span onClick={popover.toggle}>Click me!</span>}
-    TargetWrapper={Popover.targetWrappers.inline}
-  />
-);
+export const TargetWrapper: StoryObj = {
+  render: () => (
+    <Popover
+      content={() => "Hello"}
+      target={(popover) => <span onClick={popover.toggle}>Click me!</span>}
+      TargetWrapper={Popover.targetWrappers.inline}
+    />
+  ),
+};
 
 Utils.story(TargetWrapper, {
   desc: `
@@ -100,15 +102,17 @@ for full-width buttons.
 `,
 });
 
-export const PlacementExample = (): JSX.Element => (
-  <Popover
-    placement="right"
-    target={(popover) => (
-      <Button onClick={popover.toggle} children="Show popover" />
-    )}
-    content={() => <div style={{ padding: 8 }} children="Hello" />}
-  />
-);
+export const PlacementExample: StoryObj = {
+  render: () => (
+    <Popover
+      placement="right"
+      target={(popover) => (
+        <Button onClick={popover.toggle} children="Show popover" />
+      )}
+      content={() => <div style={{ padding: 8 }} children="Hello" />}
+    />
+  ),
+};
 
 Utils.story(PlacementExample, {
   name: "Placement",

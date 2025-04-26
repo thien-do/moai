@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Radio } from "../../../core/src";
+import { Radio } from "../../core";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 
@@ -26,37 +26,34 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  disabled?: boolean;
-  checked?: boolean;
-}
+export const Primary: StoryObj<typeof Radio> = {
+  render: (props) => (
+    <Radio
+      checked={props.checked ?? true}
+      disabled={props.disabled}
+      name="radio"
+      value="1"
+      children="Radio"
+    />
+  ),
+};
 
-export const Primary = (props: Props): JSX.Element => (
-  <Radio
-    checked={props.checked ?? true}
-    disabled={props.disabled}
-    name="radio"
-    value="1"
-    children="Radio"
-  />
-);
-
-export const Basic = (): JSX.Element => {
-  const [selected, setSelected] = useState(someBooks[1].isbn.toString());
-
-  const toRadio = (book: Book, index: number): JSX.Element => (
-    <li key={book.isbn} style={{ marginTop: index === 0 ? 0 : 8 }}>
-      <Radio
-        name="basic-radios"
-        checked={selected === book.isbn.toString()}
-        value={book.isbn.toString()}
-        setValue={setSelected}
-        children={book.title}
-      />
-    </li>
-  );
-
-  return <ul>{someBooks.map(toRadio)}</ul>;
+export const Basic: StoryObj = {
+  render: () => {
+    const [selected, setSelected] = useState(someBooks[1].isbn.toString());
+    const toRadio = (book: Book, index: number): JSX.Element => (
+      <li key={book.isbn} style={{ marginTop: index === 0 ? 0 : 8 }}>
+        <Radio
+          name="basic-radios"
+          checked={selected === book.isbn.toString()}
+          value={book.isbn.toString()}
+          setValue={setSelected}
+          children={book.title}
+        />
+      </li>
+    );
+    return <ul>{someBooks.map(toRadio)}</ul>;
+  },
 };
 
 Utils.story(Basic, {
@@ -73,11 +70,13 @@ Like in HTML, a \`name\` prop is also required to group your radio buttons.
 `,
 });
 
-export const WithoutLabel = (): JSX.Element => (
-  <Radio name="radio" value="1" hideLabel>
-    Sample Radio
-  </Radio>
-);
+export const WithoutLabel: StoryObj = {
+  render: () => (
+    <Radio name="radio" value="1" hideLabel>
+      Sample Radio
+    </Radio>
+  ),
+};
 
 Utils.story(WithoutLabel, {
   desc: `

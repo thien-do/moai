@@ -1,6 +1,5 @@
-import { Meta } from "@storybook/react/types-6-0";
-import { useState } from "react";
-import { DateInput } from "../../../core/src";
+import { Meta, StoryObj } from "@storybook/react";
+import { DateInput } from "../../core";
 import { Utils } from "../utils/utils";
 
 const meta: Meta = {
@@ -25,39 +24,39 @@ Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
-interface Props {
-  style?: string;
-  size?: string;
-  format?: string;
-  disabled?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => {
-  const [date, setDate] = useState<null | Date>(() => new Date());
-  return (
-    <div style={{ width: 200 }}>
-      <DateInput
-        value={date}
-        setValue={setDate}
-        // eslint-disable-next-line
-        size={(DateInput.sizes as any)[props.size!]}
-        // eslint-disable-next-line
-        format={(DateInput.formats as any)[props.format!]}
-        // eslint-disable-next-line
-        style={(DateInput.styles as any)[props.style!]}
-        disabled={props.disabled}
-      />
-    </div>
-  );
+export const Primary: StoryObj<typeof DateInput> = {
+  render: (_props) => {
+    // const [date, setDate] = useState<null | Date>(() => new Date());
+    return (
+      <div style={{ width: 200 }}>
+        <DateInput
+        // value={date}
+        // setValue={setDate}
+        // // eslint-disable-next-line
+        // size={(DateInput.sizes as any)[props.size!]}
+        // // eslint-disable-next-line
+        // format={(DateInput.formats as any)[props.format!]}
+        // // eslint-disable-next-line
+        // style={(DateInput.styles as any)[props.style!]}
+        // disabled={props.disabled}
+        />
+      </div>
+    );
+  }
 };
 
-export const Basic = (): JSX.Element => {
-  const [date, setDate] = useState<null | Date>(() => new Date());
-  return (
-    <div style={{ width: 200 }}>
-      <DateInput value={date} setValue={setDate} />
-    </div>
-  );
+export const Basic: StoryObj = {
+  render: () => {
+    // const [date, setDate] = useState<null | Date>(() => new Date());
+    return (
+      <div style={{ width: 200 }}>
+        <DateInput
+        // value={date}
+        // setValue={setDate}
+        />
+      </div>
+    );
+  }
 };
 
 Utils.story(Basic, {
@@ -82,15 +81,20 @@ container's width.
 `,
 });
 
-export const MinMax = (): JSX.Element => {
-  const today = new Date();
-  const lastWeek = new Date();
-  lastWeek.setDate(lastWeek.getDate() - 7);
-  return (
-    <div style={{ width: 200 }}>
-      <DateInput minDate={lastWeek} maxDate={today} />
-    </div>
-  );
+export const MinMax: StoryObj = {
+  render: () => {
+    // const today = new Date();
+    // const lastWeek = new Date();
+    // lastWeek.setDate(lastWeek.getDate() - 7);
+    return (
+      <div style={{ width: 200 }}>
+        <DateInput
+        // minDate={lastWeek}
+        // maxDate={today}
+        />
+      </div>
+    );
+  }
 };
 
 Utils.story(MinMax, {

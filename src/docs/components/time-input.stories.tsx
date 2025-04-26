@@ -1,8 +1,9 @@
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { TimeInput } from "../../../core/src";
+import { TimeInput } from "../../core";
 import { Utils } from "../utils/utils";
 
-const meta = {
+const meta: Meta = {
   title: "Components/TimeInput",
   component: TimeInput,
   argTypes: {
@@ -23,48 +24,39 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  style?: string;
-  size?: string;
-  fill?: boolean;
-  disabled?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => {
-  const [value, setValue] = useState<Date>(() => {
-    const date = new Date();
-    date.setSeconds(0); // TimeInput's value's second must be 0
-    return date;
-  });
-  return (
-    <TimeInput
-      value={value}
-      setValue={setValue}
-      interval={TimeInput.intervals.minute}
-      // eslint-disable-next-line
-      style={(TimeInput.styles as any)[props.style!]}
-      // eslint-disable-next-line
-      size={(TimeInput.sizes as any)[props.size!]}
-      fill={props.fill}
-      disabled={props.disabled}
-    />
-  );
+export const Primary: StoryObj<typeof TimeInput> = {
+  render: (props) => {
+    const [value, setValue] = useState<Date>(() => {
+      const date = new Date();
+      date.setSeconds(0); // TimeInput's value's second must be 0
+      return date;
+    });
+    return (
+      <TimeInput
+        {...props}
+        value={value}
+        setValue={setValue}
+      />
+    )
+  }
 };
 
-export const Basic = (): JSX.Element => {
-  const [value, setValue] = useState<Date>(() => {
-    const date = new Date();
-    date.setSeconds(0); // Ensure second is zero
-    date.setMinutes(15); // Ensure value follows interval
-    return date;
-  });
-  return (
-    <TimeInput
-      interval={TimeInput.intervals.quarter}
-      value={value}
-      setValue={setValue}
-    />
-  );
+export const Basic: StoryObj<typeof TimeInput> = {
+  render: () => {
+    const [value, setValue] = useState<Date>(() => {
+      const date = new Date();
+      date.setSeconds(0); // Ensure second is zero
+      date.setMinutes(15); // Ensure value follows interval
+      return date;
+    });
+    return (
+      <TimeInput
+        interval={TimeInput.intervals.quarter}
+        value={value}
+        setValue={setValue}
+      />
+    );
+  }
 };
 
 Utils.story(Basic, {
