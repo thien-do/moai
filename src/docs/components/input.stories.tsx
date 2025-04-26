@@ -3,13 +3,16 @@ import * as Fm from "formik";
 import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
 import { Button, Dialog, DivPx, Input } from "../../core";
-import { GalleryInput1 } from "../../../gallery/src";
-import { GalleryInput2 } from "../../../gallery/src";
+import { GalleryInput1, GalleryInput2 } from "../../gallery";
 import { Utils } from "../utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Input",
   component: Input,
+  parameters: docsMetaParameters({
+    gallery: [<GalleryInput1 />, <GalleryInput2 />]
+  }),
   argTypes: {
     type: Utils.arg("string", "Visual"),
     style: Utils.arg(Input.styles, "Visual"),
@@ -22,11 +25,6 @@ const meta: Meta = {
     onChange: Utils.arg(null, "State"),
   },
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryInput1 key="1" />, <GalleryInput2 key="2" />],
-});
 
 export default meta;
 

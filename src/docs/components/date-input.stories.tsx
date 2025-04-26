@@ -17,10 +17,7 @@ const meta: Meta = {
     defaultValue: Utils.arg(null),
     icon: Utils.arg(null),
   },
-  parameters: { stickyPrimary: true },
 };
-
-Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 

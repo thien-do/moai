@@ -2,23 +2,22 @@ import { Meta, StoryObj } from "@storybook/react";
 import { SVGAttributes } from "react";
 import { FaHome } from "react-icons/fa";
 import { Icon, text } from "../../core";
-import { GalleryIcon } from "../../../gallery/src";
+import { GalleryIcon } from "../../gallery";
 import { Utils } from "../utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Icon",
   component: Icon,
+  parameters: docsMetaParameters({
+    gallery: [<GalleryIcon />]
+  }),
   argTypes: {
     display: Utils.arg(["block", "inline"]),
     component: Utils.arg(null),
     size: Utils.arg("number"),
   },
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryIcon key="1" />],
-});
 
 export default meta;
 
