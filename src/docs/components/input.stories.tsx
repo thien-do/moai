@@ -15,7 +15,7 @@ const meta: Meta = {
   }),
   argTypes: docsMetaArgTypes({
     Visual: {
-      type: "string",
+      type: false,
       style: Input.styles,
       size: Input.sizes,
       icon: false,
