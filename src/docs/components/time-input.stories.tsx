@@ -31,6 +31,7 @@ export const Primary: StoryObj<typeof TimeInput> = {
     return (
       <TimeInput
         {...props}
+        interval={props.interval ?? TimeInput.intervals.minute}
         value={value}
         setValue={setValue}
       />
