@@ -1,20 +1,22 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { TimeInput } from "../../core";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/TimeInput",
   component: TimeInput,
-  argTypes: {
-    style: Utils.arg(TimeInput.styles),
-    size: Utils.arg(TimeInput.sizes),
-    fill: Utils.arg("boolean"),
-    disabled: Utils.arg("boolean"),
-    value: Utils.arg(null),
-    setValue: Utils.arg(null),
-    id: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      style: TimeInput.styles,
+      size: TimeInput.sizes,
+      fill: "boolean",
+      disabled: "boolean",
+      value: false,
+      setValue: false,
+      id: false,
+    },
+  })
 };
 
 export default meta;

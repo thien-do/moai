@@ -2,21 +2,23 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Radio } from "../../core";
 import { Book, someBooks } from "../utils/example";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Radio",
   component: Radio,
-  argTypes: {
-    disabled: Utils.arg("boolean"),
-    checked: Utils.arg("boolean"),
-    value: Utils.arg(null),
-    children: Utils.arg(null),
-    name: Utils.arg(null),
-    setValue: Utils.arg(null),
-    defaultChecked: Utils.arg(null),
-    forwardedRef: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      disabled: "boolean",
+      checked: "boolean",
+      value: false,
+      children: false,
+      name: false,
+      setValue: false,
+      defaultChecked: false,
+      forwardedRef: false,
+    }
+  })
 };
 
 export default meta;

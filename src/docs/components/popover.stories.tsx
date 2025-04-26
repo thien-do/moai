@@ -1,17 +1,19 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, Popover } from "../../core";
 import { PLACEMENTS } from "../utils/placement";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Popover",
   component: Popover,
-  argTypes: {
-    placement: Utils.arg(PLACEMENTS),
-    target: Utils.arg(null),
-    content: Utils.arg(null),
-    TargetWrapper: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      placement: PLACEMENTS,
+      target: false,
+      content: false,
+      TargetWrapper: false,
+    }
+  })
 };
 
 export default meta;

@@ -4,8 +4,8 @@ import { useState } from "react";
 import { HiPhone } from "react-icons/hi";
 import { Button, Dialog, DivPx, Input } from "../../core";
 import { GalleryInput1, GalleryInput2 } from "../../gallery";
-import { Utils } from "../utils/utils";
 import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Input",
@@ -13,17 +13,21 @@ const meta: Meta = {
   parameters: docsMetaParameters({
     gallery: [<GalleryInput1 />, <GalleryInput2 />]
   }),
-  argTypes: {
-    type: Utils.arg("string", "Visual"),
-    style: Utils.arg(Input.styles, "Visual"),
-    size: Utils.arg(Input.sizes, "Visual"),
-    icon: Utils.arg(null, "Visual"),
-    list: Utils.arg(null, "Visual"),
-    defaultValue: Utils.arg(null, "State"),
-    value: Utils.arg(null, "State"),
-    setValue: Utils.arg(null, "State"),
-    onChange: Utils.arg(null, "State"),
-  },
+  argTypes: docsMetaArgTypes({
+    Visual: {
+      type: "string",
+      style: Input.styles,
+      size: Input.sizes,
+      icon: false,
+      list: false,
+    },
+    State: {
+      defaultValue: false,
+      value: false,
+      setValue: false,
+      onChange: false,
+    }
+  })
 };
 
 export default meta;

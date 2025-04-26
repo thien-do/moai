@@ -1,22 +1,24 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { DateInput } from "../../core";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/DateInput",
   component: DateInput,
-  argTypes: {
-    style: Utils.arg(DateInput.styles),
-    size: Utils.arg(DateInput.sizes),
-    format: Utils.arg(DateInput.formats),
-    disabled: Utils.arg("boolean"),
-    minDate: Utils.arg(null),
-    maxDate: Utils.arg(null),
-    value: Utils.arg(null),
-    setValue: Utils.arg(null),
-    defaultValue: Utils.arg(null),
-    icon: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      style: DateInput.styles,
+      size: DateInput.sizes,
+      format: DateInput.formats,
+      disabled: "boolean",
+      minDate: false,
+      maxDate: false,
+      value: false,
+      setValue: false,
+      defaultValue: false,
+      icon: false,
+    },
+  })
 };
 
 export default meta;
