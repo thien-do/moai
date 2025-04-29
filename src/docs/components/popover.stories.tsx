@@ -110,7 +110,7 @@ export const TargetWrapper: StoryObj = {
  * [1]: https://popper.js.org/docs/v2/constructors/#options
  * [2]: #props
  */
-export const PlacementExample: StoryObj = {
+export const Placement: StoryObj = {
   render: () => (
     <Popover
       placement="right"
