@@ -32,10 +32,14 @@ const transformValue = (value: DocsValue): RawValue => {
     case value === "number":
       return { control: "number" };
     case Array.isArray(value):
-      return { control: "select", options: value, };
     case typeof value === "object": {
-      const options = Object.keys(value);
-      return { control: "select", mapping: value, options, };
+      const isArray = Array.isArray(value);
+      const options = isArray ? value : Object.keys(value);
+      return {
+        control: options.length > 4 ? "select" : "radio",
+        options,
+        mapping: isArray ? undefined : value,
+      };
     }
     default:
       throw new Error(`Invalid value: ${value}`);
