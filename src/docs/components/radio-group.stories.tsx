@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { RadioGroup, RadioOption } from "../../../core/src";
+import { RadioGroup, RadioOption } from "../../core";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 import { RadioOptionComponent } from "./radio-group-fake";
@@ -25,47 +25,47 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  row?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => {
-  const [value, setValue] = useState(someBooks[1].isbn);
-  const toOption = (book: Book): RadioOption<number> => ({
-    id: book.isbn.toString(),
-    value: book.isbn,
-    label: book.title,
-  });
-  return (
-    <RadioGroup
-      name="primary-group"
-      value={value}
-      setValue={setValue}
-      options={someBooks.map(toOption)}
-      row={props.row}
-    />
-  );
+export const Primary: StoryObj<typeof RadioGroup> = {
+  render: (props) => {
+    const [value, setValue] = useState(someBooks[1].isbn);
+    const toOption = (book: Book): RadioOption<number> => ({
+      id: book.isbn.toString(),
+      value: book.isbn,
+      label: book.title,
+    });
+    return (
+      <RadioGroup
+        name="primary-group"
+        value={value}
+        setValue={setValue}
+        options={someBooks.map(toOption)}
+        row={props.row}
+      />
+    );
+  }
 };
 
-export const Basic = (): JSX.Element => {
-  type Value = Book["isbn"];
+export const Basic: StoryObj = {
+  render: () => {
+    type Value = Book["isbn"];
 
-  const [value, setValue] = useState<Value>(someBooks[1].isbn);
+    const [value, setValue] = useState<Value>(someBooks[1].isbn);
 
-  const toOption = (book: Book): RadioOption<Value> => ({
-    id: book.isbn.toString(),
-    value: book.isbn,
-    label: book.title,
-  });
+    const toOption = (book: Book): RadioOption<Value> => ({
+      id: book.isbn.toString(),
+      value: book.isbn,
+      label: book.title,
+    });
 
-  return (
-    <RadioGroup<Value>
-      name="basic-group"
-      value={value}
-      setValue={setValue}
-      options={someBooks.map(toOption)}
-    />
-  );
+    return (
+      <RadioGroup<Value>
+        name="basic-group"
+        value={value}
+        setValue={setValue}
+        options={someBooks.map(toOption)}
+      />
+    );
+  }
 };
 
 Utils.story(Basic, {

@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Select } from "../../../core/src";
+import { Select } from "../../core";
 import { GallerySelect } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { SelectOptionComponent } from "./select-fake";
@@ -31,42 +31,37 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  style?: string;
-  size?: string;
-  fill?: boolean;
-  disabled?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => (
-  <Select<number>
-    options={[
-      { value: 0, id: "red", label: "Red" },
-      { value: 1, id: "blue", label: "Blue" },
-      { value: 2, id: "green", label: "Green" },
-    ]}
-    // eslint-disable-next-line
-    style={(Select.styles as any)[props.style!]}
-    // eslint-disable-next-line
-    size={(Select.sizes as any)[props.size!]}
-    fill={props.fill}
-    disabled={props.disabled}
-  />
-);
-
-export const Basic = (): JSX.Element => {
-  const [value, setValue] = useState<number>(1);
-  return (
+export const Primary: StoryObj<typeof Select> = {
+  render: (props) => (
     <Select<number>
       options={[
         { value: 0, id: "red", label: "Red" },
         { value: 1, id: "blue", label: "Blue" },
         { value: 2, id: "green", label: "Green" },
       ]}
-      value={value}
-      setValue={setValue}
+      style={props.style}
+      size={props.size}
+      fill={props.fill}
+      disabled={props.disabled}
     />
-  );
+  )
+};
+
+export const Basic: StoryObj = {
+  render: () => {
+    const [value, setValue] = useState<number>(1);
+    return (
+      <Select<number>
+        options={[
+          { value: 0, id: "red", label: "Red" },
+          { value: 1, id: "blue", label: "Blue" },
+          { value: 2, id: "green", label: "Green" },
+        ]}
+        value={value}
+        setValue={setValue}
+      />
+    );
+  }
 };
 
 Utils.story(Basic, {
@@ -86,15 +81,17 @@ unique \`id\`. See the [\`SelectOption\` table][4] below for more detail.
 `,
 });
 
-export const StringOptionUtility = (): JSX.Element => {
-  const [value, setValue] = useState("Blue");
-  return (
-    <Select<string>
-      options={["Red", "Blue", "Green"].map(Select.toStringOption)}
-      value={value}
-      setValue={setValue}
-    />
-  );
+export const StringOptionUtility: StoryObj = {
+  render: () => {
+    const [value, setValue] = useState("Blue");
+    return (
+      <Select<string>
+        options={["Red", "Blue", "Green"].map(Select.toStringOption)}
+        value={value}
+        setValue={setValue}
+      />
+    );
+  }
 };
 
 Utils.story(StringOptionUtility, {
@@ -111,28 +108,30 @@ options, which calls \`toString\` to provide \`id\` and \`label\` fields.
 `,
 });
 
-export const Placeholder = (): JSX.Element => {
-  const [value, setValue] = useState<null | number>(null);
-  return (
-    <Select<number | null>
-      options={[
-        {
-          value: null,
-          id: "null",
-          // This works as the "placeholder"
-          label: "Select a color",
-          // Remove this if users should be able to select the
-          // "empty" state
-          disabled: true,
-        },
-        { value: 0, id: "red", label: "Red" },
-        { value: 1, id: "blue", label: "Blue" },
-        { value: 2, id: "green", label: "Green" },
-      ]}
-      value={value}
-      setValue={setValue}
-    />
-  );
+export const Placeholder: StoryObj = {
+  render: () => {
+    const [value, setValue] = useState<null | number>(null);
+    return (
+      <Select<number | null>
+        options={[
+          {
+            value: null,
+            id: "null",
+            // This works as the "placeholder"
+            label: "Select a color",
+            // Remove this if users should be able to select the
+            // "empty" state
+            disabled: true,
+          },
+          { value: 0, id: "red", label: "Red" },
+          { value: 1, id: "blue", label: "Blue" },
+          { value: 2, id: "green", label: "Green" },
+        ]}
+        value={value}
+        setValue={setValue}
+      />
+    );
+  }
 };
 
 Utils.story(Placeholder, {

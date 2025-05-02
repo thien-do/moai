@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Button, DivPx, Switcher, Tab, Tabs } from "../../../core/src";
+import { Button, DivPx, Switcher, Tab, Tabs } from "../../core";
 import { GalleryTab1, GalleryTab2 } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { TabComponent } from "./tab-fake";
@@ -27,39 +27,31 @@ Utils.page.component(meta, {
 
 export default meta;
 
-interface Props {
-  style?: string;
-  noPadding?: boolean;
-  fullHeight?: boolean;
-}
-
 const tabs: Tab[] = [
   { id: "first", title: "First", pane: () => <p>1st</p> },
   { id: "second", title: "Second", pane: () => <p>2nd</p> },
 ];
 
-export const Primary = (props: Props): JSX.Element => (
-  <div style={{ height: "150px" }}>
-    <Tabs
-      children={tabs}
-      // eslint-disable-next-line
-      style={(Tabs.styles as any)[props.style!]}
-      noPadding={props.noPadding}
-      fullHeight={props.fullHeight}
-    />
-  </div>
-);
+export const Primary: StoryObj<typeof Tabs> = {
+  render: (props) => (
+    <div style={{ height: "150px" }}>
+      <Tabs {...props} children={tabs} />
+    </div>
+  )
+};
 
 Utils.story(Primary, { fixPrimary: true });
 
-export const Basic = (): JSX.Element => (
-  <Tabs>
-    {[
-      { id: "first", title: "First", pane: () => <p>1st</p> },
-      { id: "second", title: "Second", pane: () => <p>2nd</p> },
-    ]}
-  </Tabs>
-);
+export const Basic: StoryObj = {
+  render: () => (
+    <Tabs>
+      {[
+        { id: "first", title: "First", pane: () => <p>1st</p> },
+        { id: "second", title: "Second", pane: () => <p>2nd</p> },
+      ]}
+    </Tabs>
+  )
+};
 
 Utils.story(Basic, {
   desc: `
@@ -82,30 +74,32 @@ be removed via the \`noPadding\` prop.
 `,
 });
 
-export const Controlled = (): JSX.Element => {
-  const [tab, setTab] = useState("first");
-  const FirstPane = (): JSX.Element => (
-    <Button onClick={() => setTab("second")}>Next</Button>
-  );
-  const SecondPane = (): JSX.Element => (
-    <Button onClick={() => setTab("first")}>Back</Button>
-  );
-  return (
-    <div>
-      <Switcher<string>
-        value={tab}
-        setValue={setTab}
-        options={tabs.map((tab) => ({ value: tab.id, label: tab.id }))}
-      />
-      <DivPx size={16} />
-      <Tabs setActiveTab={setTab} activeTab={tab}>
-        {[
-          { id: "first", title: "First", pane: FirstPane },
-          { id: "second", title: "Second", pane: SecondPane },
-        ]}
-      </Tabs>
-    </div>
-  );
+export const Controlled: StoryObj = {
+  render: () => {
+    const [tab, setTab] = useState("first");
+    const FirstPane = (): JSX.Element => (
+      <Button onClick={() => setTab("second")}>Next</Button>
+    );
+    const SecondPane = (): JSX.Element => (
+      <Button onClick={() => setTab("first")}>Back</Button>
+    );
+    return (
+      <div>
+        <Switcher<string>
+          value={tab}
+          setValue={setTab}
+          options={tabs.map((tab) => ({ value: tab.id, label: tab.id }))}
+        />
+        <DivPx size={16} />
+        <Tabs setActiveTab={setTab} activeTab={tab}>
+          {[
+            { id: "first", title: "First", pane: FirstPane },
+            { id: "second", title: "Second", pane: SecondPane },
+          ]}
+        </Tabs>
+      </div>
+    );
+  }
 };
 
 Utils.story(Controlled, {

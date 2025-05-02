@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Pane, Table, TableColumn } from "../../../core/src";
+import { Pane, Table, TableColumn } from "../../core";
 import { Robot, ROBOTS } from "../../../gallery/src";
 import { GalleryTable } from "../../../gallery/src";
 import { Book, someBooks } from "../utils/example";
@@ -39,58 +39,56 @@ const bookColumns: TableColumn<Book>[] = [
 
 const bookKey = (book: Book): string => book.isbn.toString();
 
-interface Props {
-  size?: string;
-  fill?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => (
-  <Table<Book>
-    rows={someBooks}
-    rowKey={bookKey}
-    columns={bookColumns}
-    fill={props.fill}
-    // eslint-disable-next-line
-    size={(Table.sizes as any)[props.size!]}
-  />
-);
-
-export const Basic = (): JSX.Element => {
-  // The definition of interface here is only for explanation purpose. In
-  // practice, the interface of your models should be defined outside of
-  // your component.
-  interface Book {
-    isbn: number;
-    title: string;
-    author: string;
-  }
-
-  return (
+export const Primary: StoryObj<typeof Table> = {
+  render: (props) => (
     <Table<Book>
-      rows={[
-        {
-          isbn: 9780679783268,
-          title: "Pride and Prejudic",
-          author: "Jane Austen",
-        },
-        {
-          isbn: 9780743273565,
-          title: "The Great Gatsby",
-          author: "Francis Scott Fitzgerald",
-        },
-        {
-          isbn: 9780684830490,
-          title: "The Old Man and the Sea",
-          author: "Ernest Hemingway",
-        },
-      ]}
-      rowKey={(book) => book.isbn.toString()}
-      columns={[
-        { title: "Title", render: "title" },
-        { title: "Author", render: "author" },
-      ]}
+      rows={someBooks}
+      rowKey={bookKey}
+      columns={bookColumns}
+      fill={props.fill}
+      size={props.size}
     />
-  );
+  )
+};
+
+export const Basic: StoryObj = {
+  render: () => {
+    // The definition of interface here is only for explanation purpose. In
+    // practice, the interface of your models should be defined outside of
+    // your component.
+    interface Book {
+      isbn: number;
+      title: string;
+      author: string;
+    }
+
+    return (
+      <Table<Book>
+        rows={[
+          {
+            isbn: 9780679783268,
+            title: "Pride and Prejudic",
+            author: "Jane Austen",
+          },
+          {
+            isbn: 9780743273565,
+            title: "The Great Gatsby",
+            author: "Francis Scott Fitzgerald",
+          },
+          {
+            isbn: 9780684830490,
+            title: "The Old Man and the Sea",
+            author: "Ernest Hemingway",
+          },
+        ]}
+        rowKey={(book) => book.isbn.toString()}
+        columns={[
+          { title: "Title", render: "title" },
+          { title: "Author", render: "author" },
+        ]}
+      />
+    );
+  }
 };
 
 Utils.story(Basic, {
@@ -117,11 +115,13 @@ and \`TableColumn.render\` should match each other.
 `,
 });
 
-export const Style = (): JSX.Element => (
-  <Pane noPadding contentWidth>
-    <Table<Book> rows={someBooks} rowKey={bookKey} columns={bookColumns} />
-  </Pane>
-);
+export const Style: StoryObj = {
+  render: () => (
+    <Pane noPadding contentWidth>
+      <Table<Book> rows={someBooks} rowKey={bookKey} columns={bookColumns} />
+    </Pane>
+  )
+};
 
 Utils.story(Style, {
   desc: `
@@ -137,9 +137,11 @@ any outer border or shadow, which can be provided by the [Pane][4] component:
 `,
 });
 
-export const Fill = (): JSX.Element => (
-  <Table<Book> fill rows={someBooks} rowKey={bookKey} columns={bookColumns} />
-);
+export const Fill: StoryObj = {
+  render: () => (
+    <Table<Book> fill rows={someBooks} rowKey={bookKey} columns={bookColumns} />
+  )
+};
 
 Utils.story(Fill, {
   desc: `
@@ -150,40 +152,42 @@ width of tables (via the width of their containers).
 `,
 });
 
-export const Fixed = (): JSX.Element => {
-  // These CSS are defined inline here for demo purpose. In practice, they
-  // are defined via many better methods, such as CSS Modules, Tailwind or
-  // just using external files.
-  const css = `
-.fixed-table {
-	height: 300px; /* limit the height of the table */
-	overflow: auto; /* show scrollbar(s) */
-	white-space: nowrap;
-}`;
-  return (
-    <div>
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-      <div className="fixed-table">
-        <Table<Robot>
-          fixed={{
-            firstColumn: true,
-            header: true,
-            lastColumn: true,
-          }}
-          rows={ROBOTS}
-          rowKey={(robot) => robot.id.toString()}
-          columns={[
-            { title: "Bot", render: "MAC" },
-            { title: "Id", render: "id" },
-            { title: "Seen", render: "lastSeen" },
-            { title: "Email", render: "email" },
-            { title: "Avatar", render: "avatar" },
-            { title: "Bot", render: "MAC" },
-          ]}
-        />
+export const Fixed: StoryObj = {
+  render: () => {
+    // These CSS are defined inline here for demo purpose. In practice, they
+    // are defined via many better methods, such as CSS Modules, Tailwind or
+    // just using external files.
+    const css = `
+    .fixed-table {
+      height: 300px; /* limit the height of the table */
+      overflow: auto; /* show scrollbar(s) */
+      white-space: nowrap;
+    }`;
+    return (
+      <div>
+        <style dangerouslySetInnerHTML={{ __html: css }} />
+        <div className="fixed-table">
+          <Table<Robot>
+            fixed={{
+              firstColumn: true,
+              header: true,
+              lastColumn: true,
+            }}
+            rows={ROBOTS}
+            rowKey={(robot) => robot.id.toString()}
+            columns={[
+              { title: "Bot", render: "MAC" },
+              { title: "Id", render: "id" },
+              { title: "Seen", render: "lastSeen" },
+              { title: "Email", render: "email" },
+              { title: "Avatar", render: "avatar" },
+              { title: "Bot", render: "MAC" },
+            ]}
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 Utils.story(Fixed, {
@@ -220,14 +224,16 @@ Since Moai's tables don't have any line-breaking CSS, you may also need
 `,
 });
 
-export const Expandable = (): JSX.Element => (
-  <Table<Book>
-    rows={someBooks}
-    rowKey={bookKey}
-    columns={bookColumns}
-    expandable={{ render: (row) => row.isbn }}
-  />
-);
+export const Expandable: StoryObj = {
+  render: () => (
+    <Table<Book>
+      rows={someBooks}
+      rowKey={bookKey}
+      columns={bookColumns}
+      expandable={{ render: (row) => row.isbn }}
+    />
+  )
+};
 
 Utils.story(Expandable, {
   desc: `
@@ -255,17 +261,19 @@ prop.
 `,
 });
 
-export const SelectableMultiple = (): JSX.Element => {
-  // Multiple selection
-  const [selected, setSelected] = useState<Set<string>>(new Set());
-  return (
-    <Table<Book>
-      rows={someBooks}
-      rowKey={bookKey}
-      columns={bookColumns}
-      selectable={{ selected, setSelected }}
-    />
-  );
+export const SelectableMultiple: StoryObj = {
+  render: () => {
+    // Multiple selection
+    const [selected, setSelected] = useState<Set<string>>(new Set());
+    return (
+      <Table<Book>
+        rows={someBooks}
+        rowKey={bookKey}
+        columns={bookColumns}
+        selectable={{ selected, setSelected }}
+      />
+    );
+  }
 };
 
 Utils.story(SelectableMultiple, {
@@ -281,17 +289,19 @@ type of the \`selected\` state:
 `,
 });
 
-export const SelectableSingle = (): JSX.Element => {
-  const [selected, setSelected] = useState<string>("");
-  const radioGroupName = "single-selectable-demo";
-  return (
-    <Table<Book>
-      rows={someBooks}
-      rowKey={bookKey}
-      columns={bookColumns}
-      selectable={{ selected, setSelected, radioGroupName }}
-    />
-  );
+export const SelectableSingle: StoryObj = {
+  render: () => {
+    const [selected, setSelected] = useState<string>("");
+    const radioGroupName = "single-selectable-demo";
+    return (
+      <Table<Book>
+        rows={someBooks}
+        rowKey={bookKey}
+        columns={bookColumns}
+        selectable={{ selected, setSelected, radioGroupName }}
+      />
+    );
+  }
 };
 
 Utils.story(SelectableSingle, {
@@ -302,14 +312,16 @@ As mentioned above, if the \`selected\` state is a string, then the users can on
 [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group
 `,
 });
-export const Size = (): JSX.Element => (
-  <Table<Book>
-    size={Table.sizes.large}
-    rows={someBooks}
-    rowKey={bookKey}
-    columns={bookColumns}
-  />
-);
+export const Size: StoryObj = {
+  render: () => (
+    <Table<Book>
+      size={Table.sizes.large}
+      rows={someBooks}
+      rowKey={bookKey}
+      columns={bookColumns}
+    />
+  )
+};
 
 Utils.story(Size, {
   desc: `
@@ -321,25 +333,27 @@ You can try different sizes using the [All Props table][1] below.
 `,
 });
 
-export const RowClassName = (): JSX.Element => {
-  const css = `
-/* Moai applies background color on "td", not "tr" */
-.red-row td,
-/* Optionally override the hover color */
-.red-row:not(#x):hover td {
-	background: red;
-}`;
-  return (
-    <div>
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-      <Table<Book>
-        rows={someBooks}
-        rowKey={bookKey}
-        columns={bookColumns}
-        rowClassName={(_row, index) => (index === 1 ? "red-row" : "")}
-      />
-    </div>
-  );
+export const RowClassName: StoryObj = {
+  render: () => {
+    const css = `
+    /* Moai applies background color on "td", not "tr" */
+    .red-row td,
+    /* Optionally override the hover color */
+    .red-row:not(#x):hover td {
+      background: red;
+    }`;
+    return (
+      <div>
+        <style dangerouslySetInnerHTML={{ __html: css }} />
+        <Table<Book>
+          rows={someBooks}
+          rowKey={bookKey}
+          columns={bookColumns}
+          rowClassName={(_row, index) => (index === 1 ? "red-row" : "")}
+        />
+      </div>
+    );
+  }
 };
 
 Utils.story(RowClassName, {
@@ -348,25 +362,27 @@ The \`rowClassName\` lets you set a custom class for a table's rows. It expects
 a function that receives the current row and should return a class for it.`,
 });
 
-export const AllInOne = (): JSX.Element => {
-  const [selected, setSelected] = useState<Set<string>>(new Set());
-  return (
-    <div className="fixed-table">
-      <Table<Robot>
-        fixed={{ firstColumn: true, header: true, lastColumn: true }}
-        expandable={{ render: (row) => row.note }}
-        selectable={{ selected, setSelected }}
-        rows={ROBOTS}
-        rowKey={(robot) => robot.id.toString()}
-        columns={[
-          { title: "Bot", render: "MAC" },
-          { title: "Id", render: "id" },
-          { title: "Seen", render: "lastSeen" },
-          { title: "Email", render: "email" },
-          { title: "Avatar", render: "avatar" },
-          { title: "Bot", render: "MAC" },
-        ]}
-      />
-    </div>
-  );
+export const AllInOne: StoryObj = {
+  render: () => {
+    const [selected, setSelected] = useState<Set<string>>(new Set());
+    return (
+      <div className="fixed-table">
+        <Table<Robot>
+          fixed={{ firstColumn: true, header: true, lastColumn: true }}
+          expandable={{ render: (row) => row.note }}
+          selectable={{ selected, setSelected }}
+          rows={ROBOTS}
+          rowKey={(robot) => robot.id.toString()}
+          columns={[
+            { title: "Bot", render: "MAC" },
+            { title: "Id", render: "id" },
+            { title: "Seen", render: "lastSeen" },
+            { title: "Email", render: "email" },
+            { title: "Avatar", render: "avatar" },
+            { title: "Bot", render: "MAC" },
+          ]}
+        />
+      </div>
+    );
+  }
 };

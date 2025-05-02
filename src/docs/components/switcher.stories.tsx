@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react/types-6-0";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight } from "react-icons/fa";
-import { Switcher, SwitcherOption } from "../../../core/src";
+import { Switcher, SwitcherOption } from "../../core";
 import { SwitcherOptionComponent } from "./switcher-fake";
 import { Utils } from "../utils/utils";
 
@@ -25,44 +25,38 @@ Utils.page.component(meta, { primary: "sticky", shots: [] });
 
 export default meta;
 
-interface Props {
-  style?: string;
-  size?: string;
-  fill?: boolean;
-  disabled?: boolean;
-  highlight?: boolean;
-}
-
-export const Primary = (props: Props): JSX.Element => {
-  const [value, setValue] = useState<number>(0);
-  return (
-    <Switcher<number>
-      value={value}
-      setValue={setValue}
-      options={[
-        { value: 0, label: "Left" },
-        { value: 1, label: "Center" },
-        { value: 2, label: "Right" },
-      ]}
-      // eslint-disable-next-line
-      size={(Switcher.sizes as any)[props.size!]}
-      // eslint-disable-next-line
-      style={(Switcher.styles as any)[props.style!]}
-      fill={props.fill}
-      disabled={props.disabled}
-      highlight={props.highlight}
-    />
-  );
+export const Primary: StoryObj<typeof Switcher> = {
+  render: (props) => {
+    const [value, setValue] = useState<number>(0);
+    return (
+      <Switcher<number>
+        value={value}
+        setValue={setValue}
+        options={[
+          { value: 0, label: "Left" },
+          { value: 1, label: "Center" },
+          { value: 2, label: "Right" },
+        ]}
+        size={props.size}
+        style={props.style}
+        fill={props.fill}
+        disabled={props.disabled}
+        highlight={props.highlight}
+      />
+    );
+  }
 };
 
-export const Basic = (): JSX.Element => {
-  const [value, setValue] = useState<number>(0);
-  const options: SwitcherOption<number>[] = [
-    { value: 0, label: "Left" },
-    { value: 1, label: "Center" },
-    { value: 2, label: "Right" },
-  ];
-  return <Switcher value={value} setValue={setValue} options={options} />;
+export const Basic: StoryObj = {
+  render: () => {
+    const [value, setValue] = useState<number>(0);
+    const options: SwitcherOption<number>[] = [
+      { value: 0, label: "Left" },
+      { value: 1, label: "Center" },
+      { value: 2, label: "Right" },
+    ];
+    return <Switcher value={value} setValue={setValue} options={options} />;
+  }
 };
 
 Utils.story(Basic, {
@@ -82,13 +76,15 @@ for the complete interface of an option.
 `,
 });
 
-export const Toggle = (): JSX.Element => {
-  const [on, setOn] = useState<boolean>(true);
-  const options: SwitcherOption<boolean>[] = [
-    { value: true, label: "On" },
-    { value: false, label: "Off" },
-  ];
-  return <Switcher highlight value={on} setValue={setOn} options={options} />;
+export const Toggle: StoryObj = {
+  render: () => {
+    const [on, setOn] = useState<boolean>(true);
+    const options: SwitcherOption<boolean>[] = [
+      { value: true, label: "On" },
+      { value: false, label: "Off" },
+    ];
+    return <Switcher highlight value={on} setValue={setOn} options={options} />;
+  }
 };
 
 Utils.story(Toggle, {
@@ -101,14 +97,16 @@ is often used together to make the selected option more prominent.
 `,
 });
 
-export const Icon = (): JSX.Element => {
-  const [value, setValue] = useState<number>(0);
-  const options: SwitcherOption<number>[] = [
-    { value: 0, icon: FaAlignLeft, iconLabel: "Align left" },
-    { value: 1, icon: FaAlignCenter, iconLabel: "Align center" },
-    { value: 2, icon: FaAlignRight, iconLabel: "Align right" },
-  ];
-  return <Switcher value={value} setValue={setValue} options={options} />;
+export const Icon: StoryObj = {
+  render: () => {
+    const [value, setValue] = useState<number>(0);
+    const options: SwitcherOption<number>[] = [
+      { value: 0, icon: FaAlignLeft, iconLabel: "Align left" },
+      { value: 1, icon: FaAlignCenter, iconLabel: "Align center" },
+      { value: 2, icon: FaAlignRight, iconLabel: "Align right" },
+    ];
+    return <Switcher value={value} setValue={setValue} options={options} />;
+  }
 };
 
 Utils.story(Icon, {

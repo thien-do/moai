@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { Button, toast, ToastPane } from "../../../core/src";
+import { Button, toast, ToastPane } from "../../core";
 import { GalleryToast } from "../../../gallery/src";
 import { Utils } from "../utils/utils";
 import { ToastFunction } from "./toast-fake";
@@ -18,14 +18,18 @@ Utils.page.component(meta, {
 
 export default meta;
 
-export const Primary = (): JSX.Element => <div />;
+export const Primary: StoryObj = {
+  render: () => <div />
+};
 
-export const Basic = (): JSX.Element => (
-  <Button
-    onClick={() => toast(toast.types.success, "Post published")}
-    children="Make a toast"
-  />
-);
+export const Basic: StoryObj = {
+  render: () => (
+    <Button
+      onClick={() => toast(toast.types.success, "Post published")}
+      children="Make a toast"
+    />
+  )
+};
 
 Utils.story(Basic, {
   desc: `
@@ -43,21 +47,23 @@ call. You don't need to maintain any state or render any thing for the toast.
 `,
 });
 
-export const Pane = (): JSX.Element => {
-  const [visible, setVisible] = useState(false);
-  return (
-    <div>
-      <Button onClick={() => setVisible(!visible)} children="Toggle toast" />
-      <div style={{ height: 8 }} />
-      {visible && (
-        <ToastPane
-          type={ToastPane.types.success}
-          children="Post published"
-          close={() => setVisible(false)}
-        />
-      )}
-    </div>
-  );
+export const Pane: StoryObj = {
+  render: () => {
+    const [visible, setVisible] = useState(false);
+    return (
+      <div>
+        <Button onClick={() => setVisible(!visible)} children="Toggle toast" />
+        <div style={{ height: 8 }} />
+        {visible && (
+          <ToastPane
+            type={ToastPane.types.success}
+            children="Post published"
+            close={() => setVisible(false)}
+          />
+        )}
+      </div>
+    );
+  }
 };
 
 Utils.story(Pane, {
