@@ -66,7 +66,7 @@ export interface CheckboxProps {
    * See the [`selectable`][1] prop of the Table component for a real-life
    * example.
    *
-   * [1]: /docs/components-table--selectable-multiple
+   * [1]: /docs/components-table--docs#selectable-multiple
    */
   hideLabel?: boolean;
   /**
@@ -87,8 +87,8 @@ export interface CheckboxProps {
  * from a group of [radios][2] where only a single option can be selected at
  * the same time.
  *
- * [1]: /docs/components-switcher--toggle
- * [2]: /docs/components-radio--group
+ * [1]: /docs/components-switcher--docs#toggle
+ * [2]:/docs/components-radio-group--docs
  */
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
   // Note that there is no intermediate state here, as we'd like to support

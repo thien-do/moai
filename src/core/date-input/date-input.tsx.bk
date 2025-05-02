@@ -120,7 +120,7 @@ const getDisabledDays = (props: Props): Modifier => {
  * "mdy"). If you don't need these features, use [Input][1] to have better
  * accessibility support.
  
- * [1]: /docs/components-input--primary#date
+ * [1]: /docs/components-input--docs
  * [2]: https://caniuse.com/input-datetime
  * [3]: https://react-day-picker.js.org
  *

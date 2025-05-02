@@ -153,7 +153,7 @@ export const Group = {
  * In fact, for a real-life example,
  * see the [`selectable`][1] section of the Table component.
  *
- * [1]: /docs/components-table--selectable-multiple
+ * [1]: /docs/components-table--docs#selectable-multiple
  */
 export const WithoutLabel = {
   render: () => <Checkbox hideLabel>Sample checkbox</Checkbox>,

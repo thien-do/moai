@@ -50,7 +50,7 @@ export const Primary: StoryObj<typeof Radio> = {
  * Like in HTML,
  * a `name` prop is also required to group your radio buttons.
  * 
- * [1]: /docs/components-radio-group--primary
+ * [1]: /docs/components-radio-group--docs
  */
 export const Basic: StoryObj = {
   render: () => {
@@ -88,7 +88,7 @@ export const Basic: StoryObj = {
  * In fact, for a real-life example,
  * see the [`selectable`][1] section of the Table component.
  * 
- * [1]: /docs/components-table--selectable-single
+ * [1]: /docs/components-table--docs#selectable-single
  */
 export const WithoutLabel: StoryObj = {
   render: () => (

@@ -64,8 +64,8 @@ const SingleRadio = <T,>({ name, value, setValue, option }: Foo<T>) => (
  * the `value` and `setValue` pair). It's similar to [selects][2] but displays
  * all options upfront.
  *
- * [1]: /docs/components-radio--primary
- * [2]: /docs/components-select--primary
+ * [1]: /docs/components-radio--docs
+ * [2]: /docs/components-select--docs
  */
 export const RadioGroup = <T,>(props: Props<T>): JSX.Element => (
   <div className={[s.container, props.row === true ? s.hor : s.ver].join(" ")}>

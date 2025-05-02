@@ -40,7 +40,7 @@ export interface RadioProps {
    * See the [`selectable`][1] prop of the Table component for a real-life
    * example.
    *
-   * [1]: /docs/components-table--selectable-multiple
+   * [1]: /docs/components-table--docs#selectable-multiple
    */
   hideLabel?: boolean;
   /**
@@ -76,7 +76,7 @@ export interface RadioProps {
  * A radio is rendered as a circle that are filled when activated. They are
  * generally used as groups. See [Radio Group][1] for more practical usages.
  *
- * [1]: /docs/components-radio-group--primary
+ * [1]: /docs/components-radio-group--docs
  */
 export const Radio = (props: RadioProps): JSX.Element => {
   const style = Checkbox.styles.outset;
