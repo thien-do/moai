@@ -1,20 +1,19 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button, toast, ToastPane } from "../../core";
-import { GalleryToast } from "../../../gallery/src";
-import { Utils } from "../utils/utils";
+import { GalleryToast } from "../../gallery";
 import { ToastFunction } from "./toast-fake";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Toast",
   component: ToastPane,
   subcomponents: { "toast function": ToastFunction },
+  parameters: docsMetaParameters({
+    primary: "none",
+    gallery: <GalleryToast />,
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "none",
-  shots: [<GalleryToast key="1" />],
-});
 
 export default meta;
 

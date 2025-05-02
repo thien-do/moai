@@ -21,8 +21,6 @@ const meta: Meta = {
   },
 };
 
-Utils.page.component(meta, { primary: "sticky", shots: [] });
-
 export default meta;
 
 export const Primary: StoryObj<typeof Switcher> = {

@@ -1,11 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Pane, Table, TableColumn } from "../../core";
-import { Robot, ROBOTS } from "../../../gallery/src";
-import { GalleryTable } from "../../../gallery/src";
+import { Robot, ROBOTS } from "../../gallery";
+import { GalleryTable } from "../../gallery";
 import { Book, someBooks } from "../utils/example";
 import { Utils } from "../utils/utils";
 import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Table",
@@ -23,12 +24,10 @@ const meta: Meta = {
     columns: Utils.arg(null),
     expandable: Utils.arg(null),
   },
+  parameters: docsMetaParameters({
+    gallery: <GalleryTable />,
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "default",
-  shots: [<GalleryTable key="1" />],
-});
 
 export default meta;
 

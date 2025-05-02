@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button, DivPx, Switcher, Tab, Tabs } from "../../core";
-import { GalleryTab1, GalleryTab2 } from "../../../gallery/src";
+import { GalleryTab1, GalleryTab2 } from "../../gallery";
 import { Utils } from "../utils/utils";
 import { TabComponent } from "./tab-fake";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Tabs",
@@ -18,12 +19,10 @@ const meta: Meta = {
     setActiveTab: Utils.arg(null, "Controlled"),
     initialTab: Utils.arg(null, "Uncontrolled"),
   },
+  parameters: docsMetaParameters({
+    gallery: [<GalleryTab1 />, <GalleryTab2 />],
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GalleryTab1 key="1" />, <GalleryTab2 key="2" />],
-});
 
 export default meta;
 

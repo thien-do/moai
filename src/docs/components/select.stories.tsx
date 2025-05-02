@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Select } from "../../core";
-import { GallerySelect } from "../../../gallery/src";
+import { GallerySelect } from "../../gallery";
 import { Utils } from "../utils/utils";
 import { SelectOptionComponent } from "./select-fake";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Components/Select",
@@ -22,12 +23,10 @@ const meta: Meta = {
     id: Utils.arg(null, "Others"),
     required: Utils.arg(null, "Others"),
   },
+  parameters: docsMetaParameters({
+    gallery: <GallerySelect />
+  }),
 };
-
-Utils.page.component(meta, {
-  primary: "sticky",
-  shots: [<GallerySelect key="1" />],
-});
 
 export default meta;
 
