@@ -76,6 +76,7 @@ export const Basic: StoryObj = {
   }
 };
 
+// TODO: Fix the link [1] once the docs is ready
 /**
  * The `minDate` and `maxDate` props are used to prevent users from selecting dates outside of a range **in the pop-up calendar**.
  * They are inclusive, and both are optional (e.g. you can accept all dates after today).

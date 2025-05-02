@@ -25,6 +25,7 @@ export interface IconProps {
   display?: "block" | "inline";
 }
 
+// TODO: Fix the link [1] once the docs is ready
 /**
  * Icons are a great tool to visualize and emphasize the content where you
  * want users' attention. Moai's Icon component supports any SVG icons, which
