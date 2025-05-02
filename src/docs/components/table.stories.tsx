@@ -122,7 +122,7 @@ export const Basic: StoryObj = {
  * [1]: https://github.com/moaijs/moai/blob/main/core/src/table/table.module.css
  * [2]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
  * [3]: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
- * [4]: /docs/components-pane--primary
+ * [4]: /docs/components-pane--docs
  */
 export const Style: StoryObj = {
   render: () => (

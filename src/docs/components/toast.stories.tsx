@@ -4,7 +4,6 @@ import { Button, toast, ToastPane } from "../../core";
 import { GalleryToast } from "../../gallery";
 import { ToastFunction } from "./toast-fake";
 import { docsMetaParameters } from "../utils/parameter";
-import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Toast",
@@ -13,13 +12,6 @@ const meta: Meta = {
   parameters: docsMetaParameters({
     primary: "none",
     gallery: <GalleryToast />,
-  }),
-  argTypes: docsMetaArgTypes({
-    "": {
-      type: false,
-      children: false,
-      close: false,
-    }
   }),
 };
 

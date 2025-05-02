@@ -91,15 +91,16 @@ export const Toggle: StoryObj = {
   }
 };
 
+// TODO: Fix the link [2] once the docs is ready
 /**
  * Switchers' options are just [buttons][1], 
  * so they also support having [icons][2] via the `icon` attribute.
  * You can also have icon-only options by omitting the `label` attribute, 
  * in which cases `iconLabel` must instead be provided to ensure they are [accessible][3].
  * 
- * [1]: /docs/components-button--primary
+ * [1]: /docs/components-button--docs
  * [2]: /docs/guides-icons--primary
- * [3]: /docs/components-button--primary#icon
+ * [3]: /docs/components-button--docs#icon
  */
 export const Icon: StoryObj = {
   render: () => {
