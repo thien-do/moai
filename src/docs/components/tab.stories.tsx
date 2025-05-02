@@ -15,7 +15,7 @@ const meta: Meta = {
       noPadding: "boolean",
       fullHeight: "boolean",
       style: Tabs.styles,
-      children: false,
+      tabs: false,
     },
     Controlled: {
       activeTab: false,
@@ -26,7 +26,12 @@ const meta: Meta = {
     }
   }),
   parameters: docsMetaParameters({
-    gallery: [<GalleryTab1 />, <GalleryTab2 />],
+    gallery: (
+      <>
+        <GalleryTab1 />
+        <GalleryTab2 />
+      </>
+    ),
   }),
 };
 
@@ -40,7 +45,7 @@ const tabs: Tab[] = [
 export const Primary: StoryObj<typeof Tabs> = {
   render: (props) => (
     <div style={{ height: "150px" }}>
-      <Tabs {...props} children={tabs} />
+      <Tabs {...props} tabs={tabs} />
     </div>
   )
 };
@@ -66,12 +71,7 @@ export const Primary: StoryObj<typeof Tabs> = {
  */
 export const Basic: StoryObj = {
   render: () => (
-    <Tabs>
-      {[
-        { id: "first", title: "First", pane: () => <p>1st</p> },
-        { id: "second", title: "Second", pane: () => <p>2nd</p> },
-      ]}
-    </Tabs>
+    <Tabs tabs={tabs} />
   )
 };
 
@@ -102,12 +102,14 @@ export const Controlled: StoryObj = {
           options={tabs.map((tab) => ({ value: tab.id, label: tab.id }))}
         />
         <DivPx size={16} />
-        <Tabs setActiveTab={setTab} activeTab={tab}>
-          {[
+        <Tabs
+          tabs={[
             { id: "first", title: "First", pane: FirstPane },
             { id: "second", title: "Second", pane: SecondPane },
           ]}
-        </Tabs>
+          setActiveTab={setTab}
+          activeTab={tab}
+        />
       </div>
     );
   }
