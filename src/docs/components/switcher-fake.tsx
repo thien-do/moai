@@ -1,9 +1,12 @@
-import { SwitcherOption } from "../../../core/src";
+import { ReactElement } from "react";
+import { SwitcherOption } from "../../core";
 
 /**
  * This is not a part of the source code. It exists only for Storybook's
  * ArgsTable to describe the Option interface.
  */
-export const SwitcherOptionComponent = <R,>(
-  props: SwitcherOption<R>,
-): JSX.Element => <div>{props.key}</div>;
+export function SwitcherOptionComponent<R>(
+  props: SwitcherOption<R>
+): ReactElement {
+  return <div>{props.key}</div>
+}
