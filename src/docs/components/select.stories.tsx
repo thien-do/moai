@@ -47,6 +47,20 @@ export const Primary: StoryObj<typeof Select> = {
   )
 };
 
+/**
+ * Select is a [controlled][1], [generic][2] component.
+ * You should have a [state][3] of any type for your value, 
+ * and give its control to a select via the `value` and `setValue` props.
+ * 
+ * The options of a select are defined as an array via the `options` prop.
+ * Each option should have a string `label`, a `value` of your type, and a unique `id`.
+ * See the [`SelectOption` table][4] below for more detail.
+ * 
+ * [1]: https://reactjs.org/docs/forms.html#controlled-components
+ * [2]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+ * [3]: https://reactjs.org/docs/hooks-state.html
+ * [4]: #props
+ */
 export const Basic: StoryObj = {
   render: () => {
     const [value, setValue] = useState<number>(1);
@@ -64,23 +78,14 @@ export const Basic: StoryObj = {
   }
 };
 
-Utils.story(Basic, {
-  desc: `
-Select is a [controlled][1], [generic][2] component. You should have a
-[state][3] of any type for your value, and give its control to a select via
-the \`value\` and \`setValue\` props.
-
-The options of a select are defined as an array via the \`options\` prop.
-Each option should have a string \`label\`, a \`value\` of your type, and a
-unique \`id\`. See the [\`SelectOption\` table][4] below for more detail.
-
-[1]: https://reactjs.org/docs/forms.html#controlled-components
-[2]: https://www.typescriptlang.org/docs/handbook/2/generics.html
-[3]: https://reactjs.org/docs/hooks-state.html
-[4]: #props
-`,
-});
-
+/**
+ * All options must have the `id`, `label` and `value` attributes defined.
+ * If these 3 attributes can be the same (usually in case of string-based options), 
+ * you can use `Select.toStringOption` as a convenient shortcut to simplify the definition.
+ * 
+ * Similarly, there is also a `Select.toNumberOption` for number-based options, 
+ * which calls `toString` to provide `id` and `label` fields.
+ */
 export const StringOptionUtility: StoryObj = {
   render: () => {
     const [value, setValue] = useState("Blue");
@@ -94,25 +99,21 @@ export const StringOptionUtility: StoryObj = {
   }
 };
 
-Utils.story(StringOptionUtility, {
-  name: "toStringOption Utility",
-
-  desc: `
-All options must have the \`id\`, \`label\` and \`value\` attributes defined.
-If these 3 attributes can be the same (usually in case of string-based
-options), you can use \`Select.toStringOption\` as a convenient shortcut to
-simplify the definition.
-
-Similarly, there is also a \`Select.toNumberOption\` for number-based
-options, which calls \`toString\` to provide \`id\` and \`label\` fields.
-`,
-});
-
+/**
+ * A select can not have value outside of its options.
+ * To have a blank/empty state for your select, explicitly define it as a disabled option.
+ * We recommend using `null` to represent this option's value.
+ * The type of your Select (and your state) should then be `null | Something`.
+ * 
+ * This actually follows the [common practice][1] as when using the HTML `select` element.
+ * 
+ * [1]: https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box
+ */
 export const Placeholder: StoryObj = {
   render: () => {
     const [value, setValue] = useState<null | number>(null);
     return (
-      <Select<number | null>
+      <Select<null | number>
         options={[
           {
             value: null,
@@ -133,17 +134,3 @@ export const Placeholder: StoryObj = {
     );
   }
 };
-
-Utils.story(Placeholder, {
-  desc: `
-A select can not have value outside of its options. To have a blank/empty state
-for your select, explicitly define it as a disabled option. We recommend using
-\`null\` to represent this option's value. The type of your Select (and your
-state) should then be \`null | Something\`.
-
-This actually follows the [common practice][1] as when using the HTML
-\`select\` element.
-
-[1]: https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box
-`,
-});

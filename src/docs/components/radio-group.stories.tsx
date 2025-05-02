@@ -45,6 +45,21 @@ export const Primary: StoryObj<typeof RadioGroup> = {
   }
 };
 
+/**
+ * RadioGroup is a [controlled][1], [generic][2] component.
+ * You should have a [state][3] of any type for your value, 
+ * and give its control to a radio group via the `value` and `setValue` props.
+ * Like in HTML, a radio group also require a `name` to group its options.
+ * 
+ * The options of a radio group are defined as an array via the `options` prop.
+ * Each option should have a string `label`, a `value` of your type, and a unique `id`.
+ * See the [`RadioOption` table][4] below for more detail.
+ * 
+ * [1]: https://reactjs.org/docs/forms.html#controlled-components
+ * [2]: https://www.typescriptlang.org/docs/handbook/2/generics.html
+ * [3]: https://reactjs.org/docs/hooks-state.html
+ * [4]: #props
+ */
 export const Basic: StoryObj = {
   render: () => {
     type Value = Book["isbn"];
@@ -67,21 +82,3 @@ export const Basic: StoryObj = {
     );
   }
 };
-
-Utils.story(Basic, {
-  desc: `
-RadioGroup is a [controlled][1], [generic][2] component. You should have a
-[state][3] of any type for your value, and give its control to a radio group
-via the \`value\` and \`setValue\` props. Like in HTML, a radio group also
-require a \`name\` to group its options.
-
-The options of a radio group are defined as an array via the \`options\` prop.
-Each option should have a string \`label\`, a \`value\` of your type, and a
-unique \`id\`. See the [\`RadioOption\` table][4] below for more detail.
-
-[1]: https://reactjs.org/docs/forms.html#controlled-components
-[2]: https://www.typescriptlang.org/docs/handbook/2/generics.html
-[3]: https://reactjs.org/docs/hooks-state.html
-[4]: #props
-`,
-});

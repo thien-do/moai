@@ -40,8 +40,25 @@ export const Primary: StoryObj<typeof Tabs> = {
   )
 };
 
-Utils.story(Primary, { fixPrimary: true });
-
+/**
+ * Tabs can be used as both controlled or uncontrolled.
+ * If you don't need to control the active tab state, 
+ * it's best to use Tabs as an uncontrolled component.
+ * You only need to provide the list of tabs via the `tabs` prop.
+ * Each tab should have the following interface:
+ * 
+ * ```ts
+ * interface Tab {
+ *   id: string;            // Unique id for the tab
+ *   title: ReactNode;      // Title of the tab
+ *   pane: () => ReactNode; // Function that returns the tab's content
+ * }
+ * ```
+ * 
+ * The height of tabs depend on the content of the current tab.
+ * Use the `fullHeight` prop to control the element's height.
+ * The default padding can be removed via the `noPadding` prop.
+ */
 export const Basic: StoryObj = {
   render: () => (
     <Tabs>
@@ -53,27 +70,16 @@ export const Basic: StoryObj = {
   )
 };
 
-Utils.story(Basic, {
-  desc: `
-Tabs can be used as both controlled or uncontrolled. If you don't need to
-control the active tab state, it's best to use Tabs as an uncontrolled
-component. You only need to provide the list of tabs via the \`tabs\` prop.
-Each tab should have the following interface:
-
-~~~ts
-interface Tab {
-	id: string;            // Unique id for the tab
-	title: ReactNode;      // Title of the tab
-	pane: () => ReactNode; // Function that returns the tab's content
-}
-~~~
-
-The height of tabs depend on the content of the current tab. Use the
-\`fullHeight\` prop to control the element's height. The default padding can
-be removed via the \`noPadding\` prop.
-`,
-});
-
+/**
+ * [In most cases][1], Tabs should be used as an uncontrolled component.
+ * However, you can also have a state for the active tab yourself, 
+ * and give it to the Tabs via the `activeTab` and `setActiveTab` props, 
+ * and use it as a controlled component.
+ * 
+ * You can control the active tab, from both outside and inside the tabs by setting your state.
+ * 
+ * [1]: #basic
+ */
 export const Controlled: StoryObj = {
   render: () => {
     const [tab, setTab] = useState("first");
@@ -101,17 +107,3 @@ export const Controlled: StoryObj = {
     );
   }
 };
-
-Utils.story(Controlled, {
-  desc: `
-[In most cases][1], Tabs should be used as an uncontrolled component. However,
-you can also have a state for the active tab yourself, and give it to the Tabs
-via the \`activeTab\` and \`setActiveTab\` props, and use it as a controlled
-component.
-
-You can control the active tab, from both outside and inside the tabs by
-setting your state:
-
-[1]: #basic
-`,
-});
