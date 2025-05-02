@@ -3,22 +3,24 @@ import { useState } from "react";
 import { FaAlignCenter, FaAlignLeft, FaAlignRight } from "react-icons/fa";
 import { Switcher, SwitcherOption } from "../../core";
 import { SwitcherOptionComponent } from "./switcher-fake";
-import { Utils } from "../utils/utils";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Switcher",
   component: Switcher,
   subcomponents: { SwitcherOption: SwitcherOptionComponent },
-  argTypes: {
-    style: Utils.arg(Switcher.styles),
-    size: Utils.arg(Switcher.sizes),
-    fill: Utils.arg("boolean"),
-    highlight: Utils.arg("boolean"),
-    disabled: Utils.arg("boolean"),
-    value: Utils.arg(null),
-    setValue: Utils.arg(null),
-    options: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      style: Switcher.styles,
+      size: Switcher.sizes,
+      fill: "boolean",
+      highlight: "boolean",
+      disabled: "boolean",
+      value: false,
+      setValue: false,
+      options: false,
+    }
+  }),
 };
 
 export default meta;

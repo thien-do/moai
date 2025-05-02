@@ -4,9 +4,9 @@ import { Pane, Table, TableColumn } from "../../core";
 import { Robot, ROBOTS } from "../../gallery";
 import { GalleryTable } from "../../gallery";
 import { Book, someBooks } from "../utils/example";
-import { Utils } from "../utils/utils";
 import { TableColumnComponent, TableExpandableComponent } from "./table-fake";
 import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Table",
@@ -15,15 +15,17 @@ const meta: Meta = {
     TableColumn: TableColumnComponent,
     TableExpandable: TableExpandableComponent,
   },
-  argTypes: {
-    fill: Utils.arg("boolean"),
-    size: Utils.arg(Table.sizes),
-    fixed: Utils.arg(null),
-    rows: Utils.arg(null),
-    rowKey: Utils.arg(null),
-    columns: Utils.arg(null),
-    expandable: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      fill: "boolean",
+      size: Table.sizes,
+      fixed: false,
+      rows: false,
+      rowKey: false,
+      columns: false,
+      expandable: false,
+    }
+  }),
   parameters: docsMetaParameters({
     gallery: <GalleryTable />,
   }),

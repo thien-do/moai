@@ -2,20 +2,22 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { RadioGroup, RadioOption } from "../../core";
 import { Book, someBooks } from "../utils/example";
-import { Utils } from "../utils/utils";
 import { RadioOptionComponent } from "./radio-group-fake";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Radio Group",
   component: RadioGroup,
   subcomponents: { RadioOption: RadioOptionComponent },
-  argTypes: {
-    row: Utils.arg("boolean"),
-    value: Utils.arg(null),
-    setValue: Utils.arg(null),
-    options: Utils.arg(null),
-    name: Utils.arg(null),
-  },
+  argTypes: docsMetaArgTypes({
+    "": {
+      row: "boolean",
+      value: false,
+      setValue: false,
+      options: false,
+      name: false,
+    }
+  }),
 };
 
 export default meta;

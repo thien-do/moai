@@ -2,23 +2,29 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Button, DivPx, Switcher, Tab, Tabs } from "../../core";
 import { GalleryTab1, GalleryTab2 } from "../../gallery";
-import { Utils } from "../utils/utils";
 import { TabComponent } from "./tab-fake";
 import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Tabs",
   component: Tabs,
   subcomponents: { Tab: TabComponent },
-  argTypes: {
-    noPadding: Utils.arg("boolean", "Visual"),
-    fullHeight: Utils.arg("boolean", "Visual"),
-    style: Utils.arg(Object.keys(Tabs.styles), "Visual"),
-    children: Utils.arg(null, "Visual"),
-    activeTab: Utils.arg(null, "Controlled"),
-    setActiveTab: Utils.arg(null, "Controlled"),
-    initialTab: Utils.arg(null, "Uncontrolled"),
-  },
+  argTypes: docsMetaArgTypes({
+    Visual: {
+      noPadding: "boolean",
+      fullHeight: "boolean",
+      style: Tabs.styles,
+      children: false,
+    },
+    Controlled: {
+      activeTab: false,
+      setActiveTab: false,
+    },
+    Uncontrolled: {
+      initialTab: false,
+    }
+  }),
   parameters: docsMetaParameters({
     gallery: [<GalleryTab1 />, <GalleryTab2 />],
   }),

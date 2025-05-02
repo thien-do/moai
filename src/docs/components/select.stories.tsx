@@ -2,27 +2,35 @@ import { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Select } from "../../core";
 import { GallerySelect } from "../../gallery";
-import { Utils } from "../utils/utils";
 import { SelectOptionComponent } from "./select-fake";
 import { docsMetaParameters } from "../utils/parameter";
+import { docsMetaArgTypes } from "../utils/arg-type";
 
 const meta: Meta = {
   title: "Components/Select",
   component: Select,
   subcomponents: { SelectOption: SelectOptionComponent },
-  argTypes: {
-    style: Utils.arg(Select.styles, "Visual"),
-    size: Utils.arg(Select.sizes, "Visual"),
-    fill: Utils.arg("boolean", "Visual"),
-    disabled: Utils.arg("boolean", "Visual"),
-    value: Utils.arg(null, "Controlled"),
-    setValue: Utils.arg(null, "Controlled"),
-    defaultValue: Utils.arg(null, "Uncontrolled"),
-    forwardedRef: Utils.arg(null, "Uncontrolled"),
-    options: Utils.arg(null, "Others"),
-    id: Utils.arg(null, "Others"),
-    required: Utils.arg(null, "Others"),
-  },
+  argTypes: docsMetaArgTypes({
+    Visual: {
+      style: Select.styles,
+      size: Select.sizes,
+      fill: "boolean",
+      disabled: "boolean",
+    },
+    Controlled: {
+      value: false,
+      setValue: false,
+    },
+    Uncontrolled: {
+      defaultValue: false,
+      forwardedRef: false,
+    },
+    Others: {
+      options: false,
+      id: false,
+      required: false,
+    }
+  }),
   parameters: docsMetaParameters({
     gallery: <GallerySelect />
   }),
