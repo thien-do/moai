@@ -5,25 +5,28 @@ import { Controller, useForm } from "react-hook-form";
 import { Button, FormError, Input, TextArea } from "../../core";
 import { docsMetaParameters } from "../utils/parameter";
 
-const meta: Meta = {
-  title: "Patterns/Form",
-  parameters: docsMetaParameters({
-    primary: "none",
-  })
-};
-
-Utils.page.pattern(meta, {
-  desc: `
+const componentDescription = `
 Moai doesn't come with a built-in form solution. Instead, our input components
 (like [Input][3] and [TextArea][4]) are designed to work with popular form
 builders (such as [Formik][1] and [React Hook Form][2]) out of the box.
 
 [1]: https://formik.org/
 [2]: https://react-hook-form.com/
-[3]: /docs/components-input--primary
-[4]: /docs/components-textarea--primary
-`,
-});
+[3]: /docs/components-input--docs
+[4]: /docs/draft-textarea--docs
+`
+
+const meta: Meta = {
+  title: "Patterns/Form",
+  parameters: docsMetaParameters({
+    primary: "none",
+    docs: {
+      description: {
+        component: componentDescription,
+      },
+    },
+  }),
+};
 
 export default meta;
 
@@ -62,7 +65,35 @@ export const Primary: StoryObj = {
   render: () => <div>Skipped</div>
 };
 
+
+/**
+ * To use Moai's input components with Formik, pass them to the "as" prop of Formik's [Field][1] component:
+ * 
+ * [1]: https://formik.org/docs/api/field
+ * 
+ * ```tsx
+ * import { Field } from "formik";
+ * import { Input } from "../../../core/src";
+ * 
+ * <label htmlFor="email">Email</label>
+ * <Field id="email" type="email" name="email" as={Input} />
+ * ```
+ * 
+ * To show errors, pass FormError to the "component" prop of Formik's [ErrorMessage][2] component:
+ * 
+ * ```tsx
+ * import { ErrorMessage } from "formik";
+ * import { FormError } from "../../../core/src";
+ * 
+ * <ErrorMessage name="email" component={FormError} />
+ * ```
+ * 
+ * [2]: https://formik.org/docs/api/errormessage
+ * 
+ * Full example:
+ */
 export const FormikExample: StoryObj = {
+  name: "Formik",
   render: () => {
     /* import { Input, Button, FormError } from "../../../core/src" */
 
@@ -110,38 +141,39 @@ export const FormikExample: StoryObj = {
   }
 };
 
-Utils.story(FormikExample, {
-  name: "Formik",
-  desc: `
-To use Moai's input components with Formik, pass them to the "as" prop of
-Formik's [Field][1] component:
-
-[1]: https://formik.org/docs/api/field
-
-~~~tsx
-import { Field } from "formik";
-import { Input } from "../../../core/src";
-
-<label htmlFor="email">Email</label>
-<Field id="email" type="email" name="email" as={Input} />
-~~~
-
-To show errors, pass FormError to the "component" prop of Formik's
-[ErrorMessage][2] component:
-
-~~~tsx
-import { ErrorMessage } from "formik";
-import { FormError } from "../../../core/src";
-
-<ErrorMessage name="email" component={FormError} />
-~~~
-
-[2]: https://formik.org/docs/api/errormessage
-
-Full example:
-`,
-});
-
+/**
+ * To use Moai's input components with React Hook Form, [render][2] them in the "render" prop of RHF's [Controller][1] component:
+ * 
+ * ```tsx
+ * import { Controller } from "react-hook-form";
+ * import { Input } from "../../../core/src";
+ * 
+ * <label htmlFor="email">Email</label>
+ * <Controller
+ *   name="email"
+ *   control={control}
+ *   render={({ field }) => (
+ *     <Input {...field} id="email" type="email" />
+ *   )}
+ *   rules={{ required: "Email is required" }}
+ * />
+ * ```
+ * 
+ * [1]: https://react-hook-form.com/api#Controller
+ * [2]: https://react-hook-form.com/get-started#IntegratingwithUIlibraries
+ * 
+ * To show errors, pass RHF's [error messages][3] as children of Moai's FormError component:
+ * 
+ * ```tsx
+ * import { FormError } from "../../../core/src";
+ * 
+ * <FormError children={errors.email?.message} />
+ * ```
+ * 
+ * [3]: https://react-hook-form.com/advanced-usage#ErrorMessages
+ * 
+ * Full example:
+ */
 export const ReactHookForm: StoryObj = {
   render: () => {
     /* import { Input, Button, FormError } from "../../../core/src" */
@@ -197,41 +229,3 @@ export const ReactHookForm: StoryObj = {
     );
   }
 };
-
-Utils.story(ReactHookForm, {
-  desc: `
-To use Moai's input components with React Hook Form, [render][2] them in the
-"render" prop of RHF's [Controller][1] component:
-
-~~~tsx
-import { Controller } from "react-hook-form";
-import { Input } from "../../../core/src";
-
-<label htmlFor="email">Email</label>
-<Controller
-	name="email"
-	control={control}
-	render={({ field }) => (
-		<Input {...field} id="email" type="email" />
-	)}
-	rules={{ required: "Email is required" }}
-/>
-~~~
-
-[1]: https://react-hook-form.com/api#Controller
-[2]: https://react-hook-form.com/get-started#IntegratingwithUIlibraries
-
-To show errors, pass RHF's [error messages][3] as children of Moai's FormError
-component:
-
-~~~tsx
-import { FormError } from "../../../core/src";
-
-<FormError children={errors.email?.message} />
-~~~
-
-[3]: https://react-hook-form.com/advanced-usage#ErrorMessages
-
-Full example:
-`,
-});
