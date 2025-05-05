@@ -1,9 +1,8 @@
-import { Meta } from "@storybook/react/types-6-0";
+import { Meta } from "@storybook/react";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
 import { CSSProperties, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Button, FormError, Input, TextArea } from "../../../core/src";
-import { Utils } from "../utils/utils";
+import { Button, FormError, Input, TextArea } from "../../core";
 
 const meta: Meta = {
   title: "Patterns/Form",
