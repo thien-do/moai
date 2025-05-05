@@ -25,6 +25,7 @@ const meta: Meta = {
         component: componentDescription,
       },
     },
+    hideArgs: true,
   }),
 };
 
