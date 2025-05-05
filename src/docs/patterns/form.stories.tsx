@@ -1,11 +1,15 @@
-import { Meta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { ErrorMessage, Field, Form, Formik, FormikErrors } from "formik";
 import { CSSProperties, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Button, FormError, Input, TextArea } from "../../core";
+import { docsMetaParameters } from "../utils/parameter";
 
 const meta: Meta = {
   title: "Patterns/Form",
+  parameters: docsMetaParameters({
+    primary: "none",
+  })
 };
 
 Utils.page.pattern(meta, {
@@ -54,52 +58,56 @@ const postToServer = async (values: FormValues): Promise<void> => {
 };
 
 // Is required by Storybook
-export const Primary = (): JSX.Element => <div>Skipped</div>;
+export const Primary: StoryObj = {
+  render: () => <div>Skipped</div>
+};
 
-export const FormikExample = (): JSX.Element => {
-  /* import { Input, Button, FormError } from "../../../core/src" */
+export const FormikExample: StoryObj = {
+  render: () => {
+    /* import { Input, Button, FormError } from "../../../core/src" */
 
-  const title = (
-    <div>
-      <label htmlFor="fm-title">Title</label>
-      <Field id="fm-title" type="text" name="title" as={Input} />
-      <ErrorMessage name="title" component={FormError} />
-    </div>
-  );
+    const title = (
+      <div>
+        <label htmlFor="fm-title">Title</label>
+        <Field id="fm-title" type="text" name="title" as={Input} />
+        <ErrorMessage name="title" component={FormError} />
+      </div>
+    );
 
-  const message = (
-    <div>
-      <label htmlFor="fm-message">Message</label>
-      <Field id="fm-message" name="message" as={TextArea} />
-      <ErrorMessage name="message" component={FormError} />
-    </div>
-  );
+    const message = (
+      <div>
+        <label htmlFor="fm-message">Message</label>
+        <Field id="fm-message" name="message" as={TextArea} />
+        <ErrorMessage name="message" component={FormError} />
+      </div>
+    );
 
-  const validate = (values: FormValues): FormikErrors<FormValues> => {
-    const errors: FormikErrors<FormValues> = {};
-    if (!values.title) errors.title = ERRORS.titleRequired;
-    if (!values.message) errors.message = ERRORS.messageRequired;
-    if (values.message.length < 5) errors.message = ERRORS.messageLength;
-    return errors;
-  };
+    const validate = (values: FormValues): FormikErrors<FormValues> => {
+      const errors: FormikErrors<FormValues> = {};
+      if (!values.title) errors.title = ERRORS.titleRequired;
+      if (!values.message) errors.message = ERRORS.messageRequired;
+      if (values.message.length < 5) errors.message = ERRORS.messageLength;
+      return errors;
+    };
 
-  return (
-    <Formik<FormValues>
-      initialValues={{ title: "", message: "" }}
-      validate={validate}
-      onSubmit={async (values, { setSubmitting }) => {
-        await postToServer(values);
-        setSubmitting(false);
-      }}
-      children={({ isSubmitting: busy }) => (
-        <Form style={formStyles}>
-          {title}
-          {message}
-          <SubmitButton busy={busy} />
-        </Form>
-      )}
-    />
-  );
+    return (
+      <Formik<FormValues>
+        initialValues={{ title: "", message: "" }}
+        validate={validate}
+        onSubmit={async (values, { setSubmitting }) => {
+          await postToServer(values);
+          setSubmitting(false);
+        }}
+        children={({ isSubmitting: busy }) => (
+          <Form style={formStyles}>
+            {title}
+            {message}
+            <SubmitButton busy={busy} />
+          </Form>
+        )}
+      />
+    );
+  }
 };
 
 Utils.story(FormikExample, {
@@ -134,58 +142,60 @@ Full example:
 `,
 });
 
-export const ReactHookForm = (): JSX.Element => {
-  /* import { Input, Button, FormError } from "../../../core/src" */
+export const ReactHookForm: StoryObj = {
+  render: () => {
+    /* import { Input, Button, FormError } from "../../../core/src" */
 
-  const { control, formState, handleSubmit } = useForm<FormValues>();
-  const { errors } = formState;
-  const [busy, setBusy] = useState(false);
+    const { control, formState, handleSubmit } = useForm<FormValues>();
+    const { errors } = formState;
+    const [busy, setBusy] = useState(false);
 
-  const title = (
-    <div>
-      <label htmlFor="rhf-title">Title</label>
-      <Controller
-        name="title"
-        control={control}
-        render={({ field }) => <Input {...field} id="rhf-title" type="text" />}
-        rules={{ required: ERRORS.titleRequired }}
-        defaultValue=""
-      />
-      <FormError children={errors.title?.message} />
-    </div>
-  );
+    const title = (
+      <div>
+        <label htmlFor="rhf-title">Title</label>
+        <Controller
+          name="title"
+          control={control}
+          render={({ field }) => <Input {...field} id="rhf-title" type="text" />}
+          rules={{ required: ERRORS.titleRequired }}
+          defaultValue=""
+        />
+        <FormError children={errors.title?.message} />
+      </div>
+    );
 
-  const message = (
-    <div>
-      <label htmlFor="rhf-message">Message</label>
-      <Controller
-        name="message"
-        control={control}
-        render={({ field }) => <TextArea {...field} id="rhf-message" />}
-        rules={{
-          required: { value: true, message: ERRORS.messageRequired },
-          minLength: { value: 5, message: ERRORS.messageLength },
-        }}
-        defaultValue=""
-      />
-      <FormError children={errors.message?.message} />
-    </div>
-  );
+    const message = (
+      <div>
+        <label htmlFor="rhf-message">Message</label>
+        <Controller
+          name="message"
+          control={control}
+          render={({ field }) => <TextArea {...field} id="rhf-message" />}
+          rules={{
+            required: { value: true, message: ERRORS.messageRequired },
+            minLength: { value: 5, message: ERRORS.messageLength },
+          }}
+          defaultValue=""
+        />
+        <FormError children={errors.message?.message} />
+      </div>
+    );
 
-  return (
-    <form
-      onSubmit={handleSubmit(async (data) => {
-        setBusy(true);
-        await postToServer(data);
-        setBusy(false);
-      })}
-      style={formStyles}
-    >
-      {title}
-      {message}
-      <SubmitButton busy={busy} />
-    </form>
-  );
+    return (
+      <form
+        onSubmit={handleSubmit(async (data) => {
+          setBusy(true);
+          await postToServer(data);
+          setBusy(false);
+        })}
+        style={formStyles}
+      >
+        {title}
+        {message}
+        <SubmitButton busy={busy} />
+      </form>
+    );
+  }
 };
 
 Utils.story(ReactHookForm, {
