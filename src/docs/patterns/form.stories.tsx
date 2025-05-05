@@ -66,7 +66,6 @@ export const Primary: StoryObj = {
   render: () => <div>Skipped</div>
 };
 
-
 /**
  * To use Moai's input components with Formik, pass them to the "as" prop of Formik's [Field][1] component:
  * 
