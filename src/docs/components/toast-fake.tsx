@@ -1,4 +1,5 @@
-import { ToastType } from "../../../core/src";
+import { ReactElement } from "react";
+import { ToastType } from "../../core";
 
 interface Props {
   /**
@@ -16,6 +17,6 @@ interface Props {
  * This is not a part of the source code. It exists only for Storybook's
  * ArgsTable to describe the `toast` utility interface.
  */
-export const ToastFunction = (props: Props): JSX.Element => (
-  <div children={props.message} />
-);
+export function ToastFunction(props: Props): ReactElement {
+  return <div children={props.message} />
+}
