@@ -37,15 +37,17 @@ const meta: Meta = {
 
 export default meta;
 
-const tabs: Tab[] = [
-  { id: "first", title: "First", pane: () => <p>1st</p> },
-  { id: "second", title: "Second", pane: () => <p>2nd</p> },
-];
 
 export const Primary: StoryObj<typeof Tabs> = {
   render: (props) => (
     <div style={{ height: "150px" }}>
-      <Tabs {...props} tabs={tabs} />
+      <Tabs
+        {...props}
+        tabs={[
+          { id: "first", title: "First", pane: () => <p>1st</p> },
+          { id: "second", title: "Second", pane: () => <p>2nd</p> },
+        ]}
+      />
     </div>
   )
 };
@@ -71,7 +73,12 @@ export const Primary: StoryObj<typeof Tabs> = {
  */
 export const Basic: StoryObj = {
   render: () => (
-    <Tabs tabs={tabs} />
+    <Tabs
+      tabs={[
+        { id: "first", title: "First", pane: () => <p>1st</p> },
+        { id: "second", title: "Second", pane: () => <p>2nd</p> },
+      ]}
+    />
   )
 };
 
@@ -88,12 +95,19 @@ export const Basic: StoryObj = {
 export const Controlled: StoryObj = {
   render: () => {
     const [tab, setTab] = useState("first");
+
     const FirstPane = (): JSX.Element => (
       <Button onClick={() => setTab("second")}>Next</Button>
     );
     const SecondPane = (): JSX.Element => (
       <Button onClick={() => setTab("first")}>Back</Button>
     );
+
+    const tabs: Tab[] = [
+      { id: "first", title: "First", pane: FirstPane },
+      { id: "second", title: "Second", pane: SecondPane },
+    ]
+
     return (
       <div>
         <Switcher<string>
@@ -103,10 +117,7 @@ export const Controlled: StoryObj = {
         />
         <DivPx size={16} />
         <Tabs
-          tabs={[
-            { id: "first", title: "First", pane: FirstPane },
-            { id: "second", title: "Second", pane: SecondPane },
-          ]}
+          tabs={tabs}
           setActiveTab={setTab}
           activeTab={tab}
         />
