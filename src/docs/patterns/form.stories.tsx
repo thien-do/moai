@@ -73,7 +73,7 @@ export const Primary: StoryObj = {
  * 
  * ```tsx
  * import { Field } from "formik";
- * import { Input } from "../../../core/src";
+ * import { Input } from "@moai/core";
  * 
  * <label htmlFor="email">Email</label>
  * <Field id="email" type="email" name="email" as={Input} />
@@ -83,7 +83,7 @@ export const Primary: StoryObj = {
  * 
  * ```tsx
  * import { ErrorMessage } from "formik";
- * import { FormError } from "../../../core/src";
+ * import { FormError } from "@moai/core";
  * 
  * <ErrorMessage name="email" component={FormError} />
  * ```
@@ -95,7 +95,7 @@ export const Primary: StoryObj = {
 export const FormikExample: StoryObj = {
   name: "Formik",
   render: () => {
-    /* import { Input, Button, FormError } from "../../../core/src" */
+    /* import { Input, Button, FormError } from "@moai/core" */
 
     const title = (
       <div>
@@ -146,7 +146,7 @@ export const FormikExample: StoryObj = {
  * 
  * ```tsx
  * import { Controller } from "react-hook-form";
- * import { Input } from "../../../core/src";
+ * import { Input } from "@moai/core";
  * 
  * <label htmlFor="email">Email</label>
  * <Controller
@@ -165,7 +165,7 @@ export const FormikExample: StoryObj = {
  * To show errors, pass RHF's [error messages][3] as children of Moai's FormError component:
  * 
  * ```tsx
- * import { FormError } from "../../../core/src";
+ * import { FormError } from "@moai/core";
  * 
  * <FormError children={errors.email?.message} />
  * ```
@@ -176,7 +176,7 @@ export const FormikExample: StoryObj = {
  */
 export const ReactHookForm: StoryObj = {
   render: () => {
-    /* import { Input, Button, FormError } from "../../../core/src" */
+    /* import { Input, Button, FormError } from "@moai/core" */
 
     const { control, formState, handleSubmit } = useForm<FormValues>();
     const { errors } = formState;
