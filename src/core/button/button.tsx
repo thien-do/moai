@@ -124,6 +124,7 @@ export interface ButtonProps {
    * The content to render inside the button.
    */
   children?: React.ReactNode;
+  // TODO: Fix the link here once the docs is ready
   /**
    * The icon in the button. See the [Icons guide][1] to learn more.
    *

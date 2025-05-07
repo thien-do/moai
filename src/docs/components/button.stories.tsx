@@ -76,6 +76,7 @@ export const Basic: StoryObj = {
   ),
 };
 
+// TODO: Fix the link [1] once the docs is ready
 /**
  * Icons can be used in buttons via the `icon` prop.
  * This follows our [Icon standard][1], which supports any SVG icons.

@@ -100,6 +100,7 @@ export const Suggestion: StoryObj = {
   ),
 };
 
+// TODO: Fix the link [5] once the docs is ready
 /**
  * Input supports both [controlled][1] and [uncontrolled][2] usages,
  * making it easy to use them with form builders like [Formik][3] and [React Hook Form][4],
@@ -129,6 +130,7 @@ export const Form: StoryObj = {
   ),
 };
 
+// TODO: Fix the link [1] once the docs is ready
 /**
  * An input can have an icon defined via the `icon` prop.
  * This follows our [Icon standard][1], which supports all SVG icons.

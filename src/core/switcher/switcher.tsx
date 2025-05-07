@@ -81,10 +81,10 @@ interface Props<T> {
  * [selects][3]. When multiple options can be selected, consider [checkbox
  * groups][1], or use the [button groups][2] directly.
  *
- * [1]: /docs/components-checkbox--group
- * [2]: /docs/components-button-group--primary
- * [3]: /docs/components-select--primary
- * [4]: /docs/components-radio-group--primary
+ * [1]: /docs/components-checkbox--docs#group
+ * [2]: /docs/draft-button-group--docs
+ * [3]: /docs/components-select--docs
+ * [4]: /docs/components-radio-group--docs
  * [5]: https://www.nngroup.com/articles/toggle-switch-guidelines/
  */
 export const Switcher = <T,>(props: Props<T>): JSX.Element => (

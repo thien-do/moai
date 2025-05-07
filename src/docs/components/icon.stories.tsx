@@ -70,6 +70,7 @@ export const Display: StoryObj = {
   ),
 };
 
+// TODO: Fix the link [3] once the docs is ready
 /**
  * SVG icons usually use the [`currentcolor`][1] keyword for their colors.
  * This means to set the color of an icon, 
@@ -88,6 +89,7 @@ export const Color: StoryObj = {
   ),
 };
 
+// TODO: Fix the link [2] once the docs is ready
 /**
  * Technically, the `component` prop expects a [function component][1] that returns an SVG element.
  * You can use it to display your own custom icons (e.g. logos, product icons).

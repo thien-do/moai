@@ -146,7 +146,7 @@ const onChange =
  * the selected option, thus is a space-effective alternative to [radio
  * groups][1].
  *
- * [1]: /docs/components-radio-group--primary
+ * [1]: /docs/components-radio-group--docs
  */
 export const Select = <T,>(props: SelectProps<T>): JSX.Element => {
   const cls = getClassNames(props);

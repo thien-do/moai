@@ -17,7 +17,7 @@ import { DialogBody, DialogFooter, DialogHeader, DialogTitle } from "./sub/sub";
  *
  * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
  * [2]: https://www.nngroup.com/articles/modal-nonmodal-dialog/
- * [3]: /docs/components-popover--primary
+ * [3]: /docs/components-popover--docs
  * [4]: https://reactjs.org/docs/portals.html
  * [5]: #utilities
  */

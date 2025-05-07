@@ -51,6 +51,7 @@ export interface InputProps
    * [1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
    */
   list?: { id: string; values: string[] } | string;
+  // TODO: Fix the link here once the docs is ready
   /**
    * Icon in the input. See the [Icons guide][1] to learn more.
    *
