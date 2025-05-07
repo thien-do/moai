@@ -2,6 +2,8 @@ import { createRoot } from "react-dom/client";
 import { ToastContainer } from "./container/container";
 import { ToastType, toastTypes } from "./type/type";
 
+// It's ok to break hot reload here for now
+// eslint-disable-next-line react-refresh/only-export-components
 export * from "./pane/pane";
 
 export type { ToastType };
@@ -21,6 +23,8 @@ const init = async (resolve: (div: HTMLDivElement) => void): Promise<void> => {
   resolve(element);
 };
 
+// Same comment as export "pane"
+// eslint-disable-next-line react-refresh/only-export-components
 export const toast = async (
   type: ToastType,
   message: string,
