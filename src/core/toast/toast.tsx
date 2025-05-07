@@ -1,7 +1,9 @@
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { ToastContainer } from "./container/container";
 import { ToastType, toastTypes } from "./type/type";
 
+// It's ok to break hot reload here for now
+// eslint-disable-next-line react-refresh/only-export-components
 export * from "./pane/pane";
 
 export type { ToastType };
@@ -10,8 +12,9 @@ const inited = { current: false };
 
 const init = async (resolve: (div: HTMLDivElement) => void): Promise<void> => {
   const element = document.createElement("div");
+  const root = createRoot(element);
   document.body.append(element);
-  render(<ToastContainer />, element);
+  root.render(<ToastContainer />);
   // The callback in "render" is called after the component is rendered,
   // but we need to wait after it is mounted, thus this timeout
   await new Promise((resolve) => setTimeout(resolve, 100));
@@ -20,6 +23,8 @@ const init = async (resolve: (div: HTMLDivElement) => void): Promise<void> => {
   resolve(element);
 };
 
+// Same comment as export "pane"
+// eslint-disable-next-line react-refresh/only-export-components
 export const toast = async (
   type: ToastType,
   message: string,
