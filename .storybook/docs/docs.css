@@ -24,7 +24,7 @@ html {
 }
 
 /* Hide the "Stories" heading */
-.sbdocs h2#stories-1 {
+.sbdocs h2[id^="stories-"] {
   display: none;
 }
 
