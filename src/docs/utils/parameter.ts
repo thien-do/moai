@@ -14,6 +14,14 @@ export type DocsMetaParameter = Meta["parameters"] & {
    * or hide the primary story altogether ("none").
    */
   primary?: "no-sticky" | "none";
+  /**
+   * Hide the args table.
+   *
+   * This will also hide the primary story.
+   * If we only hide the primary story but not the args table,
+   * use the "primary" option instead.
+   */
+  hideArgs?: boolean;
 };
 
 /**

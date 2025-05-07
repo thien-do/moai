@@ -19,7 +19,7 @@ export const StorybookPage = (): ReactElement => {
     meta.type === "meta"
       ? (meta.csfFile.meta.parameters as DocsMetaParameter)
       : {};
-  const { gallery } = parameters;
+  const { gallery, hideArgs } = parameters;
   const primary = parameters.primary ?? "sticky";
 
   return (
@@ -36,19 +36,21 @@ export const StorybookPage = (): ReactElement => {
         </>
       )}
       <Stories includePrimary={false} />
-      <div>
-        <h3 id="props" className="sbdocs sbdocs-h3">
-          All Props
-        </h3>
-        {primary !== "none" && (
-          <div className={[s.primary, background.strong].join(" ")}>
-            <Primary />
+      {!hideArgs && (
+        <div>
+          <h3 id="props" className="sbdocs sbdocs-h3">
+            All Props
+          </h3>
+          {primary !== "none" && (
+            <div className={[s.primary, background.strong].join(" ")}>
+              <Primary />
+            </div>
+          )}
+          <div className={s.table}>
+            <Controls />
           </div>
-        )}
-        <div className={s.table}>
-          <Controls />
         </div>
-      </div>
+      )}
     </div>
   );
 };
