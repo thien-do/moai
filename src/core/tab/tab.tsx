@@ -42,7 +42,7 @@ interface Props {
   /**
    * The list of tabs to render. See the "Tab" page for more detail.
    */
-  children: Tab[];
+  tabs: Tab[];
   /**
    * If true, remove the default padding around tab content.
    */
@@ -95,11 +95,11 @@ const renderTitle = (props: Props, state: State) => (tab: Tab) => {
 };
 
 const useTabState = (props: Props): State => {
-  const { children, activeTab, setActiveTab, initialTab } = props;
-  if (children.length < 1) throw Error(ERRORS.LENGTH);
+  const { tabs, activeTab, setActiveTab, initialTab } = props;
+  if (tabs.length < 1) throw Error(ERRORS.LENGTH);
 
   // Self state for uncontrolled
-  const state = React.useState(initialTab ?? children[0].id);
+  const state = React.useState(initialTab ?? tabs[0].id);
 
   if (activeTab !== undefined) {
     // Controlled
@@ -122,18 +122,18 @@ const useTabState = (props: Props): State => {
  * [2]: https://reactjs.org/docs/forms.html#controlled-components
  */
 export const Tabs = (props: Props): JSX.Element => {
-  const { children } = props;
+  const { tabs } = props;
   const style = props.style ?? Tabs.styles.outset;
   const state = useTabState(props);
 
-  const activeTab = children.find((tab) => tab.id === state.active);
+  const activeTab = tabs.find((tab) => tab.id === state.active);
   if (activeTab === undefined) throw Error(ERRORS.UNDEF_TAB(state.active));
 
   const container = [s.container, props.fullHeight ? s.full : ""].join(" ");
 
   return (
     <div className={container}>
-      <div className={s.titles}>{children.map(renderTitle(props, state))}</div>
+      <div className={s.titles}>{tabs.map(renderTitle(props, state))}</div>
       <div className={[s.content, style.content].join(" ")}>
         {style.renderContent(activeTab.pane(), props)}
       </div>

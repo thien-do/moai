@@ -30,12 +30,12 @@ const tabs: Tab[] = [
 
 export const GalleryTab1 = (): JSX.Element => (
   <Shot>
-    <Tabs children={tabs} />
+    <Tabs tabs={tabs} />
   </Shot>
 );
 
 export const GalleryTab2 = (): JSX.Element => (
   <Shot>
-    <Tabs children={tabs} style={Tabs.styles.flat} />
+    <Tabs tabs={tabs} style={Tabs.styles.flat} />
   </Shot>
 );
