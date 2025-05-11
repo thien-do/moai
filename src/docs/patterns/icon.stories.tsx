@@ -2,14 +2,9 @@ import { Meta, StoryObj } from "@storybook/react";
 import { SVGAttributes } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { Button } from "../../core";
-import { Utils } from "../utils/utils";
+import { docsMetaParameters } from "../utils/parameter";
 
-const meta: Meta = {
-  title: "Patterns/Icon",
-};
-
-Utils.page.pattern(meta, {
-  desc: `
+const componentDescription = `
 Moai doesn't have a built-in icon set. Instead, Moai's components work with any
 SVG icons. This means you can use Moai with popular icon sets, like
 [FontAwesome][1] and [Material Icons][2], or even with [your own icons][4].
@@ -20,10 +15,22 @@ color, see the [Icon component][3].
 
 [1]: https://fontawesome.com
 [2]: https://fonts.google.com/icons
-[3]: /docs/components-icon--primary
+[3]: /docs/components-icon--docs
 [4]: #advanced
-`,
-});
+`
+
+const meta: Meta = {
+  title: "Patterns/Icon",
+  parameters: docsMetaParameters({
+    primary: "none",
+    docs: {
+      description: {
+        component: componentDescription,
+      },
+    },
+    hideArgs: true,
+  }),
+};
 
 export default meta;
 
@@ -32,48 +39,42 @@ export const Primary: StoryObj = {
   render: () => <div>Skipped</div>
 };
 
+/**
+ * Moai components that support icons usually have an `icon` prop.
+ * The recommended way to set this prop is using an icon from the [react-icons][1] package.
+ * It provides icons from many popular sets that can be used directly in Moai:
+ * 
+ * ```ts
+ * import { RiSearchLine } from "react-icons/ri";
+ * ```
+ * 
+ * [1]: https://react-icons.github.io/react-icons/
+ */
 export const Basic: StoryObj = {
   render: () => (
     <Button icon={RiSearchLine} children="Search" />
   )
 };
 
-Utils.story(Basic, {
-  desc: `
-Moai components that support icons usually have an \`icon\` prop. The
-recommended way to set this prop is using an icon from the [react-icons][1]
-package. It provides icons from many popular sets that can be used directly in
-Moai:
-
-~~~ts
-
-import { RiSearchLine } from "react-icons/ri";
-
-~~~
-
-[1]: https://react-icons.github.io/react-icons/
-`,
-});
-
+/**
+ * In most cases, [screen readers][1] will [skip the icon][2] and only announce the text content of a component (e.g. the label of a button).
+ * When a component has no content to be announced (e.g. an icon-only button), you'll often be asked to provide an explicit icon label:
+ * 
+ * [1]: https://en.wikipedia.org/wiki/Screen_reader
+ * [2]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
+ */
 export const IconLabel: StoryObj = {
   render: () => (
     <Button icon={RiSearchLine} iconLabel="Search" />
   )
 };
 
-Utils.story(IconLabel, {
-  desc: `
-In most cases, [screen readers][1] will [skip the icon][2] and only announce
-the text content of a component (e.g. the label of a button). When a component
-has no content to be announced (e.g. an icon-only button), you'll often be
-asked to provide an explicit icon label:
-
-[1]: https://en.wikipedia.org/wiki/Screen_reader
-[2]: https://www.sarasoueidan.com/blog/accessible-icon-buttons/#icon-sitting-next-to-text
-`,
-});
-
+/**
+ * When using with a component, the color and size of an icon are usually controlled by the component itself.
+ * For example, in a large, highlight button, the icon is white and enlarged:
+ */
 export const ColorSize: StoryObj = {
+  name: "Color & Size",
   render: () => (
     <Button
       highlight
@@ -84,15 +85,25 @@ export const ColorSize: StoryObj = {
   )
 };
 
-Utils.story(ColorSize, {
-  name: "Color & Size",
-  desc: `
-When using with a component, the color and size of an icon are usually
-controlled by the component itself. For example, in a large, highlight button,
-the icon is white and enlarged:
-`,
-});
-
+/**
+ * Technically, these `icon` props simply expect a [function component][1] that returns an SVG element.
+ * The type definition looks like this:
+ * 
+ * ```ts
+ * interface Props {
+ *     style?: CSSProperties;
+ *     className?: string;
+ * }
+ *   
+ * type Icon = (props: Props) => JSX.Element;
+ * ```
+ * 
+ * This means you can use Moai with your own custom icons (e.g. logos, product icons), by creating components that return them as SVG elements.
+ * For a full icon set, consider tools like [React SVGR][2] to programmatically generate these components from SVG files.
+ * 
+ * [1]: https://reactjs.org/docs/components-and-props.html#function-and-class-components
+ * [2]: https://react-svgr.com
+ */
 export const Advanced: StoryObj = {
   render: () => {
     // In practice, this should be defined outside of your component, or even
@@ -106,27 +117,3 @@ export const Advanced: StoryObj = {
     return <Button icon={Icon} children="Search" />;
   }
 };
-
-Utils.story(Advanced, {
-  desc: `
-Technically, these \`icon\` props simply expect a [function component][1] that
-returns an SVG element. The type definition looks like this: 
-
-~~~ts
-interface Props {
-    style?: CSSProperties;
-    className?: string;
-}
-  
-type Icon = (props: Props) => JSX.Element;
-~~~
-
-This means you can use Moai with your own custom icons (e.g. logos, product
-icons), by creating components that return them as SVG elements. For a full
-icon set, consider tools like [React SVGR][2] to programmatically generate
-these components from SVG files.
-
-[1]: https://reactjs.org/docs/components-and-props.html#function-and-class-components
-[2]: https://react-svgr.com
-`,
-});
