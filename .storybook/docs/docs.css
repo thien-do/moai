@@ -24,6 +24,7 @@ html {
 }
 
 /* Hide the "Stories" heading */
+.sbdocs h2[id^="stories"],
 .sbdocs h2[id^="stories-"] {
   display: none;
 }
@@ -57,8 +58,16 @@ The actual top-level code block is "docblock-source".
   margin: 48px 0 24px;
 }
 
-/* Body text */
-.sbdocs :is(code, p, li):where(:not(#gallery *, .sbdocs-preview *)),
+/* 
+Body text
+
+Storybook descriptions use markdown-to-jsx, 
+which will try to make an intelligent guess about the content passed 
+and wrap it in a <div>, <p>, or <span> as needed.
+So we need to target all 3 of them.
+See https://github.com/quantizor/markdown-to-jsx/blob/main/README.md#parsing-options
+*/
+.sbdocs :is(code, p, span, li):where(:not(#gallery *, .sbdocs-preview *)),
 .docblock-argstable {
   font-size: 16px;
   line-height: 28px;
