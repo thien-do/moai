@@ -34,6 +34,8 @@ const preview: Preview = {
           "Intro",
           ["Quick Start", "Proper Start", "Gallery", "Principles"],
           "Patterns",
+          // Other docs will be sorted alphabetically by storybook so no need to list them
+          ["Color", ["_Index"]],
           "Components",
           "Draft",
         ],
