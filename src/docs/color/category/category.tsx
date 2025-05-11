@@ -1,6 +1,6 @@
 import React from "react";
-import { border, Table } from "../../../../core/src";
-import { GalleryTag } from "../../../../gallery/src";
+import { border, Table } from "../../../core";
+import { GalleryTag } from "../../../gallery";
 import s from "./category.module.css";
 
 interface Row {

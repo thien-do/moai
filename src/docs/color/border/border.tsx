@@ -1,4 +1,4 @@
-import { background, border, Table } from "../../../../core/src";
+import { background, border, Table } from "../../../core";
 import { ColorSample } from "../sample/sample";
 import s from "./border.module.css";
 
@@ -10,14 +10,14 @@ interface Row {
 
 const MakeColumn =
   (theme: "light" | "dark", back: string) =>
-  (row: Row): JSX.Element => (
-    <div className={theme}>
-      <ColorSample
-        background={back}
-        foreground={{ type: "border", cls: border[row.key] }}
-      />
-    </div>
-  );
+    (row: Row): JSX.Element => (
+      <div className={theme}>
+        <ColorSample
+          background={back}
+          foreground={{ type: "border", cls: border[row.key] }}
+        />
+      </div>
+    );
 
 const LightStrong = MakeColumn("light", background.strong);
 const LightWeak = MakeColumn("light", background.weak);
