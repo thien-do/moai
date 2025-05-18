@@ -24,6 +24,7 @@ html {
 }
 
 /* Hide the "Stories" heading */
+.sbdocs h2[id^="stories"],
 .sbdocs h2[id^="stories-"] {
   display: none;
 }
@@ -46,8 +47,10 @@ The "pre" tag actually has no margin,
 which makes sense because Storybook often nests it.
 The actual top-level code block is "docblock-source".
 */
-.sbdocs :is(p, title, blockquote, h1, h2, h3, ul, ol
-):where(:not(#gallery *, .sbdocs-preview *)),
+.sbdocs
+  :is(p, title, blockquote, h1, h2, h3, ul, ol):where(
+    :not(#gallery *, .sbdocs-preview *)
+  ),
 .docblock-source,
 .sbdocs-preview {
   margin: 24px 0;
@@ -57,8 +60,17 @@ The actual top-level code block is "docblock-source".
   margin: 48px 0 24px;
 }
 
-/* Body text */
-.sbdocs :is(code, p, li):where(:not(#gallery *, .sbdocs-preview *)),
+/* 
+Body text
+
+Storybook descriptions use markdown-to-jsx, 
+which will wrap it in a <p>, or <span> as needed.
+So we need to target both of them.
+<div> is left out intentionally because it's used for other purposes.
+See https://github.com/quantizor/markdown-to-jsx/blob/main/README.md#parsing-options
+*/
+.sbdocs
+  :is(code, p, span, li):where(:not(#gallery, #gallery *, .sbdocs-preview *)),
 .docblock-argstable {
   font-size: 16px;
   line-height: 28px;
