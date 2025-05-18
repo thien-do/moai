@@ -19,7 +19,7 @@ import { GalleryToast } from "./toast";
 import { GalleryTooltip } from "./tooltip";
 
 export const Gallery = (): JSX.Element => (
-  <div className={[scrollbar.custom, s.rows].join(" ")} style={{ gap: 32 }}>
+  <div id="gallery" className={[scrollbar.custom, s.rows].join(" ")} style={{ gap: 32 }}>
     <GallerySection title="Icons">
       <div className={s.colFull}>
         <GalleryIcon />
