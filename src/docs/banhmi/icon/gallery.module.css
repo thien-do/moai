@@ -1,26 +1,27 @@
 .container {
-	grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 .heading {
-	line-height: 32px;
-	margin-bottom: 16px;
-	font-weight: 600;
-	font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .set {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, 160px);
-	column-gap: 0;
-	grid-template-rows: repeat(auto-fill, min-content);
-	row-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 160px);
+  column-gap: 0;
+  grid-template-rows: repeat(auto-fill, min-content);
+  row-gap: 16px;
 }
 
 .icon {
-	display: flex;
+  display: flex;
+  align-items: center;
 }
 
 .label {
-	margin-left: 8px;
+  margin-left: 8px;
 }
