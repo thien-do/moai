@@ -48,6 +48,7 @@
   },
   "packageManager": "pnpm@9.6.0",
   "devDependencies": {
-    "prettier": "3.3.3"
+    "prettier": "3.3.3",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }
