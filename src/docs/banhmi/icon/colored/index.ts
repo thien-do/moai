@@ -1,0 +1,12 @@
+export { default as Begroup } from "./begroup.svg";
+export { default as CakeByVpBank } from "./cakeByVPBank.svg";
+export { default as Dropbox } from "./dropbox.svg";
+export { default as Facebook } from "./facebook.svg";
+export { default as Github } from "./github.svg";
+export { default as Google } from "./google.svg";
+export { default as Instagram } from "./instagram.svg";
+export { default as LinkedIn } from "./linkedIn.svg";
+export { default as Messenger } from "./messenger.svg";
+export { default as Microsoft } from "./microsoft.svg";
+export { default as Twitter } from "./twitter.svg";
+export { default as Youtube } from "./youtube.svg";
