@@ -1,18 +1,19 @@
 import { ReactElement } from "react";
 import { DivPx, Icon } from "../../../core";
 import { GallerySection } from "../../../gallery";
+
 import * as outline from "./outline";
 import * as solid from "./solid";
 import * as colored from "./colored";
 
 import s from "./gallery.module.css";
 
-const IconSet = ({ icons }: { icons: Record<string, string> }): ReactElement => {
+const IconSet = ({ icons }: { icons: Record<string, any> }): ReactElement => {
 	return (
 		<div className={s.set}>
 			{Object.keys(icons).map((key) => (
 				<div key={key} className={s.icon}>
-					<Icon display="block" component={() => <img src={icons[key]} />} />
+					<Icon display="block" component={icons[key]} />
 					<div className={s.label}>{key}</div>
 				</div>
 			))}
