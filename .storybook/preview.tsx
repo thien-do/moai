@@ -34,6 +34,7 @@ const preview: Preview = {
           "Intro",
           ["Quick Start", "Proper Start", "Gallery", "Principles"],
           "Patterns",
+          "Showcase",
           "Components",
           "Draft",
         ],
