@@ -1,12 +1,27 @@
-export { default as Begroup } from "./begroup.svg";
-export { default as CakeByVpBank } from "./cakeByVPBank.svg";
-export { default as Dropbox } from "./dropbox.svg";
-export { default as Facebook } from "./facebook.svg";
-export { default as Github } from "./github.svg";
-export { default as Google } from "./google.svg";
-export { default as Instagram } from "./instagram.svg";
-export { default as LinkedIn } from "./linkedIn.svg";
-export { default as Messenger } from "./messenger.svg";
-export { default as Microsoft } from "./microsoft.svg";
-export { default as Twitter } from "./twitter.svg";
-export { default as Youtube } from "./youtube.svg";
+import Begroup from "./begroup.svg?react";
+import CakeByVpBank from "./cakeByVPBank.svg?react";
+import Dropbox from "./dropbox.svg?react";
+import Facebook from "./facebook.svg?react";
+import Github from "./github.svg?react";
+import Google from "./google.svg?react";
+import Instagram from "./instagram.svg?react";
+import LinkedIn from "./linkedIn.svg?react";
+import Messenger from "./messenger.svg?react";
+import Microsoft from "./microsoft.svg?react";
+import Twitter from "./twitter.svg?react";
+import Youtube from "./youtube.svg?react";
+
+export {
+  Begroup,
+  CakeByVpBank,
+  Dropbox,
+  Facebook,
+  Github,
+  Google,
+  Instagram,
+  LinkedIn,
+  Messenger,
+  Microsoft,
+  Twitter,
+  Youtube,
+};

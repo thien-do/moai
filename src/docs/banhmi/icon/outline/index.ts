@@ -1,128 +1,259 @@
-export { default as Add } from "./add.svg";
-export { default as AddCircle } from "./addCircle.svg";
-export { default as AddFile } from "./addFile.svg";
-export { default as AddImage } from "./addImage.svg";
-export { default as AddMail } from "./addMail.svg";
-export { default as AddSquare } from "./addSquare.svg";
-export { default as AddUser } from "./addUser.svg";
-export { default as ArrowDown } from "./arrowDown.svg";
-export { default as ArrowLeft } from "./arrowLeft.svg";
-export { default as ArrowRight } from "./arrowRight.svg";
-export { default as ArrowUp } from "./arrowUp.svg";
-export { default as Attachment } from "./attachment.svg";
-export { default as Bank } from "./bank.svg";
-export { default as BarChartBox } from "./barChartBox.svg";
-export { default as BarChartLine } from "./barChartLine.svg";
-export { default as Begroup } from "./begroup.svg";
-export { default as Bike } from "./bike.svg";
-export { default as Bluetooth } from "./bluetooth.svg";
-export { default as CakeByVpBank } from "./cakeByVPBank.svg";
-export { default as Calendar } from "./calendar.svg";
-export { default as Camera } from "./camera.svg";
-export { default as Car } from "./car.svg";
-export { default as Card } from "./card.svg";
-export { default as Check } from "./check.svg";
-export { default as ChevronDown } from "./chevronDown.svg";
-export { default as ChevronLeft } from "./chevronLeft.svg";
-export { default as ChevronRight } from "./chevronRight.svg";
-export { default as ChevronUp } from "./chevronUp.svg";
-export { default as Compass } from "./compass.svg";
-export { default as Copy } from "./copy.svg";
-export { default as Copyright } from "./copyright.svg";
-export { default as Coupon } from "./coupon.svg";
-export { default as Damage } from "./damage.svg";
-export { default as Database1 } from "./database1.svg";
-export { default as Database2 } from "./database2.svg";
-export { default as Delete_1 } from "./delete-1.svg";
-export { default as Delete } from "./delete.svg";
-export { default as Document } from "./document.svg";
-export { default as Download } from "./download.svg";
-export { default as DownloadClound } from "./downloadClound.svg";
-export { default as Dropbox } from "./dropbox.svg";
-export { default as Edit } from "./edit.svg";
-export { default as Email } from "./email.svg";
-export { default as Exchange } from "./exchange.svg";
-export { default as EyeOff } from "./eyeOff.svg";
-export { default as EyeOpen } from "./eyeOpen.svg";
-export { default as Facebook } from "./facebook.svg";
-export { default as FillterOff } from "./fillterOff.svg";
-export { default as FilterOn } from "./filterOn.svg";
-export { default as Fraud } from "./fraud.svg";
-export { default as FundsBox } from "./fundsBox.svg";
-export { default as FundsCircle } from "./fundsCircle.svg";
-export { default as Gift } from "./gift.svg";
-export { default as Github } from "./github.svg";
-export { default as Google } from "./google.svg";
-export { default as Gps } from "./gps.svg";
-export { default as Group } from "./group.svg";
-export { default as Heart } from "./heart.svg";
-export { default as Home } from "./home.svg";
-export { default as Hotel } from "./hotel.svg";
-export { default as Image } from "./image.svg";
-export { default as Information } from "./information.svg";
-export { default as Instagram } from "./instagram.svg";
-export { default as Key } from "./key.svg";
-export { default as Landing } from "./landing.svg";
-export { default as Light } from "./light.svg";
-export { default as LineChart } from "./lineChart.svg";
-export { default as Link } from "./link.svg";
-export { default as Linkedin } from "./linkedin.svg";
-export { default as List } from "./list.svg";
-export { default as Loading } from "./loading.svg";
-export { default as Lock } from "./lock.svg";
-export { default as Login } from "./login.svg";
-export { default as Logout } from "./logout.svg";
-export { default as Map1 } from "./map1.svg";
-export { default as Map2 } from "./map2.svg";
-export { default as Mastercard } from "./mastercard.svg";
-export { default as Menu } from "./menu.svg";
-export { default as Messenger } from "./messenger.svg";
-export { default as Microsoft } from "./microsoft.svg";
-export { default as Money1 } from "./money1.svg";
-export { default as Money2 } from "./money2.svg";
-export { default as MoreHorizontal } from "./moreHorizontal.svg";
-export { default as MoreVertical } from "./moreVertical.svg";
-export { default as Navigation } from "./navigation.svg";
-export { default as Noti } from "./noti.svg";
-export { default as Phone } from "./phone.svg";
-export { default as PieChar } from "./pieChar.svg";
-export { default as PieChartBox } from "./pieChartBox.svg";
-export { default as Pin1 } from "./pin1.svg";
-export { default as Pin2 } from "./pin2.svg";
-export { default as Plane } from "./plane.svg";
-export { default as Print } from "./print.svg";
-export { default as Question } from "./question.svg";
-export { default as Rocket } from "./rocket.svg";
-export { default as Route } from "./route.svg";
-export { default as Save } from "./save.svg";
-export { default as Scale } from "./scale.svg";
-export { default as Search } from "./search.svg";
-export { default as Send } from "./send.svg";
-export { default as Setting } from "./setting.svg";
-export { default as Share } from "./share.svg";
-export { default as Shield } from "./shield.svg";
-export { default as Slideshow1 } from "./slideshow1.svg";
-export { default as Slideshow2 } from "./slideshow2.svg";
-export { default as Sorting } from "./sorting.svg";
-export { default as Star } from "./star.svg";
-export { default as Steering } from "./steering.svg";
-export { default as Support } from "./support.svg";
-export { default as Takeoff } from "./takeoff.svg";
-export { default as ThumbDown } from "./thumbDown.svg";
-export { default as ThumbUp } from "./thumbUp.svg";
-export { default as Ticket } from "./ticket.svg";
-export { default as Time } from "./time.svg";
-export { default as Tool } from "./tool.svg";
-export { default as Twitter } from "./twitter.svg";
-export { default as Unlock } from "./unlock.svg";
-export { default as Upload } from "./upload.svg";
-export { default as UploadCloud } from "./uploadCloud.svg";
-export { default as User } from "./user.svg";
-export { default as Vip } from "./vip.svg";
-export { default as Visa } from "./visa.svg";
-export { default as Warning1 } from "./warning1.svg";
-export { default as Warning2 } from "./warning2.svg";
-export { default as Water } from "./water.svg";
-export { default as Website } from "./website.svg";
-export { default as Wifi } from "./wifi.svg";
-export { default as Youtube } from "./youtube.svg";
+import Add from "./add.svg?react";
+import AddCircle from "./addCircle.svg?react";
+import AddFile from "./addFile.svg?react";
+import AddImage from "./addImage.svg?react";
+import AddMail from "./addMail.svg?react";
+import AddSquare from "./addSquare.svg?react";
+import AddUser from "./addUser.svg?react";
+import ArrowDown from "./arrowDown.svg?react";
+import ArrowLeft from "./arrowLeft.svg?react";
+import ArrowRight from "./arrowRight.svg?react";
+import ArrowUp from "./arrowUp.svg?react";
+import Attachment from "./attachment.svg?react";
+import Bank from "./bank.svg?react";
+import BarChartBox from "./barChartBox.svg?react";
+import BarChartLine from "./barChartLine.svg?react";
+import Begroup from "./begroup.svg?react";
+import Bike from "./bike.svg?react";
+import Bluetooth from "./bluetooth.svg?react";
+import CakeByVpBank from "./cakeByVPBank.svg?react";
+import Calendar from "./calendar.svg?react";
+import Camera from "./camera.svg?react";
+import Car from "./car.svg?react";
+import Card from "./card.svg?react";
+import Check from "./check.svg?react";
+import ChevronDown from "./chevronDown.svg?react";
+import ChevronLeft from "./chevronLeft.svg?react";
+import ChevronRight from "./chevronRight.svg?react";
+import ChevronUp from "./chevronUp.svg?react";
+import Compass from "./compass.svg?react";
+import Copy from "./copy.svg?react";
+import Copyright from "./copyright.svg?react";
+import Coupon from "./coupon.svg?react";
+import Damage from "./damage.svg?react";
+import Database1 from "./database1.svg?react";
+import Database2 from "./database2.svg?react";
+import Delete_1 from "./delete-1.svg?react";
+import Delete from "./delete.svg?react";
+import Document from "./document.svg?react";
+import Download from "./download.svg?react";
+import DownloadClound from "./downloadClound.svg?react";
+import Dropbox from "./dropbox.svg?react";
+import Edit from "./edit.svg?react";
+import Email from "./email.svg?react";
+import Exchange from "./exchange.svg?react";
+import EyeOff from "./eyeOff.svg?react";
+import EyeOpen from "./eyeOpen.svg?react";
+import Facebook from "./facebook.svg?react";
+import FillterOff from "./fillterOff.svg?react";
+import FilterOn from "./filterOn.svg?react";
+import Fraud from "./fraud.svg?react";
+import FundsBox from "./fundsBox.svg?react";
+import FundsCircle from "./fundsCircle.svg?react";
+import Gift from "./gift.svg?react";
+import Github from "./github.svg?react";
+import Google from "./google.svg?react";
+import Gps from "./gps.svg?react";
+import Group from "./group.svg?react";
+import Heart from "./heart.svg?react";
+import Home from "./home.svg?react";
+import Hotel from "./hotel.svg?react";
+import Image from "./image.svg?react";
+import Information from "./information.svg?react";
+import Instagram from "./instagram.svg?react";
+import Key from "./key.svg?react";
+import Landing from "./landing.svg?react";
+import Light from "./light.svg?react";
+import LineChart from "./lineChart.svg?react";
+import Link from "./link.svg?react";
+import Linkedin from "./linkedin.svg?react";
+import List from "./list.svg?react";
+import Loading from "./loading.svg?react";
+import Lock from "./lock.svg?react";
+import Login from "./login.svg?react";
+import Logout from "./logout.svg?react";
+import Map1 from "./map1.svg?react";
+import Map2 from "./map2.svg?react";
+import Mastercard from "./mastercard.svg?react";
+import Menu from "./menu.svg?react";
+import Messenger from "./messenger.svg?react";
+import Microsoft from "./microsoft.svg?react";
+import Money1 from "./money1.svg?react";
+import Money2 from "./money2.svg?react";
+import MoreHorizontal from "./moreHorizontal.svg?react";
+import MoreVertical from "./moreVertical.svg?react";
+import Navigation from "./navigation.svg?react";
+import Noti from "./noti.svg?react";
+import Phone from "./phone.svg?react";
+import PieChar from "./pieChar.svg?react";
+import PieChartBox from "./pieChartBox.svg?react";
+import Pin1 from "./pin1.svg?react";
+import Pin2 from "./pin2.svg?react";
+import Plane from "./plane.svg?react";
+import Print from "./print.svg?react";
+import Question from "./question.svg?react";
+import Rocket from "./rocket.svg?react";
+import Route from "./route.svg?react";
+import Save from "./save.svg?react";
+import Scale from "./scale.svg?react";
+import Search from "./search.svg?react";
+import Send from "./send.svg?react";
+import Setting from "./setting.svg?react";
+import Share from "./share.svg?react";
+import Shield from "./shield.svg?react";
+import Slideshow1 from "./slideshow1.svg?react";
+import Slideshow2 from "./slideshow2.svg?react";
+import Sorting from "./sorting.svg?react";
+import Star from "./star.svg?react";
+import Steering from "./steering.svg?react";
+import Support from "./support.svg?react";
+import Takeoff from "./takeoff.svg?react";
+import ThumbDown from "./thumbDown.svg?react";
+import ThumbUp from "./thumbUp.svg?react";
+import Ticket from "./ticket.svg?react";
+import Time from "./time.svg?react";
+import Tool from "./tool.svg?react";
+import Twitter from "./twitter.svg?react";
+import Unlock from "./unlock.svg?react";
+import Upload from "./upload.svg?react";
+import UploadCloud from "./uploadCloud.svg?react";
+import User from "./user.svg?react";
+import Vip from "./vip.svg?react";
+import Visa from "./visa.svg?react";
+import Warning1 from "./warning1.svg?react";
+import Warning2 from "./warning2.svg?react";
+import Water from "./water.svg?react";
+import Website from "./website.svg?react";
+import Wifi from "./wifi.svg?react";
+import Youtube from "./youtube.svg?react";
+
+export {
+  Add,
+  AddCircle,
+  AddFile,
+  AddImage,
+  AddMail,
+  AddSquare,
+  AddUser,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
+  Attachment,
+  Bank,
+  BarChartBox,
+  BarChartLine,
+  Begroup,
+  Bike,
+  Bluetooth,
+  CakeByVpBank,
+  Calendar,
+  Camera,
+  Car,
+  Card,
+  Check,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Compass,
+  Copy,
+  Copyright,
+  Coupon,
+  Damage,
+  Database1,
+  Database2,
+  Delete_1,
+  Delete,
+  Document,
+  Download,
+  DownloadClound,
+  Dropbox,
+  Edit,
+  Email,
+  Exchange,
+  EyeOff,
+  EyeOpen,
+  Facebook,
+  FillterOff,
+  FilterOn,
+  Fraud,
+  FundsBox,
+  FundsCircle,
+  Gift,
+  Github,
+  Google,
+  Gps,
+  Group,
+  Heart,
+  Home,
+  Hotel,
+  Image,
+  Information,
+  Instagram,
+  Key,
+  Landing,
+  Light,
+  LineChart,
+  Link,
+  Linkedin,
+  List,
+  Loading,
+  Lock,
+  Login,
+  Logout,
+  Map1,
+  Map2,
+  Mastercard,
+  Menu,
+  Messenger,
+  Microsoft,
+  Money1,
+  Money2,
+  MoreHorizontal,
+  MoreVertical,
+  Navigation,
+  Noti,
+  Phone,
+  PieChar,
+  PieChartBox,
+  Pin1,
+  Pin2,
+  Plane,
+  Print,
+  Question,
+  Rocket,
+  Route,
+  Save,
+  Scale,
+  Search,
+  Send,
+  Setting,
+  Share,
+  Shield,
+  Slideshow1,
+  Slideshow2,
+  Sorting,
+  Star,
+  Steering,
+  Support,
+  Takeoff,
+  ThumbDown,
+  ThumbUp,
+  Ticket,
+  Time,
+  Tool,
+  Twitter,
+  Unlock,
+  Upload,
+  UploadCloud,
+  User,
+  Vip,
+  Visa,
+  Warning1,
+  Warning2,
+  Water,
+  Website,
+  Wifi,
+  Youtube,
+};
