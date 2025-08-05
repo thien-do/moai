@@ -27,10 +27,6 @@
     "@typescript-eslint/parser": "^7.17.0",
     "@vitejs/plugin-react": "^4.3.1",
     "color": "^4.2.3",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "eslint-plugin-storybook": "^0.8.0",
     "formik": "^2.4.6",
     "headless": "link:@tippyjs/react/headless",
     "modern-normalize": "^2.0.0",
@@ -45,9 +41,5 @@
     "storybook-dark-mode": "4.0.2",
     "typescript": "^5.5.4",
     "vite": "^5.3.5"
-  },
-  "packageManager": "pnpm@9.6.0",
-  "devDependencies": {
-    "prettier": "3.3.3"
   }
 }
