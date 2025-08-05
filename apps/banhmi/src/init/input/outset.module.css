@@ -1,0 +1,64 @@
+.main {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+	border: solid 1px transparent;
+}
+
+:global(.light) .main {
+	background-color: var(--white);
+	border-color: var(--gray-2);
+}
+:global(.light) .main:hover {
+	border-color: var(--gray-8);
+}
+
+:global(.dark) .main {
+	background-color: var(--gray-9);
+	border-color: var(--black);
+}
+:global(.dark) .main:hover {
+	border-color: var(--gray-1);
+}
+
+/* GROUP */
+
+:global(.group-tail) .main {
+	border-left: none;
+}
+
+/* DISABLED & READ ONLY */
+
+:global(.light) .main:disabled,
+:global(.light) .main:read-only {
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
+}
+:global(.light) .main:disabled {
+	color: var(--gray-3);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
+}
+
+:global(.dark) .main:disabled,
+:global(.dark) .main:read-only {
+	background-color: var(--gray-6);
+}
+:global(.dark) .main:disabled {
+	color: var(--gray-3);
+	border-color: var(--black);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
+}
+
+/* PLACEHOLDER */
+
+:global(.light) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
+}
+
+:global(.dark) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
+}

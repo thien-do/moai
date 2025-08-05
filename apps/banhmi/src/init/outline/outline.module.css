@@ -1,0 +1,37 @@
+
+/* Preparation styles */
+.normal,
+.always {
+	transition: border 0.2s ease-out, box-shadow 0.2s ease-out;
+	outline: none;
+}
+/* The "not" to ensure this wins the border and shadow set at widgets, which is
+something like: :global(.light) .foo:hover { ... } */
+/* For old browsers that don't understand :focus-visible at all */
+.normal:not(.x):focus,
+/* To always have outline intentionally (e.g. selectable panels) */
+.always:not(.x):focus {
+	/* Fully define to reset the "auto" style set by Tailwind's preflight */
+	border: solid 1px var(--highlight-4);
+	box-shadow: 0px 0px 4px 0px var(--highlight-4);
+	/* Tailwind has default outline focus so we need to reset that */
+	outline: none;
+}
+
+/* For new browsers that understand :focus-visible
+ - Don't group this with ":focus" even though they have the same body. This is
+   because some browsers don't understand ":focus-visible" yet and the whole
+   CSS definition will not be used if a selector is invalid. */
+.normal:not(.x):focus:focus-visible {
+	border: solid 1px var(--highlight-4);
+	box-shadow: 0px 0px 4px 0px var(--highlight-4);
+	outline: none;
+}
+
+/* Reset the fallback style in new browsers */
+.normal:not(.x):focus:not(:focus-visible) {
+	/* Actually, we can't :( we don't know how to reset the "border" set,
+	because some widgets like buttons and text boxes also have border, and
+	we have no idea what are their values */
+	outline: none;
+}

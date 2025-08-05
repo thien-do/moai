@@ -1,0 +1,128 @@
+.main {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+	border: solid 1px transparent;
+	font-weight: 600;
+}
+
+:global(.group-tail) .main {
+	border-left: none;
+}
+
+/* BASE COLOR */
+
+:global(.light) .main {
+	background-color: var(--white);
+	border-color: var(--gray-2);
+}
+:global(.light) .main:hover {
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
+}
+:global(.light) .main:active {
+	background-color: var(--white);
+	border-color: var(--gray-3);
+}
+
+:global(.dark) .main {
+	background-color: var(--gray-8);
+	border-color: var(--gray-6);
+}
+:global(.dark) .main:hover {
+	background-color: var(--gray-7);
+	border-color: var(--gray-6);
+}
+:global(.dark) .main:active {
+	background-color: var(--gray-8);
+	border-color: var(--gray-5);
+}
+
+/* SELECTED */
+
+:global(.light) .selected,
+:global(.light) .selected:hover,
+:global(.light) .selected:active {
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
+}
+
+:global(.dark) .selected,
+:global(.dark) .selected:hover,
+:global(.dark) .selected:active {
+	background-color: var(--gray-9);
+	border-color: var(--gray-6);
+}
+
+/* HIGHLIGHT */
+
+:global(.light) .highlight,
+:global(.dark) .highlight {
+	background-color: var(--highlight-4);
+	color: var(--gray-8);
+	border-color: transparent;
+}
+:global(.light) .highlight:hover,
+:global(.dark) .highlight:hover {
+	background-color: var(--highlight-5);
+	border-color: transparent;
+}
+:global(.light) .highlight:active,
+:global(.dark) .highlight:active {
+	background-color: var(--highlight-5);
+	border-color: var(--highlight-6);
+}
+
+:global(.light) .selected.highlight,
+:global(.light) .selected.highlight:hover,
+:global(.light) .selected.highlight:active,
+:global(.dark) .selected.highlight,
+:global(.dark) .selected.highlight:hover,
+:global(.dark) .selected.highlight:active {
+	background-color: var(--highlight-5);
+}
+
+/* FAILURE */
+
+:global(.light) .failure,
+:global(.dark) .failure {
+	background-color: var(--failure-8);
+	color: var(--white);
+	border-color: transparent;
+	box-shadow: none;
+}
+
+:global(.light) .failure:hover,
+:global(.dark) .failure:hover {
+	color: var(--gray-1);
+}
+
+:global(.light) .failure:active,
+:global(.dark) .failure:active {
+	color: var(--white);
+	border-color: var(--failure-1);
+}
+
+:global(.light) .selected.failure,
+:global(.light) .selected.failure:hover,
+:global(.light) .selected.failure:active,
+:global(.dark) .selected.failure,
+:global(.dark) .selected.failure:hover,
+:global(.dark) .selected.failure:active {
+	color: var(--white);
+	border-color: var(--failure-1);
+}
+
+/* DISABLED */
+
+:global(.light) .main:not(.busy):disabled {
+	color: var(--gray-3);
+	box-shadow: none;
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
+}
+
+:global(.dark) .main:not(.busy):disabled {
+	color: var(--gray-3);
+	background-color: var(--gray-6);
+	box-shadow: none;
+	border-color: var(--gray-5);
+}

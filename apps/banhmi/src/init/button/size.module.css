@@ -1,0 +1,33 @@
+.large {
+	height: 40px;
+	padding: 0px 16px;
+	font-size: 16px;
+	width: fit-content;
+}
+
+.largeIcon {
+	height: 40px;
+	width: 40px;
+}
+
+.medium {
+	height: 32px;
+	padding: 0px 16px;
+	width: fit-content;
+}
+
+.mediumIcon {
+	height: 32px;
+	width: 32px;
+}
+
+.small {
+	height: 24px;
+	padding: 0px 12px;
+	width: fit-content;
+}
+
+.smallIcon {
+	height: 24px;
+	width: 24px;
+}

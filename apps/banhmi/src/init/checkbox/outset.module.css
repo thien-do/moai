@@ -1,0 +1,115 @@
+.input {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s,
+		outline 0.2s ease-out;
+	border: solid 1px transparent;
+	--shadow-size: 0px 0.5px 2px;
+}
+/* BASE COLOR */
+
+:global(.light) .input,
+:global(.light) .input:indeterminate {
+	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
+	background-color: var(--gray-0);
+	border-color: var(--gray-2);
+}
+
+:global(.light) .input[type="checkbox"] {
+	border-radius: var(--radius-2);
+}
+
+:global(.light) .input:hover,
+:global(.light) .input:indeterminate:hover {
+	border-color: var(--highlight-2);
+}
+:global(.light) .input:active,
+:global(.light) .input:indeterminate:active {
+	background-color: var(--highlight-4);
+}
+
+:global(.dark) .input {
+	background-color: var(--gray-8);
+	border-color: var(--gray-6);
+}
+:global(.dark) .input:hover {
+	background-color: var(--gray-7);
+}
+:global(.dark) .input:active {
+	background-color: var(--gray-9);
+}
+
+/* CHECKED */
+
+:global(.light) .input:checked {
+	background-color: var(--highlight-4);
+	border-color: var(--highlight-4);
+}
+
+:global(.light) .input:checked:hover {
+	border-color: var(--highlight-2);
+}
+:global(.light) .input:checked:active {
+	background-color: var(--highlight-5);
+}
+
+:global(.dark) .input:checked,
+:global(.dark) .input:indeterminate {
+	background-color: var(--highlight-4);
+	border-color: transparent;
+}
+:global(.dark) .input:checked:hover,
+:global(.dark) .input:indeterminate:hover {
+	background-color: var(--highlight-2);
+}
+:global(.dark) .input:checked:active,
+:global(.dark) .input:indeterminate:active {
+	background-color: var(--highlight-5);
+}
+
+/* DISABLED */
+
+:global(.light) .input:disabled,
+:global(.light) .input:checked:disabled,
+:global(.light) .input:indeterminate:disabled {
+	color: var(--gray-5);
+	box-shadow: none;
+	background-color: var(--gray-1);
+	border-color: var(--gray-2);
+}
+
+:global(.dark) .input:disabled,
+:global(.dark) .input:checked:disabled,
+:global(.dark) .input:indeterminate:disabled {
+	color: var(--gray-4);
+	background-color: var(--gray-7);
+	box-shadow: none;
+	border-color: var(--gray-9);
+}
+
+/* ICON */
+
+:global(.light) .icon {
+	color: var(--gray-9);
+}
+:global(.light) .input:indeterminate ~ .icon {
+	color: var(--highlight-4);
+}
+:global(.light) .input:disabled ~ .icon {
+	color: var(--gray-5);
+}
+
+:global(.dark) .icon {
+	color: var(--gray-9);
+}
+:global(.dark) .input:disabled ~ .icon {
+	color: var(--gray-4);
+}
+
+/* LABEL */
+
+:global(.light) .input:disabled ~ .label {
+	color: var(--gray-5);
+}
+
+:global(.dark) .input:disabled ~ .label {
+	color: var(--gray-4);
+}
