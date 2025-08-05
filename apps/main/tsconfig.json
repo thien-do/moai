@@ -1,4 +1,4 @@
 {
   "extends": "@tsconfig/vite-react/tsconfig.json",
-  "include": ["src/**/*", ".storybook/**/*"]
+  "include": ["moai/src/**/*", ".storybook/**/*"]
 }
