@@ -1,0 +1,21 @@
+{
+  "name": "moai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "@main": "pnpm --filter main",
+    "@banhmi": "pnpm --filter banhmi",
+    "build": "pnpm @main build"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "dependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-storybook": "^0.8.0"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}
