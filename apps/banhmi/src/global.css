@@ -1,0 +1,59 @@
+html:not(.x) {
+	--highlight-0: hsl(48, 100%, 96%);
+	--highlight-1: hsl(48, 96%, 89%);
+	--highlight-2: hsl(48, 97%, 77%);
+	--highlight-3: hsl(46, 97%, 65%);
+	--highlight-4: hsl(44, 100%, 50%);
+	--highlight-5: hsl(38, 92%, 50%);
+	--highlight-6: hsl(32, 95%, 44%);
+	--highlight-7: hsl(26, 90%, 37%);
+	--highlight-8: hsl(23, 83%, 31%);
+	--highlight-9: hsl(22, 78%, 26%);
+	--highlight-10: hsl(29, 100%, 50%, 1);
+
+	--gray-0: hsl(210, 24%, 96%); /* 100 */
+	--gray-1: hsl(223, 13%, 90%); /* 200 */
+	--gray-2: hsl(216, 14%, 79%); /* 300 */
+	--gray-3: hsl(217, 13%, 62%); /* 400 */
+	--gray-4: hsl(216, 17%, 44%); /* 500 */
+	--gray-5: hsl(216, 25%, 32%);
+	--gray-6: hsl(216, 35%, 27%); /* 600 */
+	--gray-7: hsl(216, 56%, 18%);
+	--gray-8: hsl(216, 78%, 15%); /* 700 */
+	--gray-9: hsl(216, 80%, 10%);
+
+	--support-1: hsl(211, 100%, 90%);
+	--support-3: hsl(221, 100%, 61%);
+	--support-4: hsl(217, 85%, 49%);
+
+	--failure-0: hsl(0, 76%, 97%);
+	--failure-1: hsl(0, 76%, 94%); /* 200 */
+	--failure-2: hsl(0, 86%, 90%);
+	--failure-3: hsl(0, 98%, 82%); /* 300 */
+	--failure-4: hsl(0, 98%, 71%);
+	--failure-5: hsl(0, 99%, 60%);
+	--failure-6: hsl(0, 100%, 50%);
+	--failure-7: hsl(0, 100%, 42%); /* 400 */
+	--failure-8: hsl(0, 100%, 34%); /* 500 */
+	--failure-9: hsl(0, 100%, 30%);
+
+	/* Border Radius */
+	--radius-1: 6px;
+	--radius-2: 2px;
+
+	/* Shadow */
+	--shadow-1: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 1px 2px rgba(0, 0, 0, 0.07),
+		0px 1px 4px rgba(0, 0, 0, 0.08);
+	--shadow-2: 0px 1px 4px rgba(0, 0, 0, 0.06),
+		-1px 0px 4px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.light {
+	font-weight: 425;
+	color: var(--gray-8);
+}
+
+.dark {
+	font-weight: 450;
+	color: var(--gray-1);
+}
