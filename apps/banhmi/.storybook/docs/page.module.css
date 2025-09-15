@@ -1,0 +1,24 @@
+.gallery {
+  display: flex;
+  gap: 24px;
+}
+
+.sticky .primary {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+/*
+This has the same effect of setting of setting "source state" to "none"
+for the primary story (the one that the args table targets).
+However, it is easy to forget, so we turn it off with CSS here.
+*/
+.primary :global(.sbdocs) :global(.docs-story) :global(.docblock-code-toggle),
+.primary :global(.sbdocs) :global(.docs-story) + div:last-child {
+  display: none;
+}
+
+.sticky .table {
+  padding: 1px;
+}

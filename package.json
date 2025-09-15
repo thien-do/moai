@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "@main": "pnpm --filter main",
-    "build": "pnpm @main build"
+    "@banhmi": "pnpm --filter banhmi",
+    "build": "pnpm @main build && pnpm @banhmi build"
   },
   "packageManager": "pnpm@9.6.0",
   "dependencies": {

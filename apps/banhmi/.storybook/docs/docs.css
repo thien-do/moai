@@ -1,0 +1,100 @@
+html {
+  tab-size: 4;
+}
+
+.sbdocs :is(p, ul):where(:not(#gallery *, .sbdocs-preview *)) {
+  max-width: 640px;
+}
+
+.sbdocs code:where(:not(#gallery *, .sbdocs-preview *)) {
+  color: inherit;
+  display: inline;
+  background-color: var(--background-weak);
+  border-color: var(--border-weak);
+}
+
+.sbdocs blockquote:where(:not(#gallery *, .sbdocs-preview *)) {
+  border-left: solid 4px var(--border-strong);
+  padding-left: 24px;
+}
+
+.sbdocs blockquote p:where(:not(#gallery *, .sbdocs-preview *)) {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Hide the "Stories" heading */
+.sbdocs h2[id^="stories"],
+.sbdocs h2[id^="stories-"] {
+  display: none;
+}
+
+.sbdocs-wrapper:not(.x) {
+  padding: 24px;
+  background-color: var(--background-strong);
+}
+
+.sbdocs-preview {
+  background-color: var(--backgrund-strong);
+  box-shadow: none;
+  border: solid 2px var(--border-weak);
+}
+
+/*
+Vertical rhythm
+
+The "pre" tag actually has no margin,
+which makes sense because Storybook often nests it.
+The actual top-level code block is "docblock-source".
+*/
+.sbdocs
+  :is(p, title, blockquote, h1, h2, h3, ul, ol):where(
+    :not(#gallery *, .sbdocs-preview *)
+  ),
+.docblock-source,
+.sbdocs-preview {
+  margin: 24px 0;
+}
+
+.sbdocs h3:where(:not(#gallery *, .sbdocs-preview *)) {
+  margin: 48px 0 24px;
+}
+
+/* 
+Body text
+
+Storybook descriptions use markdown-to-jsx, 
+which will wrap it in a <p>, or <span> as needed.
+So we need to target both of them.
+<div> is left out intentionally because it's used for other purposes.
+See https://github.com/quantizor/markdown-to-jsx/blob/main/README.md#parsing-options
+*/
+.sbdocs
+  :is(code, p, span, li):where(:not(#gallery, #gallery *, .sbdocs-preview *)),
+.docblock-argstable {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+/* 1st heading */
+.sbdocs :is(title, h1):where(:not(#gallery *, .sbdocs-preview *)) {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* 2nd heading */
+.sbdocs h2:where(:not(#gallery *, .sbdocs-preview *)) {
+  padding: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  border: none;
+}
+
+/* 3rd heading */
+.sbdocs h3:where(:not(#gallery *, .sbdocs-preview *)) {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+}
