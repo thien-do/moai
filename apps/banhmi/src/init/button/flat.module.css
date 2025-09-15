@@ -1,0 +1,96 @@
+.main {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+	border: solid 1px transparent;
+	font-weight: 600;
+}
+
+/* INTERACTION */
+:global(.light) .main:hover {
+	background-color: var(--gray-1);
+	border-color: var(--gray-1);
+}
+:global(.light) .main:active {
+	background-color: var(--white);
+	border-color: var(--gray-3);
+}
+:global(.dark) .main:hover {
+	background-color: var(--gray-7);
+	border-color: var(--gray-6);
+}
+:global(.dark) .main:active {
+	background-color: var(--gray-8);
+	border-color: var(--gray-5);
+}
+
+/* SELECTED */
+
+:global(.light) .selected:not(.x) {
+	background-color: var(--gray-1);
+}
+:global(.dark) .selected:not(.x) {
+	background-color: var(--gray-9);
+}
+
+/* HIGHLIGHT */
+
+:global(.light) .highlight,
+:global(.dark) .highlight {
+	color: var(--support-3);
+	border-color: transparent;
+}
+
+:global(.light) .highlight:hover,
+:global(.dark) .highlight:hover {
+	color: var(--support-3);
+	background-color: var(--support-1);
+	border-color: transparent;
+}
+
+:global(.light) .highlight:active,
+:global(.dark) .highlight:active {
+	color: var(--support-3);
+	border-color: var(--support-3);
+	background-color: transparent;
+}
+
+:global(.light) .highlight.selected:not(.x),
+:global(.dark) .highlight.selected:not(.x) {
+	background-color: transparent;
+	border-color: var(--support-3);
+}
+
+/* FAILURE */
+
+:global(.light) .failure,
+:global(.dark) .failure {
+	color: var(--failure-8);
+	border-color: transparent;
+}
+
+:global(.light) .failure:hover,
+:global(.dark) .failure:hover {
+	color: var(--failure-8);
+	background-color: var(--failure-1);
+	border-color: transparent;
+}
+
+:global(.light) .failure:active,
+:global(.dark) .failure:active {
+	border-color: var(--failure-8);
+	background-color: transparent;
+}
+
+:global(.light) .failure.selected:not(.x),
+:global(.dark) .failure.selected:not(.x) {
+	background-color: transparent;
+	border-color: var(--failure-8);
+}
+
+/* DISABLED */
+
+:global(.light) .main:disabled:not(.x) {
+	color: var(--gray-3);
+}
+:global(.dark) .main:disabled:not(.x) {
+	color: var(--gray-3);
+}

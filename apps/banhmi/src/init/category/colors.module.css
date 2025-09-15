@@ -1,0 +1,24 @@
+.gray {
+	--category-1: #e1e3e8;
+	--category-8: #2d415e;
+}
+.green {
+	--category-1: #dff6de;
+	--category-8: #26aa53;
+}
+.red {
+	--category-1: #fbe2e2;
+	--category-8: #ad0000;
+}
+.blue {
+	--category-1: #cae4ff;
+	--category-8: #1366e9;
+}
+.yellow {
+	--category-1: #fff8d7;
+	--category-8: #ff7c00;
+}
+.purple {
+	--category-1: #fddaff;
+	--category-8: #880490;
+}

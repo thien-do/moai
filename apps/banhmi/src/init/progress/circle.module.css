@@ -1,0 +1,25 @@
+:global(.light) .inverse .head,
+:global(.dark) .inverse .head {
+	stroke: var(--gray-8);
+}
+
+:global(.light) .neutral .head {
+	stroke: var(--gray-8);
+}
+:global(.dark) .neutral .head {
+	stroke: var(--gray-1);
+}
+
+:global(.light) .highlight .head,
+:global(.dark) .highlight .head {
+	stroke: var(--highlight-5);
+}
+
+:global(.light) .inverse .track,
+:global(.dark) .inverse .track,
+:global(.light) .neutral .track,
+:global(.dark) .neutral .track,
+:global(.light) .highlight .track,
+:global(.dark) .highlight .track {
+	stroke: transparent;
+}

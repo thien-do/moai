@@ -1,0 +1,44 @@
+.main {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+	border: solid 1px transparent;
+	background-color: transparent;
+}
+
+:global(.light) .main:hover {
+	border-color: var(--gray-8);
+}
+:global(.dark) .main:hover {
+	border-color: var(--gray-1);
+}
+
+:global(.light) .main:focus {
+	background-color: var(--white);
+}
+:global(.dark) .main:focus {
+	background-color: var(--gray-9);
+}
+
+:global(.light) .main:disabled {
+	color: var(--gray-3);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
+}
+:global(.dark) .main:disabled {
+	color: var(--gray-3);
+	/* https://stackoverflow.com/questions/262158/disabled-input-text-color */
+	-webkit-text-fill-color: var(--gray-3);
+	opacity: 1;
+}
+
+/* PLACEHOLDER */
+
+:global(.light) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
+}
+
+:global(.dark) .main::placeholder {
+	color: var(--gray-3);
+	opacity: 1;
+}

@@ -1,0 +1,14 @@
+.main {
+	padding: 12px 16px;
+	border-radius: var(--radius-1);
+}
+
+.success {
+	background-color: var(--success-1);
+	box-shadow: inset 2px 0 0 var(--success-5), var(--shadow-1);
+}
+
+.failure {
+	background-color: var(--failure-1);
+	box-shadow: inset 2px 0 0 var(--failure-5), var(--shadow-1);
+}
