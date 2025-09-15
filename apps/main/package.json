@@ -1,0 +1,42 @@
+{
+  "name": "main",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006 --no-open",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.25.0",
+    "@storybook/addon-controls": "8.6.12",
+    "@storybook/addon-docs": "^8.6.12",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/preview-api": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/theming": "^8.6.12",
+    "@tippyjs/react": "^4.2.6",
+    "@tsconfig/vite-react": "^3.0.2",
+    "@types/color": "^3.0.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "color": "^4.2.3",
+    "formik": "^2.4.6",
+    "headless": "link:@tippyjs/react/headless",
+    "modern-normalize": "^2.0.0",
+    "react": "^18.3.1",
+    "react-day-picker": "^9.0.4",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.56.2",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.2.1",
+    "react-popper": "^2.3.0",
+    "storybook": "^8.6.12",
+    "storybook-dark-mode": "4.0.2",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5"
+  }
+}
